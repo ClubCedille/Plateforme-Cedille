@@ -1,0 +1,30 @@
+apiVersion: ceph.rook.io/v1
+kind: CephCluster
+metadata:
+  name: rook-ceph
+  namespace: rook-ceph
+spec:
+  cephVersion:
+    # see the "Cluster Settings" section below for more details on which image of ceph to run
+    image: quay.io/ceph/ceph:v16.2.7
+  dataDirHostPath: /var/lib/rook
+  mon:
+    count: 3
+    allowMultiplePerNode: false
+  storage:
+    useAllNodes: false
+    useAllDevices: false
+    onlyApplyOSDPlacement: false
+    nodes:
+      - name: "worker-1"
+        devices: # specific devices to use for storage can be specified for each node
+          - name: "/dev/disk/by-id/ata-WDC_WD30EFRX-68EUZN0_WD-WCC4N5DAHR67"
+          - name: "/dev/disk/by-id/ata-WDC_WD30EFRX-68EUZN0_WD-WCC4N7KEPLJ7"
+      - name: "worker-2"
+        devices: # specific devices to use for storage can be specified for each node
+          - name: "/dev/disk/by-id/ata-WDC_WD30EFRX-68EUZN0_WD-WCC4N5DAHTP3"
+          - name: "/dev/disk/by-id/ata-WDC_WD30EFRX-68EUZN0_WD-WCC4N7KEPKF7"
+      - name: "worker-2"
+        devices: # specific devices to use for storage can be specified for each node
+          - name: "/dev/disk/by-id/ata-ST2000VN004-2E4164_Z5274QJ6"
+          - name: "/dev/disk/by-id/ata-WDC_WD2004FBYZ-01YCBB1_WD-WMC6N0D6KXX4"
