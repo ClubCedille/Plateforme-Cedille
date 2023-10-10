@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ubuntu-pvc
+  namespace: sandbox-0
+spec:
+  storageClassName: rook-ceph-block
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 25Gi
+
+---
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: ubuntu-vm
+  namespace: sandbox-0
+spec:
+  running: false
+  template:
+    metadata:
+      labels:
+        kubevirt.io/vm: ubuntu-vm
+    spec:
+      domain:
+        cpu:
+          cores: 2
+        devices:
+          disks:
+            - cdrom:
+                bus: sata
+              name: iso
+              bootOrder: 2
+            - disk:
+                bus: virtio
+              name: harddrive
+              bootOrder: 1
+        resources:
+          requests:
+            memory: 2048M
+      volumes:
+      - name: iso
+        persistentVolumeClaim:
+          claimName: iso-ubuntu-20-04 # Remplacez par l'image Ubuntu désirée
+      - name: harddrive
+        persistentVolumeClaim:
+          claimName: ubuntu-pvc

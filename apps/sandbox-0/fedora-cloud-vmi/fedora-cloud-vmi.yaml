@@ -1,13 +1,8 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: vmi-test
----
 apiVersion: kubevirt.io/v1
 kind: VirtualMachineInstance
 metadata:
   name: fedora-cloud-vmi
-  namespace: vmi-test
+  namespace: sandbox-0
 spec:
   terminationGracePeriodSeconds: 30
   domain:
