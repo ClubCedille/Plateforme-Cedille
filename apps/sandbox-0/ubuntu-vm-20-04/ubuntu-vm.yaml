@@ -43,7 +43,7 @@ spec:
       volumes:
       - name: iso
         persistentVolumeClaim:
-          claimName: iso-ubuntu-20-04 # Remplacez par l'image Ubuntu désirée
+          claimName: iso-ubuntu-20-04
       - name: harddrive
         persistentVolumeClaim:
           claimName: ubuntu-pvc
