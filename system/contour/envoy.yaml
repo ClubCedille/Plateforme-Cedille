@@ -137,3 +137,8 @@ spec:
         runAsNonRoot: true
         runAsUser: 65534
         runAsGroup: 65534
+      tolerations:
+      - key: "role"
+        operator: "Equal"
+        value: "ingress-endpoint"
+        effect: "NoSchedule"
