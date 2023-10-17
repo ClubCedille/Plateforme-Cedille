@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging
+  namespace: cert-manager
+spec:
+  acme:
+    email: cedille@etsmtl.ca
+    privateKeySecretRef:
+      name: letsencrypt-staging
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    solvers:
+    - http01:
+        ingress:
+          #TODO: nodeSelector necessary for now because worker-1 has ImagePullBackOff problems
+          podTemplate:
+            spec:
+              nodeSelector: 
+                kubernetes.io/hostname: worker-2
+          class: contour
