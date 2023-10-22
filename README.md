@@ -10,7 +10,7 @@ L'utilisation de krew est recommandée pour installer les plugins requis pour ac
 Pour installer, suivre [les instructions d'installation de krew](https://krew.sigs.k8s.io/docs/user-guide/setup/install/)
 
 ### kubelogin
-kubelogin est utilisé pour s'authentifier au cluster cedille en utilisant du SSO avec OIDC. Nous utilisons Github comme provider d'identité.
+kubelogin est utilisé pour s'authentifier au cluster cedille en utilisant du SSO avec OIDC. Nous utilisons Sidero Labs Omni comme provider d'identité.
 
 Pour installer kubelogin, exécuter la  commande 
 ```bash
