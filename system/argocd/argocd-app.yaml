@@ -12,14 +12,17 @@ spec:
     namespace: argocd
     server: https://kubernetes.default.svc
   project: default
-  source:
-    chart: argo-cd
-    helm:
-      releaseName: argocd
-      valueFiles:
-      - argocd-values.yaml
-    repoURL: https://argoproj.github.io/argo-helm
-    targetRevision: 5.46.8
+  sources:
+    - chart: argo-cd
+      helm:
+        releaseName: argocd
+        valueFiles:
+        - $values/system/argocd/argocd-values.yaml
+      repoURL: https://argoproj.github.io/argo-helm
+      targetRevision: 5.46.8
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      targetRevision: master
+      ref: values
   syncPolicy:
     automated:
       selfHeal: true
