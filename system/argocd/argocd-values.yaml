@@ -183,17 +183,17 @@ configs:
     timeout.hard.reconciliation: 0s
 
     # Dex configuration
-    # dex.config: |
-    #   connectors:
-    #     # GitHub example
-    #     - type: github
-    #       id: github
-    #       name: GitHub
-    #       config:
-    #         clientID: aabbccddeeff00112233
-    #         clientSecret: $dex.github.clientSecret # Alternatively $<some_K8S_secret>:dex.github.clientSecret
-    #         orgs:
-    #         - name: your-github-org
+    dex.config: |
+      connectors:
+        # GitHub example
+        - type: github
+          id: github
+          name: GitHub
+          config:
+            clientID: $dex-secret:dex.github.clientID
+            clientSecret: $dex-secret:dex.github.clientSecret
+            orgs:
+            - name: ClubCedille
 
     # OIDC configuration as an alternative to dex (optional).
     # oidc.config: |
@@ -239,7 +239,7 @@ configs:
 
     ## Server properties
     # -- Run server without TLS
-    server.insecure: false
+    server.insecure: true
     # -- Value for base href in index.html. Used if Argo CD is running behind reverse proxy under subpath different from /
     server.basehref: /
     # -- Used if Argo CD is running behind reverse proxy under subpath different from /
