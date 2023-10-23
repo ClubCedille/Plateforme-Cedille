@@ -22,7 +22,7 @@ Pour d'autres options d'installation, voir [le repo de kubelogin](https://github
 ### kubeconfig
 La plateforme cédille est gérée via Sidero Labs Omni. Notre instance de Omni [est accessible ici](https://cedille.omni.siderolabs.io/omni/).
 
-Pour accéder à un cluster, il suffit de naviguer au cluster voulu. Par exemple, [le cluster principal](https://cedille.omni.siderolabs.io/cluster/cedille-cluster/overview) et télécharger le fichier kubeconfig avec le bouton `Download kubeconfig`
+Pour accéder à un cluster, il suffit de naviguer au cluster voulu (par exemple, [le cluster principal](https://cedille.omni.siderolabs.io/cluster/cedille-cluster/overview)) et télécharger le fichier kubeconfig avec le bouton `Download kubeconfig`
 
 Pour tester rapidement l'accès, on peut exécuter les commandes suivantes
 ```bash
