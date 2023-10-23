@@ -11,20 +11,20 @@ assignees: ''
 
 #### Description
 
-[Detailed description of the bug, including the current behavior and the context]
+<!-- Detailed description of the bug, including the current behavior and the context -->
 
 #### Expected behaviour
 
-[Describe the expected behaviour of the feature]
+<!-- Describe the expected behaviour of the feature -->
 
 #### How to reproduce
 
-[Please provide step-by-step instructions for reproducing the bug]
+<!-- Please provide step-by-step instructions for reproducing the bug -->
 
-- Step 1
-- Step 2
+- [Step 1]
+- [Step 2]
 - ...
 
 #### Additional information
 
-[Add here additional informations for understanding, reproducing, or fixing the bug (e.g., online resources, screenshots, log data, possible solutions)]
+<!-- Add here additional informations for understanding, reproducing, or fixing the bug (e.g., online resources, screenshots, log data, possible solutions) -->
