@@ -1,13 +1,13 @@
 ### Description
-<!--- Describe your changes in detail -->
+<!-- Describe your changes in detail -->
 
 ### Related Issue
-<!--- We only accepts pull requests related to open issues -->
+<!-- We only accepts pull requests related to open issues -->
 
 ### Testing Procedure
-<!--- Please describe in detail how you tested your changes. -->
-<!--- Include details of your testing environment, and the tests you ran to -->
-<!--- see how your change affects other areas of the code, etc. -->
+<!-- Please describe in detail how you tested your changes. -->
+<!-- Include details of your testing environment, and the tests you ran to -->
+<!-- see how your change affects other areas of the code, etc. -->
 
 ### Screenshots (if appropriate)
 
