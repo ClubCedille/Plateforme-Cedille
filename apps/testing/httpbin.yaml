@@ -1,9 +1,15 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: httpbin
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
     app: httpbin
   name: httpbin
+  namespace: httpbin
 spec:
   replicas: 3
   selector:
@@ -17,32 +23,49 @@ spec:
       containers:
       - image: docker.io/kennethreitz/httpbin
         name: httpbin
+        ports:
+        - containerPort: 8080
+          name: http
+        command: ["gunicorn"]
+        args: ["-b", "0.0.0.0:8080", "httpbin:app"]
+      dnsPolicy: ClusterFirst
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    app: httpbin
   name: httpbin
+  namespace: httpbin
 spec:
   ports:
-  - port: 80
+  - port: 8080
     protocol: TCP
-    targetPort: 80
+    targetPort: 8080
   selector:
     app: httpbin
-  sessionAffinity: None
-  type: ClusterIP
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: httpbin
-  labels:
-    app: httpbin
+  namespace: httpbin
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+    kubernetes.io/tls-acme: "true"
 spec:
-  defaultBackend:
-    service:
-      name: httpbin
-      port:
-        number: 80
+  ingressClassName: contour
+  tls:
+  - secretName: httpbin
+    hosts:
+    - test.omni.cedille.club
+  rules:
+  - host: test.omni.cedille.club
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: httpbin
+            port:
+              number: 8080
