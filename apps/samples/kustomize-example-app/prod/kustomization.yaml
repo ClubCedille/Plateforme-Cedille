@@ -4,22 +4,21 @@ kind: Kustomization
 resources:
   - ../base
   - ingress.yaml
+  - dns.yaml
 
 patches:
   - target:
       kind: Deployment
-      name: your-deployment-name
+      name: httpbin
     patch: |-
       - op: replace
         path: /spec/template/spec/replicas
-        value: 1
+        value: 3
       - op: replace
         path: /spec/template/spec/containers/0/resources/requests/cpu
-        value: "0.05"
+        value: "0.1"
       - op: replace
         path: /spec/template/spec/containers/0/resources/requests/memory
-        value: "128Mi"
-
-# host: staging.fdjivhsifgn.cedille.club
+        value: "256Mi"
 
 # Define common and environment-specific configuration here
