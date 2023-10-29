@@ -32,7 +32,7 @@ spec:
     namespace: kustomize-example-app-staging
   source:
     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
-    path: apps/kustomize-example-app/staging
+    path: apps/samples/kustomize-example-app/staging
     targetRevision: HEAD 
   syncPolicy:
     syncOptions:
