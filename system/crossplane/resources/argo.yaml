@@ -5,11 +5,11 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
-  project: plateforme-cedille
+  project: default
   destination:
     server: https://kubernetes.default.svc
     namespace: crossplane
-    project: plateforme-cedille
+    project: default
   source:
     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
     path: system/crossplane/resources
