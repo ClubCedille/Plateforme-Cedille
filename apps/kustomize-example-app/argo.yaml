@@ -7,6 +7,7 @@ metadata:
 spec:
   project: plateforme-cedille
   destination:
+    server: https://kubernetes.default.svc
     namespace: kustomize-example-app-prod
   source:
     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
@@ -25,6 +26,7 @@ metadata:
 spec:
   project: plateforme-cedille
   destination:
+    server: https://kubernetes.default.svc
     namespace: kustomize-example-app-staging
   source:
     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
