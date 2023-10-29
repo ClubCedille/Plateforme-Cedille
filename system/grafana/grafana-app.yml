@@ -13,13 +13,14 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: https://argoproj.github.io/argo-helm
+    chart: grafana
+    repoURL: https://grafana.github.io/helm-charts
     targetRevision: 7.0.1  
-    path: system/grafana
     helm:
-      releaseName: grafana
       valueFiles:
-        - values.yaml
+        - "values.yaml"
   syncPolicy:
     automated:
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
