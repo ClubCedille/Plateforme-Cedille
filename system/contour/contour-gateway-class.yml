@@ -1,0 +1,23 @@
+kind: ContourDeployment
+apiVersion: projectcontour.io/v1alpha1
+metadata:
+  namespace: projectcontour
+  name: public-contour-config
+spec:
+  envoy:
+    networkPublishing:
+      type: NodePortService
+
+---
+kind: GatewayClass
+apiVersion: gateway.networking.k8s.io/v1beta1
+metadata:
+  name: contour
+  namespace: projectcontour
+spec:
+  controllerName: projectcontour.io/gateway-controller
+  parametersRef:
+    kind: ContourDeployment
+    group: projectcontour.io
+    name: public-contour-config
+    namespace: projectcontour
