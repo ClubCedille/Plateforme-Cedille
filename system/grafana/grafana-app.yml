@@ -16,7 +16,6 @@ spec:
       valueFiles:
         - "values.yaml"
   syncPolicy:
-    automated:
-      selfHeal: true
+    automated: {}
     syncOptions:
       - CreateNamespace=true
