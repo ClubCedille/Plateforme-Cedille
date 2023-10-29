@@ -6,14 +6,17 @@ metadata:
   argocd.argoproj.io/sync-wave: "0"
 spec:
   project: default
-  source:
-    chart: crossplane
-    repoURL: https://charts.crossplane.io/stable
-    targetRevision: 1.13.2
-    helm:
-      releaseName: crossplane
-      valueFiles:
-        - values.yaml
+  sources:
+    - chart: crossplane
+      repoURL: https://charts.crossplane.io/stable
+      targetRevision: 1.13.2
+      helm:
+        releaseName: crossplane
+        valueFiles:
+          - $values/system/crossplane/helm/values.yaml
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      targetRevision: HEAD
+      ref: values
   destination:
     server: "https://kubernetes.default.svc"
     namespace: crossplane
