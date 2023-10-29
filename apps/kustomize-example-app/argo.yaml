@@ -12,7 +12,7 @@ spec:
   source:
     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
     path: apps/kustomize-example-app/prod
-    targetRevision: main 
+    targetRevision: HEAD 
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
@@ -31,7 +31,7 @@ spec:
   source:
     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
     path: apps/kustomize-example-app/staging
-    targetRevision: main 
+    targetRevision: HEAD 
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
