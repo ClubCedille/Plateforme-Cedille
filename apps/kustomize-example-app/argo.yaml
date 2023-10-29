@@ -5,6 +5,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
 spec:
+  project: plateforme-cedille
   destination:
     namespace: kustomize-example-app-prod
   source:
@@ -22,6 +23,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
 spec:
+  project: plateforme-cedille
   destination:
     namespace: kustomize-example-app-staging
   source:
