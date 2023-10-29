@@ -1,10 +1,6 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  annotations:
-    argocd.argoproj.io/sync-wave: "0"
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
   name: grafana
   namespace: argocd
 spec:
