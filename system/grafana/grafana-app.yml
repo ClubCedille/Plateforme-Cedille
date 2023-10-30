@@ -17,12 +17,15 @@ spec:
       helm:
         releaseName: grafana
         valueFiles:
-        - $values/system/grafana/grafana-values.yaml
+        - $values/system/grafana/helm/grafana-values.yaml
       repoURL: https://grafana.github.io/helm-charts
       targetRevision: 7.0.1
     - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
       targetRevision: master
       ref: values
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      path: system/grafana/ingress
+      targetRevision: HEAD
   syncPolicy:
     automated:
       selfHeal: true

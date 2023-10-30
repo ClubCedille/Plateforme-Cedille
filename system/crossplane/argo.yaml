@@ -1,19 +1,29 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: crossplane-app
+  name: crossplane-helm
   namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "0"
+  argocd.argoproj.io/sync-wave: "0"
 spec:
   project: default
+  sources:
+    - chart: crossplane
+      repoURL: https://charts.crossplane.io/stable
+      targetRevision: 1.13.2
+      helm:
+        releaseName: crossplane
+        valueFiles:
+          - $values/system/crossplane/helm/values.yaml
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      targetRevision: HEAD
+      ref: values
+    - repoURL: https://github.com/ClubCedille/Plateforme-Cedille
+      path: system/crossplane/resources
+      targetRevision: HEAD 
   destination:
-    server: https://kubernetes.default.svc
+    server: "https://kubernetes.default.svc"
     namespace: crossplane
-  source:
-    repoURL: https://github.com/ClubCedille/Plateforme-Cedille
-    path: system/crossplane
-    targetRevision: HEAD 
+    project: platforme-cedille
   syncPolicy:
     syncOptions:
     - CreateNamespace=true

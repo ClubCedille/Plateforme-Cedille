@@ -10,13 +10,13 @@ patches:
       kind: Deployment
       name: httpbin
     patch: |-
-      - op: replace
+      - op: add
         path: /spec/template/spec/replicas
         value: 1
-      - op: replace
+      - op: add
         path: /spec/template/spec/containers/0/resources/requests/cpu
         value: "0.05"
-      - op: replace
+      - op: add
         path: /spec/template/spec/containers/0/resources/requests/memory
         value: "128Mi"
 
