@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  name: argocd
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+    - chart: argo-cd
+      helm:
+        releaseName: argocd
+        valueFiles:
+        - $values/system/argocd/argocd-values.yaml
+      repoURL: https://argoproj.github.io/argo-helm
+      targetRevision: 5.46.8
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      targetRevision: master
+      ref: values
+  syncPolicy:
+    automated:
+      selfHeal: true

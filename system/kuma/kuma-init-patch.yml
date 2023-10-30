@@ -1,0 +1,13 @@
+apiVersion: kuma.io/v1alpha1
+kind: ContainerPatch
+metadata:
+  name: container-patch-1
+spec:
+  sidecarPatch:
+    - op: add
+      path: /securityContext/privileged
+      value: "true"
+  initPatch:
+    - op: add
+      path: /securityContext/runAsNonRoot
+      value: "true"

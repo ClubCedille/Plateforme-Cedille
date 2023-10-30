@@ -1,0 +1,12 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: mayastor
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+parameters:
+  ioTimeout: "30"
+  protocol: nvmf
+  repl: "2"
+  stsAffinityGroup: 'true'
+provisioner: io.openebs.csi-mayastor
