@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  name: vcluster
+  namespace: argocd
+spec:
+  destination:
+    namespace: vcluster
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+    - chart: vcluster
+      helm:
+        releaseName: vcluster-prod
+        valueFiles:
+        - $values/system/vcluster/helm/common-values.yaml
+        - $values/system/vcluster/helm/prod-values.yaml
+      repoURL: https://charts.loft.sh
+    - chart: vcluster
+      helm:
+        releaseName: vcluster-sandbox
+        valueFiles:
+        - $values/system/vcluster/helm/common-values.yaml
+        - $values/system/vcluster/helm/sandbox-values.yaml
+      repoURL: https://charts.loft.sh
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      targetRevision: master
+      ref: values
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

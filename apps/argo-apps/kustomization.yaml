@@ -4,5 +4,6 @@ kind: Kustomization
 resources:
   - ../../system/crossplane/
   - ../../system/grafana/
+  - ../../system/cert-manager/
   - ../samples/kustomize-example-app/
   # ... other apps ...
