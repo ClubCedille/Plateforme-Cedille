@@ -24,7 +24,7 @@ metadata:
   name: kustomize-example-app-staging
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   project: default
   destination:

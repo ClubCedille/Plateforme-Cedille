@@ -17,9 +17,6 @@ spec:
     - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
       targetRevision: HEAD
       ref: values
-    - repoURL: https://github.com/ClubCedille/Plateforme-Cedille
-      path: system/crossplane/resources
-      targetRevision: HEAD 
   destination:
     server: "https://kubernetes.default.svc"
     namespace: crossplane
