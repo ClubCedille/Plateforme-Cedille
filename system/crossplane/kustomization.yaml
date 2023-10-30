@@ -3,4 +3,4 @@ kind: Kustomization
 
 resources:
  - helm/argo.yaml
- - argo.yaml
+ - argo-resources.yaml
