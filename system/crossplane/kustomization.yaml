@@ -3,4 +3,5 @@ kind: Kustomization
 
 resources:
  - helm/argo.yaml
- - argo-resources.yaml
+ - crossplane-gcp-provider-app.yaml
+ - crossplane-gcp-resources-app.yaml

@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: crossplane-resources
+  name: crossplane-gcp-provider
   namespace: argocd
-  argocd.argoproj.io/sync-wave: "1"
+  argocd.argoproj.io/sync-wave: "0"
 spec:
   project: default
   sources:
     - repoURL: https://github.com/ClubCedille/Plateforme-Cedille
-      path: system/crossplane/resources
+      path: system/crossplane/gcp-provider
       targetRevision: HEAD 
   destination:
     server: "https://kubernetes.default.svc"
