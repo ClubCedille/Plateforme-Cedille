@@ -12,9 +12,4 @@ spec:
     solvers:
     - http01:
         ingress:
-          #TODO: nodeSelector necessary for now because worker-1 has ImagePullBackOff problems
-          podTemplate:
-            spec:
-              nodeSelector: 
-                kubernetes.io/hostname: worker-2
           class: contour
