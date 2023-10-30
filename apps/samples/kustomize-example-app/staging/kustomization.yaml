@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - ../base
   - ingress.yaml
+  - dns.yaml
 
 patches:
   - path: patch.yaml
