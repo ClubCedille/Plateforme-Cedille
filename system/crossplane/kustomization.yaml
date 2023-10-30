@@ -1,0 +1,7 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+ - helm/argo.yaml
+ - crossplane-gcp-provider-app.yaml
+ - crossplane-gcp-resources-app.yaml

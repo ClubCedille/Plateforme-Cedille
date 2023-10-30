@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  name: grafana
+  namespace: argocd
+spec:
+  destination:
+    namespace: grafana
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+    - chart: grafana
+      helm:
+        releaseName: grafana
+        valueFiles:
+        - $values/system/grafana/helm/grafana-values.yaml
+      repoURL: https://grafana.github.io/helm-charts
+      targetRevision: 7.0.1
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      targetRevision: master
+      ref: values
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      path: system/grafana/ingress
+      targetRevision: HEAD
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+    managedNamespaceMetadata:
+      labels:
+        pod-security.kubernetes.io/enforce: privileged
