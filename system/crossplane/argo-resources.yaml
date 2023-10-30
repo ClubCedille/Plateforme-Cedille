@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: crossplane-helm
+  name: crossplane-resources
   namespace: argocd
   argocd.argoproj.io/sync-wave: "1"
 spec:
