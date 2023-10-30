@@ -4,5 +4,5 @@ kind: Kustomization
 resources:
   - ../../system/crossplane/
   - ../../system/grafana/
-  # - ../samples/kustomize-example-app/
+  - ../samples/kustomize-example-app/
   # ... other apps ...

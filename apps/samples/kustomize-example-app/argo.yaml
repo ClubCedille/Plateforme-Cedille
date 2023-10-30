@@ -1,23 +1,23 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: kustomize-example-app-prod
-  namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "2"
-spec:
-  project: default
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: kustomize-example-app-prod
-  source:
-    repoURL: https://github.com/ClubCedille/Plateforme-Cedille
-    path: apps/samples/kustomize-example-app/prod
-    targetRevision: HEAD
-  syncPolicy:
-    syncOptions:
-    - CreateNamespace=true
----
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: kustomize-example-app-prod
+#   namespace: argocd
+#   annotations:
+#     argocd.argoproj.io/sync-wave: "2"
+# spec:
+#   project: default
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: kustomize-example-app-prod
+#   source:
+#     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
+#     path: apps/samples/kustomize-example-app/prod
+#     targetRevision: HEAD
+#   syncPolicy:
+#     syncOptions:
+#     - CreateNamespace=true
+# ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
