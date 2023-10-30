@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mayastor-helm
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+spec:
+  destination:
+    namespace: mayastor
+  source:
+    chart: metallb
+    repoURL: https://openebs.github.io/mayastor-extensions/
+    targetRevision: 2.4.0
+    helm:
+      releaseName: mayastor
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    managedNamespaceMetadata:
+      labels:
+        pod-security.kubernetes.io/enforce: privileged
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mayastor-configs
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  destination:
+    namespace: mayastor
+  source:
+    chart: metallb
+    repoURL: https://openebs.github.io/mayastor-extensions/
+    targetRevision: 2.4.0
+    helm:
+      releaseName: mayastor
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    managedNamespaceMetadata:
+      labels:
+        pod-security.kubernetes.io/enforce: privileged

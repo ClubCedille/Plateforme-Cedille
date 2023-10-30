@@ -1,0 +1,54 @@
+apiVersion: "openebs.io/v1beta1"
+kind: DiskPool
+metadata:
+  name: hdds-worker-1-hr67
+  namespace: mayastor
+spec:
+  node: worker-1
+  disks:
+    - "/dev/disk/by-id/ata-WDC_WD30EFRX-68EUZN0_WD-WCC4N5DAHR67"
+---
+apiVersion: "openebs.io/v1beta1"
+kind: DiskPool
+metadata:
+  name: hdds-worker-1-plj7
+spec:
+  node: worker-1
+  disks:
+    - "/dev/disk/by-id/ata-WDC_WD30EFRX-68EUZN0_WD-WCC4N7KEPLJ7"
+---
+apiVersion: "openebs.io/v1beta1"
+kind: DiskPool
+metadata:
+  name: hdd-worker-htp3
+spec:
+  node: worker-2
+  disks:
+    - "/dev/disk/by-id/ata-WDC_WD30EFRX-68EUZN0_WD-WCC4N5DAHTP3"
+---
+apiVersion: "openebs.io/v1beta1"
+kind: DiskPool
+metadata:
+  name: hdd-worker-2-pkf7
+spec:
+  node: worker-2
+  disks:
+    - "/dev/disk/by-id/ata-WDC_WD30EFRX-68EUZN0_WD-WCC4N7KEPKF7"
+---
+apiVersion: "openebs.io/v1beta1"
+kind: DiskPool
+metadata:
+  name: hdd-worker-4qj6
+spec:
+  node: worker-3
+  disks:
+    - "/dev/disk/by-id/ata-ST2000VN004-2E4164_Z5274QJ6"
+---
+apiVersion: "openebs.io/v1beta1"
+kind: DiskPool
+metadata:
+  name: hdd-worker-3-kxx4
+spec:
+  node: worker-3
+  disks:
+    - "/dev/disk/by-id/ata-WDC_WD2004FBYZ-01YCBB1_WD-WMC6N0D6KXX4"
