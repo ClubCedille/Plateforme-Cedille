@@ -6,19 +6,7 @@ resources:
   - ingress.yaml
 
 patches:
-  - target:
-      kind: Deployment
-      name: httpbin
-    patch: |-
-      - op: add
-        path: /spec/template/spec/replicas
-        value: 1
-      - op: add
-        path: /spec/template/spec/containers/0/resources/requests/cpu
-        value: "0.05"
-      - op: add
-        path: /spec/template/spec/containers/0/resources/requests/memory
-        value: "128Mi"
+  - path: patch.yaml
 
 # host: staging.fdjivhsifgn.cedille.club
 
