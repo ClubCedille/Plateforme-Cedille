@@ -1,0 +1,59 @@
+apiVersion: "clickhouse.altinity.com/v1"
+kind: "ClickHouseInstallation"
+metadata:
+  name: "simple-example"
+  namespace: clickhouse-system
+spec:
+  configuration:
+    users:
+      default/password_sha256_hex: 5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8
+      default/networks/ip:
+        - "127.0.0.1"
+        - "::"
+        - "0.0.0.0/0"
+    clusters:
+      - name: "deployment-pv"
+        templates:
+          podTemplate: pod-template-with-volumes
+        layout:
+          shardsCount: 2
+          replicasCount: 2
+  templates:
+    podTemplates:
+      - name: pod-template-with-volumes
+        spec:
+          containers:
+            - name: clickhouse
+              image: clickhouse/clickhouse-server:22.3
+              volumeMounts:
+                - name: simple-example-data-storage
+                  mountPath: /var/lib/clickhouse
+                - name: simple-example-log-storage
+                  mountPath: /var/log/clickhouse-server
+    serviceTemplates:
+      - name: pv-logs-service-template 
+        spec:
+          ports:
+            - name: http
+              port: 8123
+            - name: tcp
+              port: 9000
+            - name: interserver
+              port: 9009
+          type: ClusterIP
+          clusterIP: None
+    volumeClaimTemplates:
+      - name: simple-example-data-storage
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 3Gi
+      - name: simple-example-log-storage
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 2Gi
