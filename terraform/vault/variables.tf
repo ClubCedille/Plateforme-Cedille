@@ -1,8 +1,8 @@
-variable "gcloud_project" {
+variable "_region" {
   type = string
 }
 
-variable "keyring_location" {
+variable "gcloud_project" {
   type = string
 }
 
