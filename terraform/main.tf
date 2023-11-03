@@ -18,8 +18,5 @@ module "vault" {
     gcloud_project = var.gcloud_project
     name_prefix = "prod"
     cluster_ca = base64decode(local.omni_machine_config.cluster.ca.crt)
-}
-
-output "test" {
-    value = module.vault.test
+    override_helm_path = "../system/vault/vault-deployment/values.yaml"
 }

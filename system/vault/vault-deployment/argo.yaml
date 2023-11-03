@@ -13,7 +13,7 @@ spec:
       helm:
         releaseName: vault
         valueFiles:
-          - $values/system/vault/override-values.yml
+          - $values/system/vault/vault-deployment/values.yml
     - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
       targetRevision: HEAD
       ref: values

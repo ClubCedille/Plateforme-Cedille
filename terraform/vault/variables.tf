@@ -1,4 +1,4 @@
-variable "_region" {
+variable "kms_region" {
   type = string
 }
 
@@ -11,5 +11,9 @@ variable "name_prefix" {
 }
 
 variable "cluster_ca" {
+  type = string
+}
+
+variable "override_helm_path" {
   type = string
 }

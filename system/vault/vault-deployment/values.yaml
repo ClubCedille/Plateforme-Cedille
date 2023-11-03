@@ -1,5 +1,5 @@
 ##
-# DO NOT MODIFY THIS FILE, MODIFY TERRAFORM TEMPLATE AT terraform/vault/obvrride-values.yml.tmpl
+# DO NOT MODIFY THIS FILE, MODIFY TERRAFORM TEMPLATE AT terraform/vault/override-values.yml.tmpl
 ##
 
 # Vault Helm Chart Value Overrides

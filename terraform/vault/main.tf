@@ -113,7 +113,7 @@ resource "kubernetes_secret" "kms_creds" {
 
 # Output the override-values.yml files used by the argo-cd deployment
 resource "local_file" "vault_values" {
-  filename             = "../system/vault/override-values.yml"
+  filename             = var.override_helm_path
   content = templatefile("${path.module}/override-values.yml.tmpl", {
     message = "DO NOT MODIFY THIS FILE, MODIFY TERRAFORM TEMPLATE AT terraform/vault/override-values.yml.tmpl"
     gcp_region = var.kms_region
