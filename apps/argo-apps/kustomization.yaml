@@ -5,4 +5,5 @@ resources:
   - ../../system/crossplane/
   - ../../system/grafana/
   - ../samples/kustomize-example-app/
+  - ../../system/vault
   # ... other apps ...

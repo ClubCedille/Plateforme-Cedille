@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vault
+  namespace: argocd
+  argocd.argoproj.io/sync-wave: "-1"
+spec:
+  project: default
+  sources:
+    - chart: vault
+      repoURL: https://helm.releases.hashicorp.com
+      targetRevision: 1.15.1
+      helm:
+        releaseName: vault
+        valueFiles:
+          - $values/system/vault/override-values.yml
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      targetRevision: HEAD
+      ref: values
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: vault
+    project: platforme-cedille
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    managedNamespaceMetadata:
+      labels:
+        pod-security.kubernetes.io/enforce: privileged
