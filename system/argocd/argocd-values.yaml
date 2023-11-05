@@ -1655,8 +1655,6 @@ server:
 
   # -- Additional volumes to the server pod
   volumes:
-  - emptyDir: {}
-    name: lovely-tmp
   #  - name: custom-tools
   #    emptyDir: {}
 
@@ -2209,7 +2207,9 @@ repoServer:
   volumeMounts: []
 
   # -- Additional volumes to the repo server pod
-  volumes: []
+  volumes:
+  - emptyDir: {}
+    name: lovely-tmp
   #  - name: argocd-cmp-cm
   #    configMap:
   #      name: argocd-cmp-cm
