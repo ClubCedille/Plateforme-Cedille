@@ -2851,7 +2851,7 @@ notifications:
 
   secret:
     # -- Whether helm chart creates notifications controller secret
-    create: true
+    create: false
 
     # -- key:value pairs of annotations to be added to the secret
     annotations: {}
