@@ -753,18 +753,18 @@ grafana.ini:
       # The full public facing url you use in browser, used for redirects and emails
  #    root_url:
  # https://grafana.com/docs/grafana/latest/auth/github/#enable-github-in-grafana
- auth.github:
-     enabled: true
-     allow_sign_up: true
-     scopes: user:email,read:org
-     auth_url: https://github.com/login/oauth/authorize
-     token_url: https://github.com/login/oauth/access_token
-     api_url: https://api.github.com/user
-     team_ids: 6907875, 2978653,898658
-     allowed_organizations: ["ClubCedille"]
-     client_id: f6accfa77d27b78bbf66
-     client_secret: e3ae5269dadb1ef25d16710e93e7eeb4d211c1d5
-     role_attribute_path: contains(groups[*], '@my-github-organization/Exec') && 'Admin' || contains(groups[*], '@my-github-organization/SRE') && 'Editor'  || contains(groups[*], '@my-github-organization/Members') &&  'Viewer'
+auth.github:
+    enabled: true
+    allow_sign_up: true
+    scopes: user:email,read:org
+    auth_url: https://github.com/login/oauth/authorize
+    token_url: https://github.com/login/oauth/access_token
+    api_url: https://api.github.com/user
+    team_ids: 6907875, 2978653, 898658
+    allowed_organizations: ["ClubCedille"]
+    lient_id: f6accfa77d27b78bbf66
+    client_secret: e3ae5269dadb1ef25d16710e93e7eeb4d211c1d5
+    role_attribute_path: contains(groups[*], '@my-github-organization/Exec') && 'Admin' || contains(groups[*], '@my-github-organization/SRE') && 'Editor'  || contains(groups[*], '@my-github-organization/Members') &&  'Viewer'
 
 ## LDAP Authentication can be enabled with the following values on grafana.ini
 ## NOTE: Grafana will fail to start if the value for ldap.toml is invalid
