@@ -2,8 +2,29 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
+  # System
   - ../../system/crossplane/
+  - ../../system/vault
   - ../../system/grafana/
+  - ../../system/clickhouse/
+  - ../../system/cert-manager/
   - ../../system/vcluster/
+  # Workload
   - ../samples/kustomize-example-app/
+  - ../samples/clickhouse/
   # ... other apps ...
+
+patches:
+  - target:
+      kind: Application
+    patch: |-
+      apiVersion: argoproj.io/v1alpha1
+      kind: Application
+      metadata:
+        name: not-used
+        finalizers:
+        - resources-finalizer.argocd.argoproj.io
+      spec:
+        syncPolicy:
+          automated:
+            selfHeal: true

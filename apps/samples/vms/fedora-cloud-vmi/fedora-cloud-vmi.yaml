@@ -2,7 +2,7 @@ apiVersion: kubevirt.io/v1
 kind: VirtualMachineInstance
 metadata:
   name: fedora-cloud-vmi
-  namespace: sandbox-0
+  namespace: vms
 spec:
   terminationGracePeriodSeconds: 30
   domain:

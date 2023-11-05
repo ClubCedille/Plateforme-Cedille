@@ -1,11 +1,10 @@
 #!/bin/bash
 
-kubectl delete secret gcp-secret
-
-# Set the variables
 SERVICE_ACCOUNT_NAME="crossplane-sa"
 KUBE_NAMESPACE="crossplane"
-YOUR_PROJECT_ID="fine-harbor-276700" # Replace with your GCP project ID
+YOUR_PROJECT_ID="fine-harbor-276700"
+
+kubectl delete secret gcp-secret -n $KUBE_NAMESPACE
 
 # Step 1: Create a service account with access to DNS and storage APIs and save it to serviceaccount.json
 gcloud iam service-accounts create $SERVICE_ACCOUNT_NAME --display-name $SERVICE_ACCOUNT_NAME
