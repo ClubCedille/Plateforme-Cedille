@@ -7,6 +7,7 @@ resources:
   - ../../system/vault
   - ../../system/grafana/
   - ../../system/clickhouse/
+  - ../../system/cert-manager/
   # Workload
   - ../samples/kustomize-example-app/
   - ../samples/clickhouse/
