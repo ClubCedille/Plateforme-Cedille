@@ -6,8 +6,10 @@ resources:
   - ../../system/crossplane/
   - ../../system/vault
   - ../../system/grafana/
+  - ../../system/clickhouse/
   # Workload
   - ../samples/kustomize-example-app/
+  - ../samples/clickhouse/
   # ... other apps ...
 
 patches:
