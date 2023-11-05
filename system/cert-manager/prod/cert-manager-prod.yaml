@@ -19,11 +19,11 @@ spec:
       repoURL: https://charts.jetstack.io
       targetRevision: v1.13.1
     - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
-      targetRevision: feature/cert-manager
-      ref: values
+      targetRevision: master
+      path: system/cert-manager/prod/issuers
     - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
-      targetRevision: feature/cert-manager
-      path: system/cert-manager/issuers
+      targetRevision: master
+      ref: values
   syncPolicy:
     automated: {}
     syncOptions:
