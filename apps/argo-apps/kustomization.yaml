@@ -5,6 +5,7 @@ resources:
   # System
   - ../../system/crossplane/
   - ../../system/vault
+  - ../../external-dns/
   - ../../system/grafana/
   - ../../system/clickhouse/
   # Workload
