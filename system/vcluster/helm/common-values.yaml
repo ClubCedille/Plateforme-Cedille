@@ -9,3 +9,5 @@ sync:
     enabled: true
   ingressclasses:
     enabled: true
+  volumeSnapshots:
+    enabled: true
