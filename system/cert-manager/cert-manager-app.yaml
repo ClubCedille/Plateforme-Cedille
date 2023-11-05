@@ -21,6 +21,9 @@ spec:
     - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
       targetRevision: feature/cert-manager
       ref: values
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      targetRevision: feature/cert-manager
+      path: system/cert-manager/issuers
   syncPolicy:
     automated: {}
     syncOptions:
