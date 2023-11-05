@@ -8,6 +8,7 @@ resources:
   - ../../system/grafana/
   - ../../system/clickhouse/
   - ../../system/cert-manager/
+  - ../../system/argocd/
   # Workload
   - ../samples/kustomize-example-app/
   - ../samples/clickhouse/
