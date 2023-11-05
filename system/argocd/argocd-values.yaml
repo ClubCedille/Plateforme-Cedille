@@ -1610,8 +1610,24 @@ server:
 
   # -- Additional containers to be added to the server pod
   ## Note: Supports use of custom Helm templates
-  extraContainers: []
-  # - name: my-sidecar
+  extraContainers:
+  - name: lovely-plugin
+    # Choose your image here - this one has vault replacer in it
+    image: ghcr.io/crumbhole/lovely:0.22.1
+    securityContext:
+      runAsNonRoot: true
+      runAsUser: 999
+    volumeMounts:
+        # Import the repo-server's plugin binary
+      - mountPath: /var/run/argocd
+        name: var-files
+      - mountPath: /home/argocd/cmp-server/plugins
+        name: plugins
+        # Starting with v2.4, do NOT mount the same tmp volume as the repo-server container. The filesystem separation helps
+        # mitigate path traversal attacks.
+      - mountPath: /tmp
+        name: lovely-tmp
+# - name: my-sidecar
   #   image: nginx:latest
   # - name: lemonldap-ng-controller
   #   image: lemonldapng/lemonldap-ng-controller:0.2.0
@@ -1654,7 +1670,9 @@ server:
   #    subPath: kubelogin
 
   # -- Additional volumes to the server pod
-  volumes: []
+  volumes:
+  - emptyDir: {}
+    name: lovely-tmp
   #  - name: custom-tools
   #    emptyDir: {}
 
