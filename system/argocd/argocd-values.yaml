@@ -191,7 +191,7 @@ configs:
           name: GitHub
           config:
             clientID: e9dfb0b51bcceae7aef8
-            clientSecret: $dex.github.clientSecret
+            clientSecret: $dex-secret:dex.github.clientSecret
             orgs:
             - name: ClubCedille
 
