@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: external-dns
+  namespace: external-dns
 spec:
   strategy:
     type: Recreate
@@ -17,10 +18,12 @@ spec:
       - name: external-dns
         image: registry.k8s.io/external-dns/external-dns:v0.13.6
         args:
-        - --source=service # ingress is also possible
-        - --domain-filter=omni.cedille.club # (optional) limit to only example.com domains; change to match the zone created above.
+        - --source=service
+        - --source=ingress
+        - --source=contour-httpproxy
+        - --domain-filter=omni.cedille.club
         - --provider=cloudflare
-        - --cloudflare-dns-records-per-page=5000 # (optional) configure how many DNS records to fetch per request
+        - --cloudflare-dns-records-per-page=5000
         envFrom:
         - secretRef:
             name: cloudflare-secret
