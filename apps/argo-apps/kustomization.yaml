@@ -6,4 +6,5 @@ resources:
   - ../../system/grafana/
   - ../../system/cert-manager/
   - ../samples/kustomize-example-app/
+  - ../../system/vault
   # ... other apps ...
