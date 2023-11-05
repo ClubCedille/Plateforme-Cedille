@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager
+  namespace: argocd
+spec:
+  destination:
+    namespace: cert-manager
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+    - chart: cert-manager
+      helm:
+        valueFiles:
+        - $values/system/cert-manager/helm/cert-manager-values.yaml
+        parameters: 
+          - name: installCRDs # Not recommended for prod installs according to: https://cert-manager.io/docs/installation/helm/
+            value: "true"
+      repoURL: https://charts.jetstack.io
+      targetRevision: v1.13.1
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      targetRevision: master
+      ref: values
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      targetRevision: master
+      path: system/cert-manager/issuers
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
