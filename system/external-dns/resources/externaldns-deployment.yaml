@@ -20,7 +20,7 @@ spec:
         - --source=service
         - --source=ingress
         - --source=contour-httpproxy
-        - --domain-filter=omni.cedille.club
+        - --domain-filter=cedille.club
         - --provider=cloudflare
         - --cloudflare-dns-records-per-page=5000
         envFrom:

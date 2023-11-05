@@ -11,9 +11,9 @@ spec:
   tls:
   - secretName: httpbin
     hosts:
-    - prod.kustomizetest.omni.cedille.club
+    - prod.kustomizetest.cedille.club
   rules:
-  - host: prod.kustomizetest.omni.cedille.club
+  - host: prod.kustomizetest.cedille.club
     http:
       paths:
       - pathType: Prefix

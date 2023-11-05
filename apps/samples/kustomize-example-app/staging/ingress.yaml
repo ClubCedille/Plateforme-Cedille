@@ -11,9 +11,9 @@ spec:
   tls:
   - secretName: httpbin
     hosts:
-    - staging.kustomizetest.omni.cedille.club
+    - staging.kustomizetest.cedille.club
   rules:
-  - host: staging.kustomizetest.omni.cedille.club
+  - host: staging.kustomizetest.cedille.club
     http:
       paths:
       - pathType: Prefix
