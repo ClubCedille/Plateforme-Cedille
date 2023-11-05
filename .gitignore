@@ -1,2 +1,6 @@
 # Chart dependencies
 **/charts/*.tgz
+**.tfstate
+**.tfstate.backup
+**/.terraform/
+omnictl

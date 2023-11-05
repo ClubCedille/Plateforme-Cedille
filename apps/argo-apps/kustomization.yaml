@@ -4,9 +4,11 @@ kind: Kustomization
 resources:
   # System
   - ../../system/crossplane/
+  - ../../system/vault
   - ../../system/grafana/
   # Workload
   - ../samples/kustomize-example-app/
+  # ... other apps ...
 
 patches:
   - target:

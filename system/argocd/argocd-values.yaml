@@ -290,11 +290,13 @@ configs:
       # - sync applications;
       # - read, create, update and delete GPG keys.
 
-      p, role:org-operators, applications, sync, *, allow
-      p, role:org-operators, applications, update, *, allow
+      p, role:org-operators, applications, *, */*, allow
       p, role:org-operators, clusters, get, *, allow
       p, role:org-operators, certificates, get, *, allow
       p, role:org-operators, repositories, get, *, allow
+      p, role:org-operators, repositories, create, *, allow
+      p, role:org-operators, repositories, update, *, allow
+      p, role:org-operators, repositories, delete, *, allow
       p, role:org-operators, gpgkeys, get, *, allow
       p, role:org-operators, gpgkeys, create, *, allow
       p, role:org-operators, gpgkeys, delete, *, allow
