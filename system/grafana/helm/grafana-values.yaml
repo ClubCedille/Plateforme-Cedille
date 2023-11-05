@@ -337,7 +337,7 @@ extraContainerVolumes: []
 persistence:
   type: pvc
   enabled: true
-  storageClassName: default
+  storageClassName: mayastor
   accessModes:
     - ReadWriteOnce
   size: 10Gi
