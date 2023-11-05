@@ -49,11 +49,11 @@ spec:
             - ReadWriteOnce
           resources:
             requests:
-              storage: 3Gi
+              storage: 10Gi
       - name: simple-example-log-storage
         spec:
           accessModes:
             - ReadWriteOnce
           resources:
             requests:
-              storage: 2Gi
+              storage: 10Gi
