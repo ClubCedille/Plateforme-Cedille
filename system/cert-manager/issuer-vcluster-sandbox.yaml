@@ -1,8 +1,8 @@
 apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
+kind: Issuer
 metadata:
   name: letsencrypt-prod
-  namespace: cert-manager
+  namespace: vcluster-sandbox
 spec:
   acme:
     email: cedille@etsmtl.ca
