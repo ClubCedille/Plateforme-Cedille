@@ -18,7 +18,6 @@ spec:
         releaseName: vcluster-prod
         valueFiles:
         - $values/system/vcluster/helm/common-values.yaml
-        - $values/system/vcluster/helm/cert-manager-plugin.yaml
       repoURL: https://charts.loft.sh
       targetRevision: 0.16.4
   syncPolicy:
