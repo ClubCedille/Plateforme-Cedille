@@ -765,7 +765,7 @@ grafana.ini:
     allowed_organizations: ["ClubCedille"]
     client_id: f6accfa77d27b78bbf66
     client_secret: ad200acc2080fe69dabce00a23ec27527a085cad
-    role_attribute_path: contains(groups[*], 'ClubCedille/Exec') && 'GrafanaAdmin' || contains(groups[*], 'ClubCedille/SRE') && 'Editor'  || contains(groups[*], 'ClubCedille') && 'Viewer'
+    role_attribute_path: contains(groups[*], 'ClubCedille/SRE') && 'Editor'  ||  'Viewer'
 
 ## LDAP Authentication can be enabled with the following values on grafana.ini
 ## NOTE: Grafana will fail to start if the value for ldap.toml is invalid
