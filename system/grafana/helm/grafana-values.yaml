@@ -762,10 +762,10 @@ grafana.ini:
     token_url: https://github.com/login/oauth/access_token
     api_url: https://api.github.com/user
     team_ids: 6907875, 2978653,898658
-    allowed_organizations: ["ClubCedille"]
+    allowed_organizations: ["@ClubCedille"]
     client_id: f6accfa77d27b78bbf66
     client_secret: ad200acc2080fe69dabce00a23ec27527a085cad
-    role_attribute_path: contains(groups[*], '@ClubCedille/exec') && 'GrafanaAdmin' || contains(groups[*], '@ClubCedille/sre') && 'Editor'  ||  'Viewer'
+    role_attribute_path: contains(groups[*], '@ClubCedille/exec') && 'Admin' || contains(groups[*], '@ClubCedille/sre') && 'Editor'  ||  'Viewer'
 
 ## LDAP Authentication can be enabled with the following values on grafana.ini
 ## NOTE: Grafana will fail to start if the value for ldap.toml is invalid
