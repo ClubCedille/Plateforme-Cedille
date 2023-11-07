@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: clickhouse-system-sample-app
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: clickhouse-system
+  source:
+    repoURL: https://github.com/ClubCedille/Plateforme-Cedille
+    path: apps/samples/clickhouse/staging 
+    targetRevision: HEAD 
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=false

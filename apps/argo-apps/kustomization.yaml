@@ -9,6 +9,7 @@ resources:
   - ../../system/clickhouse/
   - ../../system/cert-manager/
   - ../../system/vcluster/
+  - ../../system/argocd/
   # Workload
   - ../samples/kustomize-example-app/
   - ../samples/clickhouse/
