@@ -1,14 +1,14 @@
 apiVersion: cert-manager.io/v1
-kind: Issuer
+kind: ClusterIssuer
 metadata:
-  name: letsencrypt-prod
-  namespace: vcluster-staging
+  name: letsencrypt-staging
+  namespace: cert-manager
 spec:
   acme:
     email: cedille@etsmtl.ca
     privateKeySecretRef:
-      name: letsencrypt-prod
-    server: https://acme-v02.api.letsencrypt.org/directory
+      name: letsencrypt-staging
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
     solvers:
     - http01:
         ingress:
