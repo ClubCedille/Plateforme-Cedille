@@ -13,7 +13,15 @@ spec:
       helm:
         releaseName: vault
         valueFiles:
-          - $values/system/vault/vault-deployment/values.yml
+          - $values/system/vault/helm/vault.values.yaml
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+    - chart: vault-config-operator
+      repoURL: https://redhat-cop.github.io/vault-config-operator
+      targetRevision: 0.8.24
+      helm:
+        releaseName: vault-config-operator
+        valueFiles:
+          - $values/system/vault/helm/vault-config-operator.values.yaml
     - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
       targetRevision: HEAD
       ref: values
@@ -21,9 +29,3 @@ spec:
     server: "https://kubernetes.default.svc"
     namespace: vault
     project: platforme-cedille
-  syncPolicy:
-    syncOptions:
-    - CreateNamespace=true
-    managedNamespaceMetadata:
-      labels:
-        pod-security.kubernetes.io/enforce: privileged
