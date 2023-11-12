@@ -22,6 +22,20 @@ injector:
         memory: 256Mi
         cpu: 250m
 
+csi:
+  enabled: true
+  volumes:
+  - name: vault-ha-tls
+    secret:
+      secretName: vault-ha-tls
+  volumeMounts:
+  - name: vault-ha-tls
+    mountPath: /vault/userconfig/vault-ha-tls/
+    readOnly: true
+  extraArgs:
+  - "-vault-tls-ca-cert=/vault/userconfig/vault-ha-tls/vault.ca"
+  - "-vault-addr=https://vault.vault:8200"
+
 server:
   # Use the Enterprise Image
   image:
