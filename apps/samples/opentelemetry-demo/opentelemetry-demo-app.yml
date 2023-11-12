@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  name: opentelemetry
+  namespace: argocd
+spec:
+  destination:
+    namespace: opentelemetry-demo
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+    - chart: opentelemetry-demo
+      helm:
+        releaseName: opentelemetry-demo
+        valueFiles:
+        - $values/apps/samples/opentelemetry-demo/stating/helm/otel-demo-values.yaml
+      repoURL: https://open-telemetry.github.io/opentelemetry-helm-charts
+      targetRevision: 0.66.0
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      targetRevision: master
+      ref: values
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+    managedNamespaceMetadata:
+      labels:
+        pod-security.kubernetes.io/enforce: privileged
