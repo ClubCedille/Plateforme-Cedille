@@ -9,15 +9,15 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: opentelemetry-system
+    namespace: opentelemetry-operator
     server: https://kubernetes.default.svc
   project: default
   sources:
-    - chart: open-telemetry/opentelemetry-operator
+    - chart: opentelemetry-operator
       helm:
-        releaseName: my-otel-demo
+        releaseName: opentelemetry-operator
         valueFiles:
-        - $values/system/opentelemetry/helm/otel-values.yaml
+        - $values/system/opentelemetry/helm/otel-operator-values.yaml
       repoURL: https://open-telemetry.github.io/opentelemetry-helm-charts
       targetRevision: 0.66.0
     - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
