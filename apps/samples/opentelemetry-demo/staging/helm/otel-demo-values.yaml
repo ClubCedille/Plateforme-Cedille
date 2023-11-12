@@ -662,6 +662,16 @@ opentelemetry-collector:
 
     connectors:
       spanmetrics:
+        - app.filtered_products.count
+        - app.products.count
+        - app.products_recommended.count
+        - app.cache_hit
+        - app.ads.category
+        - app.ads.contextKeys
+        - app.ads.contextKeys.count
+        - app.ads.count
+        - app.ads.ad_request_type
+        - app.ads.ad_response_type
 
     service:
       pipelines:
