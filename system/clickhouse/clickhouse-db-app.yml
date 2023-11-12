@@ -12,7 +12,7 @@ spec:
     namespace: clickhouse-system
   source:
     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
-    path: apps/samples/clickhouse/staging 
+    path: system/clickhouse/staging 
     targetRevision: HEAD 
   syncPolicy:
     syncOptions:
