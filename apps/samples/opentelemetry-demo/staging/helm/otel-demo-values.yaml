@@ -663,7 +663,6 @@ opentelemetry-collector:
 
     connectors:
       spanmetrics:
-<<<<<<< Updated upstream
         histogram:
           explicit:
             buckets: [100us, 1ms, 2ms, 6ms, 10ms, 100ms, 250ms]
@@ -673,18 +672,6 @@ opentelemetry-collector:
           - name: http.status_code
         dimensions_cache_size: 1000
         aggregation_temporality: "AGGREGATION_TEMPORALITY_CUMULATIVE"    
-=======
-        - app.filtered_products.count
-        - app.products.count
-        - app.products_recommended.count
-        - app.cache_hit
-        - app.ads.category
-        - app.ads.contextKeys
-        - app.ads.contextKeys.count
-        - app.ads.count
-        - app.ads.ad_request_type
-        - app.ads.ad_response_type
->>>>>>> Stashed changes
 
     service:
       pipelines:
