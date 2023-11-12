@@ -10,9 +10,10 @@ resources:
   - ../../system/cert-manager/
   - ../../system/argocd/
   - ../../system/secret-store/csi/
+  - ../../system/opentelemetry/
   # Workload
   - ../samples/kustomize-example-app/
-  - ../samples/clickhouse/
+  - ../samples/opentelemetry-demo/
   # ... other apps ...
 
 patches:
