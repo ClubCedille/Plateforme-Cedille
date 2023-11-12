@@ -5,7 +5,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "0"
   finalizers:
   - resources-finalizer.argocd.argoproj.io
-  name: opentelemetry
+  name: opentelemetry-demo
   namespace: argocd
 spec:
   destination:
