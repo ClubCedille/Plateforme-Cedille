@@ -662,16 +662,24 @@ opentelemetry-collector:
 
     connectors:
       spanmetrics:
-        - name: app.filtered_products.count
-        - name: app.products.count
-        - name: app.products_recommended.count
-        - name: app.cache_hit
-        - name: app.ads.category
-        - name: app.ads.contextKeys
-        - name: app.ads.contextKeys.count
-        - name: app.ads.count
-        - name: app.ads.ad_request_type
-        - name: app.ads.ad_response_type
+        histogram:
+          explicit:
+            buckets: [100us, 1ms, 2ms, 6ms, 10ms, 100ms, 250ms]
+        dimensions:
+          - name: http.method
+            default: GET
+          - name: http.status_code
+        exemplars:
+          enabled: true
+        exclude_dimensions: ['status.code']
+        dimensions_cache_size: 1000
+        aggregation_temporality: "AGGREGATION_TEMPORALITY_CUMULATIVE"    
+        metrics_flush_interval: 15s
+        events:
+          enabled: true
+          dimensions:
+            - name: exception.type
+            - name: exception.message
 
     service:
       pipelines:
