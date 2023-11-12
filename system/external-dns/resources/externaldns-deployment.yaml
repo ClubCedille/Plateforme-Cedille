@@ -15,14 +15,18 @@ spec:
     spec:
       containers:
       - name: external-dns
+        securityContext:
+          privileged: true
         image: registry.k8s.io/external-dns/external-dns:v0.13.6
         args:
-        - --source=service
+        - --log-level=debug
+        # - --source=service
         - --source=ingress
-        - --source=contour-httpproxy
+        # - --source=contour-httpproxy
         - --domain-filter=cedille.club
         - --provider=cloudflare
-        - --cloudflare-dns-records-per-page=5000
+        - --events
+        # - --cloudflare-dns-records-per-page=5000
         envFrom:
         - secretRef:
-            name: cloudflare-secret
+          name: cloudflare-secret
