@@ -4,11 +4,12 @@ kind: Kustomization
 resources:
   # System
   - ../../system/crossplane/
-  - ../../system/vault
+  - ../../system/vault/
   - ../../system/grafana/
   - ../../system/clickhouse/
   - ../../system/cert-manager/
   - ../../system/argocd/
+  - ../../system/secret-store/csi/
   # Workload
   - ../samples/kustomize-example-app/
   - ../samples/clickhouse/

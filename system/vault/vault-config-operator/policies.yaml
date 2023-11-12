@@ -3,7 +3,6 @@ kind: Policy
 metadata:
   name: secret-writer
 spec:
-  # Add fields here
   authentication: 
     path: kubernetes
     role: config-admin
@@ -23,7 +22,6 @@ kind: Policy
 metadata:
   name: secret-reader
 spec:
-  # Add fields here
   authentication: 
     path: kubernetes
     role: config-admin
@@ -38,7 +36,6 @@ kind: Policy
 metadata:
   name: config-admin
 spec:
-  # Add fields here
   authentication: 
     path: kubernetes
     role: config-admin
