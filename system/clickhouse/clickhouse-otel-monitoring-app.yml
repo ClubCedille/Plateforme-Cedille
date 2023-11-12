@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: clickhouse-system-sample-app
+  name: clickhouse-otel-monitoring
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "2"
@@ -12,7 +12,7 @@ spec:
     namespace: clickhouse-system
   source:
     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
-    path: apps/samples/clickhouse/staging 
+    path: system/clickhouse/clickhouse-otel-monitoring-ressources
     targetRevision: HEAD 
   syncPolicy:
     syncOptions:

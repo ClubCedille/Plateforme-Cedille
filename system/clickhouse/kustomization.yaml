@@ -3,3 +3,4 @@ kind: Kustomization
 
 resources:
   - clickhouse-operator-app.yml
+  - clickhouse-otel-monitoring-app.yml
