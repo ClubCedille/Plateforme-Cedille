@@ -17,7 +17,7 @@ spec:
       helm:
         releaseName: opentelemetry-demo
         valueFiles:
-        - $values/apps/samples/opentelemetry-demo/stating/helm/otel-demo-values.yaml
+        - $values/apps/samples/opentelemetry-demo/staging/helm/otel-demo-values.yaml
       repoURL: https://open-telemetry.github.io/opentelemetry-helm-charts
       targetRevision: 0.66.0
     - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
