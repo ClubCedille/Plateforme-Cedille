@@ -9,9 +9,11 @@ resources:
   - ../../system/clickhouse/
   - ../../system/cert-manager/
   - ../../system/argocd/
+  - ../../system/opentelemetry/
   # Workload
   - ../samples/kustomize-example-app/
   - ../samples/clickhouse/
+  - ../samples/opentelemetry/
   # ... other apps ...
 
 patches:
