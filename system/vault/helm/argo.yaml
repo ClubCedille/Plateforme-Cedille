@@ -14,7 +14,6 @@ spec:
         releaseName: vault
         valueFiles:
           - $values/system/vault/helm/vault.values.yaml
-    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
     - chart: vault-config-operator
       repoURL: https://redhat-cop.github.io/vault-config-operator
       targetRevision: 0.8.24
