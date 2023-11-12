@@ -1,0 +1,14 @@
+enableMonitoring: false
+enableCertManager: true
+env:
+  - name: VAULT_ADDR
+    value: https://vault.vault:8200
+  - name: VAULT_CACERT 
+    value: /vault-certs/vault.ca
+volumes:
+  - name: vault-certs
+    secret:
+      secretName: vault-ha-tls
+volumeMounts:
+  - mountPath: /vault-certs
+    name: vault-certs
