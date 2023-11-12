@@ -8,7 +8,7 @@ spec:
   project: default
   sources:
     - repoURL: https://github.com/ClubCedille/Plateforme-Cedille
-      path: system/vault/vault-config-operator/configs
+      path: system/vault/configs
       targetRevision: HEAD 
   destination:
     server: "https://kubernetes.default.svc"
