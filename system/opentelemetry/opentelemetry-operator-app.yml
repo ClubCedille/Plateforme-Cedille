@@ -19,7 +19,7 @@ spec:
         valueFiles:
         - $values/system/opentelemetry/helm/otel-operator-values.yaml
       repoURL: https://open-telemetry.github.io/opentelemetry-helm-charts
-      targetRevision: 0.66.0
+      targetRevision: 0.42.0
     - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
       targetRevision: master
       ref: values
