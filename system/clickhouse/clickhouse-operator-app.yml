@@ -8,7 +8,7 @@ spec:
   project: default
   sources:
     - repoURL: https://github.com/ClubCedille/Plateforme-Cedille
-      path: system/clickhouse/clickhouse-resources
+      path: system/clickhouse/clickhouse-operator-ressources
       targetRevision: HEAD
   destination:
     server: "https://kubernetes.default.svc"
