@@ -9,7 +9,7 @@ resources:
   - ../../system/clickhouse/
   - ../../system/cert-manager/
   - ../../system/argocd/
-  - ../../open-telemetry/
+  - ../../system/opentelemetry/
   # Workload
   - ../samples/kustomize-example-app/
   - ../samples/clickhouse/
