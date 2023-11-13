@@ -13,6 +13,7 @@ resources:
   # Workload
   - ../samples/kustomize-example-app/
   - ../samples/opentelemetry-demo/
+  - ../samples/grav-demo/
   # ... other apps ...
 
 patches:

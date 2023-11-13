@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: grav-demo
+  name: grav-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grav-demo
+  template:
+    metadata:
+      labels:
+        app: grav-demo
+    spec:
+      containers:
+      - name: grav-demo
+        image: clubcedille/grav:latest
+        env:
+        - name: GRAV_SKELETON_URL
+          value: "https://getgrav.org/download/skeletons/gateway-site/1.0.0-admin"
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: grav-storage
+          mountPath: /var/www/html
+      volumes:
+      - name: grav-storage
+        persistentVolumeClaim:
+          claimName: grav-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: grav-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
