@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: merbridge
+  namespace: argocd
+  argocd.argoproj.io/sync-wave: "0"
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/ClubCedille/Plateforme-Cedille
+      path: system/merbridge/merbridge-ressources
+      targetRevision: HEAD
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: kuma-system
+    project: platforme-cedille
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=false # created by kuma

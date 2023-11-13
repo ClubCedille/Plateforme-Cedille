@@ -1,7 +1,7 @@
 apiVersion: "clickhouse.altinity.com/v1"
 kind: "ClickHouseInstallation"
 metadata:
-  name: "clickhouse-otel-monitoring"
+  name: "clickhouse-otel-monitoring-db"
   namespace: clickhouse-system
 spec:
   configuration:

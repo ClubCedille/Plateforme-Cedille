@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubevirt
+  namespace: argocd
+  argocd.argoproj.io/sync-wave: "0"
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/ClubCedille/Plateforme-Cedille
+      path: system/kubevirt/kubevirt-ressources
+      targetRevision: HEAD
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: kubevirt
+    project: platforme-cedille
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
