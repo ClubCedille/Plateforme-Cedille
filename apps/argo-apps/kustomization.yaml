@@ -10,6 +10,10 @@ resources:
   - ../../system/cert-manager/
   - ../../system/argocd/
   - ../../system/opentelemetry/
+  - ../../system/gateway-api/
+  - ../../system/kubevirt/
+  - ../../system/kuma/
+  - ../../system/merbridge/
   # Workload
   - ../samples/kustomize-example-app/
   - ../samples/opentelemetry-demo/
