@@ -26,9 +26,9 @@ spec:
             - name: clickhouse
               image: clickhouse/clickhouse-server:22.3
               volumeMounts:
-                - name: simple-example-data-storage
+                - name: clickhouse-otel-monitoring-data-storage
                   mountPath: /var/lib/clickhouse
-                - name: simple-example-log-storage
+                - name: clickhouse-otel-monitoring-log-storage
                   mountPath: /var/log/clickhouse-server
     serviceTemplates:
       - name: pv-logs-service-template 
