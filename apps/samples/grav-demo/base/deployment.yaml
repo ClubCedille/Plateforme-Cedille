@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: grav-demo
-        image: clubcedille/grav:latest
+        image: clubcedille/grav:0.0.3
         env:
         - name: GRAV_SKELETON_URL
           value: "https://getgrav.org/download/skeletons/gateway-site/1.0.0-admin"
