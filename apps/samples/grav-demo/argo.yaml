@@ -9,7 +9,7 @@ spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-    namespace: grav-demo-prod
+    namespace: grav-demo
   source:
     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
     path: apps/samples/grav-demo/prod
