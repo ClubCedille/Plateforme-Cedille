@@ -22,11 +22,11 @@ spec:
         - containerPort: 80
         resources:
           requests:
-            memory: "4Mi"
+            memory: "256Mi"
             cpu: "10m"
             # hugepages-2Mi: "2Mi"
           limits:
-            memory: "16Mi"
+            memory: "256Mi"
             cpu: "100m"
             # hugepages-2Mi: "2Mi"
         volumeMounts:
