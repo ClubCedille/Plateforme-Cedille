@@ -8,7 +8,7 @@ spec:
   project: default
   sources:
     - repoURL: https://github.com/ClubCedille/Plateforme-Cedille
-      path: system/kuma/kuma-ressources
+      path: system/kuma/kuma-resources
       targetRevision: HEAD
   destination:
     server: "https://kubernetes.default.svc"

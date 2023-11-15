@@ -8,7 +8,7 @@ spec:
   project: default
   sources:
     - repoURL: https://github.com/ClubCedille/Plateforme-Cedille
-      path: system/gateway-api/gateway-api-ressources
+      path: system/gateway-api/gateway-api-resources
       targetRevision: HEAD
   destination:
     server: "https://kubernetes.default.svc"

@@ -12,7 +12,7 @@ spec:
     namespace: clickhouse-system
   source:
     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
-    path: system/clickhouse/clickhouse-otel-monitoring-ressources
+    path: system/clickhouse/clickhouse-otel-monitoring-resources
     targetRevision: HEAD 
   syncPolicy:
     syncOptions:
