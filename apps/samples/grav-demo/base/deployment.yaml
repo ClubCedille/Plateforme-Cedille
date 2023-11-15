@@ -17,11 +17,17 @@ spec:
       containers:
       - name: grav-demo
         image: clubcedille/grav:0.0.3
-        env:
-        - name: GRAV_SKELETON_URL
-          value: "https://getgrav.org/download/skeletons/gateway-site/1.0.0-admin"
         ports:
         - containerPort: 80
+        resources:
+          requests:
+            memory: "4Mi"
+            cpu: "10m"
+            hugepages-2Mi: "2Mi"
+          limits:
+            memory: "16Mi"
+            cpu: "100m"
+            hugepages-2Mi: "2Mi"
         volumeMounts:
         - name: grav-storage
           mountPath: /var/www/html
@@ -36,7 +42,7 @@ metadata:
   name: grav-pvc
 spec:
   accessModes:
-    - ReadWriteOnce
+    - "ReadWriteMany"
   resources:
     requests:
-      storage: 10Gi
+      storage: "1G"
