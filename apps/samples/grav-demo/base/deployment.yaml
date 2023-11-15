@@ -17,6 +17,7 @@ spec:
       containers:
       - name: grav-demo
         image: clubcedille/grav:0.0.3
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
         resources:
