@@ -24,11 +24,11 @@ spec:
           requests:
             memory: "4Mi"
             cpu: "10m"
-            hugepages-2Mi: "2Mi"
+            # hugepages-2Mi: "2Mi"
           limits:
             memory: "16Mi"
             cpu: "100m"
-            hugepages-2Mi: "2Mi"
+            # hugepages-2Mi: "2Mi"
         volumeMounts:
         - name: grav-storage
           mountPath: /var/www/html
