@@ -47,3 +47,11 @@ spec:
     path "auth/*" {
       capabilities =  ["create", "read", "update", "delete", "list" "sudo"]
     }
+
+    path "github/*" {
+      capabilities =  ["create", "read", "update", "delete", "list" "sudo"]
+    }
+
+    path "kv-system/*" {
+      capabilities =  ["create", "read", "update", "delete", "list" "sudo"]
+    }
