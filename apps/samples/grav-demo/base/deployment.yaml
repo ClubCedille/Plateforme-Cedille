@@ -38,6 +38,7 @@ spec:
           periodSeconds: 5
       - name: post-init-task
         image: clubcedille/grav-init:0.0.1
+        imagePullPolicy: Always
         volumeMounts:
         - name: grav-storage
           mountPath: /var/www/html
