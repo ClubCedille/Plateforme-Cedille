@@ -13,6 +13,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   sources:
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      path: system/pixie/resources
+      targetRevision: master
     - chart: pixie-operator-chart
       helm:
         releaseName: pixie-helm
