@@ -14,6 +14,13 @@ spec:
       labels:
         app: grav-demo
     spec:
+      initContainers:
+      - name: post-init-task
+        image: clubcedille/grav-init:0.0.1
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: grav-storage
+          mountPath: /var/www/html
       containers:
       - name: grav-demo
         image: clubcedille/grav:0.0.4
@@ -37,26 +44,7 @@ spec:
         #     port: 80
         #   initialDelaySeconds: 10
         #   periodSeconds: 5
-      - name: post-init-task
-        image: clubcedille/grav-init:0.0.1
-        imagePullPolicy: Always
-        volumeMounts:
-        - name: grav-storage
-          mountPath: /var/www/html
-        restartPolicy: Never
       volumes:
       - name: grav-storage
         persistentVolumeClaim:
           claimName: grav-pvc
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: grav-pvc
-spec:
-  accessModes:
-    - "ReadWriteOnce"
-  resources:
-    requests:
-      storage: "1G"
-
