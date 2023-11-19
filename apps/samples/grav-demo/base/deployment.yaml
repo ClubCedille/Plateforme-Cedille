@@ -27,13 +27,6 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 80
-        resources:
-          requests:
-            memory: "256Mi"
-            cpu: "10m"
-          limits:
-            memory: "256Mi"
-            cpu: "100m"
         volumeMounts:
         - name: grav-storage
           mountPath: /var/www/html
@@ -48,3 +41,14 @@ spec:
       - name: grav-storage
         persistentVolumeClaim:
           claimName: grav-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: grav-pvc
+spec:
+  accessModes:
+    - "ReadWriteOnce"
+  resources:
+    requests:
+      storage: "10G"
