@@ -588,7 +588,7 @@ components:
       runAsNonRoot: true
 
 opentelemetry-collector:
-  enabled: true
+  enabled: false
   nameOverride: otelcol
   mode: deployment
   presets:
