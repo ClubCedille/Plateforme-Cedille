@@ -626,7 +626,7 @@ opentelemetry-collector:
     exporters:
       ## Clickhouse exporter (traces)
       clickhouse:
-        endpoint: tcp://chi-clickhouse-otel-monitoring-deployment-pv-1-1:9000?dial_timeout=10s&compress=lz4
+        endpoint: tcp://clickhouse-clickhouse-otel-monitoring:9000?dial_timeout=10s&compress=lz4
         database: default
         ttl_days: 14
         traces_table_name: otel_traces
