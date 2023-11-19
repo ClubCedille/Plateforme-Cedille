@@ -48,16 +48,8 @@ kind: Ingress
 metadata:
   name: httpbin
   namespace: external-dns
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    ingress.kubernetes.io/force-ssl-redirect: "true"
-    kubernetes.io/tls-acme: "true"
 spec:
   ingressClassName: contour
-  tls:
-  - secretName: httpbin
-    hosts:
-    - michael.cedille.club
   rules:
   - host: michael.cedille.club
     http:
