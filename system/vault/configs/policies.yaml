@@ -41,17 +41,17 @@ spec:
     role: config-admin
   policy: |
     path "sys/*" {
-      capabilities =  ["create", "read", "update", "delete", "list" "sudo"]
+      capabilities =  ["create", "read", "update", "delete", "list", "sudo"]
     }
 
     path "auth/*" {
-      capabilities =  ["create", "read", "update", "delete", "list" "sudo"]
+      capabilities =  ["create", "read", "update", "delete", "list", "sudo"]
     }
 
     path "github/*" {
-      capabilities =  ["create", "read", "update", "delete", "list" "sudo"]
+      capabilities =  ["create", "read", "update", "delete", "list", "sudo"]
     }
 
     path "kv-system/*" {
-      capabilities =  ["create", "read", "update", "delete", "list" "sudo"]
+      capabilities =  ["create", "read", "update", "delete", "list", "sudo"]
     }
