@@ -14,19 +14,19 @@ spec:
       labels:
         app: grav-demo
     spec:
+      initContainers:
+      - name: post-init-task
+        image: clubcedille/grav-init:0.0.1
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: grav-storage
+          mountPath: /var/www/html
       containers:
       - name: grav-demo
         image: clubcedille/grav:0.0.4
         imagePullPolicy: Always
         ports:
         - containerPort: 80
-        resources:
-          requests:
-            memory: "256Mi"
-            cpu: "10m"
-          limits:
-            memory: "256Mi"
-            cpu: "100m"
         volumeMounts:
         - name: grav-storage
           mountPath: /var/www/html
@@ -37,13 +37,6 @@ spec:
         #     port: 80
         #   initialDelaySeconds: 10
         #   periodSeconds: 5
-      - name: post-init-task
-        image: clubcedille/grav-init:0.0.1
-        imagePullPolicy: Always
-        volumeMounts:
-        - name: grav-storage
-          mountPath: /var/www/html
-        restartPolicy: Never
       volumes:
       - name: grav-storage
         persistentVolumeClaim:
@@ -58,5 +51,4 @@ spec:
     - "ReadWriteOnce"
   resources:
     requests:
-      storage: "1G"
-
+      storage: "10G"
