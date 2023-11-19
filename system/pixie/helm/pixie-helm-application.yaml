@@ -23,3 +23,6 @@ spec:
     - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
       targetRevision: master
       ref: values
+  syncPolicy:
+    syncOptions:
+    - Replace=true
