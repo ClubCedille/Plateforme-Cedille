@@ -9,7 +9,7 @@ resources:
   - ../../system/clickhouse/
   - ../../system/cert-manager/
   - ../../system/argocd/
-  - ../../system/secret-store/csi/
+  - ../../system/secret-store-csi/
   - ../../system/opentelemetry/
   - ../../system/gateway-api/
   - ../../system/kubevirt/
