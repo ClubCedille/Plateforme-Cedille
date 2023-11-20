@@ -26,9 +26,12 @@ spec:
     path: kubernetes
     role: config-admin
   policy: |
-    # create secrets
     path "kv/data/{{identity.entity.aliases.${auth/kubernetes/@accessor}.metadata.service_account_namespace}}/{{identity.entity.aliases.${auth/kubernetes/@accessor}.metadata.service_account_name}}/*" {
       capabilities = [ "read" ]
+    }
+
+    path "github/token/{{identity.entity.aliases.${auth/kubernetes/@accessor}.metadata.service_account_namespace}}" {
+      capabilities =  [ "read" ]
     }
 ---
 apiVersion: redhatcop.redhat.io/v1alpha1
