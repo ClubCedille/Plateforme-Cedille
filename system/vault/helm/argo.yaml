@@ -28,3 +28,8 @@ spec:
     server: "https://kubernetes.default.svc"
     namespace: vault
     project: platforme-cedille
+  ignoreDifferences:
+    - group: admissionregistration.k8s.io
+      kind: MutatingWebhookConfiguration
+      jsonPointers:
+      - /webhooks/0/clientConfig/caBundle
