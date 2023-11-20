@@ -22,7 +22,7 @@ spec:
         valueFiles:
           - $values/system/vault/helm/vault-config-operator.values.yaml
     - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
-      targetRevision: HEAD
+      targetRevision: master
       ref: values
   destination:
     server: "https://kubernetes.default.svc"
