@@ -194,6 +194,14 @@ configs:
             clientSecret: $dex-secret:dex.github.clientSecret
             orgs:
             - name: ClubCedille
+    
+    resource.customizations: |
+      networking.k8s.io/Ingress:
+        health.lua: |
+          hs = {}
+          hs.status = "Healthy"
+          hs.message = "Skipping validation"
+          return hs
 
     # OIDC configuration as an alternative to dex (optional).
     # oidc.config: |
