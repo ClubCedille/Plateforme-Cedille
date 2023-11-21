@@ -34,7 +34,7 @@ spec:
           local_repository: null
           repository: 'https://github.com/ClubCedille/grav-sync-example.git'
           no_user: '1'
-          user: null
+          user: x-access-token
           password: {{ .Data.token }}
           webhook_enabled: '0'
           branch: main
