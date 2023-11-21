@@ -5,3 +5,4 @@ rm -rf ./pixie_yamls
 px deploy --extract_yaml ./ --deploy_key FAKE_KEY --pem_memory_limit=3Gi
 tar -xvf yamls.tar
 rm -f yamls.tar
+echo "go to pixie_yamls/06_vizier.yaml and change the FAKE_KEY to use customDeployKeySecret instead."

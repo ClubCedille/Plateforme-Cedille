@@ -14,15 +14,9 @@ spec:
   project: default
   sources:
     - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
-      path: system/pixie/resources
-      targetRevision: master
-    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
       path: system/pixie/resources/pixie_yamls
       targetRevision: master
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true
+    - CreateNamespace=false
     - Replace=true
-    managedNamespaceMetadata:
-      labels:
-        pod-security.kubernetes.io/enforce: privileged
