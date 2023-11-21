@@ -33,7 +33,7 @@ spec:
             cron_at: '*/10 * * * *'
           local_repository: null
           repository: 'https://github.com/ClubCedille/grav-sync-example.git'
-          no_user: '1'
+          no_user: '0'
           user: x-access-token
           password: {{ .Data.token }}
           webhook_enabled: '0'
