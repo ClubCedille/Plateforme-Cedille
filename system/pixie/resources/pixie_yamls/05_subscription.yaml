@@ -1,0 +1,11 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: pixie-operator-subscription
+  namespace: px-operator
+spec:
+  channel: stable
+  name: pixie-operator
+  source: pixie-operator-index
+  sourceNamespace: px-operator
+  installPlanApproval: Automatic
