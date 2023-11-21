@@ -5,9 +5,5 @@ resources:
   - ../base
   - ingress.yaml
 
-patches:
-  - path: patch.yaml
-  
-  
-
-# Define common and environment-specific configuration here
+# patches:
+#   - path: patch.yaml

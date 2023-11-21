@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gateway-api
+  namespace: argocd
+  argocd.argoproj.io/sync-wave: "0"
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/ClubCedille/Plateforme-Cedille
+      path: system/gateway-api/gateway-api-resources
+      targetRevision: HEAD
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: gateway-system
+    project: platforme-cedille
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true

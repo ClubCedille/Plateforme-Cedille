@@ -1,0 +1,8 @@
+namespace: vault
+
+resources:
+- password-generation.yaml
+- policies.yaml
+- roles.yaml
+- kv-secret-engine.yaml
+- gh-secret-engine.yaml

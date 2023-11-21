@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: grav-demo
+  name: grav-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grav-demo
+  template:
+    metadata:
+      labels:
+        app: grav-demo
+    spec:
+      initContainers:
+      - name: post-init-task
+        image: clubcedille/grav-init:0.0.1
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: grav-storage
+          mountPath: /var/www/html
+      containers:
+      - name: grav-demo
+        image: clubcedille/grav:0.0.4
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: grav-storage
+          mountPath: /var/www/html
+        # TODO add readinessProbe once we have the admin configuration as code for grav
+        # readinessProbe:
+        #   httpGet:
+        #     path: /
+        #     port: 80
+        #   initialDelaySeconds: 10
+        #   periodSeconds: 5
+      volumes:
+      - name: grav-storage
+        persistentVolumeClaim:
+          claimName: grav-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: grav-pvc
+spec:
+  accessModes:
+    - "ReadWriteOnce"
+  resources:
+    requests:
+      storage: "1G"
