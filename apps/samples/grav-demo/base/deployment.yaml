@@ -54,7 +54,7 @@ spec:
     spec:
       initContainers:
       - name: post-init-task
-        image: ghcr.io/clubcedille/grav:0.0.1
+        image: clubcedille/grav-init:0.0.1
         imagePullPolicy: Always
         volumeMounts:
         - name: grav-storage
