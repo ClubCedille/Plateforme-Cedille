@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  name: vcluster-sandbox
+  namespace: argocd
+spec:
+  destination:
+    namespace: vcluster-sandbox
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+    - chart: vcluster
+      helm:
+        releaseName: vcluster-sandbox
+        valueFiles:
+        - $values/system/vcluster/helm/common-values.yaml
+      repoURL: https://charts.loft.sh
+      targetRevision: 0.16.4
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

@@ -8,9 +8,10 @@ resources:
   - ../../system/grafana/
   - ../../system/clickhouse/
   - ../../system/cert-manager/
+  - ../../system/vcluster/
   - ../../system/argocd/
   - ../../system/secret-store-csi/
-  - ../../system/opentelemetry-operator/
+  - ../../system/opentelemetry/
   - ../../system/gateway-api/
   - ../../system/kubevirt/
   - ../../system/kuma/
