@@ -53,27 +53,34 @@ spec:
           {{- end }}
         vault.hashicorp.com/role: 'secret-reader'
     spec:
-      initContainers:
-      - name: post-init-task
-        image: ghcr.io/clubcedille/init-grav:0.0.1
+      # initContainers:
+      # - name: post-init-task
+      #   image: ghcr.io/clubcedille/init-grav:0.0.1
+      #   imagePullPolicy: Always
+      #   securityContext:
+      #     runAsUser: 33
+      #   env:
+      #   - name: GIT_VAULT_SECRET
+      #     value: gitsync
+      #   volumeMounts:
+      #   - name: grav-storage
+      #     mountPath: /var/www/html
+      containers:
+      - name: grav-demo
+        image: ghcr.io/clubcedille/grav:0.0.3
         imagePullPolicy: Always
-        securityContext:
-          runAsUser: 33
         env:
         - name: GIT_VAULT_SECRET
           value: gitsync
-        volumeMounts:
-        - name: grav-storage
-          mountPath: /var/www/html
-      containers:
-      - name: grav-demo
-        image: ghcr.io/clubcedille/grav:0.0.2
-        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         volumeMounts:
         - name: grav-storage
           mountPath: /var/www/html
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh", "/init.sh"]
         # TODO add readinessProbe once we have the admin configuration as code for grav
         # readinessProbe:
         #   httpGet:
