@@ -37,7 +37,7 @@ spec:
           user: x-access-token
           password: {{ .Data.token }}
           webhook_enabled: '0'
-          branch: main
+          branch: master
           remote:
             name: origin
             branch: master
@@ -67,7 +67,7 @@ spec:
       #     mountPath: /var/www/html
       containers:
       - name: grav-demo
-        image: ghcr.io/clubcedille/grav:0.0.3
+        image: ghcr.io/clubcedille/grav:0.0.4
         imagePullPolicy: Always
         env:
         - name: GIT_VAULT_SECRET
