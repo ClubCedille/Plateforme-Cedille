@@ -57,6 +57,7 @@ spec:
       - name: post-init-task
         image: ghcr.io/clubcedille/init-grav:0.0.1
         imagePullPolicy: Always
+        user: www-data
         env:
         - name: GIT_VAULT_SECRET
           value: gitsync
