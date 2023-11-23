@@ -16,8 +16,8 @@ spec:
       annotations:
         vault.hashicorp.com/tls-skip-verify: 'true'
         vault.hashicorp.com/agent-inject: 'true'
-        vault.hashicorp.com/agent-inject-secret-grav: 'github/token/grav-demo'
-        vault.hashicorp.com/agent-inject-template-grav: |
+        vault.hashicorp.com/agent-inject-secret-gitsync: 'github/token/grav-demo'
+        vault.hashicorp.com/agent-inject-template-gitsync: |
           {{- with secret "github/token/grav-demo" -}}
           enabled: true
           folders:
@@ -55,14 +55,17 @@ spec:
     spec:
       initContainers:
       - name: post-init-task
-        image: clubcedille/grav-init:0.0.1
+        image: ghcr.io/clubcedille/init-grav:0.0.1
         imagePullPolicy: Always
+        env:
+        - name: GIT_VAULT_SECRET
+          value: gitsync
         volumeMounts:
         - name: grav-storage
           mountPath: /var/www/html
       containers:
       - name: grav-demo
-        image: clubcedille/grav:0.0.4
+        image: ghcr.io/clubcedille/grav:0.0.1
         imagePullPolicy: Always
         ports:
         - containerPort: 80
