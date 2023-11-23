@@ -88,6 +88,10 @@ spec:
         #     port: 80
         #   initialDelaySeconds: 10
         #   periodSeconds: 5
+      securityContext:
+        runAsUser: 33
+        runAsGroup: 33
+        fsGroup: 33
       volumes:
       - name: grav-storage
         persistentVolumeClaim:
