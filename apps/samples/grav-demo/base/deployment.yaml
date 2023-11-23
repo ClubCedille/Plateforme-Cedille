@@ -65,10 +65,10 @@ spec:
           mountPath: /var/www/html
       containers:
       - name: grav-demo
-        image: ghcr.io/clubcedille/grav:0.0.1
+        image: ghcr.io/clubcedille/grav:0.0.2
         imagePullPolicy: Always
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         volumeMounts:
         - name: grav-storage
           mountPath: /var/www/html
