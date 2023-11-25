@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calidum-rotae-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: calidum-rotae-service
+  template:
+    metadata:
+      labels:
+        app: calidum-rotae-service
+      annotations:
+        vault.hashicorp.com/agent-inject: 'true'
+        vault.hashicorp.com/tls-skip-verify: 'true'
+        vault.hashicorp.com/role: 'secret-reader'
+        vault.hashicorp.com/agent-inject-template-calidum-rotae-service-env: |
+          {{- with secret "kv/calidum-rotae/default/calidum-rotae-service-env" -}}
+            export CALIDUM_ROTAE_SERVICE_API_KEY="{{ .Data.data.calidum_rotae_service_api_key }}"
+          {{- end }}
+    spec:
+      containers:
+      - name: calidum-rotae-service
+        image: ghcr.io/clubcedille/calidum-rotae:0.0.1
+        command:
+          ['sh', '-c']
+        args:
+          ['source /vault/secrets/config && calidum_rotae_service']
+        ports:
+        - containerPort: 3000
+        env:
+        - name: CALIDUM_ROTAE_SERVICE_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: calidum-rotae-service-secret
+              key: CALIDUM_ROTAE_SERVICE_API_KEY
