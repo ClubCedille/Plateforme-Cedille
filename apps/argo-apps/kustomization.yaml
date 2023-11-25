@@ -10,12 +10,12 @@ resources:
   - ../../system/cert-manager/
   - ../../system/argocd/
   - ../../system/secret-store-csi/
-  - ../../system/opentelemetry/
+  - ../../system/opentelemetry-operator/
   - ../../system/gateway-api/
   - ../../system/kubevirt/
   - ../../system/kuma/
   - ../../system/merbridge/
-  # - ../../system/pixie/
+  #- ../../system/pixie/
   # Workload
   - ../samples/kustomize-example-app/
   - ../samples/opentelemetry-demo/

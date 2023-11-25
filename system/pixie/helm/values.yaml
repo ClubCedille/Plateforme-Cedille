@@ -72,4 +72,3 @@ pod:
 # Currently, only a JSON format is accepted, such as:
 # `{"spec": {"template": {"spec": { "tolerations": [{"key": "test", "operator": "Exists", "effect": "NoExecute" }]}}}}`
 patches: {}
-

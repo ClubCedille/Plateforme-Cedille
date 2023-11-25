@@ -1,0 +1,15 @@
+apiVersion: px.dev/v1alpha1
+kind: Vizier
+metadata:
+  name: pixie
+  namespace: pl
+spec:
+  version: 0.14.7
+  customDeployKeySecret: px-deploy-key
+  cloudAddr: withpixie.ai:443
+  disableAutoUpdate: false
+  useEtcdOperator: false
+  clusterName: cedille-cedille-cluster
+  pemMemoryLimit: 3Gi
+  dataAccess: Full
+  dataCollectorParams:

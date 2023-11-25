@@ -4,44 +4,6 @@ metadata:
   labels:
     app: grav-demo
   name: grav-demo
-  annotations:
-    vault.hashicorp.com/agent-inject: 'true'
-    vault.hashicorp.com/agent-inject-secret-grav: 'github/token/grav-demo'
-    vault.hashicorp.com/agent-inject-template-grav: |
-      {{- with secret "github/token/grav-demo" -}}
-      enabled: true
-      folders:
-        - pages
-        - plugins
-        - themes
-      SyncNotice: null
-      sync:
-        on_save: true
-        on_delete: true
-        on_media: true
-        cron_enable: true
-        cron_at: '*/10 * * * *'
-      local_repository: null
-      repository: 'https://github.com/ClubCedille/grav-sync-example.git'
-      no_user: '1'
-      user: null
-      password: {{ .Data.token }}
-      webhook_enabled: '0'
-      branch: main
-      remote:
-        name: origin
-        branch: master
-      git:
-        author: gitsync
-        message: '(Grav GitSync) Automatic Commit'
-        name: GitSync
-        email: git-sync@trilby.media
-        bin: git
-        ignore: null
-        private_key: null
-      logging: false
-      {{- end }}
-    vault.hashicorp.com/role: 'secret-reader'
 spec:
   replicas: 1
   selector:
@@ -51,23 +13,74 @@ spec:
     metadata:
       labels:
         app: grav-demo
+      annotations:
+        vault.hashicorp.com/tls-skip-verify: 'true'
+        vault.hashicorp.com/agent-inject: 'true'
+        vault.hashicorp.com/agent-inject-secret-gitsync: 'github/token/grav-demo'
+        vault.hashicorp.com/agent-inject-template-gitsync: |
+          {{- with secret "github/token/grav-demo" -}}
+          enabled: true
+          folders:
+            - pages
+            - plugins
+            - themes
+          SyncNotice: null
+          sync:
+            on_save: true
+            on_delete: true
+            on_media: true
+            cron_enable: true
+            cron_at: '*/10 * * * *'
+          local_repository: null
+          repository: 'https://github.com/ClubCedille/grav-sync-example.git'
+          no_user: '0'
+          user: x-access-token
+          password: {{ .Data.token }}
+          webhook_enabled: '0'
+          branch: master
+          remote:
+            name: origin
+            branch: master
+          git:
+            author: gitsync
+            message: '(Grav GitSync) Automatic Commit'
+            name: GitSync
+            email: git-sync@trilby.media
+            bin: git
+            ignore: null
+            private_key: null
+          logging: true
+          {{- end }}
+        vault.hashicorp.com/role: 'secret-reader'
     spec:
-      initContainers:
-      - name: post-init-task
-        image: ghcr.io/clubcedille/grav:0.0.1
-        imagePullPolicy: Always
-        volumeMounts:
-        - name: grav-storage
-          mountPath: /var/www/html
+      # initContainers:
+      # - name: post-init-task
+      #   image: ghcr.io/clubcedille/init-grav:0.0.1
+      #   imagePullPolicy: Always
+      #   securityContext:
+      #     runAsUser: 33
+      #   env:
+      #   - name: GIT_VAULT_SECRET
+      #     value: gitsync
+      #   volumeMounts:
+      #   - name: grav-storage
+      #     mountPath: /var/www/html
       containers:
       - name: grav-demo
-        image: clubcedille/grav:0.0.4
+        image: ghcr.io/clubcedille/grav:0.0.4
         imagePullPolicy: Always
+        env:
+        - name: GIT_VAULT_SECRET
+          value: gitsync
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         volumeMounts:
         - name: grav-storage
           mountPath: /var/www/html
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh", "/init.sh"]
         # TODO add readinessProbe once we have the admin configuration as code for grav
         # readinessProbe:
         #   httpGet:
@@ -75,6 +88,10 @@ spec:
         #     port: 80
         #   initialDelaySeconds: 10
         #   periodSeconds: 5
+      securityContext:
+        runAsUser: 33
+        runAsGroup: 33
+        fsGroup: 33
       volumes:
       - name: grav-storage
         persistentVolumeClaim:

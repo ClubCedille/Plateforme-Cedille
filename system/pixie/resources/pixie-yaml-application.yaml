@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  name: pixie-yaml
+  namespace: argocd
+spec:
+  destination:
+    namespace: pl
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      path: system/pixie/resources/pixie_yamls
+      targetRevision: master
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=false
+    - Replace=true
