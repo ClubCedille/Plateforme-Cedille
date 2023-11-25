@@ -17,7 +17,7 @@ spec:
         vault.hashicorp.com/tls-skip-verify: 'true'
         vault.hashicorp.com/agent-inject: 'true'
         vault.hashicorp.com/agent-inject-template-salt: |
-          {{- with secret "kv-system/default_password/grav" }}
+          {{- with secret "kv-system/default_passwords/grav" }}
           salt: {{ .Data.salt }}
           {{- end }}
         vault.hashicorp.com/agent-inject-template-admin_pwd: |
