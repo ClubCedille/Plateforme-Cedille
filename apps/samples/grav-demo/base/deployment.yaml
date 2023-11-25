@@ -13,76 +13,7 @@ spec:
     metadata:
       labels:
         app: grav-demo
-      annotations:
-        vault.hashicorp.com/tls-skip-verify: 'true'
-        vault.hashicorp.com/agent-inject: 'true'
-        vault.hashicorp.com/agent-inject-template-salt: |
-          {{- with secret "kv-system/default_password/grav" }}
-          salt: {{ .Data.salt }}
-          {{- end }}
-        vault.hashicorp.com/agent-inject-template-admin_pwd: |
-          {{- with secret "kv-system/default_passwords/grav" }}
-          state: enabled
-          email: admin@cedille.club
-          fullname: admin
-          title: Administrator
-          access:
-            admin:
-              login: true
-              super: true
-            site:
-              login: true
-          password: {{ .Data.password }}
-          {{- end }}
-        vault.hashicorp.com/agent-inject-template-gitsync: |
-          {{- with secret "github/token/grav-demo" -}}
-          enabled: true
-          folders:
-            - pages
-            - plugins
-            - themes
-            - config
-          SyncNotice: null
-          sync:
-            on_save: true
-            on_delete: true
-            on_media: true
-            cron_enable: true
-            cron_at: '*/10 * * * *'
-          local_repository: null
-          repository: 'https://github.com/ClubCedille/grav-sync-example.git'
-          no_user: '0'
-          user: x-access-token
-          password: {{ .Data.token }}
-          webhook_enabled: '0'
-          branch: master
-          remote:
-            name: origin
-            branch: master
-          git:
-            author: gitsync
-            message: '(Grav GitSync) Automatic Commit'
-            name: GitSync
-            email: git-sync@trilby.media
-            bin: git
-            ignore: null
-            private_key: null
-          logging: true
-          {{- end }}
-        vault.hashicorp.com/role: 'secret-reader'
     spec:
-      # initContainers:
-      # - name: post-init-task
-      #   image: ghcr.io/clubcedille/init-grav:0.0.1
-      #   imagePullPolicy: Always
-      #   securityContext:
-      #     runAsUser: 33
-      #   env:
-      #   - name: GIT_VAULT_SECRET
-      #     value: gitsync
-      #   volumeMounts:
-      #   - name: grav-storage
-      #     mountPath: /var/www/html
       containers:
       - name: grav-demo
         image: ghcr.io/clubcedille/grav:0.0.7
@@ -94,8 +25,6 @@ spec:
           value: admin_pwd
         - name: HEAD_BRANCH
           value: master
-        - name: DEFAULT_THEME
-          value: gateway
         ports:
         - containerPort: 8080
         volumeMounts:
@@ -103,17 +32,6 @@ spec:
           mountPath: /var/www/html/user/accounts
         - name: grav-data
           mountPath: /var/www/html/user/data
-        # lifecycle:
-        #   postStart:
-        #     exec:
-        #       command: ["/bin/sh", "/init.sh"]
-        # TODO add readinessProbe once we have the admin configuration as code for grav
-        # readinessProbe:
-        #   httpGet:
-        #     path: /
-        #     port: 80
-        #   initialDelaySeconds: 10
-        #   periodSeconds: 5
       # group 33 is www-data
       securityContext:
         runAsUser: 33
@@ -151,4 +69,3 @@ spec:
   resources:
     requests:
       storage: "10Mi"
----
