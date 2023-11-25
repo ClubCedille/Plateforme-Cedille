@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   # System
+  - ../../system/mayastor/
   - ../../system/crossplane/
   - ../../system/vault/
   - ../../system/grafana/

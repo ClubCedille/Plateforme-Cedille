@@ -30,11 +30,9 @@ spec:
   destination:
     namespace: mayastor
   source:
-    chart: metallb
-    repoURL: https://openebs.github.io/mayastor-extensions/
-    targetRevision: 2.4.0
-    helm:
-      releaseName: mayastor
+    repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+    path: system/mayastor/resources
+    targetRevision: HEAD
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
