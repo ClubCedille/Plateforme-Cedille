@@ -1,13 +1,13 @@
 vcluster:
   image: rancher/k3s:v1.23.5-k3s1
-sync:
-  persistentvolumes:
-    enabled: true
-  storageclasses:
-    enabled: true
-  ingresses:
-    enabled: true
-  ingressclasses:
-    enabled: true
-  volumeSnapshots:
-    enabled: true
+# sync:
+#   persistentvolumes:
+#     enabled: true
+#   storageclasses:
+#     enabled: true
+#   ingresses:
+#     enabled: true
+#   ingressclasses:
+#     enabled: true
+#   volumeSnapshots:
+#     enabled: true
