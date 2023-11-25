@@ -26,7 +26,7 @@ spec:
         command:
           ['sh', '-c']
         args:
-          ['source /vault/secrets/email-provider-env && /email-provider']
+          ['source /vault/secrets/email-provider-env && /email-provider --port 4000']
         ports:
         - containerPort: 4000
         envFrom:
