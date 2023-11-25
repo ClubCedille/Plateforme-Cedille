@@ -67,20 +67,22 @@ spec:
       #     mountPath: /var/www/html
       containers:
       - name: grav-demo
-        image: ghcr.io/clubcedille/grav:0.0.4
+        image: ghcr.io/clubcedille/grav:0.0.5
         imagePullPolicy: Always
         env:
         - name: GIT_VAULT_SECRET
           value: gitsync
+        - name: HEAD_BRANCH
+          value: master
         ports:
         - containerPort: 8080
         volumeMounts:
         - name: grav-storage
-          mountPath: /var/www/html
-        lifecycle:
-          postStart:
-            exec:
-              command: ["/bin/sh", "/init.sh"]
+          mountPath: /var/www/html/user
+        # lifecycle:
+        #   postStart:
+        #     exec:
+        #       command: ["/bin/sh", "/init.sh"]
         # TODO add readinessProbe once we have the admin configuration as code for grav
         # readinessProbe:
         #   httpGet:
@@ -88,6 +90,7 @@ spec:
         #     port: 80
         #   initialDelaySeconds: 10
         #   periodSeconds: 5
+      # group 33 is www-data
       securityContext:
         runAsUser: 33
         runAsGroup: 33
