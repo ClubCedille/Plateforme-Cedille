@@ -16,7 +16,10 @@ spec:
       annotations:
         vault.hashicorp.com/tls-skip-verify: 'true'
         vault.hashicorp.com/agent-inject: 'true'
-        vault.hashicorp.com/agent-inject-secret-admin_pwd: 'github/token/grav-demo'
+        vault.hashicorp.com/agent-inject-template-salt: |
+          {{- with secret "kv-system/default_password/grav" }}
+          salt: {{ .Data.salt }}
+          {{- end }}
         vault.hashicorp.com/agent-inject-template-admin_pwd: |
           {{- with secret "kv-system/default_passwords/grav" }}
           state: enabled
@@ -31,7 +34,6 @@ spec:
               login: true
           password: {{ .Data.password }}
           {{- end }}
-        vault.hashicorp.com/agent-inject-secret-gitsync: 'github/token/grav-demo'
         vault.hashicorp.com/agent-inject-template-gitsync: |
           {{- with secret "github/token/grav-demo" -}}
           enabled: true
@@ -39,6 +41,7 @@ spec:
             - pages
             - plugins
             - themes
+            - config
           SyncNotice: null
           sync:
             on_save: true
@@ -98,8 +101,6 @@ spec:
         volumeMounts:
         - name: grav-accounts
           mountPath: /var/www/html/user/accounts
-        - name: grav-configs
-          mountPath: /var/www/html/user/config
         - name: grav-data
           mountPath: /var/www/html/user/data
         # lifecycle:
@@ -133,17 +134,6 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: grav-accounts-pvc
-spec:
-  accessModes:
-    - "ReadWriteOnce"
-  resources:
-    requests:
-      storage: "10Mi"
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: grav-configs-pvc
 spec:
   accessModes:
     - "ReadWriteOnce"
