@@ -34,7 +34,7 @@ spec:
       capabilities =  [ "read" ]
     }
 
-    path "kv-system/data/default_passwords/*" {
+    path "kv-system/default_passwords/*" {
       capabilities = [ "read" ]
     }
 ---
