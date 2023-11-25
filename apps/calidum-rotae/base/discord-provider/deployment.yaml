@@ -29,9 +29,3 @@ spec:
           ['source /vault/secrets/config && discord_provider']
         ports:
         - containerPort: 5000
-        env:
-        - name: DISCORD_WEBHOOK_URL
-          valueFrom:
-            secretKeyRef:
-              name: discord-provider-secret
-              key: DISCORD_WEBHOOK_URL

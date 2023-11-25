@@ -22,16 +22,10 @@ spec:
     spec:
       containers:
       - name: calidum-rotae-service
-        image: ghcr.io/clubcedille/calidum-rotae:0.0.1
+        image: ghcr.io/clubcedille/calidum-rotae-service:0.0.1
         command:
           ['sh', '-c']
         args:
           ['source /vault/secrets/config && calidum_rotae_service']
         ports:
         - containerPort: 3000
-        env:
-        - name: CALIDUM_ROTAE_SERVICE_API_KEY
-          valueFrom:
-            secretKeyRef:
-              name: calidum-rotae-service-secret
-              key: CALIDUM_ROTAE_SERVICE_API_KEY
