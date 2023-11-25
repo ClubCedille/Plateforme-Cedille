@@ -26,6 +26,6 @@ spec:
         command:
           ['sh', '-c']
         args:
-          ['source /vault/secrets/config && calidum_rotae_service']
+          ['source /vault/secrets/calidum-rotae-service-env && /calidum_rotae_service']
         ports:
         - containerPort: 3000
