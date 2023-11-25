@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: email-provider
-        image: ghcr.io/clubcedille/calidum-rotae-email-provider:0.0.1
+        image: ghcr.io/clubcedille/email-provider:0.0.1
         command:
           ['sh', '-c']
         args:

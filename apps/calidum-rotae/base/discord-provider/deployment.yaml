@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: discord-provider
-        image: ghcr.io/clubcedille/calidum-rotae-discord-provider:0.0.1
+        image: ghcr.io/clubcedille/discord-provider:0.0.1
         command:
           ['sh', '-c']
         args:
