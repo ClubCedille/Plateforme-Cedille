@@ -16,3 +16,5 @@ RUN curl -sSL $GRAV_SKELETON_URL -o zip && \
     mv grav-skeleton-gateway-site grav && \
     chown -R www-data:www-data grav
 
+RUN ln -s /vault/secrets/grav /var/www/html/user/config/plugins/git-sync.yaml
+
