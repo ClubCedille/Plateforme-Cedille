@@ -16,6 +16,21 @@ spec:
       annotations:
         vault.hashicorp.com/tls-skip-verify: 'true'
         vault.hashicorp.com/agent-inject: 'true'
+        vault.hashicorp.com/agent-inject-secret-admin_pwd: 'github/token/grav-demo'
+        vault.hashicorp.com/agent-inject-template-admin_pwd: |
+          {{- with secret "kv-system/default_passwords/grav" }}
+          state: enabled
+          email: admin@cedille.club
+          fullname: admin
+          title: Administrator
+          access:
+            admin:
+              login: true
+              super: true
+            site:
+              login: true
+          password: {{ .Data.password }}
+          {{- end }}
         vault.hashicorp.com/agent-inject-secret-gitsync: 'github/token/grav-demo'
         vault.hashicorp.com/agent-inject-template-gitsync: |
           {{- with secret "github/token/grav-demo" -}}
@@ -67,18 +82,24 @@ spec:
       #     mountPath: /var/www/html
       containers:
       - name: grav-demo
-        image: ghcr.io/clubcedille/grav:0.0.5
+        image: ghcr.io/clubcedille/grav:0.0.6
         imagePullPolicy: Always
         env:
         - name: GIT_VAULT_SECRET
           value: gitsync
+        - name: ADMIN_VAULT_SECRET
+          value: admin_pwd
         - name: HEAD_BRANCH
           value: master
         ports:
         - containerPort: 8080
         volumeMounts:
-        - name: grav-storage
-          mountPath: /var/www/html/user
+        - name: grav-accounts
+          mountPath: /var/www/html/user/accounts
+        - name: grav-configs
+          mountPath: /var/www/html/user/config
+        - name: grav-data
+          mountPath: /var/www/html/user/data
         # lifecycle:
         #   postStart:
         #     exec:
@@ -96,17 +117,46 @@ spec:
         runAsGroup: 33
         fsGroup: 33
       volumes:
-      - name: grav-storage
+      - name: grav-accounts
         persistentVolumeClaim:
-          claimName: grav-pvc
+          claimName: grav-accounts-pvc
+      - name: grav-configs
+        persistentVolumeClaim:
+          claimName: grav-configs-pvc
+      - name: grav-data
+        persistentVolumeClaim:
+          claimName: grav-data-pvc
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: grav-pvc
+  name: grav-accounts-pvc
 spec:
   accessModes:
     - "ReadWriteOnce"
   resources:
     requests:
-      storage: "1G"
+      storage: "10Mi"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: grav-configs-pvc
+spec:
+  accessModes:
+    - "ReadWriteOnce"
+  resources:
+    requests:
+      storage: "10Mi"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: grav-data-pvc
+spec:
+  accessModes:
+    - "ReadWriteOnce"
+  resources:
+    requests:
+      storage: "10Mi"
+---
