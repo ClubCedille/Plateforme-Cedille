@@ -33,6 +33,10 @@ spec:
     path "github/token/{{identity.entity.aliases.${auth/kubernetes/@accessor}.metadata.service_account_namespace}}" {
       capabilities =  [ "read" ]
     }
+
+    path "kv-system/data/default_passwords/*" {
+      capabilities = [ "read" ]
+    }
 ---
 apiVersion: redhatcop.redhat.io/v1alpha1
 kind: Policy
