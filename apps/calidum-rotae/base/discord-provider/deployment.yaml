@@ -26,6 +26,6 @@ spec:
         command:
           ['sh', '-c']
         args:
-          ['source /vault/secrets/config && discord_provider']
+          ['source /vault/secrets/discord-provider-env && /discord_provider']
         ports:
         - containerPort: 5000
