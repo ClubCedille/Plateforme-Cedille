@@ -55,10 +55,10 @@ spec:
           user: x-access-token
           password: {{ .Data.token }}
           webhook_enabled: '0'
-          branch: master
+          branch: test
           remote:
             name: origin
-            branch: master
+            branch: test
           git:
             author: gitsync
             message: '(Grav GitSync) Automatic Commit'
@@ -93,7 +93,7 @@ spec:
         - name: ADMIN_VAULT_SECRET
           value: admin_pwd
         - name: HEAD_BRANCH
-          value: master
+          value: test
         - name: DEFAULT_THEME
           value: gateway
         ports:
