@@ -5,6 +5,7 @@ metadata:
 spec:
   selector:
     app: discord-provider
+  clusterIP: None
   ports:
     - protocol: TCP
       port: 5000
