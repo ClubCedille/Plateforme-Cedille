@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: calidum-rotae-service
-        image: ghcr.io/clubcedille/calidum-rotae-service:0.0.2
+        image: ghcr.io/clubcedille/calidum-rotae-service:0.0.3
         command:
           ['/bin/sh', '-c', 'source /vault/secrets/calidum-rotae-service-env && /calidum_rotae_service --port 3000 --discord_provider_hostname discord-provider-service --discord_provider_port 5000 --email_provider_hostname email-provider-service --email_provider_port 4000 --enable_otel_tracing true --otel_otlp_exporter_host opentelemetry-collector-collector-headless.opentelemetry-collector.svc.cluster.local  --otel_otlp_exporter_port 4318']
         ports:
