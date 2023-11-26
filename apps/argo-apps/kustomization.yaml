@@ -21,6 +21,7 @@ resources:
   - ../samples/kustomize-example-app/
   - ../samples/opentelemetry-demo/
   - ../samples/grav-demo/
+  - ../calidum-rotae/
   # ... other apps ...
 
 patches:
