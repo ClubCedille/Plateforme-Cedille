@@ -8,7 +8,7 @@ resources:
   - ../../system/grafana/
   - ../../system/clickhouse/
   - ../../system/cert-manager/
-  - ../../system/vcluster/
+  # - ../../system/vcluster/
   - ../../system/argocd/
   - ../../system/secret-store-csi/
   - ../../system/opentelemetry-operator/
