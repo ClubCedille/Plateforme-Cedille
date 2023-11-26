@@ -24,7 +24,7 @@ spec:
       - name: email-provider
         image: ghcr.io/clubcedille/email-provider:0.0.4
         command:
-          ['/bin/sh', '-c', 'source /vault/secrets/email-provider-env && /email-provider --port 4000']
+          ['/bin/sh', '-c', 'source /vault/secrets/email-provider-env && /email_provider --port 4000']
         ports:
         - containerPort: 4000
         envFrom:
