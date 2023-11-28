@@ -25,7 +25,7 @@ env:
 
 jobs:
     create_pr:
-        runs-on: ubuntu:latest
+        runs-on: ubuntu-latest
         # env: 
         #     j2_vars: |
         #         deployment_name=${{env.nom_club}}
