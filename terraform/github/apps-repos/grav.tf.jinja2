@@ -1,0 +1,49 @@
+resource "github_repository" "repo_{{repo_name}}" {
+  name = "{{repo_name}}"
+  auto_init = true
+  homepage_url = "https://{{hostname}}"
+  security_and_analysis {
+    advanced_security {
+      status = "enabled"
+    }
+    secret_scanning_push_protection {
+      status = "enabled"
+    }
+  }
+  topics = [ "grav" ]
+  vulnerability_alerts = true
+  visibility = "public"
+}
+
+resource "github_repository_webhook" "webhook_{{repo_name}}" {
+  repository = github_repository.repo_{{repo_name}}.name
+
+  configuration {
+    url          = "https://{{hostname}}/_git_webhook"
+    content_type = "form"
+    insecure_ssl = false
+  }
+
+  active = true
+
+  events = ["push"]
+}
+
+resource "github_repository_dependabot_security_updates" "dependabot_{{repo_name}}" {
+  repository  = github_repository.repo_{{repo_name}}.name
+  enabled     = true
+}
+
+resource "github_repository_collaborators" "colaborators_{{repo_name}}" {
+  repository = github_repository.some_repo.name
+
+  user {
+    permission = "maintain"
+    username  = "{{requester}}"
+  }
+
+  team {
+    permission = "admin"
+    team_id = "sre"
+  }
+}
