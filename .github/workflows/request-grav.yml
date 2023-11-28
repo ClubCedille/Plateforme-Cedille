@@ -37,6 +37,8 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4
+            - name: Create folders
+              run: mkdir -p apps/${{env.nom_club}}/grav/prod
             - name: Create kustomize
               uses: cuchi/jinja2-action@v1.2.2
               with:
