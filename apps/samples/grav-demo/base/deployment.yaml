@@ -81,7 +81,7 @@ spec:
         - name: ADMIN_VAULT_SECRET
           value: admin_pwd
         - name: HEAD_BRANCH
-          value: master
+          value: test
         ports:
         - containerPort: 8080
         volumeMounts:
