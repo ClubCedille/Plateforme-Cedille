@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: calidum-rotae
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: calidum-rotae
+  source:
+    repoURL: https://github.com/ClubCedille/Plateforme-Cedille
+    path: apps/calidum-rotae/prod
+    targetRevision: HEAD 
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    - Replace=true
