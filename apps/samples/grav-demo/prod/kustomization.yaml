@@ -5,5 +5,8 @@ resources:
   - ../base
   - ingress.yaml
 
+patches:
+  - path: vault-patch.yaml
+
 # patches:
 #   - path: patch.yaml
