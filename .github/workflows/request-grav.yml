@@ -14,12 +14,7 @@ on:
                 type: string
                 required: false
                 description: Contexte sur la demande
-
-env:
-    domaine: grav.omni.cedille.club
-    nom_club: demo
-    contexte: Hello World
-
+                
 jobs:
     create_pr:
         runs-on: ubuntu-latest
