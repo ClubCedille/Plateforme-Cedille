@@ -40,7 +40,7 @@ ingress:
               port:
                 number: 8545
   # -- Ingress TLS
-  tls: []
+  tls:
     - secretName: ganache-tls
       hosts:
         - ganache.omni.cedille.club
