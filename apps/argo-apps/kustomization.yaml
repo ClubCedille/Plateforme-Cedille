@@ -23,6 +23,7 @@ resources:
   - ../samples/grav-demo/
   - ../calidum-rotae/
   - ../ganache/
+  - ../blockscout/
   # ... other apps ...
 
 patches:
