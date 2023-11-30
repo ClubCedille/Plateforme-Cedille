@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/sync-wave: "2"
   finalizers:
   - resources-finalizer.argocd.argoproj.io
   name: ganache
@@ -23,6 +23,12 @@ spec:
     - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
       targetRevision: master
       ref: values
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      targetRevision: master
+      path: $values/apps/ganache/staging/ingress.yml
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      targetRevision: master
+      path: $values/apps/ganache/staging/pvc.yml
   syncPolicy:
     automated:
       selfHeal: true
