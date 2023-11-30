@@ -22,6 +22,7 @@ resources:
   - ../samples/opentelemetry-demo/
   - ../samples/grav-demo/
   - ../calidum-rotae/
+  - ../ganache/
   # ... other apps ...
 
 patches:
