@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: blockscout
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: 'https://blockscout.github.io/helm-charts'
+      chart: blockscout-stack
+      targetRevision: 1.3.3
+      helm:
+        releaseName: blockscout
+        valueFiles:
+        - $values/apps/blockscout/helm/blockscout-values.yaml
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      targetRevision: master
+      ref: values
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: blockscout
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true

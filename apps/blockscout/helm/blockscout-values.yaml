@@ -1,0 +1,306 @@
+# Default values for blockscout-stack.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+## Provide a name in place of blockscout-stack for `app:` labels
+##
+nameOverride: ""
+## Provide a name to substitute for the full names of resources
+##
+fullnameOverride: ""
+## Reference to one or more secrets to be used when pulling images
+## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+##
+imagePullSecrets: []
+## Blockscout configuration options. See frontend Docs
+## ref: https://github.com/blockscout/frontend/blob/main/docs/ENVS.md#blockchain-parameters
+##
+config:
+  network:
+    id: 1337
+    name: Ganache
+    shortname: Ganache
+    currency:
+      name: Ether
+      symbol: ETH
+      decimals: 18
+      # if network uses dual token model like gnosis (in most case it should be set to false)
+      dualToken: false
+  account:
+    enabled: false
+  testnet: true
+  ## If set to true will create service monitors for blockscout and stats
+  ##
+  prometheus:
+    enabled: false
+## Configuration options for backend
+##
+blockscout:
+  enabled: true
+  ## Currently only one replica is supported
+  ##
+  replicaCount: 1
+  ## Image parametes
+  ##
+  image:
+    repository: blockscout/blockscout
+    pullPolicy: IfNotPresent
+    tag: "latest"
+  ## Init container configuration (used to run DB migrations)
+  ##
+  init:
+    enabled: true
+    command:
+      - /bin/sh
+    args:
+      - -c
+      - bin/blockscout eval "Elixir.Explorer.ReleaseTasks.create_and_migrate()"
+  ## Blockscout ENV vars
+  ## ref: https://docs.blockscout.com/for-developers/information-and-settings/env-variables
+  ##
+  env: 
+    - ETHEREUM_JSONRPC_VARIANT: ganache
+    - ETHEREUM_JSONRPC_HTTP_URL: https://ganache.omni.cedille.club
+    - ETHEREUM_JSONRPC_TRACE_URL: https://ganache.omni.cedille.club
+    - CHAIN_ID: 1337
+    # NAME: VALUE
+  ## Set ENV vars via secret, this can be usefull for DB connection params, api keys, etc.
+  ##
+  envFromSecret: []
+    # NAME: VALUE
+  ## Command to start blockscout instance
+  ##
+  command:
+    - /bin/sh
+  args:
+    - -c
+    - bin/blockscout start
+  ## Annotations to add to blockscout pod
+  podAnnotations: {}
+
+  podSecurityContext: {}
+  ## SecurityContext holds pod-level security attributes and common container settings.
+  ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+  ##
+  securityContext: {}
+  terminationGracePeriodSeconds: 300
+  ## Liveness probe
+  ##
+  livenessProbe:
+    enabled: true
+    path: /api/v1/health/liveness
+    params:
+      initialDelaySeconds: 100
+      periodSeconds: 100
+      timeoutSeconds: 30
+  ## Readiness probe
+  ##
+  readinessProbe:
+    enabled: true
+    path: /api/v1/health/readiness
+    params:
+      initialDelaySeconds: 60
+      periodSeconds: 10
+      timeoutSeconds: 60
+
+  service:
+    type: ClusterIP
+    port: 80
+  ## Configure ingress resource that allow you to access the blockscout installation.
+  ## ref: http://kubernetes.io/docs/user-guide/ingress/
+  ##
+  ingress:
+    enabled: true
+    className: "contour"
+    annotations: {}
+    hostname: backend.blockscout.omni.cedille.club
+    tls:
+      enabled: false
+      #secretName:
+    paths:
+      - path: /api
+        pathType: Prefix
+      - path: /socket
+        pathType: Prefix
+      - path: /sitemap.xml
+        pathType: Prefix
+      - path: /auth/auth0
+        pathType: Exact
+      - path: /auth/auth0/callback
+        pathType: Exact
+      - path: /auth/logout
+        pathType: Exact
+
+  resources:
+    limits:
+      cpu: 1
+      memory: 2Gi
+    requests:
+      cpu: 500m
+      memory: 1Gi
+## Configuration options for frontend
+##
+frontend:
+  enabled: true
+  ## Image parametes
+  image:
+    repository: ghcr.io/blockscout/frontend
+    tag: latest
+    pullPolicy: IfNotPresent
+
+  replicaCount: 2
+  ## Annotations to add to frontend pod
+  ##
+  podAnnotations: {}
+
+  podSecurityContext: {}
+  ## SecurityContext holds pod-level security attributes and common container settings.
+  ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+  ##
+  securityContext: {}
+
+  service:
+    type: ClusterIP
+    port: 80
+  ## Configure ingress resource that allow you to access the frontend installation.
+  ## ref: http://kubernetes.io/docs/user-guide/ingress/
+  ##
+  ingress:
+    enabled: true
+    className: "contour"
+    annotations: {}
+    hostname: blockscout.omni.cedille.club
+    tls:
+      enabled: false
+      #secretName:
+    paths:
+      - path: /
+
+  resources:
+    limits:
+      memory: "1Gi"
+      cpu: "500m"
+    requests:
+      memory: "256Mi"
+      cpu: "250m"
+  ## Liveness probe
+  ##
+  livenessProbe:
+    enabled: true
+    path: /api/healthz
+    params:
+      initialDelaySeconds: 100
+      periodSeconds: 100
+      timeoutSeconds: 30
+  ## Readiness probe
+  ##
+  readinessProbe:
+    enabled: true
+    path: /api/healthz
+    params:
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      timeoutSeconds: 30
+  ## Frontend ENV vars
+  ## ref: https://github.com/blockscout/frontend/blob/main/docs/ENVS.md
+  ##
+  env: []
+    # NAME: VALUE
+  envFromSecret: []
+    # NAME: VALUE
+
+stats:
+  enabled: true
+  ## Image parametes
+  ##
+  image:
+    repository: ghcr.io/blockscout/stats
+    tag: latest
+    pullPolicy: IfNotPresent
+
+  replicasCount: 1
+  service:
+    type: ClusterIP
+    port: 80
+    metricsPort: 6060
+
+  podAnnotations: {}
+
+  podSecurityContext: {}
+
+  securityContext: {}
+
+  ## Configure ingress resource that allow you to access the stats installation.
+  ## ref: http://kubernetes.io/docs/user-guide/ingress/
+  ##
+  ingress:
+    enabled: true
+    className: "contour"
+    annotations: {}
+    hostname: stats.blockscout.omni.cedille.club
+    tls:
+      enabled: false
+      #secretName:
+    paths:
+      - path: /
+        pathType: Prefix
+
+  resources:
+    limits:
+      memory: "512Mi"
+      cpu: 250m
+    requests:
+      memory: 512Mi
+      cpu: 250m
+  ## Files to mount to stats pod
+  ##
+  files:
+    enabled: false
+    list: {}
+      # file.txt: |
+      #   test
+    mountPath: /tmp/path
+
+  ## Liveness probe
+  ##
+  livenessProbe:
+    enabled: false
+    path: /health
+    params:
+      initialDelaySeconds: 100
+      periodSeconds: 100
+      timeoutSeconds: 30
+  ## Readiness probe
+  ##
+  readinessProbe:
+    enabled: false
+    path: /health
+    params:
+      initialDelaySeconds: 60
+      periodSeconds: 10
+      timeoutSeconds: 60
+  ## Stats ENV vars
+  ## ref: https://github.com/blockscout/blockscout-rs/tree/main/stats#env
+  env: []
+    # NAME: VALUE
+  envFromSecret: []
+    # NAME: VALUE
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+## Node labels for blockscout-stack pod assignment
+## Ref: https://kubernetes.io/docs/user-guide/node-selection/
+##
+nodeSelector: {}
+
+tolerations: []
+
+## Affinity for pod assignment
+## Ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
+##
+affinity: {}
