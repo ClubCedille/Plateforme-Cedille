@@ -20,6 +20,15 @@ spec:
         - $values/apps/ganache/staging/helm/ganache-helm-values.yml
       repoURL: https://ethpandaops.github.io/ethereum-helm-charts
       targetRevision: 0.1.2
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      targetRevision: master
+      ref: values
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      targetRevision: master
+      path: apps/ganache/staging/pvc.yml
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      targetRevision: master
+      path: apps/ganache/staging/ingress.yml
   syncPolicy:
     automated:
       selfHeal: true

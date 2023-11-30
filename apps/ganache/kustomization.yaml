@@ -3,4 +3,3 @@ kind: Kustomization
 
 resources:
  - argo.yaml
- - argo-two.yaml
