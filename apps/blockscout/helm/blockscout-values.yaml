@@ -26,7 +26,7 @@ config:
       decimals: 18
       # if network uses dual token model like gnosis (in most case it should be set to false)
       dualToken: false
-  account:
+  account: # leave disabled , Redis is required.
     enabled: false
   testnet: true
   ## If set to true will create service monitors for blockscout and stats
@@ -58,7 +58,8 @@ blockscout:
   ## Blockscout ENV vars
   ## ref: https://docs.blockscout.com/for-developers/information-and-settings/env-variables
   ##
-  env: 
+  env:
+    DATABASE_URL: "blockscout-postgres" 
     ETHEREUM_JSONRPC_VARIANT: "ganache"
     ETHEREUM_JSONRPC_HTTP_URL: "https://ganache.omni.cedille.club"
     ETHEREUM_JSONRPC_TRACE_URL: "https://ganache.omni.cedille.club"

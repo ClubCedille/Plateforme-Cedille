@@ -1,8 +1,36 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  name: blockscout-postgres
+  namespace: argocd
+  argocd.argoproj.io/sync-wave: "1"
+spec:
+  project: default
+  sources:
+    - repoURL: 'https://cetic.github.io/helm-charts'
+      targetRevision: 0.2.4
+      chart: postgresql
+      helm:
+        releaseName: blockscout-postgres
+        valueFiles:
+          - $values/apps/blockscout/helm/postgres-values.yaml
+      path: path/to/postgres-values.yaml
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      targetRevision: master
+      ref: values
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: blockscout
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
   name: blockscout
   namespace: argocd
+  argocd.argoproj.io/sync-wave: "2"
 spec:
   project: default
   sources:
@@ -20,8 +48,5 @@ spec:
     server: 'https://kubernetes.default.svc'
     namespace: blockscout
   syncPolicy:
-    automated:
-      prune: false
-      selfHeal: false
     syncOptions:
       - CreateNamespace=true
