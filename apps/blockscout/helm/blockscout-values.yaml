@@ -59,7 +59,7 @@ blockscout:
   ## ref: https://docs.blockscout.com/for-developers/information-and-settings/env-variables
   ##
   env:
-    DATABASE_URL: "blockscout-postgres" 
+    DATABASE_URL: "postgresql://postgres:postgres@blockscout-postgres:5432/blockscout" 
     ETHEREUM_JSONRPC_VARIANT: "ganache"
     ETHEREUM_JSONRPC_HTTP_URL: "https://ganache.omni.cedille.club"
     ETHEREUM_JSONRPC_TRACE_URL: "https://ganache.omni.cedille.club"
