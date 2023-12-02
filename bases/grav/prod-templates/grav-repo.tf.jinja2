@@ -1,4 +1,4 @@
-resource "github_repository" "repo_{{repo_name}}" {
+resource "github_repository" "repo_{{deployment_prefix}}" {
   name = "{{repo_name}}"
   auto_init = true
   homepage_url = "https://{{hostname}}"
@@ -15,8 +15,8 @@ resource "github_repository" "repo_{{repo_name}}" {
   visibility = "public"
 }
 
-resource "github_repository_webhook" "webhook_{{repo_name}}" {
-  repository = github_repository.repo_{{repo_name}}.name
+resource "github_repository_webhook" "webhook_{{deployment_prefix}}" {
+  repository = github_repository.repo_{{deployment_prefix}}.name
 
   configuration {
     url          = "https://{{hostname}}/_git_webhook"
@@ -29,13 +29,13 @@ resource "github_repository_webhook" "webhook_{{repo_name}}" {
   events = ["push"]
 }
 
-resource "github_repository_dependabot_security_updates" "dependabot_{{repo_name}}" {
-  repository  = github_repository.repo_{{repo_name}}.name
+resource "github_repository_dependabot_security_updates" "dependabot_{{deployment_prefix}}" {
+  repository  = github_repository.repo_{{deployment_prefix}}.name
   enabled     = true
 }
 
-resource "github_repository_collaborators" "colaborators_{{repo_name}}" {
-  repository = github_repository.repo_{{repo_name}}.name
+resource "github_repository_collaborators" "colaborators_{{deployment_prefix}}" {
+  repository = github_repository.repo_{{deployment_prefix}}.name
 
   user {
     permission = "maintain"

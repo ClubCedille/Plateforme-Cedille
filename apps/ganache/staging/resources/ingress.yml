@@ -1,7 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: grafana-ingress
+  name: ganache-ingress
+  namespace: ganache
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     ingress.kubernetes.io/force-ssl-redirect: "true"
@@ -9,17 +10,17 @@ metadata:
 spec:
   ingressClassName: contour
   tls:
-  - secretName: grafana-tls
+  - secretName: ganache-tls
     hosts:
-    - grafana.omni.cedille.club
+    - ganache.omni.cedille.club
   rules:
-  - host: grafana.omni.cedille.club
+  - host: ganache.omni.cedille.club
     http:
       paths:
       - pathType: Prefix
         path: /
         backend:
           service:
-            name: grafana
+            name: ganache
             port:
-              number: 80
+              number: 8545

@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  name: ganache
+  namespace: argocd
+spec:
+  destination:
+    namespace: ganache
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+    - chart: ganache
+      helm:
+        releaseName: ganache
+        valueFiles:
+        - $values/apps/ganache/staging/helm/ganache-helm-values.yml
+      repoURL: https://ethpandaops.github.io/ethereum-helm-charts
+      targetRevision: 0.1.2
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      targetRevision: master
+      ref: values
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      targetRevision: master
+      path: apps/ganache/staging/resources
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
