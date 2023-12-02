@@ -27,6 +27,30 @@ resources:
   # ... other apps ...
 
 patches:
+  # This patch will set the destination cluster for Applications
+  - target:
+      kind: Application
+      labelSelector: "metadata.environment=staging"
+    patch: |-
+      - op: add
+        path: /spec/destination/server
+        value: https://vcluster-staging.vcluster-staging.svc.cluster.local
+  - target:
+      kind: Application
+      labelSelector: "metadata.environment in (prod, production)"
+    patch: |-
+      - op: add
+        path: /spec/destination/server
+        value: https://vcluster-prod.vcluster-staging.svc.cluster.local
+  - target:
+      kind: Application
+      labelSelector: "metadata.environment=sandbox"
+    patch: |-
+      - op: add
+        path: /spec/destination/server
+        value: https://vcluster-sandbox.vcluster-staging.svc.cluster.local
+  ###
+  # This patch sets common settings for Applications.
   - target:
       kind: Application
     patch: |-
