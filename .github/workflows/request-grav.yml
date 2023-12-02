@@ -56,7 +56,7 @@ jobs:
               uses: cuchi/jinja2-action@v1.2.2
               with:
                 template: bases/grav/prod-templates/gh-role.yaml.jinja2
-                output_file: system/vault/configs/gh-role/grav-${{inputs.nom_club}}.yaml
+                output_file: system/vault/configs/gh-roles/grav-${{inputs.nom_club}}.yaml
                 strict: true
                 variables: ${{ env.j2_vars }}
             - name: Add GH auth set to kustomize
