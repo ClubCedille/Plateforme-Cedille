@@ -1,5 +1,5 @@
 resource "github_repository" "repo_acets" {
-  name = "acets.omni.cedille.club"
+  name = "acets.etsmtl.ca"
   auto_init = true
   homepage_url = "https://acets.omni.cedille.club"
   security_and_analysis {
