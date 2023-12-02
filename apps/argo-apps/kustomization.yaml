@@ -24,6 +24,7 @@ resources:
   - ../calidum-rotae/
   - ../ganache/
   - ../blockscout/
+  - ../acets/grav/
   # ... other apps ...
 
 patches:
