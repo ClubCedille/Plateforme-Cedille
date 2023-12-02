@@ -43,7 +43,7 @@ spec:
           logging: true
           {{- end }}
         vault.hashicorp.com/agent-inject-template-club_pwd: |
-          {{- with secret "kv/grav-acets/default/grav/grav-init-pwd" }}
+          {{- with secret "kv/grav-acets/default/grav/acets-grav-init-pwd" }}
           state: enabled
           email: admin@acets.omni.cedille.club
           fullname: admin
