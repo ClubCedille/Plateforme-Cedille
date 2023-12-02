@@ -8,5 +8,5 @@ spec:
     role: config-admin
   path: github
   repositories:
-  - acets.omni.cedille.club
+  - acets.etsmtl.ca
   organizationName: ClubCedille
