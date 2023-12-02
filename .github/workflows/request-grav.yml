@@ -21,8 +21,8 @@ jobs:
         env: 
             j2_vars: |
                 deployment_prefix=${{inputs.nom_club}}
-                repo_name=grav-${{inputs.nom_club}}
-                repo_url=https://github.com/ClubCedille/grav-${{inputs.nom_club}}.git
+                repo_name=${{inputs.domaine}}
+                repo_url=https://github.com/ClubCedille/${{inputs.domaine}}.git
                 namespace=grav-${{inputs.nom_club}}
                 hostname=${{inputs.domaine}}
                 requester=${{github.event.sender.name}}
