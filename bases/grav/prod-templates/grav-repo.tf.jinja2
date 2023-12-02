@@ -35,7 +35,7 @@ resource "github_repository_dependabot_security_updates" "dependabot_{{repo_name
 }
 
 resource "github_repository_collaborators" "colaborators_{{repo_name}}" {
-  repository = github_repository.some_repo.name
+  repository = github_repository.repo_{{repo_name}}.name
 
   user {
     permission = "maintain"
