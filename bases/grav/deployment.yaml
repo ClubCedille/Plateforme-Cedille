@@ -63,9 +63,6 @@ spec:
       - name: grav-accounts
         persistentVolumeClaim:
           claimName: grav-accounts-pvc
-      - name: grav-configs
-        persistentVolumeClaim:
-          claimName: grav-configs-pvc
       - name: grav-data
         persistentVolumeClaim:
           claimName: grav-data-pvc
