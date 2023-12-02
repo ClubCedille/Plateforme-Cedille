@@ -20,7 +20,7 @@ jobs:
         runs-on: ubuntu-latest
         env: 
             j2_vars: |
-                deployment_name=${{inputs.nom_club}}
+                deployment_prefix=${{inputs.nom_club}}
                 repo_name=grav-${{inputs.nom_club}}
                 repo_url=https://github.com/ClubCedille/grav-${{inputs.nom_club}}.git
                 namespace=grav-${{inputs.nom_club}}
@@ -48,10 +48,21 @@ jobs:
             - name: Create terraform repo
               uses: cuchi/jinja2-action@v1.2.2
               with:
-                template: terraform/github/apps-repos/grav.tf.jinja2
-                output_file: terraform/github/apps-repos/grav-${{env.nom_club}}.tf
+                template: bases/grav/prod-templates/grav-repo.tf.jinja2
+                output_file: terraform/github/apps-repos/grav-${{inputs.nom_club}}.tf
                 strict: true
                 variables: ${{ env.j2_vars }}
+            - name: Create GH auth set
+              uses: cuchi/jinja2-action@v1.2.2
+              with:
+                template: bases/grav/prod-templates/gh-role.yaml.jinja2
+                output_file: system/vault/configs/gh-role/grav-${{inputs.nom_club}}.yaml
+                strict: true
+                variables: ${{ env.j2_vars }}
+            - name: Add GH auth set to kustomize
+              run: |
+                cd system/vault/configs/gh-roles
+                kustomize edit add resource grav-${{inputs.nom_club}}.yaml
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v5
               with:

@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namePrefix: {{ deployment_name }}-
+namePrefix: {{ deployment_prefix }}-
 
 resources:
   - ../../../../bases/grav
@@ -20,4 +20,4 @@ patches:
     patch: |-
       - op: replace
         path: /spec/path
-        value: kv/{{ namespace }}/default/{{ deployment_name }}/grav-init-pwd
+        value: kv/{{ namespace }}/default/grav/grav-init-pwd
