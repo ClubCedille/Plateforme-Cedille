@@ -42,7 +42,7 @@ spec:
             private_key: null
           logging: true
           {{'{{- end }}'}}
-        vault.hashicorp.com/agent-inject-template-club_pwd: |
+        vault.hashicorp.com/agent-inject-template-admin_pwd: |
           {{'{{'}}- with secret "kv/{{namespace}}/default/grav/{{ deployment_prefix }}-grav-init-pwd" {{'}}'}}
           state: enabled
           email: admin@{{hostname}}

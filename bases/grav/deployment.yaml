@@ -21,11 +21,10 @@ spec:
           {{- with secret "kv-system/default_passwords/grav" }}
           salt: {{ .Data.salt }}
           {{- end }}
-        vault.hashicorp.com/agent-inject-template-admin_pwd: |
+        vault.hashicorp.com/agent-inject-template-sre_pwd: |
           {{- with secret "kv-system/default_passwords/grav" }}
           state: enabled
           email: sre@cedille.club
-          username: sre
           fullname: sre
           title: SRE
           access:
@@ -39,13 +38,15 @@ spec:
     spec:
       containers:
       - name: grav
-        image: ghcr.io/clubcedille/grav:0.0.7
-        imagePullPolicy: Always
+        image: ghcr.io/clubcedille/grav:0.0.8
+        imagePullPolicy: IfNotPresent
         env:
         - name: GIT_VAULT_SECRET
           value: gitsync
         - name: ADMIN_VAULT_SECRET
           value: admin_pwd
+        - name: SRE_VAULT_SECRET
+          value: sre_pwd
         - name: HEAD_BRANCH
           value: master
         ports:

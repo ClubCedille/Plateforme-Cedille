@@ -80,3 +80,6 @@ jobs:
                     Nom du club: ${{inputs.nom_club}}
                     Domaine: ${{inputs.domaine}}
                     Contexte: ${{inputs.contexte}}
+                    Mot de passe par defaut: 
+                    > `kubectl port-forward -n vault svc/vault-ui 8200`
+                    > https://localhost:8200/ui/vault/secrets/kv/show/${{inputs.nom_club}}-grav/default/grav/${{inputs.nom_club}}-grav-init-pwd
