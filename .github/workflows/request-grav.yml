@@ -59,10 +59,19 @@ jobs:
                 output_file: system/vault/configs/gh-roles/grav-${{inputs.nom_club}}.yaml
                 strict: true
                 variables: ${{ env.j2_vars }}
-            - name: Add GH auth set to kustomize
+            - name: Create argo app
+              uses: cuchi/jinja2-action@v1.2.2
+              with:
+                template: bases/grav/prod-templates/argo.yaml.jinja2
+                output_file: apps/${{inputs.nom_club}}/grav/argo.yaml
+                strict: true
+                variables: ${{ env.j2_vars }}
+            - name: Update kustomize files
               run: |
-                cd system/vault/configs/gh-roles
+                cd $GITHUB_WORKSPACE/system/vault/configs/gh-roles
                 kustomize edit add resource grav-${{inputs.nom_club}}.yaml
+                cd $GITHUB_WORKSPACE/apps/argo-apps
+                kustomize edit add resource ../${{inputs.nom_club}}/grav/
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v5
               with:
