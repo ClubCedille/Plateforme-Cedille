@@ -25,6 +25,7 @@ spec:
           {{- with secret "kv-system/default_passwords/grav" }}
           state: enabled
           email: sre@cedille.club
+          username: sre
           fullname: sre
           title: SRE
           access:

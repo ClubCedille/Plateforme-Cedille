@@ -46,6 +46,7 @@ spec:
           {{- with secret "kv/acets-grav/default/grav/acets-grav-init-pwd" }}
           state: enabled
           email: admin@acets.omni.cedille.club
+          username: admin
           fullname: admin
           title: Administrator
           access:
