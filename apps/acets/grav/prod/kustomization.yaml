@@ -15,6 +15,9 @@ patches:
       - op: replace
         path: /spec/rules/0/host
         value: acets.omni.cedille.club
+      - op: replace
+        path: /spec/tls/0/hosts/0
+        value: acets.omni.cedille.club
   - target:
       kind: RandomSecret
     patch: |-
