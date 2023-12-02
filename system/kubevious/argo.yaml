@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubevious
+  namespace: argocd
+  argocd.argoproj.io/sync-wave: "0"
+spec:
+  project: default
+  sources:
+    - chart: kubevious
+      repoURL: https://helm.kubevious.io
+      targetRevision: 1.2.1
+      helm:
+        releaseName: kubevious
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: kubevious
+    project: platforme-cedille
