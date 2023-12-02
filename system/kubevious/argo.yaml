@@ -16,3 +16,6 @@ spec:
     server: "https://kubernetes.default.svc"
     namespace: kubevious
     project: platforme-cedille
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
