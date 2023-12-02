@@ -22,7 +22,7 @@ spec:
             cron_enable: true
             cron_at: '*/10 * * * *'
           local_repository: null
-          repository: 'https://github.com/ClubCedille/acets.omni.cedille.club.git'
+          repository: 'https://github.com/ClubCedille/acets.etsmtl.ca.git'
           no_user: '0'
           user: x-access-token
           password: {{ .Data.token }}
