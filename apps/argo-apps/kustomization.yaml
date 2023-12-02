@@ -29,6 +29,30 @@ resources:
   # ... other apps ...
 
 patches:
+  # This patch will set the destination cluster for Applications
+  - target:
+      kind: Application
+      labelSelector: "environment=staging"
+    patch: |-
+      - op: add
+        path: /spec/destination/server
+        value: https://vcluster-staging.vcluster-staging.svc.cluster.local
+  - target:
+      kind: Application
+      labelSelector: "environment in (prod, production)"
+    patch: |-
+      - op: add
+        path: /spec/destination/server
+        value: https://vcluster-prod.vcluster-prod.svc.cluster.local
+  - target:
+      kind: Application
+      labelSelector: "environment=sandbox"
+    patch: |-
+      - op: add
+        path: /spec/destination/server
+        value: https://vcluster-sandbox.vcluster-sandbox.svc.cluster.local
+  ###
+  # This patch sets common settings for Applications.
   - target:
       kind: Application
     patch: |-
