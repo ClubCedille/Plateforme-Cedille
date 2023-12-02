@@ -20,4 +20,4 @@ patches:
     patch: |-
       - op: replace
         path: /spec/path
-        value: kv/data/grav-acets/default/grav
+        value: kv/data/acets-grav/default/grav

@@ -23,7 +23,7 @@ jobs:
                 deployment_prefix=${{inputs.nom_club}}
                 repo_name=${{inputs.domaine}}
                 repo_url=https://github.com/ClubCedille/${{inputs.domaine}}.git
-                namespace=grav-${{inputs.nom_club}}
+                namespace=${{inputs.nom_club}}-grav
                 hostname=${{inputs.domaine}}
                 requester=${{github.event.sender.name}}
         steps:
@@ -49,14 +49,14 @@ jobs:
               uses: cuchi/jinja2-action@v1.2.2
               with:
                 template: bases/grav/prod-templates/grav-repo.tf.jinja2
-                output_file: terraform/github/apps-repos/grav-${{inputs.nom_club}}.tf
+                output_file: terraform/github/apps-repos/${{inputs.nom_club}}-grav.tf
                 strict: true
                 variables: ${{ env.j2_vars }}
             - name: Create GH auth set
               uses: cuchi/jinja2-action@v1.2.2
               with:
                 template: bases/grav/prod-templates/gh-role.yaml.jinja2
-                output_file: system/vault/configs/gh-roles/grav-${{inputs.nom_club}}.yaml
+                output_file: system/vault/configs/gh-roles/${{inputs.nom_club}}-grav.yaml
                 strict: true
                 variables: ${{ env.j2_vars }}
             - name: Create argo app
@@ -69,7 +69,7 @@ jobs:
             - name: Update kustomize files
               run: |
                 cd $GITHUB_WORKSPACE/system/vault/configs/gh-roles
-                kustomize edit add resource grav-${{inputs.nom_club}}.yaml
+                kustomize edit add resource ${{inputs.nom_club}}-grav.yaml
                 cd $GITHUB_WORKSPACE/apps/argo-apps
                 kustomize edit add resource ../${{inputs.nom_club}}/grav/
             - name: Create Pull Request
