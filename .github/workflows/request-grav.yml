@@ -1,0 +1,73 @@
+name: Demander un site web GRAV
+on: 
+    workflow_dispatch: 
+        inputs:
+            domaine:
+                type: string
+                required: true
+                description: Domaine à utiliser (eg cedille.etsmtl.ca)
+            nom_club:
+                type: string
+                required: true
+                description: Nom du club. Pas de caractères spéciaux ou d'espaces outre - et _
+            contexte:
+                type: string
+                required: false
+                description: Contexte sur la demande
+                
+jobs:
+    create_pr:
+        runs-on: ubuntu-latest
+        env: 
+            j2_vars: |
+                deployment_prefix=${{inputs.nom_club}}
+                repo_name=grav-${{inputs.nom_club}}
+                repo_url=https://github.com/ClubCedille/grav-${{inputs.nom_club}}.git
+                namespace=grav-${{inputs.nom_club}}
+                hostname=${{inputs.domaine}}
+                requester=${{github.event.sender.name}}
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Create folders
+              run: mkdir -p apps/${{inputs.nom_club}}/grav/prod
+            - name: Create kustomize
+              uses: cuchi/jinja2-action@v1.2.2
+              with:
+                template: bases/grav/prod-templates/kustomization.yaml.jinja2
+                output_file: apps/${{inputs.nom_club}}/grav/prod/kustomization.yaml
+                strict: true
+                variables: ${{ env.j2_vars }}
+            - name: Create vault-patch
+              uses: cuchi/jinja2-action@v1.2.2
+              with:
+                template: bases/grav/prod-templates/vault-patch.yaml.jinja2
+                output_file: apps/${{inputs.nom_club}}/grav/prod/vault-patch.yaml
+                strict: true
+                variables: ${{ env.j2_vars }}
+            - name: Create terraform repo
+              uses: cuchi/jinja2-action@v1.2.2
+              with:
+                template: bases/grav/prod-templates/grav-repo.tf.jinja2
+                output_file: terraform/github/apps-repos/grav-${{inputs.nom_club}}.tf
+                strict: true
+                variables: ${{ env.j2_vars }}
+            - name: Create GH auth set
+              uses: cuchi/jinja2-action@v1.2.2
+              with:
+                template: bases/grav/prod-templates/gh-role.yaml.jinja2
+                output_file: system/vault/configs/gh-role/grav-${{inputs.nom_club}}.yaml
+                strict: true
+                variables: ${{ env.j2_vars }}
+            - name: Add GH auth set to kustomize
+              run: |
+                cd system/vault/configs/gh-roles
+                kustomize edit add resource grav-${{inputs.nom_club}}.yaml
+            - name: Create Pull Request
+              uses: peter-evans/create-pull-request@v5
+              with:
+                title: Create a GRAV website for ${{inputs.nom_club}}
+                body: |
+                    Nom du club: ${{inputs.nom_club}}
+                    Domaine: ${{inputs.domaine}}
+                    Contexte: ${{inputs.contexte}}
