@@ -39,3 +39,7 @@ variable "platform_repo" {
 variable "tfe_workspace" {
   type = string
 }
+
+variable "cluster_ca" {
+  type = string
+}
