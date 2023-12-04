@@ -35,3 +35,7 @@ variable "gh_pem" {
 variable "platform_repo" {
   type = string
 }
+
+variable "tfe_workspace" {
+  type = string
+}
