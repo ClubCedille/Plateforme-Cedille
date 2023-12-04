@@ -2,8 +2,13 @@ resource "github_repository" "repo_acets" {
   name = "acets.etsmtl.ca"
   auto_init = true
   homepage_url = "https://acets.omni.cedille.club"
+  description = "Site web du club Avion Cargo"
+  has_downloads = true
+  has_issues = true
+  has_projects = true
+  has_wiki = true
   security_and_analysis {
-    advanced_security {
+    secret_scanning {
       status = "enabled"
     }
     secret_scanning_push_protection {
@@ -20,7 +25,7 @@ resource "github_repository_webhook" "webhook_acets" {
 
   configuration {
     url          = "https://acets.omni.cedille.club/_git_webhook"
-    content_type = "form"
+    content_type = "json"
     insecure_ssl = false
   }
 
@@ -34,13 +39,8 @@ resource "github_repository_dependabot_security_updates" "dependabot_acets" {
   enabled     = true
 }
 
-resource "github_repository_collaborators" "colaborators_acets" {
+resource "github_repository_collaborators" "collaborators_acets" {
   repository = github_repository.repo_acets.name
-
-  user {
-    permission = "maintain"
-    username  = ""
-  }
 
   team {
     permission = "admin"

@@ -2,8 +2,13 @@ resource "github_repository" "repo_{{deployment_prefix}}" {
   name = "{{repo_name}}"
   auto_init = true
   homepage_url = "https://{{hostname}}"
+  description = "Site web de {{deployment_prefix}}"
+  has_downloads = true
+  has_issues = true
+  has_projects = true
+  has_wiki = true
   security_and_analysis {
-    advanced_security {
+    secret_scanning {
       status = "enabled"
     }
     secret_scanning_push_protection {
@@ -20,7 +25,7 @@ resource "github_repository_webhook" "webhook_{{deployment_prefix}}" {
 
   configuration {
     url          = "https://{{hostname}}/_git_webhook"
-    content_type = "form"
+    content_type = "json"
     insecure_ssl = false
   }
 
@@ -36,11 +41,6 @@ resource "github_repository_dependabot_security_updates" "dependabot_{{deploymen
 
 resource "github_repository_collaborators" "colaborators_{{deployment_prefix}}" {
   repository = github_repository.repo_{{deployment_prefix}}.name
-
-  user {
-    permission = "maintain"
-    username  = "{{requester}}"
-  }
 
   team {
     permission = "admin"

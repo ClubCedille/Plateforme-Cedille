@@ -13,6 +13,8 @@ injector:
   image:
     repository: "hashicorp/vault-k8s"
     tag: "latest"
+  extraEnvironmentVars:
+    VAULT_ADDR: https://vault.vault:8200
 
   resources:
       requests:
