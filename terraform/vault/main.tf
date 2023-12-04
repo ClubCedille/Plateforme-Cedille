@@ -46,7 +46,7 @@ resource "tls_private_key" "vault_key" {
 data "external" "k8s_cert_request" {
   program = [
     "bash", "-c",
-    "jq -rc '.key' | openssl req -new -noenc -config ${path.module}/vault-csr.conf -key /dev/stdin | jq -rRncs '{\"request\": inputs}'"
+    "curl -o jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 && chmod +x jq && jq -rc '.key' | openssl req -new -noenc -config ${path.module}/vault-csr.conf -key /dev/stdin | jq -rRncs '{\"request\": inputs}'"
     ]
   query = {
     "key" = tls_private_key.vault_key.private_key_pem
@@ -112,13 +112,29 @@ resource "kubernetes_secret" "kms_creds" {
 }
 
 # Output the override-values.yml files used by the argo-cd deployment
-resource "local_file" "vault_values" {
-  filename             = var.override_helm_path
-  content = templatefile("${path.module}/override-values.yml.tmpl", {
+# resource "local_file" "vault_values" {
+#   filename             = var.override_helm_path
+#   content = templatefile("${path.module}/override-values.yml.tmpl", {
+#     message = "DO NOT MODIFY THIS FILE, MODIFY TERRAFORM TEMPLATE AT terraform/vault/override-values.yml.tmpl"
+#     gcp_region = var.kms_region
+#     gcp_project = var.gcloud_project
+#     gcp_keyring = google_kms_key_ring.key_ring.name
+#     gcp_cryptokey = "${var.name_prefix}-vault-cryptokey"
+#   })
+# }
+
+resource "github_repository_file" "vault_values_file" {
+  repository          = var.platform_repo
+  file                = var.override_helm_path
+  content             = templatefile("${path.module}/override-values.yml.tmpl", {
     message = "DO NOT MODIFY THIS FILE, MODIFY TERRAFORM TEMPLATE AT terraform/vault/override-values.yml.tmpl"
     gcp_region = var.kms_region
     gcp_project = var.gcloud_project
     gcp_keyring = google_kms_key_ring.key_ring.name
     gcp_cryptokey = "${var.name_prefix}-vault-cryptokey"
   })
+  commit_message      = "[Terraform] Vault Config"
+  commit_author       = "Terraform Cedille"
+  commit_email        = "terraform@cedille.club"
+  overwrite_on_create = true
 }

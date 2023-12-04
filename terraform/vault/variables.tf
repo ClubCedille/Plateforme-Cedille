@@ -17,3 +17,7 @@ variable "cluster_ca" {
 variable "override_helm_path" {
   type = string
 }
+
+variable "platform_repo" {
+  type = string
+}
