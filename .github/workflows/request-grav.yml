@@ -68,6 +68,8 @@ jobs:
                 variables: ${{ env.j2_vars }}
             - name: Update kustomize files
               run: |
+                cd $GITHUB_WORKSPACE/apps/${{inputs.nom_club}}/grav
+                kustomize create --resources argo.yaml
                 cd $GITHUB_WORKSPACE/system/vault/configs/gh-roles
                 kustomize edit add resource ${{inputs.nom_club}}-grav.yaml
                 cd $GITHUB_WORKSPACE/apps/argo-apps
