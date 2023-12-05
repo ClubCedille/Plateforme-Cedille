@@ -1,0 +1,12 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: GitHubSecretEngineRole
+metadata:
+  name: test-grav-2-grav
+spec:
+  authentication: 
+    path: kubernetes
+    role: config-admin
+  path: github
+  repositories:
+  - test-grav-2.omni.cedille.club
+  organizationName: ClubCedille
