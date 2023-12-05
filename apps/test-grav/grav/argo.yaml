@@ -12,7 +12,7 @@ spec:
     namespace: test-grav-grav
   source:
     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
-    path: apps/acets/grav/prod
+    path: apps/test-grav/grav/prod
     targetRevision: HEAD 
   syncPolicy:
     syncOptions:
