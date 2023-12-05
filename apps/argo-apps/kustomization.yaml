@@ -28,6 +28,7 @@ resources:
 - ../acets/grav/
 - ../test-grav/grav/
 - ../test-grav-2/grav/
+- ../test-grav-3/grav/
   # ... other apps ...
 
   # This patch will set the destination cluster for Applications
