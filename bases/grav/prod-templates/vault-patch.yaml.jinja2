@@ -25,7 +25,7 @@ spec:
           repository: '{{repo_url}}'
           no_user: '0'
           user: x-access-token
-          password: {{'{{ .Data.token }}'}}
+          password: "{{'{{ .Data.token }}'}}"
           webhook_enabled: '1'
           webhook: '/_git_webhook'
           branch: master
@@ -55,5 +55,5 @@ spec:
               super: true
             site:
               login: true
-          password: {{'{{ .Data.data.password }}'}}
+          password: "{{'{{ .Data.data.password }}'}}"
           {{'{{- end }}'}}
