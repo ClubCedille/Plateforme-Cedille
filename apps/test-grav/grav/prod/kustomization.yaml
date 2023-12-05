@@ -23,4 +23,4 @@ patches:
     patch: |-
       - op: replace
         path: /spec/path
-        value: kv/test-grav-grav/default/grav
+        value: kv/data/test-grav-grav/default/grav
