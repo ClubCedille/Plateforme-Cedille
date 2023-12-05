@@ -28,7 +28,7 @@ resource "google_project_iam_member" "project" {
 
 resource "tfe_variable" "gcp_creds" {
   key          = "GOOGLE_CREDENTIALS"
-  value        = base64decode(google_service_account_key.tf_account_key.private_key)
+  value        = replace(base64decode(google_service_account_key.tf_account_key.private_key), "\n", "")
   category     = "env"
   workspace_id = var.tfe_workspace
   sensitive = true
