@@ -26,8 +26,6 @@ resources:
 - ../ganache/
 - ../blockscout/
 - ../acets/grav/
-- ../test-grav/grav/
-- ../test-grav-2/grav/
 - ../test-grav-3/grav/
   # ... other apps ...
 
