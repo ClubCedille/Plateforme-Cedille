@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: argocd-debug
+  namespace: script-temp-001
+spec:
+  serviceAccountName: debug-admin
+  automountServiceAccountToken: true
+  containers:
+  - image: quay.io/argoproj/argocd:v2.8.4
+    command:
+      - "sleep"
+      - "604800"
+    imagePullPolicy: IfNotPresent
+    name: argocd-debug
+    securityContext:
+      allowPrivilegeEscalation: false
+      runAsUser: 0
+  restartPolicy: Always
