@@ -27,6 +27,7 @@ resources:
 - ../blockscout/
 - ../acets/grav/
 - ../test-grav-3/grav/
+- ../ets-demo/grav/
   # ... other apps ...
 
   # This patch will set the destination cluster for Applications
