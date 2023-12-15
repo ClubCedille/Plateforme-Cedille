@@ -23,8 +23,6 @@ resources:
 - ../samples/opentelemetry-demo/
 - ../samples/grav-demo/
 - ../calidum-rotae/
-- ../ganache/
-- ../blockscout/
 - ../acets/grav/
 - ../test-grav-3/grav/
 - ../ets-demo/grav/
