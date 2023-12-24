@@ -1,0 +1,93 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trema
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+        app: trema
+  template:
+    spec:
+      containers:
+        - name: trema
+          image: clubcedille/trema
+          imagePullPolicy: Always
+          resources: {}
+          ports:
+          - containerPort: 6000
+          readinessProbe:
+            exec:
+              command:
+                - python
+                - /app/scripts/check_db.py
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          env:
+            - name: API_ADDRESS
+              value: "0.0.0.0"
+            - name: API_PORT
+              value: "6000"
+            - name: MONGO_HOST
+              value: "mongo" 
+            - name: MONGO_USER
+              value: "trema"
+            - name: MONGO_PWD
+              valueFrom:
+                secretKeyRef:
+                  name: mongo
+                  key: password
+            - name: DISCORD_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: discord
+                  key: token
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo
+spec:
+  selector:
+    matchLabels:
+      app: trema
+  template:
+    spec:
+      containers:
+        - name: mongo
+          image: mongo
+          imagePullPolicy: Always
+          resources: {}
+          ports:
+            - containerPort: 27017
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              value: "trema" 
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongo
+                  key: password
+          volumeMounts:
+            - name: storage
+              mountPath: /data/db
+          livenessProbe:
+            tcpSocket:
+              port: 27017
+            initialDelaySeconds: 15
+            periodSeconds: 20
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: trema-mongo-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: trema-mongo-pvc
+spec:
+  accessModes:
+    - "ReadWriteOnce"
+  resources:
+    requests:
+      storage: "10Gi"

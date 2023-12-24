@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: trema-prod
+  labels:
+    environment: prod
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  project: default
+  destination:
+    namespace: trema-prod
+  source:
+    repoURL: https://github.com/ClubCedille/Plateforme-Cedille
+    path: apps/trema/prod
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+---
