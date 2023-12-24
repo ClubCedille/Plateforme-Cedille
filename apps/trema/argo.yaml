@@ -8,12 +8,13 @@ metadata:
 spec:
   project: default
   destination:
+    server: https://kubernetes.default.svc
     namespace: trema
   source:
     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
     path: apps/trema/prod
-    targetRevision: HEAD
+    targetRevision: HEAD 
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
----
+    - Replace=true
