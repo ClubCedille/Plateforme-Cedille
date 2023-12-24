@@ -31,8 +31,8 @@ spec:
         command: ["/bin/sh", "-c"]
         args:
         - >
-          source /vault/secrets/mongo_pwd &&
-          source /vault/secrets/discord_token &&
+          . /vault/secrets/mongo_pwd &&
+          . /vault/secrets/discord_token &&
           python trema.py
         ports:
         - containerPort: 6000
@@ -81,8 +81,8 @@ spec:
         command: ["/bin/sh", "-c"]
         args:
         - >
-          source /vault/secrets/mongo_pwd &&
-          mongod --auth
+          . /vault/secrets/mongo_pwd &&
+          mongod --auth 
         ports:
         - containerPort: 27017
         volumeMounts:
