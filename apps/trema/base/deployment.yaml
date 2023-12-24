@@ -8,6 +8,21 @@ spec:
     matchLabels:
         app: trema
   template:
+    metadata:
+      labels:
+        app: trema
+      annotations:
+        vault.hashicorp.com/agent-inject: 'true'
+        vault.hashicorp.com/tls-skip-verify: 'true'
+        vault.hashicorp.com/role: 'secret-reader'
+        vault.hashicorp.com/agent-inject-template-mongo_pwd: |
+          {{- with secret "kv/trema/default/mongo" -}}
+          password: {{ .Data.data.password }}
+          {{- end }}
+        vault.hashicorp.com/agent-inject-template-discord_token: |
+          {{- with secret "kv/trema/default/trema" -}}
+          token: {{ .Data.data.token }}
+          {{- end }}
     spec:
       containers:
         - name: trema
@@ -52,6 +67,17 @@ spec:
     matchLabels:
       app: trema
   template:
+    metadata:
+      labels:
+        app: trema
+      annotations:
+        vault.hashicorp.com/agent-inject: 'true'
+        vault.hashicorp.com/tls-skip-verify: 'true'
+        vault.hashicorp.com/role: 'secret-reader'
+        vault.hashicorp.com/agent-inject-template-mongo_pwd: |
+          {{- with secret "kv/trema/default/mongo" -}}
+          password: {{ .Data.data.password }}
+          {{- end }}
     spec:
       containers:
         - name: mongo
