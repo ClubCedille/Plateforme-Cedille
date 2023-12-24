@@ -6,65 +6,6 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-        app: trema
-  template:
-    metadata:
-      labels:
-        app: trema
-      annotations:
-        vault.hashicorp.com/agent-inject: 'true'
-        vault.hashicorp.com/tls-skip-verify: 'true'
-        vault.hashicorp.com/role: 'secret-reader'
-        vault.hashicorp.com/agent-inject-template-mongo_pwd: |
-          {{- with secret "kv/trema/default/mongo" -}}
-          password: {{ .Data.data.password }}
-          {{- end }}
-        vault.hashicorp.com/agent-inject-template-discord_token: |
-          {{- with secret "kv/trema/default/trema" -}}
-          token: {{ .Data.data.token }}
-          {{- end }}
-    spec:
-      containers:
-        - name: trema
-          image: clubcedille/trema
-          imagePullPolicy: Always
-          resources: {}
-          ports:
-          - containerPort: 6000
-          readinessProbe:
-            exec:
-              command:
-                - python
-                - /app/scripts/check_db.py
-            initialDelaySeconds: 30
-            periodSeconds: 10
-          env:
-            - name: API_ADDRESS
-              value: "0.0.0.0"
-            - name: API_PORT
-              value: "6000"
-            - name: MONGO_HOST
-              value: "mongo" 
-            - name: MONGO_USER
-              value: "trema"
-            - name: MONGO_PWD
-              valueFrom:
-                secretKeyRef:
-                  name: mongo
-                  key: password
-            - name: DISCORD_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: discord
-                  key: token
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: mongo
-spec:
-  selector:
-    matchLabels:
       app: trema
   template:
     metadata:
@@ -76,36 +17,86 @@ spec:
         vault.hashicorp.com/role: 'secret-reader'
         vault.hashicorp.com/agent-inject-template-mongo_pwd: |
           {{- with secret "kv/trema/default/mongo" -}}
-          password: {{ .Data.data.password }}
+          export MONGO_PWD="{{ .Data.data.password }}"
+          {{- end }}
+        vault.hashicorp.com/agent-inject-template-discord_token: |
+          {{- with secret "kv/trema/default/trema" -}}
+          export DISCORD_TOKEN="{{ .Data.data.token }}"
           {{- end }}
     spec:
       containers:
-        - name: mongo
-          image: mongo
-          imagePullPolicy: Always
-          resources: {}
-          ports:
-            - containerPort: 27017
-          env:
-            - name: MONGO_INITDB_ROOT_USERNAME
-              value: "trema" 
-            - name: MONGO_INITDB_ROOT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mongo
-                  key: password
-          volumeMounts:
-            - name: storage
-              mountPath: /data/db
-          livenessProbe:
-            tcpSocket:
-              port: 27017
-            initialDelaySeconds: 15
-            periodSeconds: 20
-      volumes:
+      - name: trema
+        image: clubcedille/trema
+        imagePullPolicy: Always
+        command: ["/bin/sh", "-c"]
+        args:
+        - >
+          source /vault/secrets/mongo_pwd &&
+          source /vault/secrets/discord_token &&
+          python trema.py
+        ports:
+        - containerPort: 6000
+        readinessProbe:
+          exec:
+            command:
+            - python
+            - /app/scripts/check_db.py
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        env:
+        - name: API_ADDRESS
+          value: "0.0.0.0"
+        - name: API_PORT
+          value: "6000"
+        - name: MONGO_HOST
+          value: "mongo" 
+        - name: MONGO_USER
+          value: "trema"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo
+spec:
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      labels:
+        app: mongo
+      annotations:
+        vault.hashicorp.com/agent-inject: 'true'
+        vault.hashicorp.com/tls-skip-verify: 'true'
+        vault.hashicorp.com/role: 'secret-reader'
+        vault.hashicorp.com/agent-inject-template-mongo_pwd: |
+          {{- with secret "kv/trema/default/mongo" -}}
+          export MONGO_INITDB_ROOT_PASSWORD="{{ .Data.data.password }}"
+          {{- end }}
+    spec:
+      containers:
+      - name: mongo
+        image: mongo
+        imagePullPolicy: Always
+        command: ["/bin/sh", "-c"]
+        args:
+        - >
+          source /vault/secrets/mongo_pwd &&
+          mongod --auth
+        ports:
+        - containerPort: 27017
+        volumeMounts:
         - name: storage
-          persistentVolumeClaim:
-            claimName: trema-mongo-pvc
+          mountPath: /data/db
+        livenessProbe:
+          tcpSocket:
+            port: 27017
+          initialDelaySeconds: 15
+          periodSeconds: 20
+      volumes:
+      - name: storage
+        persistentVolumeClaim:
+          claimName: trema-mongo-pvc
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
