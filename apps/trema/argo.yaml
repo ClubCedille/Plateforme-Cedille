@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: trema-prod
+  name: trema
   labels:
     environment: prod
   namespace: argocd
@@ -10,7 +10,7 @@ metadata:
 spec:
   project: default
   destination:
-    namespace: trema-prod
+    namespace: trema
   source:
     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
     path: apps/trema/prod
