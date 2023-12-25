@@ -53,6 +53,8 @@ spec:
           value: "mongo.trema.svc.cluster.local"
         - name: MONGO_USER
           value: "trema"
+        - name: MONGO_PORT
+          value: "27017"
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -77,7 +79,7 @@ spec:
     spec:
       containers:
       - name: mongo
-        image: mongo
+        image: ghcr.io/clubcedille/mongo:0.0.1
         imagePullPolicy: Always
         command: ["/bin/sh", "-c"]
         args:
