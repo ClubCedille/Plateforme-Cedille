@@ -34,6 +34,7 @@ spec:
           . /vault/secrets/mongo_pwd &&
           . /vault/secrets/discord_token &&
           python trema.py
+        resources: {}
         ports:
         - containerPort: 6000
         readinessProbe:
@@ -82,7 +83,11 @@ spec:
         args:
         - >
           . /vault/secrets/mongo_pwd &&
-          mongod --auth 
+          mongod --auth --bind_ip_all
+        resources: {}
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: "trema"
         ports:
         - containerPort: 27017
         volumeMounts:
@@ -91,8 +96,10 @@ spec:
         livenessProbe:
           tcpSocket:
             port: 27017
-          initialDelaySeconds: 15
+          initialDelaySeconds: 30
           periodSeconds: 20
+          timeoutSeconds: 5
+          failureThreshold: 5
       volumes:
       - name: storage
         persistentVolumeClaim:
@@ -108,3 +115,4 @@ spec:
   resources:
     requests:
       storage: "10Gi"
+
