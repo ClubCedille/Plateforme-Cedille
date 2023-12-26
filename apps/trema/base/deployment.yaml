@@ -83,7 +83,7 @@ spec:
         image: ghcr.io/clubcedille/mongo:0.0.2
         imagePullPolicy: Always
         command:
-          ['/bin/sh', '-c', '. /vault/secrets/mongo_pwd && mongod --auth --bind_ip_all']
+          ['/bin/sh', '-c', '. /vault/secrets/mongo_pwd']
         resources: {}
         env:
         - name: MONGO_USER
