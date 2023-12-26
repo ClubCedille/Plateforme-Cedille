@@ -74,7 +74,7 @@ spec:
         vault.hashicorp.com/role: 'secret-reader'
         vault.hashicorp.com/agent-inject-template-mongo_pwd: |
           {{- with secret "kv/trema/default/mongo" -}}
-          export MONGO_INITDB_ROOT_PASSWORD="{{ .Data.data.password }}"
+          export MONGO_PASSWORD="{{ .Data.data.password }}"
           {{- end }}
     spec:
       containers:
@@ -88,7 +88,7 @@ spec:
           mongod --auth --bind_ip_all
         resources: {}
         env:
-        - name: MONGO_INITDB_ROOT_USERNAME
+        - name: MONGO_USER
           value: "trema"
         ports:
         - containerPort: 27017
