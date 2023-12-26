@@ -79,13 +79,10 @@ spec:
     spec:
       containers:
       - name: mongo
-        image: ghcr.io/clubcedille/mongo:0.0.1
+        image: ghcr.io/clubcedille/mongo:0.0.2
         imagePullPolicy: Always
-        command: ["/bin/sh", "-c"]
-        args:
-        - >
-          . /vault/secrets/mongo_pwd &&
-          mongod --auth --bind_ip_all
+        command:
+          ['/bin/sh', '-c', '. /vault/secrets/mongo_pwd && mongod --auth --bind_ip_all']
         resources: {}
         env:
         - name: MONGO_USER
