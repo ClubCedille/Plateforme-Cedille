@@ -69,25 +69,17 @@ spec:
     metadata:
       labels:
         app: mongo
-      annotations:
-        vault.hashicorp.com/agent-inject: 'true'
-        vault.hashicorp.com/tls-skip-verify: 'true'
-        vault.hashicorp.com/role: 'secret-reader'
-        vault.hashicorp.com/agent-inject-template-mongo_pwd: |
-          {{- with secret "kv/trema/default/mongo" -}}
-          export MONGO_PASSWORD="{{ .Data.data.password }}"
-          {{- end }}
     spec:
       containers:
       - name: mongo
         image: ghcr.io/clubcedille/mongo:0.0.2
         imagePullPolicy: Always
-        command:
-          ['/bin/sh', '-c', '. /vault/secrets/mongo_pwd']
         resources: {}
         env:
         - name: MONGO_USER
           value: "trema"
+        - name: MONGO_PASSWORD
+          value: "temp"
         ports:
         - containerPort: 27017
         volumeMounts:
