@@ -15,23 +15,26 @@ resource "github_repository_file" "omni_acl" {
   repository = var.cluster_repo
   file = "omni/${var.github_username}.acl.yaml"
   commit_message = "Creating/Updating user [Automated]"
-  content = yamlencode({
-    metadata = {
-        namespace = "default"
-        type = "AccessPolicies.omni.sidero.dev"
-        id = "${var.github_username}-acl"
-    }
-    spec = {
-        rules = [{
-            users = [var.github_email]
-            clusters = [var.cluster_name]
-            role = var.cluster_role
-            kubernetes = {
-                impersonate = {
-                    groups = [var.github_username]
-                }
-            }
-        }]
-    }
-})
+  content = join("\n", [
+    "# MANAGED BY TERRAFORM; DO NOT MODIFY",
+    yamlencode({
+      metadata = {
+          namespace = "default"
+          type = "AccessPolicies.omni.sidero.dev"
+          id = "${var.github_username}-acl"
+      }
+      spec = {
+          rules = [{
+              users = [var.github_email]
+              clusters = [var.cluster_name]
+              role = var.cluster_role
+              kubernetes = {
+                  impersonate = {
+                      groups = [var.github_username]
+                  }
+              }
+          }]
+      }
+    })
+  ])
 }
