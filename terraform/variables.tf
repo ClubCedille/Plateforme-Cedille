@@ -43,3 +43,7 @@ variable "tfe_workspace" {
 variable "cluster_ca" {
   type = string
 }
+
+variable "cluster_name" {
+  type = string
+}
