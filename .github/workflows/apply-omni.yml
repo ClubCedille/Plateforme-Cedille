@@ -1,3 +1,4 @@
+name: Apply omni config files
 on:
     push:
         branches: master
