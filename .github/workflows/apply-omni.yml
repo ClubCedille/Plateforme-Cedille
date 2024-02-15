@@ -1,0 +1,15 @@
+name: Apply omni config files
+on:
+    push:
+        branches: master
+
+jobs:
+    apply:
+        runs-on: ubuntu-latest
+        steps:
+            - run: |
+                curl -L -o omnictl https://cedille.omni.siderolabs.io/omnictl/omnictl-linux-amd64
+                chmod +x omnictl
+            - run: |
+                shopt -s nullglob
+                for i in omni/*.yaml; do ./omnictl apply -f "$i"; done
