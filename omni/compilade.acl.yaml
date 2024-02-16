@@ -1,0 +1,16 @@
+# MANAGED BY TERRAFORM; DO NOT MODIFY
+"metadata":
+  "id": "compilade-acl"
+  "namespace": "default"
+  "type": "AccessPolicies.omni.sidero.dev"
+"spec":
+  "rules":
+  - "clusters":
+    - "cedille-cluster"
+    "kubernetes":
+      "impersonate":
+        "groups":
+        - "compilade"
+    "role": "None"
+    "users":
+    - "github@compilade.net"
