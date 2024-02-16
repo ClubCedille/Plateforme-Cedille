@@ -7,6 +7,7 @@ jobs:
     apply:
         runs-on: ubuntu-latest
         steps:
+            - uses: actions/checkout@v4
             - run: |
                 curl -L -o omnictl https://cedille.omni.siderolabs.io/omnictl/omnictl-linux-amd64
                 chmod +x omnictl
