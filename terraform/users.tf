@@ -13,7 +13,7 @@ module "francis" {
   cluster_repo = var.platform_repo
 }
 
-module "francis" {
+module "philippe" {
   source          = "./modules/user"
   github_email    = "philippelamy12@gmail.com"
   github_username = "lamiphil"
