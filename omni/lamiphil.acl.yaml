@@ -1,0 +1,16 @@
+# MANAGED BY TERRAFORM; DO NOT MODIFY
+"metadata":
+  "id": "lamiphil-acl"
+  "namespace": "default"
+  "type": "AccessPolicies.omni.sidero.dev"
+"spec":
+  "rules":
+  - "clusters":
+    - "cedille-cluster"
+    "kubernetes":
+      "impersonate":
+        "groups":
+        - "lamiphil"
+    "role": "Reader"
+    "users":
+    - "philippelamy12@gmail.com"
