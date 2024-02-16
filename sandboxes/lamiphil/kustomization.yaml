@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namePrefix: lamiphil-
+namespace: lamiphil-sandbox
+
+resources:
+- ../../bases/sandbox
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /subjects/0/name
+        value: lamiphil
+    target:
+      kind: RoleBinding
