@@ -13,3 +13,6 @@ jobs:
                 chmod +x omnictl
             - run: |
                 for i in omni/*.yaml; do ./omnictl apply -f "$i"; done
+              env:
+                OMNI_ENDPOINT: ${{vars.OMNI_ENDPOINT}}
+                OMNI_SERVICE_ACCOUNT_KEY: ${{secrets.OMNI_SERVICE_ACCOUNT_KEY}}
