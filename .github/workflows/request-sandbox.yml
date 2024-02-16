@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       j2_vars: |
-        requester=${{github.event.sender.login}}
+        user=${{github.event.sender.login}}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
