@@ -5,10 +5,10 @@ resource "github_membership" "user_membership" {
 }
 
 resource "github_team_membership" "user_team_memberships" {
-  for_each = toset(var.teams)
-  team_id  = each.value.teamName
+  for_each = { for v in var.teams : v.teamName => v.teamRole }
+  team_id  = each.key
   username = var.github_username
-  role     = each.value.teamRole
+  role     = each.value
 }
 
 resource "github_repository_file" "omni_acl" {
