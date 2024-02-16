@@ -23,6 +23,6 @@ module "philippe" {
     { teamName = "sre", teamRole = "member" }
   ]
   cluster_name = var.cluster_name
-  cluster_role = "Read"
+  cluster_role = "Reader"
   cluster_repo = var.platform_repo
 }

@@ -33,8 +33,8 @@ variable "cluster_name" {
 variable "cluster_role" {
   type = string
   validation {
-    condition = var.cluster_role == "Operator" || var.cluster_role == "Admin" || var.cluster_role == "Member" || var.cluster_role == "None"
-    error_message = "cluster_role must be one of: Operator, Admin, Member or None"
+    condition = var.cluster_role == "Operator" || var.cluster_role == "Admin" || var.cluster_role == "Reader" || var.cluster_role == "None"
+    error_message = "cluster_role must be one of: Operator, Admin, Reader or None"
   }
 }
 
