@@ -23,7 +23,7 @@ jobs:
       - name: Update kustomize files
         run: |
           cd $GITHUB_WORKSPACE/sandboxes
-          kustomize edit add resource ${{github.event.sender.login}}/kustomization.yaml
+          kustomize edit add resource ${{github.event.sender.login}}/
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
