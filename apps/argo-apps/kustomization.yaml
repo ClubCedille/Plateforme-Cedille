@@ -19,6 +19,7 @@ resources:
 - ../../system/kuma/
 - ../../system/merbridge/
 - ../../system/kubevious/
+- ../../sandboxes/
 - ../samples/kustomize-example-app/
 - ../samples/opentelemetry-demo/
 - ../samples/grav-demo/
