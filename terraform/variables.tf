@@ -3,7 +3,7 @@ variable "gcloud_region" {
 }
 
 variable "gcloud_project" {
-  type        = string
+  type = string
 }
 
 variable "kube_host" {
@@ -11,7 +11,7 @@ variable "kube_host" {
 }
 
 variable "kube_token" {
-  type = string
+  type      = string
   sensitive = true
 }
 
@@ -28,7 +28,7 @@ variable "gh_install_id" {
 }
 
 variable "gh_pem" {
-  type = string
+  type      = string
   sensitive = true
 }
 
