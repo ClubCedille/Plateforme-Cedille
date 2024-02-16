@@ -78,6 +78,7 @@ jobs:
               uses: peter-evans/create-pull-request@v5
               with:
                 title: Create a GRAV website for ${{inputs.nom_club}}
+                branch: grav/${{nom_club}}
                 body: |
                     Nom du club: ${{inputs.nom_club}}
                     Domaine: ${{inputs.domaine}}

@@ -28,6 +28,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           title: Create sandbox for ${{github.event.sender.login}}
+          branch: sandbox/${{github.event.sender.login}}
           body: |
             @${{github.event.sender.login}}. Once this PR is merged, you will be able to login
             to your sandbox by following these steps:
