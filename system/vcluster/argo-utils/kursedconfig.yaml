@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Config
+clusters:
+- cluster:
+    certificate-authority-data: __CACERT__
+    server: https://kubernetes.default.svc
+  name: local
+contexts:
+- context:
+  name: default-context
+  cluster: local
+  user: debug-admin
+current-context: default-context
+users:
+- name: debug-admin
+  user:
+    token: __TOKEN__
