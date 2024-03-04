@@ -1,0 +1,12 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: GitHubSecretEngineRole
+metadata:
+  name: raconteurs-grav
+spec:
+  authentication: 
+    path: kubernetes
+    role: config-admin
+  path: github
+  repositories:
+  - raconteurs.etsmtl.ca
+  organizationName: ClubCedille
