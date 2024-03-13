@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: test-integrale-grav
+  name: Integrale-grav
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "2"
@@ -9,10 +9,10 @@ spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-    namespace: test-integrale-grav
+    namespace: Integrale-grav
   source:
     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
-    path: apps/test-integrale/grav/prod
+    path: apps/Integrale/grav/prod
     targetRevision: HEAD 
   syncPolicy:
     syncOptions:
