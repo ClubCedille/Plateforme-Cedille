@@ -18,6 +18,9 @@ patches:
       - op: replace
         path: /spec/tls/0/hosts/0
         value: integrale.etsmtl.ca
+      - op: replace
+        path: /metadata/annotations/cert-manager.io~1cluster-issuer
+        value: letsencrypt-prod
   - target:
       kind: RandomSecret
     patch: |-
