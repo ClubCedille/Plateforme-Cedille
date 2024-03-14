@@ -7,7 +7,7 @@ spec:
     metadata:
       annotations:
         vault.hashicorp.com/agent-inject-template-gitsync: |
-          {{- with secret "github/token/test-integrale-grav" -}}
+          {{- with secret "github/token/Integrale-grav" -}}
           enabled: true
           folders:
             - pages
@@ -22,7 +22,7 @@ spec:
             cron_enable: true
             cron_at: '*/10 * * * *'
           local_repository: null
-          repository: 'https://github.com/ClubCedille/test-integrale.omni.cedille.club.git'
+          repository: 'https://github.com/ClubCedille/integrale.etsmtl.ca.git'
           no_user: '0'
           user: x-access-token
           password: "{{ .Data.token }}"
@@ -43,9 +43,9 @@ spec:
           logging: true
           {{- end }}
         vault.hashicorp.com/agent-inject-template-admin_pwd: |
-          {{- with secret "kv/data/test-integrale-grav/default/grav/test-integrale-grav-init-pwd" -}}
+          {{- with secret "kv/data/Integrale-grav/default/grav/Integrale-grav-init-pwd" -}}
           state: enabled
-          email: admin@test-integrale.omni.cedille.club
+          email: admin@integrale.etsmtl.ca
           username: admin
           fullname: admin
           title: Administrator

@@ -29,8 +29,8 @@ resources:
 - ../test-grav-3/grav/
 - ../ets-demo/grav/
 - ../raconteurs/grav/
-- ../test-integrale/grav/
 - ../hackqc2024/
+- ../Integrale/grav/
   # ... other apps ...
 
   # This patch will set the destination cluster for Applications
