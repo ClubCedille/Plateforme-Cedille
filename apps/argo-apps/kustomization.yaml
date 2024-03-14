@@ -29,7 +29,6 @@ resources:
 - ../test-grav-3/grav/
 - ../ets-demo/grav/
 - ../raconteurs/grav/
-- ../test-integrale/grav/
 - ../Integrale/grav/
   # ... other apps ...
 
