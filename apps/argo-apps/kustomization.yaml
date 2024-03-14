@@ -29,6 +29,7 @@ resources:
 - ../test-grav-3/grav/
 - ../ets-demo/grav/
 - ../raconteurs/grav/
+- ../hackqc2024/
 - ../Integrale/grav/
   # ... other apps ...
 
