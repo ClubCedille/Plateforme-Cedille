@@ -7,7 +7,7 @@ spec:
     metadata:
       annotations:
         vault.hashicorp.com/agent-inject-template-gitsync: |
-          {{- with secret "github/token/Integrale-grav" -}}
+          {{- with secret "github/token/integrale-grav" -}}
           enabled: true
           folders:
             - pages
@@ -43,7 +43,7 @@ spec:
           logging: true
           {{- end }}
         vault.hashicorp.com/agent-inject-template-admin_pwd: |
-          {{- with secret "kv/data/Integrale-grav/default/grav/Integrale-grav-init-pwd" -}}
+          {{- with secret "kv/data/integrale-grav/default/grav/integrale-grav-init-pwd" -}}
           state: enabled
           email: admin@integrale.etsmtl.ca
           username: admin

@@ -26,4 +26,4 @@ patches:
     patch: |-
       - op: replace
         path: /spec/path
-        value: kv/data/Integrale-grav/default/grav
+        value: kv/data/integrale-grav/default/grav
