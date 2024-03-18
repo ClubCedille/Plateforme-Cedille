@@ -30,7 +30,7 @@ resources:
 - ../ets-demo/grav/
 - ../raconteurs/grav/
 - ../hackqc2024/
-- ../Integrale/grav/
+- ../integrale/grav/
   # ... other apps ...
 
   # This patch will set the destination cluster for Applications
