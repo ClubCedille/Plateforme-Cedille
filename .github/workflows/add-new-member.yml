@@ -25,9 +25,9 @@ on:
         options:
           - None
           - Reader
-          - Writer
+          - Operator
           - Admin
-
+          
 jobs:
   create_pr:
     runs-on: ubuntu-latest
