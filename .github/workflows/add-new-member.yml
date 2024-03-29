@@ -1,0 +1,55 @@
+name: Ajouter un nouveau membre à l'organisation
+on:
+  workflow_dispatch:
+    inputs:
+      github_email:
+        description: 'GitHub Email'
+        required: true
+        type: string
+      teams_json:
+        description: 'Teams JSON (Format: [{"teamName":"members", "teamRole":"member"}, ...]; Available teams: members, webmasters, sre, ..; Available roles: member, maintainer)'
+        required: true
+        type: string
+      cluster_role:
+        description: 'Cluster Role'
+        required: true
+        type: choice
+        options:
+          - None
+          - Reader
+          - Writer
+          - Admin
+
+jobs:
+  create_pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Render Terraform User Module
+        uses: cuchi/jinja2-action@v1.2.2
+        with:
+          template: terraform/templates/user_module_template.jinja2
+          output_file: temp_user_module.tf
+          strict: true
+          variables: |
+            user=${{ github.event.sender.login }}
+            github_email=${{ github.event.inputs.github_email }}
+            teams=${{ github.event.inputs.teams_json }}
+            cluster_role=${{ github.event.inputs.cluster_role }}
+
+      - name: Append New User Module to users.tf
+        run: |
+            echo "" >> terraform/users.tf
+            cat temp_user_module.tf >> terraform/users.tf
+    
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          title: "Add new member: ${{ github.event.sender.login }}"
+          body: |
+            This PR adds a new user module for ${{ github.event.sender.login }} to `users.tf`. Please review the configuration and merge the PR to apply the changes.
+          branch: "add-user-${{ github.event.sender.login }}"
+          delete-branch: true
