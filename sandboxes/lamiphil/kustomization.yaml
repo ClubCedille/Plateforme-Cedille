@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 namePrefix: lamiphil-
-namespace: lamiphil-sandbox
+# namespace: lamiphil-sandbox
 
 resources:
 - ../../bases/sandbox
@@ -14,3 +14,9 @@ patches:
         value: lamiphil
     target:
       kind: RoleBinding
+  - patch: |-
+      - op: replace
+        path /spec/destination/namespace
+        value: lamiphil-sandbox
+    target:
+      kind: Application
