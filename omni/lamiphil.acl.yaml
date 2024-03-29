@@ -6,6 +6,7 @@
     "kubernetes":
       "impersonate":
         "groups":
+        - "reader"
         - "lamiphil"
     "role": "Reader"
     "users":
