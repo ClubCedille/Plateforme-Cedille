@@ -54,9 +54,7 @@ jobs:
             cluster_role=${{ github.event.inputs.cluster_role }}
 
       - name: Append New User Module to users.tf
-        run: |
-            echo "" >> terraform/users.tf
-            cat temp_user_module.tf >> terraform/users.tf
+        run: cat temp_user_module.tf >> terraform/users.tf
 
       - name: Remove Temporary File
         run: rm temp_user_module.tf
