@@ -18,11 +18,6 @@ resource "github_repository_file" "omni_acl" {
   content = join("\n", [
     "# MANAGED BY TERRAFORM; DO NOT MODIFY",
     yamlencode({
-      metadata = {
-          namespace = "default"
-          type = "AccessPolicies.omni.sidero.dev"
-          id = "${var.github_username}-acl"
-      }
       spec = {
           rules = [{
               users = [var.github_email]
