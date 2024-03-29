@@ -1,0 +1,14 @@
+module "{{ user }}" {
+  source          = "./modules/user"
+  github_email    = "{{ github_email }}"
+  github_username = "{{ user }}"
+  github_role     = "member"
+  teams = [
+    {% for team in teams %}
+    { teamName = "{{ team.teamName }}", teamRole = "{{ team.teamRole }}" },
+    {% endfor %}
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "{{ cluster_role }}"
+  cluster_repo = var.platform_repo
+}
