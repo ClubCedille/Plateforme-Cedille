@@ -1,0 +1,61 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  labels:
+    app: postgres
+spec:
+  selector:
+    app: postgres
+  ports:
+    - port: 5432
+  clusterIP: None
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres
+spec:
+  serviceName: postgres
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+      annotations:
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/tls-skip-verify: "true"
+        vault.hashicorp.com/role: "secret-reader"
+        # https://github.com/ApplETS/Backend-Hello/blob/main/core/.env.template
+        vault.hashicorp.com/agent-inject-template-postgres-env: |
+          {{- with secret "kv/applets/postgres-env" -}}
+            export POSTGRES_PASSWORD="{{ .Data.data.postgres_password }}"
+          {{- end }}
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:13
+          command: ['/bin/sh', '-c', 'source /vault/secrets/postgres-env && exec docker-entrypoint.sh postgres']
+          env:
+            - name: POSTGRES_USER
+              value: postgres
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+          ports:
+            - containerPort: 5432
+              name: postgres
+          volumeMounts:
+            - name: postgres-pv-claim
+              mountPath: /var/lib/postgresql/data
+  volumeClaimTemplates:
+    - metadata:
+        name: postgres-pv-claim
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 10Gi
