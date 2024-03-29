@@ -6,7 +6,6 @@
     "kubernetes":
       "impersonate":
         "groups":
-        - "reader"
         - "svc-cedille-user"
     "role": "Reader"
     "users":
