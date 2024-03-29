@@ -2,6 +2,10 @@ name: Ajouter un nouveau membre à l'organisation
 on:
   workflow_dispatch:
     inputs:
+      github_username:
+        description: 'GitHub username'
+        required: true
+        type: string
       github_email:
         description: 'GitHub Email'
         required: true
@@ -43,7 +47,7 @@ jobs:
           output_file: temp_user_module.tf
           strict: true
           variables: |
-            user=${{ github.event.sender.login }}
+            user=${{ github.event.inputs.github_username }}
             github_email=${{ github.event.inputs.github_email }}
             team_sre=${{ github.event.inputs.team_sre }}
             team_webmasters=${{ github.event.inputs.team_webmasters }}
@@ -53,13 +57,15 @@ jobs:
         run: |
             echo "" >> terraform/users.tf
             cat temp_user_module.tf >> terraform/users.tf
-    
+
+      - name: Remove Temporary File
+        run: rm temp_user_module.tf
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
-          title: "Add new member: ${{ github.event.sender.login }}"
+          title: "Add new member: ${{ github.event.inputs.github_username }}"
           body: |
-            This PR adds a new user module for ${{ github.event.sender.login }} to `users.tf`. Please review the configuration and merge the PR to apply the changes.
-          branch: "add-user-${{ github.event.sender.login }}"
+            This PR adds a new user module for ${{ github.event.inputs.github_username }} to `users.tf`. Please review the configuration and merge the PR to apply the changes.
+          branch: "add-user-${{ github.event.inputs.github_username }}"
           delete-branch: true

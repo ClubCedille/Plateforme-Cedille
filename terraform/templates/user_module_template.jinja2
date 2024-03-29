@@ -5,12 +5,8 @@ module "{{ user }}" {
   github_role     = "member"
   teams = [
     { teamName = "members", teamRole = "member" },
-    {% if team_sre %}
-    { teamName = "sre", teamRole = "member" },
-    {% endif %}
-    {% if team_webmasters %}
-    { teamName = "webmasters", teamRole = "member" },
-    {% endif %}
+    {% if team_sre %}{ teamName = "sre", teamRole = "member" },{% endif %}
+    {% if team_webmasters %}{ teamName = "webmasters", teamRole = "member" },{% endif %}
   ]
   cluster_name = var.cluster_name
   cluster_role = "{{ cluster_role }}"
