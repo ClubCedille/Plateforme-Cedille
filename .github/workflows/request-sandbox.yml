@@ -1,6 +1,10 @@
 name: Demander un sandbox Kubernetes
 on:
   workflow_dispatch:
+    inputs:
+      email:
+        description: 'Email'
+        required: true
 
 jobs:
   create_pr:
@@ -8,6 +12,7 @@ jobs:
     env:
       j2_vars: |
         user=${{github.event.sender.login}}
+        email=${{github.event.inputs.email}}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
