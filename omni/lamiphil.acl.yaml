@@ -1,8 +1,4 @@
 # MANAGED BY TERRAFORM; DO NOT MODIFY
-"metadata":
-  "id": "lamiphil-acl"
-  "namespace": "default"
-  "type": "AccessPolicies.omni.sidero.dev"
 "spec":
   "rules":
   - "clusters":

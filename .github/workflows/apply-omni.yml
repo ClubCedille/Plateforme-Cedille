@@ -12,7 +12,7 @@ jobs:
                 curl -L -o omnictl https://cedille.omni.siderolabs.io/omnictl/omnictl-linux-amd64
                 chmod +x omnictl
             - run: |
-                for i in omni/*.yaml; do ./omnictl apply -f "$i"; done
+                eval-all '. as $item ireduce ({}; . *+ $item )' omni/*.acl.yaml | ./omnictl apply -f -
               env:
                 OMNI_ENDPOINT: ${{vars.OMNI_ENDPOINT}}
                 OMNI_SERVICE_ACCOUNT_KEY: ${{secrets.OMNI_SERVICE_ACCOUNT_KEY}}
