@@ -25,7 +25,7 @@ resource "github_repository_file" "omni_acl" {
               role = var.cluster_role
               kubernetes = {
                   impersonate = {
-                      groups = [var.github_username]
+                      groups = ["reader", var.github_username]
                   }
               }
           }]
