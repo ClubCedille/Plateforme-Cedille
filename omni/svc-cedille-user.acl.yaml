@@ -1,0 +1,12 @@
+# MANAGED BY TERRAFORM; DO NOT MODIFY
+"spec":
+  "rules":
+  - "clusters":
+    - "cedille-cluster"
+    "kubernetes":
+      "impersonate":
+        "groups":
+        - "svc-cedille-user"
+    "role": "Reader"
+    "users":
+    - "cedille@etsmtl.net"
