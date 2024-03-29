@@ -6,6 +6,7 @@
     "kubernetes":
       "impersonate":
         "groups":
+        - "reader"
         - "compilade"
     "role": "None"
     "users":
