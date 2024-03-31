@@ -84,7 +84,7 @@ spec:
           command: ["/bin/sh", "-c"]
           args:
             - >
-              . /vault/secrets/mongo_pwd && . && exec mongod --bind_ip_all']
+              . /vault/secrets/mongo_pwd && . && exec mongod --bind_ip_all
           resources: {}
           env:
             - name: MONGO_USER
