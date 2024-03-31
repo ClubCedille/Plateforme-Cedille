@@ -81,7 +81,10 @@ spec:
         - name: mongo
           image: mongo:6
           imagePullPolicy: Always
-          command: ['/bin/sh', '-c', 'source /vault/secrets/mongo_pwd && exec mongod --bind_ip_all']
+          command: ["/bin/sh", "-c"]
+          args:
+            - >
+              . /vault/secrets/mongo_pwd && . && exec mongod --bind_ip_all']
           resources: {}
           env:
             - name: MONGO_USER
