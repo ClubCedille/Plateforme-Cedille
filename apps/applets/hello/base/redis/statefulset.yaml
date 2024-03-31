@@ -51,7 +51,7 @@ spec:
             allowPrivilegeEscalation: false
   volumeClaimTemplates:
     - metadata:
-        name: redis--pv-claim
+        name: redis-pv-claim
       spec:
         accessModes: ["ReadWriteOnce"]
         resources:
