@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: redis
-  namespace: applets-hello
 spec:
   serviceName: "redis"
   replicas: 1
@@ -36,6 +35,13 @@ spec:
           volumeMounts:
             - name: redis-data
               mountPath: /data
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "500Mi"
+            limits:
+              cpu: "1000m"
+              memory: "1Gi"
   volumeClaimTemplates:
     - metadata:
         name: redis-data

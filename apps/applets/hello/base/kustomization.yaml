@@ -5,5 +5,6 @@ resources:
   - deployment.yaml
   - postgres/deployment.yaml
   - postgres/pv.yaml
+  - postgres/service.yaml
   - redis/service.yaml
   - redis/statefulset.yaml
