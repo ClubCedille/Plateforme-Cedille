@@ -58,6 +58,7 @@ jobs:
         run: cat terraform/users.tf
 
       - name: Create Pull Request
+        id: create-pr
         uses: peter-evans/create-pull-request@v5
         with:
           title: "Add new member: ${{ github.event.inputs.github_username }}"
@@ -65,3 +66,5 @@ jobs:
             This PR adds a new user module for ${{ github.event.inputs.github_username }} to `users.tf`. Please review the configuration and merge the PR to apply the changes.
           branch: "add-user-${{ github.event.inputs.github_username }}"
           delete-branch: true
+          team-reviewers: |
+            Exec
