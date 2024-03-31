@@ -35,7 +35,7 @@ spec:
               source /vault/secrets/redis-env &&
               redis-server --appendonly yes --requirepass "$REDIS_PASSWORD"
           volumeMounts:
-            - name: redis-data
+            - name: redis-pv-claim
               mountPath: /data
           resources:
             requests:
@@ -51,7 +51,7 @@ spec:
             allowPrivilegeEscalation: false
   volumeClaimTemplates:
     - metadata:
-        name: redis-data
+        name: redis--pv-claim
       spec:
         accessModes: ["ReadWriteOnce"]
         resources:
