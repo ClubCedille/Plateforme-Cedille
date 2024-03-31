@@ -22,6 +22,8 @@ spec:
             export POSTGRES_PASSWORD="{{ .Data.data.postgres_password }}"
           {{- end }}
     spec:
+      securityContext:
+        fsGroup: 1000
       containers:
         - name: postgres
           image: postgres:13
@@ -44,6 +46,11 @@ spec:
             limits:
               cpu: "2000m"
               memory: "2Gi"
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
   volumeClaimTemplates:
     - metadata:
         name: postgres-pv-claim
