@@ -32,6 +32,7 @@ resources:
 - ../raconteurs/grav/
 - ../hackqc2024/
 - ../integrale/grav/
+- ../applets/hello/
   # ... other apps ...
 
   # This patch will set the destination cluster for Applications
