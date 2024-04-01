@@ -23,7 +23,6 @@ spec:
     spec:
       securityContext:
         fsGroup: 1000
-      serviceAccountName: secrets-reader
       containers:
         - name: redis
           image: redis:7.2.4
