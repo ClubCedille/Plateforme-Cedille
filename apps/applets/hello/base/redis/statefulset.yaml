@@ -18,7 +18,7 @@ spec:
         vault.hashicorp.com/role: 'secret-reader'
         vault.hashicorp.com/agent-inject-template-redis-env: |
           {{- with secret "kv/applets/default/redis-env" -}}
-          REDIS_PASSWORD={{ .Data.data.redis_password }}
+          REDIS_PASSWORD="{{ .Data.data.redis_password }}"
           {{- end }}
     spec:
       securityContext:
