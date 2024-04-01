@@ -3,8 +3,7 @@ kind: Kustomization
 resources:
   - service.yaml
   - deployment.yaml
-  - postgres/deployment.yaml
-  - postgres/pv.yaml
+  - postgres/statefulset.yaml
   - postgres/service.yaml
   - redis/service.yaml
   - redis/statefulset.yaml
