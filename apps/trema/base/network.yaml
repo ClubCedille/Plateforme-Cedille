@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: trema
 spec:
+  selector:
+    app: trema
   ports:
     - name: http
       targetPort: 6000
