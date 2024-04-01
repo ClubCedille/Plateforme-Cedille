@@ -25,7 +25,6 @@ spec:
             export CDN_URL="{{ .Data.data.cdn_url }}"
           {{- end }}
     spec:
-      serviceAccountName: secrets-reader
       containers:
         - name: hello
           image: ghcr.io/applets/backend-hello:main
