@@ -3,8 +3,6 @@ kind: Kustomization
 
 namespace: applets-hello
 
-bases:
-  - ../base
-  
 resources:
+  - ../base/
   - ingress.yaml
