@@ -18,7 +18,7 @@ spec:
         vault.hashicorp.com/role: 'secret-reader'
         # https://github.com/ApplETS/Backend-Hello/blob/main/core/.env.template
         vault.hashicorp.com/agent-inject-template-postgres-env: |
-          {{- with secret "kv/applets/postgres-env" -}}
+          {{- with secret "kv/applets/default/postgres-env" -}}
             export POSTGRES_PASSWORD="{{ .Data.data.postgres_password }}"
           {{- end }}
     spec:
