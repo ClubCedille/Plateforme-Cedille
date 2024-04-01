@@ -4,7 +4,7 @@ metadata:
   name: trema
 spec:
   ports:
-    - name: trema
+    - name: http
       targetPort: 6000
       protocol: TCP
       port: 80
