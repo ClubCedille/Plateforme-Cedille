@@ -21,7 +21,8 @@ spec:
           {{- end }}
         vault.hashicorp.com/agent-inject-template-discord_token: |
           {{- with secret "kv/trema/default/trema" -}}
-          export DISCORD_TOKEN="{{ .Data.data.token }}"
+          export DISCORD_TOKEN="{{ .Data.data.discord_token }}"
+          export GITHUB_TOKEN="{{ .Data.data.github_token }}"
           {{- end }}
     spec:
       containers:
@@ -85,6 +86,7 @@ spec:
           args:
             - >
               . /vault/secrets/mongo_pwd && . && exec mongod --bind_ip_all
+
           resources: {}
           env:
             - name: MONGO_USER
