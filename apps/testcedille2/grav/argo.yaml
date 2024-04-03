@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: testcedille2-grav
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: testcedille2-grav
+  source:
+    repoURL: https://github.com/ClubCedille/Plateforme-Cedille
+    path: apps/testcedille2/grav/prod
+    targetRevision: HEAD 
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
