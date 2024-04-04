@@ -17,7 +17,7 @@ spec:
         vault.hashicorp.com/role: 'secret-reader'
         # https://github.com/ApplETS/Backend-Hello/blob/main/core/.env.template
         vault.hashicorp.com/agent-inject-template-hello-env: |
-          {{- with secret "kv/applets/default/hello-env" -}}
+          {{- with secret "kv/applets-hello/default/hello-env" -}}
             export CONNECTION_STRING="{{ .Data.data.connection_string }}"
             export REDIS_CONNECTION_STRING="{{ .Data.data.redis_connection_string }}"
             export ASPNETCORE_ENVIRONMENT="{{ .Data.data.aspnetcore_environment }}"
