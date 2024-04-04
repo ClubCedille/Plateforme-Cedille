@@ -13,8 +13,7 @@ spec:
   source:
     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
     path: apps/trema/prod
-    targetRevision: HEAD 
+    targetRevision: HEAD
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true
-    - Replace=true
+      - CreateNamespace=true
