@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namePrefix: SonOfLope-
+namespace: SonOfLope-sandbox
+
+resources:
+- ../../bases/sandbox
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /subjects/0/name
+        value: allaoua.boudriou.1@ens.etsmtl.ca
+    target:
+      kind: RoleBinding
