@@ -40,3 +40,16 @@ module "cedille-test" {
   cluster_role = "Reader"
   cluster_repo = var.platform_repo
 }
+
+module "allaoua-rico" {
+  source          = "./modules/user"
+  github_email    = "allaoua.boudriou@gmail.com"
+  github_username = "allaoua-rico"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" }, 
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Reader"
+  cluster_repo = var.platform_repo
+}
