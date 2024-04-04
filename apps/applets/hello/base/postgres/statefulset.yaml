@@ -27,7 +27,7 @@ spec:
       containers:
         - name: postgres
           image: postgres:13
-          command: ['/bin/sh', '-c', 'source /vault/secrets/postgres-env && exec docker-entrypoint.sh postgres']
+          command: ['/bin/sh', '-c', '. /vault/secrets/postgres-env && exec docker-entrypoint.sh postgres']
           env:
             - name: POSTGRES_USER
               value: postgres

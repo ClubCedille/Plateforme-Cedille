@@ -31,8 +31,8 @@ spec:
           command: ["/bin/sh", "-c"]
           args:
             - >
-              source /vault/secrets/redis-env &&
-              redis-server --appendonly yes --requirepass "$REDIS_PASSWORD"
+              . /vault/secrets/redis-env && redis-server --appendonly yes --requirepass "$REDIS_PASSWORD"
+
           volumeMounts:
             - name: redis-pv-claim
               mountPath: /data
