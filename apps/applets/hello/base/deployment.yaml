@@ -58,3 +58,14 @@ spec:
         - name: hello-volume
           persistentVolumeClaim:
             claimName: hello-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: hello-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
