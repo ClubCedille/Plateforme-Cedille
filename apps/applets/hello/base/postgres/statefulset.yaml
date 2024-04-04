@@ -45,6 +45,7 @@ spec:
               memory: "1Gi"
             limits:
               cpu: "2000m"
+              hugepages-2Mi: 512Mi
               memory: "2Gi"
           securityContext:
             runAsUser: 1000
