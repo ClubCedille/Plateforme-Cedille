@@ -68,3 +68,4 @@ jobs:
           delete-branch: true
           team-reviewers: |
             Exec
+          token: ${{ secrets.PULL_REQUEST_TOKEN }}
