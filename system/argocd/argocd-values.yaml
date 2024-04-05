@@ -194,7 +194,7 @@ configs:
             clientSecret: $dex-secret:dex.github.clientSecret
             orgs:
             - name: ClubCedille
-    
+
     resource.customizations: |
       networking.k8s.io/Ingress:
         health.lua: |
@@ -309,8 +309,15 @@ configs:
       p, role:org-operators, gpgkeys, create, *, allow
       p, role:org-operators, gpgkeys, delete, *, allow
 
+      p, role:applets, applications, create, applets-hello/*, allow
+      p, role:applets, applications, update, applets-hello/*, allow
+      p, role:applets, applications, delete, applets-hello/*, allow
+      p, role:applets, applications, sync, applets-hello/*, allow
+      p, role:applets, applications, override, applets-hello/*, allow
+
       g, ClubCedille:SRE, role:org-operators
       g, ClubCedille:Exec, role:admin
+      g, ClubCedille:applets, role:applets
 
     # -- OIDC scopes to examine during rbac enforcement (in addition to `sub` scope).
     # The scope value can be a string, or a list of strings.
