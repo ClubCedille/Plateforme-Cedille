@@ -7,3 +7,5 @@ resources:
   - postgres/service.yaml
   - redis/service.yaml
   - redis/statefulset.yaml
+  - nginx/deployment.yaml
+  - nginx/service.yaml
