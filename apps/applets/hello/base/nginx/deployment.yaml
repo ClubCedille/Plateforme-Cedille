@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-cdn
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-cdn
+  template:
+    metadata:
+      labels:
+        app: nginx-cdn
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+      - name: nginx-cdn
+        image: nginx:stable
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: hello-volume
+          mountPath: /usr/share/nginx/html
+        securityContext:
+          runAsUser: 1000
+          runAsGroup: 1000
+          readOnlyRootFilesystem: true
+          allowPrivilegeEscalation: false 
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "256Mi"
+      volumes:
+      - name: hello-volume
+        persistentVolumeClaim:
+          claimName: hello-pvc
