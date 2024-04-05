@@ -3,32 +3,18 @@ on:
   workflow_dispatch:
     inputs:
       email:
-        description: 'Email'
+        description: 'Main github email'
         required: true
 
 jobs:
   create_pr:
     runs-on: ubuntu-latest
-    env:
-      j2_vars: |
-        user=${{github.event.sender.login}}
-        email=${{github.event.inputs.email}}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Create folders
-        run: mkdir -p sandboxes/${{github.event.sender.login}}
-      - name: Create kustomize
-        uses: cuchi/jinja2-action@v1.2.2
-        with:
-          template: bases/sandbox/kustomization.yaml.jinja2
-          output_file: sandboxes/${{github.event.sender.login}}/kustomization.yaml
-          strict: true
-          variables: ${{ env.j2_vars }}
-      - name: Update kustomize files
+      - name: Add user to sandbox list
         run: |
-          cd $GITHUB_WORKSPACE/sandboxes
-          kustomize edit add resource ${{github.event.sender.login}}/
+          yq eval '. += [{"user": "${{github.event.sender.login}}", "email": "${{github.event.inputs.email}}"}]' system/sandboxes/sandbox-list.yaml -i
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:

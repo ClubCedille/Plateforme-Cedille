@@ -7,31 +7,32 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-  - list:
-      elements:
-      - user: svc-cedille-user
-        email: cedille@etsmtl.net
+  - git:
+      repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      revision: HEAD
+      files:
+        - path: system/sandboxes/sandbox-list.yaml
   template:
     metadata:
-      name: '{{.user}}-sandbox'
+      name: 'sandbox-{{.user}}'
     spec:
       destination:
-        namespace: '{{.user}}-sandbox'
+        namespace: 'sandbox-{{.user}}'
         server: https://kubernetes.default.svc
       project: default
       sources:
         - chart: vcluster
           helm:
-            releaseName: vcluster-sandbox
+            releaseName: sandbox-{{.user}}
             valueFiles:
             - $values/system/vcluster/helm/common-values.yaml
           repoURL: https://charts.loft.sh
-          targetRevision: 0.16.4
+          targetRevision: 0.20.0
         - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
-          targetRevision: master
+          targetRevision: HEAD
           ref: values
         - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
-          targetRevision: master
+          targetRevision: HEAD
           path: system/sandboxes/namespaced
           kustomize:
             namePrefix: '{{.user}}-'
