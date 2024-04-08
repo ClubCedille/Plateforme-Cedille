@@ -309,11 +309,11 @@ configs:
       p, role:org-operators, gpgkeys, create, *, allow
       p, role:org-operators, gpgkeys, delete, *, allow
 
-      p, role:applets, applications, create, applets-hello/*, allow
-      p, role:applets, applications, update, applets-hello/*, allow
-      p, role:applets, applications, delete, applets-hello/*, allow
-      p, role:applets, applications, sync, applets-hello/*, allow
-      p, role:applets, applications, override, applets-hello/*, allow
+      p, role:applets, applications, create, default/applets-hello, allow
+      p, role:applets, applications, update, default/applets-hello, allow
+      p, role:applets, applications, delete, default/applets-hello, allow
+      p, role:applets, applications, sync, default/applets-hello, allow
+      p, role:applets, applications, override, default/applets-hello, allow
 
       g, ClubCedille:SRE, role:org-operators
       g, ClubCedille:Exec, role:admin
