@@ -27,7 +27,7 @@ spec:
             valueFiles:
             - $values/system/vcluster/helm/common-values.yaml
           repoURL: https://charts.loft.sh
-          targetRevision: 0.20.0
+          targetRevision: 0.19.5
         - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
           targetRevision: HEAD
           ref: values
