@@ -1,0 +1,50 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: sandbox-applicationset
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - git:
+      repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      revision: HEAD
+      files:
+        - path: system/sandboxes/sandbox-list.yaml
+  template:
+    metadata:
+      name: 'sandbox-{{.user}}'
+    spec:
+      destination:
+        namespace: 'sandbox-{{.user}}'
+        server: https://kubernetes.default.svc
+      project: default
+      sources:
+        - chart: vcluster
+          helm:
+            releaseName: sandbox-{{.user}}
+            valueFiles:
+            - $values/system/vcluster/helm/common-values.yaml
+          repoURL: https://charts.loft.sh
+          targetRevision: 0.20.0
+        - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+          targetRevision: HEAD
+          ref: values
+        - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+          targetRevision: HEAD
+          path: system/sandboxes/namespaced
+          kustomize:
+            namePrefix: '{{.user}}-'
+            patches:
+              - patch: |-
+                  - op: replace
+                    path: /subjects/0/name
+                    value: {{.email}}
+                target:
+                  kind: RoleBinding
+      syncPolicy:
+        automated:
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
