@@ -13,10 +13,10 @@ module "francis" {
   cluster_repo = var.platform_repo
 }
 
-module "philippe" {
+module "cedille-sa" {
   source          = "./modules/user"
-  github_email    = "philippelamy12@gmail.com"
-  github_username = "lamiphil"
+  github_email    = "cedille@etsmtl.net"
+  github_username = "svc-cedille-user"
   github_role     = "member"
   teams = [
     { teamName = "members", teamRole = "member" },
@@ -27,14 +27,13 @@ module "philippe" {
   cluster_repo = var.platform_repo
 }
 
-module "cedille-test" {
+module "allaoua-rico" {
   source          = "./modules/user"
-  github_email    = "cedille@etsmtl.net"
-  github_username = "svc-cedille-user"
+  github_email    = "allaoua.boudriou@gmail.com"
+  github_username = "allaoua-rico"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" },
-    { teamName = "sre", teamRole = "member" }
+    { teamName = "members", teamRole = "member" }, 
   ]
   cluster_name = var.cluster_name
   cluster_role = "Reader"

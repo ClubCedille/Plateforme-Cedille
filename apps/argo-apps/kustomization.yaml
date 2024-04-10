@@ -20,7 +20,7 @@ resources:
 - ../../system/merbridge/
 - ../../system/kubevious/
 - ../../system/kube-system/
-- ../../sandboxes/
+- ../../system/sandboxes/
 - ../samples/kustomize-example-app/
 - ../samples/opentelemetry-demo/
 - ../samples/grav-demo/
