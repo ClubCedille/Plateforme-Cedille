@@ -18,20 +18,20 @@ spec:
       - name: nginx-cdn
         image: nginx:stable
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         volumeMounts:
         - name: hello-volume
           mountPath: /usr/share/nginx/html
         - name: nginx-temp
           mountPath: /var/cache/nginx
+        - name: config-volume
+          mountPath: /etc/nginx/conf.d
+          readOnly: true
         securityContext:
           runAsUser: 1000
           runAsGroup: 1000
           readOnlyRootFilesystem: true
-          allowPrivilegeEscalation: false 
-          capabilities:
-            add:
-            - NET_BIND_SERVICE
+          allowPrivilegeEscalation: false
         resources:
           requests:
             cpu: "100m"
@@ -45,3 +45,6 @@ spec:
           claimName: hello-pvc
       - name: nginx-temp
         emptyDir: {}
+      - name: config-volume
+        configMap:
+          name: nginx-config

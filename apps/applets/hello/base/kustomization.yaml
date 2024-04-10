@@ -9,3 +9,4 @@ resources:
   - redis/statefulset.yaml
   - nginx/deployment.yaml
   - nginx/service.yaml
+  - nginx/configMap.yaml
