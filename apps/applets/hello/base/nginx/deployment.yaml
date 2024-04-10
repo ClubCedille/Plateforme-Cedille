@@ -27,6 +27,8 @@ spec:
         - name: config-volume
           mountPath: /etc/nginx/conf.d
           readOnly: true
+        - name: run-volume
+          mountPath: /var/run
         securityContext:
           runAsUser: 1000
           runAsGroup: 1000
@@ -48,3 +50,5 @@ spec:
       - name: config-volume
         configMap:
           name: nginx-config
+      - name: run-volume
+        emptyDir: {}
