@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: oneuptime
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  destination:
+    namespace: oneuptime
+    server: https://kubernetes.default.svc
+  sources:
+    - chart: oneuptime
+      helm:
+        releaseName: oneuptime
+        valueFiles:
+          - $values/system/oneuptime/helm/values.yaml
+      repoURL: https://helm-chart.oneuptime.com
+      targetRevision: 7.0.1978
+    - repoURL: https://github.com/ClubCedille/Plateforme-Cedille.git
+      targetRevision: HEAD
+      ref: values
+    - repoURL: https://github.com/ClubCedille/Plateforme-Cedille.git
+      path: system/oneuptime/configs
+      targetRevision: HEAD
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

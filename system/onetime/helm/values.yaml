@@ -1,0 +1,155 @@
+global:
+  storageClass:
+  clusterDomain: &global-cluster-domain cluster.local
+# Please change this to the domain name / IP where OneUptime server is hosted on.
+host: status.omni.cedille.club
+httpProtocol: https
+# (Optional): You usually do not need to set this if you're self hosting. If you do set it, set it to a long random value.
+oneuptimeSecret:
+encryptionSecret:
+# (Optional): You usually do not need to set this if you're self hosting.
+openTelemetryCollectorHost:
+fluentdHost:
+deployment:
+  replicaCount: 1
+metalLb:
+  enabled: false
+  ipAdddressPool:
+    enabled: false
+    addresses:
+    # - 51.158.55.153/32 # List of IP addresses of all the servers in the cluster.
+ingress:
+  service:
+    type: ClusterIP
+    externalIPs:
+    # - 51.158.55.153 # Please make sure this is the same as the one in metalLb.ipAdddressPool.addresses
+postgresql:
+  clusterDomain: *global-cluster-domain
+  auth:
+    username: oneuptime
+    database: oneuptimedb
+  architecture: standalone
+  primary:
+    service:
+      ports:
+        postgresql: "5432"
+    terminationGracePeriodSeconds: 0 # We do this because we do not want to wait for the pod to terminate in case of node failure. https://medium.com/tailwinds-navigator/kubernetes-tip-how-statefulsets-behave-differently-than-deployments-when-node-fails-d29e36bca7d5
+    persistence:
+      size: 25Gi
+  readReplicas:
+    terminationGracePeriodSeconds: 0 # We do this because we do not want to wait for the pod to terminate in case of node failure. https://medium.com/tailwinds-navigator/kubernetes-tip-how-statefulsets-behave-differently-than-deployments-when-node-fails-d29e36bca7d5
+    persistence:
+      size: 25Gi
+clickhouse:
+  clusterDomain: *global-cluster-domain
+  service:
+    ports:
+      http: "8123"
+  shards: 1
+  replicaCount: 1
+  terminationGracePeriodSeconds: 0 # We do this because we do not want to wait for the pod to terminate in case of node failure. https://medium.com/tailwinds-navigator/kubernetes-tip-how-statefulsets-behave-differently-than-deployments-when-node-fails-d29e36bca7d5
+  zookeeper:
+    enabled: false
+  persistence:
+    size: 25Gi
+  auth:
+    username: oneuptime
+  initdbScripts:
+    db-init.sql: |
+      CREATE DATABASE oneuptime;
+redis:
+  clusterDomain: *global-cluster-domain
+  architecture: standalone
+  auth:
+    enabled: true
+  master:
+    persistence:
+      enabled: false # We dont need redis persistence, because we dont do anything with it.
+  replica:
+    persistence:
+      enabled: false # We dont need redis persistence, because we dont do anything with it.
+image:
+  registry: docker.io
+  repository: oneuptime
+  pullPolicy: Always
+  tag: release
+  restartPolicy: Always
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+nodeEnvironment: production
+billing:
+  enabled: false
+  publicKey:
+  privateKey:
+  smsDefaultValueInCents:
+  callDefaultValueInCentsPerMinute:
+  smsHighRiskValueInCents:
+  callHighRiskValueInCentsPerMinute:
+subscriptionPlan:
+  basic:
+  growth:
+  scale:
+  enterprise:
+analytics:
+  host:
+  key:
+internalSmtp:
+  sendingDomain:
+  dkimPrivateKey:
+  dkimPublicKey:
+  email:
+  name:
+incidents:
+  disableAutomaticCreation: false
+statusPage:
+  cnameRecord:
+probes:
+  one:
+    name: "Probe"
+    description: "Probe"
+    monitoringWorkers: 3
+    monitorFetchLimit: 10
+    key:
+    replicaCount: 1
+    # two:
+    #   name: "Probe 2"
+    #   description: "Probe 2"
+    #   monitoringWorkers: 3
+    #   monitorFetchLimit: 10
+    #   key:
+    #   replicaCount: 1
+port:
+  app: 3002
+  ingestor: 3400
+  testServer: 3800
+  accounts: 3003
+  statusPage: 3105
+  dashboard: 3009
+  adminDashboard: 3158
+  nginx: 80
+  haraka: 2525
+  probe: 3500
+  otelCollectorGrpc: 4317
+  otelCollectorHttp: 4318
+  isolatedVM: 4572
+testServer:
+  enabled: false
+openTelemetryExporter:
+  endpoint:
+    server:
+    client:
+  headers:
+    app:
+    dashboard:
+    accounts:
+    statusPage:
+    probe:
+    adminDashboard:
+containerSecurityContext:
+podSecurityContext:
+# This can be one of the following: DEBUG, INFO, WARN, ERROR
+logLevel: ERROR

@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: oneuptime
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+    kubernetes.io/tls-acme: "true"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - status.omni.cedille.club
+      secretName: status-https-cert
+  rules:
+    - host: status.omni.cedille.club
+      http:
+        paths:
+          - path: /
+            backend:
+              service:
+                name: oneuptime-nginx
+                port:
+                  number: 80
+            pathType: Prefix
