@@ -1,5 +1,5 @@
 global:
-  storageClass:
+  storageClass: mayastor
   clusterDomain: &global-cluster-domain cluster.local
 # Please change this to the domain name / IP where OneUptime server is hosted on.
 host: status.omni.cedille.club
@@ -26,7 +26,7 @@ ingress:
 postgresql:
   clusterDomain: *global-cluster-domain
   auth:
-    username: oneuptime
+    username: postgres
     database: oneuptimedb
   architecture: standalone
   primary:
