@@ -6,6 +6,10 @@ namePrefix: raconteurs-
 resources:
   - ../../../../bases/grav
 
+ images:
+ - name: ghcr.io/clubcedille/grav
+   newTag: "1.7.45.1"
+
 patches:
   - path: vault-patch.yaml
   - target:
