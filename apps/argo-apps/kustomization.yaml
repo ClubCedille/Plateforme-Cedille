@@ -21,7 +21,7 @@ resources:
 - ../../system/kubevious/
 - ../../system/kube-system/
 - ../../system/sandboxes/
-- ../../system/oneuptime/
+  #- ../../system/oneuptime/
 - ../samples/kustomize-example-app/
 - ../samples/opentelemetry-demo/
 - ../samples/grav-demo/
