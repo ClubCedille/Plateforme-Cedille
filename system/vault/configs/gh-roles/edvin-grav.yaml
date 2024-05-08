@@ -1,0 +1,12 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: GitHubSecretEngineRole
+metadata:
+  name: edvin-grav
+spec:
+  authentication: 
+    path: kubernetes
+    role: config-admin
+  path: github
+  repositories:
+  - edvin.test.ca
+  organizationName: ClubCedille
