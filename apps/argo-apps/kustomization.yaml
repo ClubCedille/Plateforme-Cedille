@@ -5,6 +5,7 @@ kind: Kustomization
   # - ../../system/vcluster/
   #- ../../system/pixie/
   # Workload
+  #- ../../system/oneuptime/
 resources:
 - ../../system/crossplane/
 - ../../system/vault/
@@ -21,7 +22,6 @@ resources:
 - ../../system/kubevious/
 - ../../system/kube-system/
 - ../../system/sandboxes/
-  #- ../../system/oneuptime/
 - ../samples/kustomize-example-app/
 - ../samples/opentelemetry-demo/
 - ../samples/grav-demo/
@@ -34,6 +34,7 @@ resources:
 - ../hackqc2024/
 - ../integrale/grav/
 - ../applets/hello/
+- ../Jamesclub/grav/
   # ... other apps ...
 
   # This patch will set the destination cluster for Applications
