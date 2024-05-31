@@ -29,6 +29,7 @@ resources:
 # - ../hackqc2024/
 - ../integrale/grav/
 - ../applets/hello/
+- ../point-virgule/
   # ... other apps ...
 
   # This patch will set the destination cluster for Applications
