@@ -2,10 +2,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - acets-grav.yaml
-  - test-grav-grav.yaml
-  - test-grav-2-grav.yaml
-  - test-grav-3-grav.yaml
-  - ets-demo-grav.yaml
-  - raconteurs-grav.yaml
-  - integrale-grav.yaml
+- acets-grav.yaml
+- test-grav-grav.yaml
+- test-grav-2-grav.yaml
+- test-grav-3-grav.yaml
+- ets-demo-grav.yaml
+- raconteurs-grav.yaml
+- integrale-grav.yaml
+- Andrei-grav.yaml

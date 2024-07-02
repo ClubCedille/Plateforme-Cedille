@@ -1,0 +1,12 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: GitHubSecretEngineRole
+metadata:
+  name: Andrei-grav
+spec:
+  authentication: 
+    path: kubernetes
+    role: config-admin
+  path: github
+  repositories:
+  - anrei.cedille.club
+  organizationName: ClubCedille
