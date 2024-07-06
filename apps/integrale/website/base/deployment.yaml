@@ -42,13 +42,12 @@ spec:
               mountPath: /tmp
             - name: yarn-global
               mountPath: /usr/local/share/.cache/yarn
-            - name: app-writable
-              mountPath: /usr/app
-              subPath: app
+            - name: app-tmp
+              mountPath: /usr/app/tmp
       volumes:
         - name: yarn-tmp
           emptyDir: {}
         - name: yarn-global
           emptyDir: {}
-        - name: app-writable
+        - name: app-tmp
           emptyDir: {}
