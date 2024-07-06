@@ -17,7 +17,7 @@ spec:
           image: ghcr.io/integrale-ets/site-integrale:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 5173 
+            - containerPort: 3000
           resources:
             requests:
               cpu: 100m
@@ -37,13 +37,14 @@ spec:
                 - ALL
             seccompProfile:
               type: RuntimeDefault
+          command: ["sh", "-c", "yarn run --cache-folder /tmp/.yarn-cache --global-folder /usr/local/share/.cache/yarn"]
           volumeMounts:
-            - name: yarn-cache
-              mountPath: /tmp/.yarn-cache
+            - name: yarn-tmp
+              mountPath: /tmp
             - name: yarn-global
               mountPath: /usr/local/share/.cache/yarn
       volumes:
-        - name: yarn-cache
+        - name: yarn-tmp
           emptyDir: {}
         - name: yarn-global
           emptyDir: {}

@@ -22,4 +22,4 @@ spec:
               service:
                 name: integrale-website-svc
                 port:
-                  number: 5173
+                  number: 3000
