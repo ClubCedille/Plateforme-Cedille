@@ -5,6 +5,5 @@ resources:
   - acets-grav.yaml
   - test-grav-grav.yaml
   - test-grav-2-grav.yaml
-  - test-grav-3-grav.yaml
   - ets-demo-grav.yaml
   - raconteurs-grav.yaml
