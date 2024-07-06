@@ -27,7 +27,7 @@ resources:
 - ../ets-demo/grav/
 - ../raconteurs/grav/
 # - ../hackqc2024/
-- ../integrale/
+- ../integrale/website/
 - ../applets/hello/
   # ... other apps ...
 
