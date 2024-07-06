@@ -37,7 +37,6 @@ spec:
                 - ALL
             seccompProfile:
               type: RuntimeDefault
-          command: ["sh", "-c", "yarn run --cache-folder /tmp/.yarn-cache --global-folder /usr/local/share/.cache/yarn"]
           volumeMounts:
             - name: yarn-tmp
               mountPath: /tmp
