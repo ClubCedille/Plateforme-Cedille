@@ -28,7 +28,7 @@ spec:
               ephemeral-storage: 1Gi
           securityContext:
             allowPrivilegeEscalation: false
-            readOnlyRootFilesystem: true
+            readOnlyRootFilesystem: false
             runAsNonRoot: true
             runAsUser: 10001
             runAsGroup: 10001
@@ -42,12 +42,8 @@ spec:
               mountPath: /tmp
             - name: yarn-global
               mountPath: /usr/local/share/.cache/yarn
-            - name: app-tmp
-              mountPath: /usr/app/tmp
       volumes:
         - name: yarn-tmp
           emptyDir: {}
         - name: yarn-global
-          emptyDir: {}
-        - name: app-tmp
           emptyDir: {}
