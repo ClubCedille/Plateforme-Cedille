@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: integrale-website
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: integrale-website
+  template:
+    metadata:
+      labels:
+        app: integrale-website
+    spec:
+      containers:
+        - name: integrale-website
+          image: ghcr.io/integrale-ets/site-integrale:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5173 
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
+              ephemeral-storage: 1Gi
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 10001
+            runAsGroup: 10001
+            capabilities:
+              drop:
+                - ALL
+            seccompProfile:
+              type: RuntimeDefault
