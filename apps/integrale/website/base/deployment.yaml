@@ -37,3 +37,9 @@ spec:
                 - ALL
             seccompProfile:
               type: RuntimeDefault
+          volumeMounts:
+            - name: yarn-cache
+              mountPath: /tmp/.yarn-cache
+      volumes:
+        - name: yarn-cache
+          emptyDir: {}
