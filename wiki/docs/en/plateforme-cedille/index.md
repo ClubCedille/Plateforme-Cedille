@@ -1,6 +1,5 @@
-# Plateforme Cedille
+# Cedille Platform
 
-Bienvenue sur la page d'accueil de la plateforme Cedille! Cette section contient
-des informations sur la plateforme Cedille, y compris la vision du projet,
-l'architecture technique, les services offerts et les meilleures pratiques pour
-son utilisation.
+Welcome to the homepage of the Cedille platform! This section contains
+information about the Cedille platform, including the project vision, technical
+architecture, offered services, and best practices for its use.

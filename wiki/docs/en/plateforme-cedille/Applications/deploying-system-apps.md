@@ -1,1 +1,1 @@
-# Déployer des applications de type système
+# Deploy applications of system type

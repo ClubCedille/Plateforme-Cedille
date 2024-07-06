@@ -1,14 +1,14 @@
-# Application existantes
+# Existing Applications
 
-## Système
+## System
 
 ### Mayastor
 
-#### Description de la configuration actuelle
+#### Current Configuration Description
 
-Mayastor est un système de stockage en blocs distribué implémenté avec le protocole NVMEoF. Entre autres, il permet l'accès et la réplication des données sur tous les noeuds du cluster Kubernetes.
+Mayastor is a distributed block storage system implemented with the NVMEoF protocol. Among other things, it allows access and replication of data across all nodes in the Kubernetes cluster.
 
-En ce moment, on maintient deux copies de toute donnée en tout temps:
+Currently, we maintain two copies of all data at all times:
 
 ```yaml
 # /system/mayastor/storageclass.yaml
@@ -26,95 +26,104 @@ parameters:
 provisioner: io.openebs.csi-mayastor
 ```
 
-##### Justification du choix
+##### Justification for Choice
 
-Comparé a d'autre solutions comme Ceph:
+Compared to other solutions like Ceph:
 
-- est très simple a déployer et configurer
-- à une basse complexité de son système et ses composantes
-- est concu dès le debut pour l'utilisation dans Kubernetes
+- Very simple to deploy and configure
+- Low system and component complexity
+- Designed from the start for use in Kubernetes
 
-Par exemple, on a fait plusieurs tentatives d'installation de Ceph, mais le système n'était pas stable pour la petite taille de cluster et était très mal-adapté pour l'utilisation dans Kubernetes.
+For example, we made several attempts to install Ceph, but the system was unstable for the small cluster size and poorly suited for use in Kubernetes.
 
-##### References utilisés pour le déploiement
+##### Deployment References
 
-- https://www.talos.dev/v1.5/kubernetes-guides/configuration/storage/#mayastor
-- https://mayastor.gitbook.io/introduction/quickstart/deploy-mayastor
+- <https://www.talos.dev/v1.5/kubernetes-guides/configuration/storage/#mayastor>
+- <https://mayastor.gitbook.io/introduction/quickstart/deploy-mayastor>
 
-#### Utilisation
+#### Usage
 
-Le `StorageClass` mayastor est selectionné par défault par Kubernetes. Il suffit de créer des `PersitentVolumeClaims` (https://kubernetes.io/docs/concepts/storage/persistent-volumes) et les volumes seront crées dans Mayastore automatiquement.
+The `StorageClass` mayastor is selected by default by Kubernetes. Simply create `PersistentVolumeClaims` (https://kubernetes.io/docs/concepts/storage/persistent-volumes) and the volumes will be created in Mayastor automatically.
 
 ### ArgoCD
 
-ArgoCD est notre système de GitOps. Il s'occupe de déployer et synchronizer toutes les ressources YAML dans notre repértoire `Plateforme-Cedille`. Pour le faire, on utiliser Kustomize pour regrouper toutes les ressources de type `Application` dans le dossier `/apps/argo-apps/`.
+ArgoCD is our GitOps system. It handles deploying and synchronizing all YAML resources in our `Plateforme-Cedille` repository. We use Kustomize to group all `Application` type resources in the `/apps/argo-apps/` folder.
 
-Voici un apercu visuel de cette structure:
+Here is a visual overview of this structure:
 
-TODO: Insérer graphique.
+<!-- TODO: Insert graphic -->
 
 #### Configuration 
-**Permissions RBAC**
-La configuration RBAC (Role-Based Access Control) dans ArgoCD permet de définir des politiques de sécurité spécifiques pour différents utilisateurs et groupes. Dans notre cas, nous avons défini des rôles au sein de notre organisation Cedille qui correspondent aux différents niveaux d'accès nécessaires.
+**RBAC Permissions**
+The RBAC (Role-Based Access Control) configuration in ArgoCD allows defining specific security policies for different users and groups. In our case, we have defined roles within our Cedille organization that correspond to the various levels of access needed.
 
-Les opérateurs (role:org-operators), qui sont membres du groupe ClubCedille:SRE, ont les permissions suivantes :
+Operators (role:org-operators), who are members of the ClubCedille:SRE group, have the following permissions:
 
-Obtenir des informations sur les clusters, certificats et dépôts (repositories).
-Synchroniser, créer et supprimer les applications.
-Lire, créer, mettre à jour et supprimer les clés GPG.
-Ces permissions sont configurées via les lignes commençant par p dans le fichier `system/argocd/argocd-values.yaml` sous `policy.csv`. Le * indique que l'action est autorisée pour toutes les instances de la ressource spécifiée.
+- Obtain information about clusters, certificates, and repositories
+- Synchronize, create, and delete applications
+- Read, create, update, and delete GPG keys
 
-Les relations entre les utilisateurs/groupes GitHub et les rôles ArgoCD sont définies par les lignes commençant par g. Par exemple, tous les membres du groupe ClubCedille:SRE sur GitHub sont assignés au rôle role:org-operators dans ArgoCD et ClubCedille:Exec sont assignés au rôle admin.
+These permissions are configured via lines starting with p in the `system/argocd/argocd-values.yaml` file under `policy.csv`. The * indicates that the action is allowed for all instances of the specified resource.
 
-**Intégration SSO avec GitHub**
-ArgoCD est configuré pour utiliser OAuth2 de GitHub comme fournisseur d'authentification. Cela permet aux membres de notre organisation GitHub de se connecter à ArgoCD avec leurs identifiants GitHub. 
+The relationships between GitHub users/groups and ArgoCD roles are defined by lines starting with g. For example, all members of the ClubCedille:SRE group on GitHub are assigned the role role:org-operators in ArgoCD, and ClubCedille:Exec are assigned the admin role.
+
+**SSO Integration with GitHub**
+ArgoCD is configured to use GitHub's OAuth2 as an authentication provider. This allows members of our GitHub organization to log in to ArgoCD with their GitHub credentials.
 
 ### Ingress - Contour
 
-Contour est une solution d'Ingress Controller pour Kubernetes. Elle utilise le serveur proxy Envoy comme back-end.
+Contour is an Ingress Controller solution for Kubernetes. It uses the Envoy proxy server as a backend.
 
 #### Configuration 
 
-Le service proxy de Envoy à été configuré avec un Nodeport pour diriger le traffic externe vers contour qui achemine ensuite les requêtes vers les services dédiés. 
+The Envoy proxy service has been configured with a NodePort to direct external traffic to Contour, which then routes the requests to the dedicated services.
 
-#### Tester
+#### Testing
 
-Commencer par déployer une application web comme [httpbin](https://httpbin.org/#/). À partir du repertoire du projet :
+Start by deploying a web application like [httpbin](https://httpbin.org/#/). From the project directory:
+
 ```bash
 kubectl apply -f apps/testing/httpbin.yaml
 ```
-Vérifier ensuite que les 3 pods arrivent à un status **Running**: 
+
+Then verify that the 3 pods reach a **Running** status:
+
 ```bash
 kubectl get po,svc,ing -l app=httpbin
 ```
-Afin d'utiliser Contour et Envoy, on va utiliser la fonction `kubectl port-foward` pour diriger le traffic vers envoy :
+
+To use Contour and Envoy, we will use the `kubectl port-forward` function to direct traffic to Envoy:
+
 ```bash
 kubectl -n projectcontour port-forward service/envoy 8888:80
 ```
-Puis visiter http://local.projectcontour.io:8888/. Pour notre environnement de production, on utiliserait l'adresse du service de Envoy.
 
-Pour plus d'informations sur Contour, consultez [la documentation officielle](https://projectcontour.io/docs/).
+Then visit http://local.projectcontour.io:8888/. For our production environment, we would use the address of the Envoy service.
 
-### Kubevirt
+For more information on Contour, see [the official documentation](https://projectcontour.io/docs/).
 
-KubeVirt étend les fonctionnalités de Kubernetes en ajoutant des workloads de machines virtuelles à côté des conteneurs.
+### KubeVirt
+
+KubeVirt extends Kubernetes functionality by adding virtual machine workloads alongside containers.
 
 #### Configuration
 
-KubeVirt est configuré pour permettre l'exécution et la gestion de machines virtuelles au sein du cluster Kubernetes. Il est nécessaire d'avoir [krew](https://krew.sigs.k8s.io/) installé.
+KubeVirt is configured to allow the execution and management of virtual machines within the Kubernetes cluster. It is necessary to have [krew](https://krew.sigs.k8s.io/) installed.
 
-#### Tester
+#### Testing
 
-Pour tester une machine virtuelle Ubuntu, exécutez cette commande:
+To test an Ubuntu virtual machine, execute this command:
+
 ```bash
 kubectl virt vnc ubuntu-vm -n vms
 ```
 
-#### Containerized data importer (CDI)
+#### Containerized Data Importer (CDI)
 
-Pour créer votre propre VM à partir d'un ISO, vous devez utiliser le [CDI](https://kubevirt.io/user-guide/operations/containerized_data_importer/) de Kubevirt qui est déjà installé sur notre cluster.
+To create your own VM from an ISO, you need to use KubeVirt's [CDI](https://kubevirt.io/user-guide/operations/containerized_data_importer/) which is already installed on our cluster.
 
-Pour ce faire, créez un PVC (dans cette situation, l'iso d'ubuntu 22.04.3 va être importé dans le PVC):
+To do this, create a PVC (in this situation, the Ubuntu 22.04.3 ISO will be imported into the PVC):
+
 ```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -133,53 +142,59 @@ spec:
       storage: 6Gi
 ```
 
-Une fois les changements appliqués, un pod sera créé dans le namespace respectif. Dans cette situation, le pod sera créé dans vms. Ce pod permet de voir la progression de l'installation de l'ISO dans le PVC. Pour voir le progrès:
+Once applied, a pod will be created in the respective namespace. In this situation, the pod will be created in vms. This pod allows you to see the progress of the ISO installation in the PVC. To see the progress:
+
 ```bash
 kubectl logs <nom-du-pod> -n vms -f
 ```
 
-Lorsque le téléchargement est terminé, vous pouvez créer votre vm basée sur l'ISO que vous venez de télécharger.
+When the download is complete, you can create your VM based on the ISO you just downloaded.
 
 ### Grafana
 
-Grafana est une plateforme d'analyse et de visualisation de données pour la surveillance des systèmes informatiques.
+Grafana is a data analytics and visualization platform for monitoring IT systems.
 
 #### Configuration
 
-Grafana a été configuré pour collecter, analyser et visualiser les métriques, les logs et les traces des applications de notre infrastructure.
+Grafana is configured to collect, analyze, and visualize metrics, logs, and traces from our infrastructure applications.
 
-#### Tester
+#### Testing
 
-Visiter https://grafana.omni.cedille.club pour voir ce qui a été fait. 
+Visit <https://grafana.omni.cedille.club> to see what has been done.
 
 ### Clickhouse
 
-Clickhouse est un système de gestion de base de données analytique orienté colonnes, optimisé pour les requêtes rapides.
+Clickhouse is a column-oriented database management system optimized for fast queries.
 
 #### Configuration
 
-Clickhouse est configuré pour collecter et stocker les métriques ainsi que les journaux (logs) provenant d'OpenTelemetry, contribuant directement à une meilleure observabilité. L'intégration avec Grafana, permet d'exploiter ces données à travers des tableaux de bord interactifs pour un suivi précis des systèmes.
+Clickhouse is configured to collect and store metrics and logs from OpenTelemetry, contributing directly to better observability. The integration with Grafana allows exploiting this data through interactive dashboards for precise system monitoring.
 
-#### Tester
+#### Testing
 
-Rendez-vous sur https://grafana.omni.cedille.club. Laissez l'onglet ouvert.
+Go to <https://grafana.omni.cedille.club>. Keep the tab open.
 
-Créez les PV et le déploiement d'un simple serveur clickhouse (si ce n'est pas déjà fait. Pour verifier ```kubectl get all -n clickhouse-system```):
+Create the PV and deployment of a simple Clickhouse server (if not already done. To verify):
+
 ```bash
 kubectl apply -f apps/samples/clickhouse/pv.yml -n clickhouse-system &&
 kubectl apply -f apps/samples/clickhouse/simple.yml -n clickhouse-system
 ```
 
-Ensuite, faites un port-forward et tester la connection sur http://localhost:9000/:
+Then port-forward and test the connection at http://localhost:9000/:
+
 ```bash
 kubectl port-forward svc/chi-simple-example-deployment-pv-1-1 9000:9000 -n clickhouse-system # Garder la connection ouverte
 ```
 
-Installer le [cli](https://clickhouse.com/docs/en/integrations/sql-clients/clickhouse-client-local) de clickhouse et connectez-vous au serveur pour créer une simple table ```users```:
+Install the Clickhouse [CLI](https://clickhouse.com/docs/en/integrations/sql-clients/clickhouse-client-local) and connect to the server to create a simple `users` table:
+
 ```bash
 clickhouse-client -h 127.0.0.1 --port 9000 --user default --password <votre-password>
 ```
-Créer la table users qui va accepter le contenu de ```script.py```
+
+Create the users table to accept the content of `script.py`:
+
 ```sql
 CREATE TABLE users (
     id Int32,
@@ -190,58 +205,63 @@ CREATE TABLE users (
 ORDER BY id;
 ```
 
-Ensuite, insérer des données en executant le script:
+Then, insert data by running the script:
+
 ```bash
 python3 script.py
 ```
 
-Par la suite, il sera possible de voir les changements en faisant un ```SELECT * from users;```
+Afterwards, you will be able to see the changes by doing a `SELECT * from users;`.
 
 ### Service Mesh - Kuma
 
-Kuma est une plateforme de gestion de services (Service Mesh) conçue pour le microservice et l'orchestration de réseaux.
+Kuma is a Service Mesh management platform designed for microservices and network orchestration.
 
 #### Configuration
 
-Kuma est configuré pour orchestrer, sécuriser et observer les communications entre les services du cluster Kubernetes. Il y a uniquement un "meshes" qui a été configurer pour le moment (defaut).
+Kuma is configured to orchestrate, secure, and observe communications between services in the Kubernetes cluster. Currently, only one "mesh" has been configured (default).
 
-#### Tester
+#### Testing
 
-Commencez par déployer un exemple de service:
+Start by deploying a demo service:
+
 ```bash
 kubectl apply -f apps/samples/kuma-demo/demo.yaml -n kuma-demo &&
 kubectl apply -f apps/samples/kuma-demo/demo-v2.yaml -n kuma-demo # Permet d'avoir un UI
 ```
 
-Ensuite aller visiter l'application déployée:
+Then visit the deployed application:
+
 ```bash
 kubectl port-forward svc/demo-app 5000:5000 -n kuma-demo
 ```
-Rendez-vous sur http://localhost:5000/.
 
-Finalement, analysez le comportement de Kuma:
+Go to <http://localhost:5000/>.
+
+Finally, analyze Kuma's behavior:
+
 ```bash
 kubectl port-forward svc/kuma-control-plane -n kuma-system 5681:5681
 ```
-Rendez-vous sur http://localhost:5681/gui/.
+
+Go to <http://localhost:5681/gui/>.
 
 #### Merbridge
 
-Merbridge peut être utilisé avec Kuma pour accélérer le routage du trafic réseau entre les pods en utilisant eBPF, ce qui permet de contourner kube-proxy pour des performances améliorées. Lorsqu'il est intégré à Kuma, Merbridge facilite une communication inter-pods plus rapide et plus efficace, en se synchronisant avec les fonctionnalités de gestion de Kuma. La configuration de Merbridge se fait à l'installation de Kuma pour une amélioration directe du débit et de la latence réseau.
+Merbridge can be used with Kuma to accelerate network traffic routing between pods using eBPF, bypassing kube-proxy for improved performance. When integrated with Kuma, Merbridge facilitates faster and more efficient inter-pod communication by synchronizing with Kuma's management features. The configuration of Merbridge is done at the installation of Kuma for a direct improvement in network throughput and latency.
 
-Pour tester Merbridge, il faut simplement vérifier que les pods continuent de communiquer au sein du service mesh après son intégration.
+To test Merbridge, simply verify that the pods continue to communicate within the service mesh after its integration.
 
-#### Autres solutions considérées 
+#### Other Considered Solutions 
 
 Linkerd.
 
-Problème: Complexité d'intégration ou de configuration. Voir https://github.com/linkerd/linkerd2/issues/11156
-
+Problem: Complexity of integration or configuration. See <https://github.com/linkerd/linkerd2/issues/11156>
 
 ## Workloads
 
 ### apps/sample/kustomize-example-app
 
-Application qui démontre la structure de base a prendre pour déployer une nouvelle application avec Kustomize avec des environments prod et staging.
+An application that demonstrates the basic structure to follow for deploying a new application with Kustomize with prod and staging environments.
 
-Pour plus de détails, voir: [Déployer des applications](./deploying-workloads.md)
+For more details, see: [Deploying Applications](./deploying-workloads.md)

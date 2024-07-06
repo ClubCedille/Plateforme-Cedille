@@ -1,54 +1,52 @@
-# Cluster Kubernetes
+# Kubernetes Cluster
 
-Le cluster Kubernetes de la Plateforme Cédille héberge les sites web de tous les
-clubs étudiants de l'école, ainsi que les projets du club cédille.
+The Kubernetes cluster of the Cedille Platform hosts the websites of all the
+student clubs at the school, as well as the projects of the Cedille club.
 
-## Cluster hôte
+## Host Cluster
 
-Le cluster hôte héberge les services de système et infrastructures de base. Le
-cluster hôte est déployé sur les serveurs du club cédille. Le système
-d'exploitation utilisé est Talos Linux.
+The host cluster hosts the system services and basic infrastructure. The host
+cluster is deployed on the servers of the Cedille club. The operating system
+used is Talos Linux.
 
-## V-Clusters pour chaque environment
+## V-Clusters for Each Environment
 
-Les environnements sont hébergés chacun sur un v-cluster hébergé par le cluster
-hôte, mais utilisent [vcluster](https://www.vcluster.com/) pour isoler les
-environnements dans des clusters virtuels séparés.
+Environments are each hosted on a v-cluster managed by the host cluster, but use
+[vcluster](https://www.vcluster.com/) to isolate environments in separate
+virtual clusters.
 
-## Environnements
+## Environments
 
-Les environnements sont les suivants:
+The environments are as follows:
 
-- **Production**: Environnement de production pour les sites web des clubs
-  étudiants et les projets du club cédille.
-- **Staging**: Environnement de staging pour les sites web des clubs étudiants
-    et les projets du club cédille.
-- **Sandbox**: Environnement de développement pour les projets du club cédille.
+- **Production**: Production environment for the websites of student clubs and
+  Cedille club projects.
+- **Staging**: Staging environment for the websites of student clubs and Cedille
+  club projects.
+- **Sandbox**: Development environment for Cedille club projects.
 
 ### Production
 
-L'environnement de production est utilisé pour héberger les sites web des clubs
-étudiants et les projets du club cédille. Il est accessible au public et utilise
-des certificats SSL pour sécuriser les connexions.
+The production environment is used to host the websites of student clubs and
+Cedille club projects. It is publicly accessible and uses SSL certificates to
+secure connections.
 
 ### Staging
 
-L'environnement de staging est utilisé pour tester les mises à jour et les
-nouveaux déploiements avant de les déployer en production. Il est accessible aux
-membres du club cédille et aux clubs étudiants pour vérifier les changements et
-les problèmes potentiels.
+The staging environment is used to test updates and new deployments before
+deploying them to production. It is accessible to members of the Cedille club
+and student clubs to verify changes and potential issues.
 
 ### Sandbox
 
-L'environnement de sandbox est utilisé pour le développement et les tests des
-projets du club cédille. Il est isolé des autres environnements pour éviter les
-interférences et les conflits.
+The sandbox environment is used for the development and testing of Cedille club
+projects. It is isolated from other environments to avoid interference and
+conflicts.
 
-Un workflow de déploiement automatisé d'environnement sandbox pour les membres
-du club cédille est disponible et accessible en exécutant le workflow GitHub
-[demander un sandbox
-kubernetes](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/request-sandbox.yml).
-Le workflow crée une pull request pour déployer un environnement sandbox pour
-l'utilisateur qui a déclenché le workflow. Des détails supplémentaires sur
-l'utilisation de l'environnement sandbox sont disponibles dans la pull request
-générée.
+An automated deployment workflow for a sandbox environment for Cedille club
+members is available and accessible by running the GitHub workflow [request a
+Kubernetes
+sandbox](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/request-sandbox.yml).
+The workflow creates a pull request to deploy a sandbox environment for the user
+who triggered the workflow. Additional details on using the sandbox environment
+are available in the generated pull request.

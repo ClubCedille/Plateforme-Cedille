@@ -1,32 +1,28 @@
-# Responsabilité SRE
+# SRE Responsibilities
 
-Cette section contient des informations sur les responsabilités des membres de
-l'équipe SRE (Site Reliability Engineering) dans le cadre de la plateforme
-Cedille. Le rôle d'un SRE est de garantir la fiabilité, la disponibilité et la
-performance des services de la plateforme Cedille en mettant en œuvre des
-pratiques de gestion des incidents, de surveillance et de gestion des
-changements.
+This section contains information on the responsibilities of the Site
+Reliability Engineering (SRE) team members within the Cedille platform. The role
+of an SRE is to ensure the reliability, availability, and performance of Cedille
+platform services by implementing incident management, monitoring, and change
+management practices.
 
-## Responsabilités
+## Responsibilities
 
-Les SRE de la plateforme Cedille sont responsables des tâches suivantes:
+Cedille platform SREs are responsible for the following tasks:
 
-1. **Gestion des incidents**: Les SRE sont chargés de gérer les incidents
-   liés à la disponibilité, à la performance et à la sécurité des services de la
-   plateforme Cedille. Cela comprend la détection, la notification, la
-   résolution et la documentation des incidents.
-2. **Surveillance**: Les SRE sont responsables de la surveillance continue des
-   services de la plateforme Cedille pour détecter les problèmes potentiels et
-   garantir la disponibilité et la performance des services.
-3. **Gestion des changements**: Les SRE sont chargés de gérer les changements
-    apportés aux services de la plateforme Cedille, y compris les mises à jour,
-    les déploiements et les modifications de configuration. Cela comprend
-    l'évaluation des risques, la planification, la mise en œuvre et la
-    vérification des changements.
-4. **Amélioration continue**: Les SRE sont responsables de l'amélioration
-    continue des services de la plateforme Cedille en identifiant les
-    opportunités d'optimisation, en mettant en œuvre des solutions
-    d'automatisation et en suivant les meilleures pratiques de l'ingénierie des
-    systèmes.
+1. **Incident Management**: SREs are responsible for managing incidents related
+   to the availability, performance, and security of Cedille platform services.
+   This includes detecting, notifying, resolving, and documenting incidents.
+2. **Monitoring**: SREs are responsible for the continuous monitoring of Cedille
+   platform services to detect potential issues and ensure the availability and
+   performance of services.
+3. **Change Management**: SREs are responsible for managing changes to Cedille
+   platform services, including updates, deployments, and configuration
+   modifications. This includes risk assessment, planning, implementation, and
+   verification of changes.
+4. **Continuous Improvement**: SREs are responsible for the continuous
+   improvement of Cedille platform services by identifying optimization
+   opportunities, implementing automation solutions, and following best
+   practices in systems engineering.
 
-// todo inclure les outils et les services disponibles pour les SRE
+// TODO: Include tools and services available to SREs

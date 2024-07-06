@@ -1,19 +1,18 @@
-# Guide de contribution
+# Contribution Guide
 
-Bienvenue sur le guide de contribution de la plateforme Cedille! Ce document
-contient des informations sur la manière dont vous pouvez contribuer à la
-plateforme Cedille, y compris les meilleures pratiques, les directives de
-contribution et les ressources utiles.
+Welcome to the contribution guide for the Cedille platform! This document
+contains information on how you can contribute to the Cedille platform,
+including best practices, contribution guidelines, and useful resources.
 
-## Préréquis
+## Prerequisites
 
-Avant de commencer à contribuer à la plateforme Cedille, assurez-vous de
-respecter les préréquis suivants:
+Before you start contributing to the Cedille platform, make sure you meet the
+following prerequisites:
 
-1. **Compte GitHub**: Vous aurez besoin d'un compte GitHub pour contribuer au
-   projet.
-2. Joignez-vous à notre [organisation GitHub](https://github.com/clubcedille/):
-   Pour accéder aux dépôts de la plateforme Cedille, vous devez rejoindre
-   l'organisation GitHub du club Cedille. Pour ce faire, demandez à un membre de
-    l'équipe de vous inviter à rejoindre l'organisation.
+1. **GitHub Account**: You will need a GitHub account to contribute to the
+   project.
+2. **Join Our [GitHub Organization](https://github.com/clubcedille/)**: To
+   access the Cedille platform repositories, you need to join the Cedille club's
+   GitHub organization. To do this, ask a team member to invite you to join the
+   organization.
 3. TODO

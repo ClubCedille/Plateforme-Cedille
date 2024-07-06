@@ -1,222 +1,479 @@
-# Plateforme CEDILLE -  Rapport LOG791
+# CEDILLE Platform - LOG791 Report
 
 date: 2023-12-18
 
 ## Introduction
 
-Dans le cadre du cours LOG-791 et de notre engagement au sein du club Cedille de l'École de Technologie Supérieure (ÉTS), nous avons entrepris le projet de faire la conception et la mise en place de la Plateforme CEDILLE. Ce rapport vise à présenter de manière exhaustive les différentes étapes de notre initiative, depuis sa genèse jusqu'à sa concrétisation actuelle.
-
-Le projet de la Plateforme CEDILLE avait pour objectif principal de transformer l'infrastructure existante du club. Nous avons choisi d'implémenter un cluster Kubernetes sur des serveurs physiques, en exploitant les capacités de Talos OS et la solution Omni de Sidero Labs. Cette démarche se voulait doublement bénéfique : réduire les coûts associés à l'hébergement tout en offrant une opportunité concrète d'apprentissage et de développement des compétences en DevOps, Kubernetes et gestion de serveurs.
-
-Aujourd'hui, nous sommes fiers de constater que la majorité de l'infrastructure et des services systèmes sont opérationnels. Cependant, il convient de souligner que certaines phases de la migration des services hébergés restent à compléter. Ce rapport se propose donc de dresser un bilan de notre parcours, soulignant aussi bien les réussites que les obstacles rencontrés et les enseignements tirés de cette expérience.
-
-Dans les sections suivantes, nous détaillerons la méthodologie adoptée pour la réalisation de ce projet, ainsi que les étapes de développement et de mise en œuvre. Nous mettrons en lumière les défis techniques et organisationnels rencontrés, ainsi que les solutions déployées pour les surmonter. Un éclairage sera également porté sur les alternatives technologiques envisagées, afin d'offrir une vision complète de nos choix et de notre processus de décision.
-
-Nous analyserons ensuite les résultats obtenus, évaluant le succès du projet au regard des objectifs initiaux et des livrables. Un focus particulier sera accordé aux apprentissages et compétences développés tout au long du projet, témoignant de l'impact formateur de ce projet sur l'ensemble des membres de l'équipe. Enfin, la conclusion résumera nos principales réalisations et proposera des recommandations pour les futurs projets de nature similaire.
-
-Par le biais de ce rapport, nous aspirons à vous fournir une vue d'ensemble exhaustive de notre parcours, mettant en évidence nos réalisations ainsi que les leçons clés tirées au cours de cette expérience.
-
-## Méthodologie
-
-Pour mener à bien le projet Plateforme CEDILLE, notre équipe d'étudiants a adopté une approche pratique et flexible, combinant des outils de collaboration modernes et des méthodes de travail adaptées à notre contexte étudiant.
-
-### Planification initiale et vision du projet
-
-Au début du projet, nous avons commencé par une phase de planification détaillée. Pour cela, on a utilisé un grand tableau pour visualiser l'ensemble de notre stack technologique et comprendre comment les différents éléments interagissaient entre eux. Cette étape a été cruciale pour nous aider à rédiger notre document de vision. Ce document a servi de feuille de route pour tout le projet, en définissant clairement nos objectifs et notre approche.
-
-### Organisation du travail et backlog
-
-Une fois notre vision établie, nous avons dressé une liste exhaustive de toutes les tâches à réaliser dans notre backlog sur GitHub. Cela nous a permis d'évaluer l'ampleur du projet et de diviser le travail en trois grandes itérations d'un mois chacune. Cette approche itérative nous a aidés à rester concentrés et à mesurer notre progression de façon régulière.
-
-### Retrospectives et ajustements
-
-Après chaque itération, on prenait le temps de faire une rétrospective. Ces moments étaient essentiels pour réfléchir à ce qui s'était bien passé et à ce qu'on pouvait améliorer pour la suite. Grâce à ces rétrospectives, on a pu ajuster notre planification et notre approche pour les itérations suivantes, en tirant des leçons de nos expériences précédentes.
-
-### Documentation et suivi sur le wiki
-
-Toute notre progression a été soigneusement documentée sur notre wiki. Pour chaque tâche ou problème rencontré, on créait une entrée sur le wiki avec des liens directs vers les issues correspondantes sur GitHub. Cela a permis à toute l'équipe de suivre facilement l'avancement du projet et de retrouver rapidement les informations pertinentes liées à chaque tâche.
-
-### Réunions et communication
-
-La communication constante et efficace a été un pilier de notre projet. Nous avons organisé des séances de travail en présentiel chaque dimanche à l'école pour une collaboration et des discussions techniques approfondies. En complément, des réunions hebdomadaires sur le modèle Scrum étaient tenues tous les lundis, permettant à l'équipe de discuter des avancées, de planifier les prochaines étapes et de résoudre les obstacles rencontrés.
-
-### Adoption des principes Agile et DevOps
-
-Notre processus de collaboration a été fortement influencé par les principes Agile et DevOps. Nous avons adopté une approche itérative pour le développement, permettant une adaptation et une réactivité rapides aux changements. Le déploiement continu et les mises à jour de notre architecture ont été gérés via l'Infrastructure as Code (IaC), en utilisant des pipelines CI/CD pour automatiser et rationaliser ces processus. De plus, l'utilisation de templates pour les issues et pull requests sur GitHub a renforcé notre efficacité et a maintenu une norme de clarté et de cohérence dans notre communication et nos pratiques de développement.
-
-## Architecture technique
-
-![Architecture technique](img/architecture-technique.png)
-
-### Kubernetes et Sidero Omni
-
-Pour la gestion des applications déployées, nous avons choisi d'utiliser la technologie des conteneurs. Cela permet une meilleure isolation entre les différentes applications et une gestion plus facile des dépendances grâce aux Dockerfiles. Pour gérer les déploiements de conteneurs sur nos systèmes, nous avons choisi d'utiliser Kubernetes puisque c'est le standard en entreprise et que ses capacités de coordination sont extrêmement puissantes. Kubernetes permet 2 types de nodes: controlplane et worker. Dans notre cas, nous avons déployé 3 controlplanes et 3 workers. Les 3 controlplanes permettent au cluster Kubernetes lui-même d'avoir une haute disponibilité (si un des nodes est éteint ou mis à jour, il n'y a pas d'impact sur les capacités du cluster). Les 3 workers permettent aux applications ainsi qu'au stockage d'avoir de la haute disponibilité.
-
-Kubernetes est un système, mais ce n'est pas proprement un système d'exploitation. Ici, nous avons choisi Talos OS: c'est un système d'exploitation Linux entièrement construit autour de Kubernetes. La plupart des processus que l'on trouve dans un système Linux standard sont d'ailleurs manquant afin de réduire la surface d'attaque. De même, une partie importante du système de fichier est en lecture seule.
-
-L'autre avantage de ce système d'exploitation est qu'il peut être entièrement contrôlé par un API, permettant donc de meilleures automatisations. La compagnie qui a développé cet OS a d'ailleurs aussi développé un service SaaS qui se connecte à cet API et automatiser une partie importante de la gestion du cluster: Sidero Omni. Puisque que Sidero est un commanditaire du club étudiant, nous avons droit à une license pour utiliser ce logiciel habituellement payant. Cela nous permet de gérer facilement les différents serveurs à distance via une interface web. Le contrôle via l'API Kubernetes passe aussi par cette solution SaaS, permettant donc un contrôle des accès plus strict avec OAuth.
-
-### Gestion GitOps
-
-Pour la gestion des déploiements et des configurations, nous avons choisi une approche pleinement GitOps. Cette approche permet de réduire les étapes impératives et difficiles à reproduire pour avoir des environnements faciles à reproduire. De plus, la traçabilité de git permet d'avoir des flux de contrôle de changements plus avancés et d'identifier la source du problème plus rapidement. 
-
-Pour atteindre cet objectif de GitOps, nous avons donc utilisé deux outils : ArgoCD et Terraform. ArgCD est un outil spécifique à Kubernetes, qui est déployé sur le cluster. Celui-ci surveille tous les manifestes Kubernetes sur le répertoire Git et fait les modifications nécessaires pour que le cluster soit configuré accordément à ces manifestes. Cela peut être des configurations comme des déploiements applicatifs. Le second outil, Terraform, est surtout utilisé pour configurer les dépendances autours de Kubernetes. Cet outil permet de définir des configurations de services cloud et de lier des variables entre elles entre plusieurs services, offrant une composition de ressources cloud très puissante. Pour le moment, la création de répertoire git ainsi que la configuration du service de gestion de clées KMS de Google Cloud sont les deux principaux services configurés avec Terraform.
-
-### Stockage distribué
-
-Afin d'offrir un service de qualité, il est important que les services restent toujours disponibles même en cas de pannes ou mises à jour de système. Kubernetes offre une façon de distribuer des ressources applicatives pour atteindre de la haute disponibilité. Toutefois, lorsque des données persistantes sont impliquées, cela est un peu plus complexe. En effet, Kubernetes laisse le soin aux administrateurs le soin de définir le stockage, ne fournissant qu'une abstraction. Cela permet une architecture très flexible (compatible autant avec des environnements physiques que cloud), mais implique plus de travail pour le configurer. Une solution simple consiste à utiliser le stockage local d'un noeud pour enregistrer les données. Toutefois, avec cette solution, si le noeud tombe en panne, les données deviennent indisponible et on perd la disponibilité de l'application. Pour éviter cette situation, il faut repartir les données sur différents serveurs de façon à ce qu'il y ait toujours un minimum de 2 copies de chaque donnée sur 2 différents serveurs.
-
-Plusieurs technologies permettent de faire cela, ici, nous avons choisi Mayastor. C'est un engin de stockage basé sur la spécification NVMe-oF, un protocole de disque plus récente que SCSI et qui permet de mieux bénéficier des capacités de parallélisation des SSD. Mayastor est aussi pleinement conçu pour et intégré avec Kubernetes, réduisant les risques de problèmes de compatibilité qui sont parfois présents avec des engins d'abord conçus pour des systèmes non-Kubernetes.
-
-Pour les applications, ils n'utilisent pas directement Mayastor, mais plutôt les abstractions Kubernetes: StorageClass, PersistentVolumeClaim et PersistentVolume. Cela nous permettrait de changer l'engin de stockage dans le futur si nécessaire.
-
-### Gestion des secrets
-
-La gestion des secrets est toujours un aspect complexe et où une mauvaise configuration peut avoir des conséquences désastreuses. C'est d'ailleurs souvent à travers la gestion des secrets que l'on voit des pirates informatiques infiltrer des systèmes. Ici, nous avons choisi d'utiliser Hashicorp Vault, standard dans l'industrie pour la gestion de secrets à grande échelle. Pour configurer celui-ci, nous avons déployé un outil développé par la communauté RedHat: [Vault Config Operator](https://github.com/redhat-cop/vault-config-operator/). Cet outil ajoute des définitions de manifestes Kubernetes (CRD), nous permettant de créer des politiques d'accès, des configurations de rotation de clées ainsi que de définir de nouveaux secrets aléatoires à travers des manifestes Kubernetes qui sont ensuite déployés par ArgoCD. Cette approche nous permet de conserver une approche GitOps sans avoir à exposer les secrets dans les fichiers sur Git.
-
-### Observabilité
-
-L'observabilité est une pierre angulaire de toute approche DevOps, permettant à la fois au développeur et aux administrateurs d'identifier rapidement la source d'un problème. Dans un système distribué comme celui que nous avons conçu, les traces sont particulièrements importantes, puisque c'est ce qui nous permet de suivre le chemin d'une requête à travers les multiples systèmes. 
-
-Afin de collecter ces traces, nous avons mis à profit un outil appelé *Pixi*. Cet outil utilise une innovation relativement récente du noyau Linux: eBPF (extended Berkeley Packet Filter). Ceci permet à des applications de rouler certaines opérations dans le contexte privilégié du noyau Linux de façon sécuritaire. Ceci permet à Pixi d'analyse les communications entre les processus et le réseau et de recréer automatiquement des traces, sans avoir à configurer chaque composante pour qu'elle ajoute son contexte à la trace. Par la suite, ces traces sont exportées vers un agent OpenTelemetry. OpenTelemetry est un standard pour tout ce qui est observabilité et permet de faciliter le transfert de traces, métriques et logs entre plusieurs systèmes. Les agents OpenTelemetry agissent comme échangeurs, permettant de recevoir et retransemettre des traces, métriques et logs. Ici, nous redirigeons ces informations vers la base de données de haute performance Clickhouse. Enfin, nous utilisons Grafana pour se connecter à cette base de données et afficher toutes ces traces, métriques et logs.
-
-## Autres solutions envisagées
-
-Pendant la phase d'analyse, on a identifié que certains choix techniques pouvaient être réalisés de plusieurs façons. Ainsi, dans le document de vision, on a identifié ces options et on s'est prononcé sur un choix initial (Tableau 4.4.2). Cependant, la phase d'implémentation nous a permis d'avoir une meilleure perspective sur certains choix et la possibilité de les changer. Ainsi, on présente ces choix ici :
-
-### Choix de l'engin de stockage
-
-Selon le CAR8, on a planifié d'utiliser Rook-Ceph comme engin de stockage pour Kubernetes. À titre de rappel, l'engin est responsable de fournir un service qui répond aux requêtes CSI dans Kubernetes afin d'allouer des espaces dédiés au pods, d'assurer que ces espaces sont accessibles dans tout le cluster et que les données soient durables et intègres.
-
-Rook-Ceph est une extension de Ceph, qui est un système de stockage distribué qui prédate Kubernetes. En principe, ce dernier répond à tous nos besoins en termes d'engin. Cependant, en pratique, on a remarqué que le système était très instable à notre échelle (3 serveurs).
-
-Après plusieurs essais, on a choisi de remplacer Rook-Ceph par Mayastor, qui est un système conçu dès le début pour Kubernetes. Au final, le déploiement était plus simple et le système est très stable.
-
-### Choix de l'engin de gestion des secrets
-
-Étant donné le fait que notre répertoire de code est public et qu'on utilise l'approche GitOps, il est impératif qu'aucun secret ne soit divulgué dans le répertoire de code source. Ainsi, il nous faut une solution logicielle qui fait abstraction des secrets afin de les gérer de manière sécuritaire. Donc, les deux choix principaux pour le faire sont Hashicorp Vault vs Bitnami Sealed Secrets.
-
-Bitnami Sealed Secrets: Les secrets sont quand même présents dans git, mais ils sont cryptés.
-HashiCorp Vault: Les secrets ne sont pas dans Git, mais leurs configurations et des références le sont. Il offre aussi plusieurs modes de cryptage avancés, la génération dynamique, la rotation automatique et plusieurs autres fonctionnalités avancées.
-
-Ainsi, on a déterminé que Vault serait une meilleure solution pour ce projet puisqu’on le juge plus sécuritaire (puisqu’aucun secret n’est divulgué publiquement comme dans le cas de sealed-secrets) et qu'on aurait besoin des fonctions plus avancées qu'il nous offre.
-
-### Choix de la plateforme d'observabilité
-
-Selon le CAR13, on a choisi d'utiliser les technologies ouvertes Pixie, OpenTelemetry et Clickhouse dans une configuration construite sur mesure pour les fins d'observabilité. L'autre choix était de prendre une solution commerciale / tout-en-une, tel que Elastic ou Groundcover.
-
-Ce qui influence notre choix pour cet aspect est qu'une considération importante pour Cédille est de promouvoir l'utilisation de logiciels libres. Ainsi, utiliser des solutions commerciales est à l'encontre de cet objectif, et on essaye d'éviter ce genre de choix quand c'est possible. De plus, on a jugé que la construction d'une solution sur-mesure en combinant ces technologies (Pixie, OpenTelemetry et Clickhouse) aurait une plus grande valeur en tant qu'apprentissage et donnerait un résultat qui répondrait mieux à nos besoins.
-
-### Choix d'utilisation d'un Hypervisor
-
-Avant la phase d'analyse et rédaction du document de vision, on a entrepris une phase d'installation et configuration du matériel physique. Dans cette phase, on avait essayé en premier d'utiliser l’hyperviseur XCP-NG comme système d'exploitation principal, le plan étant de configurer nos clusters Kubernetes avec des machines virtuelles.
-
-Afin de respecter notre objectif d'utiliser des configurations déclaratives le plus possible, on devait faire une gestion exhaustive de l’hyperviseur, de son réseau et de son stockage avec Terraform. Ainsi, on n'était pas prêt à accepter le niveau de complexité qui aurait été ajouté par cette méthode, donc on a choisi d'installer Talos Linux directement sur les machines sans Hypervisor.
-
-Le résultat final est que la majorité des configurations et installations sont faites nativement dans le cluster Kubernetes, ce qui offre un haut niveau de cohérence dans le code du projet.
-
-![Figure - Comparaison des moyens de déploiement](img/rf-comp-xoa-direct.png)
-**Figure: Comparaison des moyens de déploiement**
-
-## Défis et Solutions
-
-| Défi     | Problème| Solution| 
-| -------- | ------- | ------- |
-| Installation de Kubernetes/Talos           | Cryptage des disques non fonctionnel                          | Désactivation du cryptage avant installation
-|                                            | Installation brisée si clé USB retirée                        | Réinstallation avec identifiants de disque durables
-| Configuration d'ISO dans PVC pour KubeVirt | Besoin de simplifier la gestion des PVCs                      | Utilisation du CDI de KubeVirt
-| Installation de Rook-Ceph                  | Cluster Ceph inutilisable, échec des OSD                      | Effacement manuel des disques et redémarrage de l'opérateur
-| Stabilité de Rook/Ceph                     | Instabilité après redémarrage d'un node                       | Remplacement par Mayastor
-| Configuration d'un service mesh            | Problèmes avec Linkerd et mTLS                                | Choix de Kuma pour mTLS et support de Gateway API
-| Installation du service External-DNS       | Service non fonctionnel, cause inconnue	                     | Enquête en cours, exploration de solutions alternatives
-| Configuration SSO pour ArgoCD              | Gestion non sécurisée des secrets                             | Utilisation de Vault pour la gestion sécurisée des secrets
-| Bootstrapping de Hashicorp Vault           | Processus manuel complexe                                     | Automatisation partielle via Terraform et scripts
-| Déploiement de Calidum-rotae               | Acheminement partiel des requêtes                             | Configuration directe d'une webhook Discord
-| Enregistrement de VCluster dans ArgoCD     | Difficulté d'enregistrement sécurisé                          | Utilisation de Crossplane pour enregistrement déclaratif
-
-## Résultats
-
-Notre projet a connu une progression significative, marquée par une série de tâches réalisées avec succès, chacune contribuant de manière essentielle à l'avancement global. Voici un résumé des tâches accomplies, présentées dans l'ordre chronologique de leur réalisation ainsi que par livrable :
-
-### Livrable 1: Phase initiale de préparation et d'entrevues. Déploiement et configuration initiale
-
-- Préparation de questionnaires spécifiques à chaque client et conduite d'entrevues avec divers clubs et services de l'ÉTS, notamment AlgoETS, Raconteurs d'Angles, Saveurs de Génie, et les services TI. Ces entrevues ont permis de définir les métriques de succès du projet.
-- Mise en place du cluster physique avec Talos/Omni et configuration de base de Rook/Ceph. Evaluation de la stack de networking pour Kubernetes.
-- Création d'un wiki pour centraliser la documentation et rédaction du document de vision initial.
-- Migration physique des serveurs vers la salle de serveurs et configuration de KubeVirt.
-
-### Livrable 2: Développement et configuration avancée
-
-- Déploiement d'un cluster sandbox avec Vcluster, installation et configuration de l'external-dns, Hashicorp Vault, et Crossplane sur le cluster.
-- Mise en place de la structure Kustomize, configuration d'ArgoCD, Contour (reverse-proxy/ingress), et déploiement de Kuma + Merbridge (service-mesh).
-- Configuration et déploiement de Grafana, Gateway API, et Mayastor.
-- Documentation approfondie de KubeVirt, Kuma, Merbridge, et Contour.
-
-### Livrable 3: Finalisation et optimisation
-
-- Déploiement de cert-manager, documentation de Mayastor et de la configuration d'environnement locale avec Omni.
-- Configuration d'OTEL, suivi de Clickhouse avec Open Telemetry, et déploiement d'exemples d'applications comme Grav et Calidum-Rotae.
-- Mise à jour de l'architecture dans le README.md, suppression de composants obsolètes (base de données PostgreSQL, numéro de téléphone dans le protobuf), et instrumentation de l'application avec OTEL.
-
-### Tâches en cours et non réalisées
-
-Bien que de nombreuses tâches aient été menées à bien, certaines sont encore en cours, notamment le déploiement de cert-manager et la documentation de Vault. Par ailleurs, l'intégration des vclusters avec ArgoCD est en cours de réalisation.
-
-En termes de tâches non réalisées, nous avons décidé de ne pas poursuivre l'installation/configuration de k8s-sigs/external-dns dans le cluster, en raison de contraintes spécifiques au projet.
-
-### Résultat final
-
-Notre projet a conduit à l'établissement d'une plateforme de déploiement capable de gérer une variété de services. Cette plateforme marque un progrès dans notre façon de déployer, gérer et surveiller les services informatiques, offrant une solution qui répond aux besoins variés de chaque club.
-
-Pour des applications web, des bases de données ou des services de backend, elle fournit la flexibilité et les capacités nécessaires pour une gestion efficace et sécurisée des déploiements. Avec des outils tels qu'ArgoCD et Kustomize, le processus de déploiement est automatisé, facilitant des mises à jour et une maintenance continues.
-
-Dans le domaine de l'observabilité et du monitoring, la plateforme intègre OpenTelemetry, Grafana et Clickhouse, offrant une vue complète sur les performances et l'état de santé de chaque service déployé. Cette capacité de surveillance est essentielle pour identifier rapidement les problèmes et optimiser les performances.
-
-La gestion des secrets est gérée par l'implémentation de Hashicorp Vault, offrant une approche centralisée et sécurisée qui améliore la sécurité des services et simplifie les processus opérationnels.
-
-La plateforme permet également de créer des environnements isolés avec Vcluster, bénéfique pour les développeurs des différents clubs. Ils peuvent tester et développer dans des environnements séparés sans impacter l'infrastructure principale. Cette fonctionnalité favorise une approche de développement anticipatif, où les tests et la détection des erreurs se font plus tôt dans le cycle de développement.
-
-La gestion du HTTPS et de l'ingress est assurée par Cert-Manager et Contour, fournissant une configuration sécurisée pour l'accès aux services. Cette combinaison assure l'accessibilité et la sécurité des services déployés, avec une gestion automatisée des certificats SSL/TLS. Les phases suivantes de notre travail et dans nos futures initiatives.
-
-## Apprentissages et Compétences Acquises
+As part of the LOG-791 course and our commitment within the Cedille club at the
+École de Technologie Supérieure (ÉTS), we undertook the project of designing and
+implementing the CEDILLE Platform. This report aims to comprehensively present
+the various stages of our initiative, from its inception to its current
+realization.
+
+The main objective of the CEDILLE Platform project was to transform the existing
+club infrastructure. We chose to implement a Kubernetes cluster on physical
+servers, leveraging the capabilities of Talos OS and the Omni solution from
+Sidero Labs. This approach was intended to be doubly beneficial: reducing
+hosting costs while providing a concrete opportunity for learning and developing
+skills in DevOps, Kubernetes, and server management.
+
+Today, we are proud to note that most of the infrastructure and system services
+are operational. However, it should be noted that some phases of the migration
+of hosted services remain to be completed. This report aims to take stock of our
+journey, highlighting both successes and challenges encountered, as well as
+lessons learned from this experience.
+
+In the following sections, we will detail the methodology adopted for the
+realization of this project, as well as the stages of development and
+implementation. We will highlight the technical and organizational challenges
+encountered, as well as the solutions deployed to overcome them. We will also
+shed light on the technological alternatives considered, to provide a
+comprehensive view of our choices and decision-making process.
+
+We will then analyze the results obtained, evaluating the success of the project
+in relation to the initial objectives and deliverables. Particular focus will be
+given to the learnings and skills developed throughout the project,
+demonstrating the formative impact of this project on the entire team. Finally,
+the conclusion will summarize our main achievements and propose recommendations
+for future projects of a similar nature.
+
+Through this report, we aim to provide you with an exhaustive overview of our
+journey, highlighting our achievements as well as the key lessons learned during
+this experience.
+
+## Methodology
+
+To successfully complete the CEDILLE Platform project, our team of students
+adopted a practical and flexible approach, combining modern collaboration tools
+and working methods adapted to our student context.
+
+### Initial Planning and Project Vision
+
+At the beginning of the project, we started with a detailed planning phase. For
+this, we used a large board to visualize our entire technology stack and
+understand how the different elements interacted with each other. This step was
+crucial in helping us draft our vision document. This document served as a
+roadmap for the entire project, clearly defining our objectives and approach.
+
+### Work Organization and Backlog
+
+Once our vision was established, we drew up a comprehensive list of all the
+tasks to be completed in our backlog on GitHub. This allowed us to assess the
+scope of the project and divide the work into three major iterations of one
+month each. This iterative approach helped us stay focused and measure our
+progress regularly.
+
+### Retrospectives and Adjustments
+
+After each iteration, we took the time to conduct a retrospective. These moments
+were essential for reflecting on what went well and what we could improve for
+the future. Thanks to these retrospectives, we were able to adjust our planning
+and approach for the following iterations, learning from our previous
+experiences.
+
+### Documentation and Tracking on the Wiki
+
+All our progress was carefully documented on our wiki. For each task or problem
+encountered, we created an entry on the wiki with direct links to the
+corresponding issues on GitHub. This allowed the entire team to easily track the
+project's progress and quickly find relevant information related to each task.
+
+### Meetings and Communication
+
+Constant and effective communication was a cornerstone of our project. We
+organized in-person work sessions every Sunday at the school for in-depth
+collaboration and technical discussions. In addition, weekly meetings following
+the Scrum model were held every Monday, allowing the team to discuss progress,
+plan next steps, and resolve encountered obstacles.
+
+### Adoption of Agile and DevOps Principles
+
+Our collaboration process was strongly influenced by Agile and DevOps
+principles. We adopted an iterative approach to development, allowing for quick
+adaptation and responsiveness to changes. Continuous deployment and updates of
+our architecture were managed through Infrastructure as Code (IaC), using CI/CD
+pipelines to automate and streamline these processes. Additionally, the use of
+templates for issues and pull requests on GitHub enhanced our efficiency and
+maintained a standard of clarity and consistency in our communication and
+development practices.
+
+## Technical Architecture
+
+![Technical Architecture](img/architecture-technique.png)
+
+### Kubernetes and Sidero Omni
+
+For managing deployed applications, we chose to use container technology. This
+allows for better isolation between different applications and easier dependency
+management through Dockerfiles. To manage container deployments on our systems,
+we chose to use Kubernetes as it is the industry standard and its coordination
+capabilities are extremely powerful. Kubernetes allows for two types of nodes:
+control plane and worker. In our case, we deployed 3 control planes and 3
+workers. The 3 control planes allow the Kubernetes cluster itself to have high
+availability (if one of the nodes is down or updated, there is no impact on the
+cluster's capabilities). The 3 workers enable applications and storage to have
+high availability.
+
+Kubernetes is a system, but it is not precisely an operating system. Here, we
+chose Talos OS: it is a Linux operating system entirely built around Kubernetes.
+Most of the processes found in a standard Linux system are missing to reduce the
+attack surface. Similarly, a significant portion of the file system is
+read-only.
+
+Another advantage of this operating system is that it can be fully controlled by
+an API, allowing for better automation. The company that developed this OS also
+developed a SaaS service that connects to this API and automates a significant
+part of cluster management: Sidero Omni. As Sidero is a sponsor of the student
+club, we have access to a license to use this typically paid software. This
+allows us to easily manage the various servers remotely through a web interface.
+Access control through the Kubernetes API also goes through this SaaS solution,
+allowing for stricter access control with OAuth.
+
+### GitOps Management
+
+For managing deployments and configurations, we chose a fully GitOps approach.
+This approach reduces the imperative and hard-to-reproduce steps to have easily
+reproducible environments. Additionally, git's traceability allows for more
+advanced change control flows and quicker identification of the source of
+problems.
+
+To achieve this GitOps objective, we used two tools: ArgoCD and Terraform.
+ArgoCD is a Kubernetes-specific tool, deployed on the cluster. It monitors all
+Kubernetes manifests in the Git repository and makes the necessary changes to
+ensure the cluster is configured according to these manifests. This can include
+configurations such as application deployments. The second tool, Terraform, is
+mainly used to configure dependencies around Kubernetes. This tool allows for
+defining cloud service configurations and linking variables between multiple
+services, offering a very powerful cloud resource composition. Currently,
+creating git repositories and configuring Google's KMS key management service
+are the two main services configured with Terraform.
+
+### Distributed Storage
+
+To offer a quality service, it is important that services remain available even
+in the event of failures or system updates. Kubernetes offers a way to
+distribute application resources to achieve high availability. However, when
+persistent data is involved, it is a bit more complex. Kubernetes leaves it to
+administrators to define storage, providing only an abstraction. This allows for
+a very flexible architecture (compatible with both physical and cloud
+environments) but requires more work to configure. A simple solution is to use a
+node's local storage to save data. However, with this solution, if the node
+fails, the data becomes unavailable, and the application's availability is lost.
+To avoid this situation, data must be distributed across different servers to
+ensure at least 2 copies of each data are always on 2 different servers.
+
+Several technologies allow for this, and we chose Mayastor. It is a storage
+engine based on the NVMe-oF specification, a newer disk protocol than SCSI that
+better leverages SSDs' parallelization capabilities. Mayastor is also fully
+designed for and integrated with Kubernetes, reducing the risk of compatibility
+issues that sometimes arise with engines initially designed for non-Kubernetes
+systems.
+
+Applications do not directly use Mayastor but rather Kubernetes abstractions:
+StorageClass, PersistentVolumeClaim, and PersistentVolume. This would allow us
+to change the storage engine in the future if necessary.
+
+### Secret Management
+
+Secret management is always a complex aspect where poor configuration can have
+disastrous consequences. It is often through secret management that hackers
+infiltrate systems. Here, we chose to use Hashicorp Vault, an industry standard
+for large-scale secret management. To configure it, we deployed a
+community-developed tool from RedHat: [Vault Config
+Operator](https://github.com/redhat-cop/vault-config-operator/). This tool adds
+Kubernetes manifest definitions (CRD), allowing us to create access policies,
+key rotation configurations, and define new random secrets through Kubernetes
+manifests that are then deployed by ArgoCD. This approach allows us to maintain
+a GitOps approach without exposing secrets in files on Git.
+
+### Observability
+
+Observability is a cornerstone of any DevOps approach, allowing both developers
+and administrators to quickly identify the source of a problem. In a distributed
+system like the one we designed, traces are particularly important as they allow
+us to follow a request's path through multiple systems.
+
+To collect these traces, we used a tool called *Pixie*. This tool leverages a
+relatively recent innovation in the Linux kernel: eBPF (extended Berkeley Packet
+Filter). This allows applications to run certain operations in the privileged
+context of the Linux kernel securely. This enables Pixie to analyze
+communications between processes and the network and automatically recreate
+traces without configuring each component to add its context to the trace.
+Subsequently, these traces are exported to an OpenTelemetry agent. OpenTelemetry
+is a standard for all things observability and facilitates the transfer of
+traces, metrics, and logs between multiple systems. OpenTelemetry agents act as
+exchangers, receiving and retransmitting traces, metrics, and logs. Here, we
+redirect this information to the high-performance Clickhouse database. Finally,
+we use Grafana to connect to this database and display all these traces,
+metrics, and logs.
+
+## Other Considered Solutions
+
+During the analysis phase, we identified that some technical choices could be
+made in several ways. Thus, in the vision document, we identified these options
+and made an initial choice (Table 4.4.2). However, the implementation phase
+allowed us to gain a better perspective on some choices and the possibility of
+changing them. Therefore, we present these choices here:
+
+### Storage Engine Choice
+
+According to CAR8, we planned to use Rook-Ceph as the storage engine for
+Kubernetes. As a reminder, the engine is responsible for providing a service
+that responds to CSI requests in Kubernetes to allocate dedicated spaces to
+pods, ensuring these spaces are accessible throughout the cluster and that data
+is durable and integral.
+
+Rook-Ceph is an extension of Ceph, a distributed storage system that predates
+Kubernetes. In principle, it meets all our needs in terms of engine. However, in
+practice, we found that the system was very unstable at our scale (3 servers).
+
+After several attempts, we chose to replace Rook-Ceph with Mayastor, a system
+designed from the beginning for Kubernetes. Ultimately, the deployment was
+simpler, and the system is very stable.
+
+### Secret Management Engine Choice
+
+Given that our code repository is public and we use the GitOps approach, it is
+imperative that no secrets are disclosed in the source code repository.
+Therefore, we need a software solution that abstracts secrets to manage them
+securely. So, the two main choices for this are Hashicorp Vault vs Bitnami
+Sealed Secrets.
+
+Bitnami Sealed Secrets: Secrets are still present in git but encrypted.
+HashiCorp Vault: Secrets are not in Git, but their configurations and references
+are. It also offers several advanced encryption modes, dynamic generation,
+automatic rotation, and many other advanced features.
+
+Thus, we determined that Vault would be a better solution for this project as we
+consider it more secure (since no secret is publicly disclosed as in the case of
+sealed-secrets) and that we would need the more advanced features it offers.
+
+### Observability Platform Choice
+
+According to CAR13, we chose to use the open technologies Pixie, OpenTelemetry,
+and Clickhouse in a custom-built configuration for observability purposes. The
+other choice was to use a commercial/all-in-one solution, such as Elastic or
+Groundcover.
+
+What influences our choice for this aspect is that an important consideration
+for Cédille is to promote the use of open-source software. Thus, using
+commercial solutions goes against this goal, and we try to avoid such choices
+when possible. Additionally, we judged that building a custom solution by
+combining these technologies (Pixie, OpenTelemetry, and Clickhouse) would have
+greater value as a learning experience and result in a solution that better
+meets our needs.
+
+### Use of a Hypervisor
+
+Before the analysis phase and drafting the vision document, we undertook a phase
+of physical hardware installation and configuration. In this phase, we first
+tried to use the XCP-NG hypervisor as the main operating system, with the plan
+to configure our Kubernetes clusters with virtual machines.
+
+To respect our goal of using declarative configurations as much as possible, we
+had to manage the hypervisor, its network, and its storage exhaustively with
+Terraform. Therefore, we were not ready to accept the level of complexity that
+this method would have added, so we chose to install Talos Linux directly on the
+machines without a hypervisor.
+
+The final result is that most configurations and installations are done natively
+in the Kubernetes cluster, offering a high level of consistency in the project's
+code.
+
+![Figure - Deployment Method Comparison](img/rf-comp-xoa-direct.png) **Figure:
+Deployment Method Comparison**
+
+## Challenges and Solutions
+
+| Challenge                               | Problem                                    | Solution                                |
+| --------------------------------------- | ------------------------------------------ | --------------------------------------- |
+| Installation of Kubernetes/Talos        | Disk encryption not functional             | Disable encryption before installation  |
+|                                         | Installation broken if USB key removed     | Reinstall with durable disk identifiers |
+| ISO configuration in PVC for KubeVirt   | Need to simplify PVC management            | Use KubeVirt's CDI                      |
+| Installation of Rook-Ceph               | Unusable Ceph cluster, OSD failures        | Manual disk wiping and operator restart |
+| Stability of Rook/Ceph                  | Instability after node restart             | Replacement with Mayastor               |
+| Configuration of a service mesh         | Issues with Linkerd and mTLS               | Choice of Kuma for mTLS and Gateway API support |
+| Installation of External-DNS service    | Non-functional service, cause unknown      | Ongoing investigation, exploring alternative solutions |
+| SSO configuration for ArgoCD            | Insecure secret management                 | Use Vault for secure secret management  |
+| Bootstrapping Hashicorp Vault           | Complex manual process                     | Partial automation via Terraform and scripts |
+| Deployment of Calidum-rotae             | Partial request routing                    | Direct configuration of a Discord webhook |
+| Registration of VCluster in ArgoCD      | Difficulty in secure registration          | Use Crossplane for declarative registration |
+
+## Results
+
+Our project has seen significant progress, marked by a series of successfully
+completed tasks, each contributing essentially to the overall advancement. Here
+is a summary of the accomplished tasks, presented in chronological order of
+their realization and by deliverable:
+
+### Deliverable 1: Initial preparation and interviews phase. Initial deployment and configuration
+
+- Preparation of specific questionnaires for each client and conducting
+  interviews with various clubs and services at ÉTS, including AlgoETS,
+  Raconteurs d'Angles, Saveurs de Génie, and IT services. These interviews
+  helped define the project's success metrics.
+- Setting up the physical cluster with Talos/Omni and basic configuration of
+  Rook/Ceph. Evaluation of the networking stack for Kubernetes.
+- Creation of a wiki to centralize documentation and drafting the initial vision
+  document.
+- Physical migration of servers to the server room and KubeVirt configuration.
+
+### Deliverable 2: Advanced development and configuration
+
+- Deployment of a sandbox cluster with Vcluster, installation and configuration
+  of external-dns, Hashicorp Vault, and Crossplane on the cluster.
+- Setup of Kustomize structure, ArgoCD configuration, Contour
+  (reverse-proxy/ingress), and deployment of Kuma + Merbridge (service-mesh).
+- Configuration and deployment of Grafana, Gateway API, and Mayastor.
+- Thorough documentation of KubeVirt, Kuma, Merbridge, and Contour.
+
+### Deliverable 3: Finalization and optimization
+
+- Deployment of cert-manager, documentation of Mayastor, and local environment
+  configuration with Omni.
+- Setup of OTEL, monitoring Clickhouse with OpenTelemetry, and deployment of
+  example applications like Grav and Calidum-Rotae.
+- Update of architecture in README.md, removal of obsolete components
+  (PostgreSQL database, phone number in protobuf), and instrumentation of the
+  application with OTEL.
+
+### Ongoing and Uncompleted Tasks
+
+Although many tasks were successfully completed, some are still ongoing, notably
+the deployment of cert-manager and the documentation of Vault. Additionally, the
+integration of vclusters with ArgoCD is in progress.
+
+In terms of uncompleted tasks, we decided not to pursue the
+installation/configuration of k8s-sigs/external-dns in the cluster due to
+project-specific constraints.
+
+### Final Result
+
+Our project led to the establishment of a deployment platform capable of
+managing various services. This platform marks a significant improvement in how
+we deploy, manage, and monitor IT services, offering a solution that meets the
+diverse needs of each club.
+
+For web applications, databases, or backend services, it provides the
+flexibility and capabilities necessary for effective and secure deployment
+management. With tools like ArgoCD and Kustomize, the deployment process is
+automated, facilitating continuous updates and maintenance.
+
+In observability and monitoring, the platform integrates OpenTelemetry, Grafana,
+and Clickhouse, offering a comprehensive view of each deployed service's
+performance and health. This monitoring capability is essential for quickly
+identifying issues and optimizing performance.
+
+Secret management is handled by implementing Hashicorp Vault, providing a
+centralized and secure approach that enhances service security and simplifies
+operational processes.
+
+The platform also allows for creating isolated environments with Vcluster,
+beneficial for developers from different clubs. They can test and develop in
+separate environments without impacting the main infrastructure. This feature
+promotes an anticipatory development approach, where testing and error detection
+occur earlier in the development cycle.
+
+HTTPS and ingress management are handled by Cert-Manager and Contour, providing
+a secure configuration for service access. This combination ensures the
+accessibility and security of deployed services, with automated management of
+SSL/TLS certificates.
+
+The following phases of our work and future initiatives will continue to build
+on these foundations.
+
+## Learnings and Skills Acquired
 
 ### Thomas
 
-Dans le projet Plateforme Cedille, j'ai pris en charge la configuration d'OpenTelemetry, incluant le collecteur et l'opérateur, enrichissant ainsi ma compréhension de l'observabilité des systèmes. En parallèle, j'ai utilisé mes compétences en Golang pour intégrer des traces dans l'application calidum-rotae, en appliquant les principes du tracing distribué pour optimiser le monitoring et le débogage. J'ai également appris à utiliser Clickhouse pour le stockage et l'analyse des données collectées d'OpenTelemetry, et Grafana pour leur visualisation. Cette combinaison d'OpenTelemetry, Clickhouse et Grafana a créé un écosystème de monitoring complet, me permettant de voir comment ces technologies interagissent et se complètent. 
+In the CEDILLE Platform project, I was responsible for configuring
+OpenTelemetry, including the collector and operator, enriching my understanding
+of system observability. Additionally, I used my Golang skills to integrate
+traces into the Calidum-Rotae application, applying distributed tracing
+principles to optimize monitoring and debugging. I also learned to use
+Clickhouse for storing and analyzing OpenTelemetry collected data and Grafana
+for their visualization. This combination of OpenTelemetry, Clickhouse, and
+Grafana created a comprehensive monitoring ecosystem, allowing me to see how
+these technologies interact and complement each other.
 
 ### Jonathan
 
-Rejoindre ce projet a été pour moi une première expérience dans la création d'une infrastructure informatique. Apprendre à configurer et utiliser les différents services a été un des points forts pour moi. J'ai pu voir comment chaque service apporte sa pierre à l'édifice et comment tout s'imbrique pour créer un système fonctionnel. Cette compréhension pratique m'a armé d'une solide base pour estimer l'effort requis pour déployer chaque service et dimensionner les ressources nécessaires, que ce soit pour une migration d'envergure ou la mise en place d'une nouvelle infrastructure.
+Joining this project was my first experience in creating IT infrastructure.
+Learning to configure and use the various services was one of the highlights for
+me. I saw how each service contributes to the whole and how everything fits
+together to create a functional system. This practical understanding provided me
+with a solid foundation for estimating the effort required to deploy each
+service and sizing the necessary resources, whether for a large-scale migration
+or setting up a new infrastructure.
 
-Ce projet m'a offert un modèle de référence, non seulement pour mes futurs projets, mais aussi pour quiconque s'intéresse à notre travail, étant donné que tout le projet est accessible publiquement. C'est une expérience qui me sera utile bien au-delà du cadre de ce projet.
+This project provided me with a reference model, not only for my future projects
+but also for anyone interested in our work, as the entire project is publicly
+accessible. It is an experience that will be useful to me far beyond this
+project's scope.
 
-Au-delà des aspects techniques, ce projet m'a permis de voir concrètement comment la division du travail en itérations et la planification en fonction des retours ont été des aspects clés qui ont permis une adaptabilité et réactivité productive et continue à travers les itérations.
+Beyond the technical aspects, this project allowed me to see firsthand how
+dividing work into iterations and planning based on feedback were key aspects
+that enabled productive and continuous adaptability and responsiveness
+throughout the iterations.
 
 ### Michael
 
-Avec ce projet, j'ai eu l'opportunité d'apprendre comment utiliser et concevoir une bonne structure de projet avec Kustomize. Également, j'ai appris comment utiliser ArgoCD pour déployer des applications selon l'approche GitOps. J'ai aussi collaboré avec mes coéquipiers sur les autres aspects du projet, ce qui a été une bonne occasion de pratiquer mes habiletés en communication et en travail d'équipe. Ce qui est de plus grande valeur pour ce projet est le fait qu'on a bâti un tout nouveau système, en équipe. Ainsi, on a débuté avec une idée initiale, discutée, analysée, décidée, architecturée et implémenté chaque niveau du système, ce qui est une expérience de valeur incalculable.
+With this project, I had the opportunity to learn how to use and design a good
+project structure with Kustomize. Additionally, I learned how to use ArgoCD to
+deploy applications according to the GitOps approach. I also collaborated with
+my teammates on other aspects of the project, which was a good opportunity to
+practice my communication and teamwork skills. The most valuable aspect of this
+project is that we built an entirely new system as a team. Thus, we started with
+an initial idea, discussed, analyzed, decided, architected, and implemented each
+level of the system, which is an invaluable experience.
 
 ### Simon
 
-Avant de démarrer ce projet, j'avais déjà une expérience superficielle avec plusieurs de ces outils. Toutefois, c'était la première fois que j'avais l'occasion d'explorer plus en profondeur ces technologies qui, je crois, formeront le futur des opérations à grande échelle d'entreprises. Notamment ce qui concerne la gestion des secrets et du stockage, je crois que nous avons configuré les outils de façon très intéressante et que cela fonctionnerait très bien pour de milliers de serveurs.
+Before starting this project, I already had superficial experience with several
+of these tools. However, this was the first time I had the opportunity to
+explore these technologies more in-depth, which I believe will shape the future
+of large-scale enterprise operations. Notably regarding secret and storage
+management, I believe we configured the tools in a very interesting way that
+would work well for thousands of servers.
 
-Mais surtout, j'ai beaucoup appris en ce qui concerne le travail d'équipe et l'organisation du travail. Ce projet comportait peu d'objectifs fixes et il aura fallu mettre en place certaines mesures pour atteindre la rigueur requise pour avancer le projet à rythme satisfaisant. Mettre en place de fort processus de suivi des tâches, de *Pull Requests*, d'ateliers de travail réguliers et plus fut essentiel à la réussite de ce projet.
+But above all, I learned a lot about teamwork and work organization. This
+project had few fixed objectives, and it was necessary to implement certain
+measures to achieve the required rigor to advance the project at a satisfactory
+pace. Setting up strong task tracking, pull request processes, regular work
+workshops, and more were essential to the project's success.
 
 ## Conclusion
 
-En rétrospective, le projet Plateforme CEDILLE a été une expérience formatrice, riche en enseignements techniques et en gestion de projet. Nous avons relevé le défi de concevoir et de mettre en place une infrastructure informatique complexe, ce qui a demandé une coordination minutieuse et une collaboration étroite entre les membres de l'équipe.
+In retrospect, the CEDILLE Platform project has been a formative experience,
+rich in technical and project management lessons. We took on the challenge of
+designing and implementing a complex IT infrastructure, requiring meticulous
+coordination and close collaboration between team members.
 
-Une des leçons clés tirées de ce projet est la nécessité de mieux prioriser notre carnet de travail. Avec le recul, nous avons réalisé que certaines opérations étaient bloquantes et auraient dû être traitées en priorité.  Par exemple, la configuration de Vault, un composant clé pour la gestion des secrets, aurait pu être réalisée plus tôt étant donné que plusieurs autres services dépendaient de sa mise en place. Cette prise de conscience sera cruciale pour l'efficacité de nos futurs projets.
+One of the key lessons learned from this project is the need to better
+prioritize our work backlog. In hindsight, we realized that some operations were
+blocking and should have been prioritized. For example, the configuration of
+Vault, a key component for secret management, could have been done earlier as
+several other services depended on its setup. This realization will be crucial
+for the efficiency of our future projects.
 
-Avec l'infrastructure principalement en place, notre prochaine étape est de planifier et de réaliser la migration des services existants. Cette phase requiert une gestion méticuleuse pour assurer une transition sans heurts, en mettant l'accent sur la minimisation des interruptions de service et l'optimisation de la performance et de la sécurité.
+With the infrastructure mainly in place, our next step is to plan and execute
+the migration of existing services. This phase requires meticulous management to
+ensure a smooth transition, focusing on minimizing service interruptions and
+optimizing performance and security.
 
-Pour les futurs projets, notre conseil serait de valoriser l'adaptabilité et la capacité à répondre aux changements imprévus. La flexibilité dans la planification et la volonté de réviser les stratégies face à de nouvelles informations ont été des facteurs clés dans le succès du projet.
+For future projects, our advice would be to value adaptability and the ability
+to respond to unforeseen changes. Flexibility in planning and the willingness to
+revise strategies in the face of new information were key factors in the
+project's success.
 
-En somme, ce projet a été une expérience enrichissante qui a dépassé nos attentes en termes d'apprentissage et de développement professionnel. Nous sommes enthousiastes à l'idée d'appliquer ces compétences et ces connaissances acquises dans les phases suivantes de notre travail et dans nos futures initiatives.
+In summary, this project has been an enriching experience that exceeded our
+expectations in terms of learning and professional development. We are excited
+to apply these acquired skills and knowledge in the following phases of our work
+and future initiatives.
 
-## Annexes
+## Appendices
 
-- [Document de vision](../plateforme-cedille/vision.md)
+- [Vision Document](../plateforme-cedille/vision.md)
 - [Sprints](index.md)
-- [Répertoire Git](https://github.com/ClubCedille/Plateforme-Cedille)
-- [Suivi des tâches](https://github.com/orgs/ClubCedille/projects/3)
+- [Git Repository](https://github.com/ClubCedille/Plateforme-Cedille)
+- [Task Tracking](https://github.com/orgs/ClubCedille/projects/3)

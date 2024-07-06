@@ -1,5 +1,5 @@
-# Comment commencer avec Cedille
+# Getting Started with Cedille
 
-Cette section est destinée à vous aider à démarrer avec la plateforme Cedille.
+This section is intended to help you get started with the Cedille platform.
 
 # TODO

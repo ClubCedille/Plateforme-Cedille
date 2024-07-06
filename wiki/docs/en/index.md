@@ -1,35 +1,31 @@
-# Wiki Cedille
+# Cedille Wiki
 
-Ce wiki est la ressource principale pour nos membres et nos partenaires. Il
-contient des informations sur nos projets, nos services et nos meilleures
-pratiques. Que vous soyez un développeur, un administrateur système ou un
-utilisateur final, nous avons des informations pour vous aider à vous
-familiariser avec la plateforme Cedille et à en tirer le meilleur parti.
+This wiki is the primary resource for our members and partners. It contains
+information about our projects, services, and best practices. Whether you are a
+developer, a system administrator, or an end-user, we have information to help
+you get familiar with the Cedille platform and make the most of it.
 
-Ici, vous trouverez des guides détaillés, des tutoriels, des informations sur
-les meilleures pratiques et des réponses à vos questions les plus fréquentes.
-Nous avons travaillé dur pour rendre cette documentation aussi claire et
-accessible que possible, mais comme tout est nouveau, nous sommes impatients de
-recevoir vos commentaires pour l'améliorer encore davantage!
+Here, you will find detailed guides, tutorials, best practices information, and
+answers to your most frequently asked questions. We have worked hard to make
+this documentation as clear and accessible as possible, but since everything is
+new, we are eager to receive your feedback to further improve it!
 
-## Contexte
+## Background
 
-La plateforme Cedille a été conçue pour répondre aux besoins de nos clients en
-matière d'hébergement de services sur des serveurs bare-metal. Elle est basée
-sur Kubernetes, une technologie de conteneurisation open-source qui offre une
-flexibilité et une évolutivité exceptionnelles pour le déploiement et la gestion
-de services.
+The Cedille platform was designed to meet our clients' needs for hosting
+services on bare-metal servers. It is based on Kubernetes, an open-source
+containerization technology that offers exceptional flexibility and scalability
+for deploying and managing services.
 
-Notre objectif est de fournir une plateforme d'hébergement simple, fiable et
-performante pour nos clients tout en offrant aux membres de notre équipe une
-expérience de développement et de déploiement éducative et enrichissante.
+Our goal is to provide a simple, reliable, and high-performance hosting platform
+for our clients while offering our team members an educational and enriching
+development and deployment experience.
 
-## Table des matières
+## Table of Contents
 
-- [Gestion du projet - LOG791](log791/index.md) : Cette section contient le
-  suivi de notre projet pour le cours LOG791 dans lequel nous avons entamé le
-  développement de la plateforme Cedille è l'automne 2023.
-- [Plateforme Cedille](plateforme-cedille/index.md) : Cette section contient
-  des informations sur la plateforme Cedille, y compris la vision du projet,
-  l'architecture technique, les services offerts et les meilleures pratiques
-  pour son utilisation.
+- [Project Management - LOG791](log791/index.md): This section contains the
+  progress of our project for the LOG791 course in which we started developing
+  the Cedille platform in the fall of 2023.
+- [Cedille Platform](plateforme-cedille/index.md): This section contains
+  information about the Cedille platform, including the project vision,
+  technical architecture, offered services, and best practices for its use.

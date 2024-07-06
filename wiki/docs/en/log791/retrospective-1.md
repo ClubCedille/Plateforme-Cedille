@@ -1,55 +1,76 @@
-# Rétrospective de le l'itération 1
+# Iteration 1 Retrospective
 
-Date: 11 octobre 2023
+Date: October 11, 2023
 
-## 1. Travail réalisé
+## 1. Completed Work
 
-| Tâche                                                   | Responsable                         |
-| ------------------------------------------------------- | ----------------------------------- |
-| Préparer les questionnaires par client                  | Jonathan / Thomas                   |
-| Entrevue AlgoETS                                        | Jonathan                            |
-| Entrevue des membres du club                            | Thomas / Jonathan                   |
-| Entrevue club Raconteurs d'angles                       | Jonathan                            |
-| Entrevue club Saveurs de génie                          | Jonathan                            |
-| Entrevue services TI                                    | Thomas                              |
-| À partir des entrevues, définir métriques de succès     | Jonathan / Thomas / Simon / Michael |
-| Deployer le cluster physique avec Talos/Omni            | Michael / Simon                     |
-| Configuration de base de Rook/Ceph                      | Michael / Simon                     |
-| Evaluer stack networking k8s                            | Simon                               |
-| Mise en place d'un wiki pour la documentation           | Jonathan                            |
-| Rédaction initiale du document de vision                | Jonathan / Thomas / Simon / Michael |
-| Migrer les serveurs physiques vers la salle de serveurs | Simon / Jonathan / Thomas           |
-| Configuration de KubeVirt                               | Thomas                              |
+| Task                                                   | Responsible                         |
+| ------------------------------------------------------ | ----------------------------------- |
+| Prepare client-specific questionnaires                 | Jonathan / Thomas                   |
+| AlgoETS interview                                      | Jonathan                            |
+| Club member interviews                                 | Thomas / Jonathan                   |
+| Raconteurs d'angles club interview                     | Jonathan                            |
+| Saveurs de génie club interview                        | Jonathan                            |
+| IT services interview                                  | Thomas                              |
+| Define success metrics from interviews                 | Jonathan / Thomas / Simon / Michael |
+| Deploy the physical cluster with Talos/Omni            | Michael / Simon                     |
+| Basic Rook/Ceph configuration                          | Michael / Simon                     |
+| Evaluate k8s networking stack                          | Simon                               |
+| Set up a wiki for documentation                        | Jonathan                            |
+| Initial drafting of the vision document                | Jonathan / Thomas / Simon / Michael |
+| Migrate physical servers to the server room            | Simon / Jonathan / Thomas           |
+| KubeVirt configuration                                 | Thomas                              |
 
-## 2. Travail non terminé
+## 2. Incomplete Work
 
-### 2.1 En cours
+### 2.1 In Progress
 
-- **Achat des nouveaux disques** : L'évaluation de nos besoins a été complétée, la requête au TI est sur le point d'être envoyée.
+- **Purchase of new disks**: Our needs assessment has been completed, and the
+  request to IT is about to be sent.
 
-### 2.2 Ne sera pas fait
+### 2.2 Will Not Be Done
 
-- **Ajouter le réseautage pour le provideur Terraform XCP-NG** : Nous avons pris la décision de ne pas utiliser XCP-NG comme hyperviseur pour nos serveurs. Cette décision s'explique par le fait que nous désirons minimiser la complexité de l'infrastructure et qu'il n'y avait pas assez de valeurs ajoutées pour justifier cette configuration. Nous avons opté pour l'outil Vcluster comme alternative pour permettre de configurer différents environnements virtuels à l'intérieur de notre cluster Kubernetes.
+- **Add networking for Terraform XCP-NG provider**: We decided not to use XCP-NG
+  as a hypervisor for our servers. This decision was made to minimize
+  infrastructure complexity, and there was not enough added value to justify
+  this configuration. We opted for the Vcluster tool as an alternative to
+  configure different virtual environments within our Kubernetes cluster.
 
-## 3. Problèmes et défis
+## 3. Issues and Challenges
 
-- **Installation (bootstrap) du cluster Kubernetes / Talos**: Installation du OS Talos Linux a partir de l'ISO généré par Sidero Omni et creation du cluster avec toutes les machines.
-  - **Problème**: Impossibilité de décrypter les disques durant le premier démmrarage après l'installation d'une machine.
-    - **Cause**: Malheuresement, après plusieurs ré-installation, on n'a pas pu identifier la cause.
-    - **Solution**: Désactiver l'option de cryptage avant l'installation.
-  - **Problème**: L'installation est brisée dès que la clé USB est retirée de la machine après l'installation.
-    - **Cause**: L'identifiant du disque avec l'OS `/dev/sdb` n'est plus valide si la clé USB est retirée.
-    - **Solution**: Ré-installation du cluster en spécifiant des identifiants de disque durable (`/dev/disk/by-id/...`) pour *chaque* machine.
+- **Kubernetes/Talos Cluster Installation (bootstrap)**: Installation of Talos
+  Linux OS from the ISO generated by Sidero Omni and cluster creation with all
+  machines.
+  - **Issue**: Inability to decrypt disks during the first boot after machine
+    installation.
+    - **Cause**: Unfortunately, after several reinstalls, we could not identify
+      the cause.
+    - **Solution**: Disable the encryption option before installation.
+  - **Issue**: Installation breaks as soon as the USB key is removed from the
+    machine after installation.
+    - **Cause**: The disk identifier with the OS `/dev/sdb` is no longer valid
+      if the USB key is removed.
+    - **Solution**: Reinstall the cluster specifying durable disk identifiers
+      (`/dev/disk/by-id/...`) for *each* machine.
 
-- **Configuration d'un ISO/image dans un PVC pour KubeVirt**: Utiliser un ISO ubuntu dans un PVC pour l'utiliser comme CD-ROM lors du boot de la VM.
-  - **Solution** : Installer le [CDI](https://kubevirt.io/user-guide/operations/containerized_data_importer/) de KubeVirt qui permet d'importer des images disque depuis un serveur web ou un registre de conteneurs, de cloner des volumes persistants existants, et de télécharger des images disque locales, le tout vers un DataVolume. Bref, il simplifie et optimise l'utilisation des revendications de volumes persistants (PVCs) comme disques pour les machines virtuelles.
+- **ISO/image configuration in a PVC for KubeVirt**: Use an Ubuntu ISO in a PVC
+  as a CD-ROM during VM boot.
+  - **Solution**: Install the
+    [CDI](https://kubevirt.io/user-guide/operations/containerized_data_importer/)
+    from KubeVirt, which allows importing disk images from a web server or
+    container registry, cloning existing persistent volumes, and downloading
+    local disk images, all to a DataVolume. It simplifies and optimizes the use
+    of Persistent Volume Claims (PVCs) as disks for virtual machines.
 
-- **Installation initiale de Rook-Ceph** : Installation initiale de rook-ceph (système de fichiers distribué) comme preuve de concept sur notre cluster Kubernetes.
-  - **Problème** : Le cluster Ceph est inutilisable
-  - **Cause** : La configuration des OSD (Object Storage Daemons) échoue.
-  - **Solution** : Manuellement effacer tous les disques et redémarrer l'opérateur rook-ceph.
+- **Initial Rook-Ceph Installation**: Initial installation of rook-ceph
+  (distributed file system) as a proof of concept on our Kubernetes cluster.
+  - **Issue**: The Ceph cluster is unusable.
+  - **Cause**: OSD (Object Storage Daemons) configuration fails.
+  - **Solution**: Manually wipe all disks and restart the rook-ceph operator.
 
-- **Problème 2** : Description détaillée du problème et de son impact.
-  - **Solution envisagée** : Description de la solution ou des étapes pour résoudre le problème.
-- **Défi 3** : Description du défi et pourquoi il a été un obstacle.
-  - **Solution envisagée** : Mesures ou étapes pour surmonter ce défi à l'avenir.
+- **Problem 2**: Detailed description of the problem and its impact.
+  - **Envisioned Solution**: Description of the solution or steps to resolve the
+    problem.
+- **Challenge 3**: Description of the challenge and why it was an obstacle.
+  - **Envisioned Solution**: Measures or steps to overcome this challenge in the
+    future.

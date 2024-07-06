@@ -1,63 +1,57 @@
-# Flux de travail
+# Workflow
 
-Ce document décrit les pipelines de développement et de déploiement disponible
-et utilisé pour la plateforme Cedille.
+This document describes the available development and deployment pipelines used
+for the Cedille platform.
 
 ## Terraform Cloud
 
-La plateforme Cedille utilise Terraform Cloud pour la gestion de
-l'infrastructure et le déploiement des ressources. Les fichiers de configuration
-Terraform sont stockés dans le dépôt GitHub `Plateforme-Cedille` sous le dossier
-`terraform`. Les fichiers de configuration Terraform sont organisés en modules
-pour gérer différents aspects de l'infrastructure, tels que les repertoires
-github, les utilisateurs github, les ressources pour notre instance de hashicorp
-Vault, etc. Les modules Terraform sont déployés à l'aide de Terraform Cloud, qui
-est configuré pour déclencher des déploiements automatiques lorsqu'un commit est
-effectué sur la branche `master` du dépôt `Plateforme-Cedille`.
+The Cedille platform uses Terraform Cloud for infrastructure management and
+resource deployment. The Terraform configuration files are stored in the GitHub
+repository `Plateforme-Cedille` under the `terraform` folder. The Terraform
+configuration files are organized into modules to manage different aspects of
+the infrastructure, such as GitHub repositories, GitHub users, resources for our
+HashiCorp Vault instance, etc. The Terraform modules are deployed using
+Terraform Cloud, which is configured to trigger automatic deployments when a
+commit is made to the `master` branch of the `Plateforme-Cedille` repository.
 
 ## ArgoCD
 
-La plateforme Cedille utilise ArgoCD pour le déploiement continu des
-applications Kubernetes. Les fichiers de configuration ArgoCD sont stockés dans
-le dépôt GitHub `Plateforme-Cedille` sous le dossier `apps` et system. Les
-fichiers de configuration ArgoCD sont organisés en applications pour gérer
-différents aspects des applications Kubernetes, tels que les applications de
-haut-niveau (apps) et les applications système (system). Une synchronisation
-automatique est configurée pour les applications ArgoCD avec le dépôt
-`Plateforme-Cedille`.
+The Cedille platform uses ArgoCD for continuous deployment of Kubernetes
+applications. The ArgoCD configuration files are stored in the GitHub repository
+`Plateforme-Cedille` under the `apps` and `system` folders. The ArgoCD
+configuration files are organized into applications to manage different aspects
+of the Kubernetes applications, such as high-level applications (apps) and
+system applications (system). An automatic synchronization is configured for the
+ArgoCD applications with the `Plateforme-Cedille` repository.
 
-## Ajouter un nouveau membre à l'organisation
+## Add a New Member to the Organization
 
-Pour ajouter un nouveau membre à l'organisation GitHub du club Cedille, le
-workflow `add-new-member` est disponible. Ce workflow crée une pull request pour
-ajouter un nouveau membre à l'organisation GitHub du club Cedille. Pour exécuter
-le workflow, simplement cliquer sur le lien suivant: [Ajouter un nouveau
-membre](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/add-new-member.yml).
+To add a new member to the Cedille club's GitHub organization, the
+`add-new-member` workflow is available. This workflow creates a pull request to
+add a new member to the Cedille club's GitHub organization. To execute the
+workflow, simply click on the following link: [Add a New
+Member](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/add-new-member.yml).
 
-## Demander un sandbox Kubernetes
+## Request a Kubernetes Sandbox
 
-Un workflow de déploiement automatisé d'environnement sandbox pour les membres
-du club Cedille est disponible et accessible en exécutant le workflow GitHub
-[demander un sandbox
-kubernetes](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/request-sandbox.yml).
-Le workflow crée une pull request pour déployer un environnement sandbox avec
-vcluster pour l'utilisateur qui a déclenché le workflow. Des détails
-supplémentaires sur l'utilisation de l'environnement sandbox sont disponibles
-dans la pull request générée.
+An automated sandbox environment deployment workflow for Cedille club members is
+available and accessible by executing the GitHub workflow [request a Kubernetes
+sandbox](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/request-sandbox.yml).
+The workflow creates a pull request to deploy a sandbox environment with
+vcluster for the user who triggered the workflow. Additional details on using
+the sandbox environment are available in the generated pull request.
 
-## Apply omni config files
+## Apply Omni Config Files
 
-Le workflow `apply-omni` est utilisé pour appliquer les fichiers de
-configuration omni dans le cluster Kubernetes de la plateforme Cedille. Le
-workflow s'exécute automatiquement lorsqu'un commit est effectué sur la branche
-`master` du dépôt `Plateforme-Cedille`.
+The `apply-omni` workflow is used to apply the omni configuration files in the
+Cedille platform's Kubernetes cluster. The workflow runs automatically when a
+commit is made to the `master` branch of the `Plateforme-Cedille` repository.
 
-## Demander un site web GRAV
+## Request a GRAV Website
 
-Un workflow de déploiement automatisé de site web GRAV pour les clubs étudiants
-est disponible et accessible en exécutant le workflow GitHub [demander un site
-web
-GRAV](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/request-grav.yml).
-Le workflow crée une pull request pour déployer un site web GRAV pour le club
-étudiant pour qui le workflow a été déclenché. Des détails supplémentaires sur
-l'utilisation du site web GRAV sont disponibles dans la pull request générée.
+An automated GRAV website deployment workflow for student clubs is available and
+accessible by executing the GitHub workflow [request a GRAV
+website](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/request-grav.yml).
+The workflow creates a pull request to deploy a GRAV website for the student
+club for which the workflow was triggered. Additional details on using the GRAV
+website are available in the generated pull request.

@@ -1,20 +1,19 @@
-# Composants matériels
+# Hardware Components
 
-La plateforme Cedille est basée sur des serveurs bare-metal, ce qui signifie que
-nous utilisons des serveurs physiques dédiés pour héberger les services de nos
-clients. Cela nous permet de donner à nos membres une opportunité d'apprendre à
-gérer des serveurs physiques et de comprendre les défis et les avantages de
-l'infrastructure bare-metal. Voici les principaux composants matériels de la
-plateforme Cedille:
+The Cedille platform is based on bare-metal servers, meaning we use dedicated
+physical servers to host our clients' services. This allows our members to learn
+how to manage physical servers and understand the challenges and benefits of
+bare-metal infrastructure. Here are the main hardware components of the Cedille
+platform:
 
-## Serveurs
+## Servers
 
-todo
+TODO
 
-## Réseau
+## Network
 
-todo
+TODO
 
-## Stockage
+## Storage
 
-todo
+TODO

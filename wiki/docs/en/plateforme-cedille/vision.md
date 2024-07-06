@@ -1,354 +1,462 @@
-# Plateforme CEDILLE - Document de vision
+# Cedille Platform - Vision Document
 
 **Organization:** Cedille, École de Technologie Supérieure
 
-Voici une vue d'ensemble sur notre nouvelle plateforme CEDILLE. Cette section est conçue pour vous donner une vue d'ensemble claire du 'pourquoi' et du 'quoi' de notre projet. Ici, nous plongeons dans la raison d'être de notre plateforme basée sur Kubernetes, exploitée par le SaaS Omni de SideroLabs, décrivant en détail pourquoi nous avons entrepris ce voyage et comment nous pensons que cela va transformer la façon dont on gère nos services d'hébergement sur nos serveurs bare-metal. 
+This overview provides a clear view of the 'why' and 'what' of our new CEDILLE
+platform project. Here, we dive into the rationale behind our Kubernetes-based
+platform, powered by SideroLabs' Omni SaaS, detailing why we embarked on this
+journey and how we believe it will transform how we manage our hosting services
+on our bare-metal servers.
 
-## 1. Survol
+## 1. Overview
 
-### 1.1 Problématique
+### 1.1 Problem Statement
 
-Le club Cédille est responsable de l’hébergement et de l’aide au développement d’un nombre important de sites web et services web pour les clubs étudiants de l’ÉTS. De plus, le club cherche à donner à ses membres une occasion d’apprentissage des technologies DevOps, Kubernetes et de gestion de serveur.
+The Cedille club is responsible for hosting and supporting the development of a
+significant number of websites and web services for the student clubs at ÉTS.
+Additionally, the club aims to provide its members with learning opportunities
+in DevOps, Kubernetes, and server management technologies.
 
-En ce moment, les services sont déployés sur un Kubernetes hébergé par Google Cloud (GKE). Toutefois, cette plateforme engendre des coûts importants et l’augmentation de clubs hébergés rend le maintien d’utilisation de cette plateforme une difficulté financière. De plus, la structure des opérations de maintenances et de déploiement est en ce moment trop complexe pour assurer une courbe d’apprentissage intéressante pour les membres du club.
+Currently, the services are deployed on a Kubernetes platform hosted by Google
+Cloud (GKE). However, this platform incurs significant costs, and the increasing
+number of hosted clubs makes maintaining this platform financially challenging.
+Moreover, the structure of maintenance and deployment operations is currently
+too complex to ensure an interesting learning curve for club members.
 
-Aussi, la solution actuelle n’offre pas assez de flexibilité et de contrôle pour permettre aux membres d’expérimenter les technologies utilisées. Enfin, l’ÉTS est en processus de révision de ses pratiques de sécurité suite aux nouvelles directives gouvernementales, ainsi CÉDILLE doit retravailler son infrastructure pour répondre aux nouvelles exigences.
+Also, the current solution does not offer enough flexibility and control to
+allow members to experiment with the technologies used. Finally, ÉTS is in the
+process of reviewing its security practices following new government guidelines,
+so CÉDILLE must rework its infrastructure to meet the new requirements.
 
-### 1.2 Objectif
+### 1.2 Objective
 
-À cause des problèmes mentionnées et des nouveaux requis, le club CÉDILLE a récemment acheté des serveurs physiques et y a installé Kubernetes. La décision a été prise d’en profiter pour revoir l’ensemble de l’infrastructure et des systèmes DevOps afin de mieux répondre aux besoins du club, de ses clients et de l’ÉTS.
+Due to the mentioned problems and new requirements, the Cedille club recently
+purchased physical servers and installed Kubernetes on them. The decision was
+made to take this opportunity to review the entire infrastructure and DevOps
+systems to better meet the needs of the club, its clients, and ÉTS.
 
-Pour ce faire, nous déploieront plusieurs systèmes d'automatisation, d'observabilité et de redondance. La volonté sera ici de rendre l'expérience des clients de CÉDILLE plus fluide et plus consistante. De plus, nous viseront à rendre plus clair le processus de développement et maintenance pour les membres du club CÉDILLE eux-mêmes. Lorsque possible, les logiciels libres et cloud-native seront à favoriser afin de respecter la philosophie du club étudiant CÉDILLE.
+To achieve this, we will deploy various automation, observability, and
+redundancy systems. The goal is to make the experience of CÉDILLE clients more
+fluid and consistent. Additionally, we aim to clarify the development and
+maintenance process for Cedille club members themselves. Whenever possible,
+open-source and cloud-native software will be favored to respect the philosophy
+of the Cedille student club.
 
-### 1.3 Porté
+### 1.3 Scope
 
-Cette solution devra être exhaustive afin de couvrir les différents cas d'utilisation tout en respectant les requis de sécurité demandé par l'ÉTS. Toutefois, il est important de délimiter ce qui fait partie du projet et ce qui n'en fera pas parti à ce stage-ci:
+This solution must be comprehensive to cover different use cases while meeting
+the security requirements requested by ÉTS. However, it is important to delimit
+what is part of the project and what is not at this stage:
 
-#### Inclus
+#### Included
 
-- Toutes les définitions de l'infrastructure et de la typologie réseau
-- Les systèmes de redondance
-- Les systèmes d'observabilité
-- La gestion d'environnements (pré-production, productions, etc.)
-- La gestion des déploiements, notamment progressifs (bleu-vert, canary...)
-- Les systèmes de sécurité
-- Pipelines de tests et déploiement (CI/CD)
+- All definitions of infrastructure and network topology
+- Redundancy systems
+- Observability systems
+- Environment management (pre-production, production, etc.)
+- Deployment management, including progressive (blue-green, canary...)
+- Security systems
+- Test and deployment pipelines (CI/CD)
 
-#### Exclus
+#### Excluded
 
-- Configuration d'environnement de développements pour les développeurs
-- Programmation des sites web qui seront sur l'infrastructure
-- Effectuer la migration complète de services (certains services en preuve de concept d'ici la fin de ce projet, les autres après la fin de ce projet)
+- Configuration of development environments for developers
+- Programming the websites that will be on the infrastructure
+- Complete service migration (some services as proof of concept by the end of
+  this project, others after the end of this project)
 
-### 1.3 Définitions et acronymes
+### 1.3 Definitions and Acronyms
 
-#### Table 1.3.1: Définitions et acronymes**
+#### Table 1.3.1: Definitions and Acronyms
 
-| **Acronyme**               | Définition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ÉTS**                    | École de Technologie Supérieure                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| **Docker**                 | Un conteneur est une unité logicielle standard qui regroupe le code et toutes ses dépendances afin que l'application s'exécute rapidement et de manière fiable d'un environnement informatique à un autre. Une image de conteneur Docker est un package logiciel léger, autonome et exécutable qui comprend tout ce dont vous avez besoin pour exécuter une application : code, runtime, outils système, bibliothèques système et paramètres.                                                                                                                                     |
-| **Kubernetes**             | Système open source pour automatiser le déploiement, la mise à l'échelle et la gestion des applications conteneurisées.                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Cluster**                | Dans un système informatique, un cluster est un groupe de serveurs et d'autres ressources qui agissent comme un système unique et permettent une haute disponibilité, un équilibrage de charge et un traitement parallèle. Ces systèmes peuvent aller d'un système à deux nœuds de deux ordinateurs personnels (PC) à un superordinateur doté d'une architecture en cluster.                                                                                                                                                                                                      |
-| **Namespace**              | Dans Kubernetes, les espaces de noms fournissent un mécanisme permettant d'isoler des groupes de ressources au sein d'un seul cluster. Les noms de ressources doivent être uniques au sein d’un espace de noms, mais pas entre les espaces de noms. La portée basée sur l'espace de noms s'applique uniquement aux objets avec espace de noms (par exemple, déploiements, services, etc.) et non aux objets à l'échelle du cluster.                                                                                                                                               |
-| **vCluster**               | Clusters Kubernetes virtuels qui s'exécutent dans des espaces de noms (namespace) standards                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| **Load balancer**          | L'équilibrage de charge fait référence à la répartition efficace du trafic réseau entrant sur un groupe de serveurs back-end, également appelé batterie de serveurs ou pool de serveurs.                                                                                                                                                                                                                                                                                                                                                                                          |
-| **MetalLB**                | MetalLB est une implémentation d'équilibrage de charge pour les clusters Kubernetes sur place (on-prem), utilisant des protocoles de routage standard.                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| **KubeVirt**               | Extension pour Kubernetes qui permet de gérer et exécuter des machines virtuelles à côté de conteneurs.                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Mikrotik**               | Mikrotik est un fournisseur d'équipements réseaux Enterprise a prix raisonable.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| **Clickhouse**             | Clickhouse est une base de données a haute performance pour des données a grande échelle.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| **Logs**                   | Les logs sont des information purement textuels provenants d'un service logiciel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| **Traces**                 | Les traces sont des informations détaillés des opération internes d'un service logiciel comme le temps de réponse d'une requête SQL.                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| **Metriques**              | Les metriques sont des informations usuellement formatés en séries chronologiques qui mesurent des statistiques.                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| **OTEL (OpenTelemetry)**   | OpenTelemetry est un projet open source qui definit des protocoles et methodes standards pour la collection et transfert des Logs, Traces et Metriques.                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **BGP**                    | Border Gateway Protocol (BGP) fait référence à un protocole de passerelle qui permet à Internet d'échanger des informations de routage entre des systèmes autonomes (AS).                                                                                                                                                                                                                                                                                                                                                                                                         |
-| **Talos Linux**            | Distribution Kubernetes offerte par Sidero Labs                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| **Contour**                | Contour est un contrôleur d'entrée Kubernetes open source fournissant le plan de contrôle pour Envoy Edge et le proxy de service. Contour prend en charge les mises à jour de configuration dynamiques et la délégation d'entrée multi-équipes prêtes à l'emploi tout en conservant un profil léger.                                                                                                                                                                                                                                                                              |
-| **Ingress**                | Dans Kubernetes, un Ingress est un objet qui permet de gérer l'accès externe aux services dans un cluster, généralement via HTTP.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| **Egress**                 | Le trafic sortant d'un réseau ou d'un pod dans un contexte Kubernetes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| **Linkerd**                | Un service mesh léger et sécurisé pour Kubernetes qui offre des fonctionnalités telles que le routage du trafic, la télémétrie et la sécurité mTLS.                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| **Service mesh**           | Une couche d'infrastructure dédiée pour faciliter les communications orientées services, offrant des fonctionnalités telles que la découverte, la charge, la télémétrie et l'authentification des services.                                                                                                                                                                                                                                                                                                                                                                       |
-| **Terraform**              | Terraform est un outil qui permet de faire de l'insfrastructure en tant que code (IaC).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Rook/Ceph**              | Rook est une orchestration de stockage pour Kubernetes, et Ceph est un système de stockage distribué que Rook peut orchestrer.                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **Kube-score**             | Kube-score est un outil pour Kubernetes qui recommande des changements pour améliorer la sécurité et la fiabilité.                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| **CI**                     | Intégration continue                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| **CD**                     | Déploiement continue                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| **Github Action**          | Github action est l'outil qui permet de faire du CI/CD pour la plateforme Github.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| **Gitops**                 | Une méthode pour gérer et mettre à jour les infrastructures et les applications en utilisant des outils Git. Avec GitOps, Git sert de source unique de vérité pour le code et l'infrastructure.                                                                                                                                                                                                                                                                                                                                                                                   |
-| **ArgoCD**                 | Un outil déclaratif, GitOps-continu pour Kubernetes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| **Déploiment Canaray**     | Une stratégie de déploiement qui consiste à déployer une nouvelle version d'une application côte à côte avec la version existante, mais à diriger seulement une petite partie du trafic vers la nouvelle version. Si tout va bien, le trafic est progressivement augmenté jusqu'à ce que la nouvelle version prenne la totalité du trafic.                                                                                                                                                                                                                                        |
-| **Déploiement Blue-Green** | Une stratégie de déploiement où deux versions de l'application sont maintenues côte à côte (bleue pour l'actuelle, verte pour la nouvelle). Une fois que la nouvelle version (verte) est prête et testée, le routage du trafic est basculé de la version bleue à la version verte. Cela permet des mises à jour sans temps d'arrêt.                                                                                                                                                                                                                                               |
-| **Argo Rollouts**          | Extension d'Argo qui fournit des fonctionnalités avancées de déploiement telles que Canary et Blue-Green.                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| **Kustomize**              | Outil de personnalisation pour les manifests Kubernetes, permettant de définir des variantes d'une base de configuration.                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| **Odo**                    | Odo est un outil de développement rapide pour les applications Kubernetes et OpenShift, simplifiant le cycle DevOps.                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| **Github registry**        | Un service d'hébergement de packages logiciels lié à GitHub.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Graphana**               | Une plateforme open source pour la surveillance et l'alerte. Typiquement utilisé en tandem avec Prometheus pour la surveillance des clusters Kubernetes.                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| **Pixie**                  | Outil d'observabilité natif pour Kubernetes, permettant de diagnostiquer les applications sans code d'instrumentation.                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| **Oneuptime**              | OneUptime est une solution complète de suivi et de gestion de vos services en ligne. Que vous ayez besoin de vérifier la disponibilité de votre site Web, de votre tableau de bord, de votre API ou de toute autre ressource en ligne, OneUptime peut alerter votre équipe en cas de temps d'arrêt et tenir vos clients informés avec une page d'état. OneUptime vous aide également à gérer les incidents, à configurer des rotations d'astreinte, à exécuter des tests, à sécuriser vos services, à analyser les journaux, à suivre les performances et à déboguer les erreurs. |
-| **Trivy**                  | Un scanner de vulnérabilité de conteneurs simple et complet.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Cosign**                 | Un outil pour signer et vérifier les signatures des images de conteneurs.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| **CodeQL**                 | Une plateforme d'analyse de code source pour trouver les vulnérabilités dans le code. Propriété de GitHub.                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| **Hashicorp Vault**        | Outil pour gérer les secrets et protéger les données sensibles.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| **Kubescape**              | Outil d'analyse pour vérifier la conformité et la sécurité d'un cluster Kubernetes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| **SonarQube**              | Plateforme d'analyse continue de la qualité du code qui inspecte le code pour détecter les bugs, les odeurs de code et les vulnérabilités de sécurité.  |
+| **Acronym**               | Definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **ÉTS**                   | École de Technologie Supérieure                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **Docker**                | A container is a standard software unit that packages code and all its dependencies so the application runs quickly and reliably from one computing environment to another. A Docker container image is a lightweight, standalone, and executable package that includes everything needed to run an application: code, runtime, system tools, system libraries, and settings.                                                                                               |
+| **Kubernetes**            | An open-source system for automating the deployment, scaling, and management of containerized applications.                                                                                                                                                                                                                                                                                                                                                                                                    |
+| **Cluster**               | In a computing system, a cluster is a group of servers and other resources that act as a single system and enable high availability, load balancing, and parallel processing. These systems can range from a two-node system of two personal computers (PCs) to a supercomputer with a cluster architecture.                                                                                                                                                                                                |
+| **Namespace**             | In Kubernetes, namespaces provide a mechanism for isolating groups of resources within a single cluster. Resource names must be unique within a namespace but not across namespaces. Namespace-based scope applies only to namespace-scoped objects (e.g., deployments, services, etc.) and not to cluster-scoped objects.                                                                                                                                               |
+| **vCluster**              | Virtual Kubernetes clusters running in standard namespaces                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| **Load balancer**         | Load balancing refers to efficiently distributing incoming network traffic across a group of backend servers, also known as a server farm or server pool.                                                                                                                                                                                                                                                                                                                                                      |
+| **MetalLB**               | MetalLB is a load balancer implementation for on-premises Kubernetes clusters using standard routing protocols.                                                                                                                                                                                                                                                                                                                                                                                               |
+| **KubeVirt**              | Extension for Kubernetes that allows managing and running virtual machines alongside containers.                                                                                                                                                                                                                                                                                                                                                                                                              |
+| **Mikrotik**              | Mikrotik is an enterprise network equipment provider at a reasonable price.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| **Clickhouse**            | Clickhouse is a high-performance database for large-scale data.                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **Logs**                  | Logs are purely textual information coming from a software service.                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Traces**                | Traces are detailed information about the internal operations of a software service, such as the response time of an SQL query.                                                                                                                                                                                                                                                                                                                                                                               |
+| **Metrics**               | Metrics are usually formatted as time series information that measures statistics.                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **OTEL (OpenTelemetry)**  | OpenTelemetry is an open-source project that defines standard protocols and methods for collecting and transferring Logs, Traces, and Metrics.                                                                                                                                                                                                                                                                                                                                                               |
+| **BGP**                   | Border Gateway Protocol (BGP) refers to a gateway protocol that enables the internet to exchange routing information between autonomous systems (AS).                                                                                                                                                                                                                                                                                                                                                         |
+| **Talos Linux**           | Kubernetes distribution provided by Sidero Labs                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **Contour**               | Contour is an open-source Kubernetes ingress controller providing the control plane for Envoy Edge and service proxy. Contour supports dynamic configuration updates and multi-team ingress delegation out of the box while maintaining a lightweight profile.                                                                                                                                                                                                                                                |
+| **Ingress**               | In Kubernetes, an Ingress is an object that manages external access to services in a cluster, typically via HTTP.                                                                                                                                                                                                                                                                                                                                                                                             |
+| **Egress**                | Outbound traffic from a network or pod in a Kubernetes context.                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **Linkerd**               | A lightweight and secure service mesh for Kubernetes that provides features such as traffic routing, telemetry, and mTLS security.                                                                                                                                                                                                                                                                                                                                                                            |
+| **Service mesh**          | A dedicated infrastructure layer for facilitating service-oriented communications, offering features such as service discovery, load balancing, telemetry, and service authentication.                                                                                                                                                                                                                                                                                                                        |
+| **Terraform**             | Terraform is a tool that enables infrastructure as code (IaC).                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| **Rook/Ceph**             | Rook is an orchestration of storage for Kubernetes, and Ceph is a distributed storage system that Rook can orchestrate.                                                                                                                                                                                                                                                                                                                                                                                       |
+| **Kube-score**            | Kube-score is a tool for Kubernetes that recommends changes to improve security and reliability.                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **CI**                    | Continuous Integration                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| **CD**                    | Continuous Deployment                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| **Github Action**         | Github Action is the tool for CI/CD for the GitHub platform.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| **Gitops**                | A method for managing and updating infrastructures and applications using Git tools. With GitOps, Git serves as the single source of truth for code and infrastructure.                                                                                                                                                                                                                                                                                                                                       |
+| **ArgoCD**                | A declarative, GitOps continuous delivery tool for Kubernetes.                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| **Canary Deployment**     | A deployment strategy that involves deploying a new version of an application alongside the existing version but directing only a small portion of traffic to the new version. If everything goes well, the traffic is gradually increased until the new version takes all the traffic.                                                                                                                                                                                                                     |
+| **Blue-Green Deployment** | A deployment strategy where two versions of the application are maintained side by side (blue for the current, green for the new). Once the new version (green) is ready and tested, the traffic routing is switched from the blue version to the green version. This allows for updates without downtime.                                                                                                                                                                                                 |
+| **Argo Rollouts**         | An extension of Argo that provides advanced deployment features such as Canary and Blue-Green.                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **Kustomize**             | A customization tool for Kubernetes manifests, allowing the definition of variants from a base configuration.                                                                                                                                                                                                                                                                                                                                                                                                 |
+| **Odo**                   | Odo is a fast development tool for Kubernetes and OpenShift applications, simplifying the DevOps cycle.                                                                                                                                                                                                                                                                                                                                                                                                       |
+| **Github registry**       | A software package hosting service linked to GitHub.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| **Grafana**               | An open-source platform for monitoring and alerting. Typically used in tandem with Prometheus for monitoring Kubernetes clusters.                                                                                                                                                                                                                                                                                                                                                                             |
+| **Pixie**                 | A native observability tool for Kubernetes, allowing diagnosing applications without instrumentation code.                                                                                                                                                                                                                                                                                                                                                                                                    |
+| **Oneuptime**             | OneUptime is a comprehensive solution for tracking and managing your online services. Whether you need to monitor your website's uptime, dashboard, API, or any other online resource, OneUptime can alert your team in case of downtime and keep your customers informed with a status page. OneUptime also helps you manage incidents, configure on-call rotations, run tests, secure your services, analyze logs, track performance, and debug errors.                                                     |
+| **Trivy**                 | A simple and comprehensive container vulnerability
 
-## 2. Position du produit
+ scanner. | | **Cosign**                | A tool for signing and verifying
+container image signatures. | | **CodeQL**                | A source code
+analysis platform to find vulnerabilities in the code. Owned by GitHub. | |
+**Hashicorp Vault**       | A tool for managing secrets and protecting sensitive
+data. | | **Kubescape**             | A tool for analyzing Kubernetes cluster
+compliance and security. | | **SonarQube**             | A continuous code
+quality analysis platform that inspects code for bugs, code smells, and security
+vulnerabilities. |
 
-### 2.1 Énoncé du problème
+## 2. Product Position
 
-Le club Cédille assume la tâche d'héberger et de soutenir le développement d'une multitude de sites web et services en ligne pour les associations étudiantes de l'ÉTS. En outre, le club vise à offrir à ses membres des opportunités d'acquisition de compétences dans les domaines du DevOps, de Kubernetes et de la gestion des serveurs.
+### 2.1 Problem Statement
 
-À l'heure actuelle, notre infrastructure repose sur un cluster Kubernetes géré par Google Cloud (GKE). Cependant, les frais associés à cette plateforme sont élevés, et avec l'augmentation du nombre de clubs que nous soutenons, les coûts deviennent financièrement problématiques. De surcroît, la gestion majoritairement automatisée par Google Cloud limite notre flexibilité pour personnaliser nos solutions d'hébergement et restreint les occasions d'apprentissage pour nos membres.
+The Cedille club takes on the task of hosting and supporting the development of
+numerous websites and online services for the student associations at ÉTS.
+Furthermore, the club aims to provide its members with opportunities to acquire
+skills in DevOps, Kubernetes, and server management.
 
-#### Table 2.1.1: Énoncé du problème
+Currently, our infrastructure relies on a Kubernetes cluster managed by Google
+Cloud (GKE). However, the costs associated with this platform are high, and with
+the increasing number of clubs we support, the costs are becoming financially
+problematic. Additionally, the largely automated management by Google Cloud
+limits our flexibility to customize our hosting solutions and restricts learning
+opportunities for our members.
 
-| Déclaration                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Le problème                        | 1. Contrainte Financière : Le coût de maintien des services sur Google Cloud est significativement élevé et devient de plus en plus difficile à gérer à mesure que le nombre de clubs étudiants hébergés augmente. <br/> 2. Apprentissage et Personnalisation Limités : La gestion de la plupart des opérations par Google Cloud résulte en un environnement restreint qui offre peu d'opportunités pour apprendre et personnaliser les solutions d'hébergement, en particulier dans les domaines du DevOps, de Kubernetes et de la gestion de serveur.                   |
-| affecte                            | 1. Durabilité Financière : Le club fait face à un fardeau financier croissant qui pourrait menacer sa capacité à continuer d'offrir des services d'hébergement aux clubs étudiants. <br/> 2. Valeur Éducative : La configuration actuelle limite les expériences d'apprentissage des membres du club, particulièrement dans des domaines pertinents à leur croissance technique comme le DevOps, Kubernetes et la gestion de serveur.                                                                                                                                     |
-| et cela se traduit par l'impact de | 1. Tension Financière : Si la situation reste inchangée, le club Cédille risque de devenir financièrement insoutenable, ce qui pourrait entraîner l'arrêt des services d'hébergement pour de nombreux clubs étudiants, affectant ainsi leur présence en ligne et leurs opérations. <br /> 2. Développement de Compétences Techniques Réduit : Les membres du club passent à côté d'expériences pratiques et de développement de compétences précieuses, ce qui est l'un des objectifs clés du club pour améliorer l'employabilité et l'expertise technique de ses membres. |
+#### Table 2.1.1: Problem Statement
 
-### 2.2 Énoncé du produit
+| Statement                         |                                                                                                                                                                                                                                                                                                                                                                        |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| The problem                       | 1. Financial Constraint: The cost of maintaining services on Google Cloud is significantly high and becomes increasingly difficult to manage as the number of hosted student clubs increases. <br/> 2. Limited Learning and Customization: The management of most operations by Google Cloud results in a restricted environment that offers few opportunities to learn and customize hosting solutions, especially in the fields of DevOps, Kubernetes, and server management. |
+| affects                           | 1. Financial Sustainability: The club faces a growing financial burden that could threaten its ability to continue offering hosting services to student clubs. <br/> 2. Educational Value: The current configuration limits the learning experiences of club members, particularly in relevant areas for their technical growth such as DevOps, Kubernetes, and server management.                                                                       |
+| and this impacts the outcome by   | 1. Financial Strain: If the situation remains unchanged, the Cedille club risks becoming financially unsustainable, which could result in the discontinuation of hosting services for many student clubs, thus affecting their online presence and operations. <br /> 2. Reduced Technical Skills Development: Club members miss out on practical experiences and valuable skills development, which is one of the club's key objectives to enhance the employability and technical expertise of its members. |
 
-Le club a décidé de migrer les serveurs vers des serveurs physiques, qui seront déployés à l’ÉTS.
- Le produit nommé **Plateforme CEDILLE** est une infrastructure d'hébergement basée sur des serveurs physiques, déployée à l'ÉTS, et gérée via une licence Omni de Sidero Labs. Cette plateforme vise à offrir une solution durable et évolutive pour héberger les sites web et les autres services des clubs étudiants. La plateforme utilise une architecture GitOps, intégrant divers outils d'automatisation, de surveillance et de sécurité pour simplifier la gestion tout en maintenant un haut niveau de performance et de sécurité.
+### 2.2 Product Statement
 
-#### Tableau 2.2.1: Énoncé du produit
+The club has decided to migrate the servers to physical servers, which will be
+deployed at ÉTS. The product named **Plateforme CEDILLE** is a hosting
+infrastructure based on physical servers, deployed at ÉTS, and managed via a
+Sidero Labs Omni license. This platform aims to provide a sustainable and
+scalable solution for hosting student clubs' websites and other services. The
+platform uses a GitOps architecture, integrating various automation, monitoring,
+and security tools to simplify management while maintaining a high level of
+performance and security.
 
-| Déclaration            |                                                                                                                                                                                                                                                                                                                                                                    |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Plateforme CEDILLE est | Une infrastructure d'hébergement locale sur des serveurs physiques, conçue pour réduire les coûts tout en fournissant un environnement flexible et éducatif pour les membres du club Cédille.                                                                                                                                                                      |
-| ce qui                 | Permet une meilleure maîtrise des coûts et offre des opportunités plus riches pour l'apprentissage et le développement des compétences en DevOps, Kubernetes et gestion de serveur. Elle facilite également la surveillance, la sécurité et l'automatisation, tout en étant suffisamment flexible pour répondre aux besoins spécifiques de divers clubs étudiants. |
-| Au contraire de        | L'ancienne infrastructure basée sur Google Cloud (GKE), qui entraînait des coûts élevés et offrait moins de possibilités d'apprentissage et de personnalisation en raison de la gestion centralisée par Google Cloud.                                                                                                                                              |
-| Ce produit             | Réduit significativement le fardeau financier du club tout en améliorant la valeur éducative et l'expérience pratique pour les membres. Il offre une solution plus durable et personnalisable pour les besoins d'hébergement des clubs étudiants de l'ÉTS.                                                                                                         |
+#### Table 2.2.1: Product Statement
 
-## 3. Utilisateur et parties prenantes
+| Statement             |                                                                                                                                                                                                                                             |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Plateforme CEDILLE is | A local hosting infrastructure on physical servers, designed to reduce costs while providing a flexible and educational environment for Cedille club members.                                                                                                                       |
+| which                 | Enables better cost control and offers richer opportunities for learning and skill development in DevOps, Kubernetes, and server management. It also facilitates monitoring, security, and automation, while being flexible enough to meet the specific needs of various student clubs. |
+| Unlike                | The former Google Cloud (GKE) based infrastructure, which incurred high costs and offered fewer opportunities for learning and customization due to centralized management by Google Cloud.                                                                                        |
+| This product          | Significantly reduces the club's financial burden while enhancing the educational value and practical experience for members. It provides a more sustainable and customizable solution for the hosting needs of ÉTS student clubs.                                                |
 
-### 3.1 Sommaire des parties prenantes
+## 3. User and Stakeholders
 
-Les parties prenantes sont toutes les personnes ou entités ayant un intérêt dans la réalisation du projet.
+### 3.1 Stakeholders Summary
 
-#### Table 3.1.1: Résumé des parties prenantes
+Stakeholders are all the individuals or entities with an interest in the project
+outcome.
 
-| **Nom**                                       | **Description**                                                                     | **Responsabilités**                                                                                                                                                             |
-| --------------------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **S1** Le club CEDILLE et ses membres         | Club étudiant Open-Source de l'École de Technologie Supérieure                      | Conception, mise en place et maintenance de la plateforme CEDILLE.                                                                                                              |
-| **S2** Régie des clubs de l'ÉTS               | Organisation au seins de l'ÉTS qui s'occupe de l'administration des clubs étudiants | S'assurer que tous les services mis en place servent les clubs étudiants et respectent la réglementation.                                                                       |
-| **S3** Département informatique (TI) de l'ÉTS | Organisation au seins de l'ÉTS qui s'occupe de l'informatique                       | S'assurer que tous nos services sont sécuritaire et n'enfreint aucune règle.                                                                                                    |
-| **S4** Les clubs étudiants de l'ÉTS           | Club étudiant de l'École de Technologie Supérieure                                  | Les clubs doivent communiquer clairement leurs besoins et exigences, ainsi que fournir des retours sur les services et les fonctionnalités offertes par la nouvelle plateforme. |
+#### Table 3.1.1: Stakeholders Summary
 
-### 3.2 Sommaire des utilisateurs
+| **Name**                                 | **Description**                                                                      | **Responsibilities**                                                                                                                                                       |
+| ---------------------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **S1** The Cedille club and its members  | Open-Source student club at École de Technologie Supérieure                           | Design, implementation, and maintenance of the CEDILLE platform.                                                                                                          |
+| **S2** ÉTS Clubs Administration          | Organization within ÉTS that handles the administration of student clubs              | Ensure that all implemented services serve the student clubs and comply with regulations.                                                                                  |
+| **S3** ÉTS IT Department (TI)            | Organization within ÉTS that handles IT services                                      | Ensure that all our services are secure and do not violate any rules.                                                                                                      |
+| **S4** ÉTS Student Clubs                 | Student clubs at École de Technologie Supérieure                                      | Clubs must clearly communicate their needs and requirements and provide feedback on the services and features offered by the new platform.                                |
 
-Les utilisateurs sont toutes les personnes ou entités qui utiliseront ce produit.
+### 3.2 Users Summary
 
-#### Table 3.2.1 : Sommaire des utilisateurs
+Users are all the individuals or entities that will use this product.
 
-| **Name**                                                | **Description**                                                                                                                      | **Responsabilités**                                                                            |
-| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
-| **U1** Administrateur de la plateforme                  | Administrateur de la plateforme designé par le club CEDILLE                                                                          | Maintenance de la plateforme et approbation d'un nouveau déploiement.                          |
-| **U2** Les clubs étudiants et ses membres (Utilisateur) | Club étudiant de l'École de Technologie Supérieure                                                                                   | Interagir avec la plateforme pour obtenir diverses informations sur leurs différents services. |
-| **U3** Personnel de l'ETS                               | Régie des clubs étudiants et services TI de l'ÉTS                                                                                    | Vérifier la comformité des applications et de l'infrastructure                                 |
-| **U4** Développeurs applicatifs                         | Parfois membres de CEDILLE, parfois d'autres clubs, ils sont responsable de la programmation des logiciels présents sur les serveurs |
+#### Table 3.2.1: Users Summary
 
-### 3.3 Environnement utilisateur
+| **Name**                                 | **Description**                                                                 | **Responsibilities**                                                                            |
+| ---------------------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| **U1** Platform Administrator            | Platform administrator designated by the Cedille club                           | Platform maintenance and approval of new deployments.                                          |
+| **U2** Student clubs and their members   | Student clubs at École de Technologie Supérieure                                | Interact with the platform to obtain various information about their different services.       |
+| **U3** ÉTS Staff                         | Student clubs administration and IT services of ÉTS                             | Ensure the compliance of applications and infrastructure.                                      |
+| **U4** Application Developers            | Sometimes members of Cedille, sometimes from other clubs, responsible for the programming of the software on the servers. |
 
-Les administrateurs de la plateforme **(U1)** peuvent se connecter à la Plateforme CEDILLE via une interface web ou des outils en ligne de commande pour gérer les différents services. Le Département informatique de l'ÉTS **(S3)** veille à ce que la connectivité et la sécurité des services soient maintenues, tout en respectant les réglementations et les normes en vigueur.
+### 3.3 User Environment
 
-Les clubs étudiants et leurs membres **(U2)** interagissent avec la Plateforme CEDILLE via des portails web et des applications pour accéder à des informations, des services et des ressources diverses. Ils doivent également communiquer leurs besoins et exigences via le serveur Discord.
+**(U1)** Platform administrators can log in to the CEDILLE Platform via a web
+interface or command-line tools to manage various services. The ÉTS IT
+Department **(S3)** ensures that the connectivity and security of the services
+are maintained, while adhering to the regulations and standards in place.
 
-La réglementation des clubs est supervisée par la Régie des clubs de l'ÉTS **(S2)**, qui s'assure que la Plateforme CEDILLE sert les intérêts des clubs étudiants et est en conformité avec la réglementation institutionnelle.
+**(U2)** Student clubs and their members interact with the CEDILLE Platform via
+web portals and applications to access information, services, and various
+resources. They must also communicate their needs and requirements via the
+Discord server.
 
-Les clubs étudiants de l'ÉTS **(S4)** jouent un rôle actif en tant que fournisseurs d'exigences et de commentaires. Ils sont les utilisateurs finaux des services et ont donc un rôle clé à jouer pour s'assurer que la Plateforme CEDILLE répond à leurs besoins et attentes.
+The regulation of the clubs is supervised by the ÉTS Clubs Administration
+**(S2)**, which ensures that the CEDILLE Platform serves the interests of the
+student clubs and complies with institutional regulations.
 
-L'ensemble de la Plateforme CEDILLE et des services connexes doit être conforme aux normes et aux bonnes pratiques en matière de DevOps telle que défini à la section [Normes et standards](#71-normes-et-standards).
+**(S4)** The ÉTS student clubs play an active role as providers of requirements
+and feedback. They are the end-users of the services and thus have a key role in
+ensuring that the CEDILLE Platform meets their needs and expectations.
 
-Toutes les parties doivent respecter les normes et les protocoles mis en place pour assurer la sécurité, la performance et la disponibilité de la Plateforme CEDILLE. Ces normes sont définies et maintenues par le club CEDILLE **(S1)** et le Département informatique de l'ÉTS **(S3)**.
+The entire CEDILLE Platform and related services must comply with DevOps
+standards and best practices as defined in the section [Normes et
+standards](#71-normes-et-standards).
 
-## 3.4 Besoins des principaux utilisateurs
+All parties must adhere to the standards and protocols in place to ensure the
+security, performance, and availability of the CEDILLE Platform. These standards
+are defined and maintained by the Cedille club **(S1)** and the ÉTS IT
+Department **(S3)**.
 
-Les besoins sont déterminés à partir d'une série d'entrevues et rencontre avec les parties prenantes. 
-Des rapports de ces entrevues et rencontres se trouvent à l'annexe 1 de ce document.
+## 3.4 Key User Needs
 
-De plus, les besoins d'administrations sont largement déterminés par les auteurs de ce document, puisqu'ils seront aussi responsable de l'administration de
-la plateforme qui sera mise en place.
+The needs are determined from a series of interviews and meetings with
+stakeholders. Reports of these interviews and meetings are available in Appendix
+1 of this document.
 
-### Tableau 3.4.1: Définition des priorité
+Additionally, the administration needs are largely determined by the authors of
+this document, as they will also be responsible for the administration of the
+platform to be implemented.
 
-| **Priorité** | **Définition**                                                                                                                      |
+### Table 3.4.1: Priority Definition
+
+| **Priority** | **Definition**                                                                                                                      |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
-| Critique     | Ce besoin est essentiel à la réussite du projet. S'il n'est pas comblé le projet serait non-fonctionnel                             |
-| Important    | Répondre à ce besoin apporte une valeur substantielle au projet; s'il n'est pas comblé il y aura un impact négatif sur l'expérience |
-| Facultatif   | Si ce besoin n'est pas comblé, l'expérience demeurera postive même si réduite                                                       |
+| Critical     | This need is essential to the success of the project. If unmet, the project would be non-functional.                               |
+| Important    | Meeting this need provides substantial value to the project; if unmet, there will be a negative impact on the experience.          |
+| Optional     | If this need is not met, the experience will remain positive, albeit reduced.                                                      |
 
-#### Table 3.4.1: Besoins des principaux utilisateurs
+#### Table 3.4.1: Key User Needs
 
-| **ID**  | **Priorité** | **Besoin**                                                                                                                                                                                                                                                                                      |
+| **ID**  | **Priority** | **Need**                                                                                                                                                                                                                                                                                      |
 | ------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **B01** | Critique     | La gestion de la plateforme par les administrateurs (U1) doit pouvoir se faire par différents niveaux de connaissance: des débutants doivent pouvoir gérer la plateforme pour des déploiements de bases et avoir un chemin clair d'apprentissage à travers la plateforme pour devenir un expert |
-| **B02** | Critique     | Les sites webs des clubs étudiants (U2) doivent être publiquement accessibles sur internet                                                                                                                                                                                                      |
-| **B03** | Critique     | Tous les services publics des clubs (U2) doivent utiliser HTTPS                                                                                                                                                                                                                                 |
-| **B04** | Important    | Les clubs (U2) devraient pouvoir effectuer des changements mineurs aux sites webs par eux-même                                                                                                                                                                                                  |
-| **B05** | Critique     | L'automatisation des processus doit permettre d'effectuer des changements aux applications des clubs (U2) en moins de 3 jours, incluat le processus de révision et approbation                                                                                                                  |
-| **B06** | Critique     | Des processus d'observabilité doivent permettre aux administrateurs (U1) d'être notifié de tout problème avec une application d'un club (U2)                                                                                                                                                    |
-| **B07** | Important    | Des processus d'observabilité doivent permettre aux capitaines des clubs étudiants (U2) d'être notifié en cas d'incident                                                                                                                                                                        |
-| **B08** | Facultatif   | Les clubs (U2) devraient avoir accès à des tableaux de bord d'observabilité pour leurs applications                                                                                                                                                                                             |
-| **B09** | Critique     | Les systèmes doivent être hautement disponible, de sorte que les mises à jours et les problèmes de serveurs de causent pas d'indisponibilité                                                                                                                                                    |
-| **B10** | Important    | Avoir en place des processus de communication de rapports post-incidents pour les clubs (U2) lors d'incidents de disponibilité et pour l'ÉTS (U3) lors d'incidents de sécurité                                                                                                                  |
-| **B11** | Critique     | Les bases de données des clubs (U2) et d'administration (U1) doivent pouvoir être restorés en cas de corruption de données ou d'évènements critiques                                                                                                                                            |
-| **B12** | Important    | Une documentation orienté utilisateurs/clubs (U2) doit décrire le fonctionnement des outils et processus                                                                                                                                                                                        |
-| **B13** | Critique     | Chaque image déployé doit en tout temps avoir les correctifs de sécurité appliqués. Les services TI (U3) doivent pouvoir vérifier cela                                                                                                                                                          |
-| **B14** | Critique     | Le personnel de l'ÉTS (U3) doit pouvoir valider quelles sont les applications déployés sur les serveurs et lesquelles sont publiques                                                                                                                                                            |
-| **B15** | Facultatif   | Le personnel de l'ÉTS (U3) doit être notifié lors du déploiement d'une nouvelle application et dois approuver la demande                                                                                                                                                                        |
-| **B16** | Critique     | Les services TI (U3) et les administrateurs de la plateforme (U1) doivent pouvoir retracer et annuler tout changement effectué à la plateforme                                                                                                                                                  |
-| **B17** | Important    | Les administrateur (U1) et les développeurs (U4) doivent avoir accès à des environnements de type "sandbox" pour tester de nouvelles applications et projets                                                                                                                                    |
-| **B18** | Important    | Les développeurs (U4) doivent pouvoir tester leur application dans un environnement similaire à la production avant d'effectuer une mise à jour ou un nouveau déploiement                                                                                                                       |
-| **B19** | Critique     | Les administrateurs (U1), le personnel de l'ÉTS (U3) et les développeurs applicatifs (U4) doivent avoir accès aux logs, traces et métriques selon ce qui les concerne                                                                                                                           |
-| **B20** | Critique     | La gestion de la plateforme pour un administrateur (U1) doit être documentée en détail                                                                                                                                                                                                          |
-| **B21** | Critique     | Les tests et déploiements du nouveau code écrit par les développeurs (U4) doivent être automatisés pour réduire la dépendances aux administrateurs (U1)                                                                                                                                         |
-| **B22** | Important    | Des systèmes de tests unitaires doivent être mis en place pour le nouveau code écris par les développeurs (U4)                                                                                                                                                                                  |
-| **B23** | Facultatif   | Des systèmes de tests de qualité de code doivent être mis en place pour le nouveau code écris par les développeurs (U4)                                                                                                                                                                         |
-| **B24** | Important    | Des systèmes de validation des configurations Kubernetes doivent être mis en place pour éviter des erreurs de configuration par les administrateurs (U4)                                                                                                                                        |
-| **B25** | Important    | Des sytèmes de scan doivent détecter le code qui amène des risques de sécurité                                                                                                                                                                                                                  |
-| **B26** | Critique     | Les secrets que gèrent les administrateurs (U4) doivent être protégés et encryptés pour éviter les accès non-autorisés                                                                                                                                                                          |
-| **B27** | Critique     | Les mises à jours doivent être automatisés ou semi-automatisés pour conserver les applications et dépendances à jour                                                                                                                                                                            |
-| **B28** | Facultatif   | Les déploiements devraient se faire progressivement, en donnant aux développeurs (U4) le moyen d'annuler en cas d'une augmentation du taux d'erreur                                                                                                                                             |
+| **B01** | Critical     | The platform management by administrators (U1) must be accessible at different levels of knowledge: beginners should be able to manage the platform for basic deployments and have a clear learning path through the platform to become an expert. |
+| **B02** | Critical     | Student clubs' websites (U2) must be publicly accessible on the internet.                                                                                                                                                                                                                      |
+| **B03** | Critical     | All public club services (U2) must use HTTPS.                                                                                                                                                                                                                                                 |
+| **B04** | Important    | Clubs (U2) should be able to make minor changes to websites themselves.                                                                                                                                                                                                                          |
+| **B05** | Critical     | Automation processes should allow changes to club applications (U2) in less than 3 days, including the review and approval process.                                                                                                                  |
+| **B06** | Critical     | Observability processes should notify administrators (U1) of any issues with a club's application (U2).                                                                                                                                                    |
+| **B07** | Important   
 
-## 4. Présentation du produit
+ | Observability processes should notify student club captains (U2) in case of
+incidents. | | **B08** | Optional     | Clubs (U2) should have access to
+observability dashboards for their applications. | | **B09** | Critical     |
+Systems must be highly available so that updates and server issues do not cause
+unavailability. | | **B10** | Important    | There should be post-incident
+reporting processes for clubs (U2) during availability incidents and for ÉTS
+(U3) during security incidents. | | **B11** | Critical     | Clubs' databases
+(U2) and administration (U1) must be restorable in case of data corruption or
+critical events. | | **B12** | Important    | User/club-oriented documentation
+(U2) should describe how the tools and processes work. | | **B13** | Critical
+| Each deployed image must always have security patches applied. ÉTS IT services
+(U3) must be able to verify this. | | **B14** | Critical     | ÉTS staff (U3)
+must be able to validate which applications are deployed on the servers and
+which are public. | | **B15** | Optional     | ÉTS staff (U3) should be notified
+during the deployment of a new application and must approve the request. | |
+**B16** | Critical     | ÉTS IT services (U3) and platform administrators (U1)
+must be able to trace and revert any changes made to the platform. | | **B17** |
+Important    | Administrators (U1) and developers (U4) must have access to
+"sandbox" environments to test new applications and projects. | | **B18** |
+Important    | Developers (U4) must be able to test their applications in an
+environment similar to production before making an update or a new deployment. |
+| **B19** | Critical     | Administrators (U1), ÉTS staff (U3), and application
+developers (U4) must have access to logs, traces, and metrics as applicable. | |
+**B20** | Critical     | Platform management for an administrator (U1) must be
+documented in detail. | | **B21** | Critical     | Testing and deployment of new
+code written by developers (U4) must be automated to reduce dependency on
+administrators (U1). | | **B22** | Important    | Unit testing systems should be
+in place for new code written by developers (U4). | | **B23** | Optional     |
+Code quality testing systems should be in place for new code written by
+developers (U4). | | **B24** | Important    | Kubernetes configuration
+validation systems should be in place to prevent configuration errors by
+administrators (U4). | | **B25** | Important    | Scanning systems should detect
+code that introduces security risks. | | **B26** | Critical     | Secrets
+managed by administrators (U4) must be protected and encrypted to prevent
+unauthorized access. | | **B27** | Critical     | Updates should be automated or
+semi-automated to keep applications and dependencies up to date. | | **B28** |
+Optional     | Deployments should be progressive, giving developers (U4) the
+ability to roll back in case of an increased error rate. |
 
-Le produit est un système qui va permettre le déploiement et l'hébergement d'applications Web et autres pour les clubs étudiants de l'ÉTS. L'objectif est que l'architecture du système suit la philosophie du DevOps dans chaque couche d'implémentation.
+## 4. Product Presentation
 
-### 4.1 Contexte du produit
+The product is a system that will enable the deployment and hosting of Web
+applications and other services for the student clubs at ÉTS. The goal is for
+the system architecture to follow the DevOps philosophy at every implementation
+layer.
 
-![Diagramme de contexte](img/platforme_cedille_ctx.svg)
+### 4.1 Product Context
 
-**Figure 4.1.1:** Contexte du produit
+![Context Diagram](img/platforme_cedille_ctx.svg)
 
-### 4.2 Hypothèses et dépendances
+**Figure 4.1.1:** Product Context
 
-Cette section énumère les hypothèses et dépendances qui sont essentielles pour le développement et le déploiement de la Plateforme CEDILLE.
+### 4.2 Assumptions and Dependencies
 
-#### Hypothèses
+This section lists the assumptions and dependencies that are essential for the
+development and deployment of the CEDILLE Platform.
 
-- Disponibilité du Matériel: Nous supposons que tous les serveurs et équipements matériels nécessaires seront disponibles en temps opportun et répondront aux spécifications de configuration requises.
-- Expertise Technique: L'hypothèse est faite que les membres du club ont ou acquerront les compétences nécessaires en technologies DevOps, Kubernetes et gestion de serveur.
-- Soutien Institutionnel: Nous supposons que l'ÉTS fournira un soutien continu pour le projet, notamment en termes d'espaces pour les serveurs et d'accès à des ressources en réseau.
+#### Assumptions
 
-#### Dépendances
+- Hardware Availability: We assume that all necessary servers and hardware
+  equipment will be available in a timely manner and meet the required
+  configuration specifications.
+- Technical Expertise: The assumption is made that club members have or will
+  acquire the necessary skills in DevOps technologies, Kubernetes, and server
+  management.
+- Institutional Support: We assume that ÉTS will provide ongoing support for the
+  project, including space for servers and access to network resources.
 
-- Système d'Exploitation: Notre plateforme dépend du système d'exploitation Talos linux compatibles avec Kubernetes.
-- Kubernetes: Le bon fonctionnement de la plateforme repose sur la dernière version stable de Kubernetes.
-- Outils de Surveillance: La plateforme dépend de solutions de surveillance comme Pixie, OpenTelemetry, ClickHouse et Grafana pour le suivi des performances et de l'état du système.
+#### Dependencies
 
-### 4.3 Licence
+- Operating System: Our platform depends on the Talos Linux operating system
+  compatible with Kubernetes.
+- Kubernetes: The proper functioning of the platform relies on the latest stable
+  version of Kubernetes.
+- Monitoring Tools: The platform depends on monitoring solutions such as Pixie,
+  OpenTelemetry, ClickHouse, and Grafana for tracking performance and system
+  health.
 
-Étant donné que le club CEDILLE a une dimension éducative et vise à enseigner les technologies DevOps, Kubernetes, et la gestion de serveur, le choix d'une licence qui favorise la flexibilité, l'accessibilité et la collaboration est crucial. C'est pourquoi nous avons opté pour la licence [Apache 2.0](https://github.com/ClubCedille/Plateforme-Cedille/blob/master/LICENSE) pour notre infrastructure.
+### 4.3 License
 
-### 4.4 Caractéristiques du produit
+Given that the Cedille club has an educational dimension and aims to teach
+DevOps, Kubernetes, and server management technologies, the choice of a license
+that promotes flexibility, accessibility, and collaboration is crucial. This is
+why we opted for the [Apache 2.0
+license](https://github.com/ClubCedille/Plateforme-Cedille/blob/master/LICENSE)
+for our infrastructure.
 
-#### Tableau 4.4.1: Définition des priorité
+### 4.4 Product Features
 
-| **Priorité** | **Définition**                                                                                   |
+#### Table 4.4.1: Priority Definition
+
+| **Priority** | **Definition**                                                                                   |
 | ------------ | ------------------------------------------------------------------------------------------------ |
-| Urgente      | Cette caractéristique est nécessaire pour la mise en place de nombreuses autres caractéristiques |
-| Importante   | Cette caractéristique bloque quelques autres caractéritiques                                     |
-| Nécessaire   | Cette caractéristique ne bloque rien, mais doit être mise en place pour le succès du projet      |
-| Facultative  | Cette caractéristique apporte de la valeur, mais n'est pas nécessaire pour le succès du projet   |
+| Urgent       | This feature is necessary for the implementation of many other features.                         |
+| Important    | This feature blocks some other features.                                                         |
+| Necessary    | This feature does not block anything but must be implemented for the project's success.          |
+| Optional     | This feature adds value but is not necessary for the project's success.                          |
 
-#### Tableau 4.4.2 : Caractéristiques du produit
+#### Table 4.4.2: Product Characteristics
 
-| **ID** | **Priorité** | **Besoins correspondants** | **Description**                                                                                                                                                                                                                                                                                                                |
-| ------ | ------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| CAR1   | Urgente      | B09                        | 6 serveurs (3 controlplanes, 3 workers) seront déployés pour atteindre la haute disponibilité pour la gestion et pour les applications.                                                                                                                                                                                        |
-| CAR2   | Urgente      | B13, B26                   | Les serveurs utiliseront le système d'exploitation minimal "Talos OS" afin de réduire la surface d'attaque et de faciliter la gestion et les mises à jours du systèmes d'exploitation par un API web sécurisé.                                                                                                                 |
-| CAR3   | Nécessaire   | B01, B16                   | L'infrastructure sera définie *as code* en utilisant terraform. Il s'agira ici des configurations du matériel réseautique ainsi que des serveurs eux-même.                                                                                                                                                                     |
-| CAR4   | Importante   | B02, B03                   | Les serveurs et le routeur utiliseront BGP (MetalLB sur Kubernetes) afin d'avoir de l'équilibrage de charge entre les serveurs.                                                                                                                                                                                                |
-| CAR5   | Urgente      | B18                        | Plusieurs environnements seront logiquement séparés en utilisant vCluster afin de créer des environnements Kubernetes virtuels pour la production, le développement et autres.                                                                                                                                                 |
-| CAR6   | Urgente      | B03                        | Le programme de *reverse-proxy/ingress* Contour sera installé et configuré afin de faire le routage des requêtes HTTP et configurer les certificats HTTPS. Ce systèmes ingress est léger et simple à configurer.                                                                                                               |
-| CAR7   | Nécessaire   | B28                        | Le programme de service mesh *Linkerd* sera utilisé pour connecter les applications entre elles de façon sécuritaires et pour gérer les déploiements progressifs.                                                                                                                                                              |
-| CAR8   | Urgente      | B11                        | Les disques des serveurs seront gérés par Rook/Ceph avec de la réplication de données afin de réduire les risques de pertes de donnée et les périodes d'instabilité.                                                                                                                                                           |
-| CAR9   | Importante   | B11                        | Les données stockés sur Rook/Ceph seront régulièrement sauvegardés sur Google Cloud afin d'assurer la récupération des données dans le cas d'un évènement catastrophique.                                                                                                                                                      |
-| CAR10  | Nécessaire   | B13, B14, B25              | Les communications entre les services seront définis via des NetworkPolicies afin de réduire les risques d'attaques via un composant compromis.                                                                                                                                                                                |
-| CAR11  | Importante   | B18                        | *Kubevirt* sera installé et configuré afin de permettre le déploiement de machines virtuelles lorsque la conteneurisation est difficile voir impossible.                                                                                                                                                                       |
-| CAR12  | Importante   | B06, B07, B08              | Une plateforme d'observabilité basée sur OpenTelemetry, Clickhouse et Grafana sera mise en place afin d'identifier plus rapidemement la source de problèmes.                                                                                                                                                                   |
-| CAR13  | Importante   | B06, B19                   | Pixie et les outils d'instrumentations d'OpenTelemetry seront utilisés pour recueillir les logs, traces et métriques de Kuberenetes et des applications.                                                                                                                                                                       |
-| CAR14  | Importante   | B21                        | Github Actions sera utilisé afin d'éxécuter des pipelines d'intégration.                                                                                                                                                                                                                                                       |
-| CAR15  | Importante   | B13                        | Le Github Registry sera utilisé pour stocker les images des conteneurs.                                                                                                                                                                                                                                                        |
-| CAR16  | Urgente      | B05, B16                   | ArgoCD sera utilisé comme solution GitOps pour la gestion des déploiements d'applications. Cet outil est *auto-correcting*, c'est-à-dire que toute différence entre l'état actuel et les configurations sur git sera corrigé automatiquement.                                                                                  |
-| CAR17  | Nécessaire   | B27                        | Utiliser Dependabot pour ouvrir des PR lors de mises à jours de logiciels ou automatiquement mettre à jour dans le cas des applications sur un répertoire CÉDILLE                                                                                                                                                              |
-| CAR18  | Importante   | B21                        | Kustomize sera utilisé afin de gérer les ensembles de manifestes Kubernetes de chaque application déployés. Permettra aussi de définir des *layers* pour la production et pour le développement.                                                                                                                               |
-| CAR18  | Importante   | B28                        | Mettre en place un pipeline de déploiements progressifs (*Technologies exactes à définir*)                                                                                                                                                                                                                                     |
-| CAR19  | Nécessaire   | B22, B24                   | Kube-Score (bonnes pratiques / erreurs) et Kubescape (sécurité) seront utilisé afin de réviser et tester automatiquement les changements aux manifestes Kubernetes.                                                                                                                                                            |
-| CAR20  | Facultative  | B18                        | ODO (Red Hat) sera utilisé pour construire des images automatiquements pour les projets sans Containerfile/Dockerfile et faciliter le développement.                                                                                                                                                                           |
-| CAR21  | Urgente      | B26                        | Hashicorp Vault sera déployé et utilisé pour la gestion des secrets. Google KMS sera utilisé pour la décryption de Vault.                                                                                                                                                                                                      |
-| CAR22  | Nécessaire   | B13, B25                   | Trivy et Cosign seront utilisés pour tester la sécurité des images et les signer avant leur publication.                                                                                                                                                                                                                       |
-| CAR23  | Nécessaire   | B25                        | Github Advanced Security, avec CodeQL, sera utilisé pour trouver les erreurs de sécurité dans le code des applications gérés par CÉDILLE.                                                                                                                                                                                      |
-| CAR24  | Nécessaire   | B08, B12, B19              | Intégration d'un tableau de bord analytique pour aider les clubs à comprendre l'utilisation et les performances de leurs applications.                                                                                                                                                                                         |
-| CAR25  | Nécessaire   | B05, B16                   | Mise en place d'un journal d'audit complet pour suivre tous les changements et opérations réalisés sur la plateforme.                                                                                                                                                                                                          |
-| CAR26  | Urgent       | B12, B20                   | Mise à disposition d'un wiki intégré avec des tutoriels, des guides et des FAQ pour les administrateurs et les utilisateurs de la plateforme.                                                                                                                                                                                  |
-| CAR27  | Importante   | B17, B18                   | Intégration d'outils de simulation pour aider les développeurs à tester leurs applications dans un environnement similaire à la production.                                                                                                                                                                                    |
-| CAR28  | Importante   | B04, B05, B21              | Facilité d'auto-déploiement pour les clubs, à travers une bonne documentation et des pipelines permettant des mises à jour autonomes sans dépendance constante des administrateurs.                                                                                                                                            |
-| CAR29  | Importante   | B12, B21, B22, B15         | Intégration de modèles de pull request (PR) pour standardiser et rationaliser le processus de soumission de code. Cela aidera à garantir que chaque PR est bien documentée et répond aux normes du club avant la fusion. Notifier et inclure le personnel de l'ÉTS lorsqu'il s'agit du déploiement d'une nouvelle application. |
-| CAR30  | Nécessaire   | B12, B21                   | Utilisation de "Code Owners" pour spécifier les responsables de différentes parties du code. Cela garantira que les bonnes personnes sont notifiées pour la revue de chaque PR.                                                                                                                                                |
-| CAR31  | Nécessaire   | B12, B20, B21              | Mise en place de guides de contribution pour aider les nouveaux membres ou contributeurs à comprendre comment contribuer correctement au projet.                                                                                                                                                                               |
-| CAR32  | Nécessaire   | B12, B21                   | Utilisation de "Issue Templates" pour standardiser la façon dont les problèmes ou les fonctionnalités sont rapportés, facilitant ainsi leur gestion et leur suivi.                                                                                                                                                             |
-| CAR33  | Importante   | B21, B22, B23              | Mise en place de *pre-commit-hooks* pour exécuter automatiquement la vérifications à chaque commit du linting ou autres.                                                                                                                                                                                                       |
-| CAR34  | Nécessaire   | B05                        | Des environnement devraient être créés lors de Pull Requests pour permettre aux testeurs de valider les changements avant d'accepter ceux-ci                                                                                                                                                                                   |
-| CAR35  | Nécessaire   | B10                        | Documenter un processus post-incident, incluant des gabarits de rapports. Définir le processus de communications aux clubs.                                                                                                                                                                                                    |
-| CAR36  | Nécessaire   | B01                        | Mettre en place un gabarit de répertoire à l'aide de github-safe-settings permettant d'automatiser les normes et règles d'un projet selon la cadre appliqué.                                                                                                                                                                   |
+| **ID** | **Priority** | **Corresponding Needs** | **Description**                                                                                                                                                                                                                                                                                                 |
+| ------ | ------------ | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CAR1   | Urgent       | B09                     | 6 servers (3 control planes, 3 workers) will be deployed to achieve high availability for management and applications.                                                                                                                                                                                          |
+| CAR2   | Urgent       | B13, B26                | The servers will use the minimal operating system "Talos OS" to reduce the attack surface and facilitate the management and updates of the operating system via a secure web API.                                                                                                                               |
+| CAR3   | Necessary    | B01, B16                | The infrastructure will be defined *as code* using Terraform. This includes the configuration of network hardware as well as the servers themselves.                                                                                                                                                            |
+| CAR4   | Important    | B02, B03                | The servers and the router will use BGP (MetalLB on Kubernetes) for load balancing between servers.                                                                                                                                                                                                             |
+| CAR5   | Urgent       | B18                     | Multiple environments will be logically separated using vCluster to create virtual Kubernetes environments for production, development, and others.                                                                                                                                                             |
+| CAR6   | Urgent       | B03                     | The Contour *reverse-proxy/ingress* program will be installed and configured to route HTTP requests and configure HTTPS certificates. This ingress system is lightweight and easy to configure.                                                                                                                  |
+| CAR7   | Necessary    | B28                     | The *Linkerd* service mesh program will be used to securely connect applications to each other and manage progressive deployments.                                                                                                                                                                               |
+| CAR8   | Urgent       | B11                     | The server disks will be managed by Rook/Ceph with data replication to reduce the risk of data loss and instability periods.                                                                                                                                                                                     |
+| CAR9   | Important    | B11                     | The data stored on Rook/Ceph will be regularly backed up to Google Cloud to ensure data recovery in case of a catastrophic event.                                                                                                                                                                                |
+| CAR10  | Necessary    | B13, B14, B25           | Communications between services will be defined via NetworkPolicies to reduce the risk of attacks through a compromised component.                                                                                                                                                                               |
+| CAR11  | Important    | B18                     | *Kubevirt* will be installed and configured to allow the deployment of virtual machines when containerization is difficult or impossible.                                                                                                                                                                        |
+| CAR12  | Important    | B06, B07, B08           | An observability platform based on OpenTelemetry, Clickhouse, and Grafana will be set up to quickly identify the source of problems.                                                                                                                                                                             |
+| CAR13  | Important    | B06, B19                | Pixie and OpenTelemetry instrumentation tools will be used to collect logs, traces, and metrics from Kubernetes and applications.                                                                                                                                                                                |
+| CAR14  | Important    | B21                     | GitHub Actions will be used to run integration pipelines.                                                                                                                                                                                                                                                        |
+| CAR15  | Important    | B13                     | The GitHub Registry will be used to store container images.                                                                                                                                                                                                                                                      |
+| CAR16  | Urgent       | B05, B16                | ArgoCD will be used as a GitOps solution for application deployment management. This tool is *self-correcting*, meaning that any discrepancy between the current state and the configurations on git will be automatically corrected.                                                                            |
+| CAR17  | Necessary    | B27                     | Use Dependabot to open PRs for software updates or automatically update in the case of applications in a CÉDILLE directory.                                                                                                                                                                                      |
+| CAR18  | Important    | B21                     | Kustomize will be used to manage sets of Kubernetes manifests for each deployed application. It will also allow defining *layers* for production and development.                                                                                                                                                 |
+| CAR18  | Important    | B28                     | Set up a pipeline for progressive deployments (*Exact technologies to be defined*).                                                                                                                                                                                                                              |
+| CAR19  | Necessary    | B22, B24                | Kube-Score (best practices/errors) and Kubescape (security) will be used to automatically review and test changes to Kubernetes manifests.                                                                                                                                                                       |
+| CAR20  | Optional     | B18                     | ODO (Red Hat) will be used to automatically build images for projects without a Containerfile/Dockerfile and facilitate development.                                                                                                                                                                             |
+| CAR21  | Urgent       | B26                     | Hashicorp Vault will be deployed and used for secret management. Google KMS will be used for Vault decryption.                                                                                                                                                                                                   |
+| CAR22  | Necessary    | B13, B25                | Trivy and Cosign will be used to test image security and sign them before publication.                                                                                                                                                                                                                           |
+| CAR23  | Necessary    | B25                     | GitHub Advanced Security, with CodeQL, will be used to find security errors in the code of applications managed by CÉDILLE.                                                                                                                                                                                      |
+| CAR24  | Necessary    | B08, B12, B19           | Integration of an analytical dashboard to help clubs understand the usage and performance of their applications.                                                                                                                                                                                                 |
+| CAR25  | Necessary    | B05, B16                | Set up a complete audit log to track all changes and operations performed on the platform.                                                                                                                                                                                                                       |
+| CAR26  | Urgent       | B12, B20                | Provide an integrated wiki with tutorials, guides, and FAQs for platform administrators and users.                                                                                                                                                                                                               |
+| CAR27  | Important    | B17, B18                | Integration of simulation tools to help developers test their applications in an environment similar to production.                                                                                                                                                                                              |
+| CAR28  | Important    | B04, B05, B21           | Self-deployment capability for clubs, through good documentation and pipelines allowing autonomous updates without constant dependency on administrators.                                                                                                                                                        |
+| CAR29  | Important    | B12, B21, B22, B15      | Integration of pull request (PR) templates to standardize and streamline the code submission process. This will help ensure that each PR is well-documented and meets club standards before merging. Notify and include ÉTS staff when deploying a new application.                                                |
+| CAR30  | Necessary    | B12, B21                | Use "Code Owners" to specify responsible parties for different parts of the code. This will ensure that the right people are notified for each PR review.                                                                                                                                                        |
+| CAR31  | Necessary    | B12, B20, B21           | Set up contribution guides to help new members or contributors understand how to contribute correctly to the project.                                                                                                                                                                                            |
+| CAR32  | Necessary    | B12, B21                | Use "Issue Templates" to standardize the way issues or features are reported, facilitating their management and tracking.                                                                                                                                                                                         |
+| CAR33  | Important    | B21, B22, B23           | Set up *pre-commit-hooks* to automatically check linting or other verifications at each commit.                                                                                                                                                                                                                   |
+| CAR34  | Necessary    | B05                     | Environments should be created during Pull Requests to allow testers to validate changes before accepting them.                                                                                                                                                                                                  |
+| CAR35  | Necessary    | B10                     | Document a post-incident process, including report templates. Define the communication process to the clubs.                                                                                                                                                                                                     |
+| CAR36  | Necessary    | B01                     | Set up a repository template using github-safe-settings to automate the standards and rules of a project according to the applied framework.                                                                                                                                                                     |
 
-### 5. Contraintes
+### 5. Constraints
 
-**Table 5.1 :Contraintes**
+**Table 5.1: Constraints**
 
-| **ID** | **Contraintes**                                                              | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------ | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| C01    | Interdiction de stocker des données personelles.                             | Du aux politiques de protection de données de l'ÉTS, on a jugé qu'il est moins risqué pour le projet de ne jamais stocker des données personelles dans la plateforme cedille.                                                                                                                                                                                                                                                                        |
-| C02    | Permettre une visibilité complète de notre infrastructure au services des TI | Les services des TI doivent avoir la capacité de surveiller et d'inspecter tous les services et applications déployés sur la plateforme CÉDILLE pour s'assurer qu'ils correspondent strictement aux besoins des clubs et qu'aucun service non lié, comme ceux utilisés pour d'autres activités commerciales, n'est hébergé. Cette exigence découle des problèmes antérieurs rencontrés avec des services non liés déployés sur le réseau de l'école. |
-| C03    | Contrôle d'accès résautique partagé avec le service des TI de l'école        | Bien que nous ayons le contrôle sur le routage et la gestion de notre réseau interne grâce à notre routeur, l'accès externe et certaines fonctionnalités du réseau sont strictement contrôlés et gérés par les services TI de l'ÉTS. Toute demande d'accès ou modification du contrôle d'accès externe doit être coordonnée et approuvée par eux.                                                                                                    |
+| **ID** | **Constraints**                                                           | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ------ | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| C01    | Prohibition of storing personal data.                                     | Due to ÉTS data protection policies, it was deemed less risky for the project to never store personal data on the Cedille platform.                                                                                                                                                                                                                                                                        |
+| C02    | Allow full visibility of our infrastructure to the IT services            | The IT services must have the ability to monitor and inspect all services and applications deployed on the CÉDILLE platform to ensure they strictly meet the needs of the clubs and that no unrelated services, such as those used for other commercial activities, are hosted. This requirement stems from past issues with unrelated services being deployed on the school's network.                                                  |
+| C03    | Network access control shared with the school's IT service                | Although we control internal network routing and management through our router, external access and certain network features are strictly controlled and managed by the ÉTS IT services. Any request for access or modification of external access control must be coordinated and approved by them.                                                                                                     |
 
-### 6. Attributs de qualité
+### 6. Quality Attributes
 
-#### Interopérabilité
+#### Interoperability
 
-AQ1 - Le système doit facilement s'intégrer avec des outils tiers tels que des services d'observabilité.
+AQ1 - The system must easily integrate with third-party tools such as
+observability services.
 
 #### Performance
 
-AQ2 – La performance des application des clubs doivent être suffisants selon les besoins de chaque application.
+AQ2 – The performance of club applications must be sufficient according to the
+needs of each application.
 
-#### Modifiabilité
+#### Modifiability
 
-AQ3 – Tout élement du système doit être facilement modifiable, préférablement par le code source.
+AQ3 – Any element of the system must be easily modifiable, preferably through
+source code.
 
-#### Securité
+#### Security
 
-AQ4 – La confidentialité des données doit être conservée en tout temps.
+AQ4 – Data confidentiality must be maintained at all times.
 
-AQ5 – La configuration du sytème est seulement modifiable par les parties autorisés.
+AQ5 – System configuration is only modifiable by authorized parties.
 
-AQ6 – Les secrets sont chriffés au repos et ne sont pas exposés plubliquement.
+AQ6 – Secrets are encrypted at rest and not exposed publicly.
 
-#### Usabilité
+#### Usability
 
-AQ6 – Chaque couche du système doit être documenté
+AQ6 – Each layer of the system must be documented.
 
-AQ7 – Le système doit être compréhensible pour tout membre du club Cedille (nouveau et anciens). 
+AQ7 – The system must be understandable to all members of the Cedille club (new
+and old).
 
-#### Évolutivité
+#### Scalability
 
-AQ8 – Le système devrait gérer la mise à l'échelle des applications selon les besoins en performance.
+AQ8 – The system should handle scaling applications according to performance
+needs.
 
-## 7. Autres exigences
+## 7. Other Requirements
 
-### 7.1 Normes et standards
+### 7.1 Standards and Norms
 
-- On vise à utilisé la norme [ISO 32675:2022](https://www.iso.org/standard/83670.html) comme ligne directrice pour notre infrastructure.
+- We aim to use the [ISO 32675:2022](https://www.iso.org/standard/83670.html)
+  standard as a guideline for our infrastructure.
 
-### 7.2 Exigences en matière de documentation
+### 7.2 Documentation Requirements
 
-- Architecture Technique : Schémas et explications détaillées de l'architecture des serveurs, du réseau et de la pile technologique.
-- Documentation de la Configuration : Instructions pour la mise en place et la configuration de l'environnement, y compris les serveurs physiques, Kubernetes, et tous les autres outils utilisés.
-- Manuel Utilisateur : Documentation destinée aux membres du club et autres utilisateurs de la plateforme, expliquant comment déployer et gérer leurs services.
-- Procédures de Secours et de Restauration : Protocoles à suivre en cas de défaillance du système ou d'autres types d'urgences.
+- Technical Architecture: Diagrams and detailed explanations of the server,
+  network, and technology stack architecture.
+- Configuration Documentation: Instructions for setting up and configuring the
+  environment, including physical servers, Kubernetes, and all other tools used.
+- User Manual: Documentation for club members and other platform users,
+  explaining how to deploy and manage their services.
+- Backup and Recovery Procedures: Protocols to follow in case of system failure
+  or other emergencies.
 
-[^1]: École de Technologie Supérieure, Universités du Québec. [https://www.etsmtl.ca/](https://www.etsmtl.ca/)
+[^1]: École de Technologie Supérieure, Universités du Québec.
+    [https://www.etsmtl.ca/](https://www.etsmtl.ca/)
