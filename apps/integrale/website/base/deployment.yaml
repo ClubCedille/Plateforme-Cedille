@@ -40,6 +40,10 @@ spec:
           volumeMounts:
             - name: yarn-cache
               mountPath: /tmp/.yarn-cache
+            - name: yarn-global
+              mountPath: /usr/local/share/.cache/yarn
       volumes:
         - name: yarn-cache
+          emptyDir: {}
+        - name: yarn-global
           emptyDir: {}
