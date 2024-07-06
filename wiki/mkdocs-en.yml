@@ -1,0 +1,60 @@
+site_name: 'Wiki Cedille'
+docs_dir: 'docs'
+site_dir: 'site'
+repo_url: https://github.com/ClubCedille/Plateforme-Cedille
+repo_name: ClubCedille/Plateforme-Cedille
+
+theme:
+  name: material
+  highlightjs: true
+  language: en
+  hljs_languages:
+    - yaml
+  features:
+    - navigation.instant
+    - header.autohide
+  icon:
+    repo: fontawesome/brands/github
+
+extra:
+  alternate:
+    - name: English
+      link: /en/
+      lang: en
+    - name: French
+      link: /fr/
+      lang: fr
+
+nav:
+  - Home: en/index.md
+  - Cedille Platform:
+    - 'Introduction': en/plateforme-cedille/index.md
+    - 'Vision Document': en/plateforme-cedille/vision.md
+    - 'Kubernetes Cluster': en/plateforme-cedille/cluster-kubernetes.md
+    - 'Hardware Components': en/plateforme-cedille/hardware.md
+    - Applications: 
+      - 'Index' : 'en/plateforme-cedille/Applications/index.md'
+      - 'Workload Deployment': en/plateforme-cedille/Applications/deploying-workloads.md
+      - 'System App Deployment': en/plateforme-cedille/Applications/deploying-system-apps.md
+    - Workflow: en/plateforme-cedille/workflow.md
+    - Contribution Guide: en/plateforme-cedille/contribution-guidelines.md
+    - Getting Started: en/plateforme-cedille/getting-started.md
+    - SRE: en/plateforme-cedille/sre.md
+  - Project Management - LOG791:
+    - 'Introduction': en/log791/index.md
+    - 'Project Report': en/log791/rapport.md
+    - Retrospectives:
+      - 'Retrospective 1': en/log791/retrospective-1.md
+      - 'Retrospective 2': en/log791/retrospective-2.md
+      - 'Retrospective 3': en/log791/retrospective-3.md
+
+markdown_extensions:
+  - pymdownx.snippets:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+plugins:
+  - search
