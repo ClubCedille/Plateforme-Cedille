@@ -6,6 +6,28 @@ repo_name: ClubCedille/Plateforme-Cedille
 
 theme:
   name: material
+  custom_dir: overrides
+  palette:
+    # Palette toggle for dark mode
+    - scheme: default
+      primary: black
+      accent: orange
+      toggle:
+        icon: material/brightness-4 
+        name: Switch to dark mode
+        primary: orange
+        accent: orange
+      logo: assets/logo.png
+
+    # Palette toggle for light mode
+    - scheme: slate
+      primary: orange
+      accent: orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+  logo_dark: assets/logo-dark.png
+  logo: assets/logo.png
   highlightjs: true
   language: fr
   hljs_languages:
@@ -13,8 +35,12 @@ theme:
   features:
     - navigation.instant
     - header.autohide
+    - navigation.instant.prefetch
+    - navigation.tabs
+    - navigation.tabs.sticky
   icon:
     repo: fontawesome/brands/github
+  favicon: assets/favicon.ico
 
 extra:
   alternate:
@@ -24,6 +50,8 @@ extra:
     - name: French
       link: /fr/
       lang: fr
+extra_css:
+  - stylesheets/extra.css
 
 nav:
   - Accueil: fr/index.md
@@ -40,7 +68,7 @@ nav:
     - Guide de contribution: fr/plateforme-cedille/contribution-guidelines.md
     - Comment commencer: fr/plateforme-cedille/getting-started.md
     - SRE: fr/plateforme-cedille/sre.md
-  - Gestion du projet - LOG791:
+  - Projet - LOG791:
     - 'Introduction': fr/log791/index.md
     - 'Rapport de projet': fr/log791/rapport.md
     - Retrospections:

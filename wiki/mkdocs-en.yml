@@ -6,6 +6,28 @@ repo_name: ClubCedille/Plateforme-Cedille
 
 theme:
   name: material
+  custom_dir: overrides
+  palette:
+    # Palette toggle for dark mode
+    - scheme: default
+      primary: black
+      accent: orange
+      toggle:
+        icon: material/brightness-4 
+        name: Switch to dark mode
+        primary: orange
+        accent: orange
+      logo: assets/logo.png
+
+    # Palette toggle for light mode
+    - scheme: slate
+      primary: orange
+      accent: orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+  logo_dark: assets/logo-dark.png
+  logo: assets/logo.png
   highlightjs: true
   language: en
   hljs_languages:
@@ -13,10 +35,15 @@ theme:
   features:
     - navigation.instant
     - header.autohide
+    - navigation.instant.prefetch
+    - navigation.tabs
+    - navigation.tabs.sticky
   icon:
     repo: fontawesome/brands/github
-
+  favicon: assets/favicon.ico
+  
 extra:
+  homepage: https://wiki.omni.cedille.club/en/
   alternate:
     - name: English
       link: /en/
@@ -24,6 +51,8 @@ extra:
     - name: French
       link: /fr/
       lang: fr
+extra_css:
+  - stylesheets/extra.css
 
 nav:
   - Home: en/index.md
@@ -40,7 +69,7 @@ nav:
     - Contribution Guide: en/plateforme-cedille/contribution-guidelines.md
     - Getting Started: en/plateforme-cedille/getting-started.md
     - SRE: en/plateforme-cedille/sre.md
-  - Project Management - LOG791:
+  - Project - LOG791:
     - 'Introduction': en/log791/index.md
     - 'Project Report': en/log791/rapport.md
     - Retrospectives:

@@ -216,7 +216,7 @@ ensuring that the CEDILLE Platform meets their needs and expectations.
 
 The entire CEDILLE Platform and related services must comply with DevOps
 standards and best practices as defined in the section [Normes et
-standards](#71-normes-et-standards).
+standards](#71-standards-and-norms).
 
 All parties must adhere to the standards and protocols in place to ensure the
 security, performance, and availability of the CEDILLE Platform. These standards
