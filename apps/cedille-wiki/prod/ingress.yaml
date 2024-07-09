@@ -8,10 +8,21 @@ metadata:
     kubernetes.io/tls-acme: "true"
 spec:
   ingressClassName: contour
+  tls:
+    - secretName: wiki-tls
+      hosts:
+        - wiki.omni.cedille.club
   rules:
   - host: wiki.omni.cedille.club
     http:
       paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: wiki-cedille-fr
+            port:
+              number: 80
       - path: /fr
         pathType: Prefix
         backend:
