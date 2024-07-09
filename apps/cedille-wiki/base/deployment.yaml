@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wiki-cedille-fr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wiki-cedille-fr
+  template:
+    metadata:
+      labels:
+        app: wiki-cedille-fr
+    spec:
+      containers:
+        - name: wiki-cedille
+          image: ghcr.io/clubcedille/wiki-cedille:latest
+          env:
+          - name: CONFIG_FILE
+            value: mkdocs-fr.yml
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
+              ephemeral-storage: 1Gi
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            seccompProfile:
+              type: RuntimeDefault
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wiki-cedille-en
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wiki-cedille-en
+  template:
+    metadata:
+      labels:
+        app: wiki-cedille-en
+    spec:
+      containers:
+        - name: wiki-cedille
+          image: ghcr.io/clubcedille/wiki-cedille:latest
+          env:
+          - name: CONFIG_FILE
+            value: mkdocs-en.yml
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
+              ephemeral-storage: 1Gi
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            seccompProfile:
+              type: RuntimeDefault
