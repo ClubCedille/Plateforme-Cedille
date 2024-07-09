@@ -16,8 +16,9 @@ COPY --from=builder /app/site/ /usr/share/nginx/html/
 
 COPY wiki/nginx.conf /etc/nginx/nginx.conf
 
-RUN mkdir -p /var/cache/nginx /var/run && \
-    chown -R nginx:nginx /var/cache/nginx /var/run
+RUN mkdir -p /var/cache/nginx /var/run /var/log/nginx /etc/nginx/conf.d && \
+    chown -R nginx:nginx /var/cache/nginx /var/run /var/log/nginx /etc/nginx/conf.d && \
+    chmod -R 755 /var/cache/nginx /var/run /var/log/nginx /etc/nginx/conf.d
 
 USER nginx
 
