@@ -17,7 +17,7 @@ spec:
           image: ghcr.io/clubcedille/wiki-cedille:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 8000
+            - containerPort: 8080
           resources:
             requests:
               cpu: 100m

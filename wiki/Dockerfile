@@ -17,6 +17,7 @@ COPY --from=builder /app/site/ /usr/share/nginx/html/
 COPY --from=builder /app/docs/assets/* /usr/share/nginx/html/fr/assets/
 COPY --from=builder /app/docs/assets/* /usr/share/nginx/html/en/assets/
 COPY --from=builder /app/docs/stylesheets/* /usr/share/nginx/html/en/stylesheets/
+COPY --from=builder /app/docs/stylesheets/* /usr/share/nginx/html/fr/stylesheets/
 
 COPY wiki/nginx.conf /etc/nginx/nginx.conf
 
