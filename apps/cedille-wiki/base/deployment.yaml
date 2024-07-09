@@ -17,7 +17,7 @@ spec:
           image: ghcr.io/clubcedille/wiki-cedille:latest
           env:
           - name: CONFIG_FILE
-            value: /app/mkdocs-fr.yml
+            value: './mkdocs-fr.yml'
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
@@ -56,7 +56,7 @@ spec:
           image: ghcr.io/clubcedille/wiki-cedille:latest
           env:
           - name: CONFIG_FILE
-            value: /app/mkdocs-en.yml
+            value: './mkdocs-en.yml'
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
