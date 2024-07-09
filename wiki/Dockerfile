@@ -10,7 +10,7 @@ RUN mkdocs build -f mkdocs-fr.yml -d site/fr
 
 RUN mkdocs build -f mkdocs-en.yml -d site/en
 
-FROM ghcr.io/nginxinc/nginx-unprivileged:stable-alpine
+FROM ghcr.io/nginxinc/nginx-unprivileged:stable-bookworm-perl
 
 COPY --from=builder /app/site/fr /usr/share/nginx/html/
 COPY --from=builder /app/site/en /usr/share/nginx/html/en/
