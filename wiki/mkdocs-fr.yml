@@ -43,13 +43,13 @@ theme:
   favicon: assets/favicon.ico
 
 extra:
-  homepage: https://wiki.omni.cedille.club/fr/
+  homepage: https://wiki.omni.cedille.club/
   alternate:
     - name: English
       link: /en/
       lang: en
     - name: French
-      link: /fr/
+      link: /
       lang: fr
 extra_css:
   - stylesheets/extra.css

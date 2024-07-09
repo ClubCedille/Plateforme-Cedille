@@ -12,12 +12,13 @@ RUN mkdocs build -f mkdocs-en.yml -d site/en
 
 FROM ghcr.io/nginxinc/nginx-unprivileged:stable-alpine
 
-COPY --from=builder /app/site/ /usr/share/nginx/html/
+COPY --from=builder /app/site/fr /usr/share/nginx/html/
+COPY --from=builder /app/site/en /usr/share/nginx/html/en/
 
-COPY --from=builder /app/docs/assets/* /usr/share/nginx/html/fr/assets/
 COPY --from=builder /app/docs/assets/* /usr/share/nginx/html/en/assets/
+COPY --from=builder /app/docs/assets/* /usr/share/nginx/html/assets/
 COPY --from=builder /app/docs/stylesheets/* /usr/share/nginx/html/en/stylesheets/
-COPY --from=builder /app/docs/stylesheets/* /usr/share/nginx/html/fr/stylesheets/
+COPY --from=builder /app/docs/stylesheets/* /usr/share/nginx/html/stylesheets/
 
 COPY wiki/nginx.conf /etc/nginx/nginx.conf
 
