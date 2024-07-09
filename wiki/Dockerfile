@@ -14,6 +14,6 @@ FROM nginx:alpine
 
 COPY --from=builder /app/site/ /usr/share/nginx/html/
 
-COPY wiki/nginx.conf /etc/nginx/nginx.conf
+COPY wiki/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 8000
