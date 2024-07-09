@@ -16,4 +16,9 @@ COPY --from=builder /app/site/ /usr/share/nginx/html/
 
 COPY wiki/nginx.conf /etc/nginx/nginx.conf
 
+RUN mkdir -p /var/cache/nginx /var/run && \
+    chown -R nginx:nginx /var/cache/nginx /var/run
+
+USER nginx
+
 EXPOSE 8000
