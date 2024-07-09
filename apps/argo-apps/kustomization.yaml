@@ -29,6 +29,7 @@ resources:
 # - ../hackqc2024/
 - ../integrale/website/
 - ../applets/hello/
+- ../cedille-wiki/
   # ... other apps ...
 
   # This patch will set the destination cluster for Applications
