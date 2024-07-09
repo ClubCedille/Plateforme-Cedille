@@ -16,9 +16,10 @@ COPY --from=builder /app/site/ /usr/share/nginx/html/
 
 COPY wiki/nginx.conf /etc/nginx/nginx.conf
 
-RUN mkdir -p /var/cache/nginx /var/run /var/log/nginx /etc/nginx/conf.d && \
-    chown -R nginx:nginx /var/cache/nginx /var/run /var/log/nginx /etc/nginx/conf.d && \
-    chmod -R 755 /var/cache/nginx /var/run /var/log/nginx /etc/nginx/conf.d
+RUN mkdir -p /var/cache/nginx /var/run /var/log/nginx /tmp/client_temp /tmp/proxy_temp_path /tmp/fastcgi_temp /tmp/uwsgi_temp /tmp/scgi_temp && \
+    touch /tmp/nginx.pid && \
+    chown -R nginx:nginx /var/cache/nginx /var/run /var/log/nginx /tmp /etc/nginx/conf.d /tmp/nginx.pid && \
+    chmod -R 755 /var/cache/nginx /var/run /var/log/nginx /tmp /etc/nginx/conf.d
 
 USER nginx
 
