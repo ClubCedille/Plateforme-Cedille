@@ -1,6 +1,4 @@
-FROM python:3.9-slim
-
-ARG CONFIG_FILE=mkdocs.yml
+FROM python:3.9-slim AS builder
 
 WORKDIR /app
 
@@ -8,6 +6,14 @@ COPY . .
 
 RUN pip install mkdocs mkdocs-material pymdown-extensions
 
-ENV CONFIG_FILE=${CONFIG_FILE}
+RUN mkdocs build -f mkdocs-fr.yml -d site/fr
 
-CMD ["sh", "-c", "mkdocs serve -f ${CONFIG_FILE} --dev-addr=0.0.0.0:8000"]
+RUN mkdocs build -f mkdocs-en.yml -d site/en
+
+FROM nginx:alpine
+
+COPY --from=builder /app/site/ /usr/share/nginx/html/
+
+COPY nginx.conf /etc/nginx/nginx.conf
+
+EXPOSE 8000

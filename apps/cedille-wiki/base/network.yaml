@@ -1,23 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: wiki-cedille-fr
+  name: wiki-cedille
 spec:
   selector:
-    app: wiki-cedille-fr
+    app: wiki-cedille
   ports:
   - protocol: TCP
     port: 80
     targetPort: 8000
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: wiki-cedille-en
-spec:
-  selector:
-    app: wiki-cedille-en
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 8000
+

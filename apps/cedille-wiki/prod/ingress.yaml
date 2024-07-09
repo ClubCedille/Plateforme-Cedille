@@ -20,20 +20,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: wiki-cedille-fr
-            port:
-              number: 80
-      - path: /fr
-        pathType: Prefix
-        backend:
-          service:
-            name: wiki-cedille-fr
-            port:
-              number: 80
-      - path: /en
-        pathType: Prefix
-        backend:
-          service:
-            name: wiki-cedille-en
+            name: wiki-cedille
             port:
               number: 80
