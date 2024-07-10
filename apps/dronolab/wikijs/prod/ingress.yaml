@@ -11,9 +11,9 @@ spec:
   tls:
     - secretName: wiki-dronolab-tls
       hosts:
-        - wiki.dronolab.omni.cedille.club
+        - wiki-dronolab.omni.cedille.club
   rules:
-    - host: wiki.dronolab.omni.cedille.club
+    - host: wiki-dronolab.omni.cedille.club
       http:
         paths:
         - path: /
