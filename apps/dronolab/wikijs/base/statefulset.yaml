@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres
+spec:
+  serviceName: postgres
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+      annotations:
+        vault.hashicorp.com/agent-inject: 'true'
+        vault.hashicorp.com/tls-skip-verify: 'true'
+        vault.hashicorp.com/role: 'secret-reader'
+        vault.hashicorp.com/agent-inject-template-postgres-env: |
+          {{- with secret "kv/dronolab/default/postgres-env" -}}
+            export POSTGRES_PASSWORD="{{ .Data.data.postgres_password }}"
+          {{- end }}
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+        - name: postgres
+          image: postgres:13
+          command: ['/bin/sh', '-c', '. /vault/secrets/postgres-env && exec docker-entrypoint.sh postgres']
+          env:
+            - name: POSTGRES_USER
+              value: wikijs
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+            - name: POSTGRES_DB
+              value: wiki
+          ports:
+            - containerPort: 5432
+              name: postgres
+          volumeMounts:
+            - name: postgres-pv-claim
+              mountPath: /var/lib/postgresql/data
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "10Gi"
+            limits:
+              cpu: "2000m"
+              hugepages-2Mi: 512Mi
+              memory: "15Gi"
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            readOnlyRootFilesystem: false
+            allowPrivilegeEscalation: false
+  volumeClaimTemplates:
+    - metadata:
+        name: postgres-pv-claim
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 10Gi
