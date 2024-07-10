@@ -10,15 +10,16 @@ spec:
   ingressClassName: contour
   tls:
     - secretName: wiki-dronolab-tls
+      hosts:
         - wiki.dronolab.omni.cedille.club
   rules:
-  - host: wiki.dronolab.omni.cedille.club
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: svc-wikijs-dronolab
-            port:
-              number: 3000
+    - host: wiki.dronolab.omni.cedille.club
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: svc-wikijs-dronolab
+              port:
+                number: 3000
