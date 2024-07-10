@@ -16,7 +16,7 @@ spec:
         vault.hashicorp.com/role: 'secret-reader'
         vault.hashicorp.com/agent-inject-template-wikijs-env: |
           {{- with secret "kv/wikijs-dronolab/default/wikijs-env" -}}
-            export DB_PASS = "{{ .Data.data.db_pass }}"
+            export DB_PASS="{{ .Data.data.db_pass }}"
           {{- end }}
     spec:
       containers:
