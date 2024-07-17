@@ -225,21 +225,22 @@ spec:
   selector:
     app.kubernetes.io/name: argocd-image-updater
 ---
-apiVersion: monitoring.coreos.com/v1
-kind: ServiceMonitor
-metadata:
-  name: argocd-image-updater
-  namespace: monitoring
-  labels:
-    release: kube-prometheus-stack
-spec:
-  selector:
-    matchLabels:
-      app.kubernetes.io/name: argocd-image-updater
-  endpoints:
-  - port: metrics
-    interval: 30s
-    path: /metrics
-  namespaceSelector:
-    matchNames:
-    - argocd
+# uncomment once we have prometheus operator installed
+# apiVersion: monitoring.coreos.com/v1
+# kind: ServiceMonitor
+# metadata:
+#   name: argocd-image-updater
+#   namespace: monitoring
+#   labels:
+#     release: kube-prometheus-stack
+# spec:
+#   selector:
+#     matchLabels:
+#       app.kubernetes.io/name: argocd-image-updater
+#   endpoints:
+#   - port: metrics
+#     interval: 30s
+#     path: /metrics
+#   namespaceSelector:
+#     matchNames:
+#     - argocd
