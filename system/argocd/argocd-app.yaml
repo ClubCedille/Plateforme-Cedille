@@ -23,6 +23,9 @@ spec:
     - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
       targetRevision: master
       ref: values
+    - repoURL: https://github.com/ai-cfia/howard.git
+      path: $values/system/argocd/resources
+      targetRevision: HEAD
   syncPolicy:
     automated:
       selfHeal: true
