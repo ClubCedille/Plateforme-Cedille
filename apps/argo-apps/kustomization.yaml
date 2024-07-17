@@ -24,7 +24,7 @@ resources:
 - ../calidum-rotae/
 - ../trema/
 - ../acets/grav/
-- ../ets-demo/grav/
+# - ../ets-demo/grav/
 - ../raconteurs/grav/
 # - ../hackqc2024/
 - ../integrale/website/

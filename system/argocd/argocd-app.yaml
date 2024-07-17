@@ -24,7 +24,7 @@ spec:
       targetRevision: master
       ref: values
     - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
-      path: $values/system/argocd/resources
+      path: system/argocd/resources
       targetRevision: HEAD
   syncPolicy:
     automated:
