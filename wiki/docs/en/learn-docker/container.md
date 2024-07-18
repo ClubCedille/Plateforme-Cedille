@@ -1,9 +1,9 @@
-## Install Docker:##
+## Install Docker 
 
    Before you begin, make sure Git and Docker is installed on your system. You can download Docker from the [official Docker website](https://www.docker.com/products/docker-desktop/).
 
 
-## Running Your First Docker Container ##
+## Running Your First Docker Container
 
 **1. Clone the Repository:**
 

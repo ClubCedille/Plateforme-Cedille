@@ -114,6 +114,30 @@ If you have created a custom Docker image that you want to share with others, yo
 
    Docker Hub provides insights into your images, such as the number of pulls, stars, and the last updated time. This information can help you track the popularity and usage of your images.
 
+## GitHub Container Registry
+
+GitHub Container Registry is another popular option for storing and managing container images that Club Cedille uses a lot. It is tightly integrated with GitHub, making it a convenient choice for developers who already use GitHub for source code management. Here are some key features:
+
+**1. Integration with GitHub Repositories:**
+
+   - GitHub Container Registry allows you to store container images alongside your code repositories. This integration simplifies your workflow by keeping your code and container images in one place.
+
+**2. Access Control and Permissions:**
+
+   - You can control who has access to your container images using GitHub's existing permission model. This makes it easy to manage access for your team members.
+
+**3. Support for Public and Private Images:**
+
+   - Similar to Docker Hub, GitHub Container Registry supports both public and private images. You can choose to share your images with the community or restrict access to specific users or teams.
+
+**4. GitHub Actions Integration:**
+
+   - You can use GitHub Actions to automate your workflows, including building and pushing images to the GitHub Container Registry. This is useful for CI/CD pipelines, ensuring that your images are always up-to-date.
+
+**5. Free for Public Repositories:**
+
+   - GitHub Container Registry offers free usage for public repositories, making it an attractive option for open-source projects.
+
 ## Summary
 
 Docker Hub is a powerful platform for sharing and distributing Docker images. By leveraging Docker Hub, you can streamline your development and deployment workflows, collaborate with others, and access a vast library of container images. Whether you're pulling official images for your projects or sharing your custom images with the community, Docker Hub is an essential tool in the Docker ecosystem.

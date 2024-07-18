@@ -79,10 +79,10 @@ nav:
   - Learn Docker:
     - 'Introduction': learn-docker/index.md
     - 'Installation': learn-docker/installation.md
-    - 'Basic Knowledge': learn-docker/basic-knowledge.md
+    - 'The Essentials': learn-docker/basic-knowledge.md
 
     - Guided Exercises:
-      - 'Docker Containers': learn-docker/container.md
+      - 'Run Your First Docker Container': learn-docker/container.md
       - 'Multi-Container': learn-docker/docker-compose.md
       - 'Containerize Your Applications': learn-docker/containerize.md
       - 'Persist Your Data Between Containers': learn-docker/persist-data.md
