@@ -40,8 +40,8 @@ corootCE:
     path: /
     pathType: Prefix
     annotations:
-      - cert-manager.io/cluster-issuer: letsencrypt-staging
-      - ingress.kubernetes.io/force-ssl-redirect: "true"
+      cert-manager.io/cluster-issuer: letsencrypt-staging
+      ingress.kubernetes.io/force-ssl-redirect: "true"
     hosts: 
       - host: coroot.omni.cedille.club
         http:
