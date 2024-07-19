@@ -1,23 +1,23 @@
 resources:
   - secret.yaml
-  
-helmCharts:
-- name: netdata
-  valuesInline:
-    restarter:
-      enabled: true
-    parent:
-      claiming:
-        enabled: true
-      envFrom:
-      - secretRef:
-          name: netdata-claim
-    child:
-      claiming:
-        enabled: true
-      envFrom:
-      - secretRef:
-          name: netdata-claim
-  releaseName: netdata
-  version: 3.7.95
-  repo: https://netdata.github.io/helmchart
+
+# helmCharts:
+# - name: netdata
+#   valuesInline:
+#     restarter:
+#       enabled: true
+#     parent:
+#       claiming:
+#         enabled: true
+#       envFrom:
+#       - secretRef:
+#           name: netdata-claim
+#     child:
+#       claiming:
+#         enabled: true
+#       envFrom:
+#       - secretRef:
+#           name: netdata-claim
+#   releaseName: netdata
+#   version: 3.7.95
+#   repo: https://netdata.github.io/helmchart

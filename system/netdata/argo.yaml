@@ -11,6 +11,26 @@ spec:
     - repoURL: https://github.com/ClubCedille/Plateforme-Cedille
       path: system/netdata/ressources
       targetRevision: feature/netdata
+    - chart: netdata
+      repoURL: https://netdata.github.io/helmchart
+      targetRevision: 3.7.95
+      helm:
+        releaseName: netdata
+        valuesObject:
+          restarter:
+            enabled: true
+          parent:
+            claiming:
+              enabled: true
+            envFrom:
+            - secretRef:
+                name: netdata-claim
+          child:
+            claiming:
+              enabled: true
+            envFrom:
+            - secretRef:
+                name: netdata-claim
   destination:
     server: "https://kubernetes.default.svc"
     namespace: netdata
