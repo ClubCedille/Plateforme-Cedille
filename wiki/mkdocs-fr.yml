@@ -76,6 +76,18 @@ nav:
       - 'Retrospection 1': log791/retrospective-1.md
       - 'Retrospection 2': log791/retrospective-2.md
       - 'Retrospection 3': log791/retrospective-3.md
+  - Apprendre Docker:
+    - 'Introduction': learn-docker/index.md
+    - 'Installation': learn-docker/installation.md
+    - 'Les essentiels': learn-docker/essentials.md
+
+    - Exercices Guidés:
+      - 'Exécuter votre premier conteneur Docker': learn-docker/first-container.md
+      - 'Multi-Conteneur': learn-docker/docker-compose.md
+      - 'Conteneuriser vos applications': learn-docker/containerize.md
+      - 'Conserver vos données entre les conteneurs': learn-docker/persist-data.md
+      - 'Accéder à votre dossier local depuis un Conteneur': learn-docker/bind-mounts.md
+      - 'Docker Hub & registre de conteneurs': learn-docker/container-registry.md
 
 markdown_extensions:
   - pymdownx.snippets:
