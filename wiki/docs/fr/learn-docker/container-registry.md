@@ -1,8 +1,8 @@
-### Travailler avec Docker Hub
+## Travailler avec Docker Hub
 
 [Docker Hub](https://hub.docker.com/) est un service de dépôt basé sur le cloud où les utilisateurs de Docker et les partenaires peuvent créer, tester, stocker et distribuer des images de conteneurs. C'est la plus grande bibliothèque et communauté mondiale d'images de conteneurs. Dans ce guide, nous vous montrerons comment interagir avec Docker Hub, notamment comment tirer et pousser des images, et mettrons en lumière certaines des fonctionnalités utiles disponibles sur Docker Hub.
 
-## Configuration de Docker Hub
+### Configuration de Docker Hub
 
 **1. Créer un Compte Docker Hub :**
 
@@ -17,7 +17,7 @@
 
    Vous serez invité à saisir votre nom d'utilisateur et votre mot de passe Docker Hub. Une fois authentifié, vous pourrez commencer à interagir avec Docker Hub.
 
-## Tirer des Images depuis Docker Hub
+### Tirer des Images depuis Docker Hub
 
 Docker Hub héberge un grand nombre d'images de conteneurs pré-construites que vous pouvez utiliser dans vos projets. Pour tirer une image depuis Docker Hub, utilisez la commande `docker pull`.
 
@@ -58,7 +58,7 @@ Docker Hub héberge un grand nombre d'images de conteneurs pré-construites que 
 
    Cette commande démarre un conteneur à partir de l'image Node.js et mappe le port 3000 de votre machine locale sur le port 3000 dans le conteneur.
 
-## Pousser des Images vers Docker Hub
+### Pousser des Images vers Docker Hub
 
 Si vous avez créé une image Docker personnalisée que vous souhaitez partager avec d'autres, vous pouvez la pousser vers Docker Hub.
 
@@ -88,7 +88,7 @@ Si vous avez créé une image Docker personnalisée que vous souhaitez partager 
 
    Cette commande télécharge votre image vers Docker Hub, la rendant disponible pour que d'autres puissent la tirer et l'utiliser.
 
-## Fonctionnalités Utiles de Docker Hub
+### Fonctionnalités Utiles de Docker Hub
 
 **1. Builds Automatisés :**
 
@@ -114,9 +114,9 @@ Si vous avez créé une image Docker personnalisée que vous souhaitez partager 
 
    Docker Hub fournit des insights sur vos images, tels que le nombre de pulls, les étoiles et l'heure de la dernière mise à jour. Ces informations peuvent vous aider à suivre la popularité et l'utilisation de vos images.
 
-## Registre de Conteneurs GitHub
+### Registre de Conteneurs GitHub
 
-[Le Registre de Conteneurs GitHub](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) est une autre option populaire pour stocker et gérer des images de conteneurs que Club Cedille utilise souvent. Il est étroitement intégré à GitHub, ce qui en fait un choix pratique pour les développeurs qui utilisent déjà GitHub pour la gestion de leur code source. Voici quelques fonctionnalités clés :
+   [Le Registre de Conteneurs GitHub](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) est une autre option populaire pour stocker et gérer des images de conteneurs que Club Cedille utilise souvent. Il est étroitement intégré à GitHub, ce qui en fait un choix pratique pour les développeurs qui utilisent déjà GitHub pour la gestion de leur code source. Voici quelques fonctionnalités clés :
 
 **1. Intégration avec les Repositories GitHub :**
 
@@ -138,7 +138,7 @@ Si vous avez créé une image Docker personnalisée que vous souhaitez partager 
 
    - Le Registre de Conteneurs GitHub offre une utilisation gratuite pour les dépôts publics, en en faisant une option attrayante pour les projets open-source.
 
-## Résumé
+### Résumé
 
 Docker Hub est une plateforme puissante pour le partage et la distribution d'images Docker. En exploitant Docker Hub, vous pouvez rationaliser vos workflows de développement et de déploiement, collaborer avec d'autres et accéder à une vaste bibliothèque d'images de conteneurs. Que vous tiriez des images officielles pour vos projets ou partagiez vos images personnalisées avec la communauté, Docker Hub est un outil essentiel dans l'écosystème Docker.
 

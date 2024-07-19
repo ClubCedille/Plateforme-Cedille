@@ -1,8 +1,8 @@
-### Working with Docker Hub
+## Working with Docker Hub
 
 [Docker Hub](https://hub.docker.com/) is a cloud-based repository where Docker users and partners create, test, store, and distribute container images. It is the world's largest library and community for container images. In this guide, we'll show you how to interact with Docker Hub, including how to pull and push images, and highlight some of the useful features available on Docker Hub.
 
-## Setting Up Docker Hub
+### Setting Up Docker Hub
 
 **1. Create a Docker Hub Account:**
 
@@ -17,7 +17,7 @@
 
    You will be prompted to enter your Docker Hub username and password. Once authenticated, you can start interacting with Docker Hub.
 
-## Pulling Images from Docker Hub
+### Pulling Images from Docker Hub
 
 Docker Hub hosts a vast number of pre-built container images that you can use in your projects. To pull an image from Docker Hub, use the `docker pull` command.
 
@@ -58,7 +58,7 @@ Docker Hub hosts a vast number of pre-built container images that you can use in
 
    This command starts a container from the Node.js image and maps port 3000 on your local machine to port 3000 in the container.
 
-## Pushing Images to Docker Hub
+### Pushing Images to Docker Hub
 
 If you have created a custom Docker image that you want to share with others, you can push it to Docker Hub.
 
@@ -88,7 +88,7 @@ If you have created a custom Docker image that you want to share with others, yo
 
    This command uploads your image to Docker Hub, making it available for others to pull and use.
 
-## Useful Features of Docker Hub
+### Useful Features of Docker Hub
 
 **1. Automated Builds:**
 
@@ -114,7 +114,7 @@ If you have created a custom Docker image that you want to share with others, yo
 
    Docker Hub provides insights into your images, such as the number of pulls, stars, and the last updated time. This information can help you track the popularity and usage of your images.
 
-## GitHub Container Registry
+### GitHub Container Registry
 
 [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) is another popular option for storing and managing container images that Club Cedille uses a lot. It is tightly integrated with GitHub, making it a convenient choice for developers who already use GitHub for source code management. Here are some key features:
 
@@ -138,7 +138,7 @@ If you have created a custom Docker image that you want to share with others, yo
 
    - GitHub Container Registry offers free usage for public repositories, making it an attractive option for open-source projects.
 
-## Summary
+### Summary
 
 Docker Hub is a powerful platform for sharing and distributing Docker images. By leveraging Docker Hub, you can streamline your development and deployment workflows, collaborate with others, and access a vast library of container images. Whether you're pulling official images for your projects or sharing your custom images with the community, Docker Hub is an essential tool in the Docker ecosystem.
 
