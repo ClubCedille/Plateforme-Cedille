@@ -17,7 +17,7 @@ spec:
       helm:
         releaseName: coroot-server
         valueFiles:
-        - $values/system/coorot/server/coroot-values.yaml
+        - $values/system/coroot/server/coroot-values.yaml
       repoURL: https://coroot.github.io/helm-charts
       targetRevision: 0.13.4
     - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
