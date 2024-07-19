@@ -1,6 +1,6 @@
 ## What is Docker Compose?
 
-Docker Compose is a tool that allows you to define and manage multi-container Docker applications. With Docker Compose, you can describe the configuration of your application’s services in a YAML file, making it easy to start, stop, and manage the entire application stack with a single command.
+[Docker Compose](https://docs.docker.com/compose/) is a tool that allows you to define and manage multi-container Docker applications. With Docker Compose, you can describe the configuration of your application’s services in a [YAML file](https://www.redhat.com/en/topics/automation/what-is-yaml#:~:text=YAML%20is%20a%20human%2Dreadable,is%20for%20data%2C%20not%20documents.), making it easy to start, stop, and manage the entire application stack with a single command.
 
 ## Example Application with Docker Compose
 
@@ -220,7 +220,7 @@ To stop and remove containers created by `docker-compose up`, use the following 
 
 ## Summary
 
-Docker Compose simplifies the process of managing multi-container Docker applications by allowing you to define and run them
+Docker Compose simplifies the process of managing multi-container Docker applications by allowing you to define and run them.
 
-
+If your'e interested you could also check out the one of the [Cedille Club's GitHub Actions workflow configuration file](https://github.com/ClubCedille/point-virgule/blob/master/.github/workflows/main.yml). GitHub Actions is a CI/CD service provided by GitHub, allowing you to automate the build, test, and deployment of your code.
 
