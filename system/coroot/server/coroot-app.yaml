@@ -9,7 +9,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: argocd
+    namespace: coroot-server
     server: https://kubernetes.default.svc
   project: default
   sources:
@@ -24,5 +24,7 @@ spec:
       targetRevision: 187-coroot
       ref: values
   syncPolicy:
+    syncOptions:
+    - createNamespace=true
     automated:
       selfHeal: true
