@@ -50,7 +50,7 @@ corootCE:
             pathType: Prefix
             backend:
               service:
-                name: coroot
+                name: coroot-server
                 port:
                   name: http
     tls:
