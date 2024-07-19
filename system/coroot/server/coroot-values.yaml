@@ -1,0 +1,444 @@
+corootCE:
+  enabled: true
+  bootstrap:
+    refreshInterval: 15s
+    clickhouse:
+      database: default
+      username: default
+  replicas: 1
+  strategy:
+    type: Recreate
+  image:
+    repository: ghcr.io/coroot/coroot
+    pullPolicy: IfNotPresent
+    tag: ""
+  imagePullSecrets: []
+  nameOverride: ""
+  fullnameOverride: ""
+  serviceAccount:
+    create: true
+    annotations: {}
+    name: ""
+  podAnnotations: {}
+  podSecurityContext: {}
+    # fsGroup: 2000
+  securityContext: {}
+    # capabilities:
+    #   drop:
+    #   - ALL
+    # readOnlyRootFilesystem: true
+    # runAsNonRoot: true
+  # runAsUser: 1000
+  service:
+    type: ClusterIP
+    port: 8080
+    annotations: {}
+  ingress:
+    enabled: true
+    className: "contour"
+    hostname: coroot.omni.cedille.club
+    path: /
+    pathType: Prefix
+    annotations:
+      - cert-manager.io/cluster-issuer: letsencrypt-staging
+      - ingress.kubernetes.io/force-ssl-redirect: "true"
+    hosts: 
+      - host: coroot.omni.cedille.club
+        http:
+          paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: coroot
+                port:
+                  name: http
+    tls:
+      - hosts:
+        - coroot.omni.cedille.club
+        secretName: coroot-secret
+  resources:
+    # limits:
+    #   cpu: 100m
+    #   memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 1Gi
+  persistentVolume:
+    size: 10Gi
+    storageClassName: ""
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+  env: []
+
+corootConnect:
+  enabled: false
+  projectToken:
+  config:
+    prometheus:
+      url: ${PROMETHEUS_URL}
+      refresh_interval: 15s
+    clickhouse:
+      addr: ${CLICKHOUSE_ADDRESS}
+      auth:
+        user: default
+        password: ${CLICKHOUSE_PASSWORD}
+      protocol: native
+      database: default
+      traces_table: otel_traces
+      logs_table: otel_logs
+  image:
+    repository: ghcr.io/coroot/coroot-connect
+    pullPolicy: IfNotPresent
+    tag: "2.0.5"
+  imagePullSecrets: []
+  podAnnotations: {}
+  podSecurityContext: {}
+  securityContext: {}
+  resources:
+    requests:
+      cpu: 100m
+      memory: 1Gi
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+  env: []
+
+corootClusterAgent:
+  enabled: true
+  fullnameOverride: ""
+  config:
+    listen: :8080
+    coroot_url: http://coroot:8080
+    api_key:
+    config:
+      update:
+        interval: 60s
+        timeout: 10s
+    metrics:
+      scrape:
+        interval: 15s
+        timeout: 10s
+      wal_dir:
+    profiles:
+      scrape:
+        interval: 1m
+        timeout: 10s
+  image:
+    repository: ghcr.io/coroot/coroot-cluster-agent
+    pullPolicy: IfNotPresent
+    tag: "1.0.3"
+  imagePullSecrets: []
+  podAnnotations: {}
+  podSecurityContext: {}
+  securityContext: {}
+  resources:
+    requests:
+      cpu: 100m
+      memory: 1Gi
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+  env: []
+
+prometheus:
+  enabled: true
+  alertmanager:
+    enabled: false
+  nodeExporter:
+    enabled: false
+  pushgateway:
+    enabled: false
+  kubeStateMetrics:
+    enabled: true
+  kube-state-metrics:
+    metricLabelsAllowlist:
+      - pods=[*]
+  server:
+    enabled: true
+    global:
+      scrape_interval: 15s
+    retention: 1d
+    persistentVolume:
+      size: 10Gi
+    strategy:
+      type: Recreate
+    extraFlags:
+      - web.enable-remote-write-receiver
+  serverFiles:
+    prometheus.yml:
+      scrape_configs:
+        - job_name: 'kubernetes-service-endpoints'
+          honor_labels: true
+          kubernetes_sd_configs:
+            - role: endpoints
+          relabel_configs:
+            - source_labels: [ __meta_kubernetes_service_annotation_prometheus_io_scrape ]
+              action: keep
+              regex: true
+            - source_labels: [ __meta_kubernetes_service_annotation_prometheus_io_scrape_slow ]
+              action: drop
+              regex: true
+            - source_labels: [ __meta_kubernetes_service_annotation_prometheus_io_scheme ]
+              action: replace
+              target_label: __scheme__
+              regex: (https?)
+            - source_labels: [ __meta_kubernetes_service_annotation_prometheus_io_path ]
+              action: replace
+              target_label: __metrics_path__
+              regex: (.+)
+            - source_labels: [ __address__, __meta_kubernetes_service_annotation_prometheus_io_port ]
+              action: replace
+              target_label: __address__
+              regex: (.+?)(?::\d+)?;(\d+)
+              replacement: $1:$2
+            - action: labelmap
+              regex: __meta_kubernetes_service_annotation_prometheus_io_param_(.+)
+              replacement: __param_$1
+            - action: labelmap
+              regex: __meta_kubernetes_service_label_(.+)
+            - source_labels: [ __meta_kubernetes_namespace ]
+              action: replace
+              target_label: namespace
+            - source_labels: [ __meta_kubernetes_service_name ]
+              action: replace
+              target_label: service
+            - source_labels: [ __meta_kubernetes_pod_node_name ]
+              action: replace
+              target_label: node
+        - job_name: 'kubernetes-service-endpoints-slow'
+          honor_labels: true
+          scrape_interval: 5m
+          scrape_timeout: 30s
+          kubernetes_sd_configs:
+            - role: endpoints
+          relabel_configs:
+            - source_labels: [__meta_kubernetes_service_annotation_prometheus_io_scrape_slow]
+              action: keep
+              regex: true
+            - source_labels: [__meta_kubernetes_service_annotation_prometheus_io_scheme]
+              action: replace
+              target_label: __scheme__
+              regex: (https?)
+            - source_labels: [__meta_kubernetes_service_annotation_prometheus_io_path]
+              action: replace
+              target_label: __metrics_path__
+              regex: (.+)
+            - source_labels: [__address__, __meta_kubernetes_service_annotation_prometheus_io_port]
+              action: replace
+              target_label: __address__
+              regex: (.+?)(?::\d+)?;(\d+)
+              replacement: $1:$2
+            - action: labelmap
+              regex: __meta_kubernetes_service_annotation_prometheus_io_param_(.+)
+              replacement: __param_$1
+            - action: labelmap
+              regex: __meta_kubernetes_service_label_(.+)
+            - source_labels: [__meta_kubernetes_namespace]
+              action: replace
+              target_label: namespace
+            - source_labels: [__meta_kubernetes_service_name]
+              action: replace
+              target_label: service
+            - source_labels: [__meta_kubernetes_pod_node_name]
+              action: replace
+              target_label: node
+        - job_name: 'prometheus-pushgateway'
+          honor_labels: true
+          kubernetes_sd_configs:
+            - role: service
+          relabel_configs:
+            - source_labels: [__meta_kubernetes_service_annotation_prometheus_io_probe]
+              action: keep
+              regex: pushgateway
+        - job_name: 'kubernetes-services'
+          honor_labels: true
+          metrics_path: /probe
+          params:
+            module: [http_2xx]
+          kubernetes_sd_configs:
+            - role: service
+          relabel_configs:
+            - source_labels: [__meta_kubernetes_service_annotation_prometheus_io_probe]
+              action: keep
+              regex: true
+            - source_labels: [__address__]
+              target_label: __param_target
+            - target_label: __address__
+              replacement: blackbox
+            - source_labels: [__param_target]
+              target_label: instance
+            - action: labelmap
+              regex: __meta_kubernetes_service_label_(.+)
+            - source_labels: [__meta_kubernetes_namespace]
+              target_label: namespace
+            - source_labels: [__meta_kubernetes_service_name]
+              target_label: service
+        - job_name: 'coroot-node-agent'
+          honor_labels: true
+          kubernetes_sd_configs:
+            - role: pod
+          relabel_configs:
+            - source_labels: [ __meta_kubernetes_pod_annotation_prometheus_io_scrape ]
+              action: keep
+              regex: true
+            - source_labels: [ __meta_kubernetes_pod_annotation_prometheus_io_scrape_slow ]
+              action: drop
+              regex: true
+            - source_labels: [ __meta_kubernetes_pod_label_app]
+              action: keep
+              regex: coroot-node-agent
+            - source_labels: [ __meta_kubernetes_pod_annotation_prometheus_io_scheme ]
+              action: replace
+              regex: (https?)
+              target_label: __scheme__
+            - source_labels: [ __meta_kubernetes_pod_annotation_prometheus_io_path ]
+              action: replace
+              target_label: __metrics_path__
+              regex: (.+)
+            - source_labels: [ __address__, __meta_kubernetes_pod_annotation_prometheus_io_port ]
+              action: replace
+              regex: (.+?)(?::\d+)?;(\d+)
+              replacement: $1:$2
+              target_label: __address__
+            - source_labels: [ __meta_kubernetes_pod_phase ]
+              regex: Pending|Succeeded|Failed|Completed
+              action: drop
+            - source_labels: [__meta_kubernetes_pod_node_name]
+              target_label: instance
+              action: replace
+        - job_name: 'kubernetes-pods'
+          honor_labels: true
+          kubernetes_sd_configs:
+            - role: pod
+          relabel_configs:
+            - source_labels: [ __meta_kubernetes_pod_label_app ]
+              action: drop
+              regex: coroot-node-agent
+            - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
+              action: keep
+              regex: true
+            - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape_slow]
+              action: drop
+              regex: true
+            - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scheme]
+              action: replace
+              regex: (https?)
+              target_label: __scheme__
+            - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_path]
+              action: replace
+              target_label: __metrics_path__
+              regex: (.+)
+            - source_labels: [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
+              action: replace
+              regex: (.+?)(?::\d+)?;(\d+)
+              replacement: $1:$2
+              target_label: __address__
+            - action: labelmap
+              regex: __meta_kubernetes_pod_annotation_prometheus_io_param_(.+)
+              replacement: __param_$1
+            - action: labelmap
+              regex: __meta_kubernetes_pod_label_(.+)
+            - source_labels: [__meta_kubernetes_namespace]
+              action: replace
+              target_label: namespace
+            - source_labels: [__meta_kubernetes_pod_name]
+              action: replace
+              target_label: pod
+            - source_labels: [__meta_kubernetes_pod_phase]
+              regex: Pending|Succeeded|Failed|Completed
+              action: drop
+        - job_name: 'kubernetes-pods-slow'
+          honor_labels: true
+          scrape_interval: 5m
+          scrape_timeout: 30s
+          kubernetes_sd_configs:
+            - role: pod
+          relabel_configs:
+            - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape_slow]
+              action: keep
+              regex: true
+            - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scheme]
+              action: replace
+              regex: (https?)
+              target_label: __scheme__
+            - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_path]
+              action: replace
+              target_label: __metrics_path__
+              regex: (.+)
+            - source_labels: [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
+              action: replace
+              regex: (.+?)(?::\d+)?;(\d+)
+              replacement: $1:$2
+              target_label: __address__
+            - action: labelmap
+              regex: __meta_kubernetes_pod_annotation_prometheus_io_param_(.+)
+              replacement: __param_$1
+            - action: labelmap
+              regex: __meta_kubernetes_pod_label_(.+)
+            - source_labels: [__meta_kubernetes_namespace]
+              action: replace
+              target_label: namespace
+            - source_labels: [__meta_kubernetes_pod_name]
+              action: replace
+              target_label: pod
+            - source_labels: [__meta_kubernetes_pod_phase]
+              regex: Pending|Succeeded|Failed|Completed
+              action: drop
+        - job_name: 'kubernetes-fargate-cadvisor'
+          scheme: https
+          tls_config:
+            ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+            insecure_skip_verify: true
+          bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+          kubernetes_sd_configs:
+            - role: node
+          relabel_configs:
+            - action: labelmap
+              regex: __meta_kubernetes_node_label_(.+)
+            - target_label: __address__
+              replacement: kubernetes.default.svc:443
+            - source_labels: [ __meta_kubernetes_node_name ]
+              action: keep
+              regex: (fargate-.+)
+            - source_labels: [ __meta_kubernetes_node_name ]
+              regex: (.+)
+              target_label: __metrics_path__
+              replacement: /api/v1/nodes/$1/proxy/metrics/cadvisor
+
+existingPrometheus:
+  enabled: false
+  service:
+    serviceName: prometheus
+    servicePort: 9090
+    serviceNamespace: default
+  node-agent-podmonitor:
+    enabled: true
+
+node-agent:
+  enabled: true
+  tracesEndpoint: "http://coroot:8080/v1/traces"
+  logsEndpoint: "http://coroot:8080/v1/logs"
+  profilesEndpoint: "http://coroot:8080/v1/profiles"
+
+clickhouse:
+  enabled: true
+  persistence:
+    size: 25Gi
+  replicaCount: 1
+  shards: 1
+  zookeeper:
+    enabled: false
+  extraOverrides: |
+    <clickhouse>
+      <asynchronous_metric_log remove="1"/>
+      <metric_log remove="1"/>
+      <query_log remove="1" />
+      <query_thread_log remove="1" />  
+      <query_views_log remove="1" />
+      <part_log remove="1"/>
+      <text_log remove="1" />
+      <trace_log remove="1"/>
+      <opentelemetry_span_log remove="1"/>
+    </clickhouse>

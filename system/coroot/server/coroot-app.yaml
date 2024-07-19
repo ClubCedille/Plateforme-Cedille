@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  name: coroot-server
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+    - chart: coroot
+      helm:
+        releaseName: coroot-server
+        valueFiles:
+        - $values/system/coorot/server/coroot-values.yaml
+      repoURL: https://coroot.github.io/helm-charts
+      targetRevision: 0.13.4
+    - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
+      targetRevision: master
+      ref: values
+  syncPolicy:
+    automated:
+      selfHeal: true
