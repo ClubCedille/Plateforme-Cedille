@@ -21,7 +21,7 @@ spec:
       repoURL: https://coroot.github.io/helm-charts
       targetRevision: 0.13.4
     - repoURL: 'https://github.com/ClubCedille/Plateforme-Cedille.git'
-      targetRevision: master
+      targetRevision: 187-coroot
       ref: values
   syncPolicy:
     automated:
