@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: point
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: point
+  template:
+    metadata:
+      labels:
+        app: point
+    spec:
+      containers:
+        - name: point
+          image: ghcr.io/clubcedille/point:latest
+          imagePullPolicy: Always
+          env:
+            - name: WHISPER_MODEL_SIZE
+              value: large
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "12Gi"
+            limits:
+              cpu: "2000m"
+              memory: "20Gi"
+          containerPort: 5000

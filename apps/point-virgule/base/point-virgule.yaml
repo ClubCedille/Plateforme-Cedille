@@ -1,34 +1,43 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: point
+  name: point-virgule
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: point
+      app: point-virgule
   template:
     metadata:
       labels:
-        app: point
+        app: point-virgule
       annotations:
         vault.hashicorp.com/agent-inject: 'true'
         vault.hashicorp.com/tls-skip-verify: 'true'
         vault.hashicorp.com/role: 'secret-reader'
-        vault.hashicorp.com/agent-inject-template-point-env: |
-          {{- with secret "kv/point/default/point" -}}
+        vault.hashicorp.com/agent-inject-template-point-virgule-env: |
+          {{- with secret "kv/point-virgule/default/point-virgule" -}}
           export DISCORD_TOKEN="{{ .Data.data.discord_token }}"
           {{- end }}
     spec:
       containers:
-        - name: point
-          image: ghcr.io/clubcedille/point:latest
+        - name: point-virgule
+          image: ghcr.io/clubcedille/point-virgule:latest
           imagePullPolicy: Always
           command: ["/bin/sh", "-c"]
           args:
             - >
               . /vault/secrets/point-virgule && python main.py
-          resources: {}
+          env:
+            - name: TRANSCRIPTION_API_URL
+              value: http://point.point-virgule.svc.cluster.local:5000/transcript
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "2Gi"
+            limits:
+              cpu: "2000m"
+              memory: "5Gi"
           volumeMounts:
             - name: storage
               mountPath: /app/recordings
