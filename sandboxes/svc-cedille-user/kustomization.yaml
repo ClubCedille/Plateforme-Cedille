@@ -14,3 +14,9 @@ patches:
         value: cedille@etsmtl.net
     target:
       kind: RoleBinding
+  - patch: |-
+      - op: replace
+        path: /metadata/namespace
+        value: argocd
+    target:
+      kind: Application
