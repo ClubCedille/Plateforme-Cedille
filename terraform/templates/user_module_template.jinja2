@@ -12,4 +12,5 @@ module "{{ user }}" {
   cluster_name = var.cluster_name
   cluster_role = "{{ cluster_role }}"
   cluster_repo = var.platform_repo
+  netdata_role = "observer"
 }

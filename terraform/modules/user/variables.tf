@@ -41,3 +41,7 @@ variable "cluster_role" {
 variable "cluster_repo" {
   type = string
 }
+
+variable "netdata_role" {
+  type = string
+}
