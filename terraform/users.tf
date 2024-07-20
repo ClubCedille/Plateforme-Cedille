@@ -11,7 +11,9 @@ module "francis" {
   cluster_name = var.cluster_name
   cluster_role = "None"
   cluster_repo = var.platform_repo
+  netdata_role = "admin"
 }
+
 
 module "cedille-sa" {
   source          = "./modules/user"
@@ -25,6 +27,7 @@ module "cedille-sa" {
   cluster_name = var.cluster_name
   cluster_role = "Reader"
   cluster_repo = var.platform_repo
+  netdata_role = "admin"
 }
 
 
@@ -39,4 +42,5 @@ module "andrei22131" {
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
+  netdata_role = "admin"
 }

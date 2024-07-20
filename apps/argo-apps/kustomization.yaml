@@ -6,6 +6,7 @@ kind: Kustomization
   #- ../../system/pixie/
   # Workload
 resources:
+- ../../system/netdata/
 - ../../system/crossplane/
 - ../../system/vault/
 - ../../system/grafana/
