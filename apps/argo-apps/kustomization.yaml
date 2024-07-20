@@ -21,18 +21,17 @@ resources:
 - ../../system/merbridge/
 - ../../system/kubevious/
 - ../../system/kube-system/
-- ../../sandboxes/
-- ../samples/kustomize-example-app/
-- ../samples/opentelemetry-demo/
-- ../samples/grav-demo/
+- ../../system/sandboxes/
 - ../calidum-rotae/
 - ../trema/
 - ../acets/grav/
-- ../test-grav-3/grav/
-- ../ets-demo/grav/
+# - ../ets-demo/grav/
 - ../raconteurs/grav/
-- ../hackqc2024/
-- ../integrale/grav/
+# - ../hackqc2024/
+- ../integrale/website/
+- ../applets/hello/
+- ../cedille-wiki/
+- ../dronolab/wikijs/
   # ... other apps ...
 
   # This patch will set the destination cluster for Applications

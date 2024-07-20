@@ -35,11 +35,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Prepare variables
-        id: prep_vars
-        run: |
-          echo "teams=$(echo '${{ github.event.inputs.teams_json }}' | python -c 'import sys, json; print(json.dumps(json.load(sys.stdin)))')" >> $GITHUB_ENV
-
       - name: Render Terraform User Module
         uses: cuchi/jinja2-action@v1.2.2
         with:
@@ -59,7 +54,11 @@ jobs:
       - name: Remove Temporary File
         run: rm temp_user_module.tf
 
+      - name: echo file 
+        run: cat terraform/users.tf
+
       - name: Create Pull Request
+        id: create-pr
         uses: peter-evans/create-pull-request@v5
         with:
           title: "Add new member: ${{ github.event.inputs.github_username }}"
@@ -67,3 +66,6 @@ jobs:
             This PR adds a new user module for ${{ github.event.inputs.github_username }} to `users.tf`. Please review the configuration and merge the PR to apply the changes.
           branch: "add-user-${{ github.event.inputs.github_username }}"
           delete-branch: true
+          team-reviewers: |
+            Exec
+          token: ${{ secrets.PULL_REQUEST_TOKEN }}
