@@ -5,8 +5,8 @@ metadata:
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "2"
-    argocd-image-updater.argoproj.io/image-list: wiki=ghcr.io/clubcedille/trema:latest
-    argocd-image-updater.argoproj.io/wiki.update-strategy: digest
+    argocd-image-updater.argoproj.io/image-list: trema=ghcr.io/clubcedille/trema:latest
+    argocd-image-updater.argoproj.io/trema.update-strategy: digest
 spec:
   project: default
   destination:
