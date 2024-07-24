@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cedille-wiki
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+    argocd-image-updater.argoproj.io/image-list: wiki=ghcr.io/clubcedille/wiki-cedille:latest
+    argocd-image-updater.argoproj.io/wiki.update-strategy: digest
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cedille-wiki
+  source:
+    repoURL: https://github.com/ClubCedille/Plateforme-Cedille
+    path: apps/cedille-wiki/prod
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

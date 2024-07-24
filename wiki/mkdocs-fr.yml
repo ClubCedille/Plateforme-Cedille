@@ -1,0 +1,101 @@
+site_name: 'Wiki Cedille'
+docs_dir: 'docs/fr'
+site_dir: 'site/fr'
+repo_url: https://github.com/ClubCedille/Plateforme-Cedille
+repo_name: ClubCedille/Plateforme-Cedille
+
+theme:
+  name: material
+  custom_dir: overrides
+  palette:
+    # Palette toggle for dark mode
+    - scheme: default
+      primary: black
+      accent: orange
+      toggle:
+        icon: material/brightness-4 
+        name: Switch to dark mode
+        primary: orange
+        accent: orange
+      logo: assets/logo.png
+
+    # Palette toggle for light mode
+    - scheme: slate
+      primary: orange
+      accent: orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+  logo_dark: assets/logo-dark.png
+  logo: assets/logo.png
+  highlightjs: true
+  language: fr
+  hljs_languages:
+    - yaml
+  features:
+    - navigation.instant
+    - header.autohide
+    - navigation.instant.prefetch
+    - navigation.tabs
+    - navigation.tabs.sticky
+  icon:
+    repo: fontawesome/brands/github
+  favicon: assets/favicon.ico
+
+extra:
+  homepage: https://wiki.omni.cedille.club/
+  alternate:
+    - name: English
+      link: /en/
+      lang: en
+    - name: French
+      link: /
+      lang: fr
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Accueil: index.md
+  - Plateforme Cedille:
+    - 'Introduction': plateforme-cedille/index.md
+    - 'Document de vision': plateforme-cedille/vision.md
+    - 'Cluster kubernetes': plateforme-cedille/cluster-kubernetes.md
+    - 'Composants matériels': plateforme-cedille/hardware.md
+    - Applications: 
+      - 'Index' : 'plateforme-cedille/Applications/index.md'
+      - 'Déploiement type workload': plateforme-cedille/Applications/deploying-workloads.md
+      - 'Déploiement type système': plateforme-cedille/Applications/deploying-system-apps.md
+    - Flux de travail: plateforme-cedille/workflow.md
+    - Guide de contribution: plateforme-cedille/contribution-guidelines.md
+    - Comment commencer: plateforme-cedille/getting-started.md
+    - SRE: plateforme-cedille/sre.md
+  - Projet - LOG791:
+    - 'Introduction': log791/index.md
+    - 'Rapport de projet': log791/rapport.md
+    - Retrospections:
+      - 'Retrospection 1': log791/retrospective-1.md
+      - 'Retrospection 2': log791/retrospective-2.md
+      - 'Retrospection 3': log791/retrospective-3.md
+  - Apprendre Docker:
+    - 'Introduction': learn-docker/index.md
+    - 'Installation': learn-docker/installation.md
+    - 'Les essentiels': learn-docker/essentials.md
+
+    - Exercices Guidés:
+      - 'Exécuter votre premier conteneur Docker': learn-docker/first-container.md
+      - 'Multi-Conteneur': learn-docker/docker-compose.md
+      - 'Conteneuriser vos applications': learn-docker/containerize.md
+      - 'Conserver vos données entre les conteneurs': learn-docker/persist-data.md
+      - 'Accéder à votre dossier local depuis un Conteneur': learn-docker/bind-mounts.md
+      - 'Docker Hub & registre de conteneurs': learn-docker/container-registry.md
+
+markdown_extensions:
+  - pymdownx.snippets:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+plugins:
+  - search

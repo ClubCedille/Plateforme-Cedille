@@ -33,3 +33,10 @@ resource "github_repository_file" "omni_acl" {
     })
   ])
 }
+
+# Add user to netdata
+resource "netdata_space_member" "cedille_membership" {
+  email    = var.github_email
+  space_id = "de0f5b64-9300-4be4-94f3-455efa5c0358"
+  role     = var.netdata_role
+}

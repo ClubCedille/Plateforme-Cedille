@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
         - name: trema
-          image: clubcedille/trema:v1.0.14
+          image: ghcr.io/clubcedille/trema:latest
           imagePullPolicy: Always
           command: ["/bin/sh", "-c"]
           args:

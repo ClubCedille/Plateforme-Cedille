@@ -6,6 +6,7 @@ kind: Kustomization
   #- ../../system/pixie/
   # Workload
 resources:
+- ../../system/netdata/
 - ../../system/crossplane/
 - ../../system/vault/
 - ../../system/grafana/
@@ -24,12 +25,14 @@ resources:
 - ../calidum-rotae/
 - ../trema/
 - ../acets/grav/
-- ../ets-demo/grav/
+# - ../ets-demo/grav/
 - ../raconteurs/grav/
 # - ../hackqc2024/
-- ../integrale/grav/
+- ../integrale/website/
 - ../applets/hello/
 - ../point-virgule/
+- ../cedille-wiki/
+- ../dronolab/wikijs/
   # ... other apps ...
 
   # This patch will set the destination cluster for Applications

@@ -47,3 +47,8 @@ variable "cluster_ca" {
 variable "cluster_name" {
   type = string
 }
+
+variable "netdata_token" {
+  type = string
+  sensitive = true
+}

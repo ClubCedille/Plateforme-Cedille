@@ -11,7 +11,9 @@ module "francis" {
   cluster_name = var.cluster_name
   cluster_role = "None"
   cluster_repo = var.platform_repo
+  netdata_role = "admin"
 }
+
 
 module "cedille-sa" {
   source          = "./modules/user"
@@ -25,17 +27,20 @@ module "cedille-sa" {
   cluster_name = var.cluster_name
   cluster_role = "Reader"
   cluster_repo = var.platform_repo
+  netdata_role = "admin"
 }
 
-module "allaoua-rico" {
+
+module "andrei22131" {
   source          = "./modules/user"
-  github_email    = "allaoua.boudriou@gmail.com"
-  github_username = "allaoua-rico"
+  github_email    = "antonandrei2003@hotmail.com"
+  github_username = "andrei22131"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" }, 
   ]
   cluster_name = var.cluster_name
-  cluster_role = "Reader"
+  cluster_role = "Operator"
   cluster_repo = var.platform_repo
+  netdata_role = "admin"
 }

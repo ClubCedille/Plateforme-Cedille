@@ -4,3 +4,4 @@
 **.tfstate.backup
 **/.terraform/
 omnictl
+wiki/site
