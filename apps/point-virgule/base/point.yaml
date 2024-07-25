@@ -18,12 +18,11 @@ spec:
           imagePullPolicy: Always
           env:
             - name: WHISPER_MODEL_SIZE
-              value: large
+              value: large-v3
           resources:
             requests:
-              cpu: "500m"
+              cpu: "4000m"
               memory: "12Gi"
             limits:
-              cpu: "2000m"
               memory: "20Gi"
           containerPort: 5000
