@@ -30,6 +30,7 @@ resources:
 # - ../hackqc2024/
 - ../integrale/website/
 - ../applets/hello/
+- ../point-virgule/
 - ../cedille-wiki/
 - ../dronolab/wikijs/
   # ... other apps ...
