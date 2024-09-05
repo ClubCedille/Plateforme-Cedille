@@ -44,3 +44,18 @@ module "andrei22131" {
   cluster_repo = var.platform_repo
   netdata_role = "admin"
 }
+
+
+module "Epsot" {
+  source          = "./modules/user"
+  github_email    = "sebasperezdoria@hotmail.com"
+  github_username = "Epsot"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" }, 
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Operator"
+  cluster_repo = var.platform_repo
+  netdata_role = "observer"
+}
