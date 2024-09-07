@@ -48,11 +48,17 @@ Pour contribuer à l'un de nos projets, suivez les étapes ci-dessous et envoyez
 
 6. **Ouvrez une Pull Request** : Sur le site GitHub, naviguez jusqu’à votre branche et cliquez sur “New pull request” pour ouvrir une nouvelle demande. Remplissez le modèle de demande de Pull Request avec une brève description de vos modifications et soumettez-le pour examen. Assurez-vous de sélectionner au moins un membre du club pour examiner la demande. 
 
-7. **Examen et fusion** : Une fois la demande examinée et approuvée, fusionnez la branche avec la branche principale en utilisant 
-   ```sh
-   git merge [branch_name]
-   ```
-   Un membre du club doit examiner toutes les demandes de Pull Request avant la fusion pour maintenir les standards de qualité et identifier tout problème potentiel.
+7. **Examen et fusion** : Une fois la demande examinée et approuvée, fusionnez la branche avec la branche principale en utilisant l'une des options suivantes :
+
+
+      - **Fusion manuelle via la ligne de commande git** :
+         ```sh
+         git merge [branch_name] --no-ff
+         ```
+      - **Fusion via l'interface utilisateur de GitHub** : Sur la page de la Pull Request, utilisez le bouton approprié qui apparaîtra une fois votre commit approuvé.
+
+         ![Pull Request](img/pullRequest.png)
+
 
 8. **Maintenez votre copie à jour** : Avant de commencer à travailler, assurez-vous de récupérer les dernières modifications du projet en utilisant 
    ```sh

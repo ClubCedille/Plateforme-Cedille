@@ -46,11 +46,16 @@ To contribute to one of our projects, follow the steps below and send us your Gi
 
 6. **Open a Pull Request**: On the GitHub site, navigate to your branch and click on “New pull request” to open a new request. Fill out the Pull Request template with a brief description of your changes and submit it for review. Be sure to select at least one club member to review the request.
 
-7. **Review and Merge**: Once the request is reviewed and approved, merge the branch into the main branch using:
-   ```sh
-   git merge [branch_name]
-   ```
-   A club member must review all Pull Requests before merging to maintain quality standards and identify potential issues.
+7. **Review and Merge**: Once the Pull Request has been reviewed and approved, merge the branch into the main branch using one of the following options:
+
+      - **Manual merge via the git command line**:
+         ```sh
+         git merge [branch_name] --no-ff
+         ```
+      - **Merge via the GitHub user interface**: On the Pull Request page, use the appropriate button that will appear once your commit has been approved.
+
+         ![Pull Request](img/pullRequest.png)
+
 
 8. **Keep Your Copy Up-to-Date**: Before starting work, make sure to pull the latest changes from the project using:
    ```sh
