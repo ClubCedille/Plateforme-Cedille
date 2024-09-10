@@ -76,6 +76,8 @@ nav:
       - 'Retrospection 1': log791/retrospective-1.md
       - 'Retrospection 2': log791/retrospective-2.md
       - 'Retrospection 3': log791/retrospective-3.md
+  - Projet - LOG410:
+    - 'Introduction': log410/index.md
   - Apprendre Docker:
     - 'Introduction': learn-docker/index.md
     - 'Installation': learn-docker/installation.md

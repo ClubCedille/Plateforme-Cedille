@@ -72,6 +72,8 @@ nav:
   - Project - LOG791:
     - 'Introduction': log791/index.md
     - 'Project Report': log791/rapport.md
+  - Projet - LOG410:
+    - 'Introduction': log410/index.md
     - Retrospectives:
       - 'Retrospective 1': log791/retrospective-1.md
       - 'Retrospective 2': log791/retrospective-2.md
