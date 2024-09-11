@@ -11,30 +11,11 @@ spec:
     metadata:
       labels:
         app: trema
-      annotations:
-        vault.hashicorp.com/agent-inject: 'true'
-        vault.hashicorp.com/tls-skip-verify: 'true'
-        vault.hashicorp.com/role: 'secret-reader'
-        vault.hashicorp.com/agent-inject-template-mongo_pwd: |
-          {{- with secret "kv/trema/default/mongo" -}}
-          export MONGO_PASSWORD="{{ .Data.data.password }}"
-          {{- end }}
-        vault.hashicorp.com/agent-inject-template-trema-env: |
-          {{- with secret "kv/trema/default/trema" -}}
-          export DISCORD_TOKEN="{{ .Data.data.discord_token }}"
-          export GITHUB_TOKEN="{{ .Data.data.github_token }}"
-          export CALIDUM_API_KEY="{{ .Data.data.calidum_api_key }}"
-          {{- end }}
     spec:
       containers:
         - name: trema
           image: ghcr.io/clubcedille/trema:latest
           imagePullPolicy: Always
-          command: ["/bin/sh", "-c"]
-          args:
-            - >
-              . /vault/secrets/mongo_pwd && . /vault/secrets/trema-env && python trema.py
-
           resources: {}
           ports:
             - containerPort: 6000
@@ -56,6 +37,26 @@ spec:
               value: "trema"
             - name: MONGO_PORT
               value: "27017"
+            - name: MONGO_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: trema-env-secret
+                  key: mongo_password
+            - name: DISCORD_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: trema-env-secret
+                  key: discord_token
+            - name: GITHUB_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: trema-env-secret
+                  key: github_token
+            - name: CALIDUM_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: trema-env-secret
+                  key: calidum_api_key
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -83,15 +84,15 @@ spec:
         - name: mongo
           image: mongo:6
           imagePullPolicy: Always
-          command: ["/bin/sh", "-c"]
-          args:
-            - >
-              . /vault/secrets/mongo_pwd && . && exec mongod --bind_ip_all
-
           resources: {}
           env:
             - name: MONGO_USER
               value: "trema"
+            - name: MONGO_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: trema-env-secret
+                  key: mongo_password
           ports:
             - containerPort: 27017
           volumeMounts:
