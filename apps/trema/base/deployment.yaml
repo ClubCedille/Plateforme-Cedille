@@ -71,14 +71,6 @@ spec:
     metadata:
       labels:
         app: mongo
-      annotations:
-        vault.hashicorp.com/agent-inject: 'true'
-        vault.hashicorp.com/tls-skip-verify: 'true'
-        vault.hashicorp.com/role: 'secret-reader'
-        vault.hashicorp.com/agent-inject-template-mongo_pwd: |
-          {{- with secret "kv/trema/default/mongo" -}}
-          export MONGO_PASSWORD="{{ .Data.data.password }}"
-          {{- end }}
     spec:
       containers:
         - name: mongo
