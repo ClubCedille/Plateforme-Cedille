@@ -1,10 +1,10 @@
-# Wiki Cedille
+# Wiki CEDILLE
 
 Ce wiki est la ressource principale pour nos membres et nos partenaires. Il
 contient des informations sur nos projets, nos services et nos meilleures
 pratiques. Que vous soyez un développeur, un administrateur système ou un
 utilisateur final, nous avons des informations pour vous aider à vous
-familiariser avec la plateforme Cedille et à en tirer le meilleur parti.
+familiariser avec la plateforme CEDILLE et à en tirer le meilleur parti.
 
 Ici, vous trouverez des guides détaillés, des tutoriels, des informations sur
 les meilleures pratiques et des réponses à vos questions les plus fréquentes.
@@ -14,7 +14,7 @@ recevoir vos commentaires pour l'améliorer encore davantage!
 
 ## Contexte
 
-La plateforme Cedille a été conçue pour répondre aux besoins de nos clients en
+La plateforme CEDILLE a été conçue pour répondre aux besoins de nos clients en
 matière d'hébergement de services sur des serveurs bare-metal. Elle est basée
 sur Kubernetes, une technologie de conteneurisation open-source qui offre une
 flexibilité et une évolutivité exceptionnelles pour le déploiement et la gestion
@@ -28,8 +28,8 @@ expérience de développement et de déploiement éducative et enrichissante.
 
 - [Gestion du projet - LOG791](log791/index.md) : Cette section contient le
   suivi de notre projet pour le cours LOG791 dans lequel nous avons entamé le
-  développement de la plateforme Cedille è l'automne 2023.
-- [Plateforme Cedille](plateforme-cedille/index.md) : Cette section contient
+  développement de la plateforme CEDILLE è l'automne 2023.
+- [Plateforme CEDILLE](plateforme-cedille/index.md) : Cette section contient
   des informations sur la plateforme Cedille, y compris la vision du projet,
   l'architecture technique, les services offerts et les meilleures pratiques
   pour son utilisation.

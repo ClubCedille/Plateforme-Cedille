@@ -1,6 +1,6 @@
 # wiki.omni.cedille.club with mkdocs
 
-This folder contains the source code for the Cedille Club's wiki, hosted at
+This folder contains the source code for the CEDILLE Club's wiki, hosted at
 [wiki.omni.cedille.club](https://wiki.omni.cedille.club).
 
 ## How to use
@@ -28,6 +28,6 @@ This folder contains the source code for the Cedille Club's wiki, hosted at
 - `mkdocs.yml`: The configuration file for MkDocs.
 - `docs/en/index.md`: The homepage of the wiki.
 - `docs/en/log791/`: Contains the Markdown files for the LOG791 project of the
-  Cedille Club during the Fall 2023 semester.
-- `docs/en/plateforme-cedille/`: Contains the Markdown files for the Cedille
+  CEDILLE Club during the Fall 2023 semester.
+- `docs/en/plateforme-cedille/`: Contains the Markdown files for the CEDILLE
   platform.

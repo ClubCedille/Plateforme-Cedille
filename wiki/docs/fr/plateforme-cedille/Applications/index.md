@@ -28,11 +28,11 @@ provisioner: io.openebs.csi-mayastor
 
 ##### Justification du choix
 
-Comparé a d'autre solutions comme Ceph:
+Comparé à d'autres solutions comme Ceph:
 
-- est très simple a déployer et configurer
-- à une basse complexité de son système et ses composantes
-- est concu dès le debut pour l'utilisation dans Kubernetes
+- est très simple à déployer et configurer
+- a une basse complexité de son système et ses composantes
+- est concu dès le début pour l'utilisation dans Kubernetes
 
 Par exemple, on a fait plusieurs tentatives d'installation de Ceph, mais le système n'était pas stable pour la petite taille de cluster et était très mal-adapté pour l'utilisation dans Kubernetes.
 
@@ -55,7 +55,7 @@ TODO: Insérer graphique.
 
 #### Configuration 
 **Permissions RBAC**
-La configuration RBAC (Role-Based Access Control) dans ArgoCD permet de définir des politiques de sécurité spécifiques pour différents utilisateurs et groupes. Dans notre cas, nous avons défini des rôles au sein de notre organisation Cedille qui correspondent aux différents niveaux d'accès nécessaires.
+La configuration RBAC (Role-Based Access Control) dans ArgoCD permet de définir des politiques de sécurité spécifiques pour différents utilisateurs et groupes. Dans notre cas, nous avons défini des rôles au sein de notre organisation CEDILLE qui correspondent aux différents niveaux d'accès nécessaires.
 
 Les opérateurs (role:org-operators), qui sont membres du groupe ClubCedille:SRE, ont les permissions suivantes :
 
@@ -75,7 +75,7 @@ Contour est une solution d'Ingress Controller pour Kubernetes. Elle utilise le s
 
 #### Configuration 
 
-Le service proxy de Envoy à été configuré avec un Nodeport pour diriger le traffic externe vers contour qui achemine ensuite les requêtes vers les services dédiés. 
+Le service proxy de Envoy a été configuré avec un Nodeport pour diriger le trafic externe vers contour qui achemine ensuite les requêtes vers les services dédiés. 
 
 #### Tester
 
@@ -242,6 +242,6 @@ Problème: Complexité d'intégration ou de configuration. Voir https://github.c
 
 ### apps/sample/kustomize-example-app
 
-Application qui démontre la structure de base a prendre pour déployer une nouvelle application avec Kustomize avec des environments prod et staging.
+Application qui démontre la structure de base à prendre pour déployer une nouvelle application avec Kustomize avec des environments prod et staging.
 
 Pour plus de détails, voir: [Déployer des applications](./deploying-workloads.md)

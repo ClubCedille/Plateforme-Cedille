@@ -30,7 +30,7 @@ resources:
 
 ### Envrionments
 
-Ensuite, il faut définir les dossiers `prod` et `staging` qui auront comme objectif de modifier des propriétés dans `base` selon les besoins différents et d'ajouter des ressources qui ne seront pas communes a tous les environnements.
+Ensuite, il faut définir les dossiers `prod` et `staging` qui auront comme objectif de modifier des propriétés dans `base` selon les besoins différents et d'ajouter des ressources qui ne seront pas communes à tous les environnements.
 
 Par exemple, voici le fonctionnement pour `prod`:
 
