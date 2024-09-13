@@ -26,7 +26,7 @@ resources:
 - ../trema/
 - ../acets/grav/
 # - ../ets-demo/grav/
-- ../raconteurs/grav/
+# - ../raconteurs/grav/
 # - ../hackqc2024/
 - ../integrale/website/
 - ../applets/hello/
