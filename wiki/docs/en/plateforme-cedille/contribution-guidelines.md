@@ -1,14 +1,14 @@
 # Contribution Guide
 
-Welcome to the Cedille platform contribution guide! This document provides information on how you can contribute to the Cedille platform, including best practices, contribution guidelines, and useful resources.
+Welcome to the CEDILLE platform contribution guide! This document provides information on how you can contribute to the CEDILLE platform, including best practices, contribution guidelines, and useful resources.
 
 ## Prerequisites
 
-Before you start contributing to the Cedille platform, make sure you meet the following prerequisites:
+Before you start contributing to the CEDILLE platform, make sure you meet the following prerequisites:
 
 1. **GitHub Account**: You will need a GitHub account to contribute to the project.
-2. **Join our [GitHub organization](https://github.com/clubcedille/)**: To access the Cedille platform repositories, you must join the Cedille club GitHub organization. To do so, ask a team member to invite you to join the organization.
-3. **Backlog Board**: In the [**Projects**](https://github.com/orgs/ClubCedille/projects) tab of the Cedille club GitHub repository, you will find a backlog board organized to facilitate task and project management. This board provides an overview of available tasks, categorized by types such as features to develop, bugs to fix, or improvements to make. Each task includes a description, priority, and sometimes an estimated time requirement. You can review this board to identify tasks that match your skills or interests and choose the ones you want to work on. This approach allows you to contribute autonomously while ensuring that projects advance in a coherent and organized manner.
+2. **Join our [GitHub organization](https://github.com/clubcedille/)**: To access the CEDILLE platform repositories, you must join the CEDILLE club GitHub organization. To do so, ask a team member to invite you to join the organization.
+3. **Backlog Board**: In the [**Projects**](https://github.com/orgs/ClubCedille/projects) tab of the CEDILLE club GitHub repository, you will find a backlog board organized to facilitate task and project management. This board provides an overview of available tasks, categorized by types such as features to develop, bugs to fix, or improvements to make. Each task includes a description, priority, and sometimes an estimated time requirement. You can review this board to identify tasks that match your skills or interests and choose the ones you want to work on. This approach allows you to contribute autonomously while ensuring that projects advance in a coherent and organized manner.
 
 ## How to Contribute to Various Projects ✍️
 
@@ -64,3 +64,4 @@ To contribute to one of our projects, follow the steps below and send us your Gi
    This ensures you are working with the most recent version of the code and avoids merge conflicts.
 
 9. **Use Graphical Tools if Needed**: If you find the command line difficult to manage, consider using a graphical git interface like GitKraken or SourceTree. These tools provide a visual interface for managing your commits, branches, and Pull Requests, making code management more intuitive.
+

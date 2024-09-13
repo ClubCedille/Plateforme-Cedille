@@ -1,6 +1,6 @@
-# Cedille Platform - Vision Document
+# CEDILLE Platform - Vision Document
 
-**Organization:** Cedille, École de Technologie Supérieure
+**Organization:** CEDILLE, École de Technologie Supérieure
 
 This overview provides a clear view of the 'why' and 'what' of our new CEDILLE
 platform project. Here, we dive into the rationale behind our Kubernetes-based
@@ -12,7 +12,7 @@ on our bare-metal servers.
 
 ### 1.1 Problem Statement
 
-The Cedille club is responsible for hosting and supporting the development of a
+The CEDILLE club is responsible for hosting and supporting the development of a
 significant number of websites and web services for the student clubs at ÉTS.
 Additionally, the club aims to provide its members with learning opportunities
 in DevOps, Kubernetes, and server management technologies.
@@ -30,7 +30,7 @@ so CÉDILLE must rework its infrastructure to meet the new requirements.
 
 ### 1.2 Objective
 
-Due to the mentioned problems and new requirements, the Cedille club recently
+Due to the mentioned problems and new requirements, the CEDILLE club recently
 purchased physical servers and installed Kubernetes on them. The decision was
 made to take this opportunity to review the entire infrastructure and DevOps
 systems to better meet the needs of the club, its clients, and ÉTS.
@@ -38,9 +38,9 @@ systems to better meet the needs of the club, its clients, and ÉTS.
 To achieve this, we will deploy various automation, observability, and
 redundancy systems. The goal is to make the experience of CÉDILLE clients more
 fluid and consistent. Additionally, we aim to clarify the development and
-maintenance process for Cedille club members themselves. Whenever possible,
+maintenance process for CEDILLE club members themselves. Whenever possible,
 open-source and cloud-native software will be favored to respect the philosophy
-of the Cedille student club.
+of the CEDILLE student club.
 
 ### 1.3 Scope
 
@@ -125,7 +125,7 @@ vulnerabilities. |
 
 ### 2.1 Problem Statement
 
-The Cedille club takes on the task of hosting and supporting the development of
+The CEDILLE club takes on the task of hosting and supporting the development of
 numerous websites and online services for the student associations at ÉTS.
 Furthermore, the club aims to provide its members with opportunities to acquire
 skills in DevOps, Kubernetes, and server management.
@@ -143,7 +143,7 @@ opportunities for our members.
 | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | The problem                       | 1. Financial Constraint: The cost of maintaining services on Google Cloud is significantly high and becomes increasingly difficult to manage as the number of hosted student clubs increases. <br/> 2. Limited Learning and Customization: The management of most operations by Google Cloud results in a restricted environment that offers few opportunities to learn and customize hosting solutions, especially in the fields of DevOps, Kubernetes, and server management. |
 | affects                           | 1. Financial Sustainability: The club faces a growing financial burden that could threaten its ability to continue offering hosting services to student clubs. <br/> 2. Educational Value: The current configuration limits the learning experiences of club members, particularly in relevant areas for their technical growth such as DevOps, Kubernetes, and server management.                                                                       |
-| and this impacts the outcome by   | 1. Financial Strain: If the situation remains unchanged, the Cedille club risks becoming financially unsustainable, which could result in the discontinuation of hosting services for many student clubs, thus affecting their online presence and operations. <br /> 2. Reduced Technical Skills Development: Club members miss out on practical experiences and valuable skills development, which is one of the club's key objectives to enhance the employability and technical expertise of its members. |
+| and this impacts the outcome by   | 1. Financial Strain: If the situation remains unchanged, the CEDILLE club risks becoming financially unsustainable, which could result in the discontinuation of hosting services for many student clubs, thus affecting their online presence and operations. <br /> 2. Reduced Technical Skills Development: Club members miss out on practical experiences and valuable skills development, which is one of the club's key objectives to enhance the employability and technical expertise of its members. |
 
 ### 2.2 Product Statement
 
@@ -160,7 +160,7 @@ performance and security.
 
 | Statement             |                                                                                                                                                                                                                                             |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Plateforme CEDILLE is | A local hosting infrastructure on physical servers, designed to reduce costs while providing a flexible and educational environment for Cedille club members.                                                                                                                       |
+| Plateforme CEDILLE is | A local hosting infrastructure on physical servers, designed to reduce costs while providing a flexible and educational environment for CEDILLE club members.                                                                                                                       |
 | which                 | Enables better cost control and offers richer opportunities for learning and skill development in DevOps, Kubernetes, and server management. It also facilitates monitoring, security, and automation, while being flexible enough to meet the specific needs of various student clubs. |
 | Unlike                | The former Google Cloud (GKE) based infrastructure, which incurred high costs and offered fewer opportunities for learning and customization due to centralized management by Google Cloud.                                                                                        |
 | This product          | Significantly reduces the club's financial burden while enhancing the educational value and practical experience for members. It provides a more sustainable and customizable solution for the hosting needs of ÉTS student clubs.                                                |
@@ -176,7 +176,7 @@ outcome.
 
 | **Name**                                 | **Description**                                                                      | **Responsibilities**                                                                                                                                                       |
 | ---------------------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **S1** The Cedille club and its members  | Open-Source student club at École de Technologie Supérieure                           | Design, implementation, and maintenance of the CEDILLE platform.                                                                                                          |
+| **S1** The CEDILLE club and its members  | Open-Source student club at École de Technologie Supérieure                           | Design, implementation, and maintenance of the CEDILLE platform.                                                                                                          |
 | **S2** ÉTS Clubs Administration          | Organization within ÉTS that handles the administration of student clubs              | Ensure that all implemented services serve the student clubs and comply with regulations.                                                                                  |
 | **S3** ÉTS IT Department (TI)            | Organization within ÉTS that handles IT services                                      | Ensure that all our services are secure and do not violate any rules.                                                                                                      |
 | **S4** ÉTS Student Clubs                 | Student clubs at École de Technologie Supérieure                                      | Clubs must clearly communicate their needs and requirements and provide feedback on the services and features offered by the new platform.                                |
@@ -189,10 +189,10 @@ Users are all the individuals or entities that will use this product.
 
 | **Name**                                 | **Description**                                                                 | **Responsibilities**                                                                            |
 | ---------------------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| **U1** Platform Administrator            | Platform administrator designated by the Cedille club                           | Platform maintenance and approval of new deployments.                                          |
+| **U1** Platform Administrator            | Platform administrator designated by the CEDILLE club                           | Platform maintenance and approval of new deployments.                                          |
 | **U2** Student clubs and their members   | Student clubs at École de Technologie Supérieure                                | Interact with the platform to obtain various information about their different services.       |
 | **U3** ÉTS Staff                         | Student clubs administration and IT services of ÉTS                             | Ensure the compliance of applications and infrastructure.                                      |
-| **U4** Application Developers            | Sometimes members of Cedille, sometimes from other clubs, responsible for the programming of the software on the servers. |
+| **U4** Application Developers            | Sometimes members of CEDILLE, sometimes from other clubs, responsible for the programming of the software on the servers. |
 
 ### 3.3 User Environment
 
@@ -220,7 +220,7 @@ standards](#71-standards-and-norms).
 
 All parties must adhere to the standards and protocols in place to ensure the
 security, performance, and availability of the CEDILLE Platform. These standards
-are defined and maintained by the Cedille club **(S1)** and the ÉTS IT
+are defined and maintained by the CEDILLE club **(S1)** and the ÉTS IT
 Department **(S3)**.
 
 ## 3.4 Key User Needs
@@ -333,7 +333,7 @@ development and deployment of the CEDILLE Platform.
 
 ### 4.3 License
 
-Given that the Cedille club has an educational dimension and aims to teach
+Given that the CEDILLE club has an educational dimension and aims to teach
 DevOps, Kubernetes, and server management technologies, the choice of a license
 that promotes flexibility, accessibility, and collaboration is crucial. This is
 why we opted for the [Apache 2.0
@@ -399,7 +399,7 @@ for our infrastructure.
 
 | **ID** | **Constraints**                                                           | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | ------ | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| C01    | Prohibition of storing personal data.                                     | Due to ÉTS data protection policies, it was deemed less risky for the project to never store personal data on the Cedille platform.                                                                                                                                                                                                                                                                        |
+| C01    | Prohibition of storing personal data.                                     | Due to ÉTS data protection policies, it was deemed less risky for the project to never store personal data on the CEDILLE platform.                                                                                                                                                                                                                                                                        |
 | C02    | Allow full visibility of our infrastructure to the IT services            | The IT services must have the ability to monitor and inspect all services and applications deployed on the CÉDILLE platform to ensure they strictly meet the needs of the clubs and that no unrelated services, such as those used for other commercial activities, are hosted. This requirement stems from past issues with unrelated services being deployed on the school's network.                                                  |
 | C03    | Network access control shared with the school's IT service                | Although we control internal network routing and management through our router, external access and certain network features are strictly controlled and managed by the ÉTS IT services. Any request for access or modification of external access control must be coordinated and approved by them.                                                                                                     |
 
@@ -432,7 +432,7 @@ AQ6 – Secrets are encrypted at rest and not exposed publicly.
 
 AQ6 – Each layer of the system must be documented.
 
-AQ7 – The system must be understandable to all members of the Cedille club (new
+AQ7 – The system must be understandable to all members of the CEDILLE club (new
 and old).
 
 #### Scalability

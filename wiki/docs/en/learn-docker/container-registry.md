@@ -116,7 +116,7 @@ If you have created a custom Docker image that you want to share with others, yo
 
 ### GitHub Container Registry
 
-[GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) is another popular option for storing and managing container images that Club Cedille uses a lot. It is tightly integrated with GitHub, making it a convenient choice for developers who already use GitHub for source code management. Here are some key features:
+[GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) is another popular option for storing and managing container images that Club CEDILLE uses a lot. It is tightly integrated with GitHub, making it a convenient choice for developers who already use GitHub for source code management. Here are some key features:
 
 **1. Integration with GitHub Repositories:**
 
@@ -142,4 +142,4 @@ If you have created a custom Docker image that you want to share with others, yo
 
 Docker Hub is a powerful platform for sharing and distributing Docker images. By leveraging Docker Hub, you can streamline your development and deployment workflows, collaborate with others, and access a vast library of container images. Whether you're pulling official images for your projects or sharing your custom images with the community, Docker Hub is an essential tool in the Docker ecosystem.
 
-If you're interested you could also check out one of the [Cedille Club's GitHub pipeline packages](https://github.com/orgs/ClubCedille/packages). GitHub pipeline packages are a set of tools and configurations that help automate various aspects of the software development lifecycle, such as building, testing, and deploying applications. By using these packages, developers can ensure consistent and repeatable processes, improve efficiency, and reduce the chances of errors during deployment.
+If you're interested you could also check out one of the [CEDILLE Club's GitHub pipeline packages](https://github.com/orgs/ClubCedille/packages). GitHub pipeline packages are a set of tools and configurations that help automate various aspects of the software development lifecycle, such as building, testing, and deploying applications. By using these packages, developers can ensure consistent and repeatable processes, improve efficiency, and reduce the chances of errors during deployment.

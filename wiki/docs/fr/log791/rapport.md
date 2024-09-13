@@ -4,7 +4,7 @@ date: 2023-12-18
 
 ## Introduction
 
-Dans le cadre du cours LOG-791 et de notre engagement au sein du club Cedille de l'École de Technologie Supérieure (ÉTS), nous avons entrepris le projet de faire la conception et la mise en place de la Plateforme CEDILLE. Ce rapport vise à présenter de manière exhaustive les différentes étapes de notre initiative, depuis sa genèse jusqu'à sa concrétisation actuelle.
+Dans le cadre du cours LOG-791 et de notre engagement au sein du club CEDILLE de l'École de Technologie Supérieure (ÉTS), nous avons entrepris le projet de faire la conception et la mise en place de la Plateforme CEDILLE. Ce rapport vise à présenter de manière exhaustive les différentes étapes de notre initiative, depuis sa genèse jusqu'à sa concrétisation actuelle.
 
 Le projet de la Plateforme CEDILLE avait pour objectif principal de transformer l'infrastructure existante du club. Nous avons choisi d'implémenter un cluster Kubernetes sur des serveurs physiques, en exploitant les capacités de Talos OS et la solution Omni de Sidero Labs. Cette démarche se voulait doublement bénéfique : réduire les coûts associés à l'hébergement tout en offrant une opportunité concrète d'apprentissage et de développement des compétences en DevOps, Kubernetes et gestion de serveurs.
 
@@ -182,7 +182,7 @@ La gestion du HTTPS et de l'ingress est assurée par Cert-Manager et Contour, fo
 
 ### Thomas
 
-Dans le projet Plateforme Cedille, j'ai pris en charge la configuration d'OpenTelemetry, incluant le collecteur et l'opérateur, enrichissant ainsi ma compréhension de l'observabilité des systèmes. En parallèle, j'ai utilisé mes compétences en Golang pour intégrer des traces dans l'application calidum-rotae, en appliquant les principes du tracing distribué pour optimiser le monitoring et le débogage. J'ai également appris à utiliser Clickhouse pour le stockage et l'analyse des données collectées d'OpenTelemetry, et Grafana pour leur visualisation. Cette combinaison d'OpenTelemetry, Clickhouse et Grafana a créé un écosystème de monitoring complet, me permettant de voir comment ces technologies interagissent et se complètent. 
+Dans le projet Plateforme CEDILLE, j'ai pris en charge la configuration d'OpenTelemetry, incluant le collecteur et l'opérateur, enrichissant ainsi ma compréhension de l'observabilité des systèmes. En parallèle, j'ai utilisé mes compétences en Golang pour intégrer des traces dans l'application calidum-rotae, en appliquant les principes du tracing distribué pour optimiser le monitoring et le débogage. J'ai également appris à utiliser Clickhouse pour le stockage et l'analyse des données collectées d'OpenTelemetry, et Grafana pour leur visualisation. Cette combinaison d'OpenTelemetry, Clickhouse et Grafana a créé un écosystème de monitoring complet, me permettant de voir comment ces technologies interagissent et se complètent. 
 
 ### Jonathan
 

@@ -88,7 +88,7 @@ digest strategy to update the image tags. An example can be found in the
 
 **RBAC Permissions** The RBAC (Role-Based Access Control) configuration in
 ArgoCD allows defining specific security policies for different users and
-groups. In our case, we have defined roles within our Cedille organization that
+groups. In our case, we have defined roles within our organization that
 correspond to the various levels of access needed.
 
 Operators (role:org-operators), who are members of the ClubCedille:SRE group,

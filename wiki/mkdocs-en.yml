@@ -1,4 +1,4 @@
-site_name: 'Wiki Cedille'
+site_name: 'Wiki CEDILLE'
 docs_dir: 'docs/en'
 site_dir: 'site/en'
 repo_url: https://github.com/ClubCedille/Plateforme-Cedille
@@ -56,7 +56,7 @@ extra_css:
 
 nav:
   - Home: index.md
-  - Cedille Platform:
+  - CEDILLE Platform:
     - 'Introduction': plateforme-cedille/index.md
     - 'Vision Document': plateforme-cedille/vision.md
     - 'Kubernetes Cluster': plateforme-cedille/cluster-kubernetes.md
