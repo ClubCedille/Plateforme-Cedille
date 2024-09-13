@@ -5,7 +5,7 @@ for the Cedille platform.
 
 ## Terraform Cloud
 
-The Cedille platform uses Terraform Cloud for infrastructure management and
+The CEDILLE platform uses Terraform Cloud for infrastructure management and
 resource deployment. The Terraform configuration files are stored in the GitHub
 repository `Plateforme-Cedille` under the `terraform` folder. The Terraform
 configuration files are organized into modules to manage different aspects of
@@ -16,7 +16,7 @@ commit is made to the `master` branch of the `Plateforme-Cedille` repository.
 
 ## ArgoCD
 
-The Cedille platform uses ArgoCD for continuous deployment of Kubernetes
+The CEDILLE platform uses ArgoCD for continuous deployment of Kubernetes
 applications. The ArgoCD configuration files are stored in the GitHub repository
 `Plateforme-Cedille` under the `apps` and `system` folders. The ArgoCD
 configuration files are organized into applications to manage different aspects
@@ -26,15 +26,15 @@ ArgoCD applications with the `Plateforme-Cedille` repository.
 
 ## Add a New Member to the Organization
 
-To add a new member to the Cedille club's GitHub organization, the
+To add a new member to the CEDILLE club's GitHub organization, the
 `add-new-member` workflow is available. This workflow creates a pull request to
-add a new member to the Cedille club's GitHub organization. To execute the
+add a new member to the CEDILLE club's GitHub organization. To execute the
 workflow, simply click on the following link: [Add a New
 Member](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/add-new-member.yml).
 
 ## Request a Kubernetes Sandbox
 
-An automated sandbox environment deployment workflow for Cedille club members is
+An automated sandbox environment deployment workflow for CEDILLE club members is
 available and accessible by executing the GitHub workflow [request a Kubernetes
 sandbox](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/request-sandbox.yml).
 The workflow creates a pull request to deploy a sandbox environment with
@@ -44,7 +44,7 @@ the sandbox environment are available in the generated pull request.
 ## Apply Omni Config Files
 
 The `apply-omni` workflow is used to apply the omni configuration files in the
-Cedille platform's Kubernetes cluster. The workflow runs automatically when a
+CEDILLE platform's Kubernetes cluster. The workflow runs automatically when a
 commit is made to the `master` branch of the `Plateforme-Cedille` repository.
 
 ## Request a GRAV Website

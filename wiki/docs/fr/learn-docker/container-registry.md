@@ -116,7 +116,7 @@ Si vous avez créé une image Docker personnalisée que vous souhaitez partager 
 
 ### Registre de Conteneurs GitHub
 
-   [Le Registre de Conteneurs GitHub](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) est une autre option populaire pour stocker et gérer des images de conteneurs que Club Cedille utilise souvent. Il est étroitement intégré à GitHub, ce qui en fait un choix pratique pour les développeurs qui utilisent déjà GitHub pour la gestion de leur code source. Voici quelques fonctionnalités clés :
+   [Le Registre de Conteneurs GitHub](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) est une autre option populaire pour stocker et gérer des images de conteneurs que Club CEDILLE utilise souvent. Il est étroitement intégré à GitHub, ce qui en fait un choix pratique pour les développeurs qui utilisent déjà GitHub pour la gestion de leur code source. Voici quelques fonctionnalités clés :
 
 **1. Intégration avec les Repositories GitHub :**
 

@@ -222,5 +222,5 @@ To stop and remove containers created by `docker-compose up`, use the following 
 
 Docker Compose simplifies the process of managing multi-container Docker applications by allowing you to define and run them.
 
-If your'e interested you could also check out the one of the [Cedille Club's GitHub Actions workflow configuration file](https://github.com/ClubCedille/point-virgule/blob/master/.github/workflows/main.yml). GitHub Actions is a CI/CD service provided by GitHub, allowing you to automate the build, test, and deployment of your code.
+If your'e interested you could also check out the one of the [CEDILLE Club's GitHub Actions workflow configuration file](https://github.com/ClubCedille/point-virgule/blob/master/.github/workflows/main.yml). GitHub Actions is a CI/CD service provided by GitHub, allowing you to automate the build, test, and deployment of your code.
 

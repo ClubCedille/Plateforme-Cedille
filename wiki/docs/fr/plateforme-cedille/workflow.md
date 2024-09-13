@@ -17,7 +17,7 @@ effectué sur la branche `master` du dépôt `Plateforme-Cedille`.
 
 ## ArgoCD
 
-La plateforme Cedille utilise ArgoCD pour le déploiement continu des
+La plateforme CEDILLE utilise ArgoCD pour le déploiement continu des
 applications Kubernetes. Les fichiers de configuration ArgoCD sont stockés dans
 le dépôt GitHub `Plateforme-Cedille` sous le dossier `apps` et system. Les
 fichiers de configuration ArgoCD sont organisés en applications pour gérer

@@ -30,6 +30,6 @@ expérience de développement et de déploiement éducative et enrichissante.
   suivi de notre projet pour le cours LOG791 dans lequel nous avons entamé le
   développement de la plateforme CEDILLE è l'automne 2023.
 - [Plateforme CEDILLE](plateforme-cedille/index.md) : Cette section contient
-  des informations sur la plateforme Cedille, y compris la vision du projet,
+  des informations sur la plateforme CEDILLE, y compris la vision du projet,
   l'architecture technique, les services offerts et les meilleures pratiques
   pour son utilisation.

@@ -14,8 +14,8 @@ Date: 8 novembre 2023
 | [Creation de la structure Kustomize](https://github.com/ClubCedille/Plateforme-Cedille/issues/25)                                                  | Michael                         |
 | [Configurer ArgoCD sur le cluster](https://github.com/ClubCedille/Plateforme-Cedille/issues/5)                                                     | Henri, Antoine, Simon, Jonathan |
 | [Configuration de Contour (reverse-proxy/ingress)](https://github.com/ClubCedille/Plateforme-Cedille/issues/11)                                    | Jonathan                        |
-| [Gabarit de pull request (PR) pour le repo Plateforme Cedille](https://github.com/orgs/ClubCedille/projects/3/views/5?pane=issue&itemId=41043072)  | Henri                           |
-| [Gabarit de issues pour le repo Plateforme Cedille](https://github.com/orgs/ClubCedille/projects/3/views/5?pane=issue&itemId=41043078)             | Henri                           |
+| [Gabarit de pull request (PR) pour le repo Plateforme CEDILLE](https://github.com/orgs/ClubCedille/projects/3/views/5?pane=issue&itemId=41043072)  | Henri                           |
+| [Gabarit de issues pour le repo Plateforme CEDILLE](https://github.com/orgs/ClubCedille/projects/3/views/5?pane=issue&itemId=41043078)             | Henri                           |
 | [Deployer/Configurer Kuma + Merbridge (service-mesh)](https://github.com/ClubCedille/Plateforme-Cedille/issues/20)                                 | Thomas                          |
 | [Configurer/Deployer grafana](https://github.com/ClubCedille/Plateforme-Cedille/issues/21)                                                         | Thomas                          |
 | [Configurer et deployer Gateway API](https://github.com/ClubCedille/Plateforme-Cedille/issues/27)                                                  | Thomas                          |
