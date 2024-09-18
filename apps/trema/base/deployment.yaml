@@ -107,6 +107,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: trema-mongo-pvc
 spec:
+  storageClassName: local-hostpath
   accessModes:
     - "ReadWriteOnce"
   resources:
