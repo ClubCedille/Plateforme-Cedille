@@ -84,6 +84,11 @@ server:
   # See https://www.vaultproject.io/docs/audit/index.html to know more
   auditStorage:
     enabled: true
+    storageClass: local-hostpath
+
+  dataStorage:
+    enabled: true
+    storageClass: local-hostpath
 
   standalone:
     enabled: false
