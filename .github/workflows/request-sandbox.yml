@@ -15,7 +15,7 @@ jobs:
       - name: Set login name to lowercase
         run: |
           USERNAME=$(echo "${{ github.event.sender.login }}" | tr '[:upper:]' '[:lower:]') 
-          echo $USERNAME >> $GITHUB_ENV
+          echo USERNAME=$USERNAME >> $GITHUB_ENV
       - name: Add user to sandbox list
         run: |
           yq eval '. += [{"user": "${{ env.USERNAME }}", "email": "${{github.event.inputs.email}}"}]' system/sandboxes/sandbox-list.yaml -i
