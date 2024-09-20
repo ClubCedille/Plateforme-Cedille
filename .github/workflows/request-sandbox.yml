@@ -14,7 +14,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Set login name to lowercase
         run: |
-          echo "USERNAME="${{ github.event.sender.login }}" | tr '[:upper:]' '[:lower:]')'" >> $GITHUB_OUTPUT
+          USERNAME=$(${{ github.event.sender.login }} | tr '[:upper:]' '[:lower:]') 
+          echo $USERNAME >> $GITHUB_OUTPUT
         id: username
       - name: Add user to sandbox list
         run: |
