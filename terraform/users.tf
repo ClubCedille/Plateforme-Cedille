@@ -76,6 +76,21 @@ module "RussellJimmies" {
 }
 
 
+module "alexvegas22" {
+  source          = "./modules/user"
+  github_email    = "alexrbvegas@gmail.com"
+  github_username = "alexvegas22"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" }, 
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Operator"
+  cluster_repo = var.platform_repo
+  netdata_role = "observer"
+}
+
+
 module "JulienGiguere" {
   source          = "./modules/user"
   github_email    = "juliengiguere887@gmail.com"
