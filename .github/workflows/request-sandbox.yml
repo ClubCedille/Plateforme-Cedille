@@ -25,5 +25,5 @@ jobs:
             to your sandbox by following these steps:
             1. Go to https://cedille.omni.siderolabs.io/cluster/cedille-cluster/overview, click "Download kubeconfig" and put that file as ~/.kube/config
             2. Install vcluster on your computer: https://www.vcluster.com/docs/getting-started/setup
-            3. run `vcluster connect vcluster-sandbox -n ${{github.event.sender.login}}-vcluster-sandbox`
+            3. run `vcluster connect vcluster-sandbox -n sandbox-"${{ github.event.sender.login }}" | tr '[:upper:]' '[:lower:]')"`
             4. Start using kubectl to play around!
