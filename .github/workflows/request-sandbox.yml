@@ -12,18 +12,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Set login name to lowercase
+        run: |
+          echo "USERNAME="${{ github.event.sender.login }}" | tr '[:upper:]' '[:lower:]')'" >> $GITHUB_OUTPUT
+        id: username
       - name: Add user to sandbox list
         run: |
-          yq eval '. += [{"user": "'$(echo "${{ github.event.sender.login }}" | tr '[:upper:]' '[:lower:]')'", "email": "${{github.event.inputs.email}}"}]' system/sandboxes/sandbox-list.yaml -i
+          yq eval '. += [{"user": "${{ steps.username.outputs.USERNAME }}", "email": "${{github.event.inputs.email}}"}]' system/sandboxes/sandbox-list.yaml -i
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
           title: Create sandbox for ${{github.event.sender.login}}
-          branch: sandbox/${{github.event.sender.login}}
+          branch: sandbox/${{ steps.username.outputs.USERNAME }}
           body: |
             @${{github.event.sender.login}}. Once this PR is merged, you will be able to login
             to your sandbox by following these steps:
             1. Go to https://cedille.omni.siderolabs.io/cluster/cedille-cluster/overview, click "Download kubeconfig" and put that file as ~/.kube/config
             2. Install vcluster on your computer: https://www.vcluster.com/docs/getting-started/setup
-            3. run `vcluster connect vcluster-sandbox -n sandbox-"${{ github.event.sender.login }}" | tr '[:upper:]' '[:lower:]')"`
+            3. run `vcluster connect vcluster-sandbox -n sandbox-${{ steps.username.outputs.USERNAME }}`
             4. Start using kubectl to play around!
