@@ -14,10 +14,6 @@ on:
         description: 'Add to SRE team?'
         required: false
         type: boolean
-      team_webmasters:
-        description: 'Add to Webmasters team?'
-        required: false
-        type: boolean
       cluster_role:
         description: 'Cluster Role'
         required: true
@@ -45,7 +41,6 @@ jobs:
             user=${{ github.event.inputs.github_username }}
             github_email=${{ github.event.inputs.github_email }}
             team_sre=${{ github.event.inputs.team_sre }}
-            team_webmasters=${{ github.event.inputs.team_webmasters }}
             cluster_role=${{ github.event.inputs.cluster_role }}
 
       - name: Append New User Module to users.tf
@@ -65,7 +60,6 @@ jobs:
           body: |
             This PR adds a new user module for ${{ github.event.inputs.github_username }} to `users.tf`. Please review the configuration and merge the PR to apply the changes.
           branch: "add-user-${{ github.event.inputs.github_username }}"
-          delete-branch: true
           team-reviewers: |
             Exec
           token: ${{ secrets.PULL_REQUEST_TOKEN }}

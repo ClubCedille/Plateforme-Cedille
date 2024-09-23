@@ -79,6 +79,8 @@ jobs:
               with:
                 title: Create a GRAV website for ${{inputs.nom_club}}
                 branch: grav/${{inputs.nom_club}}
+                team-reviewers: |
+                  SRE
                 body: |
                     Nom du club: ${{inputs.nom_club}}
                     Domaine: ${{inputs.domaine}}
@@ -86,3 +88,4 @@ jobs:
                     Mot de passe par defaut: 
                     > `kubectl port-forward -n vault svc/vault-ui 8200`
                     > https://localhost:8200/ui/vault/secrets/kv/show/${{inputs.nom_club}}-grav/default/grav/${{inputs.nom_club}}-grav-init-pwd
+                token: ${{ secrets.PULL_REQUEST_TOKEN }}
