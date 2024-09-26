@@ -78,9 +78,9 @@ spec:
           imagePullPolicy: Always
           resources: {}
           env:
-            - name: MONGO_USER
+            - name: MONGO_INITDB_ROOT_USERNAME
               value: "trema"
-            - name: MONGO_PASSWORD
+            - name: MONGO_INITDB_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: trema-env-secret
