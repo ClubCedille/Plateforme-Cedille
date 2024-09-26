@@ -100,12 +100,12 @@ spec:
       volumes:
         - name: storage
           persistentVolumeClaim:
-            claimName: trema-mongo-pvc
+            claimName: mongo-pvc
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: trema-mongo-pvc
+  name: mongo-pvc
 spec:
   storageClassName: local-hostpath
   accessModes:
