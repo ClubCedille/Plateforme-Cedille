@@ -74,7 +74,7 @@ spec:
     spec:
       containers:
         - name: mongo
-          image: mongo:6
+          image: mongo:8.0.0
           imagePullPolicy: Always
           resources: {}
           env:
