@@ -112,7 +112,7 @@ module "Oxsw1ng" {
   github_username = "Oxsw1ng"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, ,
+    { teamName = "members", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
