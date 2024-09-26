@@ -119,3 +119,18 @@ module "Oxsw1ng" {
   cluster_repo = var.platform_repo
   netdata_role = "observer"
 }
+
+
+module "AlexanderPan96" {
+  source          = "./modules/user"
+  github_email    = "alexander.pan.1@ens.etsmtl.ca"
+  github_username = "AlexanderPan96"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" }, 
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Operator"
+  cluster_repo = var.platform_repo
+  netdata_role = "observer"
+}
