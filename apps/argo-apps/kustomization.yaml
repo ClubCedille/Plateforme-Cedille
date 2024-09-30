@@ -5,6 +5,9 @@ kind: Kustomization
   # - ../../system/vcluster/
   #- ../../system/pixie/
   # Workload
+# - ../ets-demo/grav/
+# - ../raconteurs/grav/
+# - ../hackqc2024/
 resources:
 - ../../system/netdata/
 - ../../system/crossplane/
@@ -25,13 +28,11 @@ resources:
 - ../calidum-rotae/
 - ../trema/
 - ../acets/grav/
-# - ../ets-demo/grav/
-# - ../raconteurs/grav/
-# - ../hackqc2024/
 - ../integrale/website/
 - ../applets/hello/
 - ../cedille-wiki/
 - ../dronolab/wikijs/
+- ../etienne/grav/
   # ... other apps ...
 
   # This patch will set the destination cluster for Applications
