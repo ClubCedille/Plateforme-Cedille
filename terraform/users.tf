@@ -134,3 +134,18 @@ module "AlexanderPan96" {
   cluster_repo = var.platform_repo
   netdata_role = "observer"
 }
+
+
+module "etienneoh" {
+  source          = "./modules/user"
+  github_email    = "etienneoh@hotmail.ca"
+  github_username = "etienneoh"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" }, 
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Operator"
+  cluster_repo = var.platform_repo
+  netdata_role = "observer"
+}
