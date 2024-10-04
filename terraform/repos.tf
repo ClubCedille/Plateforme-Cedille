@@ -22,12 +22,20 @@ resource "github_repository" "k8s_nonprod" {
     visibility = "public"
 }
 
+resource "github_repository" "k8s_nonprod" {
+    name        = "k8s-nextcloud"
+    description = "Clusters kubernetes pour les deploiements de non-production"
+    visibility = "public"
+}
+
 resource "github_repository_collaborators" "k8s_base" {
   for_each = toset([
     github_repository.k8s_base.name, 
     github_repository.k8s_mgmt.name, 
     github_repository.k8s_prod.name, 
-    github_repository.k8s_nonprod.name])
+    github_repository.k8s_nonprod.name,
+    github_repository.k8s_nextcloud.name
+    ])
 
   repository = each.key
 
