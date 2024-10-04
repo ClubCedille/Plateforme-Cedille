@@ -22,7 +22,7 @@ resource "github_repository" "k8s_nonprod" {
     visibility = "public"
 }
 
-resource "github_repository" "k8s_nonprod" {
+resource "github_repository" "k8s_nextcloud" {
     name        = "k8s-nextcloud"
     description = "Clusters kubernetes pour les deploiements de non-production"
     visibility = "public"
