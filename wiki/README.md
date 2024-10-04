@@ -11,16 +11,29 @@ This folder contains the source code for the CEDILLE Club's wiki, hosted at
 - [MkDocs](https://www.mkdocs.org/)
 - [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
 
-### Installation
+Optionally, you can use [Docker](https://docs.docker.com/get-started/) to build and run the wiki.
+
+### Usage
 
 1. Clone this repository.
-2. Install the required dependencies with `pip install mkdocs-material` or
-   `docker pull squidfunk/mkdocs-material` if you prefer to use Docker.
-3. Run `mkdocs build -f .\mkdocs-en.yml` to build the site or `docker run --rm -it -v ${PWD}:/docs
-   squidfunk/mkdocs-material build -f mkdocs-en.yml` if you prefer to use Docker.
-4. Run `mkdocs serve -f .\mkdocs-en.yml` to start the live-reloading development server or `docker
-   run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material serve -f mkdocs-en.yml` if you
-   prefer to use Docker.
+2. Install the required dependencies with `pip install mkdocs-material`
+3. Run `mkdocs build -f .\mkdocs-en.yml` to build the site.
+4. Run `mkdocs serve -f .\mkdocs-en.yml` to start the live-reloading development server.
+
+#### Docker
+
+To make your life easier, and test both the English and French versions of the
+wiki, you can use the provided Dockerfile. Simply build the image with
+
+```sh
+docker build --build-arg WIKI_DIR="./" -t cedille-wiki .
+```
+
+and run the container with
+
+```sh
+docker run -p 8080:8080 -v $(pwd):/docs cedille-wiki
+```
 
 ### Folder structure
 

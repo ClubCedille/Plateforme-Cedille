@@ -26,9 +26,9 @@ expérience de développement et de déploiement éducative et enrichissante.
 
 ## Table des matières
 
-- [Gestion du projet - LOG791](log791/index.md) : Cette section contient le
-  suivi de notre projet pour le cours LOG791 dans lequel nous avons entamé le
-  développement de la plateforme CEDILLE è l'automne 2023.
+- [Intégration](onboarding/index.md) : Cette section contient des informations
+  pour les nouveaux membres du Club CEDILLE, y compris comment commencer, comment
+  contribuer et, éventuellement, comment utiliser la plateforme CEDILLE.
 - [Plateforme CEDILLE](plateforme-cedille/index.md) : Cette section contient
   des informations sur la plateforme CEDILLE, y compris la vision du projet,
   l'architecture technique, les services offerts et les meilleures pratiques

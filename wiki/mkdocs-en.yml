@@ -56,6 +56,26 @@ extra_css:
 
 nav:
   - Home: index.md
+  - Onboarding:
+    - 'Introduction': onboarding/index.md
+    - Hands-on labs: 
+      - 'Introduction': onboarding/hands-on-labs/index.md
+      - 'How to use Git': onboarding/hands-on-labs/git.md
+      - Learn Docker:
+        - 'Introduction': onboarding/hands-on-labs/learn-docker/index.md
+        - 'Installation': onboarding/hands-on-labs/learn-docker/installation.md
+        - 'The Essentials': onboarding/hands-on-labs/learn-docker/essentials.md
+        - Guided Exercises:
+          - 'Run Your First Docker Container': onboarding/hands-on-labs/learn-docker/first-container.md
+          - 'Multi-Container': onboarding/hands-on-labs/learn-docker/docker-compose.md
+          - 'Containerize Your Applications': onboarding/hands-on-labs/learn-docker/containerize.md
+          - 'Persist Your Data Between Containers': onboarding/hands-on-labs/learn-docker/persist-data.md
+          - 'Access Your Local Folder From a Container': onboarding/hands-on-labs/learn-docker/bind-mounts.md
+          - 'Docker Hub & Container Registry': onboarding/hands-on-labs/learn-docker/container-registry.md
+      - 'Web Development': onboarding/hands-on-labs/web-development.md
+      - 'App Development': onboarding/hands-on-labs/app-development.md
+      - 'DevOps': onboarding/hands-on-labs/devops.md
+      - 'SRE': onboarding/hands-on-labs/sre.md
   - CEDILLE Platform:
     - 'Introduction': plateforme-cedille/index.md
     - 'Vision Document': plateforme-cedille/vision.md
@@ -69,26 +89,13 @@ nav:
     - Contribution Guide: plateforme-cedille/contribution-guidelines.md
     - Getting Started: plateforme-cedille/getting-started.md
     - SRE: plateforme-cedille/sre.md
-  - Project - LOG791:
-    - 'Introduction': log791/index.md
-    - 'Project Report': log791/rapport.md
-    - Retrospectives:
-      - 'Retrospective 1': log791/retrospective-1.md
-      - 'Retrospective 2': log791/retrospective-2.md
-      - 'Retrospective 3': log791/retrospective-3.md
-  - Learn Docker:
-    - 'Introduction': learn-docker/index.md
-    - 'Installation': learn-docker/installation.md
-    - 'The Essentials': learn-docker/essentials.md
-
-    - Guided Exercises:
-      - 'Run Your First Docker Container': learn-docker/first-container.md
-      - 'Multi-Container': learn-docker/docker-compose.md
-      - 'Containerize Your Applications': learn-docker/containerize.md
-      - 'Persist Your Data Between Containers': learn-docker/persist-data.md
-      - 'Access Your Local Folder From a Container': learn-docker/bind-mounts.md
-      - 'Docker Hub & Container Registry': learn-docker/container-registry.md
-
+    - Project - LOG791:
+      - 'Introduction': plateforme-cedille/log791/index.md
+      - 'Project Report': plateforme-cedille/log791/rapport.md
+      - Retrospectives:
+        - 'Retrospective 1': plateforme-cedille/log791/retrospective-1.md
+        - 'Retrospective 2': plateforme-cedille/log791/retrospective-2.md
+        - 'Retrospective 3': plateforme-cedille/log791/retrospective-3.md
 
 markdown_extensions:
   - pymdownx.snippets:
