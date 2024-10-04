@@ -1,7 +1,8 @@
 # Gestion du projet - LOG791
 
 Ce document contient des informations sur la gestion du projet pour le cours
-LOG791. Vous y trouverez nottament des informations sur les sprints, les
+LOG791. Le projet consistait à développer la plateforme CEDILLE à l'automne
+2023. Vous y trouverez nottament des informations sur les sprints, les
 rétrospectives et notre rapport final.
 
 ## Déroulement du projet
@@ -26,14 +27,11 @@ et les leçons apprises à la fin de chaque sprint. Cela nous permet d'améliore
 continuellement nos méthodes de travail et d'ajuster nos approches en fonction
 des besoins de l'équipe et du projet.
 
-1. [Rétrospective du Sprint 1](retrospective-1.md) - 11
-   octobre 2023
-2. [Rétrospective du Sprint 2](retrospective-2.md) - 8
-   novembre 2023
-3. [Rétrospective du Sprint 3](retrospective-3.md) - 6
-   Décembre 2023
+1. [Rétrospective du Sprint 1](retrospective-1.md) - 11 octobre 2023
+2. [Rétrospective du Sprint 2](retrospective-2.md) - 8 novembre 2023
+3. [Rétrospective du Sprint 3](retrospective-3.md) - 6 Décembre 2023
 
 ## Rapport final
 
-[Le rapport final](rapport.md) est une synthèse
-de notre projet dans le cadre du cours LOG791.
+[Le rapport final](rapport.md) est une synthèse de notre projet dans le cadre du
+cours LOG791.

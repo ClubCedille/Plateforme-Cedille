@@ -2,7 +2,9 @@ FROM python:3.9-slim AS builder
 
 WORKDIR /app
 
-COPY wiki/ .
+ARG WIKI_DIR="wiki/"
+
+COPY ${WIKI_DIR} .
 
 RUN pip install mkdocs mkdocs-material pymdown-extensions
 
@@ -20,6 +22,6 @@ COPY --from=builder /app/docs/assets/* /usr/share/nginx/html/assets/
 COPY --from=builder /app/docs/stylesheets/* /usr/share/nginx/html/en/stylesheets/
 COPY --from=builder /app/docs/stylesheets/* /usr/share/nginx/html/stylesheets/
 
-COPY wiki/nginx.conf /etc/nginx/nginx.conf
+COPY --from=builder /app/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 8080

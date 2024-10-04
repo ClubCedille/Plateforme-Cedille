@@ -1,7 +1,8 @@
 # Project Management - LOG791
 
 This document contains information on project management for the LOG791 course.
-You will find information on sprints, retrospectives, and our final report.
+The project was about developing the CEDILLE platform in the fall of 2023. You
+will find information on sprints, retrospectives, and our final report.
 
 ## Project Progression
 
