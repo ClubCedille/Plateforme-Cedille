@@ -4,7 +4,7 @@ resource "github_repository" "k8s_base" {
   visibility = "public"
 }
 
-resource "github_reposiory" "k8s_mgmt" {
+resource "github_repository" "k8s_mgmt" {
     name        = "k8s-mgmt"
     description = "Clusters kubernetes pour les outils de management"
     visibility = "public"
@@ -28,7 +28,7 @@ resource "github_repository_collaborators" "k8s_base" {
     github_repository.k8s_mgmt.name, 
     github_repository.k8s_prod.name, 
     github_repository.k8s_nonprod.name])
-    
+
   repository = each.key
 
   team {
