@@ -1,10 +1,10 @@
 locals {
   clusters_repos = [
-    "k8s-common",
-    "k8s-mgmt",
-    "k8s-prod",
-    "k8s-nonprod",
-    "k8s-nextcloud"
+    "common",
+    "mgmt",
+    "prod",
+    "nonprod",
+    "nextcloud"
   ]
 }
 
@@ -13,14 +13,17 @@ resource "github_repository" "k8s_repos" {
     name        = "k8s-${each.key}"
     description = "Cluster Kubernetes: ${each.key}"
     visibility = "public"
-    auto_init = true
+    template {
+      owner = "ClubCedille"
+      repository = "k8s-template"
+    }
 }
 
 resource "github_repository_collaborators" "k8s_base" {
   depends_on = [ github_repository.k8s_repos ]
   for_each = toset(local.clusters_repos)
 
-  repository = each.key
+  repository = "k8s-${each.key}"
 
   team {
     permission = "admin"
@@ -40,9 +43,10 @@ resource "github_repository_collaborators" "k8s_base" {
 }
 
 resource "github_branch_protection" "repos_protection" {
+  depends_on = [ github_repository.k8s_repos ]
   for_each = toset(local.clusters_repos)
 
-  repository_id = each.key
+  repository_id = "k8s-${each.key}"
 
   pattern          = "main"
   enforce_admins   = false
@@ -59,7 +63,7 @@ resource "github_branch_protection" "repos_protection" {
   required_status_checks {
     strict = true
     contexts = [ 
-      "Terraform Cloud/cedille/${each.key}", 
+      "Terraform Cloud/cedille/k8s-${each.key}", 
       "ci/kubernetes-repo-standard/kubescore-check/kube-score",
       "ci/kubernetes-repo-standard/yaml-check/yaml-lint-check",
       "ci/kubernetes-repo-standard/terraform-check/terraform-lint",
@@ -68,12 +72,13 @@ resource "github_branch_protection" "repos_protection" {
 }
 
 resource "tfe_workspace" "workspaces" {
+  depends_on = [ github_repository.k8s_repos ]
   for_each = toset(local.clusters_repos)
-  name                 = each.key
+  name                 = "k8s-${each.key}"
   queue_all_runs       = false
   vcs_repo {
     branch             = "main"
-    identifier         = "ClubCedille/${each.key}"
+    identifier         = "ClubCedille/k8s-${each.key}"
     github_app_installation_id = var.tfe_gh_app_id
   }
 }
