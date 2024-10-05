@@ -52,3 +52,12 @@ variable "netdata_token" {
   type = string
   sensitive = true
 }
+
+variable "tfe_gh_app_id" {
+  type = string
+}
+
+variable "tfe_token" {
+  type = string
+  sensitive = true
+}
