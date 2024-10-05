@@ -40,6 +40,7 @@ resource "github_repository_collaborators" "k8s_base" {
 }
 
 resource "github_branch_protection" "repos_protection" {
+  depends_on = [ github_repository.k8s_repos ]
   for_each = toset(local.clusters_repos)
 
   repository_id = each.key
@@ -68,6 +69,7 @@ resource "github_branch_protection" "repos_protection" {
 }
 
 resource "tfe_workspace" "workspaces" {
+  depends_on = [ github_repository.k8s_repos ]
   for_each = toset(local.clusters_repos)
   name                 = each.key
   queue_all_runs       = false
