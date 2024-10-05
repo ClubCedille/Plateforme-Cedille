@@ -58,5 +58,6 @@ variable "tfe_gh_app_id" {
 }
 
 variable "tfe_token" {
-  
+  type = string
+  sensitive = true
 }
