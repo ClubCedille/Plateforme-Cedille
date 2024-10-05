@@ -57,7 +57,7 @@ variable "tfe_gh_app_id" {
   type = string
 }
 
-variable "tfe_token" {
+variable "gh_app_installation_id" {
   type = string
   sensitive = true
 }

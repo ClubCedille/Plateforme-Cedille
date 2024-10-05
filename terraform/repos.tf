@@ -36,7 +36,7 @@ resource "github_repository_collaborators" "k8s_base" {
   }
 
   team {
-    permission = "write"
+    permission = "push"
     team_id = "members"
   }
   
@@ -79,6 +79,6 @@ resource "tfe_workspace" "workspaces" {
   vcs_repo {
     branch             = "main"
     identifier         = "ClubCedille/k8s-${each.key}"
-    github_app_installation_id = var.tfe_gh_app_id
+    oauth_token_id = var.tfe_gh_app_idoauth_token_id
   }
 }
