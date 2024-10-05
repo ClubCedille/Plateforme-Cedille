@@ -13,7 +13,10 @@ resource "github_repository" "k8s_repos" {
     name        = "k8s-${each.key}"
     description = "Cluster Kubernetes: ${each.key}"
     visibility = "public"
-    auto_init = true
+    template {
+      owner = "ClubCedille"
+      repository = "k8s-template"
+    }
 }
 
 resource "github_repository_collaborators" "k8s_base" {
