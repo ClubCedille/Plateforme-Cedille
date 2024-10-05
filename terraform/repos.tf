@@ -105,14 +105,6 @@ resource "github_branch_protection" "repos_protection" {
   }
 }
 
-resource "tfe_oauth_client" "test" {
-  organization     = tfe_organization.test-organization
-  api_url          = "https://api.github.com"
-  http_url         = "https://github.com"
-  oauth_token      = "oauth_token_id"
-  service_provider = "github"
-}
-
 resource "tfe_workspace" "workspaces" {
   for_each = toset(local.clusters_repos)
   name                 = each.key.name
