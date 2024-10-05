@@ -1,61 +1,23 @@
 locals {
   clusters_repos = [
-    github_repository.k8s_common.name,
-    github_repository.k8s_mgmt.name,
-    github_repository.k8s_prod.name,
-    github_repository.k8s_nonprod.name,
-    github_repository.k8s_nextcloud.name
+    "k8s-common",
+    "k8s-mgmt",
+    "k8s-prod",
+    "k8s-nonprod",
+    "k8s-nextcloud"
   ]
 }
 
-resource "github_repository" "k8s_common" {
-    name        = "k8s-common"
-    description = "Base pour nos cluster kubernetes"
+resource "github_repository" "k8s_repos" {
+    for_each = toset(local.clusters_repos)
+    name        = "k8s-${each.key}"
+    description = "Cluster Kubernetes: ${each.key}"
     visibility = "public"
     auto_init = true
 }
 
-resource "github_repository" "k8s_mgmt" {
-    name        = "k8s-mgmt"
-    description = "Clusters kubernetes pour les outils de management"
-    visibility = "public"
-    template {
-      owner = "Cedille"
-      repository = "k8s-common"
-    }
-}
-
-resource "github_repository" "k8s_prod" {
-    name        = "k8s-prod"
-    description = "Clusters kubernetes pour les deploiements de production"
-    visibility = "public"
-    template {
-      owner = "Cedille"
-      repository = "k8s-common"
-    }
-}
-
-resource "github_repository" "k8s_nonprod" {
-    name        = "k8s-nonprod"
-    description = "Clusters kubernetes pour les deploiements de non-production"
-    visibility = "public"
-    template {
-      owner = "Cedille"
-      repository = "k8s-common"
-    }
-}
-
-resource "github_repository" "k8s_nextcloud" {
-    name        = "k8s-nextcloud"
-    description = "Clusters kubernetes pour les deploiements de non-production"
-    visibility = "public"
-    template {
-      owner = "Cedille"
-      repository = "k8s-common"
-    }
-}
-
 resource "github_repository_collaborators" "k8s_base" {
+  depends_on = [ github_repository.k8s_repos ]
   for_each = toset(local.clusters_repos)
 
   repository = each.key
