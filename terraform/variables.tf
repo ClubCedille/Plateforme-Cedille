@@ -53,11 +53,11 @@ variable "netdata_token" {
   sensitive = true
 }
 
-variable "tfe_gh_app_id" {
+variable "tfe_gh_oauth_token_id" {
   type = string
 }
 
-variable "gh_app_installation_id" {
+variable "tfe_token" {
   type = string
   sensitive = true
 }
