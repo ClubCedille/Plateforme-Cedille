@@ -77,7 +77,6 @@ resource "github_repository_collaborators" "k8s_base" {
   
 }
 
-
 resource "github_branch_protection" "repos_protection" {
   for_each = toset(local.clusters_repos)
 
@@ -95,4 +94,32 @@ resource "github_branch_protection" "repos_protection" {
     required_approving_review_count = 1
   }
 
+  required_status_checks {
+    strict = true
+    contexts = [ 
+      "Terraform Cloud/cedille/${each.key.name}", 
+      "ci/kubernetes-repo-standard/kubescore-check/kube-score",
+      "ci/kubernetes-repo-standard/yaml-check/yaml-lint-check",
+      "ci/kubernetes-repo-standard/terraform-check/terraform-lint",
+    ]
+  }
+}
+
+resource "tfe_oauth_client" "test" {
+  organization     = tfe_organization.test-organization
+  api_url          = "https://api.github.com"
+  http_url         = "https://github.com"
+  oauth_token      = "oauth_token_id"
+  service_provider = "github"
+}
+
+resource "tfe_workspace" "workspaces" {
+  for_each = toset(local.clusters_repos)
+  name                 = each.key.name
+  queue_all_runs       = false
+  vcs_repo {
+    branch             = "main"
+    identifier         = "ClubCedille/${each.key.name}"
+    github_app_installation_id = var.tfe_gh_app_id
+  }
 }

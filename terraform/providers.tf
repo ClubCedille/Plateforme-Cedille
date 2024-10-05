@@ -18,6 +18,9 @@ terraform {
       source = "netdata/netdata"
       version = "0.2.0"
     }
+    tfe = {
+      version = "~> 0.57.0"
+    }
   }
 
   cloud {
@@ -51,4 +54,9 @@ provider "github" {
 provider "netdata" {
   url        = "https://app.netdata.cloud"
   auth_token = var.netdata_token
+}
+
+provider "tfe" {
+  organization = "cedille"
+  token = var.tfe_token
 }
