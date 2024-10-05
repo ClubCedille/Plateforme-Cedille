@@ -1,10 +1,10 @@
 locals {
   clusters_repos = [
-    github_repository.k8s_common,
-    github_repository.k8s_mgmt,
-    github_repository.k8s_prod,
-    github_repository.k8s_nonprod,
-    github_repository.k8s_nextcloud
+    github_repository.k8s_common.name,
+    github_repository.k8s_mgmt.name,
+    github_repository.k8s_prod.name,
+    github_repository.k8s_nonprod.name,
+    github_repository.k8s_nextcloud.name
   ]
 }
 
@@ -58,7 +58,7 @@ resource "github_repository" "k8s_nextcloud" {
 resource "github_repository_collaborators" "k8s_base" {
   for_each = toset(local.clusters_repos)
 
-  repository = each.key.name
+  repository = each.key
 
   team {
     permission = "admin"
@@ -80,7 +80,7 @@ resource "github_repository_collaborators" "k8s_base" {
 resource "github_branch_protection" "repos_protection" {
   for_each = toset(local.clusters_repos)
 
-  repository_id = each.key.name
+  repository_id = each.key
 
   pattern          = "main"
   enforce_admins   = false
@@ -97,7 +97,7 @@ resource "github_branch_protection" "repos_protection" {
   required_status_checks {
     strict = true
     contexts = [ 
-      "Terraform Cloud/cedille/${each.key.name}", 
+      "Terraform Cloud/cedille/${each.key}", 
       "ci/kubernetes-repo-standard/kubescore-check/kube-score",
       "ci/kubernetes-repo-standard/yaml-check/yaml-lint-check",
       "ci/kubernetes-repo-standard/terraform-check/terraform-lint",
@@ -107,11 +107,11 @@ resource "github_branch_protection" "repos_protection" {
 
 resource "tfe_workspace" "workspaces" {
   for_each = toset(local.clusters_repos)
-  name                 = each.key.name
+  name                 = each.key
   queue_all_runs       = false
   vcs_repo {
     branch             = "main"
-    identifier         = "ClubCedille/${each.key.name}"
+    identifier         = "ClubCedille/${each.key}"
     github_app_installation_id = var.tfe_gh_app_id
   }
 }
