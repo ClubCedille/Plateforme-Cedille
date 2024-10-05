@@ -1,10 +1,11 @@
 locals {
   clusters_repos = [
-    "common",
-    "mgmt",
-    "prod",
-    "nonprod",
-    "nextcloud"
+    "test"
+    # "common",
+    # "mgmt",
+    # "prod",
+    # "nonprod",
+    # "nextcloud"
   ]
 }
 
@@ -77,7 +78,6 @@ resource "tfe_workspace" "workspaces" {
   name                 = "k8s-${each.key}"
   queue_all_runs       = false
   vcs_repo {
-    branch             = "main"
     identifier         = "ClubCedille/k8s-${each.key}"
     oauth_token_id = var.tfe_gh_oauth_token_id
   }
