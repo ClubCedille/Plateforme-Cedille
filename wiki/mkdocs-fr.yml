@@ -75,7 +75,7 @@ nav:
           - 'Accéder à votre dossier local depuis un Conteneur': onboarding/tracks/learn-docker/bind-mounts.md
           - 'Docker Hub & registre de conteneurs': onboarding/tracks/learn-docker/container-registry.md
       - 'Piste - Développement Web': onboarding/tracks/web-development.md
-      - 'Piste - Développement applciatif': onboarding/tracks/app-development.md
+      - 'Piste - Développement applicatif': onboarding/tracks/app-development.md
       - 'Piste - DevOps': onboarding/tracks/devops.md
       - 'Piste - SRE': onboarding/tracks/sre.md
     - Complète l'intégration: onboarding/complete.md
