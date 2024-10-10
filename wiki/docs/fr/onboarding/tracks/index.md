@@ -1,4 +1,4 @@
-# Hands-on Labs
+# Pistes d'intégration
 
 Section pour présenter les labs:
 
