@@ -2,7 +2,8 @@
 
 ## Contexte et objectifs
 
-Pourquoi avons-nous besoin d'une intégration ? Quels sont les objectifs de l'intégration ? Qu'en retirez-vous ?
+Pourquoi avons-nous besoin d'une intégration ? Quels sont les objectifs de
+l'intégration ? Qu'en retirez-vous ?
 
 ## Philosophie de CÉDILLE
 
@@ -12,14 +13,16 @@ Pourquoi avons-nous besoin d'une intégration ? Quels sont les objectifs de l'
 - DevOps
 - IaC
 
-Nous expliquons pourquoi nous accordons de l'importance à ces concepts et comment ils sont intégrés dans notre travail quotidien.
+Nous expliquons pourquoi nous accordons de l'importance à ces concepts et
+comment ils sont intégrés dans notre travail quotidien.
 
 ## Nos standards
 
 - Qualité du code
 - Documentation
 - Communication
-- Workflow Git (titre et description des issues, nommage des branches, message de commit, titre et description des pull requests, etc.)
+- Workflow Git (titre et description des issues, nommage des branches, message
+  de commit, titre et description des pull requests, etc.)
 
 ## Connaissance du domaine
 
@@ -33,16 +36,9 @@ Insérer des liens dans chaque catégorie avec des ressources pertinentes.
 
 ### SRE (Ingénierie de Fiabilité des Sites)
 
-## Laboratoires pratiques
+## Pistes d'intégration
 
-Liens vers des laboratoires pratiques pour mettre en œuvre les concepts présentés dans les sections précédentes.
-
-[hands-on-labs](./hands-on-labs/index.md)
-
-## Première contribution
-
-Nous expliquons comment faire une première contribution au Club CÉDILLE. Lien vers les tableaux de projets sur GitHub.
-
-## Ajoutez-vous à notre site web
-
-Nous expliquons comment vous ajouter au site web du Club CÉDILLE.
+Maintenant que tu as une bonne compréhension de notre philosophie, de nos
+standards et de nos connaissances du domaine, tu peux choisir une piste qui
+correspond à ton profil. Rends-toi à la section suivante pour voir les pistes
+disponibles.

@@ -78,6 +78,7 @@ nav:
       - 'Piste - Développement applciatif': onboarding/tracks/app-development.md
       - 'Piste - DevOps': onboarding/tracks/devops.md
       - 'Piste - SRE': onboarding/tracks/sre.md
+    - Complète l'intégration: onboarding/complete.md
   - Plateforme Cedille:
     - 'Introduction de la plateforme': plateforme-cedille/index.md
     - "Origine : LOG791":
