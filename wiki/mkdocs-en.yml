@@ -78,7 +78,7 @@ nav:
       - 'Track - App Development': onboarding/tracks/app-development.md
       - 'Track - DevOps': onboarding/tracks/devops.md
       - 'Track - SRE': onboarding/tracks/sre.md
-    - Finish the onboarding: onboarding/complete.md
+    - Finish the Onboarding: onboarding/complete.md
   - CEDILLE Platform:
     - 'Introduction to the CEDILLE Platform': plateforme-cedille/index.md
     - "LOG791":
