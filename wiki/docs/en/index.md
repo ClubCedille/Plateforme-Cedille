@@ -20,16 +20,3 @@ for deploying and managing services.
 Our goal is to provide a simple, reliable, and high-performance hosting platform
 for our clients while offering our team members an educational and enriching
 development and deployment experience.
-
-## Table of Contents
-
-- [Onboarding](onboarding/index.md): This section contains information for new
-  members of the CEDILLE Club, including how to get started, how to contribute,
-  and eventually, how to use the CEDILLE platform.
-- [Project Management - LOG791](log791/index.md): This section contains the
-  progress of our project for the LOG791 course in which we started developing
-  the CEDILLE platform in the fall of 2023.
-- [CEDILLE Platform](plateforme-cedille/index.md): This section contains
-  information about the CEDILLE platform, including the project vision,
-  technical architecture, offered services, and best practices for its use.
-

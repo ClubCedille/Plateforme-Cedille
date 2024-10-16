@@ -1,6 +1,4 @@
-# Hands-on Labs
-
-Section pour présenter les labs:
+# Onboarding Tracks
 
 - git
 - docker
