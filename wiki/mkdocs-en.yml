@@ -13,7 +13,7 @@ theme:
       primary: black
       accent: orange
       toggle:
-        icon: material/brightness-4 
+        icon: material/brightness-4
         name: Switch to dark mode
         primary: orange
         accent: orange
@@ -41,7 +41,7 @@ theme:
   icon:
     repo: fontawesome/brands/github
   favicon: assets/favicon.ico
-  
+
 extra:
   homepage: https://wiki.omni.cedille.club/en/
   alternate:
@@ -58,7 +58,7 @@ nav:
   - Home: index.md
   - Onboarding:
     - 'Introduction': onboarding/index.md
-    - Hands-on labs: 
+    - Hands-on labs:
       - 'Introduction': onboarding/hands-on-labs/index.md
       - 'How to use Git': onboarding/hands-on-labs/git.md
       - Learn Docker:
@@ -81,7 +81,7 @@ nav:
     - 'Vision Document': plateforme-cedille/vision.md
     - 'Kubernetes Cluster': plateforme-cedille/cluster-kubernetes.md
     - 'Hardware Components': plateforme-cedille/hardware.md
-    - Applications: 
+    - Applications:
       - 'Index' : 'plateforme-cedille/Applications/index.md'
       - 'Workload Deployment': plateforme-cedille/Applications/deploying-workloads.md
       - 'System App Deployment': plateforme-cedille/Applications/deploying-system-apps.md
@@ -89,6 +89,7 @@ nav:
     - Contribution Guide: plateforme-cedille/contribution-guidelines.md
     - Getting Started: plateforme-cedille/getting-started.md
     - SRE: plateforme-cedille/sre.md
+    - Infrastructure: plateforme-cedille/infra.md
     - Project - LOG791:
       - 'Introduction': plateforme-cedille/log791/index.md
       - 'Project Report': plateforme-cedille/log791/rapport.md

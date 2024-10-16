@@ -13,7 +13,7 @@ theme:
       primary: black
       accent: orange
       toggle:
-        icon: material/brightness-4 
+        icon: material/brightness-4
         name: Switch to dark mode
         primary: orange
         accent: orange
@@ -58,7 +58,7 @@ nav:
   - Accueil: index.md
   - Intégration:
     - 'Introduction': onboarding/index.md
-    - Laboratoires pratiques: 
+    - Laboratoires pratiques:
       - 'Introduction': onboarding/hands-on-labs/index.md
       - 'Comment utiliser Git': onboarding/hands-on-labs/git.md
       - Apprendre Docker:
@@ -81,7 +81,7 @@ nav:
     - 'Document de vision': plateforme-cedille/vision.md
     - 'Cluster kubernetes': plateforme-cedille/cluster-kubernetes.md
     - 'Composants matériels': plateforme-cedille/hardware.md
-    - Applications: 
+    - Applications:
       - 'Index' : 'plateforme-cedille/Applications/index.md'
       - 'Déploiement type workload': plateforme-cedille/Applications/deploying-workloads.md
       - 'Déploiement type système': plateforme-cedille/Applications/deploying-system-apps.md
@@ -89,6 +89,7 @@ nav:
     - Guide de contribution: plateforme-cedille/contribution-guidelines.md
     - Comment commencer: plateforme-cedille/getting-started.md
     - SRE: plateforme-cedille/sre.md
+    - Infrastructure: plateforme-cedille/infra.md
     - Projet - LOG791:
       - 'Introduction': log791/index.md
       - 'Rapport de projet': log791/rapport.md
