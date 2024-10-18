@@ -56,7 +56,7 @@ extra_css:
   - stylesheets/extra.css
 
 nav:
-  - Home: cedille
+  - Home:
     - index.md
   - Onboarding:
     - 'Onboarding intro': onboarding/index.md
