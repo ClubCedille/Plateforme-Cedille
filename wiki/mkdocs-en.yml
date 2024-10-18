@@ -13,7 +13,7 @@ theme:
       primary: black
       accent: orange
       toggle:
-        icon: material/brightness-4 
+        icon: material/brightness-4
         name: Switch to dark mode
         primary: orange
         accent: orange
@@ -42,7 +42,7 @@ theme:
   icon:
     repo: fontawesome/brands/github
   favicon: assets/favicon.ico
-  
+
 extra:
   homepage: https://wiki.omni.cedille.club/en/
   alternate:
@@ -56,7 +56,7 @@ extra_css:
   - stylesheets/extra.css
 
 nav:
-  - Home: 
+  - Home:
     - index.md
   - Onboarding:
     - 'Onboarding intro': onboarding/index.md
@@ -89,6 +89,7 @@ nav:
         - 'Retrospective 2': plateforme-cedille/log791/retrospective-2.md
         - 'Retrospective 3': plateforme-cedille/log791/retrospective-3.md
     - 'Vision Document': plateforme-cedille/vision.md
+    - Infrastructure: plateforme-cedille/infra.md
     - 'Kubernetes Cluster': plateforme-cedille/cluster-kubernetes.md
     - 'Hardware Components': plateforme-cedille/hardware.md
     - Applications: 
@@ -99,7 +100,6 @@ nav:
     - Contribution Guide: plateforme-cedille/contribution-guidelines.md
     - Getting Started: plateforme-cedille/getting-started.md
     - SRE: plateforme-cedille/sre.md
-
 markdown_extensions:
   - pymdownx.snippets:
   - pymdownx.superfences:

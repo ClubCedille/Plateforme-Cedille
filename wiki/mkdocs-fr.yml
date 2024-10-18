@@ -13,7 +13,7 @@ theme:
       primary: black
       accent: orange
       toggle:
-        icon: material/brightness-4 
+        icon: material/brightness-4
         name: Switch to dark mode
         primary: orange
         accent: orange
@@ -89,9 +89,10 @@ nav:
         - 'Retrospection 2': plateforme-cedille/log791/retrospective-2.md
         - 'Retrospection 3': plateforme-cedille/log791/retrospective-3.md
     - 'Document de vision': plateforme-cedille/vision.md
+    - Infrastructure: plateforme-cedille/infra.md
     - 'Cluster kubernetes': plateforme-cedille/cluster-kubernetes.md
     - 'Composants matériels': plateforme-cedille/hardware.md
-    - Applications: 
+    - Applications:
       - 'Index' : 'plateforme-cedille/Applications/index.md'
       - 'Déploiement type workload': plateforme-cedille/Applications/deploying-workloads.md
       - 'Déploiement type système': plateforme-cedille/Applications/deploying-system-apps.md
