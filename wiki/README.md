@@ -17,8 +17,8 @@ Optionally, you can use [Docker](https://docs.docker.com/get-started/) to build 
 
 1. Clone this repository.
 2. Install the required dependencies with `pip install mkdocs-material`
-3. Run `mkdocs build -f .\mkdocs-en.yml` to build the site.
-4. Run `mkdocs serve -f .\mkdocs-en.yml` to start the live-reloading development server.
+3. Run `mkdocs build -f ./mkdocs-en.yml` to build the site.
+4. Run `mkdocs serve -f ./mkdocs-en.yml` to start the live-reloading development server.
 
 #### Docker
 

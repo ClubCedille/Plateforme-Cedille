@@ -23,13 +23,3 @@ de services.
 Notre objectif est de fournir une plateforme d'hébergement simple, fiable et
 performante pour nos clients tout en offrant aux membres de notre équipe une
 expérience de développement et de déploiement éducative et enrichissante.
-
-## Table des matières
-
-- [Intégration](onboarding/index.md) : Cette section contient des informations
-  pour les nouveaux membres du Club CEDILLE, y compris comment commencer, comment
-  contribuer et, éventuellement, comment utiliser la plateforme CEDILLE.
-- [Plateforme CEDILLE](plateforme-cedille/index.md) : Cette section contient
-  des informations sur la plateforme CEDILLE, y compris la vision du projet,
-  l'architecture technique, les services offerts et les meilleures pratiques
-  pour son utilisation.
