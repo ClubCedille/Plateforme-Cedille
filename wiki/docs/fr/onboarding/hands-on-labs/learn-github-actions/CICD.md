@@ -52,6 +52,11 @@ jobs:
 
 La réutilisation des workflows permet de centraliser des parties communes de pipelines dans un fichier réutilisable, ce qui simplifie la gestion des workflows complexes. Vous pouvez appeler un workflow à partir d'un autre workflow pour éviter la duplication de code.
 
+Dans nos projets, nous utilisons un dépôt dédié aux workflows réutilisables. Vous pouvez consulter [**cedille-workflows**](https://github.com/ClubCedille/cedille-workflows), qui contient des exemples de workflows prêts à être réutilisés dans différents projets. Ce dépôt permet de centraliser les définitions de workflows communs, tels que la construction d'images Docker, les déploiements, et la gestion des dépendances.
+
+Voici la section mise à jour avec un exemple illustrant l'utilisation des variables dans un workflow réutilisable :
+
+```markdown
 #### Exemple : Appeler un Workflow Réutilisable
 
 Dans ce cas, nous avons un workflow qui effectue des tests, et un autre qui gère les déploiements. Ces workflows sont réutilisés à partir d'un fichier central.
@@ -102,9 +107,83 @@ jobs:
         run: ./deploy.sh
 ```
 
+#### Exemple : Workflow Réutilisable avec des Variables
+
+Vous pouvez également définir des **variables d'entrée** dans un workflow réutilisable pour plus de flexibilité. Voici un exemple qui construit et pousse une image Docker vers le GitHub Container Registry (GHCR) en utilisant des variables d'entrée :
+
+```yaml
+# .github/workflows/build-push-ghcr.yml
+name: Reusable workflow to build and push docker container to GitHub Container Registry
+
+on:
+  workflow_call:
+    inputs:
+      container-name:
+        required: true
+        type: string
+      context:
+        required: false
+        type: string
+        default: '.'
+      file:
+        required: false
+        type: string
+        default: 'Dockerfile'
+
+env:
+  REGISTRY: ghcr.io/clubcedille
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Out Repo
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to the Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: ${{ inputs.context }}
+          file: ${{ inputs.file }}
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ inputs.container-name }}:latest
+```
+
+#### Exemple d'Utilisation du Workflow Réutilisable :
+
+Ce workflow peut maintenant être appelé à partir d'un autre workflow, tout en passant des variables personnalisées pour adapter le comportement :
+
+```yaml
+# .github/workflows/deploy-with-docker.yml
+name: Deployment with Docker
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/build-push-ghcr.yml
+    with:
+      container-name: my-app
+      context: ./my-app-directory
+```
+
 #### Explication :
-- **`workflow_call`** : Ce déclencheur permet à un autre workflow d'appeler celui-ci. Dans l’exemple `deploy.yml`, le workflow réutilisable pour les tests (`reusable-tests.yml`) est appelé dans le job `call-tests`.
-- **Réduction de la duplication** : Réutiliser des workflows réduit le besoin de répéter les mêmes étapes de tests ou de build dans différents workflows.
+- **`workflow_call`** : Permet de réutiliser le workflow en appelant des workflows définis ailleurs. Les variables d'entrée permettent de personnaliser le comportement du workflow réutilisable.
+- **Variables d'entrée (`inputs`)** : Les variables comme `container-name`, `context`, et `file` définissent des valeurs spécifiques pour chaque appel du workflow. Cela permet de construire et pousser différentes images Docker sans modifier le workflow de base.
+- **Réduction de la duplication** : L'utilisation des variables dans les workflows réutilisables permet de centraliser des tâches communes tout en adaptant leur exécution à des besoins spécifiques, simplifiant ainsi la maintenance des pipelines CI/CD.
 
 ---
 

@@ -127,7 +127,7 @@ jobs:
 Une **action** est une tâche individuelle que vous pouvez exécuter dans un job. GitHub Actions offre une large bibliothèque d’actions prédéfinies disponibles dans le [GitHub Marketplace](https://github.com/marketplace?type=actions). Vous pouvez également créer vos propres actions pour répondre à des besoins spécifiques.
 
 - **Actions de Marketplace** : Vous pouvez réutiliser des actions développées par d’autres, telles que `actions/checkout` pour vérifier le code ou `actions/setup-node` pour configurer Node.js.
-- **Actions personnalisées** : Il est possible de créer des actions spécifiques à votre projet en utilisant des scripts Bash ou en créant des conteneurs Docker.
+- **Actions personnalisées** : Il est possible de créer des actions spécifiques à votre projet en utilisant des scripts Bash ou en créant des conteneurs Docker. Pour un exemple détaillé de création d'une action personnalisée, consultez le dépôt [Cedille-Actions-By-Example](https://github.com/ClubCedille/cedille-actions-by-example), qui illustre comment structurer et configurer une action comme **KubeSketcher**, une action permettant de générer des diagrammes d'architecture de namespaces Kubernetes.
 
 ```yaml
 steps:

@@ -8,6 +8,10 @@ GitHub Container Registry (GHCR) est une fonctionnalité de GitHub Packages qui 
 
 GitHub Container Registry (GHCR) est un service de registre de conteneurs intégré à GitHub. Il permet aux développeurs de gérer des images de conteneurs Docker directement dans leurs dépôts GitHub. GHCR est conçu pour offrir plus de flexibilité dans la gestion des permissions, la visibilité des images et l'intégration avec les workflows GitHub Actions.
 
+### Exemple : Registre de Conteneurs de Cédille
+
+Pour un exemple concret de l'utilisation de GHCR, vous pouvez consulter le [registre de conteneurs du Club Cédille](https://github.com/orgs/ClubCedille/packages). Ce registre contient des images de conteneurs que le club utilise pour ses projets, intégrées aux workflows CI/CD et gérées directement via GitHub Actions.
+
 ### Caractéristiques Principales de GHCR
 
 - **Stockage centralisé** : Le GHCR permet de stocker des images Docker aux côtés du code source de votre projet, simplifiant ainsi la gestion des versions et des déploiements.
@@ -17,9 +21,24 @@ GitHub Container Registry (GHCR) est un service de registre de conteneurs intég
 
 ---
 
+Voici comment vous pouvez intégrer cet exemple utilisé dans vos projets dockerisés dans la section sur **Pousser et Tirer des Images de Conteneurs dans GitHub Container Registry** :
+
 ## 2. Pousser et Tirer des Images de Conteneurs dans GitHub Container Registry
 
 Le GitHub Container Registry permet aux utilisateurs de **pousser** (uploader) et **tirer** (download) des images Docker à partir de leurs projets GitHub, de manière similaire à d'autres registres Docker tels que Docker Hub.
+
+### Exemple : Workflow de Build et Push d'une Image Docker vers GHCR
+
+Dans les projets du Club Cédille, nous utilisons des workflows pour automatiser la construction et la publication d'images Docker dans le GitHub Container Registry. Voici un exemple concret du fichier [build-push-ghcr.yaml](https://github.com/ClubCedille/cedille-workflows/blob/master/.github/workflows/build-push-ghcr.yaml) utilisé pour construire et pousser des conteneurs Docker.
+
+
+### Explication du Workflow [build-push-ghcr.yaml](https://github.com/ClubCedille/cedille-workflows/blob/master/.github/workflows/build-push-ghcr.yaml) :
+- **workflow_call** : Ce workflow est conçu pour être réutilisé par d'autres workflows, permettant de spécifier le nom du conteneur, le contexte Docker, et le fichier Dockerfile.
+- **Docker Buildx** : Utilisé pour construire des images multi-plateformes (par exemple, amd64, arm64).
+- **Cache des couches Docker** : Les couches Docker sont mises en cache pour accélérer les builds.
+- **Pousser les images Docker** : Les images sont poussées vers le registre GitHub (GHCR) avec des tags basés sur le commit ou la branche PR, et un tag `latest` est ajouté si le push se fait sur la branche `main` ou `master`.
+
+Cet exemple montre comment le Club Cédille utilise GHCR pour gérer les images Docker de manière automatisée, avec des workflows CI/CD robustes.
 
 ### 2.1. Authentification à GitHub Container Registry
 
@@ -190,9 +209,7 @@ Vous pouvez définir des permissions spécifiques pour les images GHCR, indépen
 3. Cliquez sur **Package settings**.
 4. Modifiez la visibilité de l'image à **Public** ou **Private**.
 
-### 4.3 Gérer les
-
- Permissions pour les Utilisateurs et Équipes
+### 4.3 Gérer les Permissions pour les Utilisateurs et Équipes
 
 Vous pouvez attribuer des permissions de lecture ou d'écriture sur vos images à des utilisateurs spécifiques ou à des équipes au sein de votre organisation GitHub. Cela permet de restreindre l'accès aux images sensibles, tout en facilitant la collaboration au sein de l'équipe.
 

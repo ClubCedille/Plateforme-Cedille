@@ -99,8 +99,13 @@ jobs:
 
 ## 3. Créer et Utiliser Vos Propres Actions Personnalisées
 
-En plus d'utiliser des actions préconstruites, GitHub Actions vous permet de **créer vos propres actions personnalisées** pour des besoins spécifiques. Ces actions peuvent être écrites en JavaScript, ou définies dans des conteneurs Docker pour des environnements plus complexes.
+## 3. Créer et Utiliser Vos Propres Actions Personnalisées
 
+En plus d'utiliser des actions préconstruites, GitHub Actions vous permet de **créer vos propres actions personnalisées** pour des besoins spécifiques. Ces actions peuvent être écrites en JavaScript, ou définies dans des conteneurs Docker pour des environnements plus complexes. Pour un exemple pratique de la création d'une action personnalisée, vous pouvez consulter le dépôt [Cedille-Actions-By-Example](https://github.com/ClubCedille/cedille-actions-by-example). Ce dépôt présente différentes actions, dont l'action **KubeSketcher**, qui génère des diagrammes d'architecture de namespaces Kubernetes à partir de manifests.
+
+Voici comment vous pouvez mettre à jour la section dans le fichier `workflows.md` en intégrant les informations sur le dépôt **cedille-actions-by-example** et en ajoutant des exemples d'appels qui réussissent et échouent :
+
+```markdown
 ### Types d'Actions Personnalisées
 
 1. **Actions JavaScript** : Actions écrites en JavaScript qui s'exécutent directement dans l'environnement du runner.
@@ -158,6 +163,61 @@ jobs:
         with:
           message: "Hello from custom action!"
 ```
+
+### Exemple d'Action dans le Dépôt `cedille-actions-by-example`
+
+Nous pouvons pousser cette démo dans le dépôt [**cedille-actions-by-example**](https://github.com/ClubCedille/cedille-actions-by-example) pour montrer comment l'action fonctionne dans un cas réel. Ce dépôt est dédié aux exemples pratiques d'actions GitHub personnalisées pour le Club Cédille. 
+
+### Démonstration avec des Appels Réels
+
+Pour démontrer son fonctionnement, nous allons ajouter deux workflows dans ce même dépôt : un qui **réussit** et un autre qui **échoue**.
+
+#### Workflow qui réussit :
+```yaml
+name: Success Example
+
+on: [push]
+
+jobs:
+  success-demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run successful custom action
+        uses: ./action  # Utiliser l'action locale
+        with:
+          message: "Hello, this is a successful run!"
+```
+
+#### Workflow qui échoue :
+```yaml
+name: Failure Example
+
+on: [push]
+
+jobs:
+  failure-demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run failing custom action
+        uses: ./action  # Utiliser l'action locale
+        with:
+          message: ""  # Un message vide va provoquer un échec
+```
+
+### Explication
+
+- **Workflow qui réussit** : L'action personnalisée s'exécute avec succès car un message valide est fourni.
+- **Workflow qui échoue** : Ce workflow échoue volontairement en raison d'un message vide, ce qui déclenche une erreur dans l'action.
+
+Ces deux workflows peuvent être utilisés pour illustrer clairement le fonctionnement de l'action dans des situations réelles dans le dépôt [**cedille-actions-by-example**](https://github.com/ClubCedille/cedille-actions-by-example). Cela permet de démontrer la robustesse et le comportement des actions personnalisées dans différents scénarios.
 
 ### Actions Docker
 
@@ -270,15 +330,16 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    if: github.ref ==
-
- 'refs/heads/main'  # Exécuter uniquement si la branche est 'main'
+    if: github.ref =='refs/heads/main' #Exécuter uniquement si la branche est 'main'
 
     steps:
       - name: Deploy to production
         run: ./deploy.sh
 ```
 
+Voici comment vous pouvez ajouter une section sur le passage d'informations d'un workflow à un autre, en plus de la section d'exécution conditionnelle :
+
+```markdown
 #### Exécution Conditionnelle en Fonction de l'Échec ou du Succès :
 
 ```yaml
@@ -297,6 +358,47 @@ jobs:
       - name: Send notification
         run: echo "Tests failed!"
 ```
+
+### Passage d'Informations d'un Job à un Autre
+
+Il est possible de faire passer des informations d'un job à un autre dans un workflow GitHub Actions en définissant des **outputs** dans un job et en utilisant ces outputs dans un job suivant. Cela permet de réutiliser des données calculées ou récupérées dans un job pour les utiliser dans un autre.
+
+#### Exemple : Définir et Utiliser des Outputs dans des Jobs
+
+Dans cet exemple, le premier job **build** génère un numéro de version et le passe au job suivant **deploy**.
+
+```yaml
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Generate version number
+        id: version_step
+        run: echo "::set-output name=version::1.0.$(date +%s)"
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Deploy application
+        run: echo "Deploying version ${{ needs.build.outputs.version }}"
+```
+
+#### Explication :
+
+1. **Définir un Output** : Dans le job `build`, la commande `::set-output` est utilisée pour définir un output appelé `version`. Ce numéro de version est généré à l'aide de la commande `date` pour créer une valeur unique.
+   
+2. **Utiliser l'Output dans un Autre Job** : Dans le job `deploy`, l'output du job `build` est référencé via la syntaxe `${{ needs.build.outputs.version }}`. Cela permet d'accéder à l'information générée dans le premier job et de l'utiliser pour déployer une version spécifique.
+
+#### Référence vers la Documentation
+
+Pour plus de détails, vous pouvez consulter la documentation GitHub Actions sur le [passage d'informations entre jobs](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/passing-information-between-jobs#example-defining-outputs-for-a-job).
 
 ---
 

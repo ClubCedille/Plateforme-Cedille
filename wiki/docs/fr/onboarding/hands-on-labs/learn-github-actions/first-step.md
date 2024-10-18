@@ -180,6 +180,7 @@ Cet exemple déclenche le workflow chaque lundi à minuit (heure UTC). Le format
 ### 4.4. Autres déclencheurs
 
 - **`workflow_dispatch`** : Permet d’exécuter manuellement un workflow via l'interface utilisateur de GitHub.
+- **`workflow_call`** : Permet d'invoquer un workflow à partir d'un autre workflow. Cela est utile pour réutiliser des workflows dans plusieurs projets ou dépôts.
 - **`release`** : Déclenche le workflow lorsqu'une nouvelle version est publiée.
 - **`issue_comment`** : Exécute le workflow lorsqu'un commentaire est ajouté à une issue.
 - **`push_tag`** : Déclenche le workflow lorsqu'un tag est poussé.
@@ -189,7 +190,73 @@ Cet exemple déclenche le workflow chaque lundi à minuit (heure UTC). Le format
 on:
   workflow_dispatch:
 ```
-Ce workflow peut être déclenché manuellement depuis l'interface GitHub Actions.
+
+Ce workflow peut être déclenché manuellement depuis l'interface GitHub Actions. Par exemple, voici [un cas d'utilisation réel](https://github.com/ClubCedille/Plateforme-Cedille/blob/master/.github/workflows/add-new-member.yml) de `workflow_dispatch` pour la Plateforme Cédille, permettant d'ajouter un nouveau membre à l'organisation via l'interface utilisateur de GitHub Actions :
+
+```yaml
+name: Ajouter un nouveau membre à l'organisation
+on:
+  workflow_dispatch:
+    inputs:
+      github_username:
+        description: 'GitHub username'
+        required: true
+        type: string
+      github_email:
+        description: 'GitHub Email'
+        required: true
+        type: string
+      team_sre:
+        description: 'Add to SRE team?'
+        required: false
+        type: boolean
+      cluster_role:
+        description: 'Cluster Role'
+        required: true
+        type: choice
+        options:
+          - None
+          - Reader
+          - Operator
+          - Admin
+```
+
+Dans cet exemple, le workflow permet à l'administrateur d'ajouter un nouveau membre à l'organisation, de modifier les fichiers Terraform, et de créer une Pull Request pour appliquer ces changements.
+
+#### Exemple de `workflow_call` :
+```yaml
+on:
+  workflow_call:
+```
+
+Le déclencheur `workflow_call` permet à un workflow d'être appelé depuis un autre workflow. C'est une manière efficace de partager et de réutiliser des workflows dans plusieurs projets ou équipes. Par exemple, dans le dépôt [cedille-workflows](https://github.com/ClubCedille/cedille-workflows), nous utilisons ce type de déclencheur pour centraliser et réutiliser des workflows standardisés dans différents projets.
+
+Voici un exemple d'utilisation de `workflow_call` :
+
+```yaml
+name: Réutilisation d'un workflow
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        description: 'Environnement cible (dev, staging, prod)'
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run build
+        run: echo "Building for ${{ inputs.environment }}"
+```
+Dans cet exemple, le workflow peut être invoqué par d'autres workflows pour effectuer une tâche spécifique, comme la construction ou le déploiement pour un environnement particulier.
+
 
 ---
 

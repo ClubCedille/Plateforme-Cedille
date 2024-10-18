@@ -171,19 +171,24 @@ jobs:
 ```
 
 ### Explication du Workflow :
+
 - **`azure/setup-kubectl@v3`** : Cette action installe `kubectl` dans l'environnement de workflow.
 - **`kubeconfig`** : Le fichier `kubeconfig` contient les informations d'authentification pour interagir avec le cluster Kubernetes. Il est stocké dans les secrets GitHub.
 - **`kubectl set image`** : Cette commande met à jour l'image conteneurisée du déploiement Kubernetes.
+
+Au sein du Club Cédille, nous utilisons des outils GitOps comme **ArgoCD** pour gérer automatiquement nos déploiements et synchroniser nos applications avec les clusters Kubernetes. ArgoCD simplifie l'automatisation en surveillant les dépôts Git pour détecter les changements et les appliquer automatiquement aux clusters, ce qui élimine le besoin de manuellement gérer ces aspects via GitHub Actions.
 
 ---
 
 ## 3. Exemples d’Utilisation de `docker`, `kubectl`, et `helm` dans des Workflows CI/CD
 
-En combinant Docker, `kubectl`, et Helm, vous pouvez créer des workflows CI/CD puissants pour automatiser la gestion des conteneurs et les déploiements Kubernetes. Voici quelques exemples d'utilisation dans des workflows GitHub Actions.
+En combinant Docker, `kubectl`, et Helm, vous pouvez créer des workflows CI/CD puissants pour automatiser la gestion des conteneurs et les déploiements Kubernetes. Voici un exemple d'utilisation dans un workflow GitHub Actions qui couvre à la fois `kubectl` et **Helm**.
 
-### Exemple 1 : Utilisation de Docker et `kubectl`
+### Exemple : Utilisation de Docker avec `kubectl` et Helm
 
-Dans cet exemple, nous allons construire une image Docker, la pousser vers Docker Hub, puis mettre à jour un déploiement Kubernetes avec cette nouvelle image.
+Dans cet exemple, nous allons construire une image Docker, la pousser vers Docker Hub, puis mettre à jour un déploiement Kubernetes avec cette nouvelle image. Nous présentons aussi comment utiliser **Helm** pour gérer les déploiements plus complexes.
+
+#### Workflow CI/CD pour Docker et Kubernetes
 
 ```yaml
 name: CI/CD for Docker and Kubernetes
@@ -223,58 +228,27 @@ jobs:
         with:
           version: 'latest'
 
-      # Étape 6 : Deploy to Kubernetes
-      - name: Update Kubernetes Deployment
+      # Étape 6 : Deploy to Kubernetes with kubectl
+      - name: Update Kubernetes Deployment with kubectl
         run: |
           kubectl set image deployment/my-app my-app-container=${{ secrets.DOCKER_USERNAME }}/my-app:latest
-```
 
-### Exemple 2 : Utilisation de Helm pour Gérer les Déploiements Kubernetes
-
-Helm est un gestionnaire de packages pour Kubernetes qui vous permet de déployer des applications Kubernetes complexes à l'aide de "charts" (modèles Kubernetes).
-
-#### Exemple de Workflow avec Helm
-
-```yaml
-name: Deploy with Helm
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      # Étape 1 : Checkout repository
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      # Étape 2 : Set up kubectl
-      - name: Set up kubectl
-        uses: azure/setup-kubectl@v3
-
-      # Étape 3 : Set up Helm
+      # Étape 7 (optionnel) : Deploy application with Helm
       - name: Install Helm
         run: |
           curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 
-      # Étape 4 : Authenticate to Kubernetes
-      - name: Set up kubeconfig
-        run: |
-          mkdir -p ~/.kube
-          echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
-
-      # Étape 5 : Deploy application with Helm
-      - name: Deploy with Helm
+      - name: Deploy application with Helm
         run: helm upgrade --install my-app ./helm-chart --set image.tag=latest
 ```
 
 ### Explication du Workflow :
-- **Helm** : Nous installons Helm à l'aide d'un script, puis utilisons la commande `helm upgrade --install` pour déployer ou mettre à jour notre application Kubernetes en utilisant un chart Helm.
-- **Secrets** : Le fichier de configuration Kubernetes est stocké dans les secrets GitHub pour une sécurité optimale.
+
+1. **kubectl** : L'étape 6 met à jour l'image conteneurisée du déploiement Kubernetes en utilisant `kubectl`.
+2. **Helm** : Les étapes 7 et suivantes montrent comment installer **Helm** et l'utiliser pour déployer ou mettre à jour une application Kubernetes à partir d'un chart Helm. Helm est particulièrement utile pour gérer des déploiements plus complexes en Kubernetes.
+3. **Secrets** : Le fichier de configuration Kubernetes (`kubeconfig`) est stocké dans les secrets GitHub pour assurer la sécurité des informations d'authentification.
+
+Dans ce workflow, vous pouvez choisir d'utiliser soit **kubectl** pour les déploiements simples, soit **Helm** pour les déploiements plus complexes. L'intégration des deux outils dans le même workflow permet de gérer des cas d'utilisation variés selon la complexité de vos déploiements Kubernetes.
 
 ---
 

@@ -147,9 +147,42 @@ jobs:
 
 ---
 
-## 3. Scan de Sécurité des Dépendances avec Dependabot
+## 3. Scan de Sécurité des Dépendances avec Dependabot et Renovate
 
 Dependabot est un service intégré à GitHub qui analyse les dépendances de vos projets et identifie les vulnérabilités de sécurité. Il propose des mises à jour automatiques pour corriger ces vulnérabilités, améliorant ainsi la sécurité globale de vos applications.
+
+Cependant, dans nos dépôts, nous utilisons principalement **Renovate**, un autre outil open-source de gestion des dépendances. Comme Dependabot, Renovate scanne les dépendances et propose des mises à jour automatisées. Toutefois, **Renovate** offre une flexibilité plus avancée avec des options de configuration étendues pour ajuster la fréquence des mises à jour, définir des stratégies de versioning spécifiques, et prendre en charge un large éventail de langages et de gestionnaires de paquets.
+
+### Pourquoi Utiliser Renovate ?
+- **Configuration Avancée** : Renovate permet une personnalisation fine des stratégies de mise à jour, telles que les mises à jour groupées, les plages de versions spécifiques ou encore la fréquence des vérifications.
+- **Support Étendu** : Il supporte une large variété de gestionnaires de paquets, ce qui en fait un choix idéal pour des projets multi-technologies.
+- **Facilité d'Intégration** : Comme Dependabot, Renovate s'intègre directement dans vos workflows GitHub et génère des pull requests automatiques avec les mises à jour de dépendances.
+
+### Exemple de Fichier de Configuration Renovate
+Dans nos projets, voici un exemple basique de configuration Renovate :
+
+```json
+{
+  "extends": [
+    "config:base"
+  ],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["*"],
+      "groupName": "All Dependencies",
+      "groupSlug": "all-dependencies"
+    }
+  ],
+  "schedule": ["every weekend"]
+}
+```
+
+Dans cet exemple :
+- **extends** : Utilise la configuration de base fournie par Renovate.
+- **packageRules** : Regroupe toutes les dépendances dans une seule mise à jour groupée.
+- **schedule** : Les mises à jour sont planifiées pour être effectuées tous les week-ends.
+
+Renovate et Dependabot sont tous deux de puissants outils pour maintenir la sécurité et la mise à jour des dépendances dans vos projets, mais Renovate est souvent préféré pour sa flexibilité et sa configuration avancée, comme nous le faisons dans nos répertoires.
 
 ### 3.1. Qu'est-ce que Dependabot ?
 

@@ -190,63 +190,11 @@ jobs:
 
 ---
 
-## 3. Gérer Plusieurs Environnements (Développement, Staging, Production)
-
-Gérer plusieurs environnements (développement, staging, production) est une pratique DevOps courante pour s'assurer que le code fonctionne correctement dans chaque étape avant d'atteindre la production.
-
-### 3.1. Utiliser des Branches pour les Différents Environnements
-
-L’une des méthodes les plus simples pour gérer plusieurs environnements est d'utiliser différentes **branches Git** pour le développement, la pré-production (staging), et la production.
-
-#### Exemple de Branches :
-- **`develop`** : Pour les changements en cours de développement.
-- **`staging`** : Pour les tests de pré-production.
-- **`main`** ou **`master`** : Pour la production.
-
-### 3.2. Utiliser des Environnements dans GitHub Actions
-
-GitHub permet de définir des **environnements** pour contrôler et gérer les déploiements dans des environnements spécifiques comme **staging** ou **production**. Vous pouvez configurer des **approbations manuelles** avant le déploiement en production.
-
-#### Exemple : Workflow avec des Environnements
-
-```yaml
-name: Deploy to Staging and Production
-
-on:
-  push:
-    branches:
-      - develop
-      - main
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Deploy to environment
-        run: ./deploy.sh
-        env:
-          ENVIRONMENT: ${{ github.ref == 'refs/heads/main' && 'production' || 'staging' }}
-
-    environment:
-      name: ${{ github.ref == 'refs/heads/main' && 'production' || 'staging' }}
-      url: ${{ github.ref == 'refs/heads/main' && 'https://production.example.com' || 'https://staging.example.com' }}
-```
-
-### 3.3. Gérer les Secrets par Environnement
-
-GitHub permet de définir des secrets spécifiques à chaque environnement. Par exemple, vous pouvez définir des secrets pour l'environnement de production et des secrets pour l'environnement de staging.
-
----
-
-## 4. Développement de Logiciels en Équipe avec GitHub Actions (PR Gating, Checks)
+## 3. Développement de Logiciels en Équipe avec GitHub Actions (PR Gating, Checks)
 
 GitHub Actions facilite la collaboration au sein des équipes de développement en automatisant les vérifications et en intégrant des contrôles sur les pull requests.
 
-### 4.1. Mise en Place de PR Gating
+### 3.1. Mise en Place de PR Gating
 
 Le **PR gating** consiste à empêcher la fusion de code dans une branche sans que certains tests ou checks aient été exécutés avec succès. Vous pouvez configurer des **checks obligatoires** qui doivent être validés avant de fusionner une pull request.
 
@@ -277,11 +225,11 @@ jobs:
         run: npm test
 ```
 
-### 4.2. Checks Automatiques sur les Pull Requests
+### 3.2. Checks Automatiques sur les Pull Requests
 
 GitHub permet de configurer des **checks** automatiques sur les pull requests, comme l'exécution de tests ou des vérifications de style de code.
 
-### 4.3. Politique de Branches Protégées
+### 3.3. Politique de Branches Protégées
 
 Il est recommandé de protéger les branches critiques (comme `main` ou `production`) en configurant des **branches protégées**, qui empêchent les commits directs ou exigent l'exécution de workflows spécifiques avant la fusion.
 

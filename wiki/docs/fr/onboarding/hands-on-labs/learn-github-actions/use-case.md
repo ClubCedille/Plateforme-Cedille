@@ -293,8 +293,10 @@ Dans un environnement DevOps, il est crucial de collaborer efficacement au sein 
 ### 4.1. Gestion des Équipes GitHub
 
 GitHub permet de gérer des équipes au sein d'une organisation. Cela permet de :
+
 - **Définir des permissions** : Vous pouvez attribuer des rôles d'accès spécifiques (lecture, écriture, admin) à différents membres ou équipes.
 - **Partager des secrets** : Les secrets à l’échelle de l’organisation peuvent être utilisés dans plusieurs dépôts, facilitant la gestion de l'authentification partagée pour des services externes (comme AWS, Docker, etc.).
+
 
 ### 4.2. Exemple de Workflow Partagé entre Plusieurs Dépôts
 
