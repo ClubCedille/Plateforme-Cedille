@@ -38,6 +38,7 @@ theme:
     - navigation.instant.prefetch
     - navigation.tabs
     - navigation.tabs.sticky
+    - navigation.footer
   icon:
     repo: fontawesome/brands/github
   favicon: assets/favicon.ico
@@ -55,47 +56,49 @@ extra_css:
   - stylesheets/extra.css
 
 nav:
-  - Home: index.md
+  - Home: 
+    - index.md
   - Onboarding:
-    - 'Introduction': onboarding/index.md
-    - Hands-on labs: 
-      - 'Introduction': onboarding/hands-on-labs/index.md
-      - 'How to use Git': onboarding/hands-on-labs/git.md
-      - Learn Docker:
-        - 'Introduction': onboarding/hands-on-labs/learn-docker/index.md
-        - 'Installation': onboarding/hands-on-labs/learn-docker/installation.md
-        - 'The Essentials': onboarding/hands-on-labs/learn-docker/essentials.md
+    - 'Onboarding intro': onboarding/index.md
+    - Onboarding track: 
+      - 'Track - Get started': onboarding/tracks/index.md
+      - 'Track - Git': onboarding/tracks/git.md
+      - "Track - Docker":
+        - 'Learn Docker': onboarding/tracks/learn-docker/index.md
+        - 'Installation': onboarding/tracks/learn-docker/installation.md
+        - 'The Essentials': onboarding/tracks/learn-docker/essentials.md
         - Guided Exercises:
-          - 'Run Your First Docker Container': onboarding/hands-on-labs/learn-docker/first-container.md
-          - 'Multi-Container': onboarding/hands-on-labs/learn-docker/docker-compose.md
-          - 'Containerize Your Applications': onboarding/hands-on-labs/learn-docker/containerize.md
-          - 'Persist Your Data Between Containers': onboarding/hands-on-labs/learn-docker/persist-data.md
-          - 'Access Your Local Folder From a Container': onboarding/hands-on-labs/learn-docker/bind-mounts.md
-          - 'Docker Hub & Container Registry': onboarding/hands-on-labs/learn-docker/container-registry.md
-      - 'Web Development': onboarding/hands-on-labs/web-development.md
-      - 'App Development': onboarding/hands-on-labs/app-development.md
-      - 'DevOps': onboarding/hands-on-labs/devops.md
-      - 'SRE': onboarding/hands-on-labs/sre.md
+          - 'Run Your First Docker Container': onboarding/tracks/learn-docker/first-container.md
+          - 'Multi-Container': onboarding/tracks/learn-docker/docker-compose.md
+          - 'Containerize Your Applications': onboarding/tracks/learn-docker/containerize.md
+          - 'Persist Your Data Between Containers': onboarding/tracks/learn-docker/persist-data.md
+          - 'Access Your Local Folder From a Container': onboarding/tracks/learn-docker/bind-mounts.md
+          - 'Docker Hub & Container Registry': onboarding/tracks/learn-docker/container-registry.md
+      - 'Track - Web Development': onboarding/tracks/web-development.md
+      - 'Track - App Development': onboarding/tracks/app-development.md
+      - 'Track - DevOps': onboarding/tracks/devops.md
+      - 'Track - SRE': onboarding/tracks/sre.md
+    - Finish the Onboarding: onboarding/complete.md
   - CEDILLE Platform:
-    - 'Introduction': plateforme-cedille/index.md
-    - 'Vision Document': plateforme-cedille/vision.md
-    - 'Kubernetes Cluster': plateforme-cedille/cluster-kubernetes.md
-    - 'Hardware Components': plateforme-cedille/hardware.md
-    - Applications: 
-      - 'Index' : 'plateforme-cedille/Applications/index.md'
-      - 'Workload Deployment': plateforme-cedille/Applications/deploying-workloads.md
-      - 'System App Deployment': plateforme-cedille/Applications/deploying-system-apps.md
-    - Workflow: plateforme-cedille/workflow.md
-    - Contribution Guide: plateforme-cedille/contribution-guidelines.md
-    - Getting Started: plateforme-cedille/getting-started.md
-    - SRE: plateforme-cedille/sre.md
-    - Project - LOG791:
-      - 'Introduction': plateforme-cedille/log791/index.md
+    - 'Introduction to the CEDILLE Platform': plateforme-cedille/index.md
+    - "LOG791":
+      - 'How it started': plateforme-cedille/log791/index.md
       - 'Project Report': plateforme-cedille/log791/rapport.md
       - Retrospectives:
         - 'Retrospective 1': plateforme-cedille/log791/retrospective-1.md
         - 'Retrospective 2': plateforme-cedille/log791/retrospective-2.md
         - 'Retrospective 3': plateforme-cedille/log791/retrospective-3.md
+    - 'Vision Document': plateforme-cedille/vision.md
+    - 'Kubernetes Cluster': plateforme-cedille/cluster-kubernetes.md
+    - 'Hardware Components': plateforme-cedille/hardware.md
+    - Applications: 
+      - 'Hosting apps' : 'plateforme-cedille/Applications/index.md'
+      - 'Workload Deployment': plateforme-cedille/Applications/deploying-workloads.md
+      - 'System App Deployment': plateforme-cedille/Applications/deploying-system-apps.md
+    - Workflows: plateforme-cedille/workflow.md
+    - Contribution Guide: plateforme-cedille/contribution-guidelines.md
+    - Getting Started: plateforme-cedille/getting-started.md
+    - SRE: plateforme-cedille/sre.md
 
 markdown_extensions:
   - pymdownx.snippets:
