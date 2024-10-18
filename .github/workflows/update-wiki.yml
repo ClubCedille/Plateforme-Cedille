@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'wiki/**'
   pull_request:
     branches:
       - master
@@ -15,4 +17,6 @@ jobs:
     uses: ClubCedille/cedille-workflows/.github/workflows/build-push-ghcr.yaml@master
     with:
       container-name: 'wiki-cedille'
+      context: 'wiki'
+      fille: Dockerfile
     secrets: inherit
