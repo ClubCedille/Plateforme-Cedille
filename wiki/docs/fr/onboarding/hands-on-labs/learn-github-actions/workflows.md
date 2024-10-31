@@ -99,11 +99,9 @@ jobs:
 
 ## 3. Créer et Utiliser Vos Propres Actions Personnalisées
 
-## 3. Créer et Utiliser Vos Propres Actions Personnalisées
+En plus d'utiliser des actions préconstruites, GitHub Actions vous permet de **créer vos propres actions personnalisées** pour répondre à des besoins spécifiques. Ces actions peuvent être écrites en JavaScript ou définies dans des conteneurs Docker pour des environnements plus complexes. Pour un exemple pratique de création d'une action personnalisée, vous pouvez consulter le dépôt [Cedille-Actions-By-Example](https://github.com/ClubCedille/cedille-actions-by-example). Ce dépôt présente différentes actions, dont l'action **KubeSketcher**, qui génère des diagrammes d'architecture de namespaces Kubernetes à partir de manifests, et **WorkflowWikiExample**, une action créée spécialement pour illustrer la création et le fonctionnement d'une action.
 
-En plus d'utiliser des actions préconstruites, GitHub Actions vous permet de **créer vos propres actions personnalisées** pour des besoins spécifiques. Ces actions peuvent être écrites en JavaScript, ou définies dans des conteneurs Docker pour des environnements plus complexes. Pour un exemple pratique de la création d'une action personnalisée, vous pouvez consulter le dépôt [Cedille-Actions-By-Example](https://github.com/ClubCedille/cedille-actions-by-example). Ce dépôt présente différentes actions, dont l'action **KubeSketcher**, qui génère des diagrammes d'architecture de namespaces Kubernetes à partir de manifests.
-
-Voici comment vous pouvez mettre à jour la section dans le fichier `workflows.md` en intégrant les informations sur le dépôt **cedille-actions-by-example** et en ajoutant des exemples d'appels qui réussissent et échouent :
+Voici comment la section du fichier `workflows.md` a été mise à jour pour intégrer les informations sur le dépôt **cedille-actions-by-example/WorkflowWikiExample** :
 
 ```markdown
 ### Types d'Actions Personnalisées
@@ -115,7 +113,7 @@ Voici comment vous pouvez mettre à jour la section dans le fichier `workflows.m
 
 Voici comment créer une action simple en JavaScript :
 
-1. **Créer un répertoire `action` dans votre dépôt**.
+1. **Créer un répertoire `WorkflowWikiExample` dans votre dépôt**.
 2. **Créer un fichier `index.js`** avec le code JavaScript de votre action :
 
 ```js
@@ -141,7 +139,7 @@ inputs:
     description: 'Le message à imprimer'
     required: true
 runs:
-  using: 'node12'
+  using: 'node20'
   main: 'index.js'
 ```
 
@@ -150,74 +148,22 @@ runs:
 Une fois que vous avez créé votre action, vous pouvez l'utiliser dans vos workflows comme n'importe quelle autre action.
 
 ```yaml
+name: Custom Action Workflow
+
+on: [push]
+
 jobs:
   custom-action-job:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
       - name: Run custom action
-        uses: ./action  # Utiliser l'action locale
+        uses: ClubCedille/Cedille-Actions-By-Example/WorkflowWikiExample@master
         with:
-          message: "Hello from custom action!"
+          message: "Bonjour depuis l'action personnalisée !"
 ```
-
-### Exemple d'Action dans le Dépôt `cedille-actions-by-example`
-
-Nous pouvons pousser cette démo dans le dépôt [**cedille-actions-by-example**](https://github.com/ClubCedille/cedille-actions-by-example) pour montrer comment l'action fonctionne dans un cas réel. Ce dépôt est dédié aux exemples pratiques d'actions GitHub personnalisées pour le Club Cédille. 
-
-### Démonstration avec des Appels Réels
-
-Pour démontrer son fonctionnement, nous allons ajouter deux workflows dans ce même dépôt : un qui **réussit** et un autre qui **échoue**.
-
-#### Workflow qui réussit :
-```yaml
-name: Success Example
-
-on: [push]
-
-jobs:
-  success-demo:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Run successful custom action
-        uses: ./action  # Utiliser l'action locale
-        with:
-          message: "Hello, this is a successful run!"
-```
-
-#### Workflow qui échoue :
-```yaml
-name: Failure Example
-
-on: [push]
-
-jobs:
-  failure-demo:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Run failing custom action
-        uses: ./action  # Utiliser l'action locale
-        with:
-          message: ""  # Un message vide va provoquer un échec
-```
-
-### Explication
-
-- **Workflow qui réussit** : L'action personnalisée s'exécute avec succès car un message valide est fourni.
-- **Workflow qui échoue** : Ce workflow échoue volontairement en raison d'un message vide, ce qui déclenche une erreur dans l'action.
-
-Ces deux workflows peuvent être utilisés pour illustrer clairement le fonctionnement de l'action dans des situations réelles dans le dépôt [**cedille-actions-by-example**](https://github.com/ClubCedille/cedille-actions-by-example). Cela permet de démontrer la robustesse et le comportement des actions personnalisées dans différents scénarios.
 
 ### Actions Docker
 

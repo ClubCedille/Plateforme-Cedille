@@ -176,7 +176,7 @@ jobs:
 - **`kubeconfig`** : Le fichier `kubeconfig` contient les informations d'authentification pour interagir avec le cluster Kubernetes. Il est stocké dans les secrets GitHub.
 - **`kubectl set image`** : Cette commande met à jour l'image conteneurisée du déploiement Kubernetes.
 
-Au sein du Club Cédille, nous utilisons des outils GitOps comme **ArgoCD** pour gérer automatiquement nos déploiements et synchroniser nos applications avec les clusters Kubernetes. ArgoCD simplifie l'automatisation en surveillant les dépôts Git pour détecter les changements et les appliquer automatiquement aux clusters, ce qui élimine le besoin de manuellement gérer ces aspects via GitHub Actions.
+Au sein de CÉDILLE, nous utilisons des outils GitOps comme **ArgoCD** pour gérer automatiquement nos déploiements et synchroniser nos applications avec les clusters Kubernetes. ArgoCD simplifie l'automatisation en surveillant les dépôts Git pour détecter les changements et les appliquer automatiquement aux clusters, ce qui élimine le besoin de manuellement gérer ces aspects via GitHub Actions.
 
 ---
 

@@ -191,7 +191,7 @@ on:
   workflow_dispatch:
 ```
 
-Ce workflow peut être déclenché manuellement depuis l'interface GitHub Actions. Par exemple, voici [un cas d'utilisation réel](https://github.com/ClubCedille/Plateforme-Cedille/blob/master/.github/workflows/add-new-member.yml) de `workflow_dispatch` pour la Plateforme Cédille, permettant d'ajouter un nouveau membre à l'organisation via l'interface utilisateur de GitHub Actions :
+Ce workflow peut être déclenché manuellement depuis l'interface GitHub Actions. Par exemple, voici [un cas d'utilisation réel](https://github.com/ClubCedille/Plateforme-Cedille/blob/master/.github/workflows/add-new-member.yml) de `workflow_dispatch` pour la Plateforme CÉDILLE, permettant d'ajouter un nouveau membre à l'organisation via l'interface utilisateur de GitHub Actions :
 
 ```yaml
 name: Ajouter un nouveau membre à l'organisation
