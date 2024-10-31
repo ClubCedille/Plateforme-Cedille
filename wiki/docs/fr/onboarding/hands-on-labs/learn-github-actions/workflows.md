@@ -101,7 +101,7 @@ jobs:
 
 En plus d'utiliser des actions préconstruites, GitHub Actions vous permet de **créer vos propres actions personnalisées** pour répondre à des besoins spécifiques. Ces actions peuvent être écrites en JavaScript ou définies dans des conteneurs Docker pour des environnements plus complexes. Pour un exemple pratique de création d'une action personnalisée, vous pouvez consulter le dépôt [Cedille-Actions-By-Example](https://github.com/ClubCedille/cedille-actions-by-example). Ce dépôt présente différentes actions, dont l'action **KubeSketcher**, qui génère des diagrammes d'architecture de namespaces Kubernetes à partir de manifests, et **WorkflowWikiExample**, une action créée spécialement pour illustrer la création et le fonctionnement d'une action.
 
-Voici comment la section du fichier `workflows.md` a été mise à jour pour intégrer les informations sur le dépôt **cedille-actions-by-example/WorkflowWikiExample** :
+Voici la procédure qui a été suivie pour la création de l'action **cedille-actions-by-example/WorkflowWikiExample** :
 
 ```markdown
 ### Types d'Actions Personnalisées
