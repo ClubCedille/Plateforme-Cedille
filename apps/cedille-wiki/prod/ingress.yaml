@@ -5,13 +5,7 @@ metadata:
   namespace: cedille-wiki
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    ingress.kubernetes.io/force-ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/server-snippet: |
-      location /.well-known/acme-challenge/ {
-        allow all;
-        proxy_pass http://$host$request_uri;
-        proxy_redirect off;
-      }
+    ingress.kubernetes.io/force-ssl-redirect: "false"
 spec:
   ingressClassName: contour
   tls:
@@ -22,13 +16,6 @@ spec:
     - host: wiki.omni.cedille.club
       http:
         paths:
-        - path: /.well-known/acme-challenge/
-          pathType: Prefix
-          backend:
-            service:
-              name: wiki-cedille
-              port:
-                number: 80
         - path: /
           pathType: Prefix
           backend:
