@@ -2,10 +2,10 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: wiki-cedille-ingress
-  namespace: cedille-wiki
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    ingress.kubernetes.io/force-ssl-redirect: "false"
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+    kubernetes.io/tls-acme: "true"
 spec:
   ingressClassName: contour
   tls:
@@ -13,13 +13,13 @@ spec:
       hosts:
         - wiki.omni.cedille.club
   rules:
-    - host: wiki.omni.cedille.club
-      http:
-        paths:
-        - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: wiki-cedille
-              port:
-                number: 80
+  - host: wiki.omni.cedille.club
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: wiki-cedille
+            port:
+              number: 80
