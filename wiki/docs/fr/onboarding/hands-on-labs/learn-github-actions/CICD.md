@@ -331,9 +331,7 @@ GitHub Actions permet d'activer des logs détaillés pour aider à diagnostiquer
 2. Cliquez sur le job échoué pour afficher les logs.
 3. Utilisez l'option **Rerun jobs with debug logging** pour relancer le job avec des logs plus détaillés.
 
-### 
-
-4.2. Utilisation de `ACTIONS_STEP_DEBUG`
+### 4.2. Utilisation de `ACTIONS_STEP_DEBUG`
 
 Vous pouvez également activer le mode debug en configurant une variable d'environnement spéciale `ACTIONS_STEP_DEBUG`.
 
