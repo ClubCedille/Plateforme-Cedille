@@ -76,7 +76,19 @@ nav:
           - 'Docker Hub & Container Registry': onboarding/tracks/learn-docker/container-registry.md
       - 'Track - Web Development': onboarding/tracks/web-development.md
       - 'Track - App Development': onboarding/tracks/app-development.md
-      - 'Track - DevOps': onboarding/tracks/devops.md
+      - Track - DevOps:
+        - Learn GitHub Actions:
+          - 'Introduction to GitHub Actions': onboarding/hands-on-labs/learn-github-actions/introductions.md
+          - 'Getting Started with GitHub Actions': onboarding/hands-on-labs/learn-github-actions/first-step.md
+          - 'Creating Custom Workflows': onboarding/hands-on-labs/learn-github-actions/workflows.md
+          - 'Integration with Docker and Kubernetes': onboarding/hands-on-labs/learn-github-actions/integration.md
+          - 'Continuous Deployment with GitHub Actions': onboarding/hands-on-labs/learn-github-actions/deployment.md
+          - 'Using GitHub Container Registry (GHCR)': onboarding/hands-on-labs/learn-github-actions/registry.md
+          - 'Managing Security and Permissions': onboarding/hands-on-labs/learn-github-actions/security.md
+          - 'Optimizing CI/CD Workflows': onboarding/hands-on-labs/learn-github-actions/CICD.md
+          - 'Monitoring and Reporting': onboarding/hands-on-labs/learn-github-actions/monitoring.md
+          - 'Practical Use Cases: DevOps with GitHub Actions': onboarding/hands-on-labs/learn-github-actions/use-case.md
+          - 'Best Practices and DevOps Patterns with GitHub': onboarding/hands-on-labs/learn-github-actions/practices.md
       - 'Track - SRE': onboarding/tracks/sre.md
     - Finish the Onboarding: onboarding/complete.md
   - CEDILLE Platform:
