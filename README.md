@@ -32,8 +32,18 @@ Pour accéder à un cluster, il suffit de naviguer au cluster voulu (par exemple
 
 Pour tester rapidement l'accès, on peut exécuter les commandes suivantes:
 
+#### Avec Linux/MacOS
+
 ```bash
 export KUBECONFIG=~/Downloads/cedille-cluster-kubeconfig.yaml #Modifier selon l'emplacement du kubeconfig téléchargé
+kubectl get nodes
+```
+
+#### Avec Windows
+
+```bash
+kubectl oidc-login
+$env:KUBECONFIG="C:\Users\<user>\Downloads\cedille-cluster-kubeconfig.yaml" #Modifier selon l'emplacement du kubeconfig téléchargé
 kubectl get nodes
 ```
 
