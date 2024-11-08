@@ -29,6 +29,6 @@ provider "proxmox" {
   password = ""
   endpoint = "https://10.0.21.51:8006/api2/json"
   insecure = true
-  random_vm_ids = false
+  random_vm_ids = true
   
 }

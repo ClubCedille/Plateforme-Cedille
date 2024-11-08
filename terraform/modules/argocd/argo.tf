@@ -44,7 +44,6 @@ resource "kubernetes_cluster_role" "argocd_manager" {
 resource "kubernetes_cluster_role_binding" "argocd_manager" {
   metadata {
     name = "argocd-manager-role-binding"
-    namespace = "argocd"
   }
 
   role_ref {

@@ -79,3 +79,7 @@ variable "k8s_version" {
   type = string
   
 }
+
+variable "argocd_server" {
+  type = string
+}

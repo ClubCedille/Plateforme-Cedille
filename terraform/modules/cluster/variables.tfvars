@@ -1,4 +1,4 @@
-name = "k8s-test-tf-2"
+name = "k8s-test-tf-4"
 cephfs_datastore_id = "CephFS"
 cephrbd_datastore_id = "RBD_Common"
 domain = "etsmtl.club"
@@ -59,3 +59,5 @@ workers = {
 
 talos_version = "v1.8.0"
 k8s_version = "v1.30.0"
+
+argocd_server = "https://mgmt.cedille.club"

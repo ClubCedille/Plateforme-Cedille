@@ -11,7 +11,7 @@ resource "proxmox_virtual_environment_vm" "controlplanes" {
   
   name = "k8s-${var.name}-controlplane-${each.key}"
   node_name = each.value.proxmox_node
-  vm_id = var.proxmox_base_id + parseint(each.key, 10)
+  # vm_id = var.proxmox_base_id + parseint(each.key, 10)
 
   cpu {
     cores = var.controlplanes.cpu_cores
@@ -83,7 +83,7 @@ resource "proxmox_virtual_environment_vm" "workers" {
   
   name = "k8s-${var.name}-worker-${each.key}"
   node_name = each.value.proxmox_node
-  vm_id = var.proxmox_base_id + 10 + parseint(each.key, 10) //first 10 reserved for controlplanes
+  # vm_id = var.proxmox_base_id + 10 + parseint(each.key, 10) //first 10 reserved for controlplanes
 
   cpu {
     cores = var.workers.cpu_cores
