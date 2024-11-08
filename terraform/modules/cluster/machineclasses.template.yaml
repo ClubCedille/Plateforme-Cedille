@@ -1,0 +1,15 @@
+metadata:
+  type: MachineClasses.omni.sidero.dev 
+  namespace: default
+  id: "$NAME-worker"
+spec:
+  matchlabels:
+    - role = worker, cluster-candidate = $NAME
+---
+metadata:
+  type: MachineClasses.omni.sidero.dev 
+  namespace: default
+  id: "$NAME-controlplane"
+spec:
+  matchlabels:
+    - role = controlplane, cluster-candidate = $NAME
