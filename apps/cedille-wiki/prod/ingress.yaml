@@ -6,6 +6,7 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     ingress.kubernetes.io/force-ssl-redirect: "true"
     kubernetes.io/tls-acme: "true"
+    acme.cert-manager.io/http01-edit-in-place: "true" 
 spec:
   ingressClassName: contour
   tls:
