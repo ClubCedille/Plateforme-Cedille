@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cedille-wiki
+  name: wiki-cedille
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "2"
@@ -11,10 +11,10 @@ spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-    namespace: cedille-wiki
+    namespace: wiki-cedille
   source:
     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
-    path: apps/cedille-wiki/prod
+    path: apps/wiki-cedille/prod
     targetRevision: HEAD
   syncPolicy:
     syncOptions:
