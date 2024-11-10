@@ -104,8 +104,6 @@ nav:
         - 'Retrospection 1': plateforme-cedille/log791/retrospective-1.md
         - 'Retrospection 2': plateforme-cedille/log791/retrospective-2.md
         - 'Retrospection 3': plateforme-cedille/log791/retrospective-3.md
-      - 'DevOps': 
-        - onboarding/tracks/devops.md
     - 'Document de vision': plateforme-cedille/vision.md
     - Infrastructure: plateforme-cedille/infra.md
     - 'Cluster kubernetes': plateforme-cedille/cluster-kubernetes.md
