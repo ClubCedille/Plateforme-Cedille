@@ -1,23 +1,24 @@
-FROM python:3.9-slim AS builder
+FROM python:3.12-slim AS builder
 
 WORKDIR /app
 
 ARG WIKI_DIR="wiki/"
 COPY ${WIKI_DIR} .
 
-RUN pip install mkdocs mkdocs-material pymdown-extensions
+RUN pip3 install \
+    mkdocs==1.6.1\
+    mkdocs-material==9.5.44 \
+    mkdocs-material-extensions==1.3.1 \
+    mkdocs-mermaid2-plugin==1.2.1
+
 RUN mkdocs build -f mkdocs-fr.yml -d site/fr
 RUN mkdocs build -f mkdocs-en.yml -d site/en
 
-RUN mkdir -p /app/site/fr/.well-known/acme-challenge
+FROM bitnami/nginx:1.27.2
 
-FROM ghcr.io/nginxinc/nginx-unprivileged:stable-bookworm-perl
+COPY --from=builder /app/site/fr /app/fr/
+COPY --from=builder /app/site/en /app/en/
 
-COPY --from=builder /app/site/fr /usr/share/nginx/html/
-COPY --from=builder /app/site/en /usr/share/nginx/html/en/
-
-COPY --from=builder /app/nginx.conf /etc/nginx/nginx.conf
-
-RUN mkdir -p /tmp/client_temp /tmp/proxy_temp /tmp/fastcgi_temp /tmp/uwsgi_temp /tmp/scgi_temp
+COPY nginx-server-block.conf /opt/bitnami/nginx/conf/server_blocks/wiki_server_block.conf
 
 EXPOSE 8080

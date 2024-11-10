@@ -4,10 +4,6 @@ Welcome to the GitHub Actions documentation for beginners!
 
 This guide is designed to help you get started with GitHub Actions, a powerful tool that allows you to automate Continuous Integration (CI), Continuous Deployment (CD), and much more directly from your GitHub repository. Whether you're an experienced developer or simply curious about GitHub Actions, this documentation will provide the foundational knowledge you need to start automating your workflows and streamlining your DevOps processes.
 
----
-
-## Table of Contents
-
 - **Introduction to GitHub Actions**  
   Learn key concepts such as workflows, jobs, steps, and runners, as well as the differences between GitHub Actions and other CI/CD tools.
 
