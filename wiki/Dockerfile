@@ -19,6 +19,6 @@ FROM bitnami/nginx:1.27.2
 COPY --from=builder /app/site/fr /app/fr/
 COPY --from=builder /app/site/en /app/en/
 
-COPY nginx-server-block.conf /opt/bitnami/nginx/conf/server_blocks/wiki_server_block.conf
+COPY --from=builder nginx-server-block.conf /opt/bitnami/nginx/conf/server_blocks/wiki_server_block.conf
 
 EXPOSE 8080
