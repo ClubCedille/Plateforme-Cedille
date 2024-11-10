@@ -30,7 +30,7 @@ resources:
 # - ../hackqc2024/
 - ../integrale/website/
 - ../applets/hello/
-- ../cedille-wiki/
+- ../wiki-cedille/
 - ../dronolab/wikijs/
   # ... other apps ...
 
