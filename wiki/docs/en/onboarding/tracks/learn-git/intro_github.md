@@ -26,7 +26,7 @@ If you do not already have a Github account, [create one right now](https://gith
 - Commit regularly and contribute to issues: This will show that you are an active user and you have an interest in programming.
 
 - Readme.md: This file let's you write and embed content by using Markdown, and is shown as the main age of your profile.
-> Markdown (md) is a markup language that let's you easily format text. You can lookup a cheat sheet for all the available formatting. This wiki is written in markdown !
+> Markdown (md) is a markup language that let's you easily format text. You can lookup a cheat sheet for all the available formatting. This wiki is written in markdown ! See [how to write it here](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
 ---
 

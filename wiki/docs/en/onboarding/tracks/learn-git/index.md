@@ -27,8 +27,22 @@ It works very well for any project's sizes, while staying efficient. Furthermore
 
 ### Git's workflow
 
-![Git workflow](img/git_workflow.png)
-[Source](https://dev.to/mollynem/git-github--workflow-fundamentals-5496)
+```mermaid
+sequenceDiagram
+box Aqua Local
+    participant Working directory
+    participant Staging
+    participant Local Repo
+end
+box Orange Remote
+    participant Remote Repo
+end
+
+Working directory->>Staging:git add
+Staging->>Local Repo: git commit
+Local Repo->>Remote Repo: git push
+Remote Repo->>Local Repo: git pull
+```
 
 Git has 3 primary areas where all the action happens:
 
