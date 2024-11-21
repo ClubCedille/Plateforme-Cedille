@@ -29,7 +29,7 @@ It works very well for any project's sizes, while staying efficient. Furthermore
 
 ```mermaid
 sequenceDiagram
-box Aqua Local
+box Blue Local
     participant Working directory
     participant Staging
     participant Local Repo

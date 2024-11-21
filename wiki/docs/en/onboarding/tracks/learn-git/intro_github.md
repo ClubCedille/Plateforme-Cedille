@@ -19,15 +19,15 @@ Because of its popularity, Github has became a standard in the industry, and a g
 
 If you do not already have a Github account, [create one right now](https://github.com/join) ! Try to keep it up to date with your developping skills. At the end of the onboarding, you will already have a couple projects to add to it !
 
+You will see on your account a repository with your own username containing a file named `readme.md`, which is your profil page.
+> Markdown (md) is a markup language that let's you easily format text. You can lookup a cheat sheet for all the available formatting. This wiki is written in markdown ! See [how to write it here](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+
+In the following tutorial, we will edit it and make it better, as it is used like a LinkedIn page is used.
 ### Quick tips for your account:
 
 - Repositories: Add any projects you are proud of ! (*If you are adding a school project, please talk to your teacher beforehand.*)
 
 - Commit regularly and contribute to issues: This will show that you are an active user and you have an interest in programming.
-
-- Readme.md: This file let's you write and embed content by using Markdown, and is shown as the main age of your profile.
-> Markdown (md) is a markup language that let's you easily format text. You can lookup a cheat sheet for all the available formatting. This wiki is written in markdown ! See [how to write it here](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
 ---
 
 With your fresh account, you are ready to [start using Github](walkthrough_github.md) !
