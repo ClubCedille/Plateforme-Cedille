@@ -81,14 +81,15 @@ variable "k8s_version" {
   
 }
 
-variable "argocd_server" {
-  type = string
-}
-
 variable "owner_tag" {
   type = string
 }
 
 variable "environment_tag" {
   type = string
+}
+
+variable "omni_url" {
+  type = string
+  default = "https://cedille.kubernetes.omni.siderolabs.io"
 }
