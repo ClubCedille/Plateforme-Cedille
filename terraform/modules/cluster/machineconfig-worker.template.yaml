@@ -9,8 +9,9 @@ spec:
     machine:
       nodeLabels:
         etsmtl.club/external-network: "true"
+        etsmtl.club/external-ip: "$PUBLIC_IP"
       network:
-        hostname: "k8s-$NAME-$ROLE-$KEY.$DOMAIN"
+        hostname: "$NAME-worker-$KEY.$DOMAIN"
         disableSearchDomain: true
         nameservers: ["$NETWORK_CONFIG_DNS"]
         interfaces:
@@ -31,7 +32,7 @@ metadata:
   id: $UUID
   labels:
     cluster-candidate: $NAME
-    role: $ROLE
+    role: worker
   namespace: default
   type: MachineLabels.omni.sidero.dev
 spec: {}

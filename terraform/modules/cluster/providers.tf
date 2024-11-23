@@ -21,6 +21,10 @@ terraform {
       source = "hashicorp/random"
       version = "3.6.3"
     }
+    argocd = {
+      source = "argoproj-labs/argocd"
+      version = "7.1.0"
+    }
   }
 }
 
@@ -31,4 +35,11 @@ provider "proxmox" {
   insecure = true
   random_vm_ids = true
   
+}
+
+provider "argocd" {
+  server_addr = "localhost:8080"
+  username    = "admin"
+  password    = ""
+  insecure    = true
 }

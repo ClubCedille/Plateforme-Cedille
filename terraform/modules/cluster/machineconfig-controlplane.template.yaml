@@ -1,0 +1,36 @@
+metadata:
+  id: 600-$UUID
+  labels:
+    omni.sidero.dev/machine: $UUID
+  namespace: default
+  type: ConfigPatches.omni.sidero.dev
+spec:
+  data: |-
+    machine:
+      nodeLabels:
+        etsmtl.club/external-network: "false"
+      network:
+        hostname: "$NAME-controlplane-$KEY.$DOMAIN"
+        disableSearchDomain: true
+        nameservers: ["$NETWORK_CONFIG_DNS"]
+        interfaces:
+          - deviceSelector:
+              busPath: "0*"
+            vlans:
+              - vlanId: $NETWORK_CONFIG_INTERNAL_VLAN_ID
+                addresses:
+                  - $IP/$NETWORK_CONFIG_CIDR
+                routes:
+                  - network: $NETWORK_CONFIG_SUBNET/$NETWORK_CONFIG_CIDR
+                  - network: 0.0.0.0/0
+                    gateway: $NETWORK_CONFIG_IP_GATEWAY
+
+---
+metadata:
+  id: $UUID
+  labels:
+    cluster-candidate: $NAME
+    role: controlplane
+  namespace: default
+  type: MachineLabels.omni.sidero.dev
+spec: {}

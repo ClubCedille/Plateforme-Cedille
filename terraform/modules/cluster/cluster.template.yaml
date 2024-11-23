@@ -4,6 +4,14 @@ kubernetes:
   version: $K8S_VERSION
 talos:
   version: $TALOS_VERSION
+patches:
+- name: ipvs
+  inline:
+    cluster:
+      proxy:
+          mode: ipvs
+          extraArgs:
+              ipvs-strict-arp: "true"
 ---
 kind: ControlPlane
 machineClass:

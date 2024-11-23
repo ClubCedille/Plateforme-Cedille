@@ -51,6 +51,7 @@ variable "network_config" {
     cidr = number,
     ip_gateway = string,
     dns = list(string),
+    public_ip = string,
   })
   
 }
@@ -81,5 +82,13 @@ variable "k8s_version" {
 }
 
 variable "argocd_server" {
+  type = string
+}
+
+variable "owner_tag" {
+  type = string
+}
+
+variable "environment_tag" {
   type = string
 }
