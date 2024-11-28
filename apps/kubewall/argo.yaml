@@ -5,8 +5,6 @@ metadata:
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "2"
-    argocd-image-updater.argoproj.io/image-list: website=ghcr.io/integrale-ets/site-integrale:latest
-    argocd-image-updater.argoproj.io/website.update-strategy: digest
 spec:
   project: default
   destination:
@@ -14,7 +12,7 @@ spec:
     namespace: kubewall
   source:
     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
-    path: apps/kubewall/prod/base
+    path: apps/kubewall/prod/
     targetRevision: HEAD
   syncPolicy:
     syncOptions:
