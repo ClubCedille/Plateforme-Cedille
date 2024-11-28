@@ -32,6 +32,7 @@ resources:
 - ../applets/hello/
 - ../cedille-wiki/
 - ../dronolab/wikijs/
+- ../kubewall/
   # ... other apps ...
 
   # This patch will set the destination cluster for Applications
