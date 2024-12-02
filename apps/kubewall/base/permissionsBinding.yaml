@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: kubewall-cluster-deployment
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: kubewall
+roleRef:
+  kind: ClusterRole
+  name: cluster-deployment
+  apiGroup: rbac.authorization.k8s.io
