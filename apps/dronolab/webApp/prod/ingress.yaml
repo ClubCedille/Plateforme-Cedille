@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dronolab-webapp-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+    kubernetes.io/tls-acme: "true"
+spec:
+  ingressClassName: contour
+  tls:
+    - secretName: webapp-dronolab-tls
+      hosts:
+        - dronolab.etsmtl.ca
+  rules:
+    - host: dronolab.etsmtl.ca
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: svc-webapp-dronolab
+              port:
+                number: 3000
