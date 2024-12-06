@@ -13,13 +13,13 @@ spec:
       hosts:
         - wiki.omni.cedille.club
   rules:
-  - host: wiki.omni.cedille.club
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: wiki-cedille
-            port:
-              number: 80
+    - host: wiki.omni.cedille.club
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: wiki-cedille
+                port:
+                  name: http

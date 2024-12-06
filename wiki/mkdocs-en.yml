@@ -13,11 +13,11 @@ theme:
       primary: black
       accent: orange
       toggle:
-        icon: material/brightness-4 
+        icon: material/brightness-4
         name: Switch to dark mode
         primary: orange
         accent: orange
-      logo: assets/logo.png
+      logo: assets/images/logo.png
 
     # Palette toggle for light mode
     - scheme: slate
@@ -26,8 +26,8 @@ theme:
       toggle:
         icon: material/brightness-7
         name: Switch to light mode
-  logo_dark: assets/logo-dark.png
-  logo: assets/logo.png
+  logo_dark: assets/images/logo-dark.png
+  logo: assets/images/logo.png
   highlightjs: true
   language: en
   hljs_languages:
@@ -41,8 +41,8 @@ theme:
     - navigation.footer
   icon:
     repo: fontawesome/brands/github
-  favicon: assets/favicon.ico
-  
+  favicon: assets/images/favicon.ico
+
 extra:
   homepage: https://wiki.omni.cedille.club/en/
   alternate:
@@ -54,9 +54,11 @@ extra:
       lang: fr
 extra_css:
   - stylesheets/extra.css
+extra_javascript:
+  - javascript/extra.js
 
 nav:
-  - Home: 
+  - Home:
     - index.md
   - Onboarding:
     - 'Onboarding intro': onboarding/index.md
@@ -76,7 +78,21 @@ nav:
           - 'Docker Hub & Container Registry': onboarding/tracks/learn-docker/container-registry.md
       - 'Track - Web Development': onboarding/tracks/web-development.md
       - 'Track - App Development': onboarding/tracks/app-development.md
-      - 'Track - DevOps': onboarding/tracks/devops.md
+      - Track - DevOps:
+        - 'Learn DevOps': onboarding/tracks/devops.md
+        - Learn GitHub Actions:
+          - 'GitHub Actions': onboarding/tracks/learn-github-actions/index.md
+          - 'Introduction to GitHub Actions': onboarding/tracks/learn-github-actions/introductions.md
+          - 'Getting Started with GitHub Actions': onboarding/tracks/learn-github-actions/first-step.md
+          - 'Creating Custom Workflows': onboarding/tracks/learn-github-actions/workflows.md
+          - 'Integration with Docker and Kubernetes': onboarding/tracks/learn-github-actions/integration.md
+          - 'Continuous Deployment with GitHub Actions': onboarding/tracks/learn-github-actions/deployment.md
+          - 'Using GitHub Container Registry (GHCR)': onboarding/tracks/learn-github-actions/registry.md
+          - 'Managing Security and Permissions': onboarding/tracks/learn-github-actions/security.md
+          - 'Optimizing CI/CD Workflows': onboarding/tracks/learn-github-actions/CICD.md
+          - 'Monitoring and Reporting': onboarding/tracks/learn-github-actions/monitoring.md
+          - 'Practical Use Cases: DevOps with GitHub Actions': onboarding/tracks/learn-github-actions/use-case.md
+          - 'Best Practices and DevOps Patterns with GitHub': onboarding/tracks/learn-github-actions/practices.md
       - 'Track - SRE': onboarding/tracks/sre.md
     - Finish the Onboarding: onboarding/complete.md
   - CEDILLE Platform:
@@ -89,6 +105,7 @@ nav:
         - 'Retrospective 2': plateforme-cedille/log791/retrospective-2.md
         - 'Retrospective 3': plateforme-cedille/log791/retrospective-3.md
     - 'Vision Document': plateforme-cedille/vision.md
+    - Infrastructure: plateforme-cedille/infra.md
     - 'Kubernetes Cluster': plateforme-cedille/cluster-kubernetes.md
     - 'Hardware Components': plateforme-cedille/hardware.md
     - Applications: 
@@ -99,7 +116,6 @@ nav:
     - Contribution Guide: plateforme-cedille/contribution-guidelines.md
     - Getting Started: plateforme-cedille/getting-started.md
     - SRE: plateforme-cedille/sre.md
-
 markdown_extensions:
   - pymdownx.snippets:
   - pymdownx.superfences:

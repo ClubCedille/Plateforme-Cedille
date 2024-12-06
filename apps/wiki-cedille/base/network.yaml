@@ -6,7 +6,8 @@ spec:
   selector:
     app: wiki-cedille
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 8080
-
+    - name: http
+      targetPort: 8080
+      protocol: TCP
+      port: 80
+  type: ClusterIP

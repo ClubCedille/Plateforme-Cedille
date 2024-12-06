@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-dronolab
+spec:
+  selector:
+    matchLabels:
+      app: webapp-dronolab
+  template:
+    metadata:
+      labels:
+        app: webapp-dronolab
+    spec:
+      containers:
+      - name: webapp-dronolab
+        image: ghcr.io/dronolab/dronolab-website:latest
+        ports:
+        - containerPort: 3000
+        resources:
+          limits:
+            cpu: 200m
+            memory: 256Mi

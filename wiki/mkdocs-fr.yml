@@ -13,11 +13,11 @@ theme:
       primary: black
       accent: orange
       toggle:
-        icon: material/brightness-4 
+        icon: material/brightness-4
         name: Switch to dark mode
         primary: orange
         accent: orange
-      logo: assets/logo.png
+      logo: assets/images/logo.png
 
     # Palette toggle for light mode
     - scheme: slate
@@ -26,8 +26,8 @@ theme:
       toggle:
         icon: material/brightness-7
         name: Switch to light mode
-  logo_dark: assets/logo-dark.png
-  logo: assets/logo.png
+  logo_dark: assets/images/logo-dark.png
+  logo: assets/images/logo.png
   highlightjs: true
   language: fr
   hljs_languages:
@@ -41,7 +41,7 @@ theme:
     - navigation.footer
   icon:
     repo: fontawesome/brands/github
-  favicon: assets/favicon.ico
+  favicon: assets/images/favicon.ico
 
 extra:
   homepage: https://wiki.omni.cedille.club/
@@ -54,6 +54,8 @@ extra:
       lang: fr
 extra_css:
   - stylesheets/extra.css
+extra_javascript:
+  - javascript/extra.js
 
 nav:
   - Accueil: 
@@ -76,7 +78,21 @@ nav:
           - 'Docker Hub & registre de conteneurs': onboarding/tracks/learn-docker/container-registry.md
       - 'Piste - Développement Web': onboarding/tracks/web-development.md
       - 'Piste - Développement applicatif': onboarding/tracks/app-development.md
-      - 'Piste - DevOps': onboarding/tracks/devops.md
+      - Piste - DevOps:
+        - 'Apprendre DevOps': onboarding/tracks/devops.md
+        - Apprendre GitHub Actions:
+          - 'GitHub Actions': onboarding/tracks/learn-github-actions/index.md
+          - 'Introduction à GitHub Actions': onboarding/tracks/learn-github-actions/introductions.md
+          - 'Premiers Pas avec GitHub Actions': onboarding/tracks/learn-github-actions/first-step.md
+          - 'Créer des Workflows Personnalisés': onboarding/tracks/learn-github-actions/workflows.md
+          - 'Intégration avec Docker et Kubernetes': onboarding/tracks/learn-github-actions/integration.md
+          - 'Déploiement Continu avec GitHub Actions': onboarding/tracks/learn-github-actions/deployment.md
+          - 'Utiliser GitHub Container Registry (GHCR)': onboarding/tracks/learn-github-actions/registry.md
+          - 'Gestion de la Sécurité et des Permissions': onboarding/tracks/learn-github-actions/security.md
+          - 'Optimisation des Workflows CI/CD': onboarding/tracks/learn-github-actions/CICD.md
+          - 'Monitoring et Reporting': onboarding/tracks/learn-github-actions/monitoring.md
+          - 'Cas Pratiques : DevOps avec GitHub Actions': onboarding/tracks/learn-github-actions/use-case.md
+          - 'Bonnes Pratiques et Patterns DevOps avec GitHub': onboarding/tracks/learn-github-actions/practices.md
       - 'Piste - SRE': onboarding/tracks/sre.md
     - Complète l'intégration: onboarding/complete.md
   - Plateforme CEDILLE:
@@ -89,9 +105,10 @@ nav:
         - 'Retrospection 2': plateforme-cedille/log791/retrospective-2.md
         - 'Retrospection 3': plateforme-cedille/log791/retrospective-3.md
     - 'Document de vision': plateforme-cedille/vision.md
+    - Infrastructure: plateforme-cedille/infra.md
     - 'Cluster kubernetes': plateforme-cedille/cluster-kubernetes.md
     - 'Composants matériels': plateforme-cedille/hardware.md
-    - Applications: 
+    - Applications:
       - 'Index' : 'plateforme-cedille/Applications/index.md'
       - 'Déploiement type workload': plateforme-cedille/Applications/deploying-workloads.md
       - 'Déploiement type système': plateforme-cedille/Applications/deploying-system-apps.md

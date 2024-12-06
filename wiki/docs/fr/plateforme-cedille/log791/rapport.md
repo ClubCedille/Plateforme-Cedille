@@ -216,7 +216,7 @@ En somme, ce projet a été une expérience enrichissante qui a dépassé nos at
 
 ## Annexes
 
-- [Document de vision](../plateforme-cedille/vision.md)
+- [Document de vision](../vision.md)
 - [Sprints](index.md)
 - [Répertoire Git](https://github.com/ClubCedille/Plateforme-Cedille)
 - [Suivi des tâches](https://github.com/orgs/ClubCedille/projects/3)
