@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: webapp-crabe
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+    argocd-image-updater.argoproj.io/image-list: webapp=ghcr.io/crabe-etsmtl/crabe-atelier:latest
+    argocd-image-updater.argoproj.io/webapp.update-strategy: digest
+    argocd-image-updater.argoproj.io/webapp.pullsecret: argocd/ghcr-secret
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: webapp-crabe
+  source:
+    repoURL: https://github.com/ClubCedille/Plateforme-Cedille
+    path: apps/crabe/webApp/prod
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

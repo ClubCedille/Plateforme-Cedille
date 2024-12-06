@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: crabe-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+    kubernetes.io/tls-acme: "true"
+spec:
+  ingressClassName: contour
+  tls:
+    - secretName: crabe-tls
+      hosts:
+        - atelier.crabe.cedille.club
+  rules:
+    - host: atelier.crabe.cedille.club
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: crabe-svc
+                port:
+                  number: 80

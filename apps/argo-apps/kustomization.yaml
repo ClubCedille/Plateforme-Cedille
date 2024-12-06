@@ -34,6 +34,7 @@ resources:
 - ../dronolab/wikijs/
 # - ../kubewall/
 - ../dronolab/webApp/
+- ../crabe/webApp/
   # ... other apps ...
 
   # This patch will set the destination cluster for Applications

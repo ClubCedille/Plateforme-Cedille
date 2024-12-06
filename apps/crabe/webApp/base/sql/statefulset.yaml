@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql
+spec:
+  serviceName: mysql
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+        - name: mysql
+          envfrom:
+            - secretRef:
+                name: webapp-crabe-secrets
+          image: ghcr.io/crabe-etsmtl/crabe-mysql:latest
+          ports:
+            - containerPort: 3306
+              name: mysql
+          volumeMounts:
+            - name: mysql-pv-claim
+              mountPath: /var/lib/mysql
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "1Gi"
+            limits: 
+              cpu: "2000m"
+              hugepages-2Mi: 512Mi
+              memory: "2Gi"
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            readOnlyRootFilesystem: false
+            allowPrivilegeEscalation: false
+  volumeClaimTemplates:
+    - metadata:
+        name: mysql-pv-claim
+      spec:
+        storageClassName: local-hostpath
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 10Gi
