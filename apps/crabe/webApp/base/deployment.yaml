@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-crabe
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp-crabe
+  template:
+    metadata:
+      labels:
+        app: webapp-crabe
+    spec:
+      containers:
+        - name: webapp-crabe
+          envfrom:
+            - secretRef:
+                name: webapp-crabe-secrets
+          image: ghcr.io/crabe-etsmtl/crabe-atelier:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
+              ephemeral-storage: 1Gi
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: false
+            runAsNonRoot: true
+            runAsUser: 10001
+            runAsGroup: 10001
+            capabilities:
+              drop:
+                - ALL
+            seccompProfile:
+              type: RuntimeDefault
