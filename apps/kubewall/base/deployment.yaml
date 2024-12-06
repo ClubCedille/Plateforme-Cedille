@@ -12,6 +12,7 @@ spec:
       labels:
         app: kubewall
     spec:
+      serviceAccountName: kubewall-admin
       containers:
         - name: kubewall
           image: ghcr.io/kubewall/kubewall:latest
