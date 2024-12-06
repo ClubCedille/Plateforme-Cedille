@@ -1,8 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
+kind: ServiceAccount
 metadata:
-  name: cluster-deployment
-rules:
-  - apiGroups: ["apps"]
-    resources: ["*"]
-    verbs: ["get", "list", "watch"]
+  name: kubewall-admin
+  namespace: kubewall
+  labels:
+    name: kubewall-admin
