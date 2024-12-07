@@ -14,7 +14,6 @@ spec:
     spec:
       imagePullSecrets:
         - name: ghcr-secret
-    spec:
       containers:
         - name: webapp-crabe
           envfrom:
