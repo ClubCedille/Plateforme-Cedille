@@ -16,9 +16,37 @@ spec:
         - name: ghcr-secret
       containers:
         - name: webapp-crabe
-          envfrom:
-            - secretRef:
-                name: webapp-crabe-secrets
+      env:
+        - name: DATABASE_NAME
+          valueFrom:
+            secretKeyRef:
+              name: webapp-crabe-secrets
+              key: DATABASE_NAME
+        - name: DB_DRIVER
+          valueFrom:
+            secretKeyRef:
+              name: webapp-crabe-secrets
+              key: DB_DRIVER
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: webapp-crabe-secrets
+              key: PASSWORD
+        - name: PRODUCTION_MODE
+          valueFrom:
+            secretKeyRef:
+              name: webapp-crabe-secrets
+              key: PRODUCTION_MODE
+        - name: PROD_HOST
+          valueFrom:
+            secretKeyRef:
+              name: webapp-crabe-secrets
+              key: PROD_HOST
+        - name: USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: webapp-crabe-secrets
+              key: USERNAME
           image: ghcr.io/crabe-etsmtl/crabe-atelier:latest
           imagePullPolicy: Always
           ports:
