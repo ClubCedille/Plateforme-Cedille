@@ -8,4 +8,4 @@ spec:
     app: webapp-crabe
   ports:
     - protocol: TCP
-      port: 80
+      port: 8080
