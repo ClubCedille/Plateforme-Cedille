@@ -50,7 +50,7 @@ spec:
           image: ghcr.io/crabe-etsmtl/crabe-atelier:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 80
+            - containerPort: 8080
           resources:
             requests:
               cpu: 100m
