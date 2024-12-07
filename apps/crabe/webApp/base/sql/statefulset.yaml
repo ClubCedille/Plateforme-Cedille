@@ -19,13 +19,31 @@ spec:
         fsGroup: 1000
       containers:
         - name: mysql
-          envfrom:
-            - secretRef:
-                name: webapp-crabe-secrets
           image: ghcr.io/crabe-etsmtl/crabe-mysql:latest
           ports:
             - containerPort: 3306
               name: mysql
+          env:
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: webapp-crabe-secrets
+                  key: MYSQL_USER
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: webapp-crabe-secrets
+                  key: MYSQL_PASSWORD
+            - name: MYSQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: webapp-crabe-secrets
+                  key: MYSQL_DATABASE
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: webapp-crabe-secrets
+                  key: MYSQL_ROOT_PASSWORD
           volumeMounts:
             - name: mysql-pv-claim
               mountPath: /var/lib/mysql
