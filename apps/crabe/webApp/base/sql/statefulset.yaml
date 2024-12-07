@@ -13,6 +13,9 @@ spec:
       labels:
         app: mysql
     spec:
+      imagePullSecrets:
+        - name: ghcr-secret
+    spec:
       securityContext:
         fsGroup: 1000
       containers:
