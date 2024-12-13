@@ -49,11 +49,11 @@ spec:
               mountPath: /var/lib/mysql
           resources:
             requests:
-              cpu: 100m
-              memory: 128Mi
+              cpu: 300m
+              memory: 512Mi
             limits:
               cpu: 500m
-              memory: 256Mi
+              memory: 1Gi
           securityContext:
             runAsUser: 1000
             runAsGroup: 1000
