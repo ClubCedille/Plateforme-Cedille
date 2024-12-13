@@ -8,8 +8,8 @@ metadata:
     argocd-image-updater.argoproj.io/image-list: webapp=ghcr.io/crabe-etsmtl/crabe-atelier:latest,mysql=ghcr.io/crabe-etsmtl/crabe-mysql:latest
     argocd-image-updater.argoproj.io/webapp.update-strategy: digest
     argocd-image-updater.argoproj.io/mysql.update-strategy: digest
-    argocd-image-updater.argoproj.io/webapp.pull-secret: argocd/ghcr-secret
-    argocd-image-updater.argoproj.io/mysql.pull-secret: argocd/ghcr-secret
+    argocd-image-updater.argoproj.io/webapp.pull-secret: webapp-crabe/ghcr-secret
+    argocd-image-updater.argoproj.io/mysql.pull-secret: webapp-crabe/ghcr-secret
 spec:
   project: default
   destination:
