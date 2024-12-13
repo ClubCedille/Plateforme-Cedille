@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: kubewall-admin
+  namespace: kubewall
+  labels:
+    name: kubewall-admin

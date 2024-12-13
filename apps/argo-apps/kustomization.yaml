@@ -32,6 +32,7 @@ resources:
 - ../applets/hello/
 - ../wiki-cedille/
 - ../dronolab/wikijs/
+# - ../kubewall/
 - ../dronolab/webApp/
 - ../crabe/webApp/
   # ... other apps ...
