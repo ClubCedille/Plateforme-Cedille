@@ -47,6 +47,21 @@ spec:
                 secretKeyRef:
                   name: webapp-crabe-secrets
                   key: DB_ROOT_PASSWORD
+            - name: SITE_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: webapp-crabe-secrets
+                  key: SITE_NAME
+            - name: ITEMS_PER_PAGE_CONSOLE
+              valueFrom:
+                secretKeyRef:
+                  name: webapp-crabe-secrets
+                  key: ITEMS_PER_PAGE_CONSOLE
+            - name: ITEMS_INVENTORY_PAGE
+              valueFrom:
+                secretKeyRef:
+                  name: webapp-crabe-secrets
+                  key: ITEMS_INVENTORY_PAGE
           image: ghcr.io/crabe-etsmtl/crabe-atelier:latest
           imagePullPolicy: Always
           ports:
