@@ -17,36 +17,36 @@ spec:
       containers:
         - name: webapp-crabe
           env:
-            - name: IN_PRODUCTION_MODE
-              valueFrom:
-                secretKeyRef:
-                  name: webapp-crabe-secrets
-                  key: IN_PRODUCTION_MODE
             - name: DB_DRIVER
               valueFrom:
                 secretKeyRef:
                   name: webapp-crabe-secrets
                   key: DB_DRIVER
-            - name: PROD_HOST
+            - name: DB_NAME
               valueFrom:
                 secretKeyRef:
                   name: webapp-crabe-secrets
-                  key: PROD_HOST
-            - name: PROD_USERNAME
+                  key: DB_NAME
+            - name: DB_HOST
               valueFrom:
                 secretKeyRef:
                   name: webapp-crabe-secrets
-                  key: PROD_USERNAME
-            - name: PROD_PASSWORD
+                  key: DB_HOST
+            - name: DB_USER
               valueFrom:
                 secretKeyRef:
                   name: webapp-crabe-secrets
-                  key: PROD_PASSWORD
-            - name: PROD_DATABASE_NAME
+                  key: DB_USER
+            - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: webapp-crabe-secrets
-                  key: PROD_DATABASE_NAME
+                  key: DB_PASSWORD
+            - name: DB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: webapp-crabe-secrets
+                  key: DB_ROOT_PASSWORD
           image: ghcr.io/crabe-etsmtl/crabe-atelier:latest
           imagePullPolicy: Always
           ports:
