@@ -32,7 +32,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Render Terraform User Module
-        uses: cuchi/jinja2-action@v1.2.2
+        uses: cuchi/jinja2-action@v1.3.0
         with:
           template: terraform/templates/user_module_template.jinja2
           output_file: temp_user_module.tf
