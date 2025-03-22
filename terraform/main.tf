@@ -15,15 +15,15 @@
 #  ]
 # }
 
-# module "vault" {
-#   source             = "./vault"
-#   kms_region         = var.gcloud_region
-#   gcloud_project     = var.gcloud_project
-#   name_prefix        = "prod"
-#   cluster_ca         = var.cluster_ca # base64decode(local.omni_machine_config.cluster.ca.crt)
-#   override_helm_path = "system/vault/helm/vault.values.yaml"
-#   platform_repo      = var.platform_repo
-# }
+module "vault" {
+  source             = "./vault"
+  kms_region         = var.gcloud_region
+  gcloud_project     = var.gcloud_project
+  name_prefix        = "prod"
+  cluster_ca         = var.cluster_ca # base64decode(local.omni_machine_config.cluster.ca.crt)
+  override_helm_path = "system/vault/helm/vault.values.yaml"
+  platform_repo      = var.platform_repo
+}
 
 module "github" {
   source = "./github"
