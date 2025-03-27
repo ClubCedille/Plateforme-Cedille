@@ -22,20 +22,20 @@ resources:
 - ../../system/kubevious/
 - ../../system/kube-system/
 - ../../system/sandboxes/
-- ../calidum-rotae/
-- ../trema/
 - ../acets/grav/
 # - ../ets-demo/grav/
 # - ../raconteurs/grav/
 # - ../hackqc2024/
 - ../integrale/website/
 - ../applets/hello/
-- ../wiki-cedille/
 - ../dronolab/wikijs/
 # - ../kubewall/
 - ../dronolab/webApp/
 - ../crabe/webApp/
   # ... other apps ...
+# - ../calidum-rotae/
+# - ../wiki-cedille/
+# - ../trema/
 
   # This patch will set the destination cluster for Applications
   ###
