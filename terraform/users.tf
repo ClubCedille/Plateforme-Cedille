@@ -150,11 +150,26 @@ module "etienneoh" {
   netdata_role = "observer"
 }
 
+module "raphaelNguimbus" {
+  source          = "./modules/user"
+  github_email    = "raphagwem@gmail.com"
+  github_username = "raphaelNguimbus"
+
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" }, 
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Operator"
+  cluster_repo = var.platform_repo
+  netdata_role = "observer"
+}
 
 module "HassaanBahsoun" {
   source          = "./modules/user"
   github_email    = "hassaan.bahsoun.1@ens.etsmtl.ca"
   github_username = "HassaanBahsoun"
+
   github_role     = "member"
   teams = [
     { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" }, 
