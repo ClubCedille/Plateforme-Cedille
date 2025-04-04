@@ -3,5 +3,6 @@
 **.tfstate
 **.tfstate.backup
 **/.terraform/
+.obsidian/
 omnictl
 wiki/site
