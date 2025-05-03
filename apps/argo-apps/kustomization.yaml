@@ -32,7 +32,6 @@ resources:
 - ../dronolab/wikijs/
 - ../dronolab/webApp/
 - ../crabe/webApp/
-- ../aeroets/grav/
   # ... other apps ...
 # - ../calidum-rotae/
 # - ../wiki-cedille/

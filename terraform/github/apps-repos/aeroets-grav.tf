@@ -1,8 +1,8 @@
 resource "github_repository" "repo_aeroets" {
-  name = "aeroets.omni.cedille.club"
+  name = "aeroets.etsmtl.ca"
   auto_init = true
-  homepage_url = "https://aeroets.omni.cedille.club"
-  description = "Site web de aeroets"
+  homepage_url = "https://aeroets.etsmtl.ca"
+  description = "Site web de AeroÉTS"
   has_downloads = true
   has_issues = true
   has_projects = true
@@ -24,7 +24,7 @@ resource "github_repository_webhook" "webhook_aeroets" {
   repository = github_repository.repo_aeroets.name
 
   configuration {
-    url          = "https://aeroets.omni.cedille.club/_git_webhook"
+    url          = "https://aeroets.prod.cedille.club/_git_webhook"
     content_type = "json"
     insecure_ssl = false
   }
