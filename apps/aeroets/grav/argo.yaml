@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: aeroets-grav
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: aeroets-grav
+  source:
+    repoURL: https://github.com/ClubCedille/Plateforme-Cedille
+    path: apps/aeroets/grav/prod
+    targetRevision: HEAD 
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
