@@ -30,7 +30,7 @@ un impact concret dans ta communauté.
 - Utilisation de Git (titre et description des issues, nommage des branches,
   messages de commit, titres et descriptions des pull requests, etc.)
 
-## Connaissances techniques
+## Connaissances du domaine
 
 Voici quelques outils et pratiques qu’on utilise souvent chez CEDILLE. Chaque
 lien t’amène vers de la documentation, des tutoriels ou des ressources utiles
@@ -73,16 +73,9 @@ pour découvrir les technologies que tu vas rencontrer dans les labs.
 * [Livre sur l’ingénierie de la fiabilité des sites (SRE) de
   Google](https://sre.google/sre-book/table-of-contents/)
 
-## Labs pratiques
+## Pistes d'intégration
 
-Maintenant que tu comprends mieux notre mission et notre philosophie, c’est le
-moment de te lancer dans ton premier projet. Pour t’aider à démarrer, on a
-préparé des labs où tu vas créer et mettre en ligne ton propre site portfolio.
-
-Ces labs sont une bonne façon de te familiariser avec les outils et les
-pratiques que tu utiliseras tout au long de ton parcours dans le club. C’est
-aussi l’occasion idéale pour commencer à documenter tes réalisations et
-construire ton profil professionnel.
-
-Clique [ici](./hands-on-labs/learn-github-actions/) pour démarrer les labs
-pratiques.
+Maintenant que tu as une bonne compréhension de notre philosophie, de nos
+standards et de nos connaissances du domaine, tu peux choisir une piste qui
+correspond à ton profil. Rends-toi à la [section suivante](./tracks/index.md)
+pour voir les pistes disponibles.

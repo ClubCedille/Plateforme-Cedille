@@ -74,14 +74,9 @@ Below is a non-exhaustive list of tools and practices commonly used at CEDILLE. 
 * [Google's Site Reliability Engineering
   book](https://sre.google/sre-book/table-of-contents/)
 
-## Hands-on labs
+## Onboarding tracks
 
-Now that you understand our community’s mission and philosophy, it’s time to
-begin your first project. To help you get started with CEDILLE, we've prepared
-hands-on labs where you'll build and deploy your own portfolio website.
+Now that you have a good understanding of our philosophy, standards, and domain
+knowledge, you can choose a track that fits your profile. Head to the [next
+section](./tracks/index.md) to see the available tracks.
 
-These labs will introduce you to the tools and concepts you’ll use throughout
-your journey here. It’s also a chance to start documenting your work and
-building your professional presence.
-
-Click [here](./hands-on-labs/index.md) to get started with the Hands-on Labs.
