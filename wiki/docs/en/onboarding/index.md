@@ -22,10 +22,10 @@ learners to engineers who can make tangible contributions to their communities.
 
 Our ultimate goal is to help members build a portfolio of case studies that
 demonstrates their ability to create value and solve problems. This portfolio
-becomes a testament to their impact — one that opens doors and fosters meaningful
-conversations as they pursue careers beyond ÉTS. At CEDILLE, we strive to
-empower students to innovate, collaborate, and leave a lasting mark on the
-community they belong to.
+becomes a testament to their impact — one that opens doors and fosters
+meaningful conversations as they pursue careers beyond ÉTS. At CEDILLE, we
+strive to empower students to innovate, collaborate, and leave a lasting mark on
+the community they belong to.
 
 ## Our standards
 
@@ -37,7 +37,10 @@ community they belong to.
 
 ## Domain knowledge
 
-Below is a non-exhaustive list of tools and practices commonly used at CEDILLE. Each item includes links to documentation, tutorials, or foundational reading to help you get familiar with the technologies you'll encounter in the hands-on labs.
+Below is a non-exhaustive list of tools and practices commonly used at CEDILLE.
+Each item includes links to documentation, tutorials, or foundational reading to
+help you get familiar with the technologies you'll encounter in the hands-on
+labs.
 
 ### App development
 
