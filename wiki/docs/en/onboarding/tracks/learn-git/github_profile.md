@@ -40,7 +40,7 @@ cd /YourWorkingDirectory  (ex: /home/username/gitrepos/)
 ### 2.2. Clone your repository to that local directory
 
 <details>
-    <summary> Hint / Hax </summary>
+    <summary> Hint / Hax / Cheatcode </summary>
 
 `git clone git@github.com/YourUserName/YourUserName`
 
@@ -48,7 +48,58 @@ cd /YourWorkingDirectory  (ex: /home/username/gitrepos/)
 
 ### 2.3. Open your README.md file in your code/text editor (ex: VSCode)
 
-## Step 3: Explore the Inspiration Repository
+## Step 3: Copy our template :)
+
+We will leave you to explore many different designs on **Step 5**, but for now we want to get started with someone nice. Then, you can add/remove elements as you see fit.
+
+Copy the following block of Markdown text to your README.md file in your code/text editor.
+
+```markdown
+
+# 👋 Hello, I'm YOUR NAME
+
+![Typing SVG](https://readme-typing-svg.demolab.com/?lines=Passionate+Engineer;Lifelong+Learner;Open+Source+Lover&center=true&width=500&height=50)
+
+---
+
+## 🔧 Technologies & Tools
+![Python](https://img.shields.io/badge/-Python-333333?style=flat&logo=python)
+![JavaScript](https://img.shields.io/badge/-JavaScript-333333?style=flat&logo=javascript)
+![Linux](https://img.shields.io/badge/-Linux-333333?style=flat&logo=linux)
+
+---
+
+## 📈 GitHub Stats
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=your-username&show_icons=true&theme=radical" alt="GitHub Stats" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=your-username&theme=radical" alt="GitHub Streak" />
+</p>
+
+---
+
+## 📌 About Me
+- 🔭 I’m currently studying [DOMAINE D'ETUDES] at ETS Montréal.
+- 🌱 I’m currently learning [FIELDS OF INTEREST]
+
+---
+
+## 🎯 Fun Fact
+💡 [Fun fact about yourself]
+
+```
+
+## Step 4: Edit Your README.md
+
+You can now edit the informations to suit you. Here are the main changes you need make:
+0. In the title, change "YOUR NAME" to your actual name.
+1. You can edit the text displayed but clicking on the link and pasting the Markdown code. Look the [Typing SVG] tag in the Markdown file.
+2. For the "Technologies & tools", you can look through the list of badges [here](https://github.com/inttter/md-badges) and copy-paste the ones that fits your skills.
+3. In the GitHub Stats section, make sure to change the "username=..." & "user=..." to your actual username in GitHub.
+4. In the About me section, you can add your field of study and your field of interest.
+5. Fun Fact section : optional, you can remove it if you want.
+
+
+## Step 5: Explore the Inspiration Repository
 
 Visit [awesome-github-profile-readme](https://github.com/abhisheknaiidu/awesome-github-profile-readme) to explore:
 
@@ -59,39 +110,58 @@ Visit [awesome-github-profile-readme](https://github.com/abhisheknaiidu/awesome-
 - 🧠 **Learning & Tech Stack**
 - 🎯 **Goals and Fun Facts**
 
-Pick a few sections that you like. We'll use them next!
+You can pick a few sections that you like, but we'll leave that to later. Now is time to update our README.md on GitHub!
 
 ---
 
-## Step 4: Edit Your `README.md`
+## Step 6: Update Your Changes
 
-Click the pencil 📝 icon next to your `README.md` file. Replace its contents with this starter template:
+Now is time to update our changes.
 
-```markdown
-# 👋 Hello, I'm YOUR NAME
+Now, remember, to update your changes, you need to:
 
-![Typing SVG](https://readme-typing-svg.demolab.com/?lines=Passionate+Engineer;Lifelong+Learner;Open+Source+Lover&center=true&width=500&height=50)
+1. Stash your changes.
+2. Commit your changes.
+3. Push your changes.
 
-## 🔧 Technologies & Tools
-![Python](https://img.shields.io/badge/-Python-333333?style=flat&logo=python)
-![JavaScript](https://img.shields.io/badge/-JavaScript-333333?style=flat&logo=javascript)
-![Linux](https://img.shields.io/badge/-Linux-333333?style=flat&logo=linux)
+It's pretty intuative in the VSCode extension. However, we want you to guess on the CLI:
 
-## 📈 GitHub Stats
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=your-username&show_icons=true&theme=radical" alt="GitHub Stats" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=your-username&theme=radical" alt="GitHub Streak" />
-</p>
+<details>
+<summary> Hint/Laziness </summary>
 
-## 📌 About Me
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
+```bash
 
-## 🎯 Fun Fact
-💡 I once wrote code that broke my own keyboard.
+git stash
+git commit -m "Changes Title"
+git push origin main
 
----
+```
 
-⭐ Inspired by [Abhishek Naidu](https://github.com/abhisheknaiidu)
+</details>
+
+
+## Step 7: Check the Results!
+
+Go to your GitHub profile page: https://github.com/YourUserName
+
+Enjoy the result!
+
+## Next Chapter - Multiuser Git Management (Team Management)
+
+Congratulations on doing your first **_real_** git workflow.
+
+Now, it's time to harness the real power of Git : Team Development.
+
+Let's meet again in the [next section](multi_user_collaboration.md) !
+
+
+<details>
+<summary> DO NOT CLICK ON THIS!</summary>
+
+    I wonder what that is...
+
+    #!FLAG-git-good-at-profiles
+
+    Maybe we'll find all the meaning at the very end of this track... Let's keep going!
+
+</details>

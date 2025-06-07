@@ -109,4 +109,14 @@ A merge conflict can happen when trying to change a line somebody else has chang
 
 - Github Actions: Actions are automatic workflows, which are often used to automatically test for bugs, deploy your code etc. For more, see [this guide](/onboarding/tracks/learn-github-actions/)
 
-With your new, fresh, amazing, (expert), skills in git, we can now proceed to the first git lab (and not GitLab) : Creating your own Github Profile ReadMe!
+With your new, fresh, amazing, (expert), skills in git, we can now proceed to the first git lab (and not GitLab) : Creat your own [Github Profile ReadMe](github_profile.md) !
+
+<details>
+<summary> But WAIT! What is that?... </summary>
+
+    
+    #!FLAG-why-are-you-git
+    
+    Hmm...Maybe if I keep going, I'll get more clues...
+
+</details>
