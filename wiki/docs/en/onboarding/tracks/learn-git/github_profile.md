@@ -127,7 +127,7 @@ Now, remember, to update your changes, you need to:
 It's pretty intuative in the VSCode extension. However, we want you to guess on the CLI:
 
 <details>
-<summary> Hint/Laziness </summary>
+<summary> Hint </summary>
 
 ```bash
 

@@ -49,7 +49,7 @@ Examples:
 Start by cloning the remote repo locally.
 
 <details>
-    <summary> Hint/Cheat/Incompetence </summary>
+    <summary> Hint </summary>
 
 ```bash
 git clone git@github.com:your-team/project-name.git
