@@ -16,7 +16,7 @@ When you create a repository with the exact **same name as your GitHub username*
 
 1. Go to [GitHub](https://github.com/)
 2. Click the ➕ icon in the top right corner > `New repository`
-3. Repository name: `your-username` (exact match)
+3. Repository name: `YourUserName`
 4. Check `Add a README file`
 5. Click `Create repository`
 
@@ -24,7 +24,29 @@ When you create a repository with the exact **same name as your GitHub username*
 
 ## Step 2: Clone your Repository
 
-1. 
+### 2.1. Go to your working local directory.
+
+<details>
+    <summary> Hint </summary>
+
+```bash
+
+cd /YourWorkingDirectory  (ex: /home/username/gitrepos/)
+
+```
+
+</details>
+
+### 2.2. Clone your repository to that local directory
+
+<details>
+    <summary> Hint / Hax </summary>
+
+`git clone git@github.com/YourUserName/YourUserName`
+
+</details>
+
+### 2.3. Open your README.md file in your code/text editor (ex: VSCode)
 
 ## Step 3: Explore the Inspiration Repository
 
