@@ -69,7 +69,10 @@ nav:
         - 'Introduction to Github': onboarding/tracks/learn-git/intro_github.md
         - 'Github walkthrough': onboarding/tracks/learn-git/walkthrough_github.md
         - 'Lab : Github Profile ReadMe' : onboarding/tracks/learn-git/github_profile.md
-        - 'Multi-user Collaboration' : onboarding/tracks/learn-git/multi_user_collaboration.md
+        - 'Team Collaboration' : onboarding/tracks/learn-git/team_collaboration.md
+        - 'Lab : Enter the Hall of GitFame' : onboarding/tracks/learn-git/merge-conflicts.md
+        - 'Annex : Git as Extension' : onboarding/tracks/learn-git/git_as_extension.md
+        - 'End of Track' : onboarding/tracks/learn-git/git_complete.md
       - "Track - Docker":
         - 'Learn Docker': onboarding/tracks/learn-docker/index.md
         - 'Installation': onboarding/tracks/learn-docker/installation.md

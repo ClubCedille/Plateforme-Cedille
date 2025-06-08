@@ -152,7 +152,7 @@ Congratulations on doing your first **_real_** git workflow.
 
 Now, it's time to harness the real power of Git : Team Development.
 
-Let's meet again in the [next section](multi_user_collaboration.md) !
+Let's meet again in the [next section](team_collaboration.md) !
 
 
 <details>
