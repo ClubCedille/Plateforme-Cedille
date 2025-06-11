@@ -104,7 +104,7 @@ git push origin feature/header-component
 
 5. Go to GitHub and create a Pull Request targeting feature/main-layout
 
-6.  After approval, merge using GitHub’s interface
+6. After approval, merge using GitHub’s interface
 
 7. Clean up
 
@@ -112,7 +112,10 @@ Here's a more detailed step-by-step tutorial on how to do it.
 
 ---
 
-## NOTE : ALL THE NEXT POINTS DESCRIBED ARE MEANT TO BE READ, NOT DONE. YOU WILL PRACTICE THEM IN THE LAB.
+!!! warning "FOR READING ONLY"
+
+      **ALL THE NEXT POINTS DESCRIBED ARE MEANT TO BE READ, NOT DONE. YOU WILL PRACTICE THEM IN THE LAB.**
+
 
 ---
 
@@ -126,13 +129,13 @@ You’ll merge it back via a Pull Request — not locally.
 
 ## 📦 Step 1: Go to Your Project Folder
 
-```bash
+``` bash
 cd path/to/your/project
-````
+```
 
 If you haven’t cloned the project yet:
 
-```bash
+``` bash
 git clone git@github.com:your-team/project-name.git
 cd project-name
 ```
@@ -143,7 +146,7 @@ cd project-name
 
 This is the feature you're building on top of.
 
-```bash
+``` bash
 git checkout feature/main-layout
 git pull origin feature/main-layout
 ```
@@ -152,7 +155,7 @@ git pull origin feature/main-layout
 
 ## 🌱 Step 3: Create a New Branch from It
 
-```bash
+``` bash
 git checkout -b feature/layout-component
 ```
 
@@ -164,14 +167,14 @@ git checkout -b feature/layout-component
 
 Use your favorite editor (VSCode, etc.) to:
 
-* Add your new feature or fix
-* Save your files
+- Add your new feature or fix
+- Save your files
 
 ---
 
 ## ✅ Step 5: Add and Commit Your Changes
 
-```bash
+``` bash
 git add .
 git commit -m "feat: add new layout component"
 ```
@@ -182,7 +185,7 @@ git commit -m "feat: add new layout component"
 
 ## ☁️ Step 6: Push Your Branch to GitHub
 
-```bash
+``` bash
 git push origin feature/layout-component
 ```
 
@@ -208,13 +211,13 @@ You’ve now published your branch online and it’s ready for review.
 
 Your teammates can now:
 
-* Review your code
-* Comment or suggest improvements
-* Approve or request changes
+- Review your code
+- Comment or suggest improvements
+- Approve or request changes
 
 If someone requests changes:
 
-```bash
+``` bash
 # Make the edits
 git add .
 git commit -m "fix: adjust component"
@@ -241,7 +244,7 @@ Once approved and ready:
 
 After merging:
 
-```bash
+``` bash
 git branch -d feature/layout-component           # delete local
 git push origin --delete feature/layout-component  # delete remote
 ```
@@ -250,7 +253,7 @@ git push origin --delete feature/layout-component  # delete remote
 
 ## 📘 Full Recap: PR-Based Feature Flow
 
-```bash
+``` bash
 # Start from your main feature branch
 git checkout feature/main-layout
 git pull origin feature/main-layout
@@ -279,4 +282,8 @@ git push origin --delete feature/layout-component
 ## Next Section - Lab: Hall of GitFame
 
 Now you've had a guide on how to collaborate on a project with a team using Git, let's put that to practice with the **[OLYMPGIT](./merge_conflicts.md)**.
+
+!!! warning "BUT WAIT"
+
+      **I think the Hall of GitFame is under renovation... I've seen so many orange cones on the entrance. Maybe we should just skip by! - (yes, just skip it, it's not done yet...)**
 

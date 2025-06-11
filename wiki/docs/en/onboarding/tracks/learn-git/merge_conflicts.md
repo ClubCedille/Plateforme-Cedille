@@ -1,3 +1,16 @@
+
+
+!!! warning "Work in Progress"
+
+    
+    
+    **Our Pegasuses are tired... Please come back later!**
+
+
+## 🏗️👷‍♂️🚧🟧🚧🟧🚧🟧🚧🟧🚧🟧🚧🟧🚧👷‍♂️🏗️
+
+<details>
+
 # 🏛️ Lab: Enter the Hall of GitFame
 
 ## **Welcome, worthy one.**
@@ -28,15 +41,12 @@ This repo contains:
 
 Like the usual, start by cloning the repository.
 
-<details>
-<summary> Hint </summary>
+??? hint "Hint"
 
-```bash
-git clone <repo-url>
-cd hall-of-gitfame
-```
-
-</details>
+    ``` bash
+    git clone <repo-url>
+    cd hall-of-gitfame
+    ```
 
 ---
 
@@ -44,16 +54,12 @@ cd hall-of-gitfame
 
 Switch from the `main` branch to the `olympgit` branch.
 
-<details>
-<summary> Hint </summary>
+??? hint "Hint"
 
-```bash
-
-git checkout olympgit
-git pull origin olympgit
-
-```
-</details>
+    ``` bash
+    git checkout olympgit
+    git pull origin olympgit
+    ```
 
 ---
 
@@ -61,14 +67,11 @@ git pull origin olympgit
 
 Create your branch under the name of add-your-name. Ex: add-linus-torvalds.
 
-<details>
-<summary> Hint </summary>
+??? hint "Hint"
 
-```bash
-git checkout -b add-<your-name>
-```
-
-</details>
+    ``` bash
+    git checkout -b add-<your-name>
+    ```
 
 ---
 
@@ -76,9 +79,11 @@ git checkout -b add-<your-name>
 
 Edit `HALL_OF_GITFAME.md`, and insert your name at the top of the list:
 
-**⚠️ Add your name ON TOP of the Immortals list!**
+!!! warning  "Warning"
 
-```diff
+    Add your name ON TOP of the Immortals list!
+
+``` diff
 
 ## 🧙 Immortals of Git
 
@@ -88,8 +93,9 @@ Edit `HALL_OF_GITFAME.md`, and insert your name at the top of the list:
 
 ```
 
-**⚠️ Always add your name to the top of the list
-This ensures a merge conflict later (that's the point!).**
+!!! warning "Warning"
+
+    Always add your name to the top of the list. Otherwise a challenger might come to try to steal your place!
 
 ---
 
@@ -97,16 +103,12 @@ This ensures a merge conflict later (that's the point!).**
 
 Now that you have added your name, let's commit the change to your branch.
 
-<details>
-<summary> Hint </summary>
+??? hint "Hint"
 
-```bash
-
-git add HALL_OF_GITFAME.md
-git commit -m "feat: add Your Name to Hall of GitFame"
-
-```
-</details>
+    ``` bash
+    git add HALL_OF_GITFAME.md
+    git commit -m "feat: add Your Name to Hall of GitFame"
+    ```
 
 ---
 
@@ -114,15 +116,11 @@ git commit -m "feat: add Your Name to Hall of GitFame"
 
 Now that you've had your changes done locally, you have to put it on the remote branch.
 
-<details>
-<summary> Hint </summary>
+??? hint "Hint"
 
-```bash
-git push origin add-your-name
-```
-
-
-</details>
+    ``` bash
+    git push origin add-your-name
+    ```
 
 ---
 
@@ -131,28 +129,27 @@ git push origin add-your-name
 
 Now is the time to create a PR (pull request) on GitHub
 
-<details>
-<summary> Hint </summary>
+??? hint "Hint"
 
-* Head over to GitHub:
+    - Head over to GitHub:
 
-* You'll see a message: ➕ “Compare & Pull Request” → Click it.
+    - You'll see a message: ➕ “Compare & Pull Request” → Click it.
 
-* Set the base branch to olympgit
+    - Set the base branch to olympgit
 
-* The compare branch should be your add-your-name branch
+    - The compare branch should be your add-your-name branch
 
-* Add a message like:
+    - Add a message like:
 
+            ```
+            🏛️ Feat: Add [Your Name] to the Hall of GitFame
 
-        🏛️ Feat: Add [Your Name] to the Hall of GitFame
+            Adding my humble name to the top of the Immortals list.
+            Ready to resolve conflicts and claim my place.
+            ```
 
-        Adding my humble name to the top of the Immortals list.
-        Ready to resolve conflicts and claim my place.
+    - Submit the Pull Request
 
-* Submit the Pull Request
-
-</details>
 
 ---
 
@@ -163,7 +160,7 @@ If your Pull Request cannot be merged automatically:
 1. Click **Resolve conflicts** on GitHub.
 2. You’ll see something like:
 
-```diff
+``` diff
 +<<<<<< HEAD
 - 🛡️ Hercules
 =======
@@ -188,21 +185,21 @@ If your Pull Request cannot be merged automatically:
 
 Before your PR can be merged into olympgit, your team captain, mentor, or peer must:
 
-* 👁️ Review your changes
+- 👁️ Review your changes
 
-* 💬 Leave comments if anything needs improvement
+- 💬 Leave comments if anything needs improvement
 
-* ✅ Approve your Pull Request
+- ✅ Approve your Pull Request
 
 > ❗ Do not merge your own PR unless explicitly allowed by your instructor or team lead.
 
 If changes are requested:
 
-* Make the required edits in your branch
+- Make the required edits in your branch
 
-* Push them again (git push origin add-your-name)
+- Push them again (git push origin add-your-name)
 
-* Your PR will update automatically
+- Your PR will update automatically
 
 ---
 
@@ -210,15 +207,15 @@ If changes are requested:
 
 Once your PR is:
 
-* ✅ Approved by your reviewer(s)
+- ✅ Approved by your reviewer(s)
 
-* ✅ Free of conflicts
+- ✅ Free of conflicts
 
 Then, and only then:
 
-* Click Squash and Merge
+- Click Squash and Merge
 
-* Confirm the final commit message (or customize it)
+- Confirm the final commit message (or customize it)
 
 ---
 
@@ -228,50 +225,50 @@ Then, and only then:
 
 ### 🧠 What You’ve Learned
 
-* Branching from a shared team branch
+- Branching from a shared team branch
 
-* Making isolated changes in a personal branch
+- Making isolated changes in a personal branch
 
-* Committing and pushing to remote
+- Committing and pushing to remote
 
-* Opening and describing a Pull Request
+- Opening and describing a Pull Request
 
-* Resolving merge conflicts in GitHub
+- Resolving merge conflicts in GitHub
 
-* Merging changes into a shared team branch
+- Merging changes into a shared team branch
 
 🎉 You've now learned how to use branches and Pull Requests to collaborate like a pro! 
 
 Before ending our Git journey together, let's look at the [Git extension in Visual Studio Code](./git_as_extension.md).
 
-<details>
-<summary> Note for Devs </summary>
+!!! note "Note for Devs"
 
-Using a Dummy Branch for Solo Learners
+        Using a Dummy Branch for Solo Learners
 
-* Pre-create a branch called, for example, add-training-dummy from olympgit.
+        * Pre-create a branch called, for example, add-training-dummy from olympgit.
 
-* In that branch, edit HALL_OF_GITFAME.md and add:
+        * In that branch, edit HALL_OF_GITFAME.md and add:
 
-```
-- 🛡️ Training Dummy
-```
+        ```
+        - 🛡️ Training Dummy
+        ```
 
-* Push this branch to GitHub, but do NOT merge it.
+        * Push this branch to GitHub, but do NOT merge it.
 
-In the instructions, have the learner:
+        In the instructions, have the learner:
 
-* Branch off of olympgit
+        * Branch off of olympgit
 
-* Add their own name at the top
+        * Add their own name at the top
 
-* Open a Pull Request to merge into olympgit
+        * Open a Pull Request to merge into olympgit
 
-* Then, as the instructor, merge the dummy PR before they do.
+        * Then, as the instructor, merge the dummy PR before they do.
 
-* Now when they go to merge their own PR, GitHub will say:
-    ⚠️ “This branch has conflicts that must be resolved”
+        * Now when they go to merge their own PR, GitHub will say:
+            ⚠️ “This branch has conflicts that must be resolved”
 
-🎯 That’s your teaching moment: the learner must fix the conflict in the web editor or locally.
+        🎯 That’s your teaching moment: the learner must fix the conflict in the web editor or locally.
 
-</summary>
+
+</details>

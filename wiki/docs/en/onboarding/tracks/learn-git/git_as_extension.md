@@ -23,7 +23,7 @@ This guide highlights how to perform essential Git tasks in VSCode, and how it c
 ## ✅ Committing Changes
 
 **CLI:**
-```bash
+``` bash
 git add .
 git commit -m "Your message"
 ```
@@ -31,11 +31,7 @@ git commit -m "Your message"
 
 VSCode:
 
-    Stage files using the ➕ next to each file
-
-    Type your commit message at the top of the Source Control panel
-
-    Click ✔️ (Commit)
+![Stage_and_commit](./img/stage_and_commit.png)
 
 > 💡 VSCode also highlights changes line-by-line, letting you commit file chunks ("hunks") individually.
 
