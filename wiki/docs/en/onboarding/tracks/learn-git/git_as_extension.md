@@ -31,6 +31,8 @@ git commit -m "Your message"
 
 VSCode:
 
+    You can stage them all with the + sign or press on the commit button.
+
 ![Stage_and_commit](./img/stage_and_commit.png)
 
 > 💡 VSCode also highlights changes line-by-line, letting you commit file chunks ("hunks") individually.
@@ -49,6 +51,9 @@ VSCode:
 
     Or click the sync icon (🔄) in the status bar
 
+![Push_sync](./img/push_sync.png)
+
+
 ## ⬇️ Pulling Latest Changes
 
 CLI:
@@ -61,7 +66,11 @@ VSCode:
 
     Click … → Pull
 
+![pull](./img/pull.png)
+
     Or click the sync icon in the bottom-left corner
+
+![sync_bottom](./img/sync_bottom.png)
 
     Conflicts, if any, will be visually flagged in the editor
 
@@ -77,6 +86,8 @@ VSCode:
 
     Use … → Fetch to retrieve remote updates without merging them automatically
 
+![fetch](./img/fetch.png)
+
 > 🧠 Useful for previewing changes before pulling.
 
 ## 🌿 Creating a New Branch
@@ -90,10 +101,13 @@ git checkout -b feature/branch-name
 VSCode:
 
     Click on the branch name in the bottom-left corner
+![branch_bottom](./img/branch_bottom.png)
 
     Select Create New Branch…
+![create_branch](./img/create_branch.png)
 
     Enter a name and select the base branch (usually main)
+![branch_name](./img/branch_name.png)
 
 ## 🔁 Switching Branches
 
@@ -105,9 +119,11 @@ git checkout branch-name
 
 VSCode:
 
-    Click the branch name in the bottom-left
+    Click the branch name in the bottom-left corner
 
     Select the branch you want from the dropdown list
+![switch_branches](./img/switch_branches.png)
+
 
 > 🔄 No need to remember branch names — they're listed for you.
 
@@ -122,7 +138,11 @@ git push origin --delete branch-name
 
 VSCode:
 
-    Go to Source Control → ... → Branches → Delete Branch... 
+    Go to Source Control → ... → Branch
+![del_branch](./img/del_branch_1.png)
+
+    Branch → Delete Branch... 
+![del_branch_2](./img/del_branch_2.png)
 
 > ⚠️ VSCode will ask for confirmation before deleting locally or remotely.
 
@@ -136,7 +156,13 @@ git merge source-branch
 ```
 VSCode:
 
-    Go to Source Control → ... → Branches → Merge... 
+    Go to Source Control → ... → Branch 
+![merge_branch_1](./img/del_branch_1.png)
+
+    Branch → Merge...
+![merge_branch](./img/merge_branch.png)
+
+
 
 > 📌 VSCode alerts you about incoming conflicts and allows side-by-side resolution.
 
