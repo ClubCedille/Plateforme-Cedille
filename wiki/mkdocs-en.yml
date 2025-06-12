@@ -64,7 +64,15 @@ nav:
     - 'Onboarding intro': onboarding/index.md
     - Onboarding track: 
       - 'Track - Get started': onboarding/tracks/index.md
-      - 'Track - Git': onboarding/tracks/git.md
+      - "Track - Git":
+        - 'Overview of Git': onboarding/tracks/learn-git/index.md
+        - 'Introduction to Github': onboarding/tracks/learn-git/intro_github.md
+        - 'Github walkthrough': onboarding/tracks/learn-git/walkthrough_github.md
+        - 'Lab : Github Profile ReadMe' : onboarding/tracks/learn-git/github_profile.md
+        - 'Team Collaboration' : onboarding/tracks/learn-git/team_collaboration.md
+        - 'Lab : Enter the Hall of GitFame' : onboarding/tracks/learn-git/merge_conflicts.md
+        - 'Annex : Git as Extension' : onboarding/tracks/learn-git/git_as_extension.md
+        - 'End of Track' : onboarding/tracks/learn-git/git_complete.md
       - "Track - Docker":
         - 'Learn Docker': onboarding/tracks/learn-docker/index.md
         - 'Installation': onboarding/tracks/learn-docker/installation.md
@@ -117,7 +125,9 @@ nav:
     - Getting Started: plateforme-cedille/getting-started.md
     - SRE: plateforme-cedille/sre.md
 markdown_extensions:
+  - admonition
   - pymdownx.snippets:
+  - pymdownx.details 
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
