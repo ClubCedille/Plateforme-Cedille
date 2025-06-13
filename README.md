@@ -1,6 +1,6 @@
 # Plateforme CEDILLE
 
-Nouvelle infra du club CEDILLE
+Regroupement du Wiki Cedille, des configurations Terraform, pipelines, et plus...
 
 ## Configuration kubectl
 
