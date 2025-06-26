@@ -1,16 +1,3 @@
-
-
-!!! warning "Work in Progress"
-
-    
-    
-    **Our Pegasuses are tired... Please come back later!**
-
-
-## 🏗️👷‍♂️🚧🟧🚧🟧🚧🟧🚧🟧🚧🟧🚧🟧🚧👷‍♂️🏗️
-
-<details>
-
 # 🏛️ Lab: Enter the Hall of GitFame
 
 ## **Welcome, worthy one.**
@@ -270,5 +257,3 @@ Before ending our Git journey together, let's look at the [Git extension in Visu
 
         🎯 That’s your teaching moment: the learner must fix the conflict in the web editor or locally.
 
-
-</details>
