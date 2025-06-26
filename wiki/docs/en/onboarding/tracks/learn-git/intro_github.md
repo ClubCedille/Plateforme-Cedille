@@ -1,6 +1,6 @@
 # What is Github
 
-As we've seen, our remote repository need to be hosted and available online. We've chosen [Github](https://github.com/) as our hosting platform for our Git repo because of the visibility it offers and it adds a whole suite of tools, such as issue tracking, code reviews and automations.
+As we've established, our remote repository must be hosted and accessible online. We have selected [GitHub](https://github.com/) as our hosting platform for the Git repository due to the visibility it provides, along with its comprehensive suite of tools, including issue tracking, code reviews, and automation features.
 
 Other popular Git platforms include:
 
