@@ -65,7 +65,9 @@ After a couple of commits, you would want to share them with everyone by pushing
 git push origin main
 ```
 
-> The `origin main` options specifies which branch to push to.
+> `origin` refers to the remote repository. `git remote -v` to view existing remotesm and `git remote add <name> <url>` to add a new remote. By default, the first remote is named origin.
+
+> `main` is the branch you’re pushing to.
 
 You can now head over to https://github.com/YourUsername/YourUsername.git to see your new files added to the remote repo.
 
@@ -96,7 +98,7 @@ This wiki is hosted on our repo **Plateforme-Cedille**. You can see its issues [
 
 If anyone started pushing their changes into the remote repo, it would become *chaos*. A pull request (often called a PR) is a proposed change to the codebase, which an approved user (such as the captain of CEDILLE) may pull into the main branch.
 
-While trying to do a PR, you may get a **merge conflicts**
+While trying to do a PR, you may get **merge conflicts**
 
 ### Merge conflicts
 
