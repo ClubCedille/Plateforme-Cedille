@@ -1,16 +1,3 @@
-
-
-!!! warning "Work in Progress"
-
-    
-    
-    **Our Pegasuses are tired... Please come back later!**
-
-
-## 🏗️👷‍♂️🚧🟧🚧🟧🚧🟧🚧🟧🚧🟧🚧🟧🚧👷‍♂️🏗️
-
-<details>
-
 # 🏛️ Lab: Enter the Hall of GitFame
 
 ## **Welcome, worthy one.**
