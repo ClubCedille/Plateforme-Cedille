@@ -26,13 +26,13 @@ This repo contains:
 
 ### 1. Clone the Repository
 
-Like the usual, start by cloning the repository.
+Like the usual, start by cloning [the repository](https://github.com/ClubCedille/OlympGit).
 
 ??? hint "Hint"
 
     ``` bash
-    git clone <repo-url>
-    cd hall-of-gitfame
+    git clone git@github.com:ClubCedille/OlympGit.git
+    cd OlympGit
     ```
 
 ---
@@ -155,7 +155,7 @@ If your Pull Request cannot be merged automatically:
 +>>>>>> add-your-name
 ```
 
-3. Manually *edit the conflict* to keep all names:
+3. Manually *edit the conflict* to keep all names & removing any Hydra Heads until none are left to slay:
 
 ```
 - 🛡️ Your Legendary Name
