@@ -257,5 +257,3 @@ Before ending our Git journey together, let's look at the [Git extension in Visu
 
         🎯 That’s your teaching moment: the learner must fix the conflict in the web editor or locally.
 
-
-</details>
