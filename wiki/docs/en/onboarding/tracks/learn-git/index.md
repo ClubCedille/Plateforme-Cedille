@@ -62,6 +62,8 @@ Git has over a 150 different commands to interact with it ! In our case, we will
 
 4. **`git pull`**: As the name suggests, *pull* retrieves any changes on the remote repo into your local repo. If you've recently `git push` new changes into the remote repo, your colleagues will need to use `git pull` to have acces to them in their own local repo.
 
+5. **`git status`**: Shows the current state of your project. It helps you see which files are modified, staged, or untracked—so you know what to do next.
+
 *we can ignore `git checkout` for now.*
 
 ---

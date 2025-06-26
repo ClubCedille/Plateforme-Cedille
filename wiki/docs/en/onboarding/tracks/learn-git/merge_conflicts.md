@@ -1,16 +1,3 @@
-
-
-!!! warning "Work in Progress"
-
-    
-    
-    **Our Pegasuses are tired... Please come back later!**
-
-
-## 🏗️👷‍♂️🚧🟧🚧🟧🚧🟧🚧🟧🚧🟧🚧🟧🚧👷‍♂️🏗️
-
-<details>
-
 # 🏛️ Lab: Enter the Hall of GitFame
 
 ## **Welcome, worthy one.**
@@ -39,13 +26,13 @@ This repo contains:
 
 ### 1. Clone the Repository
 
-Like the usual, start by cloning the repository.
+Like the usual, start by cloning [the repository](https://github.com/ClubCedille/OlympGit).
 
 ??? hint "Hint"
 
     ``` bash
-    git clone <repo-url>
-    cd hall-of-gitfame
+    git clone git@github.com:ClubCedille/OlympGit.git
+    cd OlympGit
     ```
 
 ---
@@ -168,7 +155,7 @@ If your Pull Request cannot be merged automatically:
 +>>>>>> add-your-name
 ```
 
-3. Manually *edit the conflict* to keep all names:
+3. Manually *edit the conflict* to keep all names & removing any Hydra Heads until none are left to slay:
 
 ```
 - 🛡️ Your Legendary Name
@@ -270,5 +257,3 @@ Before ending our Git journey together, let's look at the [Git extension in Visu
 
         🎯 That’s your teaching moment: the learner must fix the conflict in the web editor or locally.
 
-
-</details>
