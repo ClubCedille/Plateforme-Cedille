@@ -1,10 +1,10 @@
 # What is Github
 
-As we've seen, our remote repository need to be hosted and available online. We've chosen [Github](https://github.com/) as our hosting platform for our Git repo because it adds a whole suite of tools, such as issue tracking, code reviews and automations.
+As we've seen, our remote repository need to be hosted and available online. We've chosen [Github](https://github.com/) as our hosting platform for our Git repo because of the visibility it offers and it adds a whole suite of tools, such as issue tracking, code reviews and automations.
 
 Other popular Git platforms include:
 
-- [GitLab](https://about.gitlab.com/): Similar to Github, minus some cool tools.
+- [GitLab](https://about.gitlab.com/): An open source Git platform with strong DevOps features. It can be self-hosted, offering more control over privacy and customization.
 
 - [Atlassian Bitbucket](https://bitbucket.org/product/): Deep integration with Atlassian Jira, a popular tool for team management & agile teams.
 
