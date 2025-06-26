@@ -180,6 +180,19 @@ module "HassaanBahsoun" {
   netdata_role = "observer"
 }
 
+module "christiano-maker" {
+  source          = "./modules/user"
+  github_email    = "christianjrdjomga@gmail.com"
+  github_username = "christiano-maker"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" }, 
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Reader"
+  cluster_repo = var.platform_repo
+  netdata_role = "observer"
+}
 
 module "Hertinox0" {
   source          = "./modules/user"
