@@ -227,33 +227,3 @@ Then, and only then:
 🎉 You've now learned how to use branches and Pull Requests to collaborate like a pro! 
 
 Before ending our Git journey together, let's look at the [Git extension in Visual Studio Code](./git_as_extension.md).
-
-!!! note "Note for Devs"
-
-        Using a Dummy Branch for Solo Learners
-
-        * Pre-create a branch called, for example, add-training-dummy from olympgit.
-
-        * In that branch, edit HALL_OF_GITFAME.md and add:
-
-        ```
-        - 🛡️ Training Dummy
-        ```
-
-        * Push this branch to GitHub, but do NOT merge it.
-
-        In the instructions, have the learner:
-
-        * Branch off of olympgit
-
-        * Add their own name at the top
-
-        * Open a Pull Request to merge into olympgit
-
-        * Then, as the instructor, merge the dummy PR before they do.
-
-        * Now when they go to merge their own PR, GitHub will say:
-            ⚠️ “This branch has conflicts that must be resolved”
-
-        🎯 That’s your teaching moment: the learner must fix the conflict in the web editor or locally.
-
