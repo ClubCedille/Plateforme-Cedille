@@ -23,7 +23,7 @@ crée une branche, puis ajoute-toi au fichier YAML
 Assure-toi que ton image fait **225x225 pixels**.
 
 Une fois terminé, crée une Pull Request pour fusionner tes changements et ajoute
-**@EndlessFlow** comme reviewer. Surveille les commentaires — il pourrait y
+**@alexvegas22** comme reviewer. Surveille les commentaires — il pourrait y
 avoir des ajustements à faire.
 
 Quand ta Pull Request est approuvée, tu peux la fusionner.
