@@ -1,10 +1,10 @@
 # Pistes d'intégration
 
-Section pour présenter les labs:
+Explorez nos différents laboratoires :
 
-- git
-- docker
-- dev web
-- dev app
-- devops
-- sre
+- [git](learn-git/index.md)
+- [docker](learn-docker/index.md)
+- Développement web - Bientôt disponible
+- Développement app - Bientôt disponible
+- [DevOps](learn-github-actions/index.md)
+- Ingénierie de Fiabilité de Site (SRE) - Bientôt disponible
