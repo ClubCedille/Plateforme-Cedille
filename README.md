@@ -8,7 +8,7 @@ Ce guide de configuration va assumer l'utilisation de Linux (CEDILLE est un club
 
 ### Krew
 
-L'utilisation de krew est recommandée pour installer les plugins requis pour accéder au cluster CEDILLE.
+L'utilisation de krew est recommandée pour installer les plugins requis pour accéder aux différents cluster de la Plateforme CEDILLE.
 
 Pour installer, suivre [les instructions d'installation de krew](https://krew.sigs.k8s.io/docs/user-guide/setup/install/)
 
@@ -28,14 +28,14 @@ Pour d'autres options d'installation, voir [le repo de kubelogin](https://github
 
 La plateforme CEDILLE est gérée via Sidero Labs Omni. Notre instance de Omni [est accessible ici](https://cedille.omni.siderolabs.io/omni/).
 
-Pour accéder à un cluster, il suffit de naviguer au cluster voulu (par exemple, [le cluster principal](https://cedille.omni.siderolabs.io/cluster/cedille-cluster/overview)) et télécharger le fichier kubeconfig avec le bouton `Download kubeconfig`
+Pour accéder à un cluster, il suffit de naviguer au cluster voulu (par exemple, [le cluster principal](https://cedille.omni.siderolabs.io/cluster/k8s-cedille-production/overview)) et télécharger le fichier kubeconfig avec le bouton `Download kubeconfig`
 
 Pour tester rapidement l'accès, on peut exécuter les commandes suivantes:
 
 #### Avec Linux/MacOS
 
 ```bash
-export KUBECONFIG=~/Downloads/cedille-cluster-kubeconfig.yaml #Modifier selon l'emplacement du kubeconfig téléchargé
+export KUBECONFIG=~/Downloads/k8s-cedille-production-kubeconfig.yaml #Modifier selon l'emplacement du kubeconfig téléchargé
 kubectl get nodes
 ```
 
@@ -43,7 +43,7 @@ kubectl get nodes
 
 ```bash
 kubectl oidc-login
-$env:KUBECONFIG="C:\Users\<user>\Downloads\cedille-cluster-kubeconfig.yaml" #Modifier selon l'emplacement du kubeconfig téléchargé
+$env:KUBECONFIG="C:\Users\<user>\Downloads\k8s-cedille-production-kubeconfig.yaml" #Modifier selon l'emplacement du kubeconfig téléchargé
 kubectl get nodes
 ```
 
