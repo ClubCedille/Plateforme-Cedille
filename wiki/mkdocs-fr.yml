@@ -44,7 +44,7 @@ theme:
   favicon: assets/images/favicon.ico
 
 extra:
-  homepage: https://wiki.omni.cedille.club/
+  homepage: https://wiki.cedille.club/
   alternate:
     - name: English
       link: /en/
@@ -58,11 +58,11 @@ extra_javascript:
   - javascript/extra.js
 
 nav:
-  - Accueil: 
+  - Accueil:
     - index.md
   - Intégration:
     - "Introduction à l'intégration": onboarding/index.md
-    - Pistes d'intégration: 
+    - Pistes d'intégration:
       - "Commencer l'intégration": onboarding/tracks/index.md
       - 'Comment utiliser Git': onboarding/tracks/git.md
       - Piste - Docker:

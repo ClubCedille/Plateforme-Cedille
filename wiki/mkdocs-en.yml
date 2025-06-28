@@ -44,7 +44,7 @@ theme:
   favicon: assets/images/favicon.ico
 
 extra:
-  homepage: https://wiki.omni.cedille.club/en/
+  homepage: https://wiki.cedille.club/en/
   alternate:
     - name: English
       link: /en/
@@ -62,7 +62,7 @@ nav:
     - index.md
   - Onboarding:
     - 'Onboarding intro': onboarding/index.md
-    - Onboarding track: 
+    - Onboarding track:
       - 'Track - Get started': onboarding/tracks/index.md
       - "Track - Git":
         - 'Overview of Git': onboarding/tracks/learn-git/index.md
@@ -116,7 +116,7 @@ nav:
     - Infrastructure: plateforme-cedille/infra.md
     - 'Kubernetes Cluster': plateforme-cedille/cluster-kubernetes.md
     - 'Hardware Components': plateforme-cedille/hardware.md
-    - Applications: 
+    - Applications:
       - 'Hosting apps' : 'plateforme-cedille/Applications/index.md'
       - 'Workload Deployment': plateforme-cedille/Applications/deploying-workloads.md
       - 'System App Deployment': plateforme-cedille/Applications/deploying-system-apps.md
@@ -127,7 +127,7 @@ nav:
 markdown_extensions:
   - admonition
   - pymdownx.snippets:
-  - pymdownx.details 
+  - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
