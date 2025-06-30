@@ -1,7 +1,7 @@
-# wiki.omni.cedille.club with mkdocs
+# wiki.cedille.club with mkdocs
 
 This folder contains the source code for the CEDILLE Club's wiki, hosted at
-[wiki.omni.cedille.club](https://wiki.omni.cedille.club).
+[wiki.cedille.club](https://wiki.cedille.club).
 
 ## How to use
 
