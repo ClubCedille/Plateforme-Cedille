@@ -3,7 +3,11 @@ name: Markdown lint
 on:
   workflow_call:
   push:
-  workflow_run:
+      paths:
+      - 'wiki/**'
+  pull_request:
+    paths:
+      - 'wiki/**'
 
 jobs:
   markdown-check:
@@ -32,5 +36,5 @@ jobs:
         uses: DavidAnson/markdownlint-cli2-action@v20
         if: always()
         with:
-          globs: '**/*.md'
+          globs: 'wiki/**/*.md'
           config: ${{ github.workspace }}/cedille-workflows/.markdownlint.json
