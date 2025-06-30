@@ -10,6 +10,6 @@ on:
       - synchronize
 
 jobs:
-  kubernetes-repo-standards:
+  markdown-repo-standards:
     uses:
       clubcedille/cedille-workflows/.github/workflows/markdown-lint.yml@master
