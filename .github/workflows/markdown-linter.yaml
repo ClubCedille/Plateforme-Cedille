@@ -2,39 +2,14 @@ name: Markdown lint
 
 on:
   workflow_call:
-  push:
-      paths:
-      - 'wiki/**'
   pull_request:
     paths:
       - 'wiki/**'
+    types:
+      - opened
+      - synchronize
 
 jobs:
-  markdown-check:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Checkout default configs
-        uses: actions/checkout@v4
-        with:
-          repository: clubcedille/cedille-workflows
-          path: cedille-workflows
-          ref: master
-          sparse-checkout: |
-            .markdownlint.json
-            .mlc_config.json
-          sparse-checkout-cone-mode: false
-
-      - name: Validating links
-        uses: gaurav-nelson/github-action-markdown-link-check@v1
-        with:
-          config-file: ${{ github.workspace }}/cedille-workflows/.mlc_config.json
-
-      - name: Run markdown lint
-        uses: DavidAnson/markdownlint-cli2-action@v20
-        if: always()
-        with:
-          globs: 'wiki/**/*.md'
-          config: ${{ github.workspace }}/cedille-workflows/.markdownlint.json
+  kubernetes-repo-standards:
+    uses:
+      clubcedille/cedille-workflows/.github/workflows/kubernetes-repo-standards.yml@master
