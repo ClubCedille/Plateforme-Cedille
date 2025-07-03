@@ -207,3 +207,18 @@ module "Hertinox0" {
   cluster_repo = var.platform_repo
   netdata_role = "observer"
 }
+
+
+module "boresimo" {
+  source          = "./modules/user"
+  github_email    = "mfatene02@gmail.com"
+  github_username = "boresimo"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" }, 
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Operator"
+  cluster_repo = var.platform_repo
+  netdata_role = "observer"
+}
