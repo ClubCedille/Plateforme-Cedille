@@ -11,14 +11,16 @@ This folder contains the source code for the CEDILLE Club's wiki, hosted at
 - [MkDocs](https://www.mkdocs.org/)
 - [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
 
-Optionally, you can use [Docker](https://docs.docker.com/get-started/) to build and run the wiki.
+Optionally, you can use [Docker](https://docs.docker.com/get-started/) to build
+and run the wiki.
 
 ### Usage
 
 1. Clone this repository.
 2. Install the required dependencies with `pip install mkdocs-material`
 3. Run `mkdocs build -f ./mkdocs-en.yml` to build the site.
-4. Run `mkdocs serve -f ./mkdocs-en.yml` to start the live-reloading development server.
+4. Run `mkdocs serve -f ./mkdocs-en.yml` to start the live-reloading development
+   server.
 
 #### Docker
 
