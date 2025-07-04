@@ -73,6 +73,6 @@ jobs:
           body: |
             This PR adds a new user module for ${{ github.event.inputs.github_username }} to `users.tf`. Please review the configuration and merge the PR to apply the changes.
           branch: "add-user-${{ github.event.inputs.github_username }}"
-          team-reviewers: |
-            Exec
+        #  team-reviewers: |
+        #   Exec
           # token: ${{ secrets.PULL_REQUEST_TOKEN }}
