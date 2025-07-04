@@ -9,7 +9,8 @@ assignees: ''
 
 ### Description
 
-<!-- Describe concisely the proposed new feature, including the purpose, reference to design documents, required tools for implementation, etc. -->
+<!-- Describe concisely the proposed new feature, including the purpose,
+reference to design documents, required tools for implementation, etc. -->
 
 ### Expected behavior
 
@@ -17,7 +18,8 @@ assignees: ''
 
 ### Milestones
 
-<!-- List here the specific tasks required to implement the feature, sous forme de liste à puces. -->
+<!-- List here the specific tasks required to implement the feature, sous forme
+de liste à puces. -->
 
 - [Task 1]
 - [Task 2]
@@ -25,7 +27,8 @@ assignees: ''
 
 ### Completion criteria
 
-<!-- Describe the criteria that will determine that this functionality is complete and works properly. -->
+<!-- Describe the criteria that will determine that this functionality is
+complete and works properly. -->
 
 ### Related tasks
 
@@ -35,4 +38,5 @@ assignees: ''
 
 ### Additionnal information
 
-<!-- Add here any additional information for implementing the feature (e.g., useful links, references to previous tasks, tools) -->
+<!-- Add here any additional information for implementing the feature (e.g.,
+useful links, references to previous tasks, tools) -->
