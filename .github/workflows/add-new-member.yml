@@ -31,7 +31,11 @@ on:
           - None
           - Admin
           - Observer
-          
+
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   create_pr:
     runs-on: ubuntu-latest
@@ -71,4 +75,4 @@ jobs:
           branch: "add-user-${{ github.event.inputs.github_username }}"
           team-reviewers: |
             Exec
-          token: ${{ secrets.PULL_REQUEST_TOKEN }}
+          # token: ${{ secrets.PULL_REQUEST_TOKEN }}
