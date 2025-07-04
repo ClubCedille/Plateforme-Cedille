@@ -11,7 +11,7 @@ module "francis" {
   cluster_name = var.cluster_name
   cluster_role = "None"
   cluster_repo = var.platform_repo
-  netdata_role = "admin"
+  netdata_role = "observer"
 }
 
 
@@ -27,7 +27,7 @@ module "cedille-sa" {
   cluster_name = var.cluster_name
   cluster_role = "Reader"
   cluster_repo = var.platform_repo
-  netdata_role = "admin"
+  netdata_role = "observer"
 }
 
 
@@ -42,8 +42,9 @@ module "andrei22131" {
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
-  netdata_role = "admin"
+  netdata_role = "observer"
 }
+
 
 
 module "Epsot" {
@@ -87,7 +88,7 @@ module "alexvegas22" {
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
-  netdata_role = "observer"
+  netdata_role = "admin"
 }
 
 
@@ -102,7 +103,7 @@ module "JulienGiguere" {
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
-  netdata_role = "observer"
+  netdata_role = "admin"
 }
 
 
@@ -113,21 +114,6 @@ module "Oxsw1ng" {
   github_role     = "member"
   teams = [
     { teamName = "members", teamRole = "member" },
-  ]
-  cluster_name = var.cluster_name
-  cluster_role = "Operator"
-  cluster_repo = var.platform_repo
-  netdata_role = "observer"
-}
-
-
-module "AlexanderPan96" {
-  source          = "./modules/user"
-  github_email    = "alexander.pan.1@ens.etsmtl.ca"
-  github_username = "AlexanderPan96"
-  github_role     = "member"
-  teams = [
-    { teamName = "members", teamRole = "member" }, 
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"

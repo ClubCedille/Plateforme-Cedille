@@ -44,4 +44,5 @@ variable "cluster_repo" {
 
 variable "netdata_role" {
   type = string
+  default = "observer"
 }

@@ -61,3 +61,8 @@ variable "tfe_token" {
   type = string
   sensitive = true
 }
+
+variable "netdata_role" {
+  type = string
+  default = "observer"
+}

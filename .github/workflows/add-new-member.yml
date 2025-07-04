@@ -23,6 +23,14 @@ on:
           - Reader
           - Operator
           - Admin
+      netdata_role:
+        description: 'Netdata role'
+        required: false
+        type: choice
+        options:
+          - None
+          - Admin
+          - Observer
           
 jobs:
   create_pr:
@@ -42,6 +50,7 @@ jobs:
             github_email=${{ github.event.inputs.github_email }}
             team_sre=${{ github.event.inputs.team_sre }}
             cluster_role=${{ github.event.inputs.cluster_role }}
+            netdata=${{ github.event.inputs.netdata_role }}
 
       - name: Append New User Module to users.tf
         run: cat temp_user_module.tf >> terraform/users.tf
