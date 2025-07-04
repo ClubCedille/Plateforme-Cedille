@@ -6,7 +6,7 @@ Le déploiement continu (CD) consiste à automatiser le déploiement des nouvell
 
 ## 1. Déployer une Application sur des Plateformes de Cloud (AWS, Azure, GCP)
 
-GitHub Actions peut être utilisé pour automatiser le déploiement d'une application sur des services cloud populaires tels que **AWS**, **Microsoft Azure**, ou **Google Cloud Platform (GCP)**. Chaque fournisseur cloud a ses propres outils et services pour gérer le déploiement des applications. 
+GitHub Actions peut être utilisé pour automatiser le déploiement d'une application sur des services cloud populaires tels que **AWS**, **Microsoft Azure**, ou **Google Cloud Platform (GCP)**. Chaque fournisseur cloud a ses propres outils et services pour gérer le déploiement des applications.
 
 ### 1.1 Déploiement sur AWS
 

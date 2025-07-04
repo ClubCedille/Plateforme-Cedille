@@ -2,7 +2,7 @@
 
 ## **Welcome, worthy one.**
 
-This is **OlympGit**, the eternal resting place of the Git Immortals.  
+This is **OlympGit**, the eternal resting place of the Git Immortals.
 If you master the path of branching, merging, and resolving conflict, your name will be carved at the top — forever.
 
 Your task is to add your name to the Hall of GitFame — **at the top of the list** — like all legends before you.
@@ -224,6 +224,6 @@ Then, and only then:
 
 - Merging changes into a shared team branch
 
-🎉 You've now learned how to use branches and Pull Requests to collaborate like a pro! 
+🎉 You've now learned how to use branches and Pull Requests to collaborate like a pro!
 
 Before ending our Git journey together, let's look at the [Git extension in Visual Studio Code](./git_as_extension.md).

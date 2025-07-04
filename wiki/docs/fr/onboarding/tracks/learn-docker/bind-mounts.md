@@ -9,7 +9,7 @@ Si vous souhaitez accéder aux données de votre système, vous pouvez utiliser 
 Nous utiliserons le dépôt à l'adresse [https://github.com/docker/bindmount-apps](https://github.com/docker/bindmount-apps) pour démontrer comment ajouter un bind mount à un projet Docker Compose.
 
 **1. Cloner le Dépôt :**
-   
+
    ```
    git clone https://github.com/docker/bindmount-apps
    cd bindmount-apps

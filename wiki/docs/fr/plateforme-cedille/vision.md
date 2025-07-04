@@ -2,7 +2,7 @@
 
 **Organization:** CEDILLE, École de Technologie Supérieure
 
-Voici une vue d'ensemble de la nouvelle plateforme CEDILLE. Cette section est conçue pour vous donner une vue d'ensemble claire du 'pourquoi' et du 'quoi' de notre projet. Ici, nous plongeons dans la raison d'être de notre plateforme basée sur Kubernetes, exploitée par le SaaS Omni de SideroLabs, décrivant en détail pourquoi nous entreprenons cette aventure et comment nous pensons que cela va transformer la façon dont on gère nos services d'hébergement sur nos serveurs bare-metal. 
+Voici une vue d'ensemble de la nouvelle plateforme CEDILLE. Cette section est conçue pour vous donner une vue d'ensemble claire du 'pourquoi' et du 'quoi' de notre projet. Ici, nous plongeons dans la raison d'être de notre plateforme basée sur Kubernetes, exploitée par le SaaS Omni de SideroLabs, décrivant en détail pourquoi nous entreprenons cette aventure et comment nous pensons que cela va transformer la façon dont on gère nos services d'hébergement sur nos serveurs bare-metal.
 
 ## 1. Survol
 
@@ -166,7 +166,7 @@ Toutes les parties doivent respecter les normes et les protocoles mis en place p
 
 ## 3.4 Besoins des principaux utilisateurs
 
-Les besoins sont déterminés à partir d'une série d'entrevues et de rencontres avec les parties prenantes. 
+Les besoins sont déterminés à partir d'une série d'entrevues et de rencontres avec les parties prenantes.
 Des rapports de ces entrevues et rencontres se trouvent à l'annexe 1 de ce document.
 
 De plus, les besoins d'administration sont largement déterminés par les auteurs de ce document, puisqu'ils seront aussi responsables de l'administration de
@@ -332,7 +332,7 @@ AQ6 – Les secrets sont chriffés au repos et ne sont pas exposés publiquement
 
 AQ6 – Chaque couche du système doit être documentée
 
-AQ7 – Le système doit être compréhensible pour tout membre du club CEDILLE (nouveaux et anciens). 
+AQ7 – Le système doit être compréhensible pour tout membre du club CEDILLE (nouveaux et anciens).
 
 #### Évolutivité
 

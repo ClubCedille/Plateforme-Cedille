@@ -2,7 +2,7 @@
 
 ## Qu'est-ce que GitHub Actions ?
 
-GitHub Actions est une plateforme d'automatisation intégrée à GitHub, qui permet de créer, gérer et exécuter des workflows automatisés directement à partir de vos dépôts GitHub. Avec GitHub Actions, vous pouvez définir des processus d'intégration continue (CI) et de déploiement continu (CD), automatiser les tests, les builds, les déploiements, et bien plus encore. 
+GitHub Actions est une plateforme d'automatisation intégrée à GitHub, qui permet de créer, gérer et exécuter des workflows automatisés directement à partir de vos dépôts GitHub. Avec GitHub Actions, vous pouvez définir des processus d'intégration continue (CI) et de déploiement continu (CD), automatiser les tests, les builds, les déploiements, et bien plus encore.
 
 La grande force de GitHub Actions est son intégration native avec GitHub, vous permettant de déclencher des workflows en fonction d’événements de dépôt comme les `push`, `pull requests`, ou même des déclencheurs personnalisés comme un `cron` planifié.
 

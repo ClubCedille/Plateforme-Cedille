@@ -236,4 +236,3 @@ Dependabot enables you to:
 Security and permissions management in GitHub Actions is essential for maintaining the confidentiality, integrity, and security of your CI/CD pipelines. By using GitHub Secrets, you can safeguard sensitive information such as API keys and credentials. Configuring workflow and secret access permissions helps reduce the risk of compromise. Additionally, Dependabot offers a powerful tool for monitoring and automatically addressing vulnerabilities in your dependencies, further enhancing the overall security of your projects.
 
 These tools and practices allow you to build robust and secure workflows, adhering to best practices for security and permissions management.
-

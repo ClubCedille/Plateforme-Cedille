@@ -308,7 +308,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-     
+
 
  - name: Deploy application
         run: echo "Deploying version ${{ needs.build.outputs.version }}"
@@ -317,7 +317,7 @@ jobs:
 #### Explanation:
 
 1. **Define an Output**: In the `build` job, the `::set-output` command is used to define an output called `version`. This version number is generated using the `date` command to create a unique value.
-   
+
 2. **Use the Output in Another Job**: In the `deploy` job, the output from the `build` job is referenced with `${{ needs.build.outputs.version }}`, allowing access to data generated in the first job for deployment purposes.
 
 ---

@@ -51,7 +51,7 @@ patches:
 In the above snippet:
 
 1. We include the base
-2. We include the resources 
+2. We include the resources
 3. We apply `patches`:
 
 ```yaml
@@ -112,7 +112,7 @@ spec:
   source:
     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
     path: apps/samples/kustomize-example-app/staging # Point ArgoCD to our subdirectory for the staging environment
-    targetRevision: HEAD 
+    targetRevision: HEAD
   syncPolicy:
     syncOptions:
     - CreateNamespace=true

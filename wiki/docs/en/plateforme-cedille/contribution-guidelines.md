@@ -64,4 +64,3 @@ To contribute to one of our projects, follow the steps below and send us your Gi
    This ensures you are working with the most recent version of the code and avoids merge conflicts.
 
 9. **Use Graphical Tools if Needed**: If you find the command line difficult to manage, consider using a graphical git interface like GitKraken or SourceTree. These tools provide a visual interface for managing your commits, branches, and Pull Requests, making code management more intuitive.
-

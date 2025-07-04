@@ -33,7 +33,7 @@ Date: 6 décembre 2023
 
 ### 2.2 Ne sera pas fait
 
-- **[Installation/Configuration de k8s-sigs/external-dns dans le cluster](https://github.com/ClubCedille/Plateforme-Cedille/issues/35)** : 
+- **[Installation/Configuration de k8s-sigs/external-dns dans le cluster](https://github.com/ClubCedille/Plateforme-Cedille/issues/35)** :
 
 ### 2.3 À faire
 
@@ -49,14 +49,14 @@ Date: 6 décembre 2023
 ## 3. Problèmes et défis
 
 - **Problème 1** : Déploiement du service Calidum-rotae pour la démonstration de OTEL sur le cluster de production partiellement fonctionnel. 50% des requêtes étaient acheminées.
-  - **Cause** : Le service communique avec un service api qui reçoit des requêtes http et les envois dans un channel discord à l'aide d'une webhook. Nous avons réalisé que le problème est externe au service 
+  - **Cause** : Le service communique avec un service api qui reçoit des requêtes http et les envois dans un channel discord à l'aide d'une webhook. Nous avons réalisé que le problème est externe au service
   Calidum-rotae et provient du service API qui est déployé sur un autre cluster kubernetes.
   - **Solution** : Configuration d'une webhook discord directement avec l'application au lieu du service API comme solution temporaire jusqu'à temps que le problème de réception de requêtes soit régler avec l'API.
 
 - **Problème 2** : (Tâche en cours) Impossibilité d'enregistrer les clusters virtuels (VCluster) dans ArgoCD de manière sécuritaire.
   - **Cause** : Malgré le fait que VCluster est supporté officiellement par ArgoCD, l'intégration n'a pas été conçue pour accéder à des VClusters qui sont privés.
   - **Solution 1** : (Échoué) Une procédure complexe avec plusieurs scripts bash a été essayée afin d'exécuter tout le processus d'enregistrement à l'intérieur du réseau du cluster vs. le faire sur un poste développeur.
-  - **Solution 2** : (À essayer) Une meilleure solution proposée par Simon serait d'utiliser Crossplane pour configurer l'enregistrement des vclusters dans ArgoCD de manière déclarative grâce au provider Kubernetes dans Crossplane. 
+  - **Solution 2** : (À essayer) Une meilleure solution proposée par Simon serait d'utiliser Crossplane pour configurer l'enregistrement des vclusters dans ArgoCD de manière déclarative grâce au provider Kubernetes dans Crossplane.
 
 - **Problème 3**: Lors de nos premiers essais, Grav plantait à la première connexion.
   - **Cause**: Lors de l'initialisation de grav, celui-ci tente de modifier le fichier de configuration qui est généré par vault, car vault met le mot de passe en texte et grav souhaite changer cela pour un hash. Or le fichier de vault est read-only.

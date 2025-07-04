@@ -10,7 +10,7 @@ Docker est un outil de virtualisation légère qui vous permet de créer des con
 
 ### Étapes pour Construire et Pousser des Images Docker
 
-    1. **Écrire un Dockerfile**  
+    1. **Écrire un Dockerfile**
     Le Dockerfile contient les instructions pour créer une image Docker à partir de votre projet. Voici un exemple simple de Dockerfile pour une application Node.js :
 
     ```dockerfile
@@ -36,7 +36,7 @@ Docker est un outil de virtualisation légère qui vous permet de créer des con
     CMD ["npm", "start"]
     ```
 
-    2. **Configurer GitHub Actions pour construire et pousser l'image**  
+    2. **Configurer GitHub Actions pour construire et pousser l'image**
 
     Une fois le Dockerfile créé, vous pouvez configurer un workflow GitHub Actions pour construire l'image Docker, puis la pousser vers un registre Docker.
 
@@ -56,7 +56,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest  # Utilisation d'un environnement Ubuntu
-    
+
     steps:
       # Étape 1 : Récupérer le code source du dépôt
       - name: Checkout code
@@ -125,10 +125,10 @@ Kubernetes est un orchestrateur de conteneurs populaire utilisé pour déployer,
 
 ### Étapes pour Déployer sur Kubernetes avec GitHub Actions
 
-1. **Configurer `kubectl` pour interagir avec votre cluster Kubernetes**  
+1. **Configurer `kubectl` pour interagir avec votre cluster Kubernetes**
    Vous devez d'abord configurer GitHub Actions pour utiliser `kubectl`, l'outil de ligne de commande de Kubernetes, pour interagir avec votre cluster Kubernetes.
 
-2. **Utiliser les Secrets pour Stocker les Informations Sensibles**  
+2. **Utiliser les Secrets pour Stocker les Informations Sensibles**
    Vous devrez stocker des informations comme les identifiants du cluster Kubernetes et les certificats dans les secrets GitHub pour les utiliser de manière sécurisée.
 
 ### Exemple de Workflow : Déploiement Automatisé sur Kubernetes

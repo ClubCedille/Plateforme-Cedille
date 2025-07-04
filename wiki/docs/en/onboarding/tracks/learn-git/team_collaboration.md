@@ -1,10 +1,9 @@
-
 # 🌿 Git Tutorial: Branching from a Branch and Merging via Pull Request
 
 This tutorial teaches you how to:
 
-1. ✅ Branch out from an existing feature branch  
-2. ✏️ Work on a sub-feature  
+1. ✅ Branch out from an existing feature branch
+2. ✏️ Work on a sub-feature
 3. 🔄 Open a Pull Request (PR) to merge it back into the original feature branch
 
 It's designed for **beginners** using the Git CLI and GitHub.
@@ -17,12 +16,12 @@ It's designed for **beginners** using the Git CLI and GitHub.
 
 It allows you to:
 
-🌿 Create a separate space to develop new features  
-🧪 Experiment or fix bugs without breaking anything  
-👨‍👩‍👧‍👦 Collaborate with others working on different tasks  
-🔁 Merge your work back into the main branch when it's ready  
+🌿 Create a separate space to develop new features
+🧪 Experiment or fix bugs without breaking anything
+👨‍👩‍👧‍👦 Collaborate with others working on different tasks
+🔁 Merge your work back into the main branch when it's ready
 
-Each branch starts from a specific point (usually `main` or another feature) and evolves independently.  
+Each branch starts from a specific point (usually `main` or another feature) and evolves independently.
 This way, teams can work **simultaneously and safely** on many parts of a project.
 
 > 🔐 Branching is the foundation of collaborative development. Without it, everyone would be working on the same files at the same time — leading to chaos and lost work.
@@ -121,8 +120,8 @@ Here's a more detailed step-by-step tutorial on how to do it.
 
 ## 🧩 Scenario
 
-You're working on a larger feature: `feature/main-layout`  
-You want to create a sub-feature: `feature/layout-component`  
+You're working on a larger feature: `feature/main-layout`
+You want to create a sub-feature: `feature/layout-component`
 You’ll merge it back via a Pull Request — not locally.
 
 ---
@@ -286,4 +285,3 @@ Now you've had a guide on how to collaborate on a project with a team using Git,
 !!! warning "BUT WAIT"
 
       **I think the Hall of GitFame is under renovation... I've seen so many orange cones on the entrance. Maybe we should just skip by! - (yes, just skip it, it's not done yet...)**
-

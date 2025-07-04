@@ -38,7 +38,7 @@ To get started with Docker and access Docker Hub, you need to create a Docker Hu
 ![dockerhub](img/dockerhub.PNG)
 
 
-## Installing Git (optionnal) 
+## Installing Git (optionnal)
 
    - **Windows:**
 
@@ -70,5 +70,5 @@ To get started with Docker and access Docker Hub, you need to create a Docker Hu
 
 
    - **Other Linux Distributions:**
-    
+
     Use the package manager specific to your distribution to install Git.

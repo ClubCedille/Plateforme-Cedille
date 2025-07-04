@@ -67,7 +67,7 @@ The ArgoCD Image Updater is a tool that automatically updates the image tags of
 a deployment in ArgoCD. It is configured to update the image tags of the
 `Application` resources in the `/apps/argo-apps/` folder for which an annotation
 `argocd-image-updater.argoproj.io/image-list` is present :
-```yaml 
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -116,7 +116,7 @@ log in to ArgoCD with their GitHub credentials.
 Contour is an Ingress Controller solution for Kubernetes. It uses the Envoy
 proxy server as a backend.
 
-#### Configuration 
+#### Configuration
 
 The Envoy proxy service has been configured with a NodePort to direct external
 traffic to Contour, which then routes the requests to the dedicated services.
@@ -327,7 +327,7 @@ improvement in network throughput and latency.
 To test Merbridge, simply verify that the pods continue to communicate within
 the service mesh after its integration.
 
-#### Other Considered Solutions 
+#### Other Considered Solutions
 
 Linkerd.
 

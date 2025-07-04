@@ -31,4 +31,3 @@ In the following tutorial, we will edit it and make it better, as it is used lik
 ---
 
 With your fresh account, you are ready to [start using Github](walkthrough_github.md) !
-

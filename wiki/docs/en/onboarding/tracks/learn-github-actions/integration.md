@@ -10,7 +10,7 @@ Docker is a lightweight virtualization tool that allows you to create containers
 
 ### Steps to Build and Push Docker Images
 
-1. **Write a Dockerfile**  
+1. **Write a Dockerfile**
    The Dockerfile contains the instructions to create a Docker image from your project. Here is a simple example of a Dockerfile for a Node.js application:
 
     ```dockerfile
@@ -36,7 +36,7 @@ Docker is a lightweight virtualization tool that allows you to create containers
     CMD ["npm", "start"]
     ```
 
-2. **Configure GitHub Actions to build and push the image**  
+2. **Configure GitHub Actions to build and push the image**
 
    Once the Dockerfile is created, you can set up a GitHub Actions workflow to build the Docker image and then push it to a Docker registry.
 
@@ -56,7 +56,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest  # Use an Ubuntu environment
-    
+
     steps:
       # Step 1: Checkout the repository
       - name: Checkout code
@@ -125,10 +125,10 @@ Kubernetes is a popular container orchestrator used to deploy, manage, and scale
 
 ### Steps to Deploy on Kubernetes with GitHub Actions
 
-1. **Configure `kubectl` to interact with your Kubernetes cluster**  
+1. **Configure `kubectl` to interact with your Kubernetes cluster**
    First, configure GitHub Actions to use `kubectl`, the Kubernetes command-line tool, to interact with your Kubernetes cluster.
 
-2. **Use Secrets to Store Sensitive Information**  
+2. **Use Secrets to Store Sensitive Information**
    Store sensitive information, such as Kubernetes cluster credentials and certificates, in GitHub secrets to use them securely.
 
 ### Example Workflow: Automated Kubernetes Deployment

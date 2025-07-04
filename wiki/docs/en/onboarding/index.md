@@ -82,4 +82,3 @@ labs.
 Now that you have a good understanding of our philosophy, standards, and domain
 knowledge, you can choose a track that fits your profile. Head to the [next
 section](./tracks/index.md) to see the available tracks.
-

@@ -67,5 +67,5 @@ Pour commencer avec Docker et accéder à Docker Hub, vous devez créer un compt
     ```
 
    - **Autres distributions Linux :**
-    
+
     Utilisez le gestionnaire de paquets spécifique à votre distribution pour installer Git.

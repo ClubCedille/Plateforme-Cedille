@@ -1,6 +1,6 @@
 # 🖥️ Git in Visual Studio Code: A Beginner-Friendly Interface
 
-While the **Git CLI** is powerful, it can feel overwhelming for beginners.  
+While the **Git CLI** is powerful, it can feel overwhelming for beginners.
 **Visual Studio Code (VSCode)** offers a built-in **Git extension** that simplifies most Git operations with a clean and visual workflow.
 
 This guide highlights how to perform essential Git tasks in VSCode, and how it compares to the command line.
@@ -62,7 +62,7 @@ CLI:
 git pull origin main
 ```
 
-VSCode: 
+VSCode:
 
     Click … → Pull
 
@@ -141,7 +141,7 @@ VSCode:
     Go to Source Control → ... → Branch
 ![del_branch](./img/del_branch_1.png)
 
-    Branch → Delete Branch... 
+    Branch → Delete Branch...
 ![del_branch_2](./img/del_branch_2.png)
 
 > ⚠️ VSCode will ask for confirmation before deleting locally or remotely.
@@ -156,7 +156,7 @@ git merge source-branch
 ```
 VSCode:
 
-    Go to Source Control → ... → Branch 
+    Go to Source Control → ... → Branch
 ![merge_branch_1](./img/del_branch_1.png)
 
     Branch → Merge...

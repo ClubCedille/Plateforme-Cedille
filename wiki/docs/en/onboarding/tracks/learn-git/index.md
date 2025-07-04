@@ -69,4 +69,3 @@ Git has over a 150 different commands to interact with it ! In our case, we will
 ---
 
 When you are ready, go on to the [next page](intro_github.md) !
-

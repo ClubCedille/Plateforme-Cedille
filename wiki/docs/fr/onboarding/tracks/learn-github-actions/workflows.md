@@ -339,7 +339,7 @@ jobs:
 #### Explication :
 
 1. **Définir un Output** : Dans le job `build`, la commande `::set-output` est utilisée pour définir un output appelé `version`. Ce numéro de version est généré à l'aide de la commande `date` pour créer une valeur unique.
-   
+
 2. **Utiliser l'Output dans un Autre Job** : Dans le job `deploy`, l'output du job `build` est référencé via la syntaxe `${{ needs.build.outputs.version }}`. Cela permet d'accéder à l'information générée dans le premier job et de l'utiliser pour déployer une version spécifique.
 
 #### Référence vers la Documentation

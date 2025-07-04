@@ -105,7 +105,7 @@ Pour arrêter les conteneurs en cours d'exécution, utilisez la commande `docker
 Lors du développement avec Docker, vous pourriez avoir besoin de mettre à jour automatiquement et de prévisualiser vos services en cours d'exécution lorsque vous modifiez et sauvegardez votre code. La commande `docker compose watch` vous aide dans cette tâche.
 
 **1. Exécuter l'Application en Mode Watch :**
-   
+
    ```sh
    docker compose watch
    ```

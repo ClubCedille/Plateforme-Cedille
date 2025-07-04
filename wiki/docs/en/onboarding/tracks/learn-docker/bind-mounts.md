@@ -9,7 +9,7 @@ If you want to access data on your system, you can use a bind mount. A bind moun
 We will use the repository at [https://github.com/docker/bindmount-apps](https://github.com/docker/bindmount-apps) to demonstrate how to add a bind mount to a Docker Compose project.
 
 **1. Clone the Repository:**
-   
+
    ```
    git clone https://github.com/docker/bindmount-apps
    cd bindmount-apps
