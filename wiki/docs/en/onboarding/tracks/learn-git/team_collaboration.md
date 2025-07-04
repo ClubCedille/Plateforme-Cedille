@@ -12,33 +12,38 @@ It's designed for **beginners** using the Git CLI and GitHub.
 
 ## 🧠 What is Branching?
 
-**Branching** in Git is like creating a parallel universe of your code, where you can work freely without affecting the original project.
+**Branching** in Git is like creating a parallel universe of your code, where
+you can work freely without affecting the original project.
 
 It allows you to:
 
-🌿 Create a separate space to develop new features
-🧪 Experiment or fix bugs without breaking anything
-👨‍👩‍👧‍👦 Collaborate with others working on different tasks
-🔁 Merge your work back into the main branch when it's ready
+🌿 Create a separate space to develop new features 🧪 Experiment or fix bugs
+without breaking anything 👨‍👩‍👧‍👦 Collaborate with others working on different
+tasks 🔁 Merge your work back into the main branch when it's ready
 
-Each branch starts from a specific point (usually `main` or another feature) and evolves independently.
-This way, teams can work **simultaneously and safely** on many parts of a project.
+Each branch starts from a specific point (usually `main` or another feature) and
+evolves independently.  This way, teams can work **simultaneously and safely**
+on many parts of a project.
 
-> 🔐 Branching is the foundation of collaborative development. Without it, everyone would be working on the same files at the same time — leading to chaos and lost work.
+> 🔐 Branching is the foundation of collaborative development. Without it,
+> everyone would be working on the same files at the same time — leading to
+> chaos and lost work.
 
 
 ---
 
 ## 🧠 What is a Pull Request?
 
-A **Pull Request (PR)** is a request to merge your branch into another branch (like `main`, `develop`, or another feature). It allows others to:
+A **Pull Request (PR)** is a request to merge your branch into another branch
+(like `main`, `develop`, or another feature). It allows others to:
 
 - 👀 Review your code
 - 🧪 Run automated tests
 - 💬 Leave comments or suggestions
 - ✅ Approve the changes
 
-> 🔐 PRs are essential for **code quality**, **team communication**, and **avoiding broken code in production**.
+> 🔐 PRs are essential for **code quality**, **team communication**, and
+> **avoiding broken code in production**.
 
 ---
 
@@ -52,7 +57,8 @@ This diagram shows a typical situation in a team project:
 - 🔵 **Your Work** is done on a separate feature branch.
 - 🟠 **Someone Else’s Work** happens independently, also on a separate branch.
 
-Without branches and Pull Requests, all work would be done **on the same timeline, in the same files**, which would lead to:
+Without branches and Pull Requests, all work would be done **on the same
+timeline, in the same files**, which would lead to:
 - 🔥 Conflicts
 - 🐛 Bugs being merged unintentionally
 - ❌ Loss of stable code
@@ -71,11 +77,13 @@ Without branches and Pull Requests, all work would be done **on the same timelin
 ### ✅ How Pull Requests Help
 
 - You get your code **reviewed** before merging.
-- GitHub shows **conflicts automatically**, so you can fix them before it's too late.
+- GitHub shows **conflicts automatically**, so you can fix them before it's too
+  late.
 - You have a **discussion space** around your code.
 - You keep `main` clean and stable at all times.
 
-> 💡 Think of branches as your "workbench" and PRs as the "quality gate" before putting your work on the team’s final product.
+> 💡 Think of branches as your "workbench" and PRs as the "quality gate" before
+> putting your work on the team’s final product.
 
 ---
 
@@ -90,7 +98,8 @@ Without branches and Pull Requests, all work would be done **on the same timelin
 
 ## Typical Workflow
 
-Here's how someone would generate proceed in order to work on  a feature in parallel:
+Here's how someone would generate proceed in order to work on a feature in
+parallel:
 
 1. Start from your main feature branch
 
@@ -98,8 +107,7 @@ Here's how someone would generate proceed in order to work on  a feature in para
 
 3. Make your changes
 
-4. Push to GitHub
-git push origin feature/header-component
+4. Push to GitHub git push origin feature/header-component
 
 5. Go to GitHub and create a Pull Request targeting feature/main-layout
 
@@ -120,9 +128,9 @@ Here's a more detailed step-by-step tutorial on how to do it.
 
 ## 🧩 Scenario
 
-You're working on a larger feature: `feature/main-layout`
-You want to create a sub-feature: `feature/layout-component`
-You’ll merge it back via a Pull Request — not locally.
+You're working on a larger feature: `feature/main-layout` You want to create a
+sub-feature: `feature/layout-component` You’ll merge it back via a Pull Request
+— not locally.
 
 ---
 
@@ -178,7 +186,8 @@ git add .
 git commit -m "feat: add new layout component"
 ```
 
-> 💡 Commit messages should be meaningful. Use formats like `feat:`, `fix:`, `docs:`, etc.
+> 💡 Commit messages should be meaningful. Use formats like `feat:`, `fix:`,
+> `docs:`, etc.
 
 ---
 
@@ -195,8 +204,7 @@ You’ve now published your branch online and it’s ready for review.
 ## 🔁 Step 7: Open a Pull Request
 
 1. Go to your repository on [GitHub](https://github.com)
-2. You’ll see a prompt:
-   ➕ **Compare & pull request** → Click it
+2. You’ll see a prompt: ➕ **Compare & pull request** → Click it
 3. Set the **base branch** as `feature/main-layout`
 4. Set the **compare branch** as `feature/layout-component`
 5. Add a **clear title and description**
@@ -280,8 +288,11 @@ git push origin --delete feature/layout-component
 
 ## Next Section - Lab: Hall of GitFame
 
-Now you've had a guide on how to collaborate on a project with a team using Git, let's put that to practice with the **[OLYMPGIT](./merge_conflicts.md)**.
+Now you've had a guide on how to collaborate on a project with a team using Git,
+let's put that to practice with the **[OLYMPGIT](./merge_conflicts.md)**.
 
 !!! warning "BUT WAIT"
 
-      **I think the Hall of GitFame is under renovation... I've seen so many orange cones on the entrance. Maybe we should just skip by! - (yes, just skip it, it's not done yet...)**
+      **I think the Hall of GitFame is under renovation... I've seen so many
+      orange cones on the entrance. Maybe we should just skip by! - (yes, just
+      skip it, it's not done yet...)**

@@ -11,8 +11,8 @@ changements.
 
 Les SRE de la plateforme CEDILLE sont responsables des tâches suivantes:
 
-1. **Gestion des incidents**: Les SRE sont chargés de gérer les incidents
-   liés à la disponibilité, à la performance et à la sécurité des services de la
+1. **Gestion des incidents**: Les SRE sont chargés de gérer les incidents liés à
+   la disponibilité, à la performance et à la sécurité des services de la
    plateforme CEDILLE. Cela comprend la détection, la notification, la
    résolution et la documentation des incidents.
 2. **Surveillance**: Les SRE sont responsables de la surveillance continue des

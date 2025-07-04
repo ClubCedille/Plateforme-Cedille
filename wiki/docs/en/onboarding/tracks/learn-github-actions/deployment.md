@@ -1,20 +1,31 @@
 # Continuous Deployment with GitHub Actions
 
-Continuous Deployment (CD) involves automating the deployment of new versions of an application directly into production environments after passing testing and validation stages. GitHub Actions allows setting up CD pipelines for cloud platforms like AWS, Azure, or Google Cloud Platform (GCP).
+Continuous Deployment (CD) involves automating the deployment of new versions of
+an application directly into production environments after passing testing and
+validation stages. GitHub Actions allows setting up CD pipelines for cloud
+platforms like AWS, Azure, or Google Cloud Platform (GCP).
 
 ---
 
 ## 1. Deploying an Application on Cloud Platforms (AWS, Azure, GCP)
 
-GitHub Actions can be used to automate application deployment on popular cloud services such as **AWS**, **Microsoft Azure**, and **Google Cloud Platform (GCP)**. Each cloud provider has its own tools and services for managing application deployment.
+GitHub Actions can be used to automate application deployment on popular cloud
+services such as **AWS**, **Microsoft Azure**, and **Google Cloud Platform
+(GCP)**. Each cloud provider has its own tools and services for managing
+application deployment.
 
 ### 1.1 Deployment on AWS
 
-AWS offers several services for hosting applications, including **Elastic Beanstalk**, **ECS (Elastic Container Service)**, and **S3**. With GitHub Actions, you can configure workflows to automatically deploy your applications to these services.
+AWS offers several services for hosting applications, including **Elastic
+Beanstalk**, **ECS (Elastic Container Service)**, and **S3**. With GitHub
+Actions, you can configure workflows to automatically deploy your applications
+to these services.
 
 #### Example Workflow for Deploying on AWS Elastic Beanstalk
 
-Elastic Beanstalk simplifies deployment and management of applications on AWS. Here is an example workflow for deploying a Node.js application to Elastic Beanstalk.
+Elastic Beanstalk simplifies deployment and management of applications on
+AWS. Here is an example workflow for deploying a Node.js application to Elastic
+Beanstalk.
 
 ```yaml
 name: Deploy to AWS Elastic Beanstalk
@@ -51,11 +62,15 @@ jobs:
 
 ### 1.2 Deployment on Microsoft Azure
 
-Azure offers several services for hosting applications, such as **Azure App Service** and **Azure Kubernetes Service (AKS)**. With GitHub Actions, you can automate deployment to these services using Azure-specific actions.
+Azure offers several services for hosting applications, such as **Azure App
+Service** and **Azure Kubernetes Service (AKS)**. With GitHub Actions, you can
+automate deployment to these services using Azure-specific actions.
 
 #### Example Workflow for Deploying to Azure App Service
 
-Azure App Service is a platform that allows deploying web applications on a managed environment. Here is an example workflow for deploying a web application to Azure App Service.
+Azure App Service is a platform that allows deploying web applications on a
+managed environment. Here is an example workflow for deploying a web application
+to Azure App Service.
 
 ```yaml
 name: Deploy to Azure App Service
@@ -90,11 +105,15 @@ jobs:
 
 ### 1.3 Deployment on Google Cloud Platform (GCP)
 
-Google Cloud Platform offers services like **Google App Engine**, **Google Cloud Run**, and **Google Kubernetes Engine (GKE)**. GitHub Actions can be used to automate deployments on GCP.
+Google Cloud Platform offers services like **Google App Engine**, **Google Cloud
+Run**, and **Google Kubernetes Engine (GKE)**. GitHub Actions can be used to
+automate deployments on GCP.
 
 #### Example Workflow for Deploying to Google Cloud Run
 
-Google Cloud Run enables deploying containerized applications directly from a GitHub repository. Here is an example workflow for deploying an application to Google Cloud Run.
+Google Cloud Run enables deploying containerized applications directly from a
+GitHub repository. Here is an example workflow for deploying an application to
+Google Cloud Run.
 
 ```yaml
 name: Deploy to Google Cloud Run
@@ -137,7 +156,9 @@ jobs:
 
 ## 2. Practical Examples of Continuous Deployment Pipelines
 
-CI/CD pipelines consist of automated steps that handle the build, test, and deployment of an application. Here are some practical examples of continuous deployment pipelines with GitHub Actions.
+CI/CD pipelines consist of automated steps that handle the build, test, and
+deployment of an application. Here are some practical examples of continuous
+deployment pipelines with GitHub Actions.
 
 ### Basic Pipeline for a Node.js Application Deployed to AWS S3
 
@@ -192,11 +213,15 @@ jobs:
 
 ## 3. Deployment Strategies: Blue/Green, Canary
 
-GitHub Actions can be used to implement various **deployment strategies**, such as **Blue/Green** and **Canary** deployment, to minimize risks during production deployments.
+GitHub Actions can be used to implement various **deployment strategies**, such
+as **Blue/Green** and **Canary** deployment, to minimize risks during production
+deployments.
 
 ### 3.1 Blue/Green Deployment
 
-**Blue/Green deployment** involves running two distinct environments: the **Blue** (old) environment and the **Green** (new) environment. Once deployment is ready on the Green environment, traffic is switched to this environment.
+**Blue/Green deployment** involves running two distinct environments: the
+**Blue** (old) environment and the **Green** (new) environment. Once deployment
+is ready on the Green environment, traffic is switched to this environment.
 
 #### Example Workflow for Blue/Green Deployment
 
@@ -235,7 +260,9 @@ jobs:
 
 ### 3.2 Canary Deployment
 
-**Canary deployment** deploys a new version to a small percentage of users to test its impact. If the Canary version is stable, deployment is gradually extended to all users.
+**Canary deployment** deploys a new version to a small percentage of users to
+test its impact. If the Canary version is stable, deployment is gradually
+extended to all users.
 
 #### Example Workflow for Canary Deployment
 
@@ -277,11 +304,13 @@ jobs:
 
 ## 4. Deployment Status Notifications (Slack, Email)
 
-GitHub Actions enables sending notifications about the status of a successful or failed deployment via **Slack**, **Email**, or other collaboration tools.
+GitHub Actions enables sending notifications about the status of a successful or
+failed deployment via **Slack**, **Email**, or other collaboration tools.
 
 ### 4.1 Slack Notifications
 
-You can configure GitHub Actions to send notifications via Slack when specific events
+You can configure GitHub Actions to send notifications via Slack when specific
+events
 
  occur, such as deployment completion.
 
@@ -322,7 +351,8 @@ jobs:
 
 ### 4.2 Email Notifications
 
-You can also configure email notifications using GitHub actions or third-party services to send emails after deployment.
+You can also configure email notifications using GitHub actions or third-party
+services to send emails after deployment.
 
 #### Example Workflow with Email Notification
 
@@ -368,6 +398,13 @@ jobs:
 
 ## Conclusion
 
-Continuous Deployment with GitHub Actions simplifies and automates the process of moving applications to production. Through integration with cloud platforms like AWS, Azure, and GCP, as well as deployment strategies such as Blue/Green or Canary, you can reduce deployment risks and ensure continuous delivery. Additionally, the ability to send notifications via Slack or Email enhances visibility on deployment status, allowing teams to respond quickly to issues.
+Continuous Deployment with GitHub Actions simplifies and automates the process
+of moving applications to production. Through integration with cloud platforms
+like AWS, Azure, and GCP, as well as deployment strategies such as Blue/Green or
+Canary, you can reduce deployment risks and ensure continuous
+delivery. Additionally, the ability to send notifications via Slack or Email
+enhances visibility on deployment status, allowing teams to respond quickly to
+issues.
 
-GitHub Actions offers extensive flexibility to automate your entire deployment pipeline, enabling you to optimize the way you manage application delivery.
+GitHub Actions offers extensive flexibility to automate your entire deployment
+pipeline, enabling you to optimize the way you manage application delivery.

@@ -1,6 +1,8 @@
 ### Installation de Docker
 
-Avant de commencer, assurez-vous d'avoir installé Git et Docker sur votre système. Vous pouvez télécharger Docker depuis le [site officiel de Docker](https://www.docker.com/products/docker-desktop/).
+Avant de commencer, assurez-vous d'avoir installé Git et Docker sur votre
+système. Vous pouvez télécharger Docker depuis le [site officiel de
+Docker](https://www.docker.com/products/docker-desktop/).
 
 ## Exécuter Votre Premier Conteneur Docker
 
@@ -25,12 +27,18 @@ Utilisez la commande `docker run` pour démarrer le conteneur. Dans ce cas, nous
    docker run -d -p 8088:80 docker/getting-started
    ```
 
-- `-d` : Lance le conteneur en mode détaché, ce qui signifie qu'il s'exécute en arrière-plan.
-- `-p 8088:80` : Mappe le port 8088 de votre machine locale au port 80 à l'intérieur du conteneur. Cela vous permet d'accéder au service web du conteneur depuis votre navigateur à l'adresse [`http://localhost:8088`](http://localhost:8088).
+- `-d` : Lance le conteneur en mode détaché, ce qui signifie qu'il s'exécute en
+  arrière-plan.
+- `-p 8088:80` : Mappe le port 8088 de votre machine locale au port 80 à
+  l'intérieur du conteneur. Cela vous permet d'accéder au service web du
+  conteneur depuis votre navigateur à l'adresse
+  [`http://localhost:8088`](http://localhost:8088).
 
 **4. Accéder au Conteneur :**
 
-Ouvrez votre navigateur web et accédez à [`http://localhost:8088`](http://localhost:8088). Vous devriez voir la page web 'welcome-to-docker', ce qui indique que le conteneur fonctionne correctement.
+Ouvrez votre navigateur web et accédez à
+[`http://localhost:8088`](http://localhost:8088). Vous devriez voir la page web
+'welcome-to-docker', ce qui indique que le conteneur fonctionne correctement.
 
 ## Rechercher, Télécharger et Exécuter des Conteneurs depuis Docker Hub
 
@@ -56,7 +64,8 @@ Une fois que vous avez téléchargé une image, vous pouvez exécuter un contene
    ```
 
 - `-d` : Exécute le conteneur en mode détaché.
-- `-p 8080:80` : Mappe le port 8080 de votre machine locale au port 80 à l'intérieur du conteneur.
+- `-p 8080:80` : Mappe le port 8080 de votre machine locale au port 80 à
+  l'intérieur du conteneur.
 
 ## Arrêter le Conteneur Docker
 
@@ -78,7 +87,8 @@ Arrêtez le conteneur en utilisant la commande `docker stop` suivie de l'ID ou d
    docker stop <id_ou_nom_du_conteneur>
    ```
 
-- Remplacez `<id_ou_nom_du_conteneur>` par l'ID ou le Nom réel de votre conteneur.
+- Remplacez `<id_ou_nom_du_conteneur>` par l'ID ou le Nom réel de votre
+  conteneur.
 
 **3. Vérifier l'Arrêt du Conteneur :**
 
@@ -91,4 +101,8 @@ Le conteneur arrêté ne devrait plus apparaître comme étant en cours d'exécu
 
 ## Résumé
 
-Félicitations ! Vous avez réussi à exécuter et arrêter des conteneurs Docker, ainsi qu'à télécharger et exécuter des conteneurs depuis Docker Hub. Docker offre une manière puissante de gérer et déployer des applications de manière cohérente et efficace, rendant les flux de travail de développement et de déploiement plus fluides et fiables.
+Félicitations ! Vous avez réussi à exécuter et arrêter des conteneurs Docker,
+ainsi qu'à télécharger et exécuter des conteneurs depuis Docker Hub. Docker
+offre une manière puissante de gérer et déployer des applications de manière
+cohérente et efficace, rendant les flux de travail de développement et de
+déploiement plus fluides et fiables.

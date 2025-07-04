@@ -1,6 +1,8 @@
 ## Install Docker
 
-   Before you begin, make sure Git and Docker is installed on your system. You can download Docker from the [official Docker website](https://www.docker.com/products/docker-desktop/).
+   Before you begin, make sure Git and Docker is installed on your system. You
+   can download Docker from the [official Docker
+   website](https://www.docker.com/products/docker-desktop/).
 
 
 ## Running Your First Docker Container
@@ -29,12 +31,17 @@ Use the `docker run` command to start the container. In this case, we'll run the
 
 
 - `-d`: Runs the container in detached mode, meaning it runs in the background.
-- `-p 8088:80`: Maps port 8088 on your local machine to port 80 inside the container. This allows you to access the container's web service from your browser at [`http://localhost:8088`](http://localhost:8088).
+- `-p 8088:80`: Maps port 8088 on your local machine to port 80 inside the
+  container. This allows you to access the container's web service from your
+  browser at [`http://localhost:8088`](http://localhost:8088).
 
 
 **4. Access the Container:**
 
-Open your web browser and navigate to [`http://localhost:8088`](http://localhost:8088). You should see the 'welcome-to-docker' web page, indicating that the container is running successfully.
+Open your web browser and navigate to
+[`http://localhost:8088`](http://localhost:8088). You should see the
+'welcome-to-docker' web page, indicating that the container is running
+successfully.
 
 ## Search, Pull, and Run Containers from Docker Hub ##
 
@@ -62,7 +69,8 @@ Once you've pulled an image, you can run a container from it using `docker run`.
 
 
 - `-d`: Runs the container in detached mode.
-- `-p 8080:80`: Maps port 8080 on your local machine to port 80 inside the container.
+- `-p 8080:80`: Maps port 8080 on your local machine to port 80 inside the
+  container.
 
 
 
@@ -83,7 +91,8 @@ Open a new terminal window and list all running Docker containers:
 
 **2. Stop the Container:**
 
-Stop the container using the `docker stop` command followed by the Container ID or Name:
+Stop the container using the `docker stop` command followed by the Container ID
+or Name:
 
    ```
    docker stop <container_id_or_name>
@@ -93,7 +102,8 @@ Stop the container using the `docker stop` command followed by the Container ID 
 
 **3. Verify the Container Stopped:**
 
-To verify that the container has stopped, you can list all containers (including stopped ones) with:
+To verify that the container has stopped, you can list all containers (including
+stopped ones) with:
 
    ```
    docker ps -a
@@ -103,4 +113,7 @@ The stopped container should no longer be listed as running.
 
 ## Summary
 
-Congratulations ! You've successfully run and stopped Docker containers, as well as pulled and run containers from Docker Hub. Docker provides a powerful way to manage and deploy applications in a consistent and efficient manner, making development and deployment workflows smoother and more reliable.
+Congratulations ! You've successfully run and stopped Docker containers, as well
+as pulled and run containers from Docker Hub. Docker provides a powerful way to
+manage and deploy applications in a consistent and efficient manner, making
+development and deployment workflows smoother and more reliable.

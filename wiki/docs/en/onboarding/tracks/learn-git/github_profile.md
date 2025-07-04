@@ -1,12 +1,17 @@
 # 💻 Lab: GitHub Profile README.md
 
-Welcome to your first GitHub Profile README Lab! In this short tutorial, you will create a **personalized and animated GitHub profile README** that includes cool visuals and live stats. Your profile README is what visitors see when they visit your GitHub page — so let’s make it stand out!
+Welcome to your first GitHub Profile README Lab! In this short tutorial, you
+will create a **personalized and animated GitHub profile README** that includes
+cool visuals and live stats. Your profile README is what visitors see when they
+visit your GitHub page — so let’s make it stand out!
 
 ---
 
 ## What a GitHub Profile README Is
 
-When you create a repository with the exact **same name as your GitHub username**, GitHub will treat its `README.md` as the main presentation of your profile.
+When you create a repository with the exact **same name as your GitHub
+username**, GitHub will treat its `README.md` as the main presentation of your
+profile.
 
 > Example: If your GitHub username is `jonsnow`, create a repo named `jonsnow`.
 
@@ -46,9 +51,12 @@ When you create a repository with the exact **same name as your GitHub username*
 
 ## Step 3: Copy our template :)
 
-We will leave you to explore many different designs on **Step 5**, but for now we want to get started with someone nice. Then, you can add/remove elements as you see fit.
+We will leave you to explore many different designs on **Step 5**, but for now
+we want to get started with someone nice. Then, you can add/remove elements as
+you see fit.
 
-Copy the following block of Markdown text to your README.md file in your code/text editor.
+Copy the following block of Markdown text to your README.md file in your
+code/text editor.
 
 ``` markdown
 
@@ -86,19 +94,27 @@ Copy the following block of Markdown text to your README.md file in your code/te
 
 ## Step 4: Edit Your README.md
 
-You can now edit the informations to suit you. Here are the main changes you need make:
+You can now edit the informations to suit you. Here are the main changes you
+need make:
 
 1. In the title, change "YOUR NAME" to your actual name.
-2. You can edit the text displayed but clicking on the link and pasting the Markdown code. Look the [Typing SVG] tag in the Markdown file.
-3. For the "Technologies & tools", you can look through the list of badges [here](https://github.com/inttter/md-badges) and copy-paste the ones that fits your skills.
-4. In the GitHub Stats section, make sure to change the "username=..." & "user=..." to your actual username in GitHub.
-5. In the About me section, you can add your field of study and your field of interest.
+2. You can edit the text displayed but clicking on the link and pasting the
+   Markdown code. Look the [Typing SVG] tag in the Markdown file.
+3. For the "Technologies & tools", you can look through the list of badges
+   [here](https://github.com/inttter/md-badges) and copy-paste the ones that
+   fits your skills.
+4. In the GitHub Stats section, make sure to change the "username=..." &
+   "user=..." to your actual username in GitHub.
+5. In the About me section, you can add your field of study and your field of
+   interest.
 6. Fun Fact section : optional, you can remove it if you want.
 
 
 ## Step 5: Explore the Inspiration Repository
 
-Visit [awesome-github-profile-readme](https://github.com/abhisheknaiidu/awesome-github-profile-readme) to explore:
+Visit
+[awesome-github-profile-readme](https://github.com/abhisheknaiidu/awesome-github-profile-readme)
+to explore:
 
 - 🪄 **General Profile Sections** (headers, bios, skills, etc.)
 - 📊 **Stats & Contributions**
@@ -107,7 +123,8 @@ Visit [awesome-github-profile-readme](https://github.com/abhisheknaiidu/awesome-
 - 🧠 **Learning & Tech Stack**
 - 🎯 **Goals and Fun Facts**
 
-You can pick a few sections that you like, but we'll leave that to later. Now is time to update our README.md on GitHub!
+You can pick a few sections that you like, but we'll leave that to later. Now is
+time to update our README.md on GitHub!
 
 ---
 
@@ -121,7 +138,8 @@ Now, remember, to update your changes, you need to:
 2. Commit your changes.
 3. Push your changes.
 
-It's pretty intuitive in the VSCode extension. However, we want you to guess on the CLI:
+It's pretty intuitive in the VSCode extension. However, we want you to guess on
+the CLI:
 
 ??? tip "Hint"
 
@@ -154,4 +172,5 @@ Let's meet again in the [next section](team_collaboration.md) !
 
     #!FLAG-git-good-at-profiles
 
-    Maybe we'll find all the meaning at the very end of this track... Let's keep going!
+    Maybe we'll find all the meaning at the very end of this track... Let's keep
+    going!

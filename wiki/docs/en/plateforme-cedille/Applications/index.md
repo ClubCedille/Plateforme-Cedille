@@ -80,9 +80,8 @@ metadata:
     ...
 ```
 
-For now, we use the
-digest strategy to update the image tags. An example can be found in the
-`/apps\integrale\website\argo.yaml` application deployment file.
+For now, we use the digest strategy to update the image tags. An example can be
+found in the `/apps\integrale\website\argo.yaml` application deployment file.
 
 #### Configuration
 

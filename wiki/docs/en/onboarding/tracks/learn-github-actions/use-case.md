@@ -1,12 +1,17 @@
 # Practical Use Cases: DevOps with GitHub Actions
 
-GitHub Actions is a powerful tool for implementing CI/CD pipelines in a DevOps environment. It enables automation throughout the development lifecycle, including builds, tests, deployments, and integration with cloud services and Docker containers. This guide presents detailed use cases for implementing robust CI/CD pipelines using GitHub Actions, Docker, and AWS.
+GitHub Actions is a powerful tool for implementing CI/CD pipelines in a DevOps
+environment. It enables automation throughout the development lifecycle,
+including builds, tests, deployments, and integration with cloud services and
+Docker containers. This guide presents detailed use cases for implementing
+robust CI/CD pipelines using GitHub Actions, Docker, and AWS.
 
 ---
 
 ## 1. Deploying a Node.js Application with Docker and GitHub Actions
 
-In this example, we’ll see how to automate the deployment of a Dockerized Node.js application using Docker and GitHub Actions.
+In this example, we’ll see how to automate the deployment of a Dockerized
+Node.js application using Docker and GitHub Actions.
 
 ### 1.1. Preparing the Dockerfile
 
@@ -37,7 +42,9 @@ CMD ["npm", "start"]
 
 ### 1.2. Creating a GitHub Actions Workflow for Build and Deployment
 
-Next, configure GitHub Actions to automate building and deploying this application to a server or Docker service. The following workflow builds the Docker image and pushes it to **GitHub Container Registry** (GHCR).
+Next, configure GitHub Actions to automate building and deploying this
+application to a server or Docker service. The following workflow builds the
+Docker image and pushes it to **GitHub Container Registry** (GHCR).
 
 #### Sample Workflow: Build and Push Docker Image
 
@@ -73,17 +80,20 @@ jobs:
 
 ### 1.3. Deploying the Application
 
-Now, you can deploy the Docker image to a production server or a service like **Docker Swarm**, **Kubernetes**, or **AWS ECS**.
+Now, you can deploy the Docker image to a production server or a service like
+**Docker Swarm**, **Kubernetes**, or **AWS ECS**.
 
 ---
 
 ## 2. CI/CD for a Python Application Hosted on AWS with Docker Integration
 
-This example demonstrates setting up a CI/CD pipeline for a Dockerized Python application hosted on **AWS Elastic Beanstalk** with Docker integration.
+This example demonstrates setting up a CI/CD pipeline for a Dockerized Python
+application hosted on **AWS Elastic Beanstalk** with Docker integration.
 
 ### 2.1. Preparing the Dockerfile for the Python Application
 
-Create a `Dockerfile` to containerize the Python application. This example demonstrates a Dockerfile for a Flask app.
+Create a `Dockerfile` to containerize the Python application. This example
+demonstrates a Dockerfile for a Flask app.
 
 #### Sample Dockerfile:
 
@@ -110,7 +120,8 @@ CMD ["python", "app.py"]
 
 ### 2.2. Configuring a GitHub Actions Workflow for AWS Elastic Beanstalk
 
-The following workflow is designed to build the Docker image and automatically deploy it to AWS Elastic Beanstalk.
+The following workflow is designed to build the Docker image and automatically
+deploy it to AWS Elastic Beanstalk.
 
 #### Sample Workflow: Build and Deploy on AWS Elastic Beanstalk
 
@@ -155,11 +166,13 @@ jobs:
 
 ## 3. Automating a Complete DevOps Pipeline: Testing, Building, Deploying
 
-This example demonstrates setting up a full DevOps pipeline, including automated testing, building, and deploying an application.
+This example demonstrates setting up a full DevOps pipeline, including automated
+testing, building, and deploying an application.
 
 ### 3.1. Comprehensive Workflow with Unit Tests, Build, and Deployment
 
-The following workflow automates the entire process of testing, building, and deploying a Node.js application hosted on **Heroku**.
+The following workflow automates the entire process of testing, building, and
+deploying a Node.js application hosted on **Heroku**.
 
 #### Sample Comprehensive Workflow:
 
@@ -225,11 +238,13 @@ jobs:
 #### Explanation:
 - **Tests**: Runs unit tests using `npm test`.
 - **Build**: If the tests pass, the application is built with `npm run build`.
-- **Deployment**: If the build is successful, the application is deployed to Heroku using Docker images.
+- **Deployment**: If the build is successful, the application is deployed to
+  Heroku using Docker images.
 
 ### 3.2. Success or Failure Notification
 
-You can add Slack notifications to alert the team about CI/CD pipeline success or failure.
+You can add Slack notifications to alert the team about CI/CD pipeline success
+or failure.
 
 #### Example: Slack Notification after Build
 
@@ -286,13 +301,17 @@ jobs:
 
 ## 4. Collaboration with Teams: GitHub Organizations and Teams
 
-In a DevOps environment, effective collaboration within teams and organizations on GitHub is essential.
+In a DevOps environment, effective collaboration within teams and organizations
+on GitHub is essential.
 
 ### 4.1. Managing GitHub Teams
 
 GitHub allows managing teams within an organization, enabling:
-- **Permission Management**: Assign specific access roles (read, write, admin) to different members or teams.
-- **Shared Secrets**: Organization-wide secrets can be used across repositories, facilitating shared authentication for external services (like AWS, Docker, etc.).
+- **Permission Management**: Assign specific access roles (read, write, admin)
+  to different members or teams.
+- **Shared Secrets**: Organization-wide secrets can be used across repositories,
+  facilitating shared authentication for external services (like AWS, Docker,
+  etc.).
 
 ### 4.2. Shared Workflow Across Multiple Repositories
 
@@ -322,10 +341,16 @@ jobs:
         run: npm run build
 ```
 
-In each repository, you can then call this reusable workflow to standardize the build process across the organization.
+In each repository, you can then call this reusable workflow to standardize the
+build process across the organization.
 
 ---
 
 ## Conclusion
 
-These practical use cases demonstrate how GitHub Actions can be used to automate the full DevOps lifecycle. Whether working with Node.js, Python, Docker, or AWS, GitHub Actions enables building robust, automated, and scalable CI/CD pipelines. By integrating tests, builds, notifications, and team collaboration through GitHub organizations, you can easily manage and optimize your DevOps processes while ensuring smooth team collaboration across the organization.
+These practical use cases demonstrate how GitHub Actions can be used to automate
+the full DevOps lifecycle. Whether working with Node.js, Python, Docker, or AWS,
+GitHub Actions enables building robust, automated, and scalable CI/CD
+pipelines. By integrating tests, builds, notifications, and team collaboration
+through GitHub organizations, you can easily manage and optimize your DevOps
+processes while ensuring smooth team collaboration across the organization.

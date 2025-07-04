@@ -6,7 +6,9 @@
 
 #### Description de la configuration actuelle
 
-Mayastor est un système de stockage en blocs distribué implémenté avec le protocole NVMEoF. Entre autres, il permet l'accès et la réplication des données sur tous les noeuds du cluster Kubernetes.
+Mayastor est un système de stockage en blocs distribué implémenté avec le
+protocole NVMEoF. Entre autres, il permet l'accès et la réplication des données
+sur tous les noeuds du cluster Kubernetes.
 
 En ce moment, on maintient deux copies de toute donnée en tout temps:
 
@@ -34,7 +36,9 @@ Comparé à d'autres solutions comme Ceph:
 - a une basse complexité de son système et ses composantes
 - est concu dès le début pour l'utilisation dans Kubernetes
 
-Par exemple, on a fait plusieurs tentatives d'installation de Ceph, mais le système n'était pas stable pour la petite taille de cluster et était très mal-adapté pour l'utilisation dans Kubernetes.
+Par exemple, on a fait plusieurs tentatives d'installation de Ceph, mais le
+système n'était pas stable pour la petite taille de cluster et était très
+mal-adapté pour l'utilisation dans Kubernetes.
 
 ##### References utilisés pour le déploiement
 
@@ -43,39 +47,58 @@ Par exemple, on a fait plusieurs tentatives d'installation de Ceph, mais le syst
 
 #### Utilisation
 
-Le `StorageClass` mayastor est selectionné par défault par Kubernetes. Il suffit de créer des `PersitentVolumeClaims` (https://kubernetes.io/docs/concepts/storage/persistent-volumes) et les volumes seront crées dans Mayastore automatiquement.
+Le `StorageClass` mayastor est selectionné par défault par Kubernetes. Il suffit
+de créer des `PersitentVolumeClaims`
+(https://kubernetes.io/docs/concepts/storage/persistent-volumes) et les volumes
+seront crées dans Mayastore automatiquement.
 
 ### ArgoCD
 
-ArgoCD est notre système de GitOps. Il s'occupe de déployer et synchronizer toutes les ressources YAML dans notre repértoire `Plateforme-Cedille`. Pour le faire, on utiliser Kustomize pour regrouper toutes les ressources de type `Application` dans le dossier `/apps/argo-apps/`.
+ArgoCD est notre système de GitOps. Il s'occupe de déployer et synchronizer
+toutes les ressources YAML dans notre repértoire `Plateforme-Cedille`. Pour le
+faire, on utiliser Kustomize pour regrouper toutes les ressources de type
+`Application` dans le dossier `/apps/argo-apps/`.
 
 Voici un apercu visuel de cette structure:
 
 TODO: Insérer graphique.
 
-#### Configuration 
-**Permissions RBAC**
-La configuration RBAC (Role-Based Access Control) dans ArgoCD permet de définir des politiques de sécurité spécifiques pour différents utilisateurs et groupes. Dans notre cas, nous avons défini des rôles au sein de notre organisation CEDILLE qui correspondent aux différents niveaux d'accès nécessaires.
+#### Configuration
+**Permissions RBAC** La configuration RBAC (Role-Based Access Control) dans
+ArgoCD permet de définir des politiques de sécurité spécifiques pour différents
+utilisateurs et groupes. Dans notre cas, nous avons défini des rôles au sein de
+notre organisation CEDILLE qui correspondent aux différents niveaux d'accès
+nécessaires.
 
-Les opérateurs (role:org-operators), qui sont membres du groupe ClubCedille:SRE, ont les permissions suivantes :
+Les opérateurs (role:org-operators), qui sont membres du groupe ClubCedille:SRE,
+ont les permissions suivantes :
 
 Obtenir des informations sur les clusters, certificats et dépôts (repositories).
-Synchroniser, créer et supprimer les applications.
-Lire, créer, mettre à jour et supprimer les clés GPG.
-Ces permissions sont configurées via les lignes commençant par p dans le fichier `system/argocd/argocd-values.yaml` sous `policy.csv`. Le * indique que l'action est autorisée pour toutes les instances de la ressource spécifiée.
+Synchroniser, créer et supprimer les applications.  Lire, créer, mettre à jour
+et supprimer les clés GPG.  Ces permissions sont configurées via les lignes
+commençant par p dans le fichier `system/argocd/argocd-values.yaml` sous
+`policy.csv`. Le * indique que l'action est autorisée pour toutes les instances
+de la ressource spécifiée.
 
-Les relations entre les utilisateurs/groupes GitHub et les rôles ArgoCD sont définies par les lignes commençant par g. Par exemple, tous les membres du groupe ClubCedille:SRE sur GitHub sont assignés au rôle role:org-operators dans ArgoCD et ClubCedille:Exec sont assignés au rôle admin.
+Les relations entre les utilisateurs/groupes GitHub et les rôles ArgoCD sont
+définies par les lignes commençant par g. Par exemple, tous les membres du
+groupe ClubCedille:SRE sur GitHub sont assignés au rôle role:org-operators dans
+ArgoCD et ClubCedille:Exec sont assignés au rôle admin.
 
-**Intégration SSO avec GitHub**
-ArgoCD est configuré pour utiliser OAuth2 de GitHub comme fournisseur d'authentification. Cela permet aux membres de notre organisation GitHub de se connecter à ArgoCD avec leurs identifiants GitHub. 
+**Intégration SSO avec GitHub** ArgoCD est configuré pour utiliser OAuth2 de
+GitHub comme fournisseur d'authentification. Cela permet aux membres de notre
+organisation GitHub de se connecter à ArgoCD avec leurs identifiants GitHub.
 
 ### Ingress - Contour
 
-Contour est une solution d'Ingress Controller pour Kubernetes. Elle utilise le serveur proxy Envoy comme back-end.
+Contour est une solution d'Ingress Controller pour Kubernetes. Elle utilise le
+serveur proxy Envoy comme back-end.
 
-#### Configuration 
+#### Configuration
 
-Le service proxy de Envoy a été configuré avec un Nodeport pour diriger le trafic externe vers contour qui achemine ensuite les requêtes vers les services dédiés. 
+Le service proxy de Envoy a été configuré avec un Nodeport pour diriger le
+trafic externe vers contour qui achemine ensuite les requêtes vers les services
+dédiés.
 
 #### Tester
 
@@ -83,7 +106,7 @@ Commencer par déployer une application web comme [httpbin](https://httpbin.org/
 ```bash
 kubectl apply -f apps/testing/httpbin.yaml
 ```
-Vérifier ensuite que les 3 pods arrivent à un status **Running**: 
+Vérifier ensuite que les 3 pods arrivent à un status **Running**:
 ```bash
 kubectl get po,svc,ing -l app=httpbin
 ```
@@ -93,15 +116,19 @@ kubectl -n projectcontour port-forward service/envoy 8888:80
 ```
 Puis visiter http://local.projectcontour.io:8888/. Pour notre environnement de production, on utiliserait l'adresse du service de Envoy.
 
-Pour plus d'informations sur Contour, consultez [la documentation officielle](https://projectcontour.io/docs/).
+Pour plus d'informations sur Contour, consultez [la documentation
+officielle](https://projectcontour.io/docs/).
 
 ### Kubevirt
 
-KubeVirt étend les fonctionnalités de Kubernetes en ajoutant des workloads de machines virtuelles à côté des conteneurs.
+KubeVirt étend les fonctionnalités de Kubernetes en ajoutant des workloads de
+machines virtuelles à côté des conteneurs.
 
 #### Configuration
 
-KubeVirt est configuré pour permettre l'exécution et la gestion de machines virtuelles au sein du cluster Kubernetes. Il est nécessaire d'avoir [krew](https://krew.sigs.k8s.io/) installé.
+KubeVirt est configuré pour permettre l'exécution et la gestion de machines
+virtuelles au sein du cluster Kubernetes. Il est nécessaire d'avoir
+[krew](https://krew.sigs.k8s.io/) installé.
 
 #### Tester
 
@@ -112,7 +139,9 @@ kubectl virt vnc ubuntu-vm -n vms
 
 #### Containerized data importer (CDI)
 
-Pour créer votre propre VM à partir d'un ISO, vous devez utiliser le [CDI](https://kubevirt.io/user-guide/operations/containerized_data_importer/) de Kubevirt qui est déjà installé sur notre cluster.
+Pour créer votre propre VM à partir d'un ISO, vous devez utiliser le
+[CDI](https://kubevirt.io/user-guide/operations/containerized_data_importer/) de
+Kubevirt qui est déjà installé sur notre cluster.
 
 Pour ce faire, créez un PVC (dans cette situation, l'iso d'ubuntu 22.04.3 va être importé dans le PVC):
 ```yaml
@@ -138,27 +167,35 @@ Une fois les changements appliqués, un pod sera créé dans le namespace respec
 kubectl logs <nom-du-pod> -n vms -f
 ```
 
-Lorsque le téléchargement est terminé, vous pouvez créer votre vm basée sur l'ISO que vous venez de télécharger.
+Lorsque le téléchargement est terminé, vous pouvez créer votre vm basée sur
+l'ISO que vous venez de télécharger.
 
 ### Grafana
 
-Grafana est une plateforme d'analyse et de visualisation de données pour la surveillance des systèmes informatiques.
+Grafana est une plateforme d'analyse et de visualisation de données pour la
+surveillance des systèmes informatiques.
 
 #### Configuration
 
-Grafana a été configuré pour collecter, analyser et visualiser les métriques, les logs et les traces des applications de notre infrastructure.
+Grafana a été configuré pour collecter, analyser et visualiser les métriques,
+les logs et les traces des applications de notre infrastructure.
 
 #### Tester
 
-Visiter https://grafana.omni.cedille.club pour voir ce qui a été fait. 
+Visiter https://grafana.omni.cedille.club pour voir ce qui a été fait.
 
 ### Clickhouse
 
-Clickhouse est un système de gestion de base de données analytique orienté colonnes, optimisé pour les requêtes rapides.
+Clickhouse est un système de gestion de base de données analytique orienté
+colonnes, optimisé pour les requêtes rapides.
 
 #### Configuration
 
-Clickhouse est configuré pour collecter et stocker les métriques ainsi que les journaux (logs) provenant d'OpenTelemetry, contribuant directement à une meilleure observabilité. L'intégration avec Grafana, permet d'exploiter ces données à travers des tableaux de bord interactifs pour un suivi précis des systèmes.
+Clickhouse est configuré pour collecter et stocker les métriques ainsi que les
+journaux (logs) provenant d'OpenTelemetry, contribuant directement à une
+meilleure observabilité. L'intégration avec Grafana, permet d'exploiter ces
+données à travers des tableaux de bord interactifs pour un suivi précis des
+systèmes.
 
 #### Tester
 
@@ -195,15 +232,19 @@ Ensuite, insérer des données en executant le script:
 python3 script.py
 ```
 
-Par la suite, il sera possible de voir les changements en faisant un ```SELECT * from users;```
+Par la suite, il sera possible de voir les changements en faisant un ```SELECT *
+from users;```
 
 ### Service Mesh - Kuma
 
-Kuma est une plateforme de gestion de services (Service Mesh) conçue pour le microservice et l'orchestration de réseaux.
+Kuma est une plateforme de gestion de services (Service Mesh) conçue pour le
+microservice et l'orchestration de réseaux.
 
 #### Configuration
 
-Kuma est configuré pour orchestrer, sécuriser et observer les communications entre les services du cluster Kubernetes. Il y a uniquement un "meshes" qui a été configurer pour le moment (defaut).
+Kuma est configuré pour orchestrer, sécuriser et observer les communications
+entre les services du cluster Kubernetes. Il y a uniquement un "meshes" qui a
+été configurer pour le moment (defaut).
 
 #### Tester
 
@@ -227,21 +268,31 @@ Rendez-vous sur http://localhost:5681/gui/.
 
 #### Merbridge
 
-Merbridge peut être utilisé avec Kuma pour accélérer le routage du trafic réseau entre les pods en utilisant eBPF, ce qui permet de contourner kube-proxy pour des performances améliorées. Lorsqu'il est intégré à Kuma, Merbridge facilite une communication inter-pods plus rapide et plus efficace, en se synchronisant avec les fonctionnalités de gestion de Kuma. La configuration de Merbridge se fait à l'installation de Kuma pour une amélioration directe du débit et de la latence réseau.
+Merbridge peut être utilisé avec Kuma pour accélérer le routage du trafic réseau
+entre les pods en utilisant eBPF, ce qui permet de contourner kube-proxy pour
+des performances améliorées. Lorsqu'il est intégré à Kuma, Merbridge facilite
+une communication inter-pods plus rapide et plus efficace, en se synchronisant
+avec les fonctionnalités de gestion de Kuma. La configuration de Merbridge se
+fait à l'installation de Kuma pour une amélioration directe du débit et de la
+latence réseau.
 
-Pour tester Merbridge, il faut simplement vérifier que les pods continuent de communiquer au sein du service mesh après son intégration.
+Pour tester Merbridge, il faut simplement vérifier que les pods continuent de
+communiquer au sein du service mesh après son intégration.
 
-#### Autres solutions considérées 
+#### Autres solutions considérées
 
 Linkerd.
 
-Problème: Complexité d'intégration ou de configuration. Voir https://github.com/linkerd/linkerd2/issues/11156
+Problème: Complexité d'intégration ou de configuration. Voir
+https://github.com/linkerd/linkerd2/issues/11156
 
 
 ## Workloads
 
 ### apps/sample/kustomize-example-app
 
-Application qui démontre la structure de base à prendre pour déployer une nouvelle application avec Kustomize avec des environments prod et staging.
+Application qui démontre la structure de base à prendre pour déployer une
+nouvelle application avec Kustomize avec des environments prod et staging.
 
-Pour plus de détails, voir: [Déployer des applications](./deploying-workloads.md)
+Pour plus de détails, voir: [Déployer des
+applications](./deploying-workloads.md)

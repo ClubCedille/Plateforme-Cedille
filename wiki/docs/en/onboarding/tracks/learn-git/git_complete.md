@@ -15,7 +15,8 @@ By now, you should be comfortable with:
 
 ## 🧭 What’s Next?
 
-Now that you know how to **version and collaborate on code**, it’s time to learn how to **run, package, and deploy code reliably** — across any environment.
+Now that you know how to **version and collaborate on code**, it’s time to learn
+how to **run, package, and deploy code reliably** — across any environment.
 
 ### 🚀 Up Next: Docker Onboarding Track
 
@@ -26,7 +27,8 @@ In the next onboarding module, you’ll learn:
 - How to use Docker CLI and Dockerfiles
 - Best practices for development and deployment
 
-> 🐳 Docker is the natural next step for modern developers working in teams, cloud, and DevOps environments.
+> 🐳 Docker is the natural next step for modern developers working in teams,
+> cloud, and DevOps environments.
 
 ---
 
@@ -37,14 +39,14 @@ In the next onboarding module, you’ll learn:
 
 ## 🧠 Tip Before You Go
 
-Keep using Git daily — the best way to master it is by using it in real projects, even small ones.
+Keep using Git daily — the best way to master it is by using it in real
+projects, even small ones.
 
 > "Git is not just a tool, it's a language for teamwork."
 
 Happy coding!
 
-<details>
-<summary> Is that it? </summary>
+<details> <summary> Is that it? </summary>
 
     #!FLAG-git-your-captain
 

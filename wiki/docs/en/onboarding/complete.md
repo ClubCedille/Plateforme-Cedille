@@ -12,11 +12,17 @@ Club. To do this, you can consult the project boards on GitHub:
 
 
 ## Add yourself to our website
-Congratulations, you're now an official CEDILLE member, time to add yourself to the website!
+Congratulations, you're now an official CEDILLE member, time to add yourself to
+the website!
 
-Clone the [cedille.etsmtl.ca repo](https://github.com/ClubCedille/cedille.etsmtl.ca/tree/master), create a branch, and add yourself to the [equipe.yml](https://github.com/ClubCedille/cedille.etsmtl.ca/blob/master/data/equipe.yml) YAML file. Make sure your image is **225x225 pixels**.
+Clone the [cedille.etsmtl.ca
+repo](https://github.com/ClubCedille/cedille.etsmtl.ca/tree/master), create a
+branch, and add yourself to the
+[equipe.yml](https://github.com/ClubCedille/cedille.etsmtl.ca/blob/master/data/equipe.yml)
+YAML file. Make sure your image is **225x225 pixels**.
 
-When done, create a Pull Request to merge your changes and add **@EndlessFlow** as a reviewer. Keep an eye out for any requested changes.
+When done, create a Pull Request to merge your changes and add **@EndlessFlow**
+as a reviewer. Keep an eye out for any requested changes.
 
 Once your Pull Request is approved, simply merge the changes.
 

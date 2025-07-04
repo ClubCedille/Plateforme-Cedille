@@ -1,16 +1,27 @@
 # Best Practices and DevOps Patterns with GitHub
 
-Adopting best practices and DevOps patterns is essential for ensuring robust, scalable, and efficient CI/CD pipelines in complex projects. GitHub Actions, with its automation features, enables workflow structuring, multi-environment management, and streamlined team collaboration. This guide provides strategies and best practices for structuring workflows, centralizing configurations, managing development environments, and collaborating effectively through GitHub Actions.
+Adopting best practices and DevOps patterns is essential for ensuring robust,
+scalable, and efficient CI/CD pipelines in complex projects. GitHub Actions,
+with its automation features, enables workflow structuring, multi-environment
+management, and streamlined team collaboration. This guide provides strategies
+and best practices for structuring workflows, centralizing configurations,
+managing development environments, and collaborating effectively through GitHub
+Actions.
 
 ---
 
 ## 1. Structuring Workflows for Complex Projects
 
-In complex projects, structuring workflows is crucial for maintaining a smooth and manageable CI/CD lifecycle. This includes dividing workflows into specific stages, reusing workflows, and managing job dependencies.
+In complex projects, structuring workflows is crucial for maintaining a smooth
+and manageable CI/CD lifecycle. This includes dividing workflows into specific
+stages, reusing workflows, and managing job dependencies.
 
 ### 1.1. Divide Workflows into Clear Stages
 
-It’s recommended to break a workflow into multiple **jobs** and **steps**, assigning specific responsibilities to each job, such as testing, building, or deploying. Each job can run in parallel or as a dependency, providing greater flexibility.
+It’s recommended to break a workflow into multiple **jobs** and **steps**,
+assigning specific responsibilities to each job, such as testing, building, or
+deploying. Each job can run in parallel or as a dependency, providing greater
+flexibility.
 
 #### Structured Workflow Example
 
@@ -58,12 +69,17 @@ jobs:
 ```
 
 #### Explanation:
-- **Dependent Jobs**: The `test`, `build`, and `deploy` jobs depend on previous jobs, ensuring no deployment occurs before validation through tests or builds.
-- **Modularity**: Each job has a defined role, making the workflow more readable and maintainable.
+- **Dependent Jobs**: The `test`, `build`, and `deploy` jobs depend on previous
+  jobs, ensuring no deployment occurs before validation through tests or builds.
+- **Modularity**: Each job has a defined role, making the workflow more readable
+  and maintainable.
 
 ### 1.2. Workflow Modularization
 
-GitHub Actions allows calling one workflow from another using `workflow_call`. Modularizing workflows enables you to reuse parts of the pipeline (tests, builds, etc.) across different projects, ensuring consistency in CI/CD management across the organization.
+GitHub Actions allows calling one workflow from another using
+`workflow_call`. Modularizing workflows enables you to reuse parts of the
+pipeline (tests, builds, etc.) across different projects, ensuring consistency
+in CI/CD management across the organization.
 
 #### Example of a Reusable Workflow
 
@@ -103,7 +119,8 @@ jobs:
 
 ### 1.3. Use Matrices to Optimize Runs
 
-Using **matrices** allows testing across various combinations of environments (OS, language versions, etc.) in parallel, reducing the total pipeline runtime.
+Using **matrices** allows testing across various combinations of environments
+(OS, language versions, etc.) in parallel, reducing the total pipeline runtime.
 
 #### Matrix Example
 
@@ -143,11 +160,14 @@ jobs:
 
 ## 2. Using Centralized Configuration Files
 
-For complex projects, centralizing workflow configuration can ensure consistency across different pipelines and reduce duplication.
+For complex projects, centralizing workflow configuration can ensure consistency
+across different pipelines and reduce duplication.
 
 ### 2.1. Centralize Secrets and Variables
 
-GitHub allows managing **secrets** and **environment variables** at the organization or repository level. This lets you store sensitive information like API keys or credentials in a centralized and secure location.
+GitHub allows managing **secrets** and **environment variables** at the
+organization or repository level. This lets you store sensitive information like
+API keys or credentials in a centralized and secure location.
 
 #### Example: Using Secrets in a Workflow
 
@@ -169,7 +189,9 @@ jobs:
 
 ### 2.2. Shared Configuration Files
 
-GitHub Actions allows creating shared YAML configuration files, enabling standardized CI/CD processes across multiple projects. These files can include common scripts or reusable workflows for different teams or repositories.
+GitHub Actions allows creating shared YAML configuration files, enabling
+standardized CI/CD processes across multiple projects. These files can include
+common scripts or reusable workflows for different teams or repositories.
 
 #### Example: Using a Central Configuration File
 
@@ -192,11 +214,14 @@ jobs:
 
 ## 3. Team Collaboration in Software Development with GitHub Actions (PR Gating, Checks)
 
-GitHub Actions streamlines team collaboration by automating checks and integrating pull request (PR) gating controls.
+GitHub Actions streamlines team collaboration by automating checks and
+integrating pull request (PR) gating controls.
 
 ### 3.1. Implementing PR Gating
 
-**PR gating** prevents code from merging into a branch without successfully passing specified tests or checks. You can configure **required checks** that must pass before merging a pull request.
+**PR gating** prevents code from merging into a branch without successfully
+passing specified tests or checks. You can configure **required checks** that
+must pass before merging a pull request.
 
 #### Example: Workflow to Validate a PR
 
@@ -225,11 +250,14 @@ jobs:
 
 ### 3.2. Automatic Checks on Pull Requests
 
-GitHub enables automatic **checks** on pull requests, such as running tests or checking code style.
+GitHub enables automatic **checks** on pull requests, such as running tests or
+checking code style.
 
 ### 3.3. Protected Branch Policy
 
-It’s recommended to protect critical branches (like `main` or `production`) by configuring **protected branches**, which prevent direct commits or require specific workflows to complete before merging.
+It’s recommended to protect critical branches (like `main` or `production`) by
+configuring **protected branches**, which prevent direct commits or require
+specific workflows to complete before merging.
 
 #### Example: Protecting the `main` Branch
 
@@ -242,4 +270,9 @@ It’s recommended to protect critical branches (like `main` or `production`) by
 
 ## Conclusion
 
-Applying best practices and DevOps patterns with GitHub Actions allows you to effectively structure CI/CD workflows, centralize configurations and secrets, manage multiple environments, and collaborate seamlessly within a team. Using tools such as environments, reusable workflows, protected branches, and pull request checks enables building robust and scalable pipelines for complex projects, while ensuring code quality and security.
+Applying best practices and DevOps patterns with GitHub Actions allows you to
+effectively structure CI/CD workflows, centralize configurations and secrets,
+manage multiple environments, and collaborate seamlessly within a team. Using
+tools such as environments, reusable workflows, protected branches, and pull
+request checks enables building robust and scalable pipelines for complex
+projects, while ensuring code quality and security.
