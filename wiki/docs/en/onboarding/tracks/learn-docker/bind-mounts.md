@@ -1,3 +1,5 @@
+# Understanding Bind Mounts in Docker
+
 Docker isolates all content, code, and data within a container from your local
 filesystem. Sometimes, however, you may want the container to access a directory
 on your system. This is where bind mounts come in handy.
@@ -16,7 +18,7 @@ to demonstrate how to add a bind mount to a Docker Compose project.
 
 **1. Clone the Repository:**
 
-   ```
+   ```bash
    git clone https://github.com/docker/bindmount-apps
    cd bindmount-apps
    ```
@@ -48,7 +50,7 @@ to demonstrate how to add a bind mount to a Docker Compose project.
 **3. Run the Docker Compose Application:**
 
    Open a terminal in your project directory and run the following command:
-   ```
+   ```bash
    docker-compose up -d
    ```
 

@@ -10,8 +10,8 @@ Club. To do this, you can consult the project boards on GitHub:
 - [DevOps](https://github.com/orgs/ClubCedille/projects/14)
 - [SRE](https://github.com/orgs/ClubCedille/projects/16/views/1)
 
-
 ## Add yourself to our website
+
 Congratulations, you're now an official CEDILLE member, time to add yourself to
 the website!
 
