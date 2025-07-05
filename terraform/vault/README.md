@@ -1,4 +1,4 @@
-## Bootstrap
+# Bootstrap
 
 On first run, you need to bootstrap the cluster by running: `kubectl exec -it -n
 vault pods/vault-0 -- vault operator init`.

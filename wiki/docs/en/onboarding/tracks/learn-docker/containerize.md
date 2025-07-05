@@ -1,3 +1,4 @@
+# Creating Dockerfiles and Compose Files for Containerization
 When working with containers, you usually need to create a `Dockerfile` to
 define your image and a `compose.yaml` file to define how to run it. These files
 specify the instructions for building and running your application within Docker
@@ -9,7 +10,7 @@ you create these files.
 **1. Initialize Docker in Your Project:**
 
 Open your project folder in the terminal and run the following command:
-   ```
+   ```bash
    docker init
    ```
 
@@ -92,7 +93,7 @@ configure your project with sensible defaults. These questions may include:
 **4. Run Your Dockerized Application:**
 
    Once you have answered all the questions and Docker has generated the files, you can run your application with the following command:
-   ```
+   ```bash
    docker-compose up -d
    ```
 

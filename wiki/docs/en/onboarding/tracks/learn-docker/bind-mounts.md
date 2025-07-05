@@ -39,11 +39,11 @@ to demonstrate how to add a bind mount to a Docker Compose project.
 
 **Explanation:**
 
-   - The `volumes` element tells Compose to mount the local folder `./app` to
+- The `volumes` element tells Compose to mount the local folder `./app` to
      `/usr/src/app` in the container for the `todo-app` service. This particular
      bind mount overwrites the static contents of the `/usr/src/app` directory
      in the container and creates what is known as a development container.
-   - The second instruction, `/usr/src/app/node_modules`, prevents the bind
+- The second instruction, `/usr/src/app/node_modules`, prevents the bind
      mount from overwriting the container's `node_modules` directory to preserve
      the packages installed in the container.
 

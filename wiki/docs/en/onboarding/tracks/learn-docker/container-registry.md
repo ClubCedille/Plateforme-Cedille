@@ -1,4 +1,4 @@
-## Working with Docker Hub
+# Working with Docker Hub
 
 [Docker Hub](https://hub.docker.com/) is a cloud-based repository where Docker
 users and partners create, test, store, and distribute container images. It is
@@ -16,7 +16,7 @@ images, and highlight some of the useful features available on Docker Hub.
 **2. Log In to Docker Hub:**
 
    Open your terminal and log in to Docker Hub using your account credentials:
-   ```
+   ```bash
    docker login
    ```
 
@@ -31,12 +31,12 @@ your projects. To pull an image from Docker Hub, use the `docker pull` command.
 **1. Search for an Image:**
 
    To find an image, you can search Docker Hub using the following command:
-   ```
+   ```bash
    docker search <image-name>
    ```
 
    For example, to search for a Node.js image, you would use:
-   ```
+   ```bash
    docker search node
    ```
 
@@ -45,12 +45,12 @@ your projects. To pull an image from Docker Hub, use the `docker pull` command.
 **2. Pull an Image:**
 
    Once you find the image you need, you can pull it to your local machine:
-   ```
+   ```bash
    docker pull <image-name>
    ```
 
    For example, to pull the official Node.js image, you would use:
-   ```
+   ```bash
    docker pull node
    ```
 
@@ -59,7 +59,7 @@ your projects. To pull an image from Docker Hub, use the `docker pull` command.
 **3. Run the Pulled Image:**
 
    After pulling the image, you can run it using the `docker run` command:
-   ```
+   ```bash
    docker run -d -p 3000:3000 node
    ```
 
@@ -73,25 +73,27 @@ you can push it to Docker Hub.
 
 **1. Tag Your Image:**
 
-   Before you can push your image, you need to tag it with your Docker Hub username and repository name:
-   ```
+   Before you can push your image, you need to tag it with your Docker Hub
+   username and repository name:
+   ```bash
    docker tag <local-image> <dockerhub-username>/<repository-name>:<tag>
    ```
 
-   For example, if your Docker Hub username is "myusername" and your repository name is "myapp", you would use:
-   ```
+   For example, if your Docker Hub username is "myusername" and your repository
+   name is "myapp", you would use:
+   ```bash
    docker tag myapp myusername/myapp:latest
    ```
 
 **2. Push the Image:**
 
    Once your image is tagged, you can push it to Docker Hub:
-   ```
+   ```bash
    docker push <dockerhub-username>/<repository-name>:<tag>
    ```
 
    Using the previous example, you would use:
-   ```
+   ```bash
    docker push myusername/myapp:latest
    ```
 

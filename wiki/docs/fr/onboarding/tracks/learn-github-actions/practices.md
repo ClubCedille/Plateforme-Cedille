@@ -71,6 +71,7 @@ jobs:
 ```
 
 #### Explication
+
 - **Jobs dépendants** : Les jobs `test`, `build`, et `deploy` sont dépendants
   des jobs précédents. Cela assure qu’aucune étape de déploiement ne se fait
   avant la validation des tests ou du build.
