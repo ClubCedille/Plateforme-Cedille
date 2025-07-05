@@ -2,13 +2,15 @@
 
 ## **Welcome, worthy one.**
 
-This is **OlympGit**, the eternal resting place of the Git Immortals.  
-If you master the path of branching, merging, and resolving conflict, your name will be carved at the top — forever.
+This is **OlympGit**, the eternal resting place of the Git Immortals. If you
+master the path of branching, merging, and resolving conflict, your name will be
+carved at the top — forever.
 
-Your task is to add your name to the Hall of GitFame — **at the top of the list** — like all legends before you.
+Your task is to add your name to the Hall of GitFame — **at the top of the
+list** — like all legends before you.
 
-But beware: **Only the strong survive the merge**.
-And **only the wise** 🧙‍♂️ do it through a **Pull Request**.
+But beware: **Only the strong survive the merge**. And **only the wise** 🧙‍♂️ do
+it through a **Pull Request**.
 
 ---
 
@@ -26,7 +28,8 @@ This repo contains:
 
 ### 1. Clone the Repository
 
-Like the usual, start by cloning [the repository](https://github.com/ClubCedille/OlympGit).
+Like the usual, start by cloning
+[the repository](https://github.com/ClubCedille/OlympGit).
 
 ??? hint "Hint"
 
@@ -50,7 +53,7 @@ Switch from the `main` branch to the `olympgit` branch.
 
 ---
 
-### 3. Create Your Personal Branch from `OlympGit`:
+### 3. Create Your Personal Branch from `OlympGit`
 
 Create your branch under the name of add-your-name. Ex: add-linus-torvalds.
 
@@ -66,11 +69,11 @@ Create your branch under the name of add-your-name. Ex: add-linus-torvalds.
 
 Edit `HALL_OF_GITFAME.md`, and insert your name at the top of the list:
 
-!!! warning  "Warning"
+!!! warning "Warning"
 
     Add your name ON TOP of the Immortals list!
 
-``` diff
+```diff
 
 ## 🧙 Immortals of Git
 
@@ -101,7 +104,8 @@ Now that you have added your name, let's commit the change to your branch.
 
 ### 6. Push Your Branch to GitHub
 
-Now that you've had your changes done locally, you have to put it on the remote branch.
+Now that you've had your changes done locally, you have to put it on the remote
+branch.
 
 ??? hint "Hint"
 
@@ -112,7 +116,6 @@ Now that you've had your changes done locally, you have to put it on the remote 
 ---
 
 ### 7. Create a Pull Request (The Final Trial)
-
 
 Now is the time to create a PR (pull request) on GitHub
 
@@ -137,7 +140,6 @@ Now is the time to create a PR (pull request) on GitHub
 
     - Submit the Pull Request
 
-
 ---
 
 ### 8. Resolve the Merge Conflict (⚔️ The Git Duel)
@@ -147,7 +149,7 @@ If your Pull Request cannot be merged automatically:
 1. Click **Resolve conflicts** on GitHub.
 2. You’ll see something like:
 
-``` diff
+```diff
 +<<<<<< HEAD
 - 🛡️ Hercules
 =======
@@ -155,7 +157,8 @@ If your Pull Request cannot be merged automatically:
 +>>>>>> add-your-name
 ```
 
-3. Manually *edit the conflict* to keep all names & removing any Hydra Heads until none are left to slay:
+3. Manually _edit the conflict_ to keep all names & removing any Hydra Heads
+   until none are left to slay:
 
 ```
 - 🛡️ Your Legendary Name
@@ -170,7 +173,8 @@ If your Pull Request cannot be merged automatically:
 
 ### 9. Team Review & Approval (The Wisdom Council)
 
-Before your PR can be merged into olympgit, your team captain, mentor, or peer must:
+Before your PR can be merged into olympgit, your team captain, mentor, or peer
+must:
 
 - 👁️ Review your changes
 
@@ -178,7 +182,8 @@ Before your PR can be merged into olympgit, your team captain, mentor, or peer m
 
 - ✅ Approve your Pull Request
 
-> ❗ Do not merge your own PR unless explicitly allowed by your instructor or team lead.
+> ❗ Do not merge your own PR unless explicitly allowed by your instructor or
+> team lead.
 
 If changes are requested:
 
@@ -224,6 +229,8 @@ Then, and only then:
 
 - Merging changes into a shared team branch
 
-🎉 You've now learned how to use branches and Pull Requests to collaborate like a pro! 
+🎉 You've now learned how to use branches and Pull Requests to collaborate like
+a pro!
 
-Before ending our Git journey together, let's look at the [Git extension in Visual Studio Code](./git_as_extension.md).
+Before ending our Git journey together, let's look at the
+[Git extension in Visual Studio Code](./git_as_extension.md).

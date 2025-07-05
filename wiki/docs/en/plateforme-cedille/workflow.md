@@ -29,14 +29,14 @@ ArgoCD applications with the `Plateforme-Cedille` repository.
 To add a new member to the CEDILLE club's GitHub organization, the
 `add-new-member` workflow is available. This workflow creates a pull request to
 add a new member to the CEDILLE club's GitHub organization. To execute the
-workflow, simply click on the following link: [Add a New
-Member](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/add-new-member.yml).
+workflow, simply click on the following link:
+[Add a New Member](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/add-new-member.yml).
 
 ## Request a Kubernetes Sandbox
 
 An automated sandbox environment deployment workflow for CEDILLE club members is
-available and accessible by executing the GitHub workflow [request a Kubernetes
-sandbox](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/request-sandbox.yml).
+available and accessible by executing the GitHub workflow
+[request a Kubernetes sandbox](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/request-sandbox.yml).
 The workflow creates a pull request to deploy a sandbox environment with
 vcluster for the user who triggered the workflow. Additional details on using
 the sandbox environment are available in the generated pull request.
@@ -50,8 +50,8 @@ commit is made to the `master` branch of the `Plateforme-Cedille` repository.
 ## Request a GRAV Website
 
 An automated GRAV website deployment workflow for student clubs is available and
-accessible by executing the GitHub workflow [request a GRAV
-website](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/request-grav.yml).
+accessible by executing the GitHub workflow
+[request a GRAV website](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/request-grav.yml).
 The workflow creates a pull request to deploy a GRAV website for the student
 club for which the workflow was triggered. Additional details on using the GRAV
 website are available in the generated pull request.

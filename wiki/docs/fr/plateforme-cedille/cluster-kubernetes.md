@@ -22,7 +22,7 @@ Les environnements sont les suivants:
 - **Production**: Environnement de production pour les sites web des clubs
   étudiants et les projets du club CEDILLE.
 - **Staging**: Environnement de staging pour les sites web des clubs étudiants
-    et les projets du club CEDILLE.
+  et les projets du club CEDILLE.
 - **Sandbox**: Environnement de développement pour les projets du club cédille.
 
 ### Production
@@ -46,8 +46,7 @@ interférences et les conflits.
 
 Un workflow de déploiement automatisé d'environnement sandbox pour les membres
 du club CEDILLE est disponible et accessible en exécutant le workflow GitHub
-[demander un sandbox
-Kubernetes](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/request-sandbox.yml).
+[demander un sandbox Kubernetes](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/request-sandbox.yml).
 Le workflow crée une Pull Request pour déployer un environnement sandbox pour
 l'utilisateur qui a déclenché le workflow. Des détails supplémentaires sur
 l'utilisation de l'environnement sandbox sont disponibles dans la Pull Request

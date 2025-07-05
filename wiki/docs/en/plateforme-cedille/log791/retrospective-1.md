@@ -4,22 +4,22 @@ Date: October 11, 2023
 
 ## 1. Completed Work
 
-| Task                                                   | Responsible                         |
-| ------------------------------------------------------ | ----------------------------------- |
-| Prepare client-specific questionnaires                 | Jonathan / Thomas                   |
-| AlgoETS interview                                      | Jonathan                            |
-| Club member interviews                                 | Thomas / Jonathan                   |
-| Raconteurs d'angles club interview                     | Jonathan                            |
-| Saveurs de génie club interview                        | Jonathan                            |
-| IT services interview                                  | Thomas                              |
-| Define success metrics from interviews                 | Jonathan / Thomas / Simon / Michael |
-| Deploy the physical cluster with Talos/Omni            | Michael / Simon                     |
-| Basic Rook/Ceph configuration                          | Michael / Simon                     |
-| Evaluate k8s networking stack                          | Simon                               |
-| Set up a wiki for documentation                        | Jonathan                            |
-| Initial drafting of the vision document                | Jonathan / Thomas / Simon / Michael |
-| Migrate physical servers to the server room            | Simon / Jonathan / Thomas           |
-| KubeVirt configuration                                 | Thomas                              |
+| Task                                        | Responsible                         |
+| ------------------------------------------- | ----------------------------------- |
+| Prepare client-specific questionnaires      | Jonathan / Thomas                   |
+| AlgoETS interview                           | Jonathan                            |
+| Club member interviews                      | Thomas / Jonathan                   |
+| Raconteurs d'angles club interview          | Jonathan                            |
+| Saveurs de génie club interview             | Jonathan                            |
+| IT services interview                       | Thomas                              |
+| Define success metrics from interviews      | Jonathan / Thomas / Simon / Michael |
+| Deploy the physical cluster with Talos/Omni | Michael / Simon                     |
+| Basic Rook/Ceph configuration               | Michael / Simon                     |
+| Evaluate k8s networking stack               | Simon                               |
+| Set up a wiki for documentation             | Jonathan                            |
+| Initial drafting of the vision document     | Jonathan / Thomas / Simon / Michael |
+| Migrate physical servers to the server room | Simon / Jonathan / Thomas           |
+| KubeVirt configuration                      | Thomas                              |
 
 ## 2. Incomplete Work
 
@@ -51,7 +51,7 @@ Date: October 11, 2023
     - **Cause**: The disk identifier with the OS `/dev/sdb` is no longer valid
       if the USB key is removed.
     - **Solution**: Reinstall the cluster specifying durable disk identifiers
-      (`/dev/disk/by-id/...`) for *each* machine.
+      (`/dev/disk/by-id/...`) for _each_ machine.
 
 - **ISO/image configuration in a PVC for KubeVirt**: Use an Ubuntu ISO in a PVC
   as a CD-ROM during VM boot.

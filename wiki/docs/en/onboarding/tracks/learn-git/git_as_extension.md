@@ -1,9 +1,11 @@
 # 🖥️ Git in Visual Studio Code: A Beginner-Friendly Interface
 
-While the **Git CLI** is powerful, it can feel overwhelming for beginners.  
-**Visual Studio Code (VSCode)** offers a built-in **Git extension** that simplifies most Git operations with a clean and visual workflow.
+While the **Git CLI** is powerful, it can feel overwhelming for beginners.
+**Visual Studio Code (VSCode)** offers a built-in **Git extension** that
+simplifies most Git operations with a clean and visual workflow.
 
-This guide highlights how to perform essential Git tasks in VSCode, and how it compares to the command line.
+This guide highlights how to perform essential Git tasks in VSCode, and how it
+compares to the command line.
 
 ---
 
@@ -16,18 +18,19 @@ This guide highlights how to perform essential Git tasks in VSCode, and how it c
   - Untracked files
   - Conflicts (with markers)
 
-> ✅ You can **stage** files with a simple click ➕, and **discard** changes with a trash icon.
+> ✅ You can **stage** files with a simple click ➕, and **discard** changes
+> with a trash icon.
 
 ---
 
 ## ✅ Committing Changes
 
 **CLI:**
-``` bash
+
+```bash
 git add .
 git commit -m "Your message"
 ```
-
 
 VSCode:
 
@@ -35,7 +38,8 @@ VSCode:
 
 ![Stage_and_commit](./img/stage_and_commit.png)
 
-> 💡 VSCode also highlights changes line-by-line, letting you commit file chunks ("hunks") individually.
+> 💡 VSCode also highlights changes line-by-line, letting you commit file chunks
+> ("hunks") individually.
 
 ## 🚀 Pushing to GitHub
 
@@ -53,7 +57,6 @@ VSCode:
 
 ![Push_sync](./img/push_sync.png)
 
-
 ## ⬇️ Pulling Latest Changes
 
 CLI:
@@ -62,7 +65,7 @@ CLI:
 git pull origin main
 ```
 
-VSCode: 
+VSCode:
 
     Click … → Pull
 
@@ -101,12 +104,13 @@ git checkout -b feature/branch-name
 VSCode:
 
     Click on the branch name in the bottom-left corner
+
 ![branch_bottom](./img/branch_bottom.png)
 
-    Select Create New Branch…
-![create_branch](./img/create_branch.png)
+    Select Create New Branch…  ![create_branch](./img/create_branch.png)
 
     Enter a name and select the base branch (usually main)
+
 ![branch_name](./img/branch_name.png)
 
 ## 🔁 Switching Branches
@@ -122,8 +126,8 @@ VSCode:
     Click the branch name in the bottom-left corner
 
     Select the branch you want from the dropdown list
-![switch_branches](./img/switch_branches.png)
 
+![switch_branches](./img/switch_branches.png)
 
 > 🔄 No need to remember branch names — they're listed for you.
 
@@ -138,11 +142,9 @@ git push origin --delete branch-name
 
 VSCode:
 
-    Go to Source Control → ... → Branch
-![del_branch](./img/del_branch_1.png)
+    Go to Source Control → ... → Branch ![del_branch](./img/del_branch_1.png)
 
-    Branch → Delete Branch... 
-![del_branch_2](./img/del_branch_2.png)
+    Branch → Delete Branch...  ![del_branch_2](./img/del_branch_2.png)
 
 > ⚠️ VSCode will ask for confirmation before deleting locally or remotely.
 
@@ -154,23 +156,23 @@ CLI:
 git checkout target-branch
 git merge source-branch
 ```
+
 VSCode:
 
-    Go to Source Control → ... → Branch 
+    Go to Source Control → ... → Branch
+
 ![merge_branch_1](./img/del_branch_1.png)
 
-    Branch → Merge...
-![merge_branch](./img/merge_branch.png)
+    Branch → Merge...  ![merge_branch](./img/merge_branch.png)
 
-
-
-> 📌 VSCode alerts you about incoming conflicts and allows side-by-side resolution.
+> 📌 VSCode alerts you about incoming conflicts and allows side-by-side
+> resolution.
 
 ## ⚔️ Resolving Merge Conflicts
 
 VSCode shines here with visual tools:
 
-* Conflicting lines are highlighted with:
+- Conflicting lines are highlighted with:
 
 ```diff
 + <<<<<<< HEAD
@@ -180,7 +182,8 @@ incoming changes
 + >>>>>>> other-branch
 ```
 
-* Buttons appear above: Accept Current, Accept Incoming, Accept Both, or Compare.
+- Buttons appear above: Accept Current, Accept Incoming, Accept Both, or
+  Compare.
 
 This makes conflict resolution much more manageable than the CLI.
 

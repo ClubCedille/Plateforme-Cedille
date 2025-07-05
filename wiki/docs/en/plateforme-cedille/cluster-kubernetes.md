@@ -44,9 +44,8 @@ projects. It is isolated from other environments to avoid interference and
 conflicts.
 
 An automated deployment workflow for a sandbox environment for CEDILLE club
-members is available and accessible by running the GitHub workflow [request a
-Kubernetes
-sandbox](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/request-sandbox.yml).
+members is available and accessible by running the GitHub workflow
+[request a Kubernetes sandbox](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/request-sandbox.yml).
 The workflow creates a pull request to deploy a sandbox environment for the user
 who triggered the workflow. Additional details on using the sandbox environment
 are available in the generated pull request.

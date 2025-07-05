@@ -19,11 +19,11 @@ kind: StorageClass
 metadata:
   name: mayastor
   annotations:
-    storageclass.kubernetes.io/is-default-class: "true"
+    storageclass.kubernetes.io/is-default-class: 'true'
 parameters:
-  ioTimeout: "30"
+  ioTimeout: '30'
   protocol: nvmf
-  repl: "2"
+  repl: '2'
   stsAffinityGroup: 'true'
 provisioner: io.openebs.csi-mayastor
 ```
@@ -67,7 +67,8 @@ The ArgoCD Image Updater is a tool that automatically updates the image tags of
 a deployment in ArgoCD. It is configured to update the image tags of the
 `Application` resources in the `/apps/argo-apps/` folder for which an annotation
 `argocd-image-updater.argoproj.io/image-list` is present :
-```yaml 
+
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -80,9 +81,8 @@ metadata:
     ...
 ```
 
-For now, we use the
-digest strategy to update the image tags. An example can be found in the
-`/apps\integrale\website\argo.yaml` application deployment file.
+For now, we use the digest strategy to update the image tags. An example can be
+found in the `/apps\integrale\website\argo.yaml` application deployment file.
 
 #### Configuration
 
@@ -99,8 +99,8 @@ have the following permissions:
 - Read, create, update, and delete GPG keys
 
 These permissions are configured via lines starting with p in the
-`system/argocd/argocd-values.yaml` file under `policy.csv`. The * indicates that
-the action is allowed for all instances of the specified resource.
+`system/argocd/argocd-values.yaml` file under `policy.csv`. The \* indicates
+that the action is allowed for all instances of the specified resource.
 
 The relationships between GitHub users/groups and ArgoCD roles are defined by
 lines starting with g. For example, all members of the ClubCedille:SRE group on
@@ -116,7 +116,7 @@ log in to ArgoCD with their GitHub credentials.
 Contour is an Ingress Controller solution for Kubernetes. It uses the Envoy
 proxy server as a backend.
 
-#### Configuration 
+#### Configuration
 
 The Envoy proxy service has been configured with a NodePort to direct external
 traffic to Contour, which then routes the requests to the dedicated services.
@@ -146,8 +146,8 @@ kubectl -n projectcontour port-forward service/envoy 8888:80
 Then visit http://local.projectcontour.io:8888/. For our production environment,
 we would use the address of the Envoy service.
 
-For more information on Contour, see [the official
-documentation](https://projectcontour.io/docs/).
+For more information on Contour, see
+[the official documentation](https://projectcontour.io/docs/).
 
 ### KubeVirt
 
@@ -186,7 +186,7 @@ metadata:
   labels:
     app: containerized-data-importer
   annotations:
-    cdi.kubevirt.io/storage.import.endpoint: "https://releases.ubuntu.com/jammy/ubuntu-22.04.3-desktop-amd64.iso" # Required. Format: (http||s3)://www.myUrl.com/path/of/data
+    cdi.kubevirt.io/storage.import.endpoint: 'https://releases.ubuntu.com/jammy/ubuntu-22.04.3-desktop-amd64.iso' # Required. Format: (http||s3)://www.myUrl.com/path/of/data
 spec:
   accessModes:
     - ReadWriteOnce
@@ -276,8 +276,8 @@ Then, insert data by running the script:
 python3 script.py
 ```
 
-Afterwards, you will be able to see the changes by doing a `SELECT * from
-users;`.
+Afterwards, you will be able to see the changes by doing a
+`SELECT * from users;`.
 
 ### Service Mesh - Kuma
 
@@ -327,7 +327,7 @@ improvement in network throughput and latency.
 To test Merbridge, simply verify that the pods continue to communicate within
 the service mesh after its integration.
 
-#### Other Considered Solutions 
+#### Other Considered Solutions
 
 Linkerd.
 
