@@ -16,6 +16,7 @@ job.
 ### Job Structure
 
 A **job** must define:
+
 - The environment in which it runs (`runs-on`).
 - The **steps** to be executed.
 - Optionally, dependencies between jobs or execution conditions.
@@ -29,16 +30,16 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Defines the environment (an Ubuntu machine)
+    runs-on: ubuntu-latest # Defines the environment (an Ubuntu machine)
 
     steps:
-      - name: Checkout code  # Step 1: Retrieve the source code from the repository
+      - name: Checkout code # Step 1: Retrieve the source code from the repository
         uses: actions/checkout@v2
 
-      - name: Install dependencies  # Step 2: Install dependencies
+      - name: Install dependencies # Step 2: Install dependencies
         run: npm install
 
-      - name: Run tests  # Step 3: Run tests
+      - name: Run tests # Step 3: Run tests
         run: npm test
 
   deploy:
@@ -50,6 +51,7 @@ jobs:
 ```
 
 ### Details
+
 - **`jobs:`** : The `jobs` section contains all jobs in the workflow. Each job
   is defined with a unique identifier (`build` and `deploy` here).
 - **`runs-on:`** : Specifies the environment for the job (e.g.,
@@ -69,9 +71,11 @@ applications.
 ### How to Use Actions from the Marketplace
 
 To use an action from the Marketplace, add it to your `steps` using the following syntax:
+
 ```yaml
 uses: <action>@<version>
 ```
+
 Here’s an example using the `actions/checkout` action to retrieve a repository’s source code.
 
 #### Example
@@ -79,12 +83,13 @@ Here’s an example using the `actions/checkout` action to retrieve a repository
 ```yaml
 steps:
   - name: Checkout code
-    uses: actions/checkout@v2  # Uses the action to clone the repository
+    uses: actions/checkout@v2 # Uses the action to clone the repository
 ```
 
 The `actions/checkout` action is commonly used to clone the repository onto the
 machine where jobs are executed. You can find hundreds of other actions on the
 [GitHub Marketplace](https://github.com/marketplace?type=actions), such as:
+
 - **`actions/setup-node`** : Sets up a Node.js environment.
 - **`actions/upload-artifact`** : Saves files or test results.
 
@@ -102,7 +107,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "14"
 
       - name: Install dependencies
         run: npm install
@@ -125,7 +130,7 @@ action.
 Here’s the process followed to create the
 **cedille-actions-by-example/WorkflowWikiExample** action:
 
-```markdown
+````markdown
 ### Types of Custom Actions
 
 1. **JavaScript Actions**: Actions written in JavaScript that run directly in the runner environment.
@@ -138,29 +143,30 @@ Here’s the process followed to create the
 
 ```js
 // index.js
-const core = require('@actions/core');
-const github = require('@actions/github');
+const core = require("@actions/core");
+const github = require("@actions/github");
 
 try {
-  const message = core.getInput('message');
+  const message = core.getInput("message");
   console.log(`Message: ${message}`);
 } catch (error) {
   core.setFailed(error.message);
 }
 ```
+````
 
 3. **Create an `action.yml` file** to describe the action:
 
 ```yaml
-name: 'Print Message'
-description: 'Prints a message to the console'
+name: "Print Message"
+description: "Prints a message to the console"
 inputs:
   message:
-    description: 'The message to print'
+    description: "The message to print"
     required: true
 runs:
-  using: 'node20'
-  main: 'index.js'
+  using: "node20"
+  main: "index.js"
 ```
 
 ### Using the Custom Action
@@ -192,6 +198,7 @@ If your action requires a specific environment, you can create a Docker action,
 allowing you to run scripts in an isolated container.
 
 #### Docker Action Example
+
 1. Create a `Dockerfile`:
 
 ```dockerfile
@@ -205,10 +212,10 @@ CMD ["node", "index.js"]
 2. Create the action YAML for Docker:
 
 ```yaml
-name: 'Custom Docker Action'
+name: "Custom Docker Action"
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
 ```
 
 ---
@@ -225,6 +232,7 @@ want exposed in your code. You can add secrets to your repository via GitHub’s
 interface and reference them in your workflows.
 
 #### Adding a Secret
+
 1. Go to the **Settings** of your repository.
 2. Click **Secrets and variables** > **Actions**.
 3. Add a new secret (e.g., `API_KEY`).
@@ -288,8 +296,9 @@ jobs:
     steps:
       - name: Build backend run: npm run build-backend
 ```
+
 In this example, the
-        `build-frontend` and `build-backend` jobs will run in parallel.
+`build-frontend` and `build-backend` jobs will run in parallel.
 
 ### Conditional Execution
 
@@ -302,7 +311,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    if: github.ref =='refs/heads/main'  # Run only if on 'main' branch
+    if: github.ref =='refs/heads/main' # Run only if on 'main' branch
 
     steps:
       - name: Deploy to production

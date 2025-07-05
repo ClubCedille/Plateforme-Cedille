@@ -20,28 +20,28 @@ automate the building of these containers and push them to a Docker registry
    Docker image from your project. Here is a simple example of a Dockerfile for
    a Node.js application:
 
-    ```dockerfile
-    # Use an official Node.js base image
-    FROM node:14
+   ```dockerfile
+   # Use an official Node.js base image
+   FROM node:14
 
-    # Set the working directory
-    WORKDIR /app
+   # Set the working directory
+   WORKDIR /app
 
-    # Copy the package.json file
-    COPY package*.json ./
+   # Copy the package.json file
+   COPY package*.json ./
 
-    # Install dependencies
-    RUN npm install
+   # Install dependencies
+   RUN npm install
 
-    # Copy the rest of the project files
-    COPY . .
+   # Copy the rest of the project files
+   COPY . .
 
-    # Expose the application’s port
-    EXPOSE 3000
+   # Expose the application’s port
+   EXPOSE 3000
 
-    # Start the application
-    CMD ["npm", "start"]
-    ```
+   # Start the application
+   CMD ["npm", "start"]
+   ```
 
 2. **Configure GitHub Actions to build and push the image**
 
@@ -64,7 +64,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Use an Ubuntu environment
+    runs-on: ubuntu-latest # Use an Ubuntu environment
 
     steps:
       # Step 1: Checkout the repository
@@ -75,8 +75,8 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}  # Store the username as a secret
-          password: ${{ secrets.DOCKER_PASSWORD }}  # Store the password as a secret
+          username: ${{ secrets.DOCKER_USERNAME }} # Store the username as a secret
+          password: ${{ secrets.DOCKER_PASSWORD }} # Store the password as a secret
 
       # Step 3: Build the Docker image
       - name: Build Docker image
@@ -88,6 +88,7 @@ jobs:
 ```
 
 ### Workflow Explanation
+
 - **`docker/login-action@v2`**: This action logs into Docker Hub using securely
   stored username and password in the repository’s secrets.
 - **`docker build`**: This command builds a Docker image from the Dockerfile in
@@ -175,7 +176,7 @@ jobs:
       - name: Set up kubectl
         uses: azure/setup-kubectl@v3
         with:
-          version: 'latest'
+          version: "latest"
 
       # Step 3: Configure access to the Kubernetes cluster
       - name: Set up kubeconfig
@@ -257,7 +258,7 @@ jobs:
       - name: Set up kubectl
         uses: azure/setup-kubectl@v3
         with:
-          version: 'latest'
+          version: "latest"
 
       # Step 6: Deploy to Kubernetes with kubectl
       - name: Update Kubernetes Deployment with kubectl
@@ -282,8 +283,8 @@ jobs:
    particularly useful for managing more complex Kubernetes deployments.
 3. **Secrets**: The Kubernetes configuration file (`kubeconfig`)
 
- is stored in GitHub secrets to ensure the security of authentication
- information.
+is stored in GitHub secrets to ensure the security of authentication
+information.
 
 In this workflow, you can choose to use either **kubectl** for simple
 deployments or **Helm** for more complex deployments. Integrating both tools in

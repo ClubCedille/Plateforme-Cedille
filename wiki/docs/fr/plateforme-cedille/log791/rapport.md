@@ -1,4 +1,4 @@
-# Plateforme CEDILLE -  Rapport LOG791
+# Plateforme CEDILLE - Rapport LOG791
 
 date: 2023-12-18
 
@@ -216,7 +216,7 @@ traces sont particulièrements importantes, puisque c'est ce qui nous permet de
 suivre le chemin d'une requête à travers les multiples systèmes.
 
 Afin de collecter ces traces, nous avons mis à profit un outil appelé
-*Pixi*. Cet outil utilise une innovation relativement récente du noyau Linux:
+_Pixi_. Cet outil utilise une innovation relativement récente du noyau Linux:
 eBPF (extended Berkeley Packet Filter). Ceci permet à des applications de rouler
 certaines opérations dans le contexte privilégié du noyau Linux de façon
 sécuritaire. Ceci permet à Pixi d'analyse les communications entre les processus
@@ -266,7 +266,7 @@ abstraction des secrets afin de les gérer de manière sécuritaire. Donc, les d
 choix principaux pour le faire sont Hashicorp Vault vs Bitnami Sealed Secrets.
 
 Bitnami Sealed Secrets: Les secrets sont quand même présents dans git, mais ils
-sont cryptés.  HashiCorp Vault: Les secrets ne sont pas dans Git, mais leurs
+sont cryptés. HashiCorp Vault: Les secrets ne sont pas dans Git, mais leurs
 configurations et des références le sont. Il offre aussi plusieurs modes de
 cryptage avancés, la génération dynamique, la rotation automatique et plusieurs
 autres fonctionnalités avancées.
@@ -314,19 +314,19 @@ cohérence dans le code du projet.
 
 ## Défis et Solutions
 
-| Défi | Problème| Solution|
-| -------- | ------- | ------- |
-| Installation de Kubernetes/Talos | Cryptage des disques non fonctionnel | Désactivation du cryptage avant installation
-|                                            | Installation brisée si clé USB retirée | Réinstallation avec identifiants de disque durables
-| Configuration d'ISO dans PVC pour KubeVirt | Besoin de simplifier la gestion des PVCs | Utilisation du CDI de KubeVirt
-| Installation de Rook-Ceph | Cluster Ceph inutilisable, échec des OSD | Effacement manuel des disques et redémarrage de l'opérateur
-| Stabilité de Rook/Ceph | Instabilité après redémarrage d'un node | Remplacement par Mayastor
-| Configuration d'un service mesh | Problèmes avec Linkerd et mTLS | Choix de Kuma pour mTLS et support de Gateway API
-| Installation du service External-DNS | Service non fonctionnel, cause inconnue | Enquête en cours, exploration de solutions alternatives
-| Configuration SSO pour ArgoCD | Gestion non sécurisée des secrets | Utilisation de Vault pour la gestion sécurisée des secrets
-| Bootstrapping de Hashicorp Vault | Processus manuel complexe | Automatisation partielle via Terraform et scripts
-| Déploiement de Calidum-rotae | Acheminement partiel des requêtes | Configuration directe d'une webhook Discord
-| Enregistrement de VCluster dans ArgoCD | Difficulté d'enregistrement sécurisé | Utilisation de Crossplane pour enregistrement déclaratif
+| Défi                                       | Problème                                 | Solution                                                    |
+| ------------------------------------------ | ---------------------------------------- | ----------------------------------------------------------- |
+| Installation de Kubernetes/Talos           | Cryptage des disques non fonctionnel     | Désactivation du cryptage avant installation                |
+|                                            | Installation brisée si clé USB retirée   | Réinstallation avec identifiants de disque durables         |
+| Configuration d'ISO dans PVC pour KubeVirt | Besoin de simplifier la gestion des PVCs | Utilisation du CDI de KubeVirt                              |
+| Installation de Rook-Ceph                  | Cluster Ceph inutilisable, échec des OSD | Effacement manuel des disques et redémarrage de l'opérateur |
+| Stabilité de Rook/Ceph                     | Instabilité après redémarrage d'un node  | Remplacement par Mayastor                                   |
+| Configuration d'un service mesh            | Problèmes avec Linkerd et mTLS           | Choix de Kuma pour mTLS et support de Gateway API           |
+| Installation du service External-DNS       | Service non fonctionnel, cause inconnue  | Enquête en cours, exploration de solutions alternatives     |
+| Configuration SSO pour ArgoCD              | Gestion non sécurisée des secrets        | Utilisation de Vault pour la gestion sécurisée des secrets  |
+| Bootstrapping de Hashicorp Vault           | Processus manuel complexe                | Automatisation partielle via Terraform et scripts           |
+| Déploiement de Calidum-rotae               | Acheminement partiel des requêtes        | Configuration directe d'une webhook Discord                 |
+| Enregistrement de VCluster dans ArgoCD     | Difficulté d'enregistrement sécurisé     | Utilisation de Crossplane pour enregistrement déclaratif    |
 
 ## Résultats
 
@@ -476,7 +476,7 @@ Mais surtout, j'ai beaucoup appris en ce qui concerne le travail d'équipe et
 l'organisation du travail. Ce projet comportait peu d'objectifs fixes et il aura
 fallu mettre en place certaines mesures pour atteindre la rigueur requise pour
 avancer le projet à rythme satisfaisant. Mettre en place de fort processus de
-suivi des tâches, de *Pull Requests*, d'ateliers de travail réguliers et plus
+suivi des tâches, de _Pull Requests_, d'ateliers de travail réguliers et plus
 fut essentiel à la réussite de ce projet.
 
 ## Conclusion
@@ -489,7 +489,7 @@ complexe, ce qui a demandé une coordination minutieuse et une collaboration
 
 Une des leçons clés tirées de ce projet est la nécessité de mieux prioriser
 notre carnet de travail. Avec le recul, nous avons réalisé que certaines
-opérations étaient bloquantes et auraient dû être traitées en priorité.  Par
+opérations étaient bloquantes et auraient dû être traitées en priorité. Par
 exemple, la configuration de Vault, un composant clé pour la gestion des
 secrets, aurait pu être réalisée plus tôt étant donné que plusieurs autres
 services dépendaient de sa mise en place. Cette prise de conscience sera

@@ -54,7 +54,7 @@ name: Build and Deploy Node.js Docker App
 on:
   push:
     branches:
-      - main  # Trigger workflow on pushes to the 'main' branch
+      - main # Trigger workflow on pushes to the 'main' branch
 
 jobs:
   build:
@@ -203,7 +203,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    needs: test  # Executes after the 'test' job
+    needs: test # Executes after the 'test' job
 
     steps:
       # Step 1: Checkout the source code
@@ -216,7 +216,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: build  # Executes after the 'build' job
+    needs: build # Executes after the 'build' job
 
     steps:
       # Step 1: Checkout the source code
@@ -236,6 +236,7 @@ jobs:
 ```
 
 #### Explanation
+
 - **Tests**: Runs unit tests using `npm test`.
 - **Build**: If the tests pass, the application is built with `npm run build`.
 - **Deployment**: If the build is successful, the application is deployed to
@@ -307,6 +308,7 @@ on GitHub is essential.
 ### 4.1. Managing GitHub Teams
 
 GitHub allows managing teams within an organization, enabling:
+
 - **Permission Management**: Assign specific access roles (read, write, admin)
   to different members or teams.
 - **Shared Secrets**: Organization-wide secrets can be used across repositories,
@@ -317,7 +319,7 @@ GitHub allows managing teams within an organization, enabling:
 
 You can create reusable workflows at the organizational level to share across
 
- multiple repositories.
+multiple repositories.
 
 #### Example: Reusable Workflow for Builds
 

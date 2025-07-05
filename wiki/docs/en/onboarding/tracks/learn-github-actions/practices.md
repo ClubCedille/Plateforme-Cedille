@@ -45,7 +45,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    needs: lint  # The 'test' job depends on 'lint'
+    needs: lint # The 'test' job depends on 'lint'
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -55,20 +55,21 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    needs: test  # The 'build' job depends on 'test'
+    needs: test # The 'build' job depends on 'test'
     steps:
       - name: Build application
         run: npm run build
 
   deploy:
     runs-on: ubuntu-latest
-    needs: build  # The 'deploy' job depends on 'build'
+    needs: build # The 'deploy' job depends on 'build'
     steps:
       - name: Deploy to production
         run: ./deploy.sh
 ```
 
 #### Explanation
+
 - **Dependent Jobs**: The `test`, `build`, and `deploy` jobs depend on previous
   jobs, ensuring no deployment occurs before validation through tests or builds.
 - **Modularity**: Each job has a defined role, making the workflow more readable
@@ -114,7 +115,7 @@ on:
 
 jobs:
   tests:
-    uses: ./.github/workflows/tests.yml  # Reuse the test workflow
+    uses: ./.github/workflows/tests.yml # Reuse the test workflow
 ```
 
 ### 1.3. Use Matrices to Optimize Runs
@@ -199,8 +200,7 @@ common scripts or reusable workflows for different teams or repositories.
 # .github/workflows/shared-config.yml
 name: Shared Config
 
-on:
-  workflow_call
+on: workflow_call
 
 jobs:
   build:

@@ -9,23 +9,26 @@ Docker](https://www.docker.com/products/docker-desktop/).
 **1. Cloner le Dépôt :**
 
 Ouvrez votre terminal ou votre invite de commande après avoir installé Git et clonez le dépôt 'welcome-to-docker' depuis GitHub en utilisant la commande suivante :
-   ```
-   git clone https://github.com/docker/welcome-to-docker
-   ```
+
+```
+git clone https://github.com/docker/welcome-to-docker
+```
 
 **2. Naviguer vers le Dépôt :**
 
 Changez votre répertoire courant vers le dépôt cloné :
-   ```
-   cd welcome-to-docker
-   ```
+
+```
+cd welcome-to-docker
+```
 
 **3. Lancer le Conteneur Docker :**
 
 Utilisez la commande `docker run` pour démarrer le conteneur. Dans ce cas, nous allons exécuter le conteneur 'welcome-to-docker' et mapper le port 8088 de votre hôte au port 80 à l'intérieur du conteneur :
-   ```
-   docker run -d -p 8088:80 docker/getting-started
-   ```
+
+```
+docker run -d -p 8088:80 docker/getting-started
+```
 
 - `-d` : Lance le conteneur en mode détaché, ce qui signifie qu'il s'exécute en
   arrière-plan.
@@ -45,23 +48,26 @@ Ouvrez votre navigateur web et accédez à
 **1. Rechercher des Conteneurs sur Docker Hub :**
 
 Vous pouvez rechercher des conteneurs sur Docker Hub en utilisant la commande `docker search`. Par exemple, pour rechercher des conteneurs liés à **nginx**, utilisez :
-   ```
-   docker search nginx
-   ```
+
+```
+docker search nginx
+```
 
 **2. Télécharger un Conteneur depuis Docker Hub :**
 
 Utilisez la commande `docker pull` pour télécharger une image de conteneur depuis Docker Hub. Par exemple, pour télécharger l'image de conteneur officielle de **nginx**, utilisez :
-   ```
-   docker pull nginx
-   ```
+
+```
+docker pull nginx
+```
 
 **3. Exécuter un Conteneur depuis l'Image Téléchargée :**
 
 Une fois que vous avez téléchargé une image, vous pouvez exécuter un conteneur à partir de celle-ci en utilisant `docker run`. Par exemple, pour exécuter un conteneur **nginx** et mapper le port 8080 de votre hôte au port 80 à l'intérieur du conteneur, utilisez :
-   ```
-   docker run -d -p 8080:80 nginx
-   ```
+
+```
+docker run -d -p 8080:80 nginx
+```
 
 - `-d` : Exécute le conteneur en mode détaché.
 - `-p 8080:80` : Mappe le port 8080 de votre machine locale au port 80 à
@@ -72,9 +78,10 @@ Une fois que vous avez téléchargé une image, vous pouvez exécuter un contene
 **1. Trouver l'ID ou le Nom du Conteneur :**
 
 Ouvrez une nouvelle fenêtre de terminal et listez tous les conteneurs Docker en cours d'exécution :
-   ```
-   docker ps
-   ```
+
+```
+docker ps
+```
 
 - Notez l'ID ou le Nom du Conteneur en cours d'exécution.
 
@@ -83,9 +90,10 @@ Ouvrez une nouvelle fenêtre de terminal et listez tous les conteneurs Docker en
 **2. Arrêter le Conteneur :**
 
 Arrêtez le conteneur en utilisant la commande `docker stop` suivie de l'ID ou du Nom du Conteneur :
-   ```
-   docker stop <id_ou_nom_du_conteneur>
-   ```
+
+```
+docker stop <id_ou_nom_du_conteneur>
+```
 
 - Remplacez `<id_ou_nom_du_conteneur>` par l'ID ou le Nom réel de votre
   conteneur.
@@ -93,9 +101,10 @@ Arrêtez le conteneur en utilisant la commande `docker stop` suivie de l'ID ou d
 **3. Vérifier l'Arrêt du Conteneur :**
 
 Pour vérifier que le conteneur a bien été arrêté, vous pouvez lister tous les conteneurs (y compris ceux arrêtés) avec :
-   ```
-   docker ps -a
-   ```
+
+```
+docker ps -a
+```
 
 Le conteneur arrêté ne devrait plus apparaître comme étant en cours d'exécution.
 

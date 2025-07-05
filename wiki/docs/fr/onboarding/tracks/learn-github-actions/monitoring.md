@@ -19,6 +19,7 @@ interface via l'onglet **Actions** dans votre dépôt GitHub. Chaque workflow
 déclenché génère un build dont l'état est visible (succès, échec, en cours).
 
 #### Statuts des Builds
+
 - **Vert (Succès)** : Tous les jobs dans le workflow ont été exécutés avec
   succès.
 - **Rouge (Échec)** : Un ou plusieurs jobs ont échoué.
@@ -31,6 +32,7 @@ chaque étape d’un workflow. Ces logs incluent les sorties de commandes et les
 éventuelles erreurs rencontrées.
 
 #### Consulter les Logs
+
 1. Accédez à l'onglet **Actions** de votre dépôt.
 2. Sélectionnez un workflow spécifique.
 3. Cliquez sur un job pour afficher ses étapes.
@@ -62,6 +64,7 @@ détaillés pour diagnostiquer les problèmes. Vous pouvez activer l'option de
 **debugging avancé** pour obtenir plus d'informations.
 
 #### Activer les Logs de Debugging
+
 1. Accédez à la page des logs du workflow.
 2. Cliquez sur **Rerun jobs with debug logging** pour relancer le workflow en
    mode debug.
@@ -97,7 +100,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '11'
+          java-version: "11"
 
       - name: Run tests with JUnit
         run: ./gradlew test
@@ -110,8 +113,9 @@ jobs:
 ```
 
 #### Explication
+
 - **JUnit Tests** : Les tests JUnit sont exécutés avec la commande `./gradlew
-  test`.
+test`.
 - **Archive test results** : Les résultats des tests JUnit au format XML sont
   sauvegardés en tant qu’artefacts, que vous pouvez consulter dans l'interface
   GitHub.
@@ -227,6 +231,7 @@ jobs:
 ```
 
 #### Explication
+
 - **`if: success()`** et **`if: failure()`** : Ces conditions permettent
   d'envoyer une notification différente selon que le build a réussi ou échoué.
 - **`curl`** : Utilisé pour envoyer une requête POST à Slack avec le message

@@ -193,7 +193,7 @@ and administrators to quickly identify the source of a problem. In a distributed
 system like the one we designed, traces are particularly important as they allow
 us to follow a request's path through multiple systems.
 
-To collect these traces, we used a tool called *Pixie*. This tool leverages a
+To collect these traces, we used a tool called _Pixie_. This tool leverages a
 relatively recent innovation in the Linux kernel: eBPF (extended Berkeley Packet
 Filter). This allows applications to run certain operations in the privileged
 context of the Linux kernel securely. This enables Pixie to analyze
@@ -285,19 +285,19 @@ Deployment Method Comparison**
 
 ## Challenges and Solutions
 
-| Challenge | Problem | Solution |
-| --------------------------------------- | ------------------------------------------ | --------------------------------------- |
-| Installation of Kubernetes/Talos | Disk encryption not functional | Disable encryption before installation |
-|                                         | Installation broken if USB key removed | Reinstall with durable disk identifiers |
-| ISO configuration in PVC for KubeVirt | Need to simplify PVC management | Use KubeVirt's CDI |
-| Installation of Rook-Ceph | Unusable Ceph cluster, OSD failures | Manual disk wiping and operator restart |
-| Stability of Rook/Ceph | Instability after node restart | Replacement with Mayastor |
-| Configuration of a service mesh | Issues with Linkerd and mTLS | Choice of Kuma for mTLS and Gateway API support |
-| Installation of External-DNS service | Non-functional service, cause unknown | Ongoing investigation, exploring alternative solutions |
-| SSO configuration for ArgoCD | Insecure secret management | Use Vault for secure secret management |
-| Bootstrapping Hashicorp Vault | Complex manual process | Partial automation via Terraform and scripts |
-| Deployment of Calidum-rotae | Partial request routing | Direct configuration of a Discord webhook |
-| Registration of VCluster in ArgoCD | Difficulty in secure registration | Use Crossplane for declarative registration |
+| Challenge                             | Problem                                | Solution                                               |
+| ------------------------------------- | -------------------------------------- | ------------------------------------------------------ |
+| Installation of Kubernetes/Talos      | Disk encryption not functional         | Disable encryption before installation                 |
+|                                       | Installation broken if USB key removed | Reinstall with durable disk identifiers                |
+| ISO configuration in PVC for KubeVirt | Need to simplify PVC management        | Use KubeVirt's CDI                                     |
+| Installation of Rook-Ceph             | Unusable Ceph cluster, OSD failures    | Manual disk wiping and operator restart                |
+| Stability of Rook/Ceph                | Instability after node restart         | Replacement with Mayastor                              |
+| Configuration of a service mesh       | Issues with Linkerd and mTLS           | Choice of Kuma for mTLS and Gateway API support        |
+| Installation of External-DNS service  | Non-functional service, cause unknown  | Ongoing investigation, exploring alternative solutions |
+| SSO configuration for ArgoCD          | Insecure secret management             | Use Vault for secure secret management                 |
+| Bootstrapping Hashicorp Vault         | Complex manual process                 | Partial automation via Terraform and scripts           |
+| Deployment of Calidum-rotae           | Partial request routing                | Direct configuration of a Discord webhook              |
+| Registration of VCluster in ArgoCD    | Difficulty in secure registration      | Use Crossplane for declarative registration            |
 
 ## Results
 

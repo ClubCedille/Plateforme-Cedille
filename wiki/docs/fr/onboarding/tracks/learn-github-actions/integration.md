@@ -65,7 +65,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Utilisation d'un environnement Ubuntu
+    runs-on: ubuntu-latest # Utilisation d'un environnement Ubuntu
 
     steps:
       # Étape 1 : Récupérer le code source du dépôt
@@ -76,8 +76,8 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}  # Stocker le nom d'utilisateur comme secret
-          password: ${{ secrets.DOCKER_PASSWORD }}  # Stocker le mot de passe comme secret
+          username: ${{ secrets.DOCKER_USERNAME }} # Stocker le nom d'utilisateur comme secret
+          password: ${{ secrets.DOCKER_PASSWORD }} # Stocker le mot de passe comme secret
 
       # Étape 3 : Construire l'image Docker
       - name: Build Docker image
@@ -89,6 +89,7 @@ jobs:
 ```
 
 ### Explication du Workflow
+
 - **`docker/login-action@v2`** : Cette action permet de se connecter à Docker
   Hub en utilisant un nom d'utilisateur et un mot de passe sécurisés stockés
   dans les secrets du dépôt.
@@ -179,7 +180,7 @@ jobs:
       - name: Set up kubectl
         uses: azure/setup-kubectl@v3
         with:
-          version: 'latest'
+          version: "latest"
 
       # Étape 3 : Configurer l'accès au cluster Kubernetes
       - name: Set up kubeconfig
@@ -263,7 +264,7 @@ jobs:
       - name: Set up kubectl
         uses: azure/setup-kubectl@v3
         with:
-          version: 'latest'
+          version: "latest"
 
       # Étape 6 : Deploy to Kubernetes with kubectl
       - name: Update Kubernetes Deployment with kubectl

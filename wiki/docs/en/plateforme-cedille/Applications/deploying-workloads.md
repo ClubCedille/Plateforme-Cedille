@@ -64,13 +64,13 @@ In the above snippet:
 ```yaml
 # prod/patches.yaml
 # [...]
-      replicas: 3
-      containers:
-      - name: httpbin
-        resources:
-          requests:
-            cpu: "0.1"
-            memory: "256Mi"
+replicas: 3
+containers:
+  - name: httpbin
+    resources:
+      requests:
+        cpu: "0.1"
+        memory: "256Mi"
 ---
 # Other patches can be added with separators ---
 ---
@@ -102,7 +102,7 @@ spec:
     targetRevision: HEAD
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -122,7 +122,7 @@ spec:
     targetRevision: HEAD
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
 ```
 
 ```yaml

@@ -17,9 +17,9 @@ MongoDB.
 Ouvrez votre terminal ou votre invite de commandes et clonez le dépôt contenant
 l'application exemple :
 
-   ```sh
-   git clone https://github.com/docker/multi-container-app
-   ```
+```sh
+git clone https://github.com/docker/multi-container-app
+```
 
 **Explication :** Cette commande télécharge une copie du dépôt sur votre machine
 locale.
@@ -28,9 +28,9 @@ locale.
 
 Changez votre répertoire actuel vers le dépôt cloné :
 
-   ```sh
-   cd multi-container-app
-   ```
+```sh
+cd multi-container-app
+```
 
 **Explication :** Cette commande change le répertoire de travail actuel vers le
 dossier `multi-container-app` où se trouve le code de l'application.
@@ -41,22 +41,22 @@ Le fichier `compose.yaml` définit les services (conteneurs) nécessaires pour
 exécuter l'application. Ouvrez ce fichier dans un éditeur de texte pour voir la
 configuration :
 
-   ```yaml
-   version: '3'
-   services:
-     web:
-       image: node:14
-       working_dir: /app
-       volumes:
-         - .:/app
-       ports:
-         - "3000:3000"
-       command: "npm start"
-     database:
-       image: mongo:4.2
-       ports:
-         - "27017:27017"
-   ```
+```yaml
+version: "3"
+services:
+  web:
+    image: node:14
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    command: "npm start"
+  database:
+    image: mongo:4.2
+    ports:
+      - "27017:27017"
+```
 
 **Explication :** Ce fichier YAML définit deux services : `web` et
 `database`. Le service `web` utilise une image Node.js et exécute l'application,
@@ -68,9 +68,9 @@ mappés pour permettre l'accès depuis votre machine hôte.
 Utilisez la commande `docker compose up` pour construire et exécuter
 l'application :
 
-   ```sh
-   docker compose up -d
-   ```
+```sh
+docker compose up -d
+```
 
 **Explication :**
 
@@ -101,9 +101,9 @@ que vous ajoutez via l'interface frontend.
 Pour arrêter les conteneurs en cours d'exécution, utilisez la commande `docker
 compose down` :
 
-   ```sh
-   docker compose down
-   ```
+```sh
+docker compose down
+```
 
 **Explication :** Cette commande arrête et supprime les conteneurs, réseaux,
 volumes et images créés par `docker compose up`.
@@ -141,9 +141,9 @@ aide dans cette tâche.
 
 **1. Exécuter l'Application en Mode Watch :**
 
-   ```sh
-   docker compose watch
-   ```
+```sh
+docker compose watch
+```
 
 **Explication :** Cette commande surveille les changements dans votre code
 source et redémarre automatiquement les services affectés.
@@ -179,7 +179,6 @@ toutes les todos créées sont également perdues.
 conteneurs. Supprimer et redémarrer l'ensemble à l'aide des commandes Docker
 Compose assure un état propre.
 
-
 ## Exemple : Configuration d'une Application Web Simple avec Docker Compose
 
 Créons un exemple de base en utilisant Docker Compose pour exécuter une
@@ -197,37 +196,37 @@ Docker](https://docs.docker.com/compose/install/).
 Créez un fichier nommé `docker-compose.yml` dans votre répertoire de projet. Ce
 fichier définira les services, réseaux et volumes pour votre application.
 
-   ```yaml
-   version: '3.8'  # Utilisez la dernière version de la syntaxe Compose
+```yaml
+version: "3.8" # Utilisez la dernière version de la syntaxe Compose
 
-   services:
-     frontend:
-       image: nginx:latest
-       ports:
-         - "8080:80"
-       volumes:
-         - ./frontend:/usr/share/nginx/html
-       networks:
-         - app-network
+services:
+  frontend:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./frontend:/usr/share/nginx/html
+    networks:
+      - app-network
 
-     backend:
-       image: mysql:5.7
-       environment:
-         MYSQL_ROOT_PASSWORD: example
-         MYSQL_DATABASE: myapp
-         MYSQL_USER: user
-         MYSQL_PASSWORD: password
-       volumes:
-         - db-data:/var/lib/mysql
-       networks:
-         - app-network
+  backend:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: myapp
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - app-network
 
-   networks:
-     app-network:
+networks:
+  app-network:
 
-   volumes:
-     db-data:
-   ```
+volumes:
+  db-data:
+```
 
 **Explication :**
 
@@ -235,19 +234,17 @@ fichier définira les services, réseaux et volumes pour votre application.
 - `services` : Définit les conteneurs qui composent votre application
   (`frontend` et `backend` dans cet exemple).
 - `frontend` :
-    - `image` : Spécifie l'image Docker à utiliser (nginx dans ce cas).
-    - `ports` : Mappe le port 8080 sur l'hôte vers le port 80 à l'intérieur du
-      conteneur.
-    - `volumes` : Monte le répertoire `./frontend` sur l'hôte vers
-      `/usr/share/nginx/html` dans le conteneur.
-    - `networks` : Attache le conteneur au réseau `app-network`.
+  - `image` : Spécifie l'image Docker à utiliser (nginx dans ce cas).
+  - `ports` : Mappe le port 8080 sur l'hôte vers le port 80 à l'intérieur du
+    conteneur.
+  - `volumes` : Monte le répertoire `./frontend` sur l'hôte vers
+    `/usr/share/nginx/html` dans le conteneur.
+  - `networks` : Attache le conteneur au réseau `app-network`.
 - `backend` : -
 
- `image` : Spécifie l'image Docker pour le service backend (mysql:5.7).
-    - `environment` : Définit les variables d'environnement requises par MySQL.
-    - `volumes` : Montre un volume nommé `db-data` pour stocker de manière
-      persistante les données MySQL.
-    - `networks` : Attache le conteneur au réseau `app-network`.
+`image` : Spécifie l'image Docker pour le service backend (mysql:5.7). - `environment` : Définit les variables d'environnement requises par MySQL. - `volumes` : Montre un volume nommé `db-data` pour stocker de manière
+persistante les données MySQL. - `networks` : Attache le conteneur au réseau `app-network`.
+
 - `networks` : Définit un réseau nommé `app-network` pour la communication entre
   les services.
 - `volumes` : Définit un volume nommé `db-data` pour le stockage persistant des
@@ -258,9 +255,9 @@ fichier définira les services, réseaux et volumes pour votre application.
 Ouvrez un terminal ou une invite de commandes dans votre répertoire de projet où
 se trouve `docker-compose.yml`, et exécutez la commande suivante :
 
-   ```sh
-   docker-compose up -d
-   ```
+```sh
+docker-compose up -d
+```
 
 **Explication :**
 
@@ -282,9 +279,9 @@ le port 8080 de votre machine hôte, rendant l'application accessible via
 Pour arrêter et supprimer les conteneurs créés par `docker-compose up`, utilisez
 la commande suivante :
 
-   ```sh
-   docker-compose down
-   ```
+```sh
+docker-compose down
+```
 
 **Explication :** Cette commande arrête et supprime les conteneurs, réseaux,
 volumes et images créés par `docker-compose up`.

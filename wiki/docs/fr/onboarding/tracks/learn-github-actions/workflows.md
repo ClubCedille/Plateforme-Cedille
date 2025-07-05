@@ -18,6 +18,7 @@ une commande ou une action spécifique exécutée dans ce job.
 ### Structure d’un Job
 
 Un **job** doit définir :
+
 - L’environnement sur lequel il s’exécute (`runs-on`).
 - Les **étapes** à exécuter.
 - Optionnellement, des dépendances entre jobs ou des conditions d'exécution.
@@ -31,16 +32,16 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Définit l'environnement (une machine Ubuntu hébergée)
+    runs-on: ubuntu-latest # Définit l'environnement (une machine Ubuntu hébergée)
 
     steps:
-      - name: Checkout code  # Étape 1 : Récupérer le code source du dépôt
+      - name: Checkout code # Étape 1 : Récupérer le code source du dépôt
         uses: actions/checkout@v2
 
-      - name: Install dependencies  # Étape 2 : Installer les dépendances
+      - name: Install dependencies # Étape 2 : Installer les dépendances
         run: npm install
 
-      - name: Run tests  # Étape 3 : Exécuter les tests
+      - name: Run tests # Étape 3 : Exécuter les tests
         run: npm test
 
   deploy:
@@ -52,6 +53,7 @@ jobs:
 ```
 
 ### Détails
+
 - **`jobs:`** : La section `jobs` contient tous les jobs du workflow. Chaque job
   est défini par un identifiant unique (ici, `build` et `deploy`).
 - **`runs-on:`** : Spécifie l'environnement dans lequel le job s'exécute (par
@@ -73,9 +75,11 @@ applications.
 ### Comment Utiliser des Actions depuis le Marketplace
 
 Pour utiliser une action depuis le Marketplace, vous pouvez l'intégrer dans vos étapes (`steps`) en utilisant la syntaxe suivante :
+
 ```yaml
 uses: <action>@<version>
 ```
+
 Voici un exemple d'utilisation de l'action `actions/checkout` pour récupérer le code source d'un dépôt.
 
 #### Exemple
@@ -83,13 +87,14 @@ Voici un exemple d'utilisation de l'action `actions/checkout` pour récupérer l
 ```yaml
 steps:
   - name: Checkout code
-    uses: actions/checkout@v2  # Utilise l'action pour cloner le dépôt
+    uses: actions/checkout@v2 # Utilise l'action pour cloner le dépôt
 ```
 
 L'action `actions/checkout` est couramment utilisée pour cloner le dépôt sur la
 machine où les jobs s'exécutent. Vous pouvez trouver des centaines d'autres
 actions sur le [GitHub
 Marketplace](https://github.com/marketplace?type=actions), comme :
+
 - **`actions/setup-node`** : Configurer un environnement Node.js.
 - **`actions/upload-artifact`** : Sauvegarder des fichiers ou des résultats de
   tests.
@@ -108,7 +113,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "14"
 
       - name: Install dependencies
         run: npm install
@@ -132,7 +137,7 @@ création et le fonctionnement d'une action.
 Voici la procédure qui a été suivie pour la création de l'action
 **cedille-actions-by-example/WorkflowWikiExample** :
 
-```markdown
+````markdown
 ### Types d'Actions Personnalisées
 
 1. **Actions JavaScript** : Actions écrites en JavaScript qui s'exécutent directement dans l'environnement du runner.
@@ -147,29 +152,30 @@ Voici comment créer une action simple en JavaScript :
 
 ```js
 // index.js
-const core = require('@actions/core');
-const github = require('@actions/github');
+const core = require("@actions/core");
+const github = require("@actions/github");
 
 try {
-  const message = core.getInput('message');
+  const message = core.getInput("message");
   console.log(`Message: ${message}`);
 } catch (error) {
   core.setFailed(error.message);
 }
 ```
+````
 
 3. **Créer un fichier `action.yml`** pour décrire l’action :
 
 ```yaml
-name: 'Print Message'
-description: 'Imprime un message dans la console'
+name: "Print Message"
+description: "Imprime un message dans la console"
 inputs:
   message:
-    description: 'Le message à imprimer'
+    description: "Le message à imprimer"
     required: true
 runs:
-  using: 'node20'
-  main: 'index.js'
+  using: "node20"
+  main: "index.js"
 ```
 
 ### Utiliser l'Action Personnalisée
@@ -201,6 +207,7 @@ Si votre action nécessite un environnement spécifique, vous pouvez créer une
 action Docker. Cela vous permet d'exécuter des scripts dans un conteneur isolé.
 
 #### Exemple d'Action Docker
+
 1. Créez un fichier `Dockerfile` :
 
 ```dockerfile
@@ -214,10 +221,10 @@ CMD ["node", "index.js"]
 2. Créez l’action YAML pour Docker :
 
 ```yaml
-name: 'Custom Docker Action'
+name: "Custom Docker Action"
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
 ```
 
 ---
@@ -235,6 +242,7 @@ code. Vous pouvez ajouter des secrets à votre dépôt via l'interface GitHub, p
 les référencer dans vos workflows.
 
 #### Ajouter un Secret
+
 1. Allez dans les **Settings** du dépôt.
 2. Cliquez sur **Secrets and variables** > **Actions**.
 3. Ajoutez un secret (par exemple, `API_KEY`).
@@ -287,7 +295,7 @@ simultanément, ce qui permet d’accélérer le temps d'exécution global.
 
 #### Exemple d'Exécution Parallèle
 
-```yaml
+````yaml
 jobs:
   build-frontend:
     runs-on: ubuntu-latest
@@ -317,12 +325,12 @@ jobs:
     steps:
       - name: Deploy to production
         run: ./deploy.sh
-```
+````
 
 Voici comment vous pouvez ajouter une section sur le passage d'informations d'un
 workflow à un autre, en plus de la section d'exécution conditionnelle :
 
-```markdown
+````markdown
 #### Exécution Conditionnelle en Fonction de l'Échec ou du Succès
 
 ```yaml
@@ -336,11 +344,12 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     needs: test
-    if: failure()  # Ce job s'exécute uniquement si le job 'test' échoue
+    if: failure() # Ce job s'exécute uniquement si le job 'test' échoue
     steps:
       - name: Send notification
         run: echo "Tests failed!"
 ```
+````
 
 ### Passage d'Informations d'un Job à un Autre
 
@@ -385,7 +394,7 @@ jobs:
 
 2. **Utiliser l'Output dans un Autre Job** : Dans le job `deploy`, l'output du
    job `build` est référencé via la syntaxe `${{ needs.build.outputs.version
-   }}`. Cela permet d'accéder à l'information générée dans le premier job et de
+}}`. Cela permet d'accéder à l'information générée dans le premier job et de
    l'utiliser pour déployer une version spécifique.
 
 #### Référence vers la Documentation

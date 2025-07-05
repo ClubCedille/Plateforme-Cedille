@@ -4,23 +4,23 @@ Date: 6 décembre 2023
 
 ## 1. Travail réalisé
 
-| Tâche | Responsable |
+| Tâche                                                                                                                                                          | Responsable        |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| [Déploiement de cert-manager (ou equiv) dans le ns système](https://github.com/ClubCedille/Plateforme-Cedille/issues/26) | Antoine BL |
-| [Mayastor Documentation](https://github.com/ClubCedille/Plateforme-Cedille/issues/24) | Michael |
-| [Documenter la configuration d'environnement locale avec Omni](https://github.com/ClubCedille/Plateforme-Cedille/issues/19) | Antoine |
-| [Documenter Kuma et Merbridge](https://github.com/ClubCedille/Plateforme-Cedille/issues/29) | Thomas |
-| [Configure OTEL](https://github.com/ClubCedille/Plateforme-Cedille/issues/60) | Thomas |
-| [Tracking Clickhouse with Open Telemetry](https://github.com/ClubCedille/Plateforme-Cedille/issues/63) | Thomas |
-| [Déployer un sample de Grav avec configuration git-sync](https://github.com/ClubCedille/Plateforme-Cedille/issues/97) | Simon et Jonathan |
-| [Déploiement de Calidum-Rotae](https://github.com/ClubCedille/Plateforme-Cedille/issues/98) | Jonathan et Thomas |
-| [As SRE, I want to create nested span and I want to test and see the traces before going further](https://github.com/ClubCedille/Plateforme-Cedille/issues/83) | Thomas |
-| [As SRE, I want to update the README.md with the actual architecture](https://github.com/ClubCedille/Plateforme-Cedille/issues/71) | Thomas |
-| [As SRE, I want to remove the database (postgresql) from the project](https://github.com/ClubCedille/Plateforme-Cedille/issues/70) | Thomas |
-| [As SRE, I want to remove the phone number from the sender obj (protobuf)](https://github.com/ClubCedille/Plateforme-Cedille/issues/69) | Thomas |
-| [As SRE, I want to instrument the application with OTEL.](https://github.com/ClubCedille/Plateforme-Cedille/issues/68) | Thomas |
-| [Faire un flux de déploiement automatiser pour un site grav](https://github.com/ClubCedille/Plateforme-Cedille/issues/132) | Simon |
-| [Configurer Terreform Cloud](https://github.com/ClubCedille/Plateforme-Cedille/issues/133) | Simon |
+| [Déploiement de cert-manager (ou equiv) dans le ns système](https://github.com/ClubCedille/Plateforme-Cedille/issues/26)                                       | Antoine BL         |
+| [Mayastor Documentation](https://github.com/ClubCedille/Plateforme-Cedille/issues/24)                                                                          | Michael            |
+| [Documenter la configuration d'environnement locale avec Omni](https://github.com/ClubCedille/Plateforme-Cedille/issues/19)                                    | Antoine            |
+| [Documenter Kuma et Merbridge](https://github.com/ClubCedille/Plateforme-Cedille/issues/29)                                                                    | Thomas             |
+| [Configure OTEL](https://github.com/ClubCedille/Plateforme-Cedille/issues/60)                                                                                  | Thomas             |
+| [Tracking Clickhouse with Open Telemetry](https://github.com/ClubCedille/Plateforme-Cedille/issues/63)                                                         | Thomas             |
+| [Déployer un sample de Grav avec configuration git-sync](https://github.com/ClubCedille/Plateforme-Cedille/issues/97)                                          | Simon et Jonathan  |
+| [Déploiement de Calidum-Rotae](https://github.com/ClubCedille/Plateforme-Cedille/issues/98)                                                                    | Jonathan et Thomas |
+| [As SRE, I want to create nested span and I want to test and see the traces before going further](https://github.com/ClubCedille/Plateforme-Cedille/issues/83) | Thomas             |
+| [As SRE, I want to update the README.md with the actual architecture](https://github.com/ClubCedille/Plateforme-Cedille/issues/71)                             | Thomas             |
+| [As SRE, I want to remove the database (postgresql) from the project](https://github.com/ClubCedille/Plateforme-Cedille/issues/70)                             | Thomas             |
+| [As SRE, I want to remove the phone number from the sender obj (protobuf)](https://github.com/ClubCedille/Plateforme-Cedille/issues/69)                        | Thomas             |
+| [As SRE, I want to instrument the application with OTEL.](https://github.com/ClubCedille/Plateforme-Cedille/issues/68)                                         | Thomas             |
+| [Faire un flux de déploiement automatiser pour un site grav](https://github.com/ClubCedille/Plateforme-Cedille/issues/132)                                     | Simon              |
+| [Configurer Terreform Cloud](https://github.com/ClubCedille/Plateforme-Cedille/issues/133)                                                                     | Simon              |
 
 ---
 
@@ -74,10 +74,10 @@ Date: 6 décembre 2023
   OTEL sur le cluster de production partiellement fonctionnel. 50% des requêtes
   étaient acheminées.
   - **Cause** : Le service communique avec un service api qui reçoit des
-  requêtes http et les envois dans un channel discord à l'aide d'une
-  webhook. Nous avons réalisé que le problème est externe au service
-  Calidum-rotae et provient du service API qui est déployé sur un autre cluster
-  kubernetes.
+    requêtes http et les envois dans un channel discord à l'aide d'une
+    webhook. Nous avons réalisé que le problème est externe au service
+    Calidum-rotae et provient du service API qui est déployé sur un autre cluster
+    kubernetes.
   - **Solution** : Configuration d'une webhook discord directement avec
     l'application au lieu du service API comme solution temporaire jusqu'à temps
     que le problème de réception de requêtes soit régler avec l'API.

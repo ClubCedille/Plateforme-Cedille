@@ -182,7 +182,7 @@ le déploiement d'applications conteneurisées.
   registre de conteneurs doivent avoir une connaissance de base des commandes de
   conteneur pour pousser et
 
- tirer des images efficacement.
+tirer des images efficacement.
 
 ### Registres de conteneurs populaires
 

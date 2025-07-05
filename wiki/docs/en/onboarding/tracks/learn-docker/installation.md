@@ -56,7 +56,6 @@ Hub account:
 
 ![dockerhub](img/dockerhub.PNG)
 
-
 ## Installing Git (optionnal)
 
 - **Windows:**
@@ -71,11 +70,12 @@ Git should already be available on macOS. You can verify by opening Terminal and
     ```bash
     git --version
     ```
+
 If Git is not installed, you will be prompted to install it.
 
 - **Linux (Ubuntu/Debian):**
 
- Open a terminal and install Git using apt-get:
+Open a terminal and install Git using apt-get:
 
     ```bash
     sudo apt-get update

@@ -18,6 +18,7 @@ monitoring of build status. You can access this interface through the
 build with a visible status (success, failure, in progress).
 
 #### Build Status Indicators
+
 - **Green (Success)**: All jobs in the workflow have completed successfully.
 - **Red (Failure)**: One or more jobs have failed.
 - **Yellow (In Progress)**: The workflow is currently running.
@@ -28,6 +29,7 @@ To diagnose issues, GitHub Actions provides detailed logs for each workflow
 step. These logs include command output and any errors encountered.
 
 #### Viewing Logs
+
 1. Go to the **Actions** tab in your repository.
 2. Select a specific workflow.
 3. Click on a job to view its steps.
@@ -57,6 +59,7 @@ diagnose issues. You can enable **advanced debugging** to obtain additional
 information.
 
 #### Enabling Debug Logs
+
 1. Go to the workflow logs page.
 2. Click **Rerun jobs with debug logging** to rerun the workflow in debug mode.
 3. Detailed logs will help you understand why the job failed.
@@ -91,7 +94,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '11'
+          java-version: "11"
 
       - name: Run tests with JUnit
         run: ./gradlew test
@@ -104,6 +107,7 @@ jobs:
 ```
 
 #### Explanation
+
 - **JUnit Tests**: JUnit tests are executed with the `./gradlew test` command.
 - **Archive test results**: JUnit test results in XML format are saved as
   artifacts, which you can view in the GitHub interface.
@@ -218,6 +222,7 @@ jobs:
 ```
 
 #### Explanation
+
 - **`if: success()`** and **`if: failure()`**: These conditions send different
   notifications based on whether the build succeeded or failed.
 - **`curl`**: Used to send a POST request to Slack with the appropriate message.

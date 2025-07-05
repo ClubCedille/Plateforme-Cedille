@@ -24,7 +24,7 @@ parameters:
   ioTimeout: "30"
   protocol: nvmf
   repl: "2"
-  stsAffinityGroup: 'true'
+  stsAffinityGroup: "true"
 provisioner: io.openebs.csi-mayastor
 ```
 
@@ -67,6 +67,7 @@ The ArgoCD Image Updater is a tool that automatically updates the image tags of
 a deployment in ArgoCD. It is configured to update the image tags of the
 `Application` resources in the `/apps/argo-apps/` folder for which an annotation
 `argocd-image-updater.argoproj.io/image-list` is present :
+
 ```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -98,7 +99,7 @@ have the following permissions:
 - Read, create, update, and delete GPG keys
 
 These permissions are configured via lines starting with p in the
-`system/argocd/argocd-values.yaml` file under `policy.csv`. The * indicates that
+`system/argocd/argocd-values.yaml` file under `policy.csv`. The \* indicates that
 the action is allowed for all instances of the specified resource.
 
 The relationships between GitHub users/groups and ArgoCD roles are defined by

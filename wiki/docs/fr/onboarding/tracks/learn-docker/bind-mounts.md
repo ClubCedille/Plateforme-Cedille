@@ -18,57 +18,58 @@ pour démontrer comment ajouter un bind mount à un projet Docker Compose.
 
 **1. Cloner le Dépôt :**
 
-   ```
-   git clone https://github.com/docker/bindmount-apps
-   cd bindmount-apps
-   ```
+```
+git clone https://github.com/docker/bindmount-apps
+cd bindmount-apps
+```
 
 **2. Modifier le Fichier `compose.yaml` :**
 
-   Pour ajouter un bind mount à ce projet, ouvrez le fichier `compose.yaml` et
-   décommentez les lignes suivantes :
+Pour ajouter un bind mount à ce projet, ouvrez le fichier `compose.yaml` et
+décommentez les lignes suivantes :
 
-   ```yaml
-   services:
-     todo-app:
-       # ...
-       volumes:
-         - ./app:/usr/src/app
-         - /usr/src/app/node_modules
-   ```
+```yaml
+services:
+  todo-app:
+    # ...
+    volumes:
+      - ./app:/usr/src/app
+      - /usr/src/app/node_modules
+```
 
 **Explication :**
 
-   - L'élément `volumes` indique à Compose de monter le dossier local `./app`
-     vers `/usr/src/app` dans le conteneur du service `todo-app`. Ce bind mount
-     particulier remplace le contenu statique du répertoire `/usr/src/app` dans
-     le conteneur et crée ce qu'on appelle un conteneur de développement.
-   - La deuxième instruction, `/usr/src/app/node_modules`, empêche le bind mount
-     de remplacer le répertoire `node_modules` du conteneur pour préserver les
-     paquets installés dans le conteneur.
+- L'élément `volumes` indique à Compose de monter le dossier local `./app`
+  vers `/usr/src/app` dans le conteneur du service `todo-app`. Ce bind mount
+  particulier remplace le contenu statique du répertoire `/usr/src/app` dans
+  le conteneur et crée ce qu'on appelle un conteneur de développement.
+- La deuxième instruction, `/usr/src/app/node_modules`, empêche le bind mount
+  de remplacer le répertoire `node_modules` du conteneur pour préserver les
+  paquets installés dans le conteneur.
 
 **3. Lancer l'Application Docker Compose :**
 
-   Ouvrez un terminal dans votre répertoire de projet et exécutez la commande suivante :
-   ```
-   docker-compose up -d
-   ```
+Ouvrez un terminal dans votre répertoire de projet et exécutez la commande suivante :
 
-   **Explication :** Cette commande démarrera l'application avec le bind mount
-   configuré. Docker montera le répertoire `./app` depuis votre hôte vers
-   `/usr/src/app` dans le conteneur.
+```
+docker-compose up -d
+```
+
+**Explication :** Cette commande démarrera l'application avec le bind mount
+configuré. Docker montera le répertoire `./app` depuis votre hôte vers
+`/usr/src/app` dans le conteneur.
 
 **4. Développer avec les Bind Mounts :**
 
-   Maintenant, vous pouvez profiter de l'environnement du conteneur tout en
-   développant l'application sur votre système local. Toutes les modifications
-   apportées au répertoire `app` sur votre système local se reflètent dans le
-   conteneur.
+Maintenant, vous pouvez profiter de l'environnement du conteneur tout en
+développant l'application sur votre système local. Toutes les modifications
+apportées au répertoire `app` sur votre système local se reflètent dans le
+conteneur.
 
-   Par exemple, dans votre répertoire local, ouvrez `app/views/todos.ejs` dans
-   un IDE ou un éditeur de texte, mettez à jour la chaîne `Enter your task` et
-   enregistrez le fichier. Visitez ou actualisez `http://localhost:3001` pour
-   voir les changements.
+Par exemple, dans votre répertoire local, ouvrez `app/views/todos.ejs` dans
+un IDE ou un éditeur de texte, mettez à jour la chaîne `Enter your task` et
+enregistrez le fichier. Visitez ou actualisez `http://localhost:3001` pour
+voir les changements.
 
 ## Résumé
 

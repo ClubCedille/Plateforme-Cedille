@@ -1,6 +1,7 @@
 # Introduction to Source Control & Git
 
 ## What is Source Control?
+
 Source control, or version control, is a system that helps **manage** and
 **track changes** in any digital project over time, which is code in our case.
 
@@ -18,20 +19,22 @@ allow collaboration on the same document, and provide a history of the changes
 made.
 
 ### Why do you need a source control system ?
-- *Collaboration*: An entire team can work together on the same project, without
+
+- _Collaboration_: An entire team can work together on the same project, without
   stepping on anyone's foot
-- *Backup*: Any line of code that has been pushed to the source control, will be
+- _Backup_: Any line of code that has been pushed to the source control, will be
   there forever, no matter what
-- *Track changes*: Easily find who added what to a project
-- *Branching*: Allows the isolation of certain experimental features on a
+- _Track changes_: Easily find who added what to a project
+- _Branching_: Allows the isolation of certain experimental features on a
   project, without impacting the main project.
 
 ---
 
 ## Git (A quick overview)
+
 A source control system is just a bunch of ideas, which anyone can take and
-create their own functional integration. For us (*and most of the world*), we
-use [**Git**](https://git-scm.com/).  > Git is a free and open source
+create their own functional integration. For us (_and most of the world_), we
+use [**Git**](https://git-scm.com/). > Git is a free and open source
 distributed version control system designed to handle everything from small to
 very large projects with speed and efficiency.
 
@@ -41,7 +44,7 @@ together. It has since stood the test of time, and is used by a vast majority of
 software developpement team.
 
 It works very well for any project's sizes, while staying
-efficient. Furthermore, it is a *distributed system*, which means everyone
+efficient. Furthermore, it is a _distributed system_, which means everyone
 working on a project has a local access to the entire history, without the need
 for a centralized server.
 
@@ -72,9 +75,9 @@ Git has 3 primary areas where all the action happens:
 2. **Staging area**: This a a buffer zone where your changes are stored before
    commiting them.
 
-3. **Repository (local/remote)**: Also known as a *repo*, this is where all your
+3. **Repository (local/remote)**: Also known as a _repo_, this is where all your
    changes are stored permanently. You have a local repository which can be
-   different from the remote repository since Git is a *distributed* system.
+   different from the remote repository since Git is a _distributed_ system.
 
 Git has over a 150 different commands to interact with it ! In our case, we will
 focus on the following four, and we will see a couple more later on.
@@ -89,7 +92,7 @@ focus on the following four, and we will see a couple more later on.
    it is time to push it into the remote repo and make it available to anyone
    working on the project !
 
-4. **`git pull`**: As the name suggests, *pull* retrieves any changes on the
+4. **`git pull`**: As the name suggests, _pull_ retrieves any changes on the
    remote repo into your local repo. If you've recently `git push` new changes
    into the remote repo, your colleagues will need to use `git pull` to have
    acces to them in their own local repo.
@@ -97,7 +100,7 @@ focus on the following four, and we will see a couple more later on.
 5. **`git status`**: Shows the current state of your project. It helps you see
    which files are modified, staged, or untracked—so you know what to do next.
 
-*we can ignore `git checkout` for now.*
+_we can ignore `git checkout` for now._
 
 ---
 

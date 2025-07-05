@@ -53,6 +53,7 @@ process of Docker images to GHCR. Below is an example of the
 file used to build and push Docker containers.
 
 ### Workflow Explanation for [build-push-ghcr.yaml](https://github.com/ClubCedille/cedille-workflows/blob/master/.github/workflows/build-push-ghcr.yaml)
+
 - **workflow_call**: This workflow is designed to be reusable by other
   workflows, allowing container name, Docker context, and Dockerfile
   specification.
@@ -70,6 +71,7 @@ robust CI/CD workflows.
 
 To interact with GHCR, you need to authenticate to GitHub using a personal
 access token (PAT) with the following permissions:
+
 - `read:packages`
 - `write:packages`
 - `delete:packages` (if you wish to delete images)
@@ -233,6 +235,7 @@ for each image or repository.
 
 Access permissions for images hosted in GHCR depend on the access permissions
 for the associated repository:
+
 - **Public Repositories**: Images in public repositories can be viewed and
   pulled by any GitHub user.
 - **Private Repositories**: Images in private repositories are accessible only
@@ -242,6 +245,7 @@ for the associated repository:
 
 You can set specific permissions for GHCR images, independent of the repository
 they’re hosted in. Images can be:
+
 - **Private**: Only users or teams granted access can pull or push images.
 - **Public**: Anyone can pull the image.
 
@@ -250,9 +254,9 @@ they’re hosted in. Images can be:
 1. Go to the **Packages** page of your GitHub repository.
 2. Select the Docker image you want to modify.
 3. Click **Package settings**.
-4. Change the image’s visibility to **Public** or **Private
+4. Change the image’s visibility to **Public** or \*\*Private
 
-**.
+\*\*.
 
 ### 4.3 Managing Permissions for Users and Teams
 

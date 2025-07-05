@@ -4,22 +4,22 @@ Date: 11 octobre 2023
 
 ## 1. Travail réalisé
 
-| Tâche | Responsable |
+| Tâche                                                   | Responsable                         |
 | ------------------------------------------------------- | ----------------------------------- |
-| Préparer les questionnaires par client | Jonathan / Thomas |
-| Entrevue AlgoETS | Jonathan |
-| Entrevue des membres du club | Thomas / Jonathan |
-| Entrevue club Raconteurs d'angles | Jonathan |
-| Entrevue club Saveurs de génie | Jonathan |
-| Entrevue services TI | Thomas |
-| À partir des entrevues, définir métriques de succès | Jonathan / Thomas / Simon / Michael |
-| Deployer le cluster physique avec Talos/Omni | Michael / Simon |
-| Configuration de base de Rook/Ceph | Michael / Simon |
-| Evaluer stack networking k8s | Simon |
-| Mise en place d'un wiki pour la documentation | Jonathan |
-| Rédaction initiale du document de vision | Jonathan / Thomas / Simon / Michael |
-| Migrer les serveurs physiques vers la salle de serveurs | Simon / Jonathan / Thomas |
-| Configuration de KubeVirt | Thomas |
+| Préparer les questionnaires par client                  | Jonathan / Thomas                   |
+| Entrevue AlgoETS                                        | Jonathan                            |
+| Entrevue des membres du club                            | Thomas / Jonathan                   |
+| Entrevue club Raconteurs d'angles                       | Jonathan                            |
+| Entrevue club Saveurs de génie                          | Jonathan                            |
+| Entrevue services TI                                    | Thomas                              |
+| À partir des entrevues, définir métriques de succès     | Jonathan / Thomas / Simon / Michael |
+| Deployer le cluster physique avec Talos/Omni            | Michael / Simon                     |
+| Configuration de base de Rook/Ceph                      | Michael / Simon                     |
+| Evaluer stack networking k8s                            | Simon                               |
+| Mise en place d'un wiki pour la documentation           | Jonathan                            |
+| Rédaction initiale du document de vision                | Jonathan / Thomas / Simon / Michael |
+| Migrer les serveurs physiques vers la salle de serveurs | Simon / Jonathan / Thomas           |
+| Configuration de KubeVirt                               | Thomas                              |
 
 ## 2. Travail non terminé
 
@@ -53,7 +53,7 @@ Date: 11 octobre 2023
     - **Cause**: L'identifiant du disque avec l'OS `/dev/sdb` n'est plus valide
       si la clé USB est retirée.
     - **Solution**: Ré-installation du cluster en spécifiant des identifiants de
-      disque durable (`/dev/disk/by-id/...`) pour *chaque* machine.
+      disque durable (`/dev/disk/by-id/...`) pour _chaque_ machine.
 
 - **Configuration d'un ISO/image dans un PVC pour KubeVirt**: Utiliser un ISO
   ubuntu dans un PVC pour l'utiliser comme CD-ROM lors du boot de la VM.

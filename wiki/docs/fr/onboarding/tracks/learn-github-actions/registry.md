@@ -58,8 +58,8 @@ Registry. Voici un exemple concret du fichier
 [build-push-ghcr.yaml](https://github.com/ClubCedille/cedille-workflows/blob/master/.github/workflows/build-push-ghcr.yaml)
 utilisé pour construire et pousser des conteneurs Docker.
 
-
 ### Explication du Workflow [build-push-ghcr.yaml](https://github.com/ClubCedille/cedille-workflows/blob/master/.github/workflows/build-push-ghcr.yaml)
+
 - **workflow_call** : Ce workflow est conçu pour être réutilisé par d'autres
   workflows, permettant de spécifier le nom du conteneur, le contexte Docker, et
   le fichier Dockerfile.
@@ -79,6 +79,7 @@ manière automatisée, avec des workflows CI/CD robustes.
 Pour interagir avec GHCR, vous devez vous authentifier auprès de GitHub en
 utilisant un jeton d'accès personnel (PAT). Ce jeton doit avoir les permissions
 suivantes :
+
 - `read:packages`
 - `write:packages`
 - `delete:packages` (si vous souhaitez supprimer des images)
@@ -247,6 +248,7 @@ conteneurs, et définir des autorisations spécifiques pour chaque image ou dép
 
 Les permissions pour accéder aux images hébergées dans GHCR dépendent des
 permissions d'accès au dépôt associé :
+
 - **Dépôts Publics** : Les images dans les dépôts publics peuvent être
   consultées et tirées par tout utilisateur GitHub.
 - **Dépôts Privés** : Les images dans les dépôts privés sont accessibles
@@ -258,6 +260,7 @@ permissions d'accès au dépôt associé :
 Vous pouvez définir des permissions spécifiques pour les images GHCR,
 indépendamment du dépôt dans lequel elles sont hébergées. Les images peuvent
 être :
+
 - **Privées** : Seuls les utilisateurs ou équipes ayant reçu des accès peuvent
   tirer ou pousser des images.
 - **Publiques** : N’importe qui peut tirer l’image.

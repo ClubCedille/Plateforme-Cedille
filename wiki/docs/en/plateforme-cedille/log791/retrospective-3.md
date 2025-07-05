@@ -4,23 +4,23 @@ Date: December 6, 2023
 
 ## 1. Completed Work
 
-| Task | Responsible |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| [Deploy cert-manager (or equivalent) in the system](https://github.com/ClubCedille/Plateforme-Cedille/issues/26) | Antoine BL |
-| [Mayastor Documentation](https://github.com/ClubCedille/Plateforme-Cedille/issues/24) | Michael |
-| [Document local environment configuration with Omni](https://github.com/ClubCedille/Plateforme-Cedille/issues/19) | Antoine |
-| [Document Kuma and Merbridge](https://github.com/ClubCedille/Plateforme-Cedille/issues/29) | Thomas |
-| [Configure OTEL](https://github.com/ClubCedille/Plateforme-Cedille/issues/60) | Thomas |
-| [Track Clickhouse with OpenTelemetry](https://github.com/ClubCedille/Plateforme-Cedille/issues/63) | Thomas |
-| [Deploy a sample of Grav with git-sync configuration](https://github.com/ClubCedille/Plateforme-Cedille/issues/97) | Simon and Jonathan |
-| [Deploy Calidum-Rotae](https://github.com/ClubCedille/Plateforme-Cedille/issues/98) | Jonathan and Thomas|
-| [As SRE, create nested span and test and see the traces before proceeding](https://github.com/ClubCedille/Plateforme-Cedille/issues/83) | Thomas |
-| [As SRE, update the README.md with the current architecture](https://github.com/ClubCedille/Plateforme-Cedille/issues/71) | Thomas |
-| [As SRE, remove the database (PostgreSQL) from the project](https://github.com/ClubCedille/Plateforme-Cedille/issues/70) | Thomas |
-| [As SRE, remove the phone number from the sender obj (protobuf)](https://github.com/ClubCedille/Plateforme-Cedille/issues/69) | Thomas |
-| [As SRE, instrument the application with OTEL](https://github.com/ClubCedille/Plateforme-Cedille/issues/68) | Thomas |
-| [Create an automated deployment flow for a Grav site](https://github.com/ClubCedille/Plateforme-Cedille/issues/132) | Simon |
-| [Configure Terraform Cloud](https://github.com/ClubCedille/Plateforme-Cedille/issues/133) | Simon |
+| Task                                                                                                                                    | Responsible         |
+| --------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| [Deploy cert-manager (or equivalent) in the system](https://github.com/ClubCedille/Plateforme-Cedille/issues/26)                        | Antoine BL          |
+| [Mayastor Documentation](https://github.com/ClubCedille/Plateforme-Cedille/issues/24)                                                   | Michael             |
+| [Document local environment configuration with Omni](https://github.com/ClubCedille/Plateforme-Cedille/issues/19)                       | Antoine             |
+| [Document Kuma and Merbridge](https://github.com/ClubCedille/Plateforme-Cedille/issues/29)                                              | Thomas              |
+| [Configure OTEL](https://github.com/ClubCedille/Plateforme-Cedille/issues/60)                                                           | Thomas              |
+| [Track Clickhouse with OpenTelemetry](https://github.com/ClubCedille/Plateforme-Cedille/issues/63)                                      | Thomas              |
+| [Deploy a sample of Grav with git-sync configuration](https://github.com/ClubCedille/Plateforme-Cedille/issues/97)                      | Simon and Jonathan  |
+| [Deploy Calidum-Rotae](https://github.com/ClubCedille/Plateforme-Cedille/issues/98)                                                     | Jonathan and Thomas |
+| [As SRE, create nested span and test and see the traces before proceeding](https://github.com/ClubCedille/Plateforme-Cedille/issues/83) | Thomas              |
+| [As SRE, update the README.md with the current architecture](https://github.com/ClubCedille/Plateforme-Cedille/issues/71)               | Thomas              |
+| [As SRE, remove the database (PostgreSQL) from the project](https://github.com/ClubCedille/Plateforme-Cedille/issues/70)                | Thomas              |
+| [As SRE, remove the phone number from the sender obj (protobuf)](https://github.com/ClubCedille/Plateforme-Cedille/issues/69)           | Thomas              |
+| [As SRE, instrument the application with OTEL](https://github.com/ClubCedille/Plateforme-Cedille/issues/68)                             | Thomas              |
+| [Create an automated deployment flow for a Grav site](https://github.com/ClubCedille/Plateforme-Cedille/issues/132)                     | Simon               |
+| [Configure Terraform Cloud](https://github.com/ClubCedille/Plateforme-Cedille/issues/133)                                               | Simon               |
 
 ---
 

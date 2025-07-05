@@ -60,13 +60,15 @@ Docker Hub :
 
 ## Installer Git (optionnel)
 
-   - **Windows :**
+- **Windows :**
+
 
     Téléchargez Git depuis [git-scm.com](https://git-scm.com/download/win) et
     exécutez l'installateur. Suivez les instructions et choisissez les options
     par défaut.
 
-   - **macOS :**
+- **macOS :**
+
 
     Git devrait déjà être disponible sur macOS. Vous pouvez vérifier en ouvrant Terminal et en tapant :
     ```
@@ -74,7 +76,8 @@ Docker Hub :
     ```
     Si Git n'est pas installé, vous serez invité à l'installer.
 
-   - **Linux (Ubuntu/Debian) :**
+- **Linux (Ubuntu/Debian) :**
+
 
     Ouvrez un terminal et installez Git en utilisant apt-get :
     ```
@@ -82,14 +85,16 @@ Docker Hub :
     sudo apt-get install git
     ```
 
-   - **Linux (Fedora) :**
+- **Linux (Fedora) :**
+
 
     Ouvrez un terminal et installez Git en utilisant dnf :
     ```
     sudo dnf install git
     ```
 
-   - **Autres distributions Linux :**
+- **Autres distributions Linux :**
+
 
     Utilisez le gestionnaire de paquets spécifique à votre distribution pour
     installer Git.

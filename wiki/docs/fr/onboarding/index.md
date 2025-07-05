@@ -38,39 +38,39 @@ pour découvrir les technologies que tu vas rencontrer dans les labs.
 
 ### Développement d’applications
 
-* **Python**
-  * [Documentation officielle](https://docs.python.org/3/tutorial/index.html)
-  * [Exemples Python](https://www.w3schools.com/python/python_examples.asp)
+- **Python**
+  - [Documentation officielle](https://docs.python.org/3/tutorial/index.html)
+  - [Exemples Python](https://www.w3schools.com/python/python_examples.asp)
 
-* **Go**
-  * [Documentation officielle](https://go.dev/doc/)
-  * [Go by Example](https://gobyexample.com/)
+- **Go**
+  - [Documentation officielle](https://go.dev/doc/)
+  - [Go by Example](https://gobyexample.com/)
 
 ### Développement Web
 
-* **Grav**
-  * [Documentation officielle](https://learn.getgrav.org/17/basics/what-is-grav)
+- **Grav**
+  - [Documentation officielle](https://learn.getgrav.org/17/basics/what-is-grav)
 
-* **Hugo**
-  * [Documentation officielle](https://gohugo.io/about/introduction/)
+- **Hugo**
+  - [Documentation officielle](https://gohugo.io/about/introduction/)
 
 ### DevOps
 
-* [C’est quoi le
+- [C’est quoi le
   DevOps?](https://github.com/resources/articles/devops/what-is-devops)
-* [Lignes directrices DevSecOps
+- [Lignes directrices DevSecOps
   (OWASP)](https://owasp.org/www-project-devsecops-guideline/latest/00a-Overview)
-* [GitHub Actions](https://docs.github.com/fr/actions)
-* [The DevOps Handbook (en
+- [GitHub Actions](https://docs.github.com/fr/actions)
+- [The DevOps Handbook (en
   anglais)](https://books.google.ca/books/about/The_DevOps_Handbook.html?id=8kRDEAAAQBAJ&redir_esc=y)
-* [The Unicorn Project (en
+- [The Unicorn Project (en
   anglais)](https://www.google.ca/books/edition/The_Unicorn_Project/kNSSDwAAQBAJ?hl=en&gbpv=1&printsec=frontcover)
-* [The Phoenix Project (en
+- [The Phoenix Project (en
   anglais)](https://books.google.ca/books/about/The_Phoenix_Project.html?id=mqXomAEACAAJ&redir_esc=y)
 
 ### SRE (Ingénierie de la fiabilité des sites)
 
-* [Livre sur l’ingénierie de la fiabilité des sites (SRE) de
+- [Livre sur l’ingénierie de la fiabilité des sites (SRE) de
   Google](https://sre.google/sre-book/table-of-contents/)
 
 ## Pistes d'intégration

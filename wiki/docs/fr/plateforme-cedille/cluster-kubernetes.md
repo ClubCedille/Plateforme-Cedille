@@ -22,7 +22,7 @@ Les environnements sont les suivants:
 - **Production**: Environnement de production pour les sites web des clubs
   étudiants et les projets du club CEDILLE.
 - **Staging**: Environnement de staging pour les sites web des clubs étudiants
-    et les projets du club CEDILLE.
+  et les projets du club CEDILLE.
 - **Sandbox**: Environnement de développement pour les projets du club cédille.
 
 ### Production

@@ -14,6 +14,7 @@ les `push`, `pull requests`, ou même des déclencheurs personnalisés comme un
 `cron` planifié.
 
 ### Caractéristiques principales de GitHub Actions
+
 - **Intégration complète avec GitHub** : Les workflows peuvent être déclenchés
   par les événements GitHub tels que les `push`, les `pull request`, les
   `issues`, et bien d'autres.
@@ -43,7 +44,7 @@ automatiquement lorsqu'un `push` ou une `pull request` est fait sur un dépôt.
 
 - **Exemple d’utilisation CI :**
   - Exécution automatique des tests unitaires après chaque `commit` ou `pull
-    request`.
+request`.
   - Compilation automatique du code pour vérifier qu’il n’y a pas d’erreurs de
     syntaxe ou de compilation.
 
@@ -57,19 +58,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Run tests
-      run: npm test
+      - name: Run tests
+        run: npm test
 ```
 
 ### Déploiement Continu (CD)
@@ -100,19 +101,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Deploy to AWS
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-west-2
+      - name: Deploy to AWS
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-west-2
 
-    - name: Deploy application
-      run: |
-        aws s3 sync ./build s3://my-app-bucket
+      - name: Deploy application
+        run: |
+          aws s3 sync ./build s3://my-app-bucket
 ```
 
 ---
@@ -157,7 +158,7 @@ jobs:
         run: echo "Job 1 Step 1"
 
   job2:
-    needs: job1  # Dépend de job1
+    needs: job1 # Dépend de job1
     runs-on: ubuntu-latest
     steps:
       - name: Step 1
@@ -187,10 +188,10 @@ créer vos propres actions pour répondre à des besoins spécifiques.
 ```yaml
 steps:
   - name: Checkout repository
-    uses: actions/checkout@v2  # Action prédéfinie depuis le Marketplace
+    uses: actions/checkout@v2 # Action prédéfinie depuis le Marketplace
 
   - name: Run custom script
-    run: ./my-custom-script.sh  # Action personnalisée
+    run: ./my-custom-script.sh # Action personnalisée
 ```
 
 ### Runners
@@ -209,10 +210,10 @@ des besoins spécifiques en termes d'environnement d'exécution.
 ```yaml
 jobs:
   build:
-    runs-on: ubuntu-latest  # Utilise un runner hébergé sous Ubuntu
+    runs-on: ubuntu-latest # Utilise un runner hébergé sous Ubuntu
 
   custom-build:
-    runs-on: self-hosted  # Utilise un runner auto-hébergé
+    runs-on: self-hosted # Utilise un runner auto-hébergé
 ```
 
 ---
@@ -246,16 +247,15 @@ vos propres serveurs d'exécution.
 
 ### Comparaison des Fonctionnalités
 
-| Outils CI/CD | GitHub Actions | Jenkins | Travis CI | CircleCI |
-|------------------|----------------------|--------------------|--------------------|--------------------|
-| **Intégration** | Native GitHub | Externe | Externe | Externe |
-| **Configuration**| YAML dans le dépôt | Interface Jenkins | YAML dans le dépôt | YAML dans le dépôt |
+| Outils CI/CD      | GitHub Actions     | Jenkins           | Travis CI          | CircleCI           |
+| ----------------- | ------------------ | ----------------- | ------------------ | ------------------ |
+| **Intégration**   | Native GitHub      | Externe           | Externe            | Externe            |
+| **Configuration** | YAML dans le dépôt | Interface Jenkins | YAML dans le dépôt | YAML dans le dépôt |
 
-
-| **Caractéristiques** | **GitHub Actions** | **Jenkins** | **CircleCI** | **GitLab CI/CD** |
-|----------------------|--------------------|-------------------|---------------------|-----------------------|
-| **Runners** | Hébergés / Auto-hébergés | Serveurs Jenkins | Hébergés uniquement | Hébergés / Auto-hébergés |
-| **Marketplace** | Oui, avec actions | Plugins Jenkins | Oui | Oui |
+| **Caractéristiques** | **GitHub Actions**       | **Jenkins**      | **CircleCI**        | **GitLab CI/CD**         |
+| -------------------- | ------------------------ | ---------------- | ------------------- | ------------------------ |
+| **Runners**          | Hébergés / Auto-hébergés | Serveurs Jenkins | Hébergés uniquement | Hébergés / Auto-hébergés |
+| **Marketplace**      | Oui, avec actions        | Plugins Jenkins  | Oui                 | Oui                      |
 
 ---
 

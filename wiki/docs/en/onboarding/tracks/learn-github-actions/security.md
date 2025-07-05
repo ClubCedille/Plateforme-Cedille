@@ -93,6 +93,7 @@ use. Permissions can be set globally for the entire repository or per workflow.
 #### Configuring Workflow Permissions
 
 Permissions can be set at two levels:
+
 1. **Global (for the entire repository)**.
 2. **Specific to a workflow**.
 
@@ -100,6 +101,7 @@ Permissions can be set at two levels:
 
 Set default permissions for a repository under **Settings > Actions > Workflow
 permissions**. The main options are:
+
 - **Read repository content**: Restricts actions to read-only access (most
   secure option).
 - **Read and write permissions**: Allows actions to read and modify the
@@ -121,8 +123,8 @@ on:
       - main
 
 permissions:
-  contents: read  # Restrict repository access to read-only
-  packages: write  # Allow write access to GitHub Packages
+  contents: read # Restrict repository access to read-only
+  packages: write # Allow write access to GitHub Packages
 
 jobs:
   build:
@@ -134,6 +136,7 @@ jobs:
 ```
 
 In this example:
+
 - The workflow has **read-only** permission for repository contents.
 - The workflow has **write** permission to GitHub Packages for publishing
   artifacts or Docker images.
@@ -187,6 +190,7 @@ configuration options, including update frequency, versioning strategies, and
 support for a wide range of languages and package managers.
 
 ### Why Use Renovate?
+
 - **Advanced Configuration**: Renovate enables detailed customization of update
   strategies, such as grouped updates, specific version ranges, and custom
   update schedules.
@@ -202,9 +206,7 @@ In our projects, here’s a basic Renovate configuration example:
 
 ```json
 {
-  "extends": [
-    "config:base"
-  ],
+  "extends": ["config:base"],
   "packageRules": [
     {
       "matchPackagePatterns": ["*"],
@@ -217,6 +219,7 @@ In our projects, here’s a basic Renovate configuration example:
 ```
 
 In this example:
+
 - **extends**: Uses Renovate's base configuration.
 - **packageRules**: Groups all dependencies in a single update batch.
 - **schedule**: Updates are scheduled to run every weekend.
@@ -256,20 +259,21 @@ dependencies to monitor and the update frequency.
 ```yaml
 version: 2
 updates:
-  - package-ecosystem: "npm"  # Manage npm dependencies
-    directory: "/"  # Directory with the package.json file
+  - package-ecosystem: "npm" # Manage npm dependencies
+    directory: "/" # Directory with the package.json file
     schedule:
-      interval: "daily"  # Check for updates every day
-  - package-ecosystem: "docker"  # Manage Docker images
-    directory: "/"  # Directory with the Dockerfile
+      interval: "daily" # Check for updates every day
+  - package-ecosystem: "docker" # Manage Docker images
+    directory: "/" # Directory with the Dockerfile
     schedule:
-      interval: "weekly"  # Check for updates weekly
+      interval: "weekly" # Check for updates weekly
 ```
 
 ### 3.4. Vulnerability Scanning in Code and Dependencies
 
 Dependabot connects to a database of known vulnerabilities to check the packages
 used in your projects. When a vulnerability is found:
+
 - You receive a **Dependabot alert** in your repository’s **Security** tab.
 - Dependabot can automatically create a **pull request** suggesting an update to
   a non-vulnerable version.
@@ -277,6 +281,7 @@ used in your projects. When a vulnerability is found:
 ### 3.5. Tracking Security Updates
 
 Dependabot enables you to:
+
 - Track the history of vulnerabilities and patches.
 - Implement automatic updates so your project always uses secure dependency
   versions.

@@ -183,7 +183,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "14"
 
       - name: Install dependencies
         run: npm install
@@ -312,7 +312,7 @@ failed deployment via **Slack**, **Email**, or other collaboration tools.
 You can configure GitHub Actions to send notifications via Slack when specific
 events
 
- occur, such as deployment completion.
+occur, such as deployment completion.
 
 #### Example Workflow with Slack Notification
 

@@ -13,6 +13,7 @@ enabling you to trigger workflows based on repository events like `push`, `pull
 requests`, or even custom triggers such as scheduled `cron` jobs.
 
 ### Key Features of GitHub Actions
+
 - **Full GitHub Integration**: Workflows can be triggered by GitHub events such
   as `push`, `pull request`, `issues`, and many more.
 - **Flexibility**: GitHub Actions is highly customizable, with hundreds of
@@ -51,19 +52,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Run tests
-      run: npm test
+      - name: Run tests
+        run: npm test
 ```
 
 ### Continuous Deployment (CD)
@@ -93,19 +94,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Deploy to AWS
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-west-2
+      - name: Deploy to AWS
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-west-2
 
-    - name: Deploy application
-      run: |
-        aws s3 sync ./build s3://my-app-bucket
+      - name: Deploy application
+        run: |
+          aws s3 sync ./build s3://my-app-bucket
 ```
 
 ---
@@ -146,7 +147,7 @@ jobs:
         run: echo "Job 1 Step 1"
 
   job2:
-    needs: job1  # Depends on job1
+    needs: job1 # Depends on job1
     runs-on: ubuntu-latest
     steps:
       - name: Step 1
@@ -174,10 +175,10 @@ your own actions for specific needs.
 ```yaml
 steps:
   - name: Checkout repository
-    uses: actions/checkout@v2  # Predefined action from Marketplace
+    uses: actions/checkout@v2 # Predefined action from Marketplace
 
   - name: Run custom script
-    run: ./my-custom-script.sh  # Custom action
+    run: ./my-custom-script.sh # Custom action
 ```
 
 ### Runners
@@ -195,10 +196,10 @@ the runtime environment.
 ```yaml
 jobs:
   build:
-    runs-on: ubuntu-latest  # Uses a hosted runner on Ubuntu
+    runs-on: ubuntu-latest # Uses a hosted runner on Ubuntu
 
   custom-build:
-    runs-on: self-hosted  # Uses a self-hosted runner
+    runs-on: self-hosted # Uses a self-hosted runner
 ```
 
 ---
@@ -229,15 +230,15 @@ Jenkins, often require setting up your own execution servers.
 
 ### Feature Comparison
 
-| CI/CD Tools | GitHub Actions | Jenkins | Travis CI | CircleCI |
-|--------------------|----------------------|--------------------|--------------------|--------------------|
-| **Integration** | Native GitHub | External | External | External |
+| CI/CD Tools       | GitHub Actions     | Jenkins           | Travis CI          | CircleCI           |
+| ----------------- | ------------------ | ----------------- | ------------------ | ------------------ |
+| **Integration**   | Native GitHub      | External          | External           | External           |
 | **Configuration** | YAML in repository | Jenkins interface | YAML in repository | YAML in repository |
 
-| **Features** | **GitHub Actions** | **Jenkins** | **CircleCI** | **GitLab CI/CD** |
-|-----------------------|-------------------------|--------------------|---------------------|--------------------------|
-| **Runners** | Hosted / Self-hosted | Jenkins servers | Hosted only | Hosted / Self-hosted |
-| **Marketplace** | Yes, with actions | Jenkins plugins | Yes | Yes |
+| **Features**    | **GitHub Actions**   | **Jenkins**     | **CircleCI** | **GitLab CI/CD**     |
+| --------------- | -------------------- | --------------- | ------------ | -------------------- |
+| **Runners**     | Hosted / Self-hosted | Jenkins servers | Hosted only  | Hosted / Self-hosted |
+| **Marketplace** | Yes, with actions    | Jenkins plugins | Yes          | Yes                  |
 
 ---
 

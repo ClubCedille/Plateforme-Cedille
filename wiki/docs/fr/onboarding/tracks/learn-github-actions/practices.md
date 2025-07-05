@@ -47,7 +47,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    needs: lint  # Le job 'test' dépend de 'lint'
+    needs: lint # Le job 'test' dépend de 'lint'
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -57,14 +57,14 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    needs: test  # Le job 'build' dépend de 'test'
+    needs: test # Le job 'build' dépend de 'test'
     steps:
       - name: Build application
         run: npm run build
 
   deploy:
     runs-on: ubuntu-latest
-    needs: build  # Le job 'deploy' dépend de 'build'
+    needs: build # Le job 'deploy' dépend de 'build'
     steps:
       - name: Deploy to production
         run: ./deploy.sh
@@ -119,7 +119,7 @@ on:
 
 jobs:
   tests:
-    uses: ./.github/workflows/tests.yml  # Réutiliser le workflow de tests
+    uses: ./.github/workflows/tests.yml # Réutiliser le workflow de tests
 ```
 
 ### 1.3. Utiliser les Matrices pour Optimiser les Exécutions
@@ -208,8 +208,7 @@ différentes équipes ou dépôts.
 # .github/workflows/shared-config.yml
 name: Shared Config
 
-on:
-  workflow_call
+on: workflow_call
 
 jobs:
   build:
@@ -254,8 +253,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-
 
       - name: Run tests
         run: npm test

@@ -101,6 +101,7 @@ globalement pour tout le dépôt.
 #### Configurer les Permissions des Workflows
 
 Les permissions peuvent être définies à deux niveaux :
+
 1. **Globale (pour tout le dépôt)**.
 2. **Spécifique à un workflow**.
 
@@ -108,6 +109,7 @@ Les permissions peuvent être définies à deux niveaux :
 
 Vous pouvez configurer les permissions par défaut d’un dépôt sous **Settings >
 Actions > Workflow permissions**. Deux options principales sont disponibles :
+
 - **Read repository content** : Limite les actions aux lectures de dépôt (option
   la plus sécurisée).
 - **Read and write permissions** : Donne aux actions la permission de lire et de
@@ -129,8 +131,8 @@ on:
       - main
 
 permissions:
-  contents: read  # Limite l'accès au dépôt en lecture seule
-  packages: write  # Autorise l'écriture dans GitHub Packages
+  contents: read # Limite l'accès au dépôt en lecture seule
+  packages: write # Autorise l'écriture dans GitHub Packages
 
 jobs:
   build:
@@ -142,6 +144,7 @@ jobs:
 ```
 
 Dans cet exemple :
+
 - Le workflow a la permission de **lire** le contenu du dépôt.
 - Le workflow peut **écrire** dans GitHub Packages pour publier des artefacts ou
   des images Docker.
@@ -200,6 +203,7 @@ stratégies de versioning spécifiques, et prendre en charge un large éventail 
 langages et de gestionnaires de paquets.
 
 ### Pourquoi Utiliser Renovate ?
+
 - **Configuration Avancée** : Renovate permet une personnalisation fine des
   stratégies de mise à jour, telles que les mises à jour groupées, les plages de
   versions spécifiques ou encore la fréquence des vérifications.
@@ -210,13 +214,12 @@ langages et de gestionnaires de paquets.
   mises à jour de dépendances.
 
 ### Exemple de Fichier de Configuration Renovate
+
 Dans nos projets, voici un exemple basique de configuration Renovate :
 
 ```json
 {
-  "extends": [
-    "config:base"
-  ],
+  "extends": ["config:base"],
   "packageRules": [
     {
       "matchPackagePatterns": ["*"],
@@ -229,6 +232,7 @@ Dans nos projets, voici un exemple basique de configuration Renovate :
 ```
 
 Dans cet exemple :
+
 - **extends** : Utilise la configuration de base fournie par Renovate.
 - **packageRules** : Regroupe toutes les dépendances dans une seule mise à jour
   groupée.
@@ -271,14 +275,14 @@ définit les dépendances à surveiller et la fréquence de mise à jour.
 ```yaml
 version: 2
 updates:
-  - package-ecosystem: "npm"  # Gérer les dépendances npm
-    directory: "/"  # Répertoire contenant le fichier package.json
+  - package-ecosystem: "npm" # Gérer les dépendances npm
+    directory: "/" # Répertoire contenant le fichier package.json
     schedule:
-      interval: "daily"  # Vérification des mises à jour chaque jour
-  - package-ecosystem: "docker"  # Gérer les images Docker
-    directory: "/"  # Répertoire contenant le fichier Dockerfile
+      interval: "daily" # Vérification des mises à jour chaque jour
+  - package-ecosystem: "docker" # Gérer les images Docker
+    directory: "/" # Répertoire contenant le fichier Dockerfile
     schedule:
-      interval: "weekly"  # Vérification des mises à jour chaque semaine
+      interval: "weekly" # Vérification des mises à jour chaque semaine
 ```
 
 ### 3.4. Analyse des Vulnérabilités dans le Code et les Dépendances
@@ -286,6 +290,7 @@ updates:
 Dependabot se connecte à une base de données de vulnérabilités connues pour
 vérifier les packages utilisés dans vos projets. Lorsqu’une vulnérabilité est
 trouvée :
+
 - Vous recevez une alerte **Dependabot alert** dans l’onglet **Security** de
   votre dépôt.
 - Dependabot peut automatiquement créer une **pull request** pour vous proposer

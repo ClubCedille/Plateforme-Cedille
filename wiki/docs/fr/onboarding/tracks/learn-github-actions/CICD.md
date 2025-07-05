@@ -54,6 +54,7 @@ jobs:
 ```
 
 #### Explication des Étapes
+
 - **`actions/cache@v2`** : Cette action met en cache les modules Node.js situés
   dans le répertoire `node_modules`. Le cache est basé sur la somme de contrôle
   (hash) du fichier `package-lock.json`. Si aucune modification n'est détectée
@@ -80,7 +81,7 @@ dépendances.
 Voici la section mise à jour avec un exemple illustrant l'utilisation des
 variables dans un workflow réutilisable :
 
-```markdown
+````markdown
 #### Exemple : Appeler un Workflow Réutilisable
 
 Dans ce cas, nous avons un workflow qui effectue des tests, et un autre qui gère les déploiements. Ces workflows sont réutilisés à partir d'un fichier central.
@@ -105,6 +106,7 @@ jobs:
       - name: Run tests
         run: npm test
 ```
+````
 
 ```yaml
 # .github/workflows/deploy.yml
@@ -151,11 +153,11 @@ on:
       context:
         required: false
         type: string
-        default: '.'
+        default: "."
       file:
         required: false
         type: string
-        default: 'Dockerfile'
+        default: "Dockerfile"
 
 env:
   REGISTRY: ghcr.io/clubcedille
@@ -209,6 +211,7 @@ jobs:
 ```
 
 #### Explication
+
 - **`workflow_call`** : Permet de réutiliser le workflow en appelant des
   workflows définis ailleurs. Les variables d'entrée permettent de personnaliser
   le comportement du workflow réutilisable.
@@ -268,6 +271,7 @@ jobs:
 ```
 
 #### Explication
+
 - **`matrix.node-version`** et **`matrix.os`** : Ces deux matrices permettent de
   tester sur différentes versions de Node.js (`12`, `14`, `16`) et sur
   différents systèmes d'exploitation (`ubuntu`, `windows`, `macos`).
@@ -317,6 +321,7 @@ jobs:
 ```
 
 #### Explication
+
 - **`needs`** : L’instruction `needs` permet de définir une dépendance entre
   jobs. Dans cet exemple, le job `test` ne démarre que lorsque le job `build` a
   réussi. De même, le job `deploy` attend que `test` se termine.
@@ -344,7 +349,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2.3.4  # Utilisation d'une version spécifique
+        uses: actions/checkout@v2.3.4 # Utilisation d'une version spécifique
 ```
 
 ### 3.2. Gérer les Versions des Dépendances
@@ -367,7 +372,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install dependencies
-        run: npm ci  # Installe les dépendances avec les versions verrouillées dans package-lock.json
+        run: npm ci # Installe les dépendances avec les versions verrouillées dans package-lock.json
 ```
 
 ---

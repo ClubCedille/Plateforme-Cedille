@@ -57,7 +57,7 @@ name: Build and Deploy Node.js Docker App
 on:
   push:
     branches:
-      - main  # Déclenche le workflow uniquement sur les pushes vers la branche 'main'
+      - main # Déclenche le workflow uniquement sur les pushes vers la branche 'main'
 
 jobs:
   build:
@@ -207,7 +207,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    needs: test  # Exécute ce job après le job 'test'
+    needs: test # Exécute ce job après le job 'test'
 
     steps:
       # Étape 1 : Checkout du code source
@@ -220,7 +220,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: build  # Exécute ce job après le job 'build'
+    needs: build # Exécute ce job après le job 'build'
 
     steps:
       # Étape 1 : Checkout du code source
@@ -240,9 +240,10 @@ jobs:
 ```
 
 #### Explication
+
 - **Tests** : Ce workflow exécute les tests unitaires à l'aide de `npm test`.
 - **Build** : Une fois les tests réussis, l'application est construite avec `npm
-  run build`.
+run build`.
 - **Déploiement** : Si le build réussit, l'application est déployée sur Heroku
   en utilisant des images Docker.
 
@@ -285,7 +286,6 @@ jobs:
   notify:
     runs-on: ubuntu-latest
 
-
     needs: build-and-deploy
 
     steps:
@@ -321,7 +321,6 @@ GitHub permet de gérer des équipes au sein d'une organisation. Cela permet de 
   être utilisés dans plusieurs dépôts, facilitant la gestion de
   l'authentification partagée pour des services externes (comme AWS, Docker,
   etc.).
-
 
 ### 4.2. Exemple de Workflow Partagé entre Plusieurs Dépôts
 

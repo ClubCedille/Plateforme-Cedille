@@ -22,13 +22,12 @@ without breaking anything 👨‍👩‍👧‍👦 Collaborate with others work
 tasks 🔁 Merge your work back into the main branch when it's ready
 
 Each branch starts from a specific point (usually `main` or another feature) and
-evolves independently.  This way, teams can work **simultaneously and safely**
+evolves independently. This way, teams can work **simultaneously and safely**
 on many parts of a project.
 
 > 🔐 Branching is the foundation of collaborative development. Without it,
 > everyone would be working on the same files at the same time — leading to
 > chaos and lost work.
-
 
 ---
 
@@ -59,6 +58,7 @@ This diagram shows a typical situation in a team project:
 
 Without branches and Pull Requests, all work would be done **on the same
 timeline, in the same files**, which would lead to:
+
 - 🔥 Conflicts
 - 🐛 Bugs being merged unintentionally
 - ❌ Loss of stable code
@@ -123,7 +123,6 @@ Here's a more detailed step-by-step tutorial on how to do it.
 
       **ALL THE NEXT POINTS DESCRIBED ARE MEANT TO BE READ, NOT DONE. YOU WILL PRACTICE THEM IN THE LAB.**
 
-
 ---
 
 ## 🧩 Scenario
@@ -136,13 +135,13 @@ sub-feature: `feature/layout-component` You’ll merge it back via a Pull Reques
 
 ## 📦 Step 1: Go to Your Project Folder
 
-``` bash
+```bash
 cd path/to/your/project
 ```
 
 If you haven’t cloned the project yet:
 
-``` bash
+```bash
 git clone git@github.com:your-team/project-name.git
 cd project-name
 ```
@@ -153,7 +152,7 @@ cd project-name
 
 This is the feature you're building on top of.
 
-``` bash
+```bash
 git checkout feature/main-layout
 git pull origin feature/main-layout
 ```
@@ -162,7 +161,7 @@ git pull origin feature/main-layout
 
 ## 🌱 Step 3: Create a New Branch from It
 
-``` bash
+```bash
 git checkout -b feature/layout-component
 ```
 
@@ -181,7 +180,7 @@ Use your favorite editor (VSCode, etc.) to:
 
 ## ✅ Step 5: Add and Commit Your Changes
 
-``` bash
+```bash
 git add .
 git commit -m "feat: add new layout component"
 ```
@@ -193,7 +192,7 @@ git commit -m "feat: add new layout component"
 
 ## ☁️ Step 6: Push Your Branch to GitHub
 
-``` bash
+```bash
 git push origin feature/layout-component
 ```
 
@@ -224,7 +223,7 @@ Your teammates can now:
 
 If someone requests changes:
 
-``` bash
+```bash
 # Make the edits
 git add .
 git commit -m "fix: adjust component"
@@ -251,7 +250,7 @@ Once approved and ready:
 
 After merging:
 
-``` bash
+```bash
 git branch -d feature/layout-component           # delete local
 git push origin --delete feature/layout-component  # delete remote
 ```
@@ -260,7 +259,7 @@ git push origin --delete feature/layout-component  # delete remote
 
 ## 📘 Full Recap: PR-Based Feature Flow
 
-``` bash
+```bash
 # Start from your main feature branch
 git checkout feature/main-layout
 git pull origin feature/main-layout

@@ -52,6 +52,7 @@ jobs:
 ```
 
 #### Explanation of Steps
+
 - **`actions/cache@v2`**: This action caches Node.js modules located in the
   `node_modules` directory. The cache is based on the checksum (hash) of the
   `package-lock.json` file. If no changes are detected in this file, the cache
@@ -75,7 +76,7 @@ building, deployments, and dependency management.
 Here is the updated section with an example illustrating the use of variables in
 a reusable workflow:
 
-```markdown
+````markdown
 #### Example: Calling a Reusable Workflow
 
 In this case, we have one workflow that performs tests and another that handles deployments. These workflows are reused from a central file.
@@ -100,6 +101,7 @@ jobs:
       - name: Run tests
         run: npm test
 ```
+````
 
 ```yaml
 # .github/workflows/deploy.yml
@@ -145,11 +147,11 @@ on:
       context:
         required: false
         type: string
-        default: '.'
+        default: "."
       file:
         required: false
         type: string
-        default: 'Dockerfile'
+        default: "Dockerfile"
 
 env:
   REGISTRY: ghcr.io/clubcedille
@@ -203,6 +205,7 @@ jobs:
 ```
 
 #### Explanation
+
 - **`workflow_call`**: Enables reusing the workflow by calling workflows defined
   elsewhere. Input variables allow customization of the reusable workflow’s
   behavior.
@@ -260,6 +263,7 @@ jobs:
 ```
 
 #### Explanation
+
 - **`matrix.node-version`** and **`matrix.os`**: These two matrices enable
   testing on different Node.js versions (`12`, `14`, `16`) and across various
   operating systems (`ubuntu`, `windows`, `macos`).
@@ -308,6 +312,7 @@ jobs:
 ```
 
 #### Explanation
+
 - **`needs`**: The `needs` instruction defines a dependency between jobs. In
   this example, the `test` job only starts after the `build` job succeeds, and
   the `deploy` job waits for `test` to complete.
@@ -335,7 +340,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2.3.4  # Use a specific version
+        uses: actions/checkout@v2.3.4 # Use a specific version
 ```
 
 ### 3.2. Managing Dependency Versions
@@ -343,9 +348,9 @@ jobs:
 Locking the versions of dependencies used in your project (for example, in
 `package-lock.json`
 
- or `requirements.txt`) is also recommended. This ensures that each workflow
- execution uses the same library versions, minimizing errors from untested
- updates.
+or `requirements.txt`) is also recommended. This ensures that each workflow
+execution uses the same library versions, minimizing errors from untested
+updates.
 
 #### Example: Locked Dependencies in `package-lock.json`
 
@@ -359,7 +364,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install dependencies
-        run: npm ci  # Install dependencies with locked versions in package-lock.json
+        run: npm ci # Install dependencies with locked versions in package-lock.json
 ```
 
 ---

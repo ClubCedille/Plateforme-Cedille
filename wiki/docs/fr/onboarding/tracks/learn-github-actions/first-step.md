@@ -15,6 +15,7 @@ spécifique dans votre dépôt GitHub pour y stocker vos fichiers de workflow. C
 répertoire doit être nommé **`.github/workflows`**.
 
 ### Étapes pour créer votre premier workflow
+
 1. **Créer le répertoire** : Dans la racine de votre projet, créez le répertoire
    `.github/workflows`.
 2. **Ajouter un fichier de workflow** : Les workflows sont définis dans des
@@ -47,7 +48,7 @@ modification est poussée vers la branche `main`. Ce workflow installe les
 dépendances, exécute des tests et compile le projet.
 
 ```yaml
-name: CI Pipeline  # Nom du workflow
+name: CI Pipeline # Nom du workflow
 
 # Ce workflow est déclenché lors d'un push ou d'une pull request sur la branche 'main'
 on:
@@ -59,8 +60,8 @@ on:
       - main
 
 jobs:
-  build:  # Nom du job
-    runs-on: ubuntu-latest  # Environnement dans lequel le job s'exécute
+  build: # Nom du job
+    runs-on: ubuntu-latest # Environnement dans lequel le job s'exécute
 
     steps:
       # Étape 1 : Vérifier le code source
@@ -71,7 +72,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "14"
 
       # Étape 3 : Installer les dépendances
       - name: Install dependencies
@@ -87,6 +88,7 @@ jobs:
 ```
 
 ### Explication
+
 - **`name:`** : Donne un nom au workflow. Ce nom est visible dans l’interface
   GitHub Actions.
 - **`on:`** : Spécifie les événements qui déclenchent le workflow. Dans cet
@@ -110,29 +112,31 @@ actions, et des variables. Voici une explication détaillée de la syntaxe de ba
 des fichiers YAML pour GitHub Actions.
 
 ### Structure générale d’un fichier YAML GitHub Actions
+
 ```yaml
 name: Nom du workflow
 
-on:  # Déclencheur(s) d'événement(s)
+on: # Déclencheur(s) d'événement(s)
   push:
     branches:
       - main
 
-jobs:  # Les jobs à exécuter
-  job_name:  # Nom du job
-    runs-on: environnement  # Environnement d'exécution (ex: ubuntu-latest, windows-latest, macos-latest)
+jobs: # Les jobs à exécuter
+  job_name: # Nom du job
+    runs-on: environnement # Environnement d'exécution (ex: ubuntu-latest, windows-latest, macos-latest)
 
-    steps:  # Les étapes à exécuter dans ce job
+    steps: # Les étapes à exécuter dans ce job
       - name: Nom de l'étape
-        uses: action@version  # Utilisation d'une action prédéfinie
-        with:  # Arguments passés à l'action
+        uses: action@version # Utilisation d'une action prédéfinie
+        with: # Arguments passés à l'action
           param: valeur
 
       - name: Nom de l'étape
-        run: commande_shell  # Commande shell à exécuter
+        run: commande_shell # Commande shell à exécuter
 ```
 
 ### Les éléments YAML les plus courants
+
 - **`name:`** : Nom du workflow.
 - **`on:`** : Les événements qui déclenchent le workflow. Il peut s'agir de
   `push`, `pull_request`, `schedule`, ou autres.
@@ -143,15 +147,20 @@ jobs:  # Les jobs à exécuter
   prédéfinies ou des commandes personnalisées à exécuter.
 
 ### Exemples d'étapes
+
 1. **Utilisation d’une action prédéfinie** :
-   ```yaml
+
+   ````yaml
    - name: Checkout code uses: actions/checkout@v2 ``` Ici, nous utilisons
      l'action `actions/checkout@v2` pour récupérer le code source du dépôt.
 
+   ````
+
 2. **Exécution d’une commande personnalisée** :
-   ```yaml
+   ````yaml
    - name: Run tests run: npm test ``` Cette étape exécute la commande `npm
      test` pour lancer les tests du projet.
+   ````
 
 ---
 
@@ -164,14 +173,16 @@ Les workflows GitHub Actions peuvent être déclenchés par une variété d'év�
 Le déclencheur `push` est utilisé pour exécuter un workflow chaque fois qu'un `push` est effectué dans le dépôt. Vous pouvez également spécifier des branches ou des chemins spécifiques pour lesquels le workflow doit s'exécuter.
 
 #### Exemple
+
 ```yaml
 on:
   push:
     branches:
       - main
     paths:
-      - 'src/**'
+      - "src/**"
 ```
+
 - **`branches:`** : Le workflow se déclenchera uniquement lorsque des
   modifications sont poussées sur la branche `main`.
 - **`paths:`** : Le workflow s'exécutera uniquement si les fichiers modifiés se
@@ -183,7 +194,8 @@ Le déclencheur `pull_request` permet d'exécuter un workflow lorsqu'une nouvell
 pull request est créée, ou lorsque celle-ci est mise à jour.
 
 #### Exemple
-```yaml
+
+````yaml
 on:
   pull_request:
     branches:
@@ -214,7 +226,7 @@ tâches cron de Linux.
 ```yaml
 on:
   workflow_dispatch:
-```
+````
 
 Ce workflow peut être déclenché manuellement depuis l'interface GitHub
 Actions. Par exemple, voici [un cas d'utilisation
@@ -228,19 +240,19 @@ on:
   workflow_dispatch:
     inputs:
       github_username:
-        description: 'GitHub username'
+        description: "GitHub username"
         required: true
         type: string
       github_email:
-        description: 'GitHub Email'
+        description: "GitHub Email"
         required: true
         type: string
       team_sre:
-        description: 'Add to SRE team?'
+        description: "Add to SRE team?"
         required: false
         type: boolean
       cluster_role:
-        description: 'Cluster Role'
+        description: "Cluster Role"
         required: true
         type: choice
         options:
@@ -255,6 +267,7 @@ membre à l'organisation, de modifier les fichiers Terraform, et de créer une
 Pull Request pour appliquer ces changements.
 
 #### Exemple de `workflow_call`
+
 ```yaml
 on:
   workflow_call:
@@ -269,7 +282,7 @@ standardisés dans différents projets.
 
 Voici un exemple d'utilisation de `workflow_call` :
 
-```yaml
+````yaml
 name: Réutilisation d'un workflow
 
 on:
@@ -309,3 +322,4 @@ différents scénarios de développement et de déploiement.
 GitHub Actions est conçu pour être intuitif et peut être étendu en utilisant des
 actions prédéfinies ou personnalisées, ce qui en fait un outil essentiel pour
 tout pipeline CI/CD moderne.
+````

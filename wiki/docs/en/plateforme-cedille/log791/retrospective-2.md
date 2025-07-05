@@ -4,33 +4,33 @@ Date: November 8, 2023
 
 ## 1. Completed Work
 
-| Task | Responsible |
-| -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| [Deploy sandbox cluster (vcluster)](https://github.com/ClubCedille/Plateforme-Cedille/issues/7) | Antoine |
-| [Install/Configure k8s-sigs/external-dns in the cluster](https://github.com/ClubCedille/Plateforme-Cedille/issues/35) | Michael |
-| [Deploy/Configure Hashicorp Vault](https://github.com/ClubCedille/Plateforme-Cedille/issues/14) | Simon |
-| [Deploy cert-manager (or equivalent) in the system](https://github.com/ClubCedille/Plateforme-Cedille/issues/26) | Antoine |
-| [Install/Configure Crossplane on the cluster](https://github.com/ClubCedille/Plateforme-Cedille/issues/31) | Michael |
-| [Create Kustomize structure](https://github.com/ClubCedille/Plateforme-Cedille/issues/25) | Michael |
-| [Configure ArgoCD on the cluster](https://github.com/ClubCedille/Plateforme-Cedille/issues/5) | Henri, Antoine, Simon, Jonathan |
-| [Configure Contour (reverse-proxy/ingress)](https://github.com/ClubCedille/Plateforme-Cedille/issues/11) | Jonathan |
-| [Pull request (PR) template for the Plateforme CEDILLE repo](https://github.com/orgs/ClubCedille/projects/3/views/5?pane=issue&itemId=41043072) | Henri |
-| [Issue template for the Plateforme CEDILLE repo](https://github.com/orgs/ClubCedille/projects/3/views/5?pane=issue&itemId=41043078) | Henri |
-| [Deploy/Configure Kuma + Merbridge (service-mesh)](https://github.com/ClubCedille/Plateforme-Cedille/issues/20) | Thomas |
-| [Configure/Deploy Grafana](https://github.com/ClubCedille/Plateforme-Cedille/issues/21) | Thomas |
-| [Configure and deploy Gateway API](https://github.com/ClubCedille/Plateforme-Cedille/issues/27) | Thomas |
-| [Deploy and configure Mayastor](https://github.com/ClubCedille/Plateforme-Cedille/issues/33) | Simon |
-| [Document KubeVirt](https://github.com/ClubCedille/Plateforme-Cedille/issues/28) | Thomas |
-| [Document Kuma and Merbridge](https://github.com/ClubCedille/Plateforme-Cedille/issues/29) | Thomas |
-| [Document Contour](https://github.com/ClubCedille/Plateforme-Cedille/issues/30) | Jonathan |
-| [Clickhouse operator with sample application](https://github.com/ClubCedille/Plateforme-Cedille/issues/37) | Thomas |
-| [Configure argocd-lovely-plugin](https://github.com/ClubCedille/Plateforme-Cedille/issues/42) | Simon |
-| [Configure/Deploy Clickhouse](https://github.com/ClubCedille/Plateforme-Cedille/issues/58) | Thomas |
-| [Configure OTEL](https://github.com/ClubCedille/Plateforme-Cedille/issues/60) | Thomas, Jonathan |
-| [Configure RBAC for Grafana and ArgoCD](https://github.com/ClubCedille/Plateforme-Cedille/issues/61) | Jonathan |
-| [Configure SSO for ArgoCD and Grafana](https://github.com/ClubCedille/Plateforme-Cedille/issues/62) | Jonathan |
-| [Configure/Deploy Linkerd](https://github.com/ClubCedille/Plateforme-Cedille/issues/32) | Thomas |
-| [Configure Vault with the Red Hat Operator](https://github.com/ClubCedille/Plateforme-Cedille/issues/65) | Simon |
+| Task                                                                                                                                            | Responsible                     |
+| ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| [Deploy sandbox cluster (vcluster)](https://github.com/ClubCedille/Plateforme-Cedille/issues/7)                                                 | Antoine                         |
+| [Install/Configure k8s-sigs/external-dns in the cluster](https://github.com/ClubCedille/Plateforme-Cedille/issues/35)                           | Michael                         |
+| [Deploy/Configure Hashicorp Vault](https://github.com/ClubCedille/Plateforme-Cedille/issues/14)                                                 | Simon                           |
+| [Deploy cert-manager (or equivalent) in the system](https://github.com/ClubCedille/Plateforme-Cedille/issues/26)                                | Antoine                         |
+| [Install/Configure Crossplane on the cluster](https://github.com/ClubCedille/Plateforme-Cedille/issues/31)                                      | Michael                         |
+| [Create Kustomize structure](https://github.com/ClubCedille/Plateforme-Cedille/issues/25)                                                       | Michael                         |
+| [Configure ArgoCD on the cluster](https://github.com/ClubCedille/Plateforme-Cedille/issues/5)                                                   | Henri, Antoine, Simon, Jonathan |
+| [Configure Contour (reverse-proxy/ingress)](https://github.com/ClubCedille/Plateforme-Cedille/issues/11)                                        | Jonathan                        |
+| [Pull request (PR) template for the Plateforme CEDILLE repo](https://github.com/orgs/ClubCedille/projects/3/views/5?pane=issue&itemId=41043072) | Henri                           |
+| [Issue template for the Plateforme CEDILLE repo](https://github.com/orgs/ClubCedille/projects/3/views/5?pane=issue&itemId=41043078)             | Henri                           |
+| [Deploy/Configure Kuma + Merbridge (service-mesh)](https://github.com/ClubCedille/Plateforme-Cedille/issues/20)                                 | Thomas                          |
+| [Configure/Deploy Grafana](https://github.com/ClubCedille/Plateforme-Cedille/issues/21)                                                         | Thomas                          |
+| [Configure and deploy Gateway API](https://github.com/ClubCedille/Plateforme-Cedille/issues/27)                                                 | Thomas                          |
+| [Deploy and configure Mayastor](https://github.com/ClubCedille/Plateforme-Cedille/issues/33)                                                    | Simon                           |
+| [Document KubeVirt](https://github.com/ClubCedille/Plateforme-Cedille/issues/28)                                                                | Thomas                          |
+| [Document Kuma and Merbridge](https://github.com/ClubCedille/Plateforme-Cedille/issues/29)                                                      | Thomas                          |
+| [Document Contour](https://github.com/ClubCedille/Plateforme-Cedille/issues/30)                                                                 | Jonathan                        |
+| [Clickhouse operator with sample application](https://github.com/ClubCedille/Plateforme-Cedille/issues/37)                                      | Thomas                          |
+| [Configure argocd-lovely-plugin](https://github.com/ClubCedille/Plateforme-Cedille/issues/42)                                                   | Simon                           |
+| [Configure/Deploy Clickhouse](https://github.com/ClubCedille/Plateforme-Cedille/issues/58)                                                      | Thomas                          |
+| [Configure OTEL](https://github.com/ClubCedille/Plateforme-Cedille/issues/60)                                                                   | Thomas, Jonathan                |
+| [Configure RBAC for Grafana and ArgoCD](https://github.com/ClubCedille/Plateforme-Cedille/issues/61)                                            | Jonathan                        |
+| [Configure SSO for ArgoCD and Grafana](https://github.com/ClubCedille/Plateforme-Cedille/issues/62)                                             | Jonathan                        |
+| [Configure/Deploy Linkerd](https://github.com/ClubCedille/Plateforme-Cedille/issues/32)                                                         | Thomas                          |
+| [Configure Vault with the Red Hat Operator](https://github.com/ClubCedille/Plateforme-Cedille/issues/65)                                        | Simon                           |
 
 ---
 

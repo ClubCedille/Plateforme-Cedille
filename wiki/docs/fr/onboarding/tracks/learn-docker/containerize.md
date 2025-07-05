@@ -10,9 +10,10 @@ fichiers.
 **1. Initialiser Docker dans Votre Projet :**
 
 Ouvrez le dossier de votre projet dans le terminal et exécutez la commande suivante :
-   ```
-   docker init
-   ```
+
+```
+docker init
+```
 
 **Explication :** Cette commande initie le processus de création des fichiers de
 configuration Docker nécessaires pour votre projet. Docker détectera le langage
@@ -25,94 +26,97 @@ La commande `docker init` vous guidera à travers une série de questions pour
 configurer votre projet avec des valeurs par défaut sensées. Ces questions
 peuvent inclure :
 
-   - Sélectionner l'image de base pour votre application.
-   - Spécifier le port que votre application utilisera.
-   - Définir toutes les dépendances ou variables d'environnement
-     supplémentaires.
+- Sélectionner l'image de base pour votre application.
+- Spécifier le port que votre application utilisera.
+- Définir toutes les dépendances ou variables d'environnement
+  supplémentaires.
 
 **Explication :** Docker utilise vos réponses pour générer un fichier
 `Dockerfile` et un fichier `compose.yaml` adaptés à votre application.
 
 **3. Comprendre les Fichiers Générés :**
 
-   - **Dockerfile :**
+- **Dockerfile :**
 
-     Le `Dockerfile` est un document texte qui contient les instructions pour
-     construire votre image Docker. Il inclut généralement des commandes pour
-     configurer l'image de base, installer les dépendances, copier les fichiers
-     d'application et spécifier le point d'entrée de votre application.
+  Le `Dockerfile` est un document texte qui contient les instructions pour
+  construire votre image Docker. Il inclut généralement des commandes pour
+  configurer l'image de base, installer les dépendances, copier les fichiers
+  d'application et spécifier le point d'entrée de votre application.
 
-     Exemple de `Dockerfile` :
-     ```dockerfile
-     # Utiliser une image parente officielle Node.js
-     FROM node:14
+  Exemple de `Dockerfile` :
 
-     # Définir le répertoire de travail dans le conteneur
-     WORKDIR /usr/src/app
+  ```dockerfile
+  # Utiliser une image parente officielle Node.js
+  FROM node:14
 
-     # Copier package.json et package-lock.json dans le conteneur
-     COPY package*.json ./
+  # Définir le répertoire de travail dans le conteneur
+  WORKDIR /usr/src/app
 
-     # Installer les dépendances
-     RUN npm install
+  # Copier package.json et package-lock.json dans le conteneur
+  COPY package*.json ./
 
-     # Copier le reste du code de l'application dans le conteneur
-     COPY . .
+  # Installer les dépendances
+  RUN npm install
 
-     # Exposer le port sur lequel l'application s'exécute
-     EXPOSE 3000
+  # Copier le reste du code de l'application dans le conteneur
+  COPY . .
 
-     # Définir la commande pour démarrer l'application
-     CMD ["npm", "start"]
-     ```
+  # Exposer le port sur lequel l'application s'exécute
+  EXPOSE 3000
 
-   - **Fichier Compose (`compose.yaml`) :**
+  # Définir la commande pour démarrer l'application
+  CMD ["npm", "start"]
+  ```
 
-     Le fichier `compose.yaml` définit les services qui composent votre
-     application, ainsi que leurs configurations. Il spécifie comment construire
-     et exécuter plusieurs conteneurs dans le cadre d'une seule pile
-     d'application.
+- **Fichier Compose (`compose.yaml`) :**
 
-     Exemple de `compose.yaml` :
-     ```yaml
-     version: '3.8'
+  Le fichier `compose.yaml` définit les services qui composent votre
+  application, ainsi que leurs configurations. Il spécifie comment construire
+  et exécuter plusieurs conteneurs dans le cadre d'une seule pile
+  d'application.
 
-     services:
-       web:
-         build: .
-         ports:
-           - "3000:3000"
-         volumes:
-           - .:/usr/src/app
-         environment:
-           NODE_ENV: development
-     ```
+  Exemple de `compose.yaml` :
 
-     **Explication :** Ce fichier définit un seul service (`web`) qui utilise le
-     `Dockerfile` dans le répertoire courant pour construire l'image, mappe le
-     port 3000 sur l'hôte vers le port 3000 dans le conteneur, et monte le
-     répertoire courant vers `/usr/src/app` à l'intérieur du conteneur.
+  ```yaml
+  version: "3.8"
+
+  services:
+    web:
+      build: .
+      ports:
+        - "3000:3000"
+      volumes:
+        - .:/usr/src/app
+      environment:
+        NODE_ENV: development
+  ```
+
+  **Explication :** Ce fichier définit un seul service (`web`) qui utilise le
+  `Dockerfile` dans le répertoire courant pour construire l'image, mappe le
+  port 3000 sur l'hôte vers le port 3000 dans le conteneur, et monte le
+  répertoire courant vers `/usr/src/app` à l'intérieur du conteneur.
 
 **4. Exécuter Votre Application Dockerisée :**
 
-   Une fois que vous avez répondu à toutes les questions et que Docker a généré les fichiers, vous pouvez exécuter votre application avec la commande suivante :
-   ```
-   docker-compose up -d
-   ```
+Une fois que vous avez répondu à toutes les questions et que Docker a généré les fichiers, vous pouvez exécuter votre application avec la commande suivante :
 
-   **Explication :** Cette commande construit l'image Docker et démarre les
-   conteneurs comme défini dans le fichier `compose.yaml`. Le drapeau `-d`
-   exécute les conteneurs en mode détaché (en arrière-plan).
+```
+docker-compose up -d
+```
+
+**Explication :** Cette commande construit l'image Docker et démarre les
+conteneurs comme défini dans le fichier `compose.yaml`. Le drapeau `-d`
+exécute les conteneurs en mode détaché (en arrière-plan).
 
 **5. Personnaliser Vos Fichiers de Configuration :**
 
-   Bien que Docker essaie de créer le `Dockerfile` et le fichier `compose.yaml`
-   avec des valeurs par défaut sensées, il peut y avoir des cas où vous devez
-   apporter des modifications supplémentaires. Vous pouvez consulter la
-   [référence Dockerfile](https://docs.docker.com/engine/reference/builder/) et
-   la [référence du fichier
-   Compose](https://docs.docker.com/compose/compose-file/) dans la documentation
-   Docker pour plus de détails sur la personnalisation de ces fichiers.
+Bien que Docker essaie de créer le `Dockerfile` et le fichier `compose.yaml`
+avec des valeurs par défaut sensées, il peut y avoir des cas où vous devez
+apporter des modifications supplémentaires. Vous pouvez consulter la
+[référence Dockerfile](https://docs.docker.com/engine/reference/builder/) et
+la [référence du fichier
+Compose](https://docs.docker.com/compose/compose-file/) dans la documentation
+Docker pour plus de détails sur la personnalisation de ces fichiers.
 
 ## Résumé
 

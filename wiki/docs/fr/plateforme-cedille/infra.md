@@ -9,4 +9,4 @@ serveurs à travers de Ceph. Ceph se chargera, entre autres, de faire des copies
 de sauvegarde (back ups) horaires qui seront enregistrées dans notre serveur des
 back ups et des copies de sauvegarde journalières qui seront stockées à l'aide
 de Backblaze dans un servers qui ne réside pas à l'ÉTS afin d'assurer une
-résilience optimale.  ![infra](img/infra-cedille.png)
+résilience optimale. ![infra](img/infra-cedille.png)

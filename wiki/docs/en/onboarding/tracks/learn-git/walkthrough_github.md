@@ -38,10 +38,10 @@ key.
 ### 4. Clone a repository
 
 It is now time to start working on a repo ! You can clone your own default repo,
-and we will add stuff to your `readme.md`. *Make sure to execute this command
-where you want to add your local repo*.
+and we will add stuff to your `readme.md`. _Make sure to execute this command
+where you want to add your local repo_.
 
-``` bash
+```bash
 git clone git@github.com:YourUsename/YourUsername.git
 ```
 
@@ -49,18 +49,21 @@ git clone git@github.com:YourUsename/YourUsername.git
 
 While being in your local repo, create a new file :
 
-|Linux|Windows|
-|-----|-------|
-|`touch test.md`|`echo test123 > test.md`|
+| Linux           | Windows                  |
+| --------------- | ------------------------ |
+| `touch test.md` | `echo test123 > test.md` |
 
 Let's now add your file to be tracked by Git:
-``` bash
+
+```bash
 git add test.md
 ```
 
 ### 6. Commit changes
+
 Add some text to `test.md` and commit them to the history using:
-``` bash
+
+```bash
 git commit -m "Added some text"
 ```
 
@@ -68,10 +71,11 @@ The `-m "Added some text"` is an option to add a message along with your
 commit. It is required in our case.
 
 ### 7. Push changes
+
 After a couple of commits, you would want to share them with everyone by pushing
 them to the remote repo.
 
-``` bash
+```bash
 git push origin main
 ```
 
@@ -85,11 +89,12 @@ You can now head over to https://github.com/YourUsername/YourUsername.git to see
 your new files added to the remote repo.
 
 ### 8. Pull new changes
+
 While on the Github website, add a new file to your remote repo using the button
 on the top left. As you'll see, it won't be synchronised with your local repo,
 unless you use the following:
 
-``` bash
+```bash
 git fetch origin main
 git pull origin main
 ```
@@ -111,6 +116,7 @@ the extensions in your IDE (Most of them have one installed by default.).
 ## Github specifics tools
 
 ### Issues
+
 A big part of why we chose Github is because of its issue tracking. It is a way
 to track and manage bugs or upcoming features within a repo. We may assign a
 user to it, or add a comment to someone's suggested fix.
@@ -121,7 +127,7 @@ This wiki is hosted on our repo **Plateforme-Cedille**. You can see its issues
 ### Pull requests
 
 If anyone started pushing their changes into the remote repo, it would become
-*chaos*. A pull request (often called a PR) is a proposed change to the
+_chaos_. A pull request (often called a PR) is a proposed change to the
 codebase, which an approved user (such as the captain of CEDILLE) may pull into
 the main branch.
 

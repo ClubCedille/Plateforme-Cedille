@@ -58,8 +58,7 @@ you see fit.
 Copy the following block of Markdown text to your README.md file in your
 code/text editor.
 
-``` markdown
-
+```markdown
 # 👋 Hello, I'm YOUR NAME
 
 ![Typing SVG](https://readme-typing-svg.demolab.com/?lines=Passionate+Engineer;Lifelong+Learner;Open+Source+Lover&center=true&width=500&height=50)
@@ -67,6 +66,7 @@ code/text editor.
 ---
 
 ## 🔧 Technologies & Tools
+
 ![Python](https://img.shields.io/badge/-Python-333333?style=flat&logo=python)
 ![JavaScript](https://img.shields.io/badge/-JavaScript-333333?style=flat&logo=javascript)
 ![Linux](https://img.shields.io/badge/-Linux-333333?style=flat&logo=linux)
@@ -74,6 +74,7 @@ code/text editor.
 ---
 
 ## 📈 GitHub Stats
+
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=your-username&show_icons=true&theme=radical" alt="GitHub Stats" />
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=your-username&theme=radical" alt="GitHub Streak" />
@@ -82,14 +83,15 @@ code/text editor.
 ---
 
 ## 📌 About Me
+
 - 🔭 I’m currently studying [DOMAINE D'ETUDES] at ETS Montréal.
 - 🌱 I’m currently learning [FIELDS OF INTEREST]
 
 ---
 
 ## 🎯 Fun Fact
-💡 [Fun fact about yourself]
 
+💡 [Fun fact about yourself]
 ```
 
 ## Step 4: Edit Your README.md
@@ -108,7 +110,6 @@ need make:
 5. In the About me section, you can add your field of study and your field of
    interest.
 6. Fun Fact section : optional, you can remove it if you want.
-
 
 ## Step 5: Explore the Inspiration Repository
 
@@ -164,7 +165,6 @@ Congratulations on doing your first **_real_** git workflow.
 Now, it's time to harness the real power of Git : Team Development.
 
 Let's meet again in the [next section](team_collaboration.md) !
-
 
 ??? danger "DO NOT CLICK ON THIS!"
 

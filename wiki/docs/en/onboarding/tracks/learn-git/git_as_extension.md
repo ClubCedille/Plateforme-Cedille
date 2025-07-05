@@ -26,11 +26,11 @@ compares to the command line.
 ## ✅ Committing Changes
 
 **CLI:**
-``` bash
+
+```bash
 git add .
 git commit -m "Your message"
 ```
-
 
 VSCode:
 
@@ -56,7 +56,6 @@ VSCode:
     Or click the sync icon (🔄) in the status bar
 
 ![Push_sync](./img/push_sync.png)
-
 
 ## ⬇️ Pulling Latest Changes
 
@@ -105,11 +104,13 @@ git checkout -b feature/branch-name
 VSCode:
 
     Click on the branch name in the bottom-left corner
+
 ![branch_bottom](./img/branch_bottom.png)
 
     Select Create New Branch…  ![create_branch](./img/create_branch.png)
 
     Enter a name and select the base branch (usually main)
+
 ![branch_name](./img/branch_name.png)
 
 ## 🔁 Switching Branches
@@ -125,8 +126,8 @@ VSCode:
     Click the branch name in the bottom-left corner
 
     Select the branch you want from the dropdown list
-![switch_branches](./img/switch_branches.png)
 
+![switch_branches](./img/switch_branches.png)
 
 > 🔄 No need to remember branch names — they're listed for you.
 
@@ -155,14 +156,14 @@ CLI:
 git checkout target-branch
 git merge source-branch
 ```
+
 VSCode:
 
     Go to Source Control → ... → Branch
+
 ![merge_branch_1](./img/del_branch_1.png)
 
     Branch → Merge...  ![merge_branch](./img/merge_branch.png)
-
-
 
 > 📌 VSCode alerts you about incoming conflicts and allows side-by-side
 > resolution.
@@ -171,7 +172,7 @@ VSCode:
 
 VSCode shines here with visual tools:
 
-* Conflicting lines are highlighted with:
+- Conflicting lines are highlighted with:
 
 ```diff
 + <<<<<<< HEAD
@@ -181,7 +182,7 @@ incoming changes
 + >>>>>>> other-branch
 ```
 
-* Buttons appear above: Accept Current, Accept Incoming, Accept Both, or
+- Buttons appear above: Accept Current, Accept Incoming, Accept Both, or
   Compare.
 
 This makes conflict resolution much more manageable than the CLI.
