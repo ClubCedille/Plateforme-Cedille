@@ -21,7 +21,8 @@ sample application:
 git clone https://github.com/docker/multi-container-app
 ```
 
-**Explanation:** This command downloads a copy of the repository to your local machine.
+**Explanation:** This command downloads a copy of the repository to your local
+machine.
 
 **2. Navigate to the Repository:**
 
@@ -31,11 +32,13 @@ Change your current directory to the cloned repository:
 cd multi-container-app
 ```
 
-**Explanation:** This command changes the current working directory to the `multi-container-app` folder where the application code is located.
+**Explanation:** This command changes the current working directory to the
+`multi-container-app` folder where the application code is located.
 
 **3. Explore the `compose.yaml` File:**
 
-The `compose.yaml` file defines the services (containers) needed to run the application. Open this file in a text editor to see the configuration:
+The `compose.yaml` file defines the services (containers) needed to run the
+application. Open this file in a text editor to see the configuration:
 
 ```yaml
 version: "3"
@@ -98,7 +101,8 @@ To stop the running containers, use the `docker compose down` command:
 docker compose down
 ```
 
-**Explanation:** This command stops and removes containers, networks, volumes, and images created by `docker compose up`.
+**Explanation:** This command stops and removes containers, networks, volumes,
+and images created by `docker compose up`.
 
 ## Detailed Breakdown of `compose.yaml`
 
@@ -133,7 +137,8 @@ command helps with this.
 docker compose watch
 ```
 
-**Explanation:** This command monitors changes in your source code and automatically restarts the affected services.
+**Explanation:** This command monitors changes in your source code and
+automatically restarts the affected services.
 
 **2. Make Real-Time Changes:**
 

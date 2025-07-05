@@ -242,8 +242,10 @@ volumes:
   - `networks` : Attache le conteneur au réseau `app-network`.
 - `backend` : -
 
-`image` : Spécifie l'image Docker pour le service backend (mysql:5.7). - `environment` : Définit les variables d'environnement requises par MySQL. - `volumes` : Montre un volume nommé `db-data` pour stocker de manière
-persistante les données MySQL. - `networks` : Attache le conteneur au réseau `app-network`.
+`image` : Spécifie l'image Docker pour le service backend (mysql:5.7). -
+`environment` : Définit les variables d'environnement requises par MySQL. -
+`volumes` : Montre un volume nommé `db-data` pour stocker de manière persistante
+les données MySQL. - `networks` : Attache le conteneur au réseau `app-network`.
 
 - `networks` : Définit un réseau nommé `app-network` pour la communication entre
   les services.

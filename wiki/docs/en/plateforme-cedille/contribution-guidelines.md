@@ -33,9 +33,9 @@ GitHub username to be added to our organization:
 
 1. **Clone the Project Locally**: Use the `git clone` command to clone the
    project to your machine. Example: `sh git clone
-https://github.com/ClubCedille/cedille.etsmtl.ca.git ` This command
-   downloads a complete copy of the repository to your local machine, allowing
-   you to work offline.
+   https://github.com/ClubCedille/cedille.etsmtl.ca.git ` This command downloads
+   a complete copy of the repository to your local machine, allowing you to work
+   offline.
 
 2. **Open the Project with Your IDE**: Use your preferred IDE to open the cloned
    project. An IDE (Integrated Development Environment) such as Visual Studio
@@ -43,20 +43,19 @@ https://github.com/ClubCedille/cedille.etsmtl.ca.git ` This command
    changes more effectively.
 
 3. **Create a New Branch**: Before you start working on changes, create a new
-   branch for your contributions using the command: `sh git branch
-[branch_name] ` Then switch to this branch with: `sh git checkout
-[branch_name] ` Creating branches allows you to work on specific features
-   or fixes without affecting the main branch of the project.
+   branch for your contributions using the command: `sh git branch [branch_name]
+   ` Then switch to this branch with: `sh git checkout [branch_name] ` Creating
+   branches allows you to work on specific features or fixes without affecting
+   the main branch of the project.
 
 4. **Make Your Changes**: Make the necessary changes in your development
    environment. After finishing, save your changes with the command: `sh git
-commit -am “describe your changes here” ` It is important to write clear
-   and descriptive commit messages to facilitate understanding of the changes
-   made.
+   commit -am “describe your changes here” ` It is important to write clear and
+   descriptive commit messages to facilitate understanding of the changes made.
 
 5. **Push Your Branch**: Push your branch to the remote repository using: `sh
-git push -u origin [branch_name] ` The `-u` flag configures the local
-   branch to track the remote branch, making future synchronizations easier.
+git push -u origin [branch_name] ` The `-u` flag configures the local branch to
+track the remote branch, making future synchronizations easier.
 
 6. **Open a Pull Request**: On the GitHub site, navigate to your branch and
    click on “New pull request” to open a new request. Fill out the Pull Request
@@ -69,9 +68,8 @@ git push -u origin [branch_name] ` The `-u` flag configures the local
      ```sh
      git merge [branch_name] --no-ff
      ```
-   - **Merge via the GitHub user interface**: On the Pull Request page, use
-     the appropriate button that will appear once your commit has been
-     approved.
+   - **Merge via the GitHub user interface**: On the Pull Request page, use the
+     appropriate button that will appear once your commit has been approved.
 
      ![Pull Request](img/pullRequest.png)
 

@@ -43,16 +43,17 @@ volumes:
 
 **Explication :**
 
-- L'élément `volumes` imbriqué dans `todo-database` indique à Compose de
-  monter le volume nommé `database` sur `/data/db` dans le conteneur pour le
-  service `todo-database`.
-- L'élément `volumes` de niveau supérieur définit et configure un volume
-  nommé `database` qui peut être utilisé par n'importe quel service dans le
-  fichier Compose.
+- L'élément `volumes` imbriqué dans `todo-database` indique à Compose de monter
+  le volume nommé `database` sur `/data/db` dans le conteneur pour le service
+  `todo-database`.
+- L'élément `volumes` de niveau supérieur définit et configure un volume nommé
+  `database` qui peut être utilisé par n'importe quel service dans le fichier
+  Compose.
 
 **3. Lancer l'Application Docker Compose :**
 
-Ouvrez un terminal dans votre répertoire de projet et exécutez la commande suivante :
+Ouvrez un terminal dans votre répertoire de projet et exécutez la commande
+suivante :
 
 ```
 docker-compose up -d
@@ -64,12 +65,13 @@ vérifiera l'existence du volume `database` et le créera s'il n'existe pas.
 **4. Persistance des Données :**
 
 Maintenant, peu importe à quelle fréquence vous supprimez et redémarrez le
-conteneur, vos données sont persistées. Les données stockées dans le
-répertoire `/data/db` à l'intérieur du conteneur sont sauvegardées dans le
-volume `database`. Ce volume est accessible à tout conteneur sur votre
-système en montant le volume `database`.
+conteneur, vos données sont persistées. Les données stockées dans le répertoire
+`/data/db` à l'intérieur du conteneur sont sauvegardées dans le volume
+`database`. Ce volume est accessible à tout conteneur sur votre système en
+montant le volume `database`.
 
-Pour arrêter et supprimer les conteneurs, les réseaux et les volumes créés par `docker-compose up`, utilisez :
+Pour arrêter et supprimer les conteneurs, les réseaux et les volumes créés par
+`docker-compose up`, utilisez :
 
 ```
 docker-compose down

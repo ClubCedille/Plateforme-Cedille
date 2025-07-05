@@ -79,8 +79,8 @@ you can push it to Docker Hub.
 
 **1. Tag Your Image:**
 
-Before you can push your image, you need to tag it with your Docker Hub
-username and repository name:
+Before you can push your image, you need to tag it with your Docker Hub username
+and repository name:
 
 ```bash
 docker tag <local-image> <dockerhub-username>/<repository-name>:<tag>
@@ -107,42 +107,41 @@ Using the previous example, you would use:
 docker push myusername/myapp:latest
 ```
 
-This command uploads your image to Docker Hub, making it available for others
-to pull and use.
+This command uploads your image to Docker Hub, making it available for others to
+pull and use.
 
 ### Useful Features of Docker Hub
 
 **1. Automated Builds:**
 
 Docker Hub can automatically build images from a GitHub or Bitbucket
-repository. This is useful for continuous integration and continuous
-deployment (CI/CD) workflows. You can set up automated builds in the Docker
-Hub repository settings.
+repository. This is useful for continuous integration and continuous deployment
+(CI/CD) workflows. You can set up automated builds in the Docker Hub repository
+settings.
 
 **2. Webhooks:**
 
 Webhooks allow you to trigger actions after a successful push or pull of an
-image. You can use webhooks to integrate Docker Hub with other services, such
-as triggering a deployment process after an image is pushed.
+image. You can use webhooks to integrate Docker Hub with other services, such as
+triggering a deployment process after an image is pushed.
 
 **3. Organizations and Teams:**
 
 Docker Hub supports organizations and teams, making it easier to manage
 permissions and collaborate on projects. You can create an organization, add
-team members, and assign roles to control who can access and modify your
-images.
+team members, and assign roles to control who can access and modify your images.
 
 **4. Official Images:**
 
-Docker Hub hosts a variety of official images that are maintained by Docker
-and other trusted entities. These images are generally well-documented,
-regularly updated, and provide a good starting point for many applications.
+Docker Hub hosts a variety of official images that are maintained by Docker and
+other trusted entities. These images are generally well-documented, regularly
+updated, and provide a good starting point for many applications.
 
 **5. Repositories:**
 
-You can create multiple repositories under your Docker Hub account to
-organize your images. Each repository can hold multiple versions of an image,
-tagged with different tags (e.g., `latest`, `v1.0`, `v2.0`).
+You can create multiple repositories under your Docker Hub account to organize
+your images. Each repository can hold multiple versions of an image, tagged with
+different tags (e.g., `latest`, `v1.0`, `v2.0`).
 
 **6. Image Insights:**
 
@@ -161,15 +160,15 @@ are some key features:
 
 **1. Integration with GitHub Repositories:**
 
-- GitHub Container Registry allows you to store container images alongside
-  your code repositories. This integration simplifies your workflow by
-  keeping your code and container images in one place.
+- GitHub Container Registry allows you to store container images alongside your
+  code repositories. This integration simplifies your workflow by keeping your
+  code and container images in one place.
 
 **2. Access Control and Permissions:**
 
 - You can control who has access to your container images using GitHub's
-  existing permission model. This makes it easy to manage access for your
-  team members.
+  existing permission model. This makes it easy to manage access for your team
+  members.
 
 **3. Support for Public and Private Images:**
 
@@ -179,14 +178,14 @@ are some key features:
 
 **4. GitHub Actions Integration:**
 
-- You can use GitHub Actions to automate your workflows, including building
-  and pushing images to the GitHub Container Registry. This is useful for
-  CI/CD pipelines, ensuring that your images are always up-to-date.
+- You can use GitHub Actions to automate your workflows, including building and
+  pushing images to the GitHub Container Registry. This is useful for CI/CD
+  pipelines, ensuring that your images are always up-to-date.
 
 **5. Free for Public Repositories:**
 
-- GitHub Container Registry offers free usage for public repositories, making
-  it an attractive option for open-source projects.
+- GitHub Container Registry offers free usage for public repositories, making it
+  an attractive option for open-source projects.
 
 ### Summary
 

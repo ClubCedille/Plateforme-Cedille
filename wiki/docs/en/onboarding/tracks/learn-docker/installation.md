@@ -60,12 +60,13 @@ Hub account:
 
 - **Windows:**
 
-Download Git from [git-scm.com](https://git-scm.com/download/win) and run
-the installer. Follow the prompts and choose the default options.
+Download Git from [git-scm.com](https://git-scm.com/download/win) and run the
+installer. Follow the prompts and choose the default options.
 
 - **macOS:**
 
-Git should already be available on macOS. You can verify by opening Terminal and typing:
+Git should already be available on macOS. You can verify by opening Terminal and
+typing:
 
     ```bash
     git --version

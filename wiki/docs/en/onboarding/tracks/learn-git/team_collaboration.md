@@ -22,8 +22,8 @@ without breaking anything 👨‍👩‍👧‍👦 Collaborate with others work
 tasks 🔁 Merge your work back into the main branch when it's ready
 
 Each branch starts from a specific point (usually `main` or another feature) and
-evolves independently. This way, teams can work **simultaneously and safely**
-on many parts of a project.
+evolves independently. This way, teams can work **simultaneously and safely** on
+many parts of a project.
 
 > 🔐 Branching is the foundation of collaborative development. Without it,
 > everyone would be working on the same files at the same time — leading to

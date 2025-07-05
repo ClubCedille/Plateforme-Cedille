@@ -247,15 +247,15 @@ vos propres serveurs d'exécution.
 
 ### Comparaison des Fonctionnalités
 
-| Outils CI/CD      | GitHub Actions     | Jenkins           | Travis CI          | CircleCI           |
+| Outils CI/CD | GitHub Actions | Jenkins | Travis CI | CircleCI |
 | ----------------- | ------------------ | ----------------- | ------------------ | ------------------ |
-| **Intégration**   | Native GitHub      | Externe           | Externe            | Externe            |
+| **Intégration** | Native GitHub | Externe | Externe | Externe |
 | **Configuration** | YAML dans le dépôt | Interface Jenkins | YAML dans le dépôt | YAML dans le dépôt |
 
-| **Caractéristiques** | **GitHub Actions**       | **Jenkins**      | **CircleCI**        | **GitLab CI/CD**         |
+| **Caractéristiques** | **GitHub Actions** | **Jenkins** | **CircleCI** | **GitLab CI/CD** |
 | -------------------- | ------------------------ | ---------------- | ------------------- | ------------------------ |
-| **Runners**          | Hébergés / Auto-hébergés | Serveurs Jenkins | Hébergés uniquement | Hébergés / Auto-hébergés |
-| **Marketplace**      | Oui, avec actions        | Plugins Jenkins  | Oui                 | Oui                      |
+| **Runners** | Hébergés / Auto-hébergés | Serveurs Jenkins | Hébergés uniquement | Hébergés / Auto-hébergés |
+| **Marketplace** | Oui, avec actions | Plugins Jenkins | Oui | Oui |
 
 ---
 

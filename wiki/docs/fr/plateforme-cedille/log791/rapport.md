@@ -314,19 +314,19 @@ cohérence dans le code du projet.
 
 ## Défis et Solutions
 
-| Défi                                       | Problème                                 | Solution                                                    |
+| Défi | Problème | Solution |
 | ------------------------------------------ | ---------------------------------------- | ----------------------------------------------------------- |
-| Installation de Kubernetes/Talos           | Cryptage des disques non fonctionnel     | Désactivation du cryptage avant installation                |
-|                                            | Installation brisée si clé USB retirée   | Réinstallation avec identifiants de disque durables         |
-| Configuration d'ISO dans PVC pour KubeVirt | Besoin de simplifier la gestion des PVCs | Utilisation du CDI de KubeVirt                              |
-| Installation de Rook-Ceph                  | Cluster Ceph inutilisable, échec des OSD | Effacement manuel des disques et redémarrage de l'opérateur |
-| Stabilité de Rook/Ceph                     | Instabilité après redémarrage d'un node  | Remplacement par Mayastor                                   |
-| Configuration d'un service mesh            | Problèmes avec Linkerd et mTLS           | Choix de Kuma pour mTLS et support de Gateway API           |
-| Installation du service External-DNS       | Service non fonctionnel, cause inconnue  | Enquête en cours, exploration de solutions alternatives     |
-| Configuration SSO pour ArgoCD              | Gestion non sécurisée des secrets        | Utilisation de Vault pour la gestion sécurisée des secrets  |
-| Bootstrapping de Hashicorp Vault           | Processus manuel complexe                | Automatisation partielle via Terraform et scripts           |
-| Déploiement de Calidum-rotae               | Acheminement partiel des requêtes        | Configuration directe d'une webhook Discord                 |
-| Enregistrement de VCluster dans ArgoCD     | Difficulté d'enregistrement sécurisé     | Utilisation de Crossplane pour enregistrement déclaratif    |
+| Installation de Kubernetes/Talos | Cryptage des disques non fonctionnel | Désactivation du cryptage avant installation |
+|                                            | Installation brisée si clé USB retirée | Réinstallation avec identifiants de disque durables |
+| Configuration d'ISO dans PVC pour KubeVirt | Besoin de simplifier la gestion des PVCs | Utilisation du CDI de KubeVirt |
+| Installation de Rook-Ceph | Cluster Ceph inutilisable, échec des OSD | Effacement manuel des disques et redémarrage de l'opérateur |
+| Stabilité de Rook/Ceph | Instabilité après redémarrage d'un node | Remplacement par Mayastor |
+| Configuration d'un service mesh | Problèmes avec Linkerd et mTLS | Choix de Kuma pour mTLS et support de Gateway API |
+| Installation du service External-DNS | Service non fonctionnel, cause inconnue | Enquête en cours, exploration de solutions alternatives |
+| Configuration SSO pour ArgoCD | Gestion non sécurisée des secrets | Utilisation de Vault pour la gestion sécurisée des secrets |
+| Bootstrapping de Hashicorp Vault | Processus manuel complexe | Automatisation partielle via Terraform et scripts |
+| Déploiement de Calidum-rotae | Acheminement partiel des requêtes | Configuration directe d'une webhook Discord |
+| Enregistrement de VCluster dans ArgoCD | Difficulté d'enregistrement sécurisé | Utilisation de Crossplane pour enregistrement déclaratif |
 
 ## Résultats
 

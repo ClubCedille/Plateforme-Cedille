@@ -9,7 +9,8 @@ fichiers.
 
 **1. Initialiser Docker dans Votre Projet :**
 
-Ouvrez le dossier de votre projet dans le terminal et exécutez la commande suivante :
+Ouvrez le dossier de votre projet dans le terminal et exécutez la commande
+suivante :
 
 ```
 docker init
@@ -28,8 +29,7 @@ peuvent inclure :
 
 - Sélectionner l'image de base pour votre application.
 - Spécifier le port que votre application utilisera.
-- Définir toutes les dépendances ou variables d'environnement
-  supplémentaires.
+- Définir toutes les dépendances ou variables d'environnement supplémentaires.
 
 **Explication :** Docker utilise vos réponses pour générer un fichier
 `Dockerfile` et un fichier `compose.yaml` adaptés à votre application.
@@ -71,9 +71,8 @@ peuvent inclure :
 - **Fichier Compose (`compose.yaml`) :**
 
   Le fichier `compose.yaml` définit les services qui composent votre
-  application, ainsi que leurs configurations. Il spécifie comment construire
-  et exécuter plusieurs conteneurs dans le cadre d'une seule pile
-  d'application.
+  application, ainsi que leurs configurations. Il spécifie comment construire et
+  exécuter plusieurs conteneurs dans le cadre d'une seule pile d'application.
 
   Exemple de `compose.yaml` :
 
@@ -92,31 +91,32 @@ peuvent inclure :
   ```
 
   **Explication :** Ce fichier définit un seul service (`web`) qui utilise le
-  `Dockerfile` dans le répertoire courant pour construire l'image, mappe le
-  port 3000 sur l'hôte vers le port 3000 dans le conteneur, et monte le
-  répertoire courant vers `/usr/src/app` à l'intérieur du conteneur.
+  `Dockerfile` dans le répertoire courant pour construire l'image, mappe le port
+  3000 sur l'hôte vers le port 3000 dans le conteneur, et monte le répertoire
+  courant vers `/usr/src/app` à l'intérieur du conteneur.
 
 **4. Exécuter Votre Application Dockerisée :**
 
-Une fois que vous avez répondu à toutes les questions et que Docker a généré les fichiers, vous pouvez exécuter votre application avec la commande suivante :
+Une fois que vous avez répondu à toutes les questions et que Docker a généré les
+fichiers, vous pouvez exécuter votre application avec la commande suivante :
 
 ```
 docker-compose up -d
 ```
 
 **Explication :** Cette commande construit l'image Docker et démarre les
-conteneurs comme défini dans le fichier `compose.yaml`. Le drapeau `-d`
-exécute les conteneurs en mode détaché (en arrière-plan).
+conteneurs comme défini dans le fichier `compose.yaml`. Le drapeau `-d` exécute
+les conteneurs en mode détaché (en arrière-plan).
 
 **5. Personnaliser Vos Fichiers de Configuration :**
 
 Bien que Docker essaie de créer le `Dockerfile` et le fichier `compose.yaml`
 avec des valeurs par défaut sensées, il peut y avoir des cas où vous devez
-apporter des modifications supplémentaires. Vous pouvez consulter la
-[référence Dockerfile](https://docs.docker.com/engine/reference/builder/) et
-la [référence du fichier
-Compose](https://docs.docker.com/compose/compose-file/) dans la documentation
-Docker pour plus de détails sur la personnalisation de ces fichiers.
+apporter des modifications supplémentaires. Vous pouvez consulter la [référence
+Dockerfile](https://docs.docker.com/engine/reference/builder/) et la [référence
+du fichier Compose](https://docs.docker.com/compose/compose-file/) dans la
+documentation Docker pour plus de détails sur la personnalisation de ces
+fichiers.
 
 ## Résumé
 

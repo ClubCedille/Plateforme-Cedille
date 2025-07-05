@@ -1,14 +1,15 @@
 ## Install Docker
 
-Before you begin, make sure Git and Docker is installed on your system. You
-can download Docker from the [official Docker
+Before you begin, make sure Git and Docker is installed on your system. You can
+download Docker from the [official Docker
 website](https://www.docker.com/products/docker-desktop/).
 
 ## Running Your First Docker Container
 
 **1. Clone the Repository:**
 
-Open your terminal or command prompt after Git is installed and clone the 'welcome-to-docker' repository from GitHub using the following command:
+Open your terminal or command prompt after Git is installed and clone the
+'welcome-to-docker' repository from GitHub using the following command:
 
     ```bash
     git clone https://github.com/docker/welcome-to-docker
@@ -24,7 +25,9 @@ cd welcome-to-docker
 
 **3. Run the Docker Container:**
 
-Use the `docker run` command to start the container. In this case, we'll run the 'welcome-to-docker' container and map port 8088 on your host to port 80 inside the container:
+Use the `docker run` command to start the container. In this case, we'll run the
+'welcome-to-docker' container and map port 8088 on your host to port 80 inside
+the container:
 
 ```bash
 docker run -d -p 8088:80 docker/getting-started
@@ -46,7 +49,8 @@ successfully.
 
 **1. Search for Containers on Docker Hub:**
 
-You can search for containers on Docker Hub using the `docker search` command. For example, to search for containers related to **nginx**, use:
+You can search for containers on Docker Hub using the `docker search`
+command. For example, to search for containers related to **nginx**, use:
 
 ```bash
 docker search nginx
@@ -54,7 +58,8 @@ docker search nginx
 
 **2. Pull a Container from Docker Hub:**
 
-Use the `docker pull` command to download a container image from Docker Hub. For example, to pull the official **nginx** container image, use:
+Use the `docker pull` command to download a container image from Docker Hub. For
+example, to pull the official **nginx** container image, use:
 
 ```bash
 docker pull nginx
@@ -62,7 +67,9 @@ docker pull nginx
 
 **3. Run a Container from Pulled Image:**
 
-Once you've pulled an image, you can run a container from it using `docker run`. For example, to run an **nginx** container and map port 8080 on your host to port 80 inside the container, use:
+Once you've pulled an image, you can run a container from it using `docker
+run`. For example, to run an **nginx** container and map port 8080 on your host
+to port 80 inside the container, use:
 
     ```bash
     docker run -d -p 8080:80 nginx

@@ -70,13 +70,15 @@ applications.
 
 ### How to Use Actions from the Marketplace
 
-To use an action from the Marketplace, add it to your `steps` using the following syntax:
+To use an action from the Marketplace, add it to your `steps` using the
+following syntax:
 
 ```yaml
 uses: <action>@<version>
 ```
 
-Here’s an example using the `actions/checkout` action to retrieve a repository’s source code.
+Here’s an example using the `actions/checkout` action to retrieve a repository’s
+source code.
 
 #### Example
 
@@ -133,8 +135,10 @@ Here’s the process followed to create the
 ````markdown
 ### Types of Custom Actions
 
-1. **JavaScript Actions**: Actions written in JavaScript that run directly in the runner environment.
-2. **Docker Actions**: Actions encapsulated in a Docker container, allowing for a more complex runtime environment.
+1. **JavaScript Actions**: Actions written in JavaScript that run directly in
+   the runner environment.
+2. **Docker Actions**: Actions encapsulated in a Docker container, allowing for
+   a more complex runtime environment.
 
 ### Creating a Simple Custom JavaScript Action
 
@@ -297,12 +301,14 @@ jobs:
       - name: Build backend run: npm run build-backend
 ```
 
-In this example, the
-`build-frontend` and `build-backend` jobs will run in parallel.
+In this example, the `build-frontend` and `build-backend` jobs will run in
+parallel.
 
 ### Conditional Execution
 
-You can define conditions to control when jobs or steps are run, such as running specific actions only if a test fails or if the branch matches a certain condition.
+You can define conditions to control when jobs or steps are run, such as running
+specific actions only if a test fails or if the branch matches a certain
+condition.
 
 #### Conditional Execution with `if`
 

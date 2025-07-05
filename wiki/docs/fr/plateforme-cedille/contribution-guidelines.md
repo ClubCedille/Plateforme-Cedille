@@ -37,7 +37,7 @@ organisation :
 
 1. **Clonez le projet localement** : Utilisez la commande `git clone` pour
    cloner le projet sur votre machine. Exemple : `sh git clone
-https://github.com/ClubCedille/cedille.etsmtl.ca.git ` Cette commande
+   https://github.com/ClubCedille/cedille.etsmtl.ca.git ` Cette commande
    télécharge une copie complète du dépôt sur votre machine locale, vous
    permettant de travailler hors ligne.
 
@@ -48,16 +48,16 @@ https://github.com/ClubCedille/cedille.etsmtl.ca.git ` Cette commande
 
 3. **Créez une nouvelle branche** : Avant de commencer à travailler sur des
    modifications, créez une nouvelle branche pour vos contributions avec la
-   commande `sh git branch [branch_name] ` Puis passez à cette branche avec
-   `sh git checkout [branch_name] ` La création de branches permet de
-   travailler sur des fonctionnalités ou des corrections spécifiques sans
-   affecter la branche principale du projet.
+   commande `sh git branch [branch_name] ` Puis passez à cette branche avec `sh
+   git checkout [branch_name] ` La création de branches permet de travailler sur
+   des fonctionnalités ou des corrections spécifiques sans affecter la branche
+   principale du projet.
 
 4. **Effectuez vos modifications** : Apportez les modifications nécessaires dans
    votre environnement de développement. Après avoir terminé, enregistrez vos
    changements avec la commande `sh git commit -am “décrivez vos modifications
-ici” ` Il est important d'écrire des messages de commit clairs et
-   descriptifs pour faciliter la compréhension des modifications apportées.
+   ici” ` Il est important d'écrire des messages de commit clairs et descriptifs
+   pour faciliter la compréhension des modifications apportées.
 
 5. **Poussez votre branche** : Envoyez votre branche vers le dépôt distant avec
    `sh git push -u origin [nom_de_branche] ` Le drapeau `-u` configure la
@@ -77,16 +77,16 @@ ici” ` Il est important d'écrire des messages de commit clairs et
      ```sh
      git merge [branch_name] --no-ff
      ```
-   - **Fusion via l'interface utilisateur de GitHub** : Sur la page de la
-     Pull Request, utilisez le bouton approprié qui apparaîtra une fois votre
-     commit approuvé.
+   - **Fusion via l'interface utilisateur de GitHub** : Sur la page de la Pull
+     Request, utilisez le bouton approprié qui apparaîtra une fois votre commit
+     approuvé.
 
      ![Pull Request](img/pullRequest.png)
 
 8. **Maintenez votre copie à jour** : Avant de commencer à travailler,
    assurez-vous de récupérer les dernières modifications du projet en utilisant
-   `sh git pull origin main ` Cela garantit que vous travaillez avec la
-   version la plus récente du code et évite les conflits de fusion.
+   `sh git pull origin main ` Cela garantit que vous travaillez avec la version
+   la plus récente du code et évite les conflits de fusion.
 
 9. **Utilisez des outils graphiques si nécessaire** : Si vous trouvez que la
    ligne de commande est difficile à gérer, envisagez d'utiliser une interface

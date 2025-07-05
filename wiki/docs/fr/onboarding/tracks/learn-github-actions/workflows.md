@@ -74,13 +74,15 @@ applications.
 
 ### Comment Utiliser des Actions depuis le Marketplace
 
-Pour utiliser une action depuis le Marketplace, vous pouvez l'intégrer dans vos étapes (`steps`) en utilisant la syntaxe suivante :
+Pour utiliser une action depuis le Marketplace, vous pouvez l'intégrer dans vos
+étapes (`steps`) en utilisant la syntaxe suivante :
 
 ```yaml
 uses: <action>@<version>
 ```
 
-Voici un exemple d'utilisation de l'action `actions/checkout` pour récupérer le code source d'un dépôt.
+Voici un exemple d'utilisation de l'action `actions/checkout` pour récupérer le
+code source d'un dépôt.
 
 #### Exemple
 
@@ -140,8 +142,10 @@ Voici la procédure qui a été suivie pour la création de l'action
 ````markdown
 ### Types d'Actions Personnalisées
 
-1. **Actions JavaScript** : Actions écrites en JavaScript qui s'exécutent directement dans l'environnement du runner.
-2. **Actions Docker** : Actions encapsulées dans un conteneur Docker, permettant de définir un environnement d'exécution plus complexe.
+1. **Actions JavaScript** : Actions écrites en JavaScript qui s'exécutent
+   directement dans l'environnement du runner.
+2. **Actions Docker** : Actions encapsulées dans un conteneur Docker, permettant
+   de définir un environnement d'exécution plus complexe.
 
 ### Créer une Action JavaScript Personnalisée
 
@@ -295,23 +299,18 @@ simultanément, ce qui permet d’accélérer le temps d'exécution global.
 
 #### Exemple d'Exécution Parallèle
 
-````yaml
-jobs:
-  build-frontend:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Build frontend
-        run: npm run build-frontend
+````yaml jobs: build-frontend: runs-on: ubuntu-latest steps:
+      - name: Build frontend run: npm run build-frontend
 
-  build-backend:
-    runs-on: ubuntu-latest
-    steps:
+  build-backend: runs-on: ubuntu-latest steps:
       - name: Build backend run: npm run build-backend ``` Dans cet exemple, les
         jobs `build-frontend` et `build-backend` s'exécuteront en parallèle.
 
 ### Exécution Conditionnelle
 
-Vous pouvez définir des conditions pour exécuter ou sauter des jobs ou des étapes. Cela permet, par exemple, de n’exécuter certaines actions que si un test échoue, ou si la branche correspond à une certaine condition.
+Vous pouvez définir des conditions pour exécuter ou sauter des jobs ou des
+étapes. Cela permet, par exemple, de n’exécuter certaines actions que si un test
+échoue, ou si la branche correspond à une certaine condition.
 
 #### Exécution Conditionnelle avec `if`
 
@@ -346,10 +345,7 @@ jobs:
     needs: test
     if: failure() # Ce job s'exécute uniquement si le job 'test' échoue
     steps:
-      - name: Send notification
-        run: echo "Tests failed!"
-```
-````
+      - name: Send notification run: echo "Tests failed!"  ``` ````
 
 ### Passage d'Informations d'un Job à un Autre
 
@@ -394,7 +390,7 @@ jobs:
 
 2. **Utiliser l'Output dans un Autre Job** : Dans le job `deploy`, l'output du
    job `build` est référencé via la syntaxe `${{ needs.build.outputs.version
-}}`. Cela permet d'accéder à l'information générée dans le premier job et de
+   }}`. Cela permet d'accéder à l'information générée dans le premier job et de
    l'utiliser pour déployer une version spécifique.
 
 #### Référence vers la Documentation

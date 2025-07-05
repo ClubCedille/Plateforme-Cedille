@@ -99,8 +99,8 @@ have the following permissions:
 - Read, create, update, and delete GPG keys
 
 These permissions are configured via lines starting with p in the
-`system/argocd/argocd-values.yaml` file under `policy.csv`. The \* indicates that
-the action is allowed for all instances of the specified resource.
+`system/argocd/argocd-values.yaml` file under `policy.csv`. The \* indicates
+that the action is allowed for all instances of the specified resource.
 
 The relationships between GitHub users/groups and ArgoCD roles are defined by
 lines starting with g. For example, all members of the ClubCedille:SRE group on

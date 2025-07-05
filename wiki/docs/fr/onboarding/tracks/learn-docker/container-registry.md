@@ -18,15 +18,15 @@ compte gratuit.
 
 **2. Se Connecter à Docker Hub :**
 
-Ouvrez votre terminal et connectez-vous à Docker Hub en utilisant vos identifiants de compte :
+Ouvrez votre terminal et connectez-vous à Docker Hub en utilisant vos
+identifiants de compte :
 
 ```
 docker login
 ```
 
-Vous serez invité à saisir votre nom d'utilisateur et votre mot de passe
-Docker Hub. Une fois authentifié, vous pourrez commencer à interagir avec
-Docker Hub.
+Vous serez invité à saisir votre nom d'utilisateur et votre mot de passe Docker
+Hub. Une fois authentifié, vous pourrez commencer à interagir avec Docker Hub.
 
 ### Tirer des Images depuis Docker Hub
 
@@ -36,7 +36,8 @@ utilisez la commande `docker pull`.
 
 **1. Rechercher une Image :**
 
-Pour trouver une image, vous pouvez rechercher sur Docker Hub en utilisant la commande suivante :
+Pour trouver une image, vous pouvez rechercher sur Docker Hub en utilisant la
+commande suivante :
 
 ```
 docker search <nom-de-l-image>
@@ -48,12 +49,12 @@ Par exemple, pour rechercher une image Node.js, vous utiliseriez :
 docker search node
 ```
 
-Cette commande liste les images disponibles avec le nom "node" sur Docker
-Hub.
+Cette commande liste les images disponibles avec le nom "node" sur Docker Hub.
 
 **2. Tirer une Image :**
 
-Une fois que vous avez trouvé l'image dont vous avez besoin, vous pouvez la tirer sur votre machine locale :
+Une fois que vous avez trouvé l'image dont vous avez besoin, vous pouvez la
+tirer sur votre machine locale :
 
 ```
 docker pull <nom-de-l-image>
@@ -69,14 +70,15 @@ Cette commande télécharge l'image depuis Docker Hub vers votre système local.
 
 **3. Exécuter l'Image Tirée :**
 
-Après avoir tiré l'image, vous pouvez l'exécuter en utilisant la commande `docker run` :
+Après avoir tiré l'image, vous pouvez l'exécuter en utilisant la commande
+`docker run` :
 
 ```
 docker run -d -p 3000:3000 node
 ```
 
-Cette commande démarre un conteneur à partir de l'image Node.js et mappe le
-port 3000 de votre machine locale sur le port 3000 dans le conteneur.
+Cette commande démarre un conteneur à partir de l'image Node.js et mappe le port
+3000 de votre machine locale sur le port 3000 dans le conteneur.
 
 ### Pousser des Images vers Docker Hub
 
@@ -85,13 +87,15 @@ avec d'autres, vous pouvez la pousser vers Docker Hub.
 
 **1. Taguer Votre Image :**
 
-Avant de pouvoir pousser votre image, vous devez la taguer avec votre nom d'utilisateur Docker Hub et le nom du dépôt :
+Avant de pouvoir pousser votre image, vous devez la taguer avec votre nom
+d'utilisateur Docker Hub et le nom du dépôt :
 
 ```
 docker tag <image-locale> <nom-utilisateur-dockerhub>/<nom-du-depot>:<tag>
 ```
 
-Par exemple, si votre nom d'utilisateur Docker Hub est "monnomutilisateur" et le nom de votre dépôt est "monappli", vous utiliseriez :
+Par exemple, si votre nom d'utilisateur Docker Hub est "monnomutilisateur" et le
+nom de votre dépôt est "monappli", vous utiliseriez :
 
 ```
 docker tag monappli monnomutilisateur/monappli:latest
@@ -118,24 +122,24 @@ pour que d'autres puissent la tirer et l'utiliser.
 
 **1. Builds Automatisés :**
 
-Docker Hub peut automatiquement construire des images à partir d'un dépôt
-GitHub ou Bitbucket. Cela est utile pour les workflows d'intégration continue
-et de déploiement continu (CI/CD). Vous pouvez configurer des builds
-automatisés dans les paramètres du dépôt Docker Hub.
+Docker Hub peut automatiquement construire des images à partir d'un dépôt GitHub
+ou Bitbucket. Cela est utile pour les workflows d'intégration continue et de
+déploiement continu (CI/CD). Vous pouvez configurer des builds automatisés dans
+les paramètres du dépôt Docker Hub.
 
 **2. Webhooks :**
 
-Les webhooks vous permettent de déclencher des actions après un push ou un
-pull réussi d'une image. Vous pouvez utiliser les webhooks pour intégrer
-Docker Hub avec d'autres services, comme déclencher un processus de
-déploiement après avoir poussé une image.
+Les webhooks vous permettent de déclencher des actions après un push ou un pull
+réussi d'une image. Vous pouvez utiliser les webhooks pour intégrer Docker Hub
+avec d'autres services, comme déclencher un processus de déploiement après avoir
+poussé une image.
 
 **3. Organisations et Équipes :**
 
 Docker Hub prend en charge les organisations et les équipes, facilitant la
-gestion des permissions et la collaboration sur les projets. Vous pouvez
-créer une organisation, ajouter des membres d'équipe et attribuer des rôles
-pour contrôler qui peut accéder et modifier vos images.
+gestion des permissions et la collaboration sur les projets. Vous pouvez créer
+une organisation, ajouter des membres d'équipe et attribuer des rôles pour
+contrôler qui peut accéder et modifier vos images.
 
 **4. Images Officielles :**
 
@@ -146,51 +150,50 @@ nombreuses applications.
 
 **5. Dépôts :**
 
-Vous pouvez créer plusieurs dépôts sous votre compte Docker Hub pour
-organiser vos images. Chaque dépôt peut contenir plusieurs versions d'une
-image, taguées avec différents tags (par exemple, `latest`, `v1.0`, `v2.0`).
+Vous pouvez créer plusieurs dépôts sous votre compte Docker Hub pour organiser
+vos images. Chaque dépôt peut contenir plusieurs versions d'une image, taguées
+avec différents tags (par exemple, `latest`, `v1.0`, `v2.0`).
 
 **6. Insights sur les Images :**
 
-Docker Hub fournit des insights sur vos images, tels que le nombre de pulls,
-les étoiles et l'heure de la dernière mise à jour. Ces informations peuvent
-vous aider à suivre la popularité et l'utilisation de vos images.
+Docker Hub fournit des insights sur vos images, tels que le nombre de pulls, les
+étoiles et l'heure de la dernière mise à jour. Ces informations peuvent vous
+aider à suivre la popularité et l'utilisation de vos images.
 
 ### Registre de Conteneurs GitHub
 
 [Le Registre de Conteneurs
 GitHub](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
 est une autre option populaire pour stocker et gérer des images de conteneurs
-que Club CEDILLE utilise souvent. Il est étroitement intégré à GitHub, ce qui
-en fait un choix pratique pour les développeurs qui utilisent déjà GitHub
-pour la gestion de leur code source. Voici quelques fonctionnalités clés :
+que Club CEDILLE utilise souvent. Il est étroitement intégré à GitHub, ce qui en
+fait un choix pratique pour les développeurs qui utilisent déjà GitHub pour la
+gestion de leur code source. Voici quelques fonctionnalités clés :
 
 **1. Intégration avec les Repositories GitHub :**
 
 - Le Registre de Conteneurs GitHub vous permet de stocker des images de
-  conteneurs aux côtés de vos dépôts de code. Cette intégration simplifie
-  votre workflow en conservant votre code et vos images de conteneurs au même
-  endroit.
+  conteneurs aux côtés de vos dépôts de code. Cette intégration simplifie votre
+  workflow en conservant votre code et vos images de conteneurs au même endroit.
 
 **2. Contrôle d'Accès et Permissions :**
 
-- Vous pouvez contrôler qui a accès à vos images de conteneurs en utilisant
-  le modèle de permissions existant de GitHub. Cela facilite la gestion de
-  l'accès pour les membres de votre équipe.
+- Vous pouvez contrôler qui a accès à vos images de conteneurs en utilisant le
+  modèle de permissions existant de GitHub. Cela facilite la gestion de l'accès
+  pour les membres de votre équipe.
 
 **3. Support pour les Images Publiques et Privées :**
 
 - Tout comme Docker Hub, le Registre de Conteneurs GitHub prend en charge les
-  images publiques et privées. Vous pouvez choisir de partager vos images
-  avec la communauté ou de restreindre l'accès à des utilisateurs ou des
-  équipes spécifiques.
+  images publiques et privées. Vous pouvez choisir de partager vos images avec
+  la communauté ou de restreindre l'accès à des utilisateurs ou des équipes
+  spécifiques.
 
 **4. Intégration avec GitHub Actions :**
 
-- Vous pouvez utiliser GitHub Actions pour automatiser vos workflows, y
-  compris la construction et le push d'images vers le Registre de Conteneurs
-  GitHub. Cela est utile pour les pipelines CI/CD, garantissant que vos
-  images sont toujours à jour.
+- Vous pouvez utiliser GitHub Actions pour automatiser vos workflows, y compris
+  la construction et le push d'images vers le Registre de Conteneurs
+  GitHub. Cela est utile pour les pipelines CI/CD, garantissant que vos images
+  sont toujours à jour.
 
 **5. Gratuit pour les Dépôts Publics :**
 

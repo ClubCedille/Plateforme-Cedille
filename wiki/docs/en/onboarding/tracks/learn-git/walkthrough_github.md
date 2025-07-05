@@ -49,7 +49,7 @@ git clone git@github.com:YourUsename/YourUsername.git
 
 While being in your local repo, create a new file :
 
-| Linux           | Windows                  |
+| Linux | Windows |
 | --------------- | ------------------------ |
 | `touch test.md` | `echo test123 > test.md` |
 

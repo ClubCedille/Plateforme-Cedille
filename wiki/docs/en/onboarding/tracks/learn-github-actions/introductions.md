@@ -230,15 +230,15 @@ Jenkins, often require setting up your own execution servers.
 
 ### Feature Comparison
 
-| CI/CD Tools       | GitHub Actions     | Jenkins           | Travis CI          | CircleCI           |
+| CI/CD Tools | GitHub Actions | Jenkins | Travis CI | CircleCI |
 | ----------------- | ------------------ | ----------------- | ------------------ | ------------------ |
-| **Integration**   | Native GitHub      | External          | External           | External           |
+| **Integration** | Native GitHub | External | External | External |
 | **Configuration** | YAML in repository | Jenkins interface | YAML in repository | YAML in repository |
 
-| **Features**    | **GitHub Actions**   | **Jenkins**     | **CircleCI** | **GitLab CI/CD**     |
+| **Features** | **GitHub Actions** | **Jenkins** | **CircleCI** | **GitLab CI/CD** |
 | --------------- | -------------------- | --------------- | ------------ | -------------------- |
-| **Runners**     | Hosted / Self-hosted | Jenkins servers | Hosted only  | Hosted / Self-hosted |
-| **Marketplace** | Yes, with actions    | Jenkins plugins | Yes          | Yes                  |
+| **Runners** | Hosted / Self-hosted | Jenkins servers | Hosted only | Hosted / Self-hosted |
+| **Marketplace** | Yes, with actions | Jenkins plugins | Yes | Yes |
 
 ---
 

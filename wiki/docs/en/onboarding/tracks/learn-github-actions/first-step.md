@@ -151,7 +151,7 @@ jobs: # Jobs to execute
 ````yaml
    - name: Checkout code uses: actions/checkout@v2 ``` Here, we use the
      `actions/checkout@v2` action to retrieve the repository’s source code.
-````
+     ````
 
 2. **Running a Custom Command**:
 
@@ -159,18 +159,20 @@ jobs: # Jobs to execute
    - name: Run tests run: npm test
 ```
 
-This step runs the `npm test` command to
-execute the project's tests.
+This step runs the `npm test` command to execute the project's tests.
 
 ---
 
 ## 4. Triggers (events): `push`, `pull_request`, `schedule`, etc.
 
-GitHub Actions workflows can be triggered by a variety of events. Here are the most common triggers:
+GitHub Actions workflows can be triggered by a variety of events. Here are the
+most common triggers:
 
 ### 4.1. `push`
 
-The `push` trigger is used to run a workflow whenever a `push` is made to the repository. You can also specify specific branches or paths for which the workflow should run.
+The `push` trigger is used to run a workflow whenever a `push` is made to the
+repository. You can also specify specific branches or paths for which the
+workflow should run.
 
 #### Example
 
@@ -202,12 +204,13 @@ on:
       - main
 ```
 
-In this example, the workflow will be triggered for all pull
-requests opened on the `main` branch.
+In this example, the workflow will be triggered for all pull requests opened on
+the `main` branch.
 
 ### 4.3. `schedule`
 
-The `schedule` trigger allows you to define workflows that run at specific times, similar to a cron job.
+The `schedule` trigger allows you to define workflows that run at specific
+times, similar to a cron job.
 
 #### Example
 
@@ -217,15 +220,19 @@ on:
     - cron: "0 0 * * 1"
 ```
 
-This example triggers the workflow every Monday at
-midnight (UTC). The `cron` format is the same as that used in Linux cron jobs.
+This example triggers the workflow every Monday at midnight (UTC). The `cron`
+format is the same as that used in Linux cron jobs.
 
 ### 4.4. Other Triggers
 
-- **`workflow_dispatch`**: Allows a workflow to be manually triggered through the GitHub UI.
-- **`workflow_call`**: Allows a workflow to be invoked from another workflow. This is useful for reusing workflows across multiple projects or repositories.
+- **`workflow_dispatch`**: Allows a workflow to be manually triggered through
+  the GitHub UI.
+- **`workflow_call`**: Allows a workflow to be invoked from another
+  workflow. This is useful for reusing workflows across multiple projects or
+  repositories.
 - **`release`**: Triggers the workflow when a new release is published.
-- **`issue_comment`**: Executes the workflow when a comment is added to an issue.
+- **`issue_comment`**: Executes the workflow when a comment is added to an
+  issue.
 - **`push_tag`**: Triggers the workflow when a tag is pushed.
 
 #### Example of `workflow_dispatch`
@@ -289,20 +296,12 @@ workflows across different projects.
 
 Here is an example of using `workflow_call`:
 
-````yaml
-name: Reuse a workflow
+````yaml name: Reuse a workflow
 
-on:
-  workflow_call:
-    inputs:
-      environment:
-        description: 'Target environment (dev, staging, prod)'
-        required: true
-        type: string
+on: workflow_call: inputs: environment: description: 'Target environment (dev,
+  staging, prod)' required: true type: string
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+jobs: build: runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -327,5 +326,4 @@ jobs and steps, and the flexibility of triggers makes GitHub Actions adaptable
 to different development and deployment scenarios.
 
 GitHub Actions is designed to be intuitive and extendable using pre-built or
-custom actions, making it an essential tool for any modern CI/CD pipeline.
-````
+custom actions, making it an essential tool for any modern CI/CD pipeline.  ````

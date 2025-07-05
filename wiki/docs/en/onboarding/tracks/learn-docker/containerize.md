@@ -39,8 +39,8 @@ configure your project with sensible defaults. These questions may include:
 
   The `Dockerfile` is a text document that contains the instructions to build
   your Docker image. It typically includes commands to set up the base image,
-  install dependencies, copy application files, and specify the entry point
-  for your application.
+  install dependencies, copy application files, and specify the entry point for
+  your application.
 
   Example `Dockerfile`:
 
@@ -96,23 +96,24 @@ configure your project with sensible defaults. These questions may include:
 
 **4. Run Your Dockerized Application:**
 
-Once you have answered all the questions and Docker has generated the files, you can run your application with the following command:
+Once you have answered all the questions and Docker has generated the files, you
+can run your application with the following command:
 
 ```bash
 docker-compose up -d
 ```
 
-**Explanation:** This command builds the Docker image and starts the
-containers as defined in the `compose.yaml` file. The `-d` flag runs the
-containers in detached mode (in the background).
+**Explanation:** This command builds the Docker image and starts the containers
+as defined in the `compose.yaml` file. The `-d` flag runs the containers in
+detached mode (in the background).
 
 **5. Customize Your Configuration Files:**
 
 While Docker tries to create the `Dockerfile` and `compose.yaml` file with
 sensible defaults, there may be cases where you need to make additional
 changes. You can refer to the [Dockerfile
-reference](https://docs.docker.com/engine/reference/builder/) and [Compose
-file reference](https://docs.docker.com/compose/compose-file/) in the Docker
+reference](https://docs.docker.com/engine/reference/builder/) and [Compose file
+reference](https://docs.docker.com/compose/compose-file/) in the Docker
 documentation for more details on customizing these files.
 
 ## Summary

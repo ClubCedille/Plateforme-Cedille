@@ -156,21 +156,22 @@ jobs: # Les jobs à exécuter
 
    ````
 
-2. **Exécution d’une commande personnalisée** :
-   ````yaml
+2. **Exécution d’une commande personnalisée** : ````yaml
    - name: Run tests run: npm test ``` Cette étape exécute la commande `npm
-     test` pour lancer les tests du projet.
-   ````
+     test` pour lancer les tests du projet.  ````
 
 ---
 
 ## 4. Déclencheurs (events) : `push`, `pull_request`, `schedule`, etc.
 
-Les workflows GitHub Actions peuvent être déclenchés par une variété d'événements. Voici les déclencheurs les plus courants :
+Les workflows GitHub Actions peuvent être déclenchés par une variété
+d'événements. Voici les déclencheurs les plus courants :
 
 ### 4.1. `push`
 
-Le déclencheur `push` est utilisé pour exécuter un workflow chaque fois qu'un `push` est effectué dans le dépôt. Vous pouvez également spécifier des branches ou des chemins spécifiques pour lesquels le workflow doit s'exécuter.
+Le déclencheur `push` est utilisé pour exécuter un workflow chaque fois qu'un
+`push` est effectué dans le dépôt. Vous pouvez également spécifier des branches
+ou des chemins spécifiques pour lesquels le workflow doit s'exécuter.
 
 #### Exemple
 
@@ -195,16 +196,14 @@ pull request est créée, ou lorsque celle-ci est mise à jour.
 
 #### Exemple
 
-````yaml
-on:
-  pull_request:
-    branches:
+````yaml on: pull_request: branches:
       - main ``` Dans cet exemple, le workflow se déclenchera pour toutes les
 pull requests ouvertes sur la branche `main`.
 
 ### 4.3. `schedule`
 
-Le déclencheur `schedule` vous permet de définir des workflows qui s'exécutent à des moments spécifiques, similaires à une tâche cron.
+Le déclencheur `schedule` vous permet de définir des workflows qui s'exécutent à
+des moments spécifiques, similaires à une tâche cron.
 
 #### Exemple
 ```yaml
@@ -282,20 +281,12 @@ standardisés dans différents projets.
 
 Voici un exemple d'utilisation de `workflow_call` :
 
-````yaml
-name: Réutilisation d'un workflow
+````yaml name: Réutilisation d'un workflow
 
-on:
-  workflow_call:
-    inputs:
-      environment:
-        description: 'Environnement cible (dev, staging, prod)'
-        required: true
-        type: string
+on: workflow_call: inputs: environment: description: 'Environnement cible (dev,
+  staging, prod)' required: true type: string
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+jobs: build: runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -321,5 +312,4 @@ différents scénarios de développement et de déploiement.
 
 GitHub Actions est conçu pour être intuitif et peut être étendu en utilisant des
 actions prédéfinies ou personnalisées, ce qui en fait un outil essentiel pour
-tout pipeline CI/CD moderne.
-````
+tout pipeline CI/CD moderne.  ````

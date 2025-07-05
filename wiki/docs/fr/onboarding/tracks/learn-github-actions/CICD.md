@@ -84,7 +84,8 @@ variables dans un workflow réutilisable :
 ````markdown
 #### Exemple : Appeler un Workflow Réutilisable
 
-Dans ce cas, nous avons un workflow qui effectue des tests, et un autre qui gère les déploiements. Ces workflows sont réutilisés à partir d'un fichier central.
+Dans ce cas, nous avons un workflow qui effectue des tests, et un autre qui gère
+les déploiements. Ces workflows sont réutilisés à partir d'un fichier central.
 
 ```yaml
 # .github/workflows/reusable-tests.yml
@@ -103,10 +104,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
-        run: npm test
-```
-````
+      - name: Run tests run: npm test ``` ````
 
 ```yaml
 # .github/workflows/deploy.yml

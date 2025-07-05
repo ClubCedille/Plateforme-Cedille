@@ -75,8 +75,8 @@ Les opérateurs (role:org-operators), qui sont membres du groupe ClubCedille:SRE
 ont les permissions suivantes :
 
 Obtenir des informations sur les clusters, certificats et dépôts (repositories).
-Synchroniser, créer et supprimer les applications. Lire, créer, mettre à jour
-et supprimer les clés GPG. Ces permissions sont configurées via les lignes
+Synchroniser, créer et supprimer les applications. Lire, créer, mettre à jour et
+supprimer les clés GPG. Ces permissions sont configurées via les lignes
 commençant par p dans le fichier `system/argocd/argocd-values.yaml` sous
 `policy.csv`. Le \* indique que l'action est autorisée pour toutes les instances
 de la ressource spécifiée.
@@ -103,7 +103,8 @@ dédiés.
 
 #### Tester
 
-Commencer par déployer une application web comme [httpbin](https://httpbin.org/#/). À partir du repertoire du projet :
+Commencer par déployer une application web comme
+[httpbin](https://httpbin.org/#/). À partir du repertoire du projet :
 
 ```bash
 kubectl apply -f apps/testing/httpbin.yaml
@@ -115,13 +116,15 @@ Vérifier ensuite que les 3 pods arrivent à un status **Running**:
 kubectl get po,svc,ing -l app=httpbin
 ```
 
-Afin d'utiliser Contour et Envoy, on va utiliser la fonction `kubectl port-foward` pour diriger le traffic vers envoy :
+Afin d'utiliser Contour et Envoy, on va utiliser la fonction `kubectl
+port-foward` pour diriger le traffic vers envoy :
 
 ```bash
 kubectl -n projectcontour port-forward service/envoy 8888:80
 ```
 
-Puis visiter http://local.projectcontour.io:8888/. Pour notre environnement de production, on utiliserait l'adresse du service de Envoy.
+Puis visiter http://local.projectcontour.io:8888/. Pour notre environnement de
+production, on utiliserait l'adresse du service de Envoy.
 
 Pour plus d'informations sur Contour, consultez [la documentation
 officielle](https://projectcontour.io/docs/).
@@ -151,7 +154,8 @@ Pour créer votre propre VM à partir d'un ISO, vous devez utiliser le
 [CDI](https://kubevirt.io/user-guide/operations/containerized_data_importer/) de
 Kubevirt qui est déjà installé sur notre cluster.
 
-Pour ce faire, créez un PVC (dans cette situation, l'iso d'ubuntu 22.04.3 va être importé dans le PVC):
+Pour ce faire, créez un PVC (dans cette situation, l'iso d'ubuntu 22.04.3 va
+être importé dans le PVC):
 
 ```yaml
 apiVersion: v1
@@ -171,7 +175,10 @@ spec:
       storage: 6Gi
 ```
 
-Une fois les changements appliqués, un pod sera créé dans le namespace respectif. Dans cette situation, le pod sera créé dans vms. Ce pod permet de voir la progression de l'installation de l'ISO dans le PVC. Pour voir le progrès:
+Une fois les changements appliqués, un pod sera créé dans le namespace
+respectif. Dans cette situation, le pod sera créé dans vms. Ce pod permet de
+voir la progression de l'installation de l'ISO dans le PVC. Pour voir le
+progrès:
 
 ```bash
 kubectl logs <nom-du-pod> -n vms -f
@@ -211,20 +218,24 @@ systèmes.
 
 Rendez-vous sur https://grafana.omni.cedille.club. Laissez l'onglet ouvert.
 
-Créez les PV et le déploiement d'un simple serveur clickhouse (si ce n'est pas déjà fait. Pour verifier `kubectl get all -n clickhouse-system`):
+Créez les PV et le déploiement d'un simple serveur clickhouse (si ce n'est pas
+déjà fait. Pour verifier `kubectl get all -n clickhouse-system`):
 
 ```bash
 kubectl apply -f apps/samples/clickhouse/pv.yml -n clickhouse-system &&
 kubectl apply -f apps/samples/clickhouse/simple.yml -n clickhouse-system
 ```
 
-Ensuite, faites un port-forward et tester la connection sur http://localhost:9000/:
+Ensuite, faites un port-forward et tester la connection sur
+http://localhost:9000/:
 
 ```bash
 kubectl port-forward svc/chi-simple-example-deployment-pv-1-1 9000:9000 -n clickhouse-system # Garder la connection ouverte
 ```
 
-Installer le [cli](https://clickhouse.com/docs/en/integrations/sql-clients/clickhouse-client-local) de clickhouse et connectez-vous au serveur pour créer une simple table `users`:
+Installer le
+[cli](https://clickhouse.com/docs/en/integrations/sql-clients/clickhouse-client-local)
+de clickhouse et connectez-vous au serveur pour créer une simple table `users`:
 
 ```bash
 clickhouse-client -h 127.0.0.1 --port 9000 --user default --password <votre-password>

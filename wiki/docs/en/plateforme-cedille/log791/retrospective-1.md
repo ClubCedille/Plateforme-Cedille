@@ -4,22 +4,22 @@ Date: October 11, 2023
 
 ## 1. Completed Work
 
-| Task                                        | Responsible                         |
+| Task | Responsible |
 | ------------------------------------------- | ----------------------------------- |
-| Prepare client-specific questionnaires      | Jonathan / Thomas                   |
-| AlgoETS interview                           | Jonathan                            |
-| Club member interviews                      | Thomas / Jonathan                   |
-| Raconteurs d'angles club interview          | Jonathan                            |
-| Saveurs de génie club interview             | Jonathan                            |
-| IT services interview                       | Thomas                              |
-| Define success metrics from interviews      | Jonathan / Thomas / Simon / Michael |
-| Deploy the physical cluster with Talos/Omni | Michael / Simon                     |
-| Basic Rook/Ceph configuration               | Michael / Simon                     |
-| Evaluate k8s networking stack               | Simon                               |
-| Set up a wiki for documentation             | Jonathan                            |
-| Initial drafting of the vision document     | Jonathan / Thomas / Simon / Michael |
-| Migrate physical servers to the server room | Simon / Jonathan / Thomas           |
-| KubeVirt configuration                      | Thomas                              |
+| Prepare client-specific questionnaires | Jonathan / Thomas |
+| AlgoETS interview | Jonathan |
+| Club member interviews | Thomas / Jonathan |
+| Raconteurs d'angles club interview | Jonathan |
+| Saveurs de génie club interview | Jonathan |
+| IT services interview | Thomas |
+| Define success metrics from interviews | Jonathan / Thomas / Simon / Michael |
+| Deploy the physical cluster with Talos/Omni | Michael / Simon |
+| Basic Rook/Ceph configuration | Michael / Simon |
+| Evaluate k8s networking stack | Simon |
+| Set up a wiki for documentation | Jonathan |
+| Initial drafting of the vision document | Jonathan / Thomas / Simon / Michael |
+| Migrate physical servers to the server room | Simon / Jonathan / Thomas |
+| KubeVirt configuration | Thomas |
 
 ## 2. Incomplete Work
 

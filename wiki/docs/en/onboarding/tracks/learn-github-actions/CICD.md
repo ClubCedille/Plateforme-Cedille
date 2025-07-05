@@ -79,7 +79,8 @@ a reusable workflow:
 ````markdown
 #### Example: Calling a Reusable Workflow
 
-In this case, we have one workflow that performs tests and another that handles deployments. These workflows are reused from a central file.
+In this case, we have one workflow that performs tests and another that handles
+deployments. These workflows are reused from a central file.
 
 ```yaml
 # .github/workflows/reusable-tests.yml
@@ -98,10 +99,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
-        run: npm test
-```
-````
+      - name: Run tests run: npm test ``` ````
 
 ```yaml
 # .github/workflows/deploy.yml

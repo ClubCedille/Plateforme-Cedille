@@ -34,9 +34,9 @@ made.
 
 A source control system is just a bunch of ideas, which anyone can take and
 create their own functional integration. For us (_and most of the world_), we
-use [**Git**](https://git-scm.com/). > Git is a free and open source
-distributed version control system designed to handle everything from small to
-very large projects with speed and efficiency.
+use [**Git**](https://git-scm.com/). > Git is a free and open source distributed
+version control system designed to handle everything from small to very large
+projects with speed and efficiency.
 
 It was created in 2005 by Linus Torvalds (Creator of Linux) to help the
 collaborators of the Linux kernel (the heart of a operating system) work
