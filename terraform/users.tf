@@ -193,3 +193,18 @@ module "Hertinox0" {
   cluster_repo = var.platform_repo
   netdata_role = "observer"
 }
+
+
+module "test2" {
+  source          = "./modules/user"
+  github_email    = "test"
+  github_username = "test2"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" }, 
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Reader"
+  cluster_repo = var.platform_repo
+  netdata_role = "observer"
+}
