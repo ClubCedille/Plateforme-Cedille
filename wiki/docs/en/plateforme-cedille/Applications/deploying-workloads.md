@@ -69,8 +69,8 @@ containers:
   - name: httpbin
     resources:
       requests:
-        cpu: "0.1"
-        memory: "256Mi"
+        cpu: '0.1'
+        memory: '256Mi'
 ---
 # Other patches can be added with separators ---
 ---
@@ -90,7 +90,7 @@ metadata:
   name: kustomize-example-app-prod
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: '2'
 spec:
   project: default
   destination:
@@ -110,7 +110,7 @@ metadata:
   name: kustomize-example-app-staging
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: '2'
 spec:
   project: default
   destination:
@@ -171,5 +171,6 @@ resources:
       └── [patch.yaml]  Deployment httpbin
 ```
 
-**Overview in ArgoCD** ![Apperçu dans
+**Overview in ArgoCD**
+![Apperçu dans
 ArgoCD](img/argocd-kustomize-example-app.png)

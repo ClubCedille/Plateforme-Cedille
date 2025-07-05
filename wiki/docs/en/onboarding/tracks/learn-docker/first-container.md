@@ -1,8 +1,8 @@
 ## Install Docker
 
 Before you begin, make sure Git and Docker is installed on your system. You can
-download Docker from the [official Docker
-website](https://www.docker.com/products/docker-desktop/).
+download Docker from the
+[official Docker website](https://www.docker.com/products/docker-desktop/).
 
 ## Running Your First Docker Container
 
@@ -49,8 +49,8 @@ successfully.
 
 **1. Search for Containers on Docker Hub:**
 
-You can search for containers on Docker Hub using the `docker search`
-command. For example, to search for containers related to **nginx**, use:
+You can search for containers on Docker Hub using the `docker search` command.
+For example, to search for containers related to **nginx**, use:
 
 ```bash
 docker search nginx
@@ -67,9 +67,9 @@ docker pull nginx
 
 **3. Run a Container from Pulled Image:**
 
-Once you've pulled an image, you can run a container from it using `docker
-run`. For example, to run an **nginx** container and map port 8080 on your host
-to port 80 inside the container, use:
+Once you've pulled an image, you can run a container from it using `docker run`.
+For example, to run an **nginx** container and map port 8080 on your host to
+port 80 inside the container, use:
 
     ```bash
     docker run -d -p 8080:80 nginx

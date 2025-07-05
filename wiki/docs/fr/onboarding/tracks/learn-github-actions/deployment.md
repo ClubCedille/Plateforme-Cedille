@@ -101,7 +101,7 @@ jobs:
       - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v2
         with:
-          app-name: "my-app-service"
+          app-name: 'my-app-service'
           package: .
 ```
 
@@ -185,7 +185,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: '14'
 
       - name: Install dependencies
         run: npm install
@@ -221,10 +221,10 @@ déploiement**, telles que le déploiement **Blue/Green** et le déploiement
 
 ### 3.1 Déploiement Blue/Green
 
-Le déploiement **Blue/Green** consiste à exécuter deux environnements
-distincts : l'environnement **Blue** (ancien) et l'environnement **Green**
-(nouveau). Une fois que le déploiement est prêt sur l'environnement Green, le
-trafic est basculé vers cet environnement.
+Le déploiement **Blue/Green** consiste à exécuter deux environnements distincts
+: l'environnement **Blue** (ancien) et l'environnement **Green** (nouveau). Une
+fois que le déploiement est prêt sur l'environnement Green, le trafic est
+basculé vers cet environnement.
 
 #### Exemple de Workflow pour un Déploiement Blue/Green
 
@@ -350,7 +350,7 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_MESSAGE: "The deployment to production was successful!"
+          SLACK_MESSAGE: 'The deployment to production was successful!'
 ```
 
 ### 4.2 Notifications par Email
@@ -394,9 +394,9 @@ jobs:
           server_port: 465
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "Deployment Status"
-          body: "The deployment was successful."
-          to: "recipient@example.com"
+          subject: 'Deployment Status'
+          body: 'The deployment was successful.'
+          to: 'recipient@example.com'
 ```
 
 ---

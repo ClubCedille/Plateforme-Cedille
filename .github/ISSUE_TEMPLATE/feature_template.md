@@ -1,9 +1,9 @@
 ---
 name: Feature template
 about: This template must be used to implement new features.
-title: ""
+title: ''
 labels: enhancement
-assignees: ""
+assignees: ''
 ---
 
 ### Description

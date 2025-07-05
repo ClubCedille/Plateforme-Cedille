@@ -23,8 +23,8 @@ to these services.
 
 #### Example Workflow for Deploying on AWS Elastic Beanstalk
 
-Elastic Beanstalk simplifies deployment and management of applications on
-AWS. Here is an example workflow for deploying a Node.js application to Elastic
+Elastic Beanstalk simplifies deployment and management of applications on AWS.
+Here is an example workflow for deploying a Node.js application to Elastic
 Beanstalk.
 
 ```yaml
@@ -99,7 +99,7 @@ jobs:
       - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v2
         with:
-          app-name: "my-app-service"
+          app-name: 'my-app-service'
           package: .
 ```
 
@@ -183,7 +183,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: '14'
 
       - name: Install dependencies
         run: npm install
@@ -346,7 +346,7 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_MESSAGE: "The deployment to production was successful!"
+          SLACK_MESSAGE: 'The deployment to production was successful!'
 ```
 
 ### 4.2 Email Notifications
@@ -389,9 +389,9 @@ jobs:
           server_port: 465
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "Deployment Status"
-          body: "The deployment was successful."
-          to: "recipient@example.com"
+          subject: 'Deployment Status'
+          body: 'The deployment was successful.'
+          to: 'recipient@example.com'
 ```
 
 ---
@@ -401,10 +401,9 @@ jobs:
 Continuous Deployment with GitHub Actions simplifies and automates the process
 of moving applications to production. Through integration with cloud platforms
 like AWS, Azure, and GCP, as well as deployment strategies such as Blue/Green or
-Canary, you can reduce deployment risks and ensure continuous
-delivery. Additionally, the ability to send notifications via Slack or Email
-enhances visibility on deployment status, allowing teams to respond quickly to
-issues.
+Canary, you can reduce deployment risks and ensure continuous delivery.
+Additionally, the ability to send notifications via Slack or Email enhances
+visibility on deployment status, allowing teams to respond quickly to issues.
 
 GitHub Actions offers extensive flexibility to automate your entire deployment
 pipeline, enabling you to optimize the way you manage application delivery.

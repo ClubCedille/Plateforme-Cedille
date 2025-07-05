@@ -13,8 +13,8 @@ axé sur l'open source après tout!).
 L'utilisation de krew est recommandée pour installer les plugins requis pour
 accéder aux différents cluster de la Plateforme CEDILLE.
 
-Pour installer, suivre [les instructions d'installation de
-krew](https://krew.sigs.k8s.io/docs/user-guide/setup/install/)
+Pour installer, suivre
+[les instructions d'installation de krew](https://krew.sigs.k8s.io/docs/user-guide/setup/install/)
 
 ### kubelogin
 
@@ -27,8 +27,8 @@ Pour installer kubelogin, exécuter la commande:
 kubectl krew install oidc-login
 ```
 
-Pour d'autres options d'installation, voir [le repo de
-kubelogin](https://github.com/int128/kubelogin)
+Pour d'autres options d'installation, voir
+[le repo de kubelogin](https://github.com/int128/kubelogin)
 
 ### kubeconfig
 
@@ -36,8 +36,7 @@ La plateforme CEDILLE est gérée via Sidero Labs Omni. Notre instance de Omni
 [est accessible ici](https://cedille.omni.siderolabs.io/omni/).
 
 Pour accéder à un cluster, il suffit de naviguer au cluster voulu (par exemple,
-[le cluster
-principal](https://cedille.omni.siderolabs.io/cluster/k8s-cedille-production/overview))
+[le cluster principal](https://cedille.omni.siderolabs.io/cluster/k8s-cedille-production/overview))
 et télécharger le fichier kubeconfig avec le bouton `Download kubeconfig`
 
 Pour tester rapidement l'accès, on peut exécuter les commandes suivantes:
@@ -74,6 +73,6 @@ worker-3           Ready    <none>          20d    v1.27.3
 Kubectl est prêt à être utilisé! Cependant, cette configuration du KUBECONFIG
 est temporaire. Il est donc recommandé d'utiliser
 [la configuration recommandée](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/).
-Il peut aussi être pertinent de configurer
-[l'accès à plusieurs clusters](https://kubernetes.io/docs/tasks/access-
+Il peut aussi être pertinent de configurer [l'accès à plusieurs
+clusters](https://kubernetes.io/docs/tasks/access-
 application-cluster/configure-access-multiple-clusters/).

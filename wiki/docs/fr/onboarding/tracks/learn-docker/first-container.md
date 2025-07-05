@@ -1,8 +1,8 @@
 ### Installation de Docker
 
 Avant de commencer, assurez-vous d'avoir installé Git et Docker sur votre
-système. Vous pouvez télécharger Docker depuis le [site officiel de
-Docker](https://www.docker.com/products/docker-desktop/).
+système. Vous pouvez télécharger Docker depuis le
+[site officiel de Docker](https://www.docker.com/products/docker-desktop/).
 
 ## Exécuter Votre Premier Conteneur Docker
 

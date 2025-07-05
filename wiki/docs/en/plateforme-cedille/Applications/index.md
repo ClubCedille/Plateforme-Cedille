@@ -19,12 +19,12 @@ kind: StorageClass
 metadata:
   name: mayastor
   annotations:
-    storageclass.kubernetes.io/is-default-class: "true"
+    storageclass.kubernetes.io/is-default-class: 'true'
 parameters:
-  ioTimeout: "30"
+  ioTimeout: '30'
   protocol: nvmf
-  repl: "2"
-  stsAffinityGroup: "true"
+  repl: '2'
+  stsAffinityGroup: 'true'
 provisioner: io.openebs.csi-mayastor
 ```
 
@@ -146,8 +146,8 @@ kubectl -n projectcontour port-forward service/envoy 8888:80
 Then visit http://local.projectcontour.io:8888/. For our production environment,
 we would use the address of the Envoy service.
 
-For more information on Contour, see [the official
-documentation](https://projectcontour.io/docs/).
+For more information on Contour, see
+[the official documentation](https://projectcontour.io/docs/).
 
 ### KubeVirt
 
@@ -186,7 +186,7 @@ metadata:
   labels:
     app: containerized-data-importer
   annotations:
-    cdi.kubevirt.io/storage.import.endpoint: "https://releases.ubuntu.com/jammy/ubuntu-22.04.3-desktop-amd64.iso" # Required. Format: (http||s3)://www.myUrl.com/path/of/data
+    cdi.kubevirt.io/storage.import.endpoint: 'https://releases.ubuntu.com/jammy/ubuntu-22.04.3-desktop-amd64.iso' # Required. Format: (http||s3)://www.myUrl.com/path/of/data
 spec:
   accessModes:
     - ReadWriteOnce
@@ -276,8 +276,8 @@ Then, insert data by running the script:
 python3 script.py
 ```
 
-Afterwards, you will be able to see the changes by doing a `SELECT * from
-users;`.
+Afterwards, you will be able to see the changes by doing a
+`SELECT * from users;`.
 
 ### Service Mesh - Kuma
 

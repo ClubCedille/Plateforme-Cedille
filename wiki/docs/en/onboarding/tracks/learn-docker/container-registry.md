@@ -114,9 +114,9 @@ pull and use.
 
 **1. Automated Builds:**
 
-Docker Hub can automatically build images from a GitHub or Bitbucket
-repository. This is useful for continuous integration and continuous deployment
-(CI/CD) workflows. You can set up automated builds in the Docker Hub repository
+Docker Hub can automatically build images from a GitHub or Bitbucket repository.
+This is useful for continuous integration and continuous deployment (CI/CD)
+workflows. You can set up automated builds in the Docker Hub repository
 settings.
 
 **2. Webhooks:**
@@ -151,8 +151,7 @@ popularity and usage of your images.
 
 ### GitHub Container Registry
 
-[GitHub Container
-Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
+[GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
 is another popular option for storing and managing container images that Club
 CEDILLE uses a lot. It is tightly integrated with GitHub, making it a convenient
 choice for developers who already use GitHub for source code management. Here
@@ -196,10 +195,10 @@ images. Whether you're pulling official images for your projects or sharing your
 custom images with the community, Docker Hub is an essential tool in the Docker
 ecosystem.
 
-If you're interested you could also check out one of the [CEDILLE Club's GitHub
-pipeline packages](https://github.com/orgs/ClubCedille/packages). GitHub
-pipeline packages are a set of tools and configurations that help automate
-various aspects of the software development lifecycle, such as building,
-testing, and deploying applications. By using these packages, developers can
-ensure consistent and repeatable processes, improve efficiency, and reduce the
-chances of errors during deployment.
+If you're interested you could also check out one of the
+[CEDILLE Club's GitHub pipeline packages](https://github.com/orgs/ClubCedille/packages).
+GitHub pipeline packages are a set of tools and configurations that help
+automate various aspects of the software development lifecycle, such as
+building, testing, and deploying applications. By using these packages,
+developers can ensure consistent and repeatable processes, improve efficiency,
+and reduce the chances of errors during deployment.

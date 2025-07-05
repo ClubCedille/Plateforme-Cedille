@@ -30,17 +30,16 @@ skills, collaboration ability and code quality.
 
 > [Here's a great example](https://github.com/SonOfLope) of an account
 
-If you do not already have a Github account, [create one right
-now](https://github.com/join) ! Try to keep it up to date with your developping
-skills. At the end of the onboarding, you will already have a couple projects to
-add to it !
+If you do not already have a Github account,
+[create one right now](https://github.com/join) ! Try to keep it up to date with
+your developping skills. At the end of the onboarding, you will already have a
+couple projects to add to it !
 
 You will see on your account a repository with your own username containing a
 file named `readme.md`, which is your profil page. > Markdown (md) is a markup
 language that let's you easily format text. You can lookup a cheat sheet for all
-the available formatting. This wiki is written in markdown ! See [how to write
-it
-here](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+the available formatting. This wiki is written in markdown ! See
+[how to write it here](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
 In the following tutorial, we will edit it and make it better, as it is used
 like a LinkedIn page is used.
@@ -55,5 +54,5 @@ like a LinkedIn page is used.
 
 ---
 
-With your fresh account, you are ready to [start using
-Github](walkthrough_github.md) !
+With your fresh account, you are ready to
+[start using Github](walkthrough_github.md) !

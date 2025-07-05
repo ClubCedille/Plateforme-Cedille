@@ -20,10 +20,10 @@ DevOps, Kubernetes et gestion de serveurs.
 
 Aujourd'hui, nous sommes fiers de constater que la majorité de l'infrastructure
 et des services systèmes sont opérationnels. Cependant, il convient de souligner
-que certaines phases de la migration des services hébergés restent à
-compléter. Ce rapport se propose donc de dresser un bilan de notre parcours,
-soulignant aussi bien les réussites que les obstacles rencontrés et les
-enseignements tirés de cette expérience.
+que certaines phases de la migration des services hébergés restent à compléter.
+Ce rapport se propose donc de dresser un bilan de notre parcours, soulignant
+aussi bien les réussites que les obstacles rencontrés et les enseignements tirés
+de cette expérience.
 
 Dans les sections suivantes, nous détaillerons la méthodologie adoptée pour la
 réalisation de ce projet, ainsi que les étapes de développement et de mise en
@@ -134,10 +134,10 @@ contrôlé par un API, permettant donc de meilleures automatisations. La compagn
 qui a développé cet OS a d'ailleurs aussi développé un service SaaS qui se
 connecte à cet API et automatiser une partie importante de la gestion du
 cluster: Sidero Omni. Puisque que Sidero est un commanditaire du club étudiant,
-nous avons droit à une license pour utiliser ce logiciel habituellement
-payant. Cela nous permet de gérer facilement les différents serveurs à distance
-via une interface web. Le contrôle via l'API Kubernetes passe aussi par cette
-solution SaaS, permettant donc un contrôle des accès plus strict avec OAuth.
+nous avons droit à une license pour utiliser ce logiciel habituellement payant.
+Cela nous permet de gérer facilement les différents serveurs à distance via une
+interface web. Le contrôle via l'API Kubernetes passe aussi par cette solution
+SaaS, permettant donc un contrôle des accès plus strict avec OAuth.
 
 ### Gestion GitOps
 
@@ -164,19 +164,19 @@ principaux services configurés avec Terraform.
 ### Stockage distribué
 
 Afin d'offrir un service de qualité, il est important que les services restent
-toujours disponibles même en cas de pannes ou mises à jour de
-système. Kubernetes offre une façon de distribuer des ressources applicatives
-pour atteindre de la haute disponibilité. Toutefois, lorsque des données
-persistantes sont impliquées, cela est un peu plus complexe. En effet,
-Kubernetes laisse le soin aux administrateurs le soin de définir le stockage, ne
-fournissant qu'une abstraction. Cela permet une architecture très flexible
-(compatible autant avec des environnements physiques que cloud), mais implique
-plus de travail pour le configurer. Une solution simple consiste à utiliser le
-stockage local d'un noeud pour enregistrer les données. Toutefois, avec cette
-solution, si le noeud tombe en panne, les données deviennent indisponible et on
-perd la disponibilité de l'application. Pour éviter cette situation, il faut
-repartir les données sur différents serveurs de façon à ce qu'il y ait toujours
-un minimum de 2 copies de chaque donnée sur 2 différents serveurs.
+toujours disponibles même en cas de pannes ou mises à jour de système.
+Kubernetes offre une façon de distribuer des ressources applicatives pour
+atteindre de la haute disponibilité. Toutefois, lorsque des données persistantes
+sont impliquées, cela est un peu plus complexe. En effet, Kubernetes laisse le
+soin aux administrateurs le soin de définir le stockage, ne fournissant qu'une
+abstraction. Cela permet une architecture très flexible (compatible autant avec
+des environnements physiques que cloud), mais implique plus de travail pour le
+configurer. Une solution simple consiste à utiliser le stockage local d'un noeud
+pour enregistrer les données. Toutefois, avec cette solution, si le noeud tombe
+en panne, les données deviennent indisponible et on perd la disponibilité de
+l'application. Pour éviter cette situation, il faut repartir les données sur
+différents serveurs de façon à ce qu'il y ait toujours un minimum de 2 copies de
+chaque donnée sur 2 différents serveurs.
 
 Plusieurs technologies permettent de faire cela, ici, nous avons choisi
 Mayastor. C'est un engin de stockage basé sur la spécification NVMe-oF, un
@@ -199,13 +199,14 @@ configuration peut avoir des conséquences désastreuses. C'est d'ailleurs souve
 infiltrer des systèmes. Ici, nous avons choisi d'utiliser Hashicorp Vault,
 standard dans l'industrie pour la gestion de secrets à grande échelle. Pour
 configurer celui-ci, nous avons déployé un outil développé par la communauté
-RedHat: [Vault Config
-Operator](https://github.com/redhat-cop/vault-config-operator/). Cet outil
-ajoute des définitions de manifestes Kubernetes (CRD), nous permettant de créer
-des politiques d'accès, des configurations de rotation de clées ainsi que de
-définir de nouveaux secrets aléatoires à travers des manifestes Kubernetes qui
-sont ensuite déployés par ArgoCD. Cette approche nous permet de conserver une
-approche GitOps sans avoir à exposer les secrets dans les fichiers sur Git.
+RedHat:
+[Vault Config Operator](https://github.com/redhat-cop/vault-config-operator/).
+Cet outil ajoute des définitions de manifestes Kubernetes (CRD), nous permettant
+de créer des politiques d'accès, des configurations de rotation de clées ainsi
+que de définir de nouveaux secrets aléatoires à travers des manifestes
+Kubernetes qui sont ensuite déployés par ArgoCD. Cette approche nous permet de
+conserver une approche GitOps sans avoir à exposer les secrets dans les fichiers
+sur Git.
 
 ### Observabilité
 
@@ -215,9 +216,9 @@ d'un problème. Dans un système distribué comme celui que nous avons conçu, l
 traces sont particulièrements importantes, puisque c'est ce qui nous permet de
 suivre le chemin d'une requête à travers les multiples systèmes.
 
-Afin de collecter ces traces, nous avons mis à profit un outil appelé
-_Pixi_. Cet outil utilise une innovation relativement récente du noyau Linux:
-eBPF (extended Berkeley Packet Filter). Ceci permet à des applications de rouler
+Afin de collecter ces traces, nous avons mis à profit un outil appelé _Pixi_.
+Cet outil utilise une innovation relativement récente du noyau Linux: eBPF
+(extended Berkeley Packet Filter). Ceci permet à des applications de rouler
 certaines opérations dans le contexte privilégié du noyau Linux de façon
 sécuritaire. Ceci permet à Pixi d'analyse les communications entre les processus
 et le réseau et de recréer automatiquement des traces, sans avoir à configurer
@@ -314,19 +315,19 @@ cohérence dans le code du projet.
 
 ## Défis et Solutions
 
-| Défi | Problème | Solution |
+| Défi                                       | Problème                                 | Solution                                                    |
 | ------------------------------------------ | ---------------------------------------- | ----------------------------------------------------------- |
-| Installation de Kubernetes/Talos | Cryptage des disques non fonctionnel | Désactivation du cryptage avant installation |
-|                                            | Installation brisée si clé USB retirée | Réinstallation avec identifiants de disque durables |
-| Configuration d'ISO dans PVC pour KubeVirt | Besoin de simplifier la gestion des PVCs | Utilisation du CDI de KubeVirt |
-| Installation de Rook-Ceph | Cluster Ceph inutilisable, échec des OSD | Effacement manuel des disques et redémarrage de l'opérateur |
-| Stabilité de Rook/Ceph | Instabilité après redémarrage d'un node | Remplacement par Mayastor |
-| Configuration d'un service mesh | Problèmes avec Linkerd et mTLS | Choix de Kuma pour mTLS et support de Gateway API |
-| Installation du service External-DNS | Service non fonctionnel, cause inconnue | Enquête en cours, exploration de solutions alternatives |
-| Configuration SSO pour ArgoCD | Gestion non sécurisée des secrets | Utilisation de Vault pour la gestion sécurisée des secrets |
-| Bootstrapping de Hashicorp Vault | Processus manuel complexe | Automatisation partielle via Terraform et scripts |
-| Déploiement de Calidum-rotae | Acheminement partiel des requêtes | Configuration directe d'une webhook Discord |
-| Enregistrement de VCluster dans ArgoCD | Difficulté d'enregistrement sécurisé | Utilisation de Crossplane pour enregistrement déclaratif |
+| Installation de Kubernetes/Talos           | Cryptage des disques non fonctionnel     | Désactivation du cryptage avant installation                |
+|                                            | Installation brisée si clé USB retirée   | Réinstallation avec identifiants de disque durables         |
+| Configuration d'ISO dans PVC pour KubeVirt | Besoin de simplifier la gestion des PVCs | Utilisation du CDI de KubeVirt                              |
+| Installation de Rook-Ceph                  | Cluster Ceph inutilisable, échec des OSD | Effacement manuel des disques et redémarrage de l'opérateur |
+| Stabilité de Rook/Ceph                     | Instabilité après redémarrage d'un node  | Remplacement par Mayastor                                   |
+| Configuration d'un service mesh            | Problèmes avec Linkerd et mTLS           | Choix de Kuma pour mTLS et support de Gateway API           |
+| Installation du service External-DNS       | Service non fonctionnel, cause inconnue  | Enquête en cours, exploration de solutions alternatives     |
+| Configuration SSO pour ArgoCD              | Gestion non sécurisée des secrets        | Utilisation de Vault pour la gestion sécurisée des secrets  |
+| Bootstrapping de Hashicorp Vault           | Processus manuel complexe                | Automatisation partielle via Terraform et scripts           |
+| Déploiement de Calidum-rotae               | Acheminement partiel des requêtes        | Configuration directe d'une webhook Discord                 |
+| Enregistrement de VCluster dans ArgoCD     | Difficulté d'enregistrement sécurisé     | Utilisation de Crossplane pour enregistrement déclaratif    |
 
 ## Résultats
 
@@ -370,8 +371,8 @@ l'ordre chronologique de leur réalisation ainsi que par livrable :
 ### Tâches en cours et non réalisées
 
 Bien que de nombreuses tâches aient été menées à bien, certaines sont encore en
-cours, notamment le déploiement de cert-manager et la documentation de
-Vault. Par ailleurs, l'intégration des vclusters avec ArgoCD est en cours de
+cours, notamment le déploiement de cert-manager et la documentation de Vault.
+Par ailleurs, l'intégration des vclusters avec ArgoCD est en cours de
 réalisation.
 
 En termes de tâches non réalisées, nous avons décidé de ne pas poursuivre

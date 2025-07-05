@@ -56,22 +56,16 @@ pour découvrir les technologies que tu vas rencontrer dans les labs.
 
 ### DevOps
 
-- [C’est quoi le
-  DevOps?](https://github.com/resources/articles/devops/what-is-devops)
-- [Lignes directrices DevSecOps
-  (OWASP)](https://owasp.org/www-project-devsecops-guideline/latest/00a-Overview)
+- [C’est quoi le DevOps?](https://github.com/resources/articles/devops/what-is-devops)
+- [Lignes directrices DevSecOps (OWASP)](https://owasp.org/www-project-devsecops-guideline/latest/00a-Overview)
 - [GitHub Actions](https://docs.github.com/fr/actions)
-- [The DevOps Handbook (en
-  anglais)](https://books.google.ca/books/about/The_DevOps_Handbook.html?id=8kRDEAAAQBAJ&redir_esc=y)
-- [The Unicorn Project (en
-  anglais)](https://www.google.ca/books/edition/The_Unicorn_Project/kNSSDwAAQBAJ?hl=en&gbpv=1&printsec=frontcover)
-- [The Phoenix Project (en
-  anglais)](https://books.google.ca/books/about/The_Phoenix_Project.html?id=mqXomAEACAAJ&redir_esc=y)
+- [The DevOps Handbook (en anglais)](https://books.google.ca/books/about/The_DevOps_Handbook.html?id=8kRDEAAAQBAJ&redir_esc=y)
+- [The Unicorn Project (en anglais)](https://www.google.ca/books/edition/The_Unicorn_Project/kNSSDwAAQBAJ?hl=en&gbpv=1&printsec=frontcover)
+- [The Phoenix Project (en anglais)](https://books.google.ca/books/about/The_Phoenix_Project.html?id=mqXomAEACAAJ&redir_esc=y)
 
 ### SRE (Ingénierie de la fiabilité des sites)
 
-- [Livre sur l’ingénierie de la fiabilité des sites (SRE) de
-  Google](https://sre.google/sre-book/table-of-contents/)
+- [Livre sur l’ingénierie de la fiabilité des sites (SRE) de Google](https://sre.google/sre-book/table-of-contents/)
 
 ## Pistes d'intégration
 

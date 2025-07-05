@@ -42,7 +42,7 @@ exécuter l'application. Ouvrez ce fichier dans un éditeur de texte pour voir l
 configuration :
 
 ```yaml
-version: "3"
+version: '3'
 services:
   web:
     image: node:14
@@ -50,18 +50,18 @@ services:
     volumes:
       - .:/app
     ports:
-      - "3000:3000"
-    command: "npm start"
+      - '3000:3000'
+    command: 'npm start'
   database:
     image: mongo:4.2
     ports:
-      - "27017:27017"
+      - '27017:27017'
 ```
 
-**Explication :** Ce fichier YAML définit deux services : `web` et
-`database`. Le service `web` utilise une image Node.js et exécute l'application,
-tandis que le service `database` utilise une image MongoDB. Les ports sont
-mappés pour permettre l'accès depuis votre machine hôte.
+**Explication :** Ce fichier YAML définit deux services : `web` et `database`.
+Le service `web` utilise une image Node.js et exécute l'application, tandis que
+le service `database` utilise une image MongoDB. Les ports sont mappés pour
+permettre l'accès depuis votre machine hôte.
 
 **4. Exécuter l'Application :**
 
@@ -98,8 +98,8 @@ que vous ajoutez via l'interface frontend.
 
 **7. Arrêter l'Application :**
 
-Pour arrêter les conteneurs en cours d'exécution, utilisez la commande `docker
-compose down` :
+Pour arrêter les conteneurs en cours d'exécution, utilisez la commande
+`docker compose down` :
 
 ```sh
 docker compose down
@@ -188,8 +188,8 @@ application web avec un service frontend et backend.
 
 Docker Compose est généralement inclus avec Docker Desktop pour Windows et
 macOS. Pour les utilisateurs Linux, vous pouvez suivre les instructions
-d'installation de la [documentation officielle
-Docker](https://docs.docker.com/compose/install/).
+d'installation de la
+[documentation officielle Docker](https://docs.docker.com/compose/install/).
 
 **2. Créer un Fichier YAML Docker Compose :**
 
@@ -197,13 +197,13 @@ Créez un fichier nommé `docker-compose.yml` dans votre répertoire de projet. 
 fichier définira les services, réseaux et volumes pour votre application.
 
 ```yaml
-version: "3.8" # Utilisez la dernière version de la syntaxe Compose
+version: '3.8' # Utilisez la dernière version de la syntaxe Compose
 
 services:
   frontend:
     image: nginx:latest
     ports:
-      - "8080:80"
+      - '8080:80'
     volumes:
       - ./frontend:/usr/share/nginx/html
     networks:
@@ -293,8 +293,7 @@ volumes et images créés par `docker-compose up`.
 Docker Compose simplifie le processus de gestion des applications Docker à
 plusieurs conteneurs en vous permettant de les définir et de les exécuter.
 
-Si cela vous intéresse, vous pouvez également consulter l'un des [fichiers de
-configuration des workflows GitHub Actions du Club
-Cédille](https://github.com/ClubCedille/point-virgule/blob/master/.github/workflows/main.yml). GitHub
-Actions est un service CI/CD fourni par GitHub, qui vous permet d'automatiser la
-construction, le test et le déploiement de votre code.
+Si cela vous intéresse, vous pouvez également consulter l'un des
+[fichiers de configuration des workflows GitHub Actions du Club Cédille](https://github.com/ClubCedille/point-virgule/blob/master/.github/workflows/main.yml).
+GitHub Actions est un service CI/CD fourni par GitHub, qui vous permet
+d'automatiser la construction, le test et le déploiement de votre code.

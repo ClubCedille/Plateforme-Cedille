@@ -4,22 +4,22 @@ Date: 11 octobre 2023
 
 ## 1. Travail réalisé
 
-| Tâche | Responsable |
+| Tâche                                                   | Responsable                         |
 | ------------------------------------------------------- | ----------------------------------- |
-| Préparer les questionnaires par client | Jonathan / Thomas |
-| Entrevue AlgoETS | Jonathan |
-| Entrevue des membres du club | Thomas / Jonathan |
-| Entrevue club Raconteurs d'angles | Jonathan |
-| Entrevue club Saveurs de génie | Jonathan |
-| Entrevue services TI | Thomas |
-| À partir des entrevues, définir métriques de succès | Jonathan / Thomas / Simon / Michael |
-| Deployer le cluster physique avec Talos/Omni | Michael / Simon |
-| Configuration de base de Rook/Ceph | Michael / Simon |
-| Evaluer stack networking k8s | Simon |
-| Mise en place d'un wiki pour la documentation | Jonathan |
-| Rédaction initiale du document de vision | Jonathan / Thomas / Simon / Michael |
-| Migrer les serveurs physiques vers la salle de serveurs | Simon / Jonathan / Thomas |
-| Configuration de KubeVirt | Thomas |
+| Préparer les questionnaires par client                  | Jonathan / Thomas                   |
+| Entrevue AlgoETS                                        | Jonathan                            |
+| Entrevue des membres du club                            | Thomas / Jonathan                   |
+| Entrevue club Raconteurs d'angles                       | Jonathan                            |
+| Entrevue club Saveurs de génie                          | Jonathan                            |
+| Entrevue services TI                                    | Thomas                              |
+| À partir des entrevues, définir métriques de succès     | Jonathan / Thomas / Simon / Michael |
+| Deployer le cluster physique avec Talos/Omni            | Michael / Simon                     |
+| Configuration de base de Rook/Ceph                      | Michael / Simon                     |
+| Evaluer stack networking k8s                            | Simon                               |
+| Mise en place d'un wiki pour la documentation           | Jonathan                            |
+| Rédaction initiale du document de vision                | Jonathan / Thomas / Simon / Michael |
+| Migrer les serveurs physiques vers la salle de serveurs | Simon / Jonathan / Thomas           |
+| Configuration de KubeVirt                               | Thomas                              |
 
 ## 2. Travail non terminé
 
@@ -31,8 +31,8 @@ Date: 11 octobre 2023
 ### 2.2 Ne sera pas fait
 
 - **Ajouter le réseautage pour le provideur Terraform XCP-NG** : Nous avons pris
-  la décision de ne pas utiliser XCP-NG comme hyperviseur pour nos
-  serveurs. Cette décision s'explique par le fait que nous désirons minimiser la
+  la décision de ne pas utiliser XCP-NG comme hyperviseur pour nos serveurs.
+  Cette décision s'explique par le fait que nous désirons minimiser la
   complexité de l'infrastructure et qu'il n'y avait pas assez de valeurs
   ajoutées pour justifier cette configuration. Nous avons opté pour l'outil
   Vcluster comme alternative pour permettre de configurer différents

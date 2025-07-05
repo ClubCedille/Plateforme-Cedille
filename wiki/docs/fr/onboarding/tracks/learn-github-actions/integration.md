@@ -122,7 +122,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Log in to GitHub Container Registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        run:
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{
+          github.actor }} --password-stdin
 
       - name: Build Docker image
         run: docker build -t ghcr.io/${{ github.repository }}/my-app:latest .
@@ -180,7 +182,7 @@ jobs:
       - name: Set up kubectl
         uses: azure/setup-kubectl@v3
         with:
-          version: "latest"
+          version: 'latest'
 
       # Étape 3 : Configurer l'accès au cluster Kubernetes
       - name: Set up kubeconfig
@@ -264,7 +266,7 @@ jobs:
       - name: Set up kubectl
         uses: azure/setup-kubectl@v3
         with:
-          version: "latest"
+          version: 'latest'
 
       # Étape 6 : Deploy to Kubernetes with kubectl
       - name: Update Kubernetes Deployment with kubectl
@@ -293,9 +295,9 @@ jobs:
    d'authentification.
 
 Dans ce workflow, vous pouvez choisir d'utiliser soit **kubectl** pour les
-déploiements simples, soit **Helm** pour les déploiements plus
-complexes. L'intégration des deux outils dans le même workflow permet de gérer
-des cas d'utilisation variés selon la complexité de vos déploiements Kubernetes.
+déploiements simples, soit **Helm** pour les déploiements plus complexes.
+L'intégration des deux outils dans le même workflow permet de gérer des cas
+d'utilisation variés selon la complexité de vos déploiements Kubernetes.
 
 ---
 

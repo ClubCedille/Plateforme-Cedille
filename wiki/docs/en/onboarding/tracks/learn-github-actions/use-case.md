@@ -67,7 +67,9 @@ jobs:
 
       # Step 2: Authenticate with GitHub Container Registry (GHCR)
       - name: Log in to GitHub Container Registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        run:
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{
+          github.actor }} --password-stdin
 
       # Step 3: Build the Docker image
       - name: Build Docker image
@@ -225,7 +227,9 @@ jobs:
 
       # Step 2: Authenticate with Heroku
       - name: Login to Heroku
-        run: echo "${{ secrets.HEROKU_API_KEY }}" | docker login --username=_ --password-stdin registry.heroku.com
+        run:
+          echo "${{ secrets.HEROKU_API_KEY }}" | docker login --username=_
+          --password-stdin registry.heroku.com
 
       # Step 3: Deploy the image to Heroku
       - name: Deploy to Heroku
@@ -352,7 +356,7 @@ build process across the organization.
 
 These practical use cases demonstrate how GitHub Actions can be used to automate
 the full DevOps lifecycle. Whether working with Node.js, Python, Docker, or AWS,
-GitHub Actions enables building robust, automated, and scalable CI/CD
-pipelines. By integrating tests, builds, notifications, and team collaboration
-through GitHub organizations, you can easily manage and optimize your DevOps
-processes while ensuring smooth team collaboration across the organization.
+GitHub Actions enables building robust, automated, and scalable CI/CD pipelines.
+By integrating tests, builds, notifications, and team collaboration through
+GitHub organizations, you can easily manage and optimize your DevOps processes
+while ensuring smooth team collaboration across the organization.

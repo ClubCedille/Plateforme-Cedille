@@ -94,8 +94,8 @@ steps:
 
 L'action `actions/checkout` est couramment utilisée pour cloner le dépôt sur la
 machine où les jobs s'exécutent. Vous pouvez trouver des centaines d'autres
-actions sur le [GitHub
-Marketplace](https://github.com/marketplace?type=actions), comme :
+actions sur le
+[GitHub Marketplace](https://github.com/marketplace?type=actions), comme :
 
 - **`actions/setup-node`** : Configurer un environnement Node.js.
 - **`actions/upload-artifact`** : Sauvegarder des fichiers ou des résultats de
@@ -115,7 +115,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: '14'
 
       - name: Install dependencies
         run: npm install
@@ -130,11 +130,11 @@ En plus d'utiliser des actions préconstruites, GitHub Actions vous permet de
 spécifiques. Ces actions peuvent être écrites en JavaScript ou définies dans des
 conteneurs Docker pour des environnements plus complexes. Pour un exemple
 pratique de création d'une action personnalisée, vous pouvez consulter le dépôt
-[Cedille-Actions-By-Example](https://github.com/ClubCedille/cedille-actions-by-example). Ce
-dépôt présente différentes actions, dont l'action **KubeSketcher**, qui génère
-des diagrammes d'architecture de namespaces Kubernetes à partir de manifests, et
-**WorkflowWikiExample**, une action créée spécialement pour illustrer la
-création et le fonctionnement d'une action.
+[Cedille-Actions-By-Example](https://github.com/ClubCedille/cedille-actions-by-example).
+Ce dépôt présente différentes actions, dont l'action **KubeSketcher**, qui
+génère des diagrammes d'architecture de namespaces Kubernetes à partir de
+manifests, et **WorkflowWikiExample**, une action créée spécialement pour
+illustrer la création et le fonctionnement d'une action.
 
 Voici la procédure qui a été suivie pour la création de l'action
 **cedille-actions-by-example/WorkflowWikiExample** :
@@ -156,11 +156,11 @@ Voici comment créer une action simple en JavaScript :
 
 ```js
 // index.js
-const core = require("@actions/core");
-const github = require("@actions/github");
+const core = require('@actions/core');
+const github = require('@actions/github');
 
 try {
-  const message = core.getInput("message");
+  const message = core.getInput('message');
   console.log(`Message: ${message}`);
 } catch (error) {
   core.setFailed(error.message);
@@ -171,15 +171,15 @@ try {
 3. **Créer un fichier `action.yml`** pour décrire l’action :
 
 ```yaml
-name: "Print Message"
-description: "Imprime un message dans la console"
+name: 'Print Message'
+description: 'Imprime un message dans la console'
 inputs:
   message:
-    description: "Le message à imprimer"
+    description: 'Le message à imprimer'
     required: true
 runs:
-  using: "node20"
-  main: "index.js"
+  using: 'node20'
+  main: 'index.js'
 ```
 
 ### Utiliser l'Action Personnalisée
@@ -225,10 +225,10 @@ CMD ["node", "index.js"]
 2. Créez l’action YAML pour Docker :
 
 ```yaml
-name: "Custom Docker Action"
+name: 'Custom Docker Action'
 runs:
-  using: "docker"
-  image: "Dockerfile"
+  using: 'docker'
+  image: 'Dockerfile'
 ```
 
 ---
@@ -329,10 +329,10 @@ jobs:
 Voici comment vous pouvez ajouter une section sur le passage d'informations d'un
 workflow à un autre, en plus de la section d'exécution conditionnelle :
 
-````markdown
+`````markdown
 #### Exécution Conditionnelle en Fonction de l'Échec ou du Succès
 
-```yaml
+`````yaml
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -380,7 +380,7 @@ jobs:
 
       - name: Deploy application
         run: echo "Deploying version ${{ needs.build.outputs.version }}"
-```
+`````
 
 #### Explication
 
@@ -389,15 +389,16 @@ jobs:
    généré à l'aide de la commande `date` pour créer une valeur unique.
 
 2. **Utiliser l'Output dans un Autre Job** : Dans le job `deploy`, l'output du
-   job `build` est référencé via la syntaxe `${{ needs.build.outputs.version
-   }}`. Cela permet d'accéder à l'information générée dans le premier job et de
-   l'utiliser pour déployer une version spécifique.
+   job `build` est référencé via la syntaxe
+   `${{ needs.build.outputs.version }}`. Cela permet d'accéder à l'information
+   générée dans le premier job et de l'utiliser pour déployer une version
+   spécifique.
 
 #### Référence vers la Documentation
 
 Pour plus de détails, vous pouvez consulter la documentation GitHub Actions sur
-le [passage d'informations entre
-jobs](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/passing-information-between-jobs#example-defining-outputs-for-a-job).
+le
+[passage d'informations entre jobs](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/passing-information-between-jobs#example-defining-outputs-for-a-job).
 
 ---
 
@@ -414,3 +415,4 @@ pour votre projet.
 Avec ces outils, vous êtes maintenant prêt à créer des workflows adaptés à vos
 besoins, améliorer la collaboration entre les équipes, et automatiser vos
 déploiements et tests de manière fiable.
+`````

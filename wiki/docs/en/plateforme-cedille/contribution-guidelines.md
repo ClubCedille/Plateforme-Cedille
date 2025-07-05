@@ -32,10 +32,10 @@ To contribute to one of our projects, follow the steps below and send us your
 GitHub username to be added to our organization:
 
 1. **Clone the Project Locally**: Use the `git clone` command to clone the
-   project to your machine. Example: `sh git clone
-   https://github.com/ClubCedille/cedille.etsmtl.ca.git ` This command downloads
-   a complete copy of the repository to your local machine, allowing you to work
-   offline.
+   project to your machine. Example:
+   `sh git clone https://github.com/ClubCedille/cedille.etsmtl.ca.git ` This
+   command downloads a complete copy of the repository to your local machine,
+   allowing you to work offline.
 
 2. **Open the Project with Your IDE**: Use your preferred IDE to open the cloned
    project. An IDE (Integrated Development Environment) such as Visual Studio
@@ -43,24 +43,25 @@ GitHub username to be added to our organization:
    changes more effectively.
 
 3. **Create a New Branch**: Before you start working on changes, create a new
-   branch for your contributions using the command: `sh git branch [branch_name]
-   ` Then switch to this branch with: `sh git checkout [branch_name] ` Creating
-   branches allows you to work on specific features or fixes without affecting
-   the main branch of the project.
+   branch for your contributions using the command:
+   `sh git branch [branch_name] ` Then switch to this branch with:
+   `sh git checkout [branch_name] ` Creating branches allows you to work on
+   specific features or fixes without affecting the main branch of the project.
 
 4. **Make Your Changes**: Make the necessary changes in your development
-   environment. After finishing, save your changes with the command: `sh git
-   commit -am “describe your changes here” ` It is important to write clear and
-   descriptive commit messages to facilitate understanding of the changes made.
+   environment. After finishing, save your changes with the command:
+   `sh git commit -am “describe your changes here” ` It is important to write
+   clear and descriptive commit messages to facilitate understanding of the
+   changes made.
 
-5. **Push Your Branch**: Push your branch to the remote repository using: `sh
-git push -u origin [branch_name] ` The `-u` flag configures the local branch to
-track the remote branch, making future synchronizations easier.
+5. **Push Your Branch**: Push your branch to the remote repository using:
+   `sh git push -u origin [branch_name] ` The `-u` flag configures the local
+   branch to track the remote branch, making future synchronizations easier.
 
 6. **Open a Pull Request**: On the GitHub site, navigate to your branch and
    click on “New pull request” to open a new request. Fill out the Pull Request
-   template with a brief description of your changes and submit it for
-   review. Be sure to select at least one club member to review the request.
+   template with a brief description of your changes and submit it for review.
+   Be sure to select at least one club member to review the request.
 
 7. **Review and Merge**: Once the Pull Request has been reviewed and approved,
    merge the branch into the main branch using one of the following options:

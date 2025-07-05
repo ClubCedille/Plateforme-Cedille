@@ -77,13 +77,13 @@ peuvent inclure :
   Exemple de `compose.yaml` :
 
   ```yaml
-  version: "3.8"
+  version: '3.8'
 
   services:
     web:
       build: .
       ports:
-        - "3000:3000"
+        - '3000:3000'
       volumes:
         - .:/usr/src/app
       environment:
@@ -112,10 +112,10 @@ les conteneurs en mode détaché (en arrière-plan).
 
 Bien que Docker essaie de créer le `Dockerfile` et le fichier `compose.yaml`
 avec des valeurs par défaut sensées, il peut y avoir des cas où vous devez
-apporter des modifications supplémentaires. Vous pouvez consulter la [référence
-Dockerfile](https://docs.docker.com/engine/reference/builder/) et la [référence
-du fichier Compose](https://docs.docker.com/compose/compose-file/) dans la
-documentation Docker pour plus de détails sur la personnalisation de ces
+apporter des modifications supplémentaires. Vous pouvez consulter la
+[référence Dockerfile](https://docs.docker.com/engine/reference/builder/) et la
+[référence du fichier Compose](https://docs.docker.com/compose/compose-file/)
+dans la documentation Docker pour plus de détails sur la personnalisation de ces
 fichiers.
 
 ## Résumé

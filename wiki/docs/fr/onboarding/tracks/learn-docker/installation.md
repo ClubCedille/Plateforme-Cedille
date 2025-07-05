@@ -21,10 +21,10 @@ Pour **Windows** et **macOS**, Docker Desktop est le choix recommandé. Il
 installe Docker Engine, le client Docker CLI, Docker Compose, Docker Machine et
 les outils Kubernetes, fournissant un environnement Docker complet.
 
-- Guide d'installation pour Windows : [Docker Desktop pour
-  Windows](https://docs.docker.com/desktop/install/windows/)
-- Guide d'installation pour macOS : [Docker Desktop pour
-  macOS](https://docs.docker.com/desktop/install/mac-install/)
+- Guide d'installation pour Windows :
+  [Docker Desktop pour Windows](https://docs.docker.com/desktop/install/windows/)
+- Guide d'installation pour macOS :
+  [Docker Desktop pour macOS](https://docs.docker.com/desktop/install/mac-install/)
 
 ![docker desktop](img/docker-desktop.svg)
 
@@ -32,9 +32,9 @@ les outils Kubernetes, fournissant un environnement Docker complet.
 
 Si vous utilisez **Linux**, Docker CE convient aussi bien à un usage personnel
 qu'aux déploiements sur serveur. Les instructions d'installation se trouvent
-généralement sur le [site web de
-Docker](https://docs.docker.com/engine/install/ubuntu/) ou dans le gestionnaire
-de paquets de votre distribution Linux.
+généralement sur le
+[site web de Docker](https://docs.docker.com/engine/install/ubuntu/) ou dans le
+gestionnaire de paquets de votre distribution Linux.
 
 ### Docker Enterprise
 
@@ -42,8 +42,8 @@ Pour les organisations ayant des déploiements Docker complexes, Docker
 Enterprise fournit une plateforme robuste avec un support de niveau entreprise
 et des outils de gestion supplémentaires.
 
-- Plus d'informations : [Docker
-  Enterprise](https://www.docker.com/products/business/)
+- Plus d'informations :
+  [Docker Enterprise](https://www.docker.com/products/business/)
 
 ## Docker Hub
 
@@ -62,39 +62,39 @@ Docker Hub :
 
 - **Windows :**
 
-
-    Téléchargez Git depuis [git-scm.com](https://git-scm.com/download/win) et
-    exécutez l'installateur. Suivez les instructions et choisissez les options
-    par défaut.
+  Téléchargez Git depuis [git-scm.com](https://git-scm.com/download/win) et
+  exécutez l'installateur. Suivez les instructions et choisissez les options par
+  défaut.
 
 - **macOS :**
 
+  Git devrait déjà être disponible sur macOS. Vous pouvez vérifier en ouvrant
+  Terminal et en tapant :
 
-    Git devrait déjà être disponible sur macOS. Vous pouvez vérifier en ouvrant Terminal et en tapant :
-    ```
-    git --version
-    ```
-    Si Git n'est pas installé, vous serez invité à l'installer.
+  ```
+  git --version
+  ```
+
+  Si Git n'est pas installé, vous serez invité à l'installer.
 
 - **Linux (Ubuntu/Debian) :**
 
+  Ouvrez un terminal et installez Git en utilisant apt-get :
 
-    Ouvrez un terminal et installez Git en utilisant apt-get :
-    ```
-    sudo apt-get update
-    sudo apt-get install git
-    ```
+  ```
+  sudo apt-get update
+  sudo apt-get install git
+  ```
 
 - **Linux (Fedora) :**
 
+  Ouvrez un terminal et installez Git en utilisant dnf :
 
-    Ouvrez un terminal et installez Git en utilisant dnf :
-    ```
-    sudo dnf install git
-    ```
+  ```
+  sudo dnf install git
+  ```
 
 - **Autres distributions Linux :**
 
-
-    Utilisez le gestionnaire de paquets spécifique à votre distribution pour
-    installer Git.
+  Utilisez le gestionnaire de paquets spécifique à votre distribution pour
+  installer Git.

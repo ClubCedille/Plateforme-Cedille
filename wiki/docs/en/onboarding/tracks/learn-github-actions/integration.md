@@ -120,7 +120,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Log in to GitHub Container Registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        run:
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{
+          github.actor }} --password-stdin
 
       - name: Build Docker image
         run: docker build -t ghcr.io/${{ github.repository }}/my-app:latest .
@@ -176,7 +178,7 @@ jobs:
       - name: Set up kubectl
         uses: azure/setup-kubectl@v3
         with:
-          version: "latest"
+          version: 'latest'
 
       # Step 3: Configure access to the Kubernetes cluster
       - name: Set up kubeconfig
@@ -258,7 +260,7 @@ jobs:
       - name: Set up kubectl
         uses: azure/setup-kubectl@v3
         with:
-          version: "latest"
+          version: 'latest'
 
       # Step 6: Deploy to Kubernetes with kubectl
       - name: Update Kubernetes Deployment with kubectl
@@ -296,11 +298,11 @@ complexity of your Kubernetes deployments.
 ## Conclusion
 
 Integrating Docker and Kubernetes into your CI/CD workflows with GitHub Actions
-simplifies the building, testing, and deployment of containerized
-applications. Whether using Docker to create images or Kubernetes to orchestrate
-these containers, GitHub Actions provides the tools needed to fully automate
-these processes. This enables you to build, test, and deploy applications
-smoothly and securely while reducing manual errors.
+simplifies the building, testing, and deployment of containerized applications.
+Whether using Docker to create images or Kubernetes to orchestrate these
+containers, GitHub Actions provides the tools needed to fully automate these
+processes. This enables you to build, test, and deploy applications smoothly and
+securely while reducing manual errors.
 
 By using `docker`, `kubectl`, and Helm in your workflows, you can create robust
 and flexible pipelines suitable for production, testing, or any other Kubernetes

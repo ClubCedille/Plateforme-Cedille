@@ -4,8 +4,8 @@
 
 ### 1. Download Git CLI
 
-First, you need to [download the Git Command-Line
-Interface](https://git-scm.com/downloads).
+First, you need to
+[download the Git Command-Line Interface](https://git-scm.com/downloads).
 
 ### 2. Set up Git
 
@@ -18,12 +18,11 @@ git config --global user.email "yourEmail@example.com"
 
 ### 3. Authenticate with Github
 
-We need to authenticate our local computer with our account over at
-Github. Multiple ways are available, but we prioritise SSH since it is the most
-secure.
+We need to authenticate our local computer with our account over at Github.
+Multiple ways are available, but we prioritise SSH since it is the most secure.
 
-For this step, please head over to [this
-page](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+For this step, please head over to
+[this page](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 for everything you'll need to setup SSH. Ignore the part about hardware security
 key.
 
@@ -49,7 +48,7 @@ git clone git@github.com:YourUsename/YourUsername.git
 
 While being in your local repo, create a new file :
 
-| Linux | Windows |
+| Linux           | Windows                  |
 | --------------- | ------------------------ |
 | `touch test.md` | `echo test123 > test.md` |
 
@@ -67,8 +66,8 @@ Add some text to `test.md` and commit them to the history using:
 git commit -m "Added some text"
 ```
 
-The `-m "Added some text"` is an option to add a message along with your
-commit. It is required in our case.
+The `-m "Added some text"` is an option to add a message along with your commit.
+It is required in our case.
 
 ### 7. Push changes
 
@@ -154,19 +153,19 @@ which version you want to keep.
 
 - Stashing changes: Use `git stash` to temporarily save your changes without
   committing them. This is handy when you need to switch branches but have
-  uncommitted work. To retrive them, you may use `git stash pop`. [More
-  information](https://git-scm.com/docs/git-stash)
+  uncommitted work. To retrive them, you may use `git stash pop`.
+  [More information](https://git-scm.com/docs/git-stash)
 
 - Recovery: If you ever lose a commit or make a mistake, `git reflog` can help
   you recover it by showing a history of all actions you have executed.
 
 - Github Actions: Actions are automatic workflows, which are often used to
-  automatically test for bugs, deploy your code etc. For more, see [this
-  guide](/onboarding/tracks/learn-github-actions/)
+  automatically test for bugs, deploy your code etc. For more, see
+  [this guide](/onboarding/tracks/learn-github-actions/)
 
 With your new, fresh, amazing, (expert), skills in git, we can now proceed to
-the first git lab (and not GitLab) : Creat your own [Github Profile
-ReadMe](github_profile.md) !
+the first git lab (and not GitLab) : Creat your own
+[Github Profile ReadMe](github_profile.md) !
 
 ??? danger "But WAIT! What is that?..."
 

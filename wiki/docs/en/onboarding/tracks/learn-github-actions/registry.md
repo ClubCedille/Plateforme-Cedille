@@ -1,10 +1,9 @@
 # Using GitHub Container Registry (GHCR)
 
 GitHub Container Registry (GHCR) is a feature of GitHub Packages that enables
-you to store and manage Docker container images alongside your GitHub
-projects. GHCR integrates seamlessly with CI/CD workflows via GitHub Actions,
-simplifying the creation, storage, and deployment of Docker images in your
-projects.
+you to store and manage Docker container images alongside your GitHub projects.
+GHCR integrates seamlessly with CI/CD workflows via GitHub Actions, simplifying
+the creation, storage, and deployment of Docker images in your projects.
 
 ---
 
@@ -17,10 +16,10 @@ management, image visibility, and integration with GitHub Actions workflows.
 
 ### Example: Cedille’s Container Registry
 
-For a real-world example of GHCR usage, check out the [Cedille container
-registry](https://github.com/orgs/ClubCedille/packages). This registry hosts
-container images that the club uses for its projects, integrated with CI/CD
-workflows and managed directly through GitHub Actions.
+For a real-world example of GHCR usage, check out the
+[Cedille container registry](https://github.com/orgs/ClubCedille/packages). This
+registry hosts container images that the club uses for its projects, integrated
+with CI/CD workflows and managed directly through GitHub Actions.
 
 ### Key Features of GHCR
 
@@ -173,7 +172,9 @@ jobs:
 
       # Step 2: Authenticate to GHCR
       - name: Log in to GitHub Container Registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        run:
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{
+          github.actor }} --password-stdin
 
       # Step 3: Build Docker image
       - name: Build Docker image
@@ -212,7 +213,9 @@ jobs:
     steps:
       # Authenticate to GHCR
       - name: Log in to GitHub Container Registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        run:
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{
+          github.actor }} --password-stdin
 
       # Pull the Docker image
       - name: Pull Docker image from GHCR
@@ -220,7 +223,9 @@ jobs:
 
       # Run the Docker container
       - name: Run Docker container
-        run: docker run -d -p 8080:80 ghcr.io/${{ github.repository }}/my-app:latest
+        run:
+          docker run -d -p 8080:80 ghcr.io/${{ github.repository
+          }}/my-app:latest
 ```
 
 ---

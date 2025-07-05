@@ -174,7 +174,7 @@ jobs:
       - name: Await approval
         uses: actions/manual-approval@v2
         with:
-          approver: "team-lead"
+          approver: 'team-lead'
       - name: Deploy application
         run: ./deploy.sh
 ```
@@ -275,14 +275,14 @@ définit les dépendances à surveiller et la fréquence de mise à jour.
 ```yaml
 version: 2
 updates:
-  - package-ecosystem: "npm" # Gérer les dépendances npm
-    directory: "/" # Répertoire contenant le fichier package.json
+  - package-ecosystem: 'npm' # Gérer les dépendances npm
+    directory: '/' # Répertoire contenant le fichier package.json
     schedule:
-      interval: "daily" # Vérification des mises à jour chaque jour
-  - package-ecosystem: "docker" # Gérer les images Docker
-    directory: "/" # Répertoire contenant le fichier Dockerfile
+      interval: 'daily' # Vérification des mises à jour chaque jour
+  - package-ecosystem: 'docker' # Gérer les images Docker
+    directory: '/' # Répertoire contenant le fichier Dockerfile
     schedule:
-      interval: "weekly" # Vérification des mises à jour chaque semaine
+      interval: 'weekly' # Vérification des mises à jour chaque semaine
 ```
 
 ### 3.4. Analyse des Vulnérabilités dans le Code et les Dépendances

@@ -70,8 +70,8 @@ pipelines dans un fichier réutilisable, ce qui simplifie la gestion des
 workflows complexes. Vous pouvez appeler un workflow à partir d'un autre
 workflow pour éviter la duplication de code.
 
-Dans nos projets, nous utilisons un dépôt dédié aux workflows
-réutilisables. Vous pouvez consulter
+Dans nos projets, nous utilisons un dépôt dédié aux workflows réutilisables.
+Vous pouvez consulter
 [**cedille-workflows**](https://github.com/ClubCedille/cedille-workflows), qui
 contient des exemples de workflows prêts à être réutilisés dans différents
 projets. Ce dépôt permet de centraliser les définitions de workflows communs,
@@ -81,13 +81,13 @@ dépendances.
 Voici la section mise à jour avec un exemple illustrant l'utilisation des
 variables dans un workflow réutilisable :
 
-````markdown
+`````markdown
 #### Exemple : Appeler un Workflow Réutilisable
 
 Dans ce cas, nous avons un workflow qui effectue des tests, et un autre qui gère
 les déploiements. Ces workflows sont réutilisés à partir d'un fichier central.
 
-```yaml
+`````yaml
 # .github/workflows/reusable-tests.yml
 name: Reusable Test Workflow
 
@@ -129,7 +129,7 @@ jobs:
 
       - name: Deploy to production
         run: ./deploy.sh
-```
+`````
 
 #### Exemple : Workflow Réutilisable avec des Variables
 
@@ -140,7 +140,9 @@ variables d'entrée :
 
 ```yaml
 # .github/workflows/build-push-ghcr.yml
-name: Reusable workflow to build and push docker container to GitHub Container Registry
+name:
+  Reusable workflow to build and push docker container to GitHub Container
+  Registry
 
 on:
   workflow_call:
@@ -151,11 +153,11 @@ on:
       context:
         required: false
         type: string
-        default: "."
+        default: '.'
       file:
         required: false
         type: string
-        default: "Dockerfile"
+        default: 'Dockerfile'
 
 env:
   REGISTRY: ghcr.io/clubcedille
@@ -448,3 +450,4 @@ performances. De plus, en utilisant les outils de débogage intégrés, vous pou
 identifier rapidement les problèmes dans vos workflows et les corriger
 efficacement. Ces bonnes pratiques vous permettent de maintenir des pipelines
 robustes et performants tout en minimisant les erreurs et les interruptions.
+`````

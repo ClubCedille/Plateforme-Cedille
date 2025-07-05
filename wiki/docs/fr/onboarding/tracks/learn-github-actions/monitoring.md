@@ -45,9 +45,8 @@ où rechercher les erreurs.
 
 #### Exemple : Affichage des Logs après Échec d’un Workflow
 
-Lorsque qu’un workflow échoue, GitHub met en évidence les étapes
-problématiques. Vous pouvez afficher les détails des logs pour comprendre la
-cause de l'échec :
+Lorsque qu’un workflow échoue, GitHub met en évidence les étapes problématiques.
+Vous pouvez afficher les détails des logs pour comprendre la cause de l'échec :
 
 ```bash
 Run npm install
@@ -100,7 +99,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: "11"
+          java-version: '11'
 
       - name: Run tests with JUnit
         run: ./gradlew test
@@ -114,8 +113,8 @@ jobs:
 
 #### Explication
 
-- **JUnit Tests** : Les tests JUnit sont exécutés avec la commande `./gradlew
-test`.
+- **JUnit Tests** : Les tests JUnit sont exécutés avec la commande
+  `./gradlew test`.
 - **Archive test results** : Les résultats des tests JUnit au format XML sont
   sauvegardés en tant qu’artefacts, que vous pouvez consulter dans l'interface
   GitHub.
@@ -162,8 +161,8 @@ jobs:
 
 ## 3. Visualisation des Workflows sur l'Interface GitHub
 
-GitHub offre une visualisation graphique des workflows CI/CD pour chaque
-dépôt. Cette vue permet aux développeurs de suivre le processus d'exécution,
+GitHub offre une visualisation graphique des workflows CI/CD pour chaque dépôt.
+Cette vue permet aux développeurs de suivre le processus d'exécution,
 d'identifier les erreurs, et de comprendre les dépendances entre jobs.
 
 ### 3.1. Interface de Visualisation des Workflows
@@ -291,8 +290,8 @@ jobs:
 Le monitoring et le reporting sont des aspects cruciaux de la gestion des
 workflows CI/CD avec GitHub Actions. En utilisant les logs détaillés, les
 rapports de tests, et les outils de notification, vous pouvez surveiller de
-manière proactive l'état des builds et diagnostiquer rapidement les
-problèmes. L'intégration avec des outils comme Slack ou les services d'email
-permet de garder les équipes informées en temps réel, garantissant une
-résolution rapide des échecs de builds et une meilleure collaboration au sein
-des équipes de développement.
+manière proactive l'état des builds et diagnostiquer rapidement les problèmes.
+L'intégration avec des outils comme Slack ou les services d'email permet de
+garder les équipes informées en temps réel, garantissant une résolution rapide
+des échecs de builds et une meilleure collaboration au sein des équipes de
+développement.

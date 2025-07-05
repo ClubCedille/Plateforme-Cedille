@@ -77,10 +77,10 @@ jobs:
 
 ### 1.2. Workflow Modularization
 
-GitHub Actions allows calling one workflow from another using
-`workflow_call`. Modularizing workflows enables you to reuse parts of the
-pipeline (tests, builds, etc.) across different projects, ensuring consistency
-in CI/CD management across the organization.
+GitHub Actions allows calling one workflow from another using `workflow_call`.
+Modularizing workflows enables you to reuse parts of the pipeline (tests,
+builds, etc.) across different projects, ensuring consistency in CI/CD
+management across the organization.
 
 #### Example of a Reusable Workflow
 

@@ -4,23 +4,23 @@ Date: December 6, 2023
 
 ## 1. Completed Work
 
-| Task | Responsible |
+| Task                                                                                                                                    | Responsible         |
 | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| [Deploy cert-manager (or equivalent) in the system](https://github.com/ClubCedille/Plateforme-Cedille/issues/26) | Antoine BL |
-| [Mayastor Documentation](https://github.com/ClubCedille/Plateforme-Cedille/issues/24) | Michael |
-| [Document local environment configuration with Omni](https://github.com/ClubCedille/Plateforme-Cedille/issues/19) | Antoine |
-| [Document Kuma and Merbridge](https://github.com/ClubCedille/Plateforme-Cedille/issues/29) | Thomas |
-| [Configure OTEL](https://github.com/ClubCedille/Plateforme-Cedille/issues/60) | Thomas |
-| [Track Clickhouse with OpenTelemetry](https://github.com/ClubCedille/Plateforme-Cedille/issues/63) | Thomas |
-| [Deploy a sample of Grav with git-sync configuration](https://github.com/ClubCedille/Plateforme-Cedille/issues/97) | Simon and Jonathan |
-| [Deploy Calidum-Rotae](https://github.com/ClubCedille/Plateforme-Cedille/issues/98) | Jonathan and Thomas |
-| [As SRE, create nested span and test and see the traces before proceeding](https://github.com/ClubCedille/Plateforme-Cedille/issues/83) | Thomas |
-| [As SRE, update the README.md with the current architecture](https://github.com/ClubCedille/Plateforme-Cedille/issues/71) | Thomas |
-| [As SRE, remove the database (PostgreSQL) from the project](https://github.com/ClubCedille/Plateforme-Cedille/issues/70) | Thomas |
-| [As SRE, remove the phone number from the sender obj (protobuf)](https://github.com/ClubCedille/Plateforme-Cedille/issues/69) | Thomas |
-| [As SRE, instrument the application with OTEL](https://github.com/ClubCedille/Plateforme-Cedille/issues/68) | Thomas |
-| [Create an automated deployment flow for a Grav site](https://github.com/ClubCedille/Plateforme-Cedille/issues/132) | Simon |
-| [Configure Terraform Cloud](https://github.com/ClubCedille/Plateforme-Cedille/issues/133) | Simon |
+| [Deploy cert-manager (or equivalent) in the system](https://github.com/ClubCedille/Plateforme-Cedille/issues/26)                        | Antoine BL          |
+| [Mayastor Documentation](https://github.com/ClubCedille/Plateforme-Cedille/issues/24)                                                   | Michael             |
+| [Document local environment configuration with Omni](https://github.com/ClubCedille/Plateforme-Cedille/issues/19)                       | Antoine             |
+| [Document Kuma and Merbridge](https://github.com/ClubCedille/Plateforme-Cedille/issues/29)                                              | Thomas              |
+| [Configure OTEL](https://github.com/ClubCedille/Plateforme-Cedille/issues/60)                                                           | Thomas              |
+| [Track Clickhouse with OpenTelemetry](https://github.com/ClubCedille/Plateforme-Cedille/issues/63)                                      | Thomas              |
+| [Deploy a sample of Grav with git-sync configuration](https://github.com/ClubCedille/Plateforme-Cedille/issues/97)                      | Simon and Jonathan  |
+| [Deploy Calidum-Rotae](https://github.com/ClubCedille/Plateforme-Cedille/issues/98)                                                     | Jonathan and Thomas |
+| [As SRE, create nested span and test and see the traces before proceeding](https://github.com/ClubCedille/Plateforme-Cedille/issues/83) | Thomas              |
+| [As SRE, update the README.md with the current architecture](https://github.com/ClubCedille/Plateforme-Cedille/issues/71)               | Thomas              |
+| [As SRE, remove the database (PostgreSQL) from the project](https://github.com/ClubCedille/Plateforme-Cedille/issues/70)                | Thomas              |
+| [As SRE, remove the phone number from the sender obj (protobuf)](https://github.com/ClubCedille/Plateforme-Cedille/issues/69)           | Thomas              |
+| [As SRE, instrument the application with OTEL](https://github.com/ClubCedille/Plateforme-Cedille/issues/68)                             | Thomas              |
+| [Create an automated deployment flow for a Grav site](https://github.com/ClubCedille/Plateforme-Cedille/issues/132)                     | Simon               |
+| [Configure Terraform Cloud](https://github.com/ClubCedille/Plateforme-Cedille/issues/133)                                               | Simon               |
 
 ---
 
@@ -28,39 +28,30 @@ Date: December 6, 2023
 
 ### 2.1 In Progress
 
-- **[Document
-  Vault](https://github.com/ClubCedille/Plateforme-Cedille/issues/69)**:
+- **[Document Vault](https://github.com/ClubCedille/Plateforme-Cedille/issues/69)**:
   Administration part completed, user part (deploying secrets) to be done.
-- **[Integration of vclusters with
-  ArgoCD](https://github.com/ClubCedille/Plateforme-Cedille/pull/129)**: An
-  initial solution was tried and failed. An alternative solution needs to be
+- **[Integration of vclusters with ArgoCD](https://github.com/ClubCedille/Plateforme-Cedille/pull/129)**:
+  An initial solution was tried and failed. An alternative solution needs to be
   implemented.
 
 ### 2.2 Will Not Be Done
 
-- **[Install/Configure k8s-sigs/external-dns in the
-  cluster](https://github.com/ClubCedille/Plateforme-Cedille/issues/35)**:
+- **[Install/Configure k8s-sigs/external-dns in the cluster](https://github.com/ClubCedille/Plateforme-Cedille/issues/35)**:
 
 ### 2.3 To Do
 
-- **[Deploy staging cluster
-  [vcluster]](https://github.com/ClubCedille/Plateforme-Cedille/issues/6)**: The
-  vcluster is deployed. Integration with ArgoCD remains.
-- **[Deploy sandbox cluster
-  [vcluster]](https://github.com/ClubCedille/Plateforme-Cedille/issues/7)**: The
-  vcluster is deployed. Integration with ArgoCD remains.
-- **[Mayastor
-  Backup](https://github.com/ClubCedille/Plateforme-Cedille/issues/23)**: Backup
-  is planned. An external provider analysis will be done.
-- **[Install Vault+ArgoCD
-  plugin](https://github.com/ClubCedille/Plateforme-Cedille/issues/103)**:
-- **[Update ArgoCD and Grafana SSO secrets with
-  Vault](https://github.com/ClubCedille/Plateforme-Cedille/issues/110)**: We
-  were waiting for Vault deployment in the cluster to be completed with an
+- **[Deploy staging cluster [vcluster]](https://github.com/ClubCedille/Plateforme-Cedille/issues/6)**:
+  The vcluster is deployed. Integration with ArgoCD remains.
+- **[Deploy sandbox cluster [vcluster]](https://github.com/ClubCedille/Plateforme-Cedille/issues/7)**:
+  The vcluster is deployed. Integration with ArgoCD remains.
+- **[Mayastor Backup](https://github.com/ClubCedille/Plateforme-Cedille/issues/23)**:
+  Backup is planned. An external provider analysis will be done.
+- **[Install Vault+ArgoCD plugin](https://github.com/ClubCedille/Plateforme-Cedille/issues/103)**:
+- **[Update ArgoCD and Grafana SSO secrets with Vault](https://github.com/ClubCedille/Plateforme-Cedille/issues/110)**:
+  We were waiting for Vault deployment in the cluster to be completed with an
   example of configuration and secret management to accomplish this task. It can
   now be completed with new generated secrets.
-- **[Document OTEL (collector and operator
-  configuration)](https://github.com/ClubCedille/Plateforme-Cedille/issues/121)**:
+- **[Document OTEL (collector and operator configuration)](https://github.com/ClubCedille/Plateforme-Cedille/issues/121)**:
   Now that OTEL configuration with a deployment example is completed, we can
   document how the configuration was done.
 

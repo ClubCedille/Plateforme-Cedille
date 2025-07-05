@@ -19,10 +19,9 @@ l'intégration avec les workflows GitHub Actions.
 ### Exemple : Registre de Conteneurs de CEDILLE
 
 Pour un exemple concret de l'utilisation de GHCR, vous pouvez consulter le
-[registre de conteneurs de
-CEDILLE](https://github.com/orgs/ClubCedille/packages). Ce registre contient des
-images de conteneurs que le club utilise pour ses projets, intégrées aux
-workflows CI/CD et gérées directement via GitHub Actions.
+[registre de conteneurs de CEDILLE](https://github.com/orgs/ClubCedille/packages).
+Ce registre contient des images de conteneurs que le club utilise pour ses
+projets, intégrées aux workflows CI/CD et gérées directement via GitHub Actions.
 
 ### Caractéristiques Principales de GHCR
 
@@ -185,7 +184,9 @@ jobs:
 
       # Étape 2 : Authentification à GHCR
       - name: Log in to GitHub Container Registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        run:
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{
+          github.actor }} --password-stdin
 
       # Étape 3 : Construire l'image Docker
       - name: Build Docker image
@@ -225,7 +226,9 @@ jobs:
     steps:
       # Authentification à GHCR
       - name: Log in to GitHub Container Registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        run:
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{
+          github.actor }} --password-stdin
 
       # Tirer l'image Docker
       - name: Pull Docker image from GHCR
@@ -233,7 +236,9 @@ jobs:
 
       # Démarrer le conteneur Docker
       - name: Run Docker container
-        run: docker run -d -p 8080:80 ghcr.io/${{ github.repository }}/my-app:latest
+        run:
+          docker run -d -p 8080:80 ghcr.io/${{ github.repository
+          }}/my-app:latest
 ```
 
 ---

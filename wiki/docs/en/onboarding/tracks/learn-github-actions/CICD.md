@@ -76,13 +76,13 @@ building, deployments, and dependency management.
 Here is the updated section with an example illustrating the use of variables in
 a reusable workflow:
 
-````markdown
+`````markdown
 #### Example: Calling a Reusable Workflow
 
 In this case, we have one workflow that performs tests and another that handles
 deployments. These workflows are reused from a central file.
 
-```yaml
+`````yaml
 # .github/workflows/reusable-tests.yml
 name: Reusable Test Workflow
 
@@ -124,7 +124,7 @@ jobs:
 
       - name: Deploy to production
         run: ./deploy.sh
-```
+`````
 
 #### Example: Reusable Workflow with Variables
 
@@ -134,7 +134,9 @@ GitHub Container Registry (GHCR) using input variables:
 
 ```yaml
 # .github/workflows/build-push-ghcr.yml
-name: Reusable workflow to build and push docker container to GitHub Container Registry
+name:
+  Reusable workflow to build and push docker container to GitHub Container
+  Registry
 
 on:
   workflow_call:
@@ -145,11 +147,11 @@ on:
       context:
         required: false
         type: string
-        default: "."
+        default: '.'
       file:
         required: false
         type: string
-        default: "Dockerfile"
+        default: 'Dockerfile'
 
 env:
   REGISTRY: ghcr.io/clubcedille
@@ -438,3 +440,4 @@ performance. Additionally, with built-in debugging tools, you can quickly
 identify and fix issues in your workflows. These best practices enable you to
 maintain robust and high-performance pipelines while minimizing errors and
 interruptions.
+`````

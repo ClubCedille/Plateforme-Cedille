@@ -28,8 +28,8 @@ This repo contains:
 
 ### 1. Clone the Repository
 
-Like the usual, start by cloning [the
-repository](https://github.com/ClubCedille/OlympGit).
+Like the usual, start by cloning
+[the repository](https://github.com/ClubCedille/OlympGit).
 
 ??? hint "Hint"
 
@@ -232,5 +232,5 @@ Then, and only then:
 🎉 You've now learned how to use branches and Pull Requests to collaborate like
 a pro!
 
-Before ending our Git journey together, let's look at the [Git extension in
-Visual Studio Code](./git_as_extension.md).
+Before ending our Git journey together, let's look at the
+[Git extension in Visual Studio Code](./git_as_extension.md).

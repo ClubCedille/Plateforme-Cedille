@@ -35,9 +35,9 @@ my-project/
 ```
 
 Le fichier de workflow contient toutes les étapes que GitHub Actions doit
-exécuter lorsqu'un événement est déclenché, comme un `push` ou une `pull
-request`. Ce fichier YAML spécifie les jobs, les actions, et d'autres paramètres
-qui forment la base de votre pipeline CI/CD.
+exécuter lorsqu'un événement est déclenché, comme un `push` ou une
+`pull request`. Ce fichier YAML spécifie les jobs, les actions, et d'autres
+paramètres qui forment la base de votre pipeline CI/CD.
 
 ---
 
@@ -72,7 +72,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: '14'
 
       # Étape 3 : Installer les dépendances
       - name: Install dependencies
@@ -141,8 +141,8 @@ jobs: # Les jobs à exécuter
 - **`on:`** : Les événements qui déclenchent le workflow. Il peut s'agir de
   `push`, `pull_request`, `schedule`, ou autres.
 - **`jobs:`** : Définit les jobs, qui contiennent des étapes à exécuter.
-- **`runs-on:`** : Spécifie l'environnement d'exécution du job
-  (ex. `ubuntu-latest`, `windows-latest`, `macos-latest`).
+- **`runs-on:`** : Spécifie l'environnement d'exécution du job (ex.
+  `ubuntu-latest`, `windows-latest`, `macos-latest`).
 - **`steps:`** : Les étapes dans un job, qui peuvent inclure des actions
   prédéfinies ou des commandes personnalisées à exécuter.
 
@@ -157,8 +157,8 @@ jobs: # Les jobs à exécuter
    ````
 
 2. **Exécution d’une commande personnalisée** : ````yaml
-   - name: Run tests run: npm test ``` Cette étape exécute la commande `npm
-     test` pour lancer les tests du projet.  ````
+   - name: Run tests run: npm test ```Cette étape exécute la commande`npm test`
+     pour lancer les tests du projet. ````
 
 ---
 
@@ -181,7 +181,7 @@ on:
     branches:
       - main
     paths:
-      - "src/**"
+      - 'src/**'
 ```
 
 - **`branches:`** : Le workflow se déclenchera uniquement lorsque des
@@ -227,9 +227,9 @@ on:
   workflow_dispatch:
 ````
 
-Ce workflow peut être déclenché manuellement depuis l'interface GitHub
-Actions. Par exemple, voici [un cas d'utilisation
-réel](https://github.com/ClubCedille/Plateforme-Cedille/blob/master/.github/workflows/add-new-member.yml)
+Ce workflow peut être déclenché manuellement depuis l'interface GitHub Actions.
+Par exemple, voici
+[un cas d'utilisation réel](https://github.com/ClubCedille/Plateforme-Cedille/blob/master/.github/workflows/add-new-member.yml)
 de `workflow_dispatch` pour la Plateforme CEDILLE, permettant d'ajouter un
 nouveau membre à l'organisation via l'interface utilisateur de GitHub Actions :
 
@@ -239,19 +239,19 @@ on:
   workflow_dispatch:
     inputs:
       github_username:
-        description: "GitHub username"
+        description: 'GitHub username'
         required: true
         type: string
       github_email:
-        description: "GitHub Email"
+        description: 'GitHub Email'
         required: true
         type: string
       team_sre:
-        description: "Add to SRE team?"
+        description: 'Add to SRE team?'
         required: false
         type: boolean
       cluster_role:
-        description: "Cluster Role"
+        description: 'Cluster Role'
         required: true
         type: choice
         options:
@@ -281,7 +281,7 @@ standardisés dans différents projets.
 
 Voici un exemple d'utilisation de `workflow_call` :
 
-````yaml name: Réutilisation d'un workflow
+`````yaml name: Réutilisation d'un workflow
 
 on: workflow_call: inputs: environment: description: 'Environnement cible (dev,
   staging, prod)' required: true type: string
@@ -313,3 +313,4 @@ différents scénarios de développement et de déploiement.
 GitHub Actions est conçu pour être intuitif et peut être étendu en utilisant des
 actions prédéfinies ou personnalisées, ce qui en fait un outil essentiel pour
 tout pipeline CI/CD moderne.  ````
+`````

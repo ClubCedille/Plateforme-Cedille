@@ -19,8 +19,8 @@ les `push`, `pull requests`, ou même des déclencheurs personnalisés comme un
   par les événements GitHub tels que les `push`, les `pull request`, les
   `issues`, et bien d'autres.
 - **Flexibilité** : GitHub Actions est hautement personnalisable avec des
-  centaines d'actions disponibles dans le [GitHub
-  Marketplace](https://github.com/marketplace?type=actions).
+  centaines d'actions disponibles dans le
+  [GitHub Marketplace](https://github.com/marketplace?type=actions).
 - **Runners hébergés et auto-hébergés** : GitHub propose des environnements de
   build préconfigurés, ou vous pouvez utiliser vos propres machines pour
   exécuter des workflows.
@@ -36,15 +36,15 @@ chaque concept :
 ### Intégration Continue (CI)
 
 L'intégration continue est un processus dans lequel les développeurs fusionnent
-régulièrement leurs modifications de code dans la branche principale du
-dépôt. Les tests automatisés sont exécutés pour vérifier que le code
-nouvellement intégré ne casse rien dans le projet. GitHub Actions permet
-d’automatiser ce processus en créant des workflows qui s'exécutent
-automatiquement lorsqu'un `push` ou une `pull request` est fait sur un dépôt.
+régulièrement leurs modifications de code dans la branche principale du dépôt.
+Les tests automatisés sont exécutés pour vérifier que le code nouvellement
+intégré ne casse rien dans le projet. GitHub Actions permet d’automatiser ce
+processus en créant des workflows qui s'exécutent automatiquement lorsqu'un
+`push` ou une `pull request` est fait sur un dépôt.
 
 - **Exemple d’utilisation CI :**
-  - Exécution automatique des tests unitaires après chaque `commit` ou `pull
-request`.
+  - Exécution automatique des tests unitaires après chaque `commit` ou
+    `pull request`.
   - Compilation automatique du code pour vérifier qu’il n’y a pas d’erreurs de
     syntaxe ou de compilation.
 
@@ -64,7 +64,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: '14'
 
       - name: Install dependencies
         run: npm install
@@ -76,11 +76,11 @@ jobs:
 ### Déploiement Continu (CD)
 
 Le déploiement continu consiste à automatiser le déploiement de votre
-application dans différents environnements (développement, staging,
-production). GitHub Actions peut être utilisé pour déclencher des déploiements
-après le succès des tests. Par exemple, vous pouvez configurer un workflow pour
-déployer une application sur un service cloud comme AWS, Azure ou GCP après
-chaque `merge` sur la branche principale.
+application dans différents environnements (développement, staging, production).
+GitHub Actions peut être utilisé pour déclencher des déploiements après le
+succès des tests. Par exemple, vous pouvez configurer un workflow pour déployer
+une application sur un service cloud comme AWS, Azure ou GCP après chaque
+`merge` sur la branche principale.
 
 - **Exemple d’utilisation CD :**
   - Déploiement d’une application sur AWS après un `merge` réussi sur la branche
@@ -167,11 +167,11 @@ jobs:
 
 ### Actions
 
-Une **action** est une tâche individuelle que vous pouvez exécuter dans un
-job. GitHub Actions offre une large bibliothèque d’actions prédéfinies
-disponibles dans le [GitHub
-Marketplace](https://github.com/marketplace?type=actions). Vous pouvez également
-créer vos propres actions pour répondre à des besoins spécifiques.
+Une **action** est une tâche individuelle que vous pouvez exécuter dans un job.
+GitHub Actions offre une large bibliothèque d’actions prédéfinies disponibles
+dans le [GitHub Marketplace](https://github.com/marketplace?type=actions). Vous
+pouvez également créer vos propres actions pour répondre à des besoins
+spécifiques.
 
 - **Actions de Marketplace** : Vous pouvez réutiliser des actions développées
   par d’autres, telles que `actions/checkout` pour vérifier le code ou
@@ -247,15 +247,15 @@ vos propres serveurs d'exécution.
 
 ### Comparaison des Fonctionnalités
 
-| Outils CI/CD | GitHub Actions | Jenkins | Travis CI | CircleCI |
+| Outils CI/CD      | GitHub Actions     | Jenkins           | Travis CI          | CircleCI           |
 | ----------------- | ------------------ | ----------------- | ------------------ | ------------------ |
-| **Intégration** | Native GitHub | Externe | Externe | Externe |
+| **Intégration**   | Native GitHub      | Externe           | Externe            | Externe            |
 | **Configuration** | YAML dans le dépôt | Interface Jenkins | YAML dans le dépôt | YAML dans le dépôt |
 
-| **Caractéristiques** | **GitHub Actions** | **Jenkins** | **CircleCI** | **GitLab CI/CD** |
+| **Caractéristiques** | **GitHub Actions**       | **Jenkins**      | **CircleCI**        | **GitLab CI/CD**         |
 | -------------------- | ------------------------ | ---------------- | ------------------- | ------------------------ |
-| **Runners** | Hébergés / Auto-hébergés | Serveurs Jenkins | Hébergés uniquement | Hébergés / Auto-hébergés |
-| **Marketplace** | Oui, avec actions | Plugins Jenkins | Oui | Oui |
+| **Runners**          | Hébergés / Auto-hébergés | Serveurs Jenkins | Hébergés uniquement | Hébergés / Auto-hébergés |
+| **Marketplace**      | Oui, avec actions        | Plugins Jenkins  | Oui                 | Oui                      |
 
 ---
 

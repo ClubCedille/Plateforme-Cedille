@@ -162,8 +162,7 @@ aider à suivre la popularité et l'utilisation de vos images.
 
 ### Registre de Conteneurs GitHub
 
-[Le Registre de Conteneurs
-GitHub](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
+[Le Registre de Conteneurs GitHub](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
 est une autre option populaire pour stocker et gérer des images de conteneurs
 que Club CEDILLE utilise souvent. Il est étroitement intégré à GitHub, ce qui en
 fait un choix pratique pour les développeurs qui utilisent déjà GitHub pour la
@@ -191,9 +190,9 @@ gestion de leur code source. Voici quelques fonctionnalités clés :
 **4. Intégration avec GitHub Actions :**
 
 - Vous pouvez utiliser GitHub Actions pour automatiser vos workflows, y compris
-  la construction et le push d'images vers le Registre de Conteneurs
-  GitHub. Cela est utile pour les pipelines CI/CD, garantissant que vos images
-  sont toujours à jour.
+  la construction et le push d'images vers le Registre de Conteneurs GitHub.
+  Cela est utile pour les pipelines CI/CD, garantissant que vos images sont
+  toujours à jour.
 
 **5. Gratuit pour les Dépôts Publics :**
 
@@ -210,12 +209,11 @@ accéder à une vaste bibliothèque d'images de conteneurs. Que vous tiriez des
 images officielles pour vos projets ou partagiez vos images personnalisées avec
 la communauté, Docker Hub est un outil essentiel dans l'écosystème Docker.
 
-Si vous êtes intéressé, vous pouvez également consulter l'un des [packages de
-pipeline GitHub du Club
-Cédille](https://github.com/orgs/ClubCedille/packages). Les packages de pipeline
-GitHub sont un ensemble d'outils et de configurations qui aident à automatiser
-divers aspects du cycle de vie du développement logiciel, tels que la
-construction, les tests et le déploiement des applications. En utilisant ces
-packages, les développeurs peuvent garantir des processus cohérents et
-reproductibles, améliorer l'efficacité et réduire les risques d'erreurs lors du
-déploiement.
+Si vous êtes intéressé, vous pouvez également consulter l'un des
+[packages de pipeline GitHub du Club Cédille](https://github.com/orgs/ClubCedille/packages).
+Les packages de pipeline GitHub sont un ensemble d'outils et de configurations
+qui aident à automatiser divers aspects du cycle de vie du développement
+logiciel, tels que la construction, les tests et le déploiement des
+applications. En utilisant ces packages, les développeurs peuvent garantir des
+processus cohérents et reproductibles, améliorer l'efficacité et réduire les
+risques d'erreurs lors du déploiement.

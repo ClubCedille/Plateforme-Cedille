@@ -179,12 +179,13 @@ Secret management is always a complex aspect where poor configuration can have
 disastrous consequences. It is often through secret management that hackers
 infiltrate systems. Here, we chose to use Hashicorp Vault, an industry standard
 for large-scale secret management. To configure it, we deployed a
-community-developed tool from RedHat: [Vault Config
-Operator](https://github.com/redhat-cop/vault-config-operator/). This tool adds
-Kubernetes manifest definitions (CRD), allowing us to create access policies,
-key rotation configurations, and define new random secrets through Kubernetes
-manifests that are then deployed by ArgoCD. This approach allows us to maintain
-a GitOps approach without exposing secrets in files on Git.
+community-developed tool from RedHat:
+[Vault Config Operator](https://github.com/redhat-cop/vault-config-operator/).
+This tool adds Kubernetes manifest definitions (CRD), allowing us to create
+access policies, key rotation configurations, and define new random secrets
+through Kubernetes manifests that are then deployed by ArgoCD. This approach
+allows us to maintain a GitOps approach without exposing secrets in files on
+Git.
 
 ### Observability
 
@@ -285,19 +286,19 @@ Deployment Method Comparison**
 
 ## Challenges and Solutions
 
-| Challenge | Problem | Solution |
+| Challenge                             | Problem                                | Solution                                               |
 | ------------------------------------- | -------------------------------------- | ------------------------------------------------------ |
-| Installation of Kubernetes/Talos | Disk encryption not functional | Disable encryption before installation |
-|                                       | Installation broken if USB key removed | Reinstall with durable disk identifiers |
-| ISO configuration in PVC for KubeVirt | Need to simplify PVC management | Use KubeVirt's CDI |
-| Installation of Rook-Ceph | Unusable Ceph cluster, OSD failures | Manual disk wiping and operator restart |
-| Stability of Rook/Ceph | Instability after node restart | Replacement with Mayastor |
-| Configuration of a service mesh | Issues with Linkerd and mTLS | Choice of Kuma for mTLS and Gateway API support |
-| Installation of External-DNS service | Non-functional service, cause unknown | Ongoing investigation, exploring alternative solutions |
-| SSO configuration for ArgoCD | Insecure secret management | Use Vault for secure secret management |
-| Bootstrapping Hashicorp Vault | Complex manual process | Partial automation via Terraform and scripts |
-| Deployment of Calidum-rotae | Partial request routing | Direct configuration of a Discord webhook |
-| Registration of VCluster in ArgoCD | Difficulty in secure registration | Use Crossplane for declarative registration |
+| Installation of Kubernetes/Talos      | Disk encryption not functional         | Disable encryption before installation                 |
+|                                       | Installation broken if USB key removed | Reinstall with durable disk identifiers                |
+| ISO configuration in PVC for KubeVirt | Need to simplify PVC management        | Use KubeVirt's CDI                                     |
+| Installation of Rook-Ceph             | Unusable Ceph cluster, OSD failures    | Manual disk wiping and operator restart                |
+| Stability of Rook/Ceph                | Instability after node restart         | Replacement with Mayastor                              |
+| Configuration of a service mesh       | Issues with Linkerd and mTLS           | Choice of Kuma for mTLS and Gateway API support        |
+| Installation of External-DNS service  | Non-functional service, cause unknown  | Ongoing investigation, exploring alternative solutions |
+| SSO configuration for ArgoCD          | Insecure secret management             | Use Vault for secure secret management                 |
+| Bootstrapping Hashicorp Vault         | Complex manual process                 | Partial automation via Terraform and scripts           |
+| Deployment of Calidum-rotae           | Partial request routing                | Direct configuration of a Discord webhook              |
+| Registration of VCluster in ArgoCD    | Difficulty in secure registration      | Use Crossplane for declarative registration            |
 
 ## Results
 

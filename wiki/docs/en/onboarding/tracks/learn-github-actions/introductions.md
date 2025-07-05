@@ -9,16 +9,16 @@ and Continuous Deployment (CD) processes, automate tests, builds, deployments,
 and much more.
 
 The key strength of GitHub Actions lies in its native integration with GitHub,
-enabling you to trigger workflows based on repository events like `push`, `pull
-requests`, or even custom triggers such as scheduled `cron` jobs.
+enabling you to trigger workflows based on repository events like `push`,
+`pull requests`, or even custom triggers such as scheduled `cron` jobs.
 
 ### Key Features of GitHub Actions
 
 - **Full GitHub Integration**: Workflows can be triggered by GitHub events such
   as `push`, `pull request`, `issues`, and many more.
 - **Flexibility**: GitHub Actions is highly customizable, with hundreds of
-  actions available in the [GitHub
-  Marketplace](https://github.com/marketplace?type=actions).
+  actions available in the
+  [GitHub Marketplace](https://github.com/marketplace?type=actions).
 - **Hosted and Self-hosted Runners**: GitHub provides preconfigured build
   environments, or you can use your own machines to run workflows.
 
@@ -58,7 +58,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: '14'
 
       - name: Install dependencies
         run: npm install
@@ -157,9 +157,9 @@ jobs:
 ### Actions
 
 An **action** is an individual task you can run in a job. GitHub Actions offers
-a large library of pre-built actions available in the [GitHub
-Marketplace](https://github.com/marketplace?type=actions). You can also create
-your own actions for specific needs.
+a large library of pre-built actions available in the
+[GitHub Marketplace](https://github.com/marketplace?type=actions). You can also
+create your own actions for specific needs.
 
 - **Marketplace Actions**: You can reuse actions developed by others, such as
   `actions/checkout` to check out code or `actions/setup-node` to set up
@@ -230,15 +230,15 @@ Jenkins, often require setting up your own execution servers.
 
 ### Feature Comparison
 
-| CI/CD Tools | GitHub Actions | Jenkins | Travis CI | CircleCI |
+| CI/CD Tools       | GitHub Actions     | Jenkins           | Travis CI          | CircleCI           |
 | ----------------- | ------------------ | ----------------- | ------------------ | ------------------ |
-| **Integration** | Native GitHub | External | External | External |
+| **Integration**   | Native GitHub      | External          | External           | External           |
 | **Configuration** | YAML in repository | Jenkins interface | YAML in repository | YAML in repository |
 
-| **Features** | **GitHub Actions** | **Jenkins** | **CircleCI** | **GitLab CI/CD** |
+| **Features**    | **GitHub Actions**   | **Jenkins**     | **CircleCI** | **GitLab CI/CD**     |
 | --------------- | -------------------- | --------------- | ------------ | -------------------- |
-| **Runners** | Hosted / Self-hosted | Jenkins servers | Hosted only | Hosted / Self-hosted |
-| **Marketplace** | Yes, with actions | Jenkins plugins | Yes | Yes |
+| **Runners**     | Hosted / Self-hosted | Jenkins servers | Hosted only  | Hosted / Self-hosted |
+| **Marketplace** | Yes, with actions    | Jenkins plugins | Yes          | Yes                  |
 
 ---
 

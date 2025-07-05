@@ -43,10 +43,10 @@ collaborators of the Linux kernel (the heart of a operating system) work
 together. It has since stood the test of time, and is used by a vast majority of
 software developpement team.
 
-It works very well for any project's sizes, while staying
-efficient. Furthermore, it is a _distributed system_, which means everyone
-working on a project has a local access to the entire history, without the need
-for a centralized server.
+It works very well for any project's sizes, while staying efficient.
+Furthermore, it is a _distributed system_, which means everyone working on a
+project has a local access to the entire history, without the need for a
+centralized server.
 
 ### Git's workflow
 

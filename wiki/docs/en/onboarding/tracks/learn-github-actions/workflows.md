@@ -109,7 +109,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: '14'
 
       - name: Install dependencies
         run: npm install
@@ -147,11 +147,11 @@ Here’s the process followed to create the
 
 ```js
 // index.js
-const core = require("@actions/core");
-const github = require("@actions/github");
+const core = require('@actions/core');
+const github = require('@actions/github');
 
 try {
-  const message = core.getInput("message");
+  const message = core.getInput('message');
   console.log(`Message: ${message}`);
 } catch (error) {
   core.setFailed(error.message);
@@ -162,15 +162,15 @@ try {
 3. **Create an `action.yml` file** to describe the action:
 
 ```yaml
-name: "Print Message"
-description: "Prints a message to the console"
+name: 'Print Message'
+description: 'Prints a message to the console'
 inputs:
   message:
-    description: "The message to print"
+    description: 'The message to print'
     required: true
 runs:
-  using: "node20"
-  main: "index.js"
+  using: 'node20'
+  main: 'index.js'
 ```
 
 ### Using the Custom Action
@@ -193,7 +193,7 @@ jobs:
       - name: Run custom action
         uses: ClubCedille/Cedille-Actions-By-Example/WorkflowWikiExample@master
         with:
-          message: "Hello from the custom action!"
+          message: 'Hello from the custom action!'
 ```
 
 ### Docker Actions
@@ -216,10 +216,10 @@ CMD ["node", "index.js"]
 2. Create the action YAML for Docker:
 
 ```yaml
-name: "Custom Docker Action"
+name: 'Custom Docker Action'
 runs:
-  using: "docker"
-  image: "Dockerfile"
+  using: 'docker'
+  image: 'Dockerfile'
 ```
 
 ---

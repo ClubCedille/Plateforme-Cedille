@@ -76,13 +76,13 @@ configure your project with sensible defaults. These questions may include:
   Example `compose.yaml`:
 
   ```yaml
-  version: "3.8"
+  version: '3.8'
 
   services:
     web:
       build: .
       ports:
-        - "3000:3000"
+        - '3000:3000'
       volumes:
         - .:/usr/src/app
       environment:
@@ -110,11 +110,11 @@ detached mode (in the background).
 **5. Customize Your Configuration Files:**
 
 While Docker tries to create the `Dockerfile` and `compose.yaml` file with
-sensible defaults, there may be cases where you need to make additional
-changes. You can refer to the [Dockerfile
-reference](https://docs.docker.com/engine/reference/builder/) and [Compose file
-reference](https://docs.docker.com/compose/compose-file/) in the Docker
-documentation for more details on customizing these files.
+sensible defaults, there may be cases where you need to make additional changes.
+You can refer to the
+[Dockerfile reference](https://docs.docker.com/engine/reference/builder/) and
+[Compose file reference](https://docs.docker.com/compose/compose-file/) in the
+Docker documentation for more details on customizing these files.
 
 ## Summary
 

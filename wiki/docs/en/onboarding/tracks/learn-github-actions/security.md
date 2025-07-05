@@ -32,8 +32,8 @@ third-party services such as AWS, Docker, or Slack.
 
 ### 1.3. Using Secrets in a GitHub Actions Workflow
 
-Once created, secrets can be used in workflows by referencing them with `${{
-secrets.SECRET_NAME }}`.
+Once created, secrets can be used in workflows by referencing them with
+`${{ secrets.SECRET_NAME }}`.
 
 #### Example: Using Secrets for AWS Authentication
 
@@ -87,8 +87,8 @@ workflow can perform and restrict access to certain events and users.
 
 ### 2.1. Workflow Permissions
 
-GitHub allows configuration of default **permissions** that a workflow can
-use. Permissions can be set globally for the entire repository or per workflow.
+GitHub allows configuration of default **permissions** that a workflow can use.
+Permissions can be set globally for the entire repository or per workflow.
 
 #### Configuring Workflow Permissions
 
@@ -165,7 +165,7 @@ jobs:
       - name: Await approval
         uses: actions/manual-approval@v2
         with:
-          approver: "team-lead"
+          approver: 'team-lead'
       - name: Deploy application
         run: ./deploy.sh
 ```
@@ -259,14 +259,14 @@ dependencies to monitor and the update frequency.
 ```yaml
 version: 2
 updates:
-  - package-ecosystem: "npm" # Manage npm dependencies
-    directory: "/" # Directory with the package.json file
+  - package-ecosystem: 'npm' # Manage npm dependencies
+    directory: '/' # Directory with the package.json file
     schedule:
-      interval: "daily" # Check for updates every day
-  - package-ecosystem: "docker" # Manage Docker images
-    directory: "/" # Directory with the Dockerfile
+      interval: 'daily' # Check for updates every day
+  - package-ecosystem: 'docker' # Manage Docker images
+    directory: '/' # Directory with the Dockerfile
     schedule:
-      interval: "weekly" # Check for updates weekly
+      interval: 'weekly' # Check for updates weekly
 ```
 
 ### 3.4. Vulnerability Scanning in Code and Dependencies

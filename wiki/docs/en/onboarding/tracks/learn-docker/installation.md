@@ -21,10 +21,10 @@ For **Windows** and **macOS**, Docker Desktop is the recommended choice. It
 installs Docker Engine, Docker CLI client, Docker Compose, Docker Machine, and
 Kubernetes tools, providing a comprehensive Docker environment.
 
-- Windows Installation Guide: [Docker Desktop for
-  Windows](https://docs.docker.com/desktop/install/windows/)
-- macOS Installation Guide: [Docker Desktop for
-  macOS](https://docs.docker.com/desktop/install/mac-install/)
+- Windows Installation Guide:
+  [Docker Desktop for Windows](https://docs.docker.com/desktop/install/windows/)
+- macOS Installation Guide:
+  [Docker Desktop for macOS](https://docs.docker.com/desktop/install/mac-install/)
 
 ![docker destop](img/docker-desktop.svg)
 
@@ -40,8 +40,8 @@ distribution's package manager.
 For organizations with complex Docker deployments, Docker Enterprise provides a
 robust platform with enterprise-level support and additional management tools.
 
-- More Information: [Docker
-  Enterprise](https://www.docker.com/products/business/)
+- More Information:
+  [Docker Enterprise](https://www.docker.com/products/business/)
 
 ## Docker Hub
 

@@ -2,8 +2,8 @@
 
 [Docker Compose](https://docs.docker.com/compose/) is a tool that allows you to
 define and manage multi-container Docker applications. With Docker Compose, you
-can describe the configuration of your application’s services in a [YAML
-file](https://www.redhat.com/en/topics/automation/what-is-yaml#:~:text=YAML%20is%20a%20human%2Dreadable,is%20for%20data%2C%20not%20documents.),
+can describe the configuration of your application’s services in a
+[YAML file](https://www.redhat.com/en/topics/automation/what-is-yaml#:~:text=YAML%20is%20a%20human%2Dreadable,is%20for%20data%2C%20not%20documents.),
 making it easy to start, stop, and manage the entire application stack with a
 single command.
 
@@ -41,7 +41,7 @@ The `compose.yaml` file defines the services (containers) needed to run the
 application. Open this file in a text editor to see the configuration:
 
 ```yaml
-version: "3"
+version: '3'
 services:
   web:
     image: node:14
@@ -49,12 +49,12 @@ services:
     volumes:
       - .:/app
     ports:
-      - "3000:3000"
-    command: "npm start"
+      - '3000:3000'
+    command: 'npm start'
   database:
     image: mongo:4.2
     ports:
-      - "27017:27017"
+      - '27017:27017'
 ```
 
 **Explanation:** This YAML file defines two services: `web` and `database`. The
@@ -187,13 +187,13 @@ Create a file named `docker-compose.yml` in your project directory. This file
 will define the services, networks, and volumes for your application.
 
 ```yaml
-version: "3.8" # Use the latest version of Compose syntax
+version: '3.8' # Use the latest version of Compose syntax
 
 services:
   frontend:
     image: nginx:latest
     ports:
-      - "8080:80"
+      - '8080:80'
     volumes:
       - ./frontend:/usr/share/nginx/html
     networks:
@@ -280,8 +280,7 @@ and images created by `docker-compose up`.
 Docker Compose simplifies the process of managing multi-container Docker
 applications by allowing you to define and run them.
 
-If your'e interested you could also check out the one of the [CEDILLE Club's
-GitHub Actions workflow configuration
-file](https://github.com/ClubCedille/point-virgule/blob/master/.github/workflows/main.yml). GitHub
-Actions is a CI/CD service provided by GitHub, allowing you to automate the
-build, test, and deployment of your code.
+If your'e interested you could also check out the one of the
+[CEDILLE Club's GitHub Actions workflow configuration file](https://github.com/ClubCedille/point-virgule/blob/master/.github/workflows/main.yml).
+GitHub Actions is a CI/CD service provided by GitHub, allowing you to automate
+the build, test, and deployment of your code.

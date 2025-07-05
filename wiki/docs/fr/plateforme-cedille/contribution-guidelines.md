@@ -36,10 +36,10 @@ envoyez-nous votre nom d'utilisateur GitHub pour vous ajouter à notre
 organisation :
 
 1. **Clonez le projet localement** : Utilisez la commande `git clone` pour
-   cloner le projet sur votre machine. Exemple : `sh git clone
-   https://github.com/ClubCedille/cedille.etsmtl.ca.git ` Cette commande
-   télécharge une copie complète du dépôt sur votre machine locale, vous
-   permettant de travailler hors ligne.
+   cloner le projet sur votre machine. Exemple :
+   `sh git clone https://github.com/ClubCedille/cedille.etsmtl.ca.git ` Cette
+   commande télécharge une copie complète du dépôt sur votre machine locale,
+   vous permettant de travailler hors ligne.
 
 2. **Ouvrez le projet avec votre IDE** : Utilisez votre IDE préféré pour ouvrir
    le projet cloné. Un IDE (Environnement de Développement Intégré) comme Visual
@@ -48,16 +48,17 @@ organisation :
 
 3. **Créez une nouvelle branche** : Avant de commencer à travailler sur des
    modifications, créez une nouvelle branche pour vos contributions avec la
-   commande `sh git branch [branch_name] ` Puis passez à cette branche avec `sh
-   git checkout [branch_name] ` La création de branches permet de travailler sur
-   des fonctionnalités ou des corrections spécifiques sans affecter la branche
-   principale du projet.
+   commande `sh git branch [branch_name] ` Puis passez à cette branche avec
+   `sh git checkout [branch_name] ` La création de branches permet de travailler
+   sur des fonctionnalités ou des corrections spécifiques sans affecter la
+   branche principale du projet.
 
 4. **Effectuez vos modifications** : Apportez les modifications nécessaires dans
    votre environnement de développement. Après avoir terminé, enregistrez vos
-   changements avec la commande `sh git commit -am “décrivez vos modifications
-   ici” ` Il est important d'écrire des messages de commit clairs et descriptifs
-   pour faciliter la compréhension des modifications apportées.
+   changements avec la commande
+   `sh git commit -am “décrivez vos modifications ici” ` Il est important
+   d'écrire des messages de commit clairs et descriptifs pour faciliter la
+   compréhension des modifications apportées.
 
 5. **Poussez votre branche** : Envoyez votre branche vers le dépôt distant avec
    `sh git push -u origin [nom_de_branche] ` Le drapeau `-u` configure la
@@ -65,10 +66,10 @@ organisation :
    synchronisations.
 
 6. **Ouvrez une Pull Request** : Sur le site GitHub, naviguez jusqu’à votre
-   branche et cliquez sur “New pull request” pour ouvrir une nouvelle
-   demande. Remplissez le modèle de demande de Pull Request avec une brève
-   description de vos modifications et soumettez-le pour examen. Assurez-vous de
-   sélectionner au moins un membre du club pour examiner la demande.
+   branche et cliquez sur “New pull request” pour ouvrir une nouvelle demande.
+   Remplissez le modèle de demande de Pull Request avec une brève description de
+   vos modifications et soumettez-le pour examen. Assurez-vous de sélectionner
+   au moins un membre du club pour examiner la demande.
 
 7. **Examen et fusion** : Une fois la demande examinée et approuvée, fusionnez
    la branche avec la branche principale en utilisant l'une des options

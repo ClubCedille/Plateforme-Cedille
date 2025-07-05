@@ -1,9 +1,9 @@
 ---
 name: Bug template
 about: This template must be used for reporting bugs.
-title: ""
+title: ''
 labels: bug
-assignees: ""
+assignees: ''
 ---
 
 ## Bug report

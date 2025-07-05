@@ -70,7 +70,9 @@ jobs:
 
       # Étape 2 : Authentification à GitHub Container Registry (GHCR)
       - name: Log in to GitHub Container Registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        run:
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{
+          github.actor }} --password-stdin
 
       # Étape 3 : Construire l'image Docker
       - name: Build Docker image
@@ -229,7 +231,9 @@ jobs:
 
       # Étape 2 : Authentification Heroku
       - name: Login to Heroku
-        run: echo "${{ secrets.HEROKU_API_KEY }}" | docker login --username=_ --password-stdin registry.heroku.com
+        run:
+          echo "${{ secrets.HEROKU_API_KEY }}" | docker login --username=_
+          --password-stdin registry.heroku.com
 
       # Étape 3 : Déployer l'image sur Heroku
       - name: Deploy to Heroku
@@ -242,8 +246,8 @@ jobs:
 #### Explication
 
 - **Tests** : Ce workflow exécute les tests unitaires à l'aide de `npm test`.
-- **Build** : Une fois les tests réussis, l'application est construite avec `npm
-run build`.
+- **Build** : Une fois les tests réussis, l'application est construite avec
+  `npm run build`.
 - **Déploiement** : Si le build réussit, l'application est déployée sur Heroku
   en utilisant des images Docker.
 

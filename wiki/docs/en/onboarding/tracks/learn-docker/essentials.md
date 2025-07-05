@@ -43,12 +43,12 @@ Here are some of the key components of Docker, explained in detail:
 
 1. **Docker Daemon (Docker Engine)**: This is the core part of Docker that
    handles the creation, running, and management of containers. It consists of a
-   server (a long-running daemon process), [REST
-   API](https://docs.docker.com/engine/api/v1.41/), and a command-line interface
-   (CLI).
+   server (a long-running daemon process),
+   [REST API](https://docs.docker.com/engine/api/v1.41/), and a command-line
+   interface (CLI).
 
-2. **Docker Image**: A [Docker
-   image](https://docs.docker.com/engine/reference/glossary/#image) is a
+2. **Docker Image**: A
+   [Docker image](https://docs.docker.com/engine/reference/glossary/#image) is a
    read-only template that includes your application code, libraries, and
    dependencies. It is used to create containers. Once an image is built, it can
    be used to run containers repeatedly, ensuring consistency across different
@@ -78,10 +78,10 @@ Here are some of the key components of Docker, explained in detail:
 ## What is a Dockerfile?
 
 A [Dockerfile](https://docs.docker.com/engine/reference/builder/) uses a Domain
-Specific Language (DSL) and contains instructions for generating a Docker
-image. The Dockerfile defines the processes to quickly produce an image. When
-creating your application, you should create a Dockerfile in a specific order,
-as the Docker daemon runs all the instructions from top to bottom.
+Specific Language (DSL) and contains instructions for generating a Docker image.
+The Dockerfile defines the processes to quickly produce an image. When creating
+your application, you should create a Dockerfile in a specific order, as the
+Docker daemon runs all the instructions from top to bottom.
 
 - A Dockerfile is a text document containing necessary commands that, when
   executed, help assemble a Docker image.
@@ -108,11 +108,11 @@ is essentially a set of instructions for creating Docker containers.
 
 ## What is a Docker Container?
 
-A [Docker
-container](https://docs.docker.com/engine/reference/glossary/#container) is a
-runtime instance of a Docker image. It allows developers to package applications
-along with all the necessary dependencies, such as libraries and configurations,
-into a single unit.
+A
+[Docker container](https://docs.docker.com/engine/reference/glossary/#container)
+is a runtime instance of a Docker image. It allows developers to package
+applications along with all the necessary dependencies, such as libraries and
+configurations, into a single unit.
 
 - **Runtime Instance**: A container is essentially a live instance of an image
   that is running as a process on the host machine. It encapsulates the
@@ -135,9 +135,9 @@ into a single unit.
 A [container registry](https://docs.docker.com/registry/) is a service where
 developers and DevOps teams can store, manage, and share container images. It
 serves as a centralized resource for container images, allowing users to push
-their own images for private or public use and pull images created by
-others. Container registries can be cloud-based or on-premises, and they support
-a variety of use cases and workflows in the development and deployment of
+their own images for private or public use and pull images created by others.
+Container registries can be cloud-based or on-premises, and they support a
+variety of use cases and workflows in the development and deployment of
 containerized applications.
 
 ### Key Features of a Container Registry
@@ -161,9 +161,9 @@ containerized applications.
   teams to share and deploy standardized images reliably.
 
 - **Availability and Requirements**: Container registries are available for all
-  operating systems and are essential tools for anyone working with
-  containers. Users accessing a container registry need basic knowledge of
-  container commands to push and pull images effectively.
+  operating systems and are essential tools for anyone working with containers.
+  Users accessing a container registry need basic knowledge of container
+  commands to push and pull images effectively.
 
 ### Popular Container Registries
 
@@ -180,9 +180,8 @@ containerized applications.
   high availability and integration with Google Cloud services.
 
 - **Azure Container Registry (ACR)**: A managed container registry service by
-  [Microsoft
-  Azure](https://azure.microsoft.com/en-us/services/container-registry/) that
-  supports Docker and Open Container Initiative (OCI) images.
+  [Microsoft Azure](https://azure.microsoft.com/en-us/services/container-registry/)
+  that supports Docker and Open Container Initiative (OCI) images.
 
 - **GitHub Container Registry**: A service provided by
   [GitHub](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)

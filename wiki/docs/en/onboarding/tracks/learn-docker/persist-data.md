@@ -66,8 +66,8 @@ persisted. The data stored in the `/data/db` directory within the container is
 saved to the `database` volume. This volume is accessible to any container on
 your system by mounting the `database` volume.
 
-To stop and remove containers, networks, and volumes created by `docker-compose
-up`, use:
+To stop and remove containers, networks, and volumes created by
+`docker-compose up`, use:
 
 ```
 docker-compose down

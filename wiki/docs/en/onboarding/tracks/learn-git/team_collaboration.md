@@ -18,8 +18,8 @@ you can work freely without affecting the original project.
 It allows you to:
 
 🌿 Create a separate space to develop new features 🧪 Experiment or fix bugs
-without breaking anything 👨‍👩‍👧‍👦 Collaborate with others working on different
-tasks 🔁 Merge your work back into the main branch when it's ready
+without breaking anything 👨‍👩‍👧‍👦 Collaborate with others working on different tasks
+🔁 Merge your work back into the main branch when it's ready
 
 Each branch starts from a specific point (usually `main` or another feature) and
 evolves independently. This way, teams can work **simultaneously and safely** on

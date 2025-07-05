@@ -94,7 +94,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: "11"
+          java-version: '11'
 
       - name: Run tests with JUnit
         run: ./gradlew test
@@ -255,9 +255,9 @@ jobs:
           server_port: 465
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "Build Success"
-          body: "The build for ${{ github.repository }} succeeded!"
-          to: "team@example.com"
+          subject: 'Build Success'
+          body: 'The build for ${{ github.repository }} succeeded!'
+          to: 'team@example.com'
 
       - name: Send email on failure
         if: failure()
@@ -267,9 +267,9 @@ jobs:
           server_port: 465
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "Build Failure"
-          body: "The build for ${{ github.repository }} failed!"
-          to: "team@example.com"
+          subject: 'Build Failure'
+          body: 'The build for ${{ github.repository }} failed!'
+          to: 'team@example.com'
 ```
 
 ---

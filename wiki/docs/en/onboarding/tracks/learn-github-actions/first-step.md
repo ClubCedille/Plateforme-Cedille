@@ -71,7 +71,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: '14'
 
       # Step 3: Install dependencies
       - name: Install dependencies
@@ -148,7 +148,7 @@ jobs: # Jobs to execute
 
 1. **Using a Predefined Action**:
 
-````yaml
+`````yaml
    - name: Checkout code uses: actions/checkout@v2 ``` Here, we use the
      `actions/checkout@v2` action to retrieve the repository’s source code.
      ````
@@ -327,3 +327,4 @@ to different development and deployment scenarios.
 
 GitHub Actions is designed to be intuitive and extendable using pre-built or
 custom actions, making it an essential tool for any modern CI/CD pipeline.  ````
+`````

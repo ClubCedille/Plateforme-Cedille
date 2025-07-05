@@ -46,13 +46,13 @@ Voici quelques-uns des composants clés de Docker, expliqués en détail :
 
 1. **Docker Daemon (Docker Engine)** : Il s'agit de la partie centrale de Docker
    qui gère la création, l'exécution et la gestion des conteneurs. Il se compose
-   d'un serveur (un processus daemon de longue durée), d'une [API
-   REST](https://docs.docker.com/engine/api/v1.41/) et d'une interface en ligne
-   de commande (CLI).
+   d'un serveur (un processus daemon de longue durée), d'une
+   [API REST](https://docs.docker.com/engine/api/v1.41/) et d'une interface en
+   ligne de commande (CLI).
 
-2. **Image Docker** : Une [image
-   Docker](https://docs.docker.com/engine/reference/glossary/#image) est un
-   modèle en lecture seule qui inclut le code de votre application, les
+2. **Image Docker** : Une
+   [image Docker](https://docs.docker.com/engine/reference/glossary/#image) est
+   un modèle en lecture seule qui inclut le code de votre application, les
    bibliothèques et les dépendances. Elle est utilisée pour créer des
    conteneurs. Une fois qu'une image est construite, elle peut être utilisée
    pour exécuter des conteneurs de manière répétée, assurant la cohérence à
@@ -118,11 +118,12 @@ des conteneurs Docker.
 
 ## Qu'est-ce qu'un conteneur Docker ?
 
-Un [conteneur
-Docker](https://docs.docker.com/engine/reference/glossary/#container) est une
-instance en cours d'exécution d'une image Docker. Il permet aux développeurs de
-packager des applications avec toutes les dépendances nécessaires, telles que
-les bibliothèques et les configurations, en une seule unité.
+Un
+[conteneur Docker](https://docs.docker.com/engine/reference/glossary/#container)
+est une instance en cours d'exécution d'une image Docker. Il permet aux
+développeurs de packager des applications avec toutes les dépendances
+nécessaires, telles que les bibliothèques et les configurations, en une seule
+unité.
 
 - **Instance en cours d'exécution** : Un conteneur est essentiellement une
   instance active d'une image qui s'exécute comme un processus sur la machine
@@ -172,9 +173,9 @@ le déploiement d'applications conteneurisées.
   privés restreignent l'accès aux utilisateurs ou équipes autorisés.
 
 - **Utilisation en DevOps** : Les registres de conteneurs sont largement
-  utilisés par les équipes DevOps pour gérer les applications
-  conteneurisées. Ils facilitent la collaboration en permettant aux équipes de
-  partager et de déployer des images standardisées de manière fiable.
+  utilisés par les équipes DevOps pour gérer les applications conteneurisées.
+  Ils facilitent la collaboration en permettant aux équipes de partager et de
+  déployer des images standardisées de manière fiable.
 
 - **Disponibilité et exigences** : Les registres de conteneurs sont disponibles
   pour tous les systèmes d'exploitation et sont des outils essentiels pour
@@ -200,9 +201,9 @@ tirer des images efficacement.
   Cloud.
 
 - **Azure Container Registry (ACR)** : Un service de registre de conteneurs géré
-  par [Microsoft
-  Azure](https://azure.microsoft.com/en-us/services/container-registry/) qui
-  prend en charge les images Docker et Open Container Initiative (OCI).
+  par
+  [Microsoft Azure](https://azure.microsoft.com/en-us/services/container-registry/)
+  qui prend en charge les images Docker et Open Container Initiative (OCI).
 
 - **GitHub Container Registry** : Un service fourni par
   [GitHub](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
