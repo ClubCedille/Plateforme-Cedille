@@ -1,4 +1,4 @@
-## Travailler avec Docker Hub
+# Travailler avec Docker Hub
 
 [Docker Hub](https://hub.docker.com/) est un service de dépôt basé sur le cloud
 où les utilisateurs de Docker et les partenaires peuvent créer, tester, stocker
@@ -8,7 +8,7 @@ comment interagir avec Docker Hub, notamment comment tirer et pousser des
 images, et mettrons en lumière certaines des fonctionnalités utiles disponibles
 sur Docker Hub.
 
-### Configuration de Docker Hub
+## Configuration de Docker Hub
 
 **1. Créer un Compte Docker Hub :**
 
@@ -21,14 +21,14 @@ compte gratuit.
 Ouvrez votre terminal et connectez-vous à Docker Hub en utilisant vos
 identifiants de compte :
 
-```
+```sh
 docker login
 ```
 
 Vous serez invité à saisir votre nom d'utilisateur et votre mot de passe Docker
 Hub. Une fois authentifié, vous pourrez commencer à interagir avec Docker Hub.
 
-### Tirer des Images depuis Docker Hub
+## Tirer des Images depuis Docker Hub
 
 Docker Hub héberge un grand nombre d'images de conteneurs pré-construites que
 vous pouvez utiliser dans vos projets. Pour tirer une image depuis Docker Hub,
@@ -39,13 +39,13 @@ utilisez la commande `docker pull`.
 Pour trouver une image, vous pouvez rechercher sur Docker Hub en utilisant la
 commande suivante :
 
-```
+```sh
 docker search <nom-de-l-image>
 ```
 
 Par exemple, pour rechercher une image Node.js, vous utiliseriez :
 
-```
+```sh
 docker search node
 ```
 
@@ -56,13 +56,13 @@ Cette commande liste les images disponibles avec le nom "node" sur Docker Hub.
 Une fois que vous avez trouvé l'image dont vous avez besoin, vous pouvez la
 tirer sur votre machine locale :
 
-```
+```sh
 docker pull <nom-de-l-image>
 ```
 
 Par exemple, pour tirer l'image officielle Node.js, vous utiliseriez :
 
-```
+```sh
 docker pull node
 ```
 
@@ -73,14 +73,14 @@ Cette commande télécharge l'image depuis Docker Hub vers votre système local.
 Après avoir tiré l'image, vous pouvez l'exécuter en utilisant la commande
 `docker run` :
 
-```
+```sh
 docker run -d -p 3000:3000 node
 ```
 
 Cette commande démarre un conteneur à partir de l'image Node.js et mappe le port
 3000 de votre machine locale sur le port 3000 dans le conteneur.
 
-### Pousser des Images vers Docker Hub
+## Pousser des Images vers Docker Hub
 
 Si vous avez créé une image Docker personnalisée que vous souhaitez partager
 avec d'autres, vous pouvez la pousser vers Docker Hub.
@@ -90,14 +90,14 @@ avec d'autres, vous pouvez la pousser vers Docker Hub.
 Avant de pouvoir pousser votre image, vous devez la taguer avec votre nom
 d'utilisateur Docker Hub et le nom du dépôt :
 
-```
+```sh
 docker tag <image-locale> <nom-utilisateur-dockerhub>/<nom-du-depot>:<tag>
 ```
 
 Par exemple, si votre nom d'utilisateur Docker Hub est "monnomutilisateur" et le
 nom de votre dépôt est "monappli", vous utiliseriez :
 
-```
+```sh
 docker tag monappli monnomutilisateur/monappli:latest
 ```
 
@@ -105,20 +105,20 @@ docker tag monappli monnomutilisateur/monappli:latest
 
 Une fois que votre image est taguée, vous pouvez la pousser vers Docker Hub :
 
-```
+```sh
 docker push <nom-utilisateur-dockerhub>/<nom-du-depot>:<tag>
 ```
 
 En utilisant l'exemple précédent, vous utiliseriez :
 
-```
+```sh
 docker push monnomutilisateur/monappli:latest
 ```
 
 Cette commande télécharge votre image vers Docker Hub, la rendant disponible
 pour que d'autres puissent la tirer et l'utiliser.
 
-### Fonctionnalités Utiles de Docker Hub
+## Fonctionnalités Utiles de Docker Hub
 
 **1. Builds Automatisés :**
 
@@ -160,7 +160,7 @@ Docker Hub fournit des insights sur vos images, tels que le nombre de pulls, les
 étoiles et l'heure de la dernière mise à jour. Ces informations peuvent vous
 aider à suivre la popularité et l'utilisation de vos images.
 
-### Registre de Conteneurs GitHub
+## Registre de Conteneurs GitHub
 
 [Le Registre de Conteneurs GitHub](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
 est une autre option populaire pour stocker et gérer des images de conteneurs
@@ -200,7 +200,7 @@ gestion de leur code source. Voici quelques fonctionnalités clés :
   dépôts publics, en en faisant une option attrayante pour les projets
   open-source.
 
-### Résumé
+## Résumé
 
 Docker Hub est une plateforme puissante pour le partage et la distribution
 d'images Docker. En exploitant Docker Hub, vous pouvez rationaliser vos
