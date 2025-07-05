@@ -51,7 +51,7 @@ jobs:
         run: ./deploy.sh
 ```
 
-### Détails :
+### Détails
 - **`jobs:`** : La section `jobs` contient tous les jobs du workflow. Chaque job
   est défini par un identifiant unique (ici, `build` et `deploy`).
 - **`runs-on:`** : Spécifie l'environnement dans lequel le job s'exécute (par
@@ -78,7 +78,7 @@ uses: <action>@<version>
 ```
 Voici un exemple d'utilisation de l'action `actions/checkout` pour récupérer le code source d'un dépôt.
 
-#### Exemple :
+#### Exemple
 
 ```yaml
 steps:
@@ -94,7 +94,7 @@ Marketplace](https://github.com/marketplace?type=actions), comme :
 - **`actions/upload-artifact`** : Sauvegarder des fichiers ou des résultats de
   tests.
 
-### Exemple Complet :
+### Exemple Complet
 
 ```yaml
 jobs:
@@ -200,7 +200,7 @@ jobs:
 Si votre action nécessite un environnement spécifique, vous pouvez créer une
 action Docker. Cela vous permet d'exécuter des scripts dans un conteneur isolé.
 
-#### Exemple d'Action Docker :
+#### Exemple d'Action Docker
 1. Créez un fichier `Dockerfile` :
 
 ```dockerfile
@@ -234,12 +234,12 @@ identifiants de connexion, que vous ne voulez pas exposer directement dans votre
 code. Vous pouvez ajouter des secrets à votre dépôt via l'interface GitHub, puis
 les référencer dans vos workflows.
 
-#### Ajouter un Secret :
+#### Ajouter un Secret
 1. Allez dans les **Settings** du dépôt.
 2. Cliquez sur **Secrets and variables** > **Actions**.
 3. Ajoutez un secret (par exemple, `API_KEY`).
 
-#### Utiliser un Secret dans un Workflow :
+#### Utiliser un Secret dans un Workflow
 
 ```yaml
 jobs:
@@ -259,7 +259,7 @@ jobs:
 Vous pouvez également définir des variables d'environnement à utiliser dans les
 jobs ou les étapes.
 
-#### Exemple de Variables d'Environnement :
+#### Exemple de Variables d'Environnement
 
 ```yaml
 jobs:
@@ -285,7 +285,7 @@ Par défaut, les jobs dans un workflow GitHub Actions s'exécutent en
 **parallèle**. Cela signifie que plusieurs jobs peuvent s'exécuter
 simultanément, ce qui permet d’accélérer le temps d'exécution global.
 
-#### Exemple d'Exécution Parallèle :
+#### Exemple d'Exécution Parallèle
 
 ```yaml
 jobs:
@@ -305,7 +305,7 @@ jobs:
 
 Vous pouvez définir des conditions pour exécuter ou sauter des jobs ou des étapes. Cela permet, par exemple, de n’exécuter certaines actions que si un test échoue, ou si la branche correspond à une certaine condition.
 
-#### Exécution Conditionnelle avec `if` :
+#### Exécution Conditionnelle avec `if`
 
 ```yaml
 jobs:
@@ -323,7 +323,7 @@ Voici comment vous pouvez ajouter une section sur le passage d'informations d'un
 workflow à un autre, en plus de la section d'exécution conditionnelle :
 
 ```markdown
-#### Exécution Conditionnelle en Fonction de l'Échec ou du Succès :
+#### Exécution Conditionnelle en Fonction de l'Échec ou du Succès
 
 ```yaml
 jobs:
@@ -377,7 +377,7 @@ jobs:
         run: echo "Deploying version ${{ needs.build.outputs.version }}"
 ```
 
-#### Explication :
+#### Explication
 
 1. **Définir un Output** : Dans le job `build`, la commande `::set-output` est
    utilisée pour définir un output appelé `version`. Ce numéro de version est

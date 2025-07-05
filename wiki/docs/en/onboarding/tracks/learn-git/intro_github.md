@@ -43,7 +43,7 @@ here](https://docs.github.com/en/get-started/writing-on-github/getting-started-w
 
 In the following tutorial, we will edit it and make it better, as it is used
 like a LinkedIn page is used.
-### Quick tips for your account:
+### Quick tips for your accoun
 
 - Repositories: Add any projects you are proud of ! (*If you are adding a school
   project, please talk to your teacher beforehand.*)

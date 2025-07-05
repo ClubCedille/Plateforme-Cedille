@@ -8,7 +8,7 @@ to deploy production applications with Kustomize and ArgoCD.
 - Source code:
   [/apps/samples/kustomize-example-app](https://github.com/ClubCedille/Plateforme-Cedille/tree/master/apps/samples/kustomize-example-app)
 
-## Overview of Steps to Deploy a New App:
+## Overview of Steps to Deploy a New App
 
 1. Create a folder for the application. Ex.: `/apps/new-app`
 2. Create the resource directory structure described in this document

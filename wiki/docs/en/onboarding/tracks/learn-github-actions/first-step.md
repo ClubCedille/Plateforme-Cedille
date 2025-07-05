@@ -13,14 +13,14 @@ To start using GitHub Actions, you need to create a specific directory in your
 GitHub repository to store your workflow files. This directory should be named
 **`.github/workflows`**.
 
-### Steps to create your first workflow:
+### Steps to create your first workflo
 1. **Create the directory**: In the root of your project, create the
    `.github/workflows` directory.
 2. **Add a workflow file**: Workflows are defined in YAML files (with the `.yml`
    extension). For example, you can create a file named `ci.yml` for a CI
    workflow.
 
-### Example of a repository structure with a workflow:
+### Example of a repository structure with a workflo
 
 ```text
 my-project/
@@ -85,7 +85,7 @@ jobs:
         run: npm run build
 ```
 
-### Explanation:
+### Explanatio
 - **`name:`**: Gives a name to the workflow. This name is visible in the GitHub
   Actions interface.
 - **`on:`**: Specifies the events that trigger the workflow. In this example,
@@ -107,7 +107,7 @@ and write, allowing you to structure workflows with jobs, steps, actions, and
 variables. Here is a detailed explanation of the basic syntax for GitHub Actions
 YAML files.
 
-### General Structure of a GitHub Actions YAML File:
+### General Structure of a GitHub Actions YAML Fil
 ```yaml
 name: Workflow name
 
@@ -130,7 +130,7 @@ jobs:  # Jobs to execute
         run: shell_command  # Shell command to execute
 ```
 
-### Common YAML Elements:
+### Common YAML Element
 - **`name:`**: Workflow name.
 - **`on:`**: Events that trigger the workflow, such as `push`, `pull_request`,
   `schedule`, or others.
@@ -140,7 +140,7 @@ jobs:  # Jobs to execute
 - **`steps:`**: Steps in a job, which can include pre-defined actions or custom
   commands to execute.
 
-### Examples of Steps:
+### Examples of Step
 1. **Using a Predefined Action**:
    ```yaml
    - name: Checkout code uses: actions/checkout@v2 ``` Here, we use the
@@ -161,7 +161,7 @@ GitHub Actions workflows can be triggered by a variety of events. Here are the m
 
 The `push` trigger is used to run a workflow whenever a `push` is made to the repository. You can also specify specific branches or paths for which the workflow should run.
 
-#### Example:
+#### Exampl
 ```yaml
 on:
   push:
@@ -180,7 +180,7 @@ on:
 The `pull_request` trigger runs a workflow when a new pull request is created or
 updated.
 
-#### Example:
+#### Exampl
 ```yaml
 on:
   pull_request:
@@ -192,7 +192,7 @@ requests opened on the `main` branch.
 
 The `schedule` trigger allows you to define workflows that run at specific times, similar to a cron job.
 
-#### Example:
+#### Exampl
 ```yaml
 on:
   schedule:
@@ -207,7 +207,7 @@ midnight (UTC). The `cron` format is the same as that used in Linux cron jobs.
 - **`issue_comment`**: Executes the workflow when a comment is added to an issue.
 - **`push_tag`**: Triggers the workflow when a tag is pushed.
 
-#### Example of `workflow_dispatch`:
+#### Example of `workflow_dispatch
 ```yaml
 on:
   workflow_dispatch:
@@ -251,7 +251,7 @@ In this example, the workflow allows the administrator to add a new member to
 the organization, modify Terraform files, and create a Pull Request to apply
 these changes.
 
-#### Example of `workflow_call`:
+#### Example of `workflow_call
 ```yaml
 on:
   workflow_call:

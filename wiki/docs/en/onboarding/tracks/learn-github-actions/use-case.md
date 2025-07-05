@@ -17,7 +17,7 @@ Node.js application using Docker and GitHub Actions.
 
 Start by creating a `Dockerfile` to containerize the Node.js application.
 
-#### Sample Dockerfile:
+#### Sample Dockerfil
 
 ```dockerfile
 # Use a Node.js base image
@@ -95,7 +95,7 @@ application hosted on **AWS Elastic Beanstalk** with Docker integration.
 Create a `Dockerfile` to containerize the Python application. This example
 demonstrates a Dockerfile for a Flask app.
 
-#### Sample Dockerfile:
+#### Sample Dockerfil
 
 ```dockerfile
 # Use a Python base image
@@ -174,7 +174,7 @@ testing, building, and deploying an application.
 The following workflow automates the entire process of testing, building, and
 deploying a Node.js application hosted on **Heroku**.
 
-#### Sample Comprehensive Workflow:
+#### Sample Comprehensive Workflo
 
 ```yaml
 name: CI/CD Pipeline for Node.js App
@@ -235,7 +235,7 @@ jobs:
           heroku container:release web --app my-app
 ```
 
-#### Explanation:
+#### Explanatio
 - **Tests**: Runs unit tests using `npm test`.
 - **Build**: If the tests pass, the application is built with `npm run build`.
 - **Deployment**: If the build is successful, the application is deployed to

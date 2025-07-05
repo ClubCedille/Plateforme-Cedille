@@ -59,7 +59,7 @@ Registry. Voici un exemple concret du fichier
 utilisé pour construire et pousser des conteneurs Docker.
 
 
-### Explication du Workflow [build-push-ghcr.yaml](https://github.com/ClubCedille/cedille-workflows/blob/master/.github/workflows/build-push-ghcr.yaml) :
+### Explication du Workflow [build-push-ghcr.yaml](https://github.com/ClubCedille/cedille-workflows/blob/master/.github/workflows/build-push-ghcr.yaml)
 - **workflow_call** : Ce workflow est conçu pour être réutilisé par d'autres
   workflows, permettant de spécifier le nom du conteneur, le contexte Docker, et
   le fichier Dockerfile.
@@ -195,7 +195,7 @@ jobs:
         run: docker push ghcr.io/${{ github.repository }}/my-app:latest
 ```
 
-### Explication des Étapes :
+### Explication des Étapes
 
 1. **Checkout repository** : Cette étape récupère le code source du dépôt.
 2. **Log in to GitHub Container Registry** : Se connecte à GHCR en utilisant le

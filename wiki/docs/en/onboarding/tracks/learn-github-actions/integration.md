@@ -87,7 +87,7 @@ jobs:
         run: docker push ${{ secrets.DOCKER_USERNAME }}/my-app:latest
 ```
 
-### Workflow Explanation:
+### Workflow Explanatio
 - **`docker/login-action@v2`**: This action logs into Docker Hub using securely
   stored username and password in the repository’s secrets.
 - **`docker build`**: This command builds a Docker image from the Dockerfile in
@@ -189,7 +189,7 @@ jobs:
           kubectl set image deployment/my-app my-app-container=${{ secrets.DOCKER_USERNAME }}/my-app:latest
 ```
 
-### Workflow Explanation:
+### Workflow Explanatio
 
 - **`azure/setup-kubectl@v3`**: This action installs `kubectl` in the workflow
   environment.
@@ -273,7 +273,7 @@ jobs:
         run: helm upgrade --install my-app ./helm-chart --set image.tag=latest
 ```
 
-### Workflow Explanation:
+### Workflow Explanatio
 
 1. **kubectl**: Step 6 updates the Kubernetes deployment’s container image using
    `kubectl`.

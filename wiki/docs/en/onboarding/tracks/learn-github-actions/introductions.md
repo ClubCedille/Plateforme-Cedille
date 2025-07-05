@@ -12,7 +12,7 @@ The key strength of GitHub Actions lies in its native integration with GitHub,
 enabling you to trigger workflows based on repository events like `push`, `pull
 requests`, or even custom triggers such as scheduled `cron` jobs.
 
-### Key Features of GitHub Actions:
+### Key Features of GitHub Action
 - **Full GitHub Integration**: Workflows can be triggered by GitHub events such
   as `push`, `pull request`, `issues`, and many more.
 - **Flexibility**: GitHub Actions is highly customizable, with hundreds of

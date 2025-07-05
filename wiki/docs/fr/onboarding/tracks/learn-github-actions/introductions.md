@@ -13,7 +13,7 @@ permettant de déclencher des workflows en fonction d’événements de dépôt 
 les `push`, `pull requests`, ou même des déclencheurs personnalisés comme un
 `cron` planifié.
 
-### Caractéristiques principales de GitHub Actions :
+### Caractéristiques principales de GitHub Actions
 - **Intégration complète avec GitHub** : Les workflows peuvent être déclenchés
   par les événements GitHub tels que les `push`, les `pull request`, les
   `issues`, et bien d'autres.

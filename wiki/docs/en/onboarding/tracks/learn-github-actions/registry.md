@@ -52,7 +52,7 @@ process of Docker images to GHCR. Below is an example of the
 [build-push-ghcr.yaml](https://github.com/ClubCedille/cedille-workflows/blob/master/.github/workflows/build-push-ghcr.yaml)
 file used to build and push Docker containers.
 
-### Workflow Explanation for [build-push-ghcr.yaml](https://github.com/ClubCedille/cedille-workflows/blob/master/.github/workflows/build-push-ghcr.yaml):
+### Workflow Explanation for [build-push-ghcr.yaml](https://github.com/ClubCedille/cedille-workflows/blob/master/.github/workflows/build-push-ghcr.yaml
 - **workflow_call**: This workflow is designed to be reusable by other
   workflows, allowing container name, Docker context, and Dockerfile
   specification.
@@ -182,7 +182,7 @@ jobs:
         run: docker push ghcr.io/${{ github.repository }}/my-app:latest
 ```
 
-### Explanation of Steps:
+### Explanation of Step
 
 1. **Checkout repository**: This step retrieves the repository’s source code.
 2. **Log in to GitHub Container Registry**: Logs into GHCR using GitHub’s access

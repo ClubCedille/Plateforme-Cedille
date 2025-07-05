@@ -19,7 +19,7 @@ application Node.js conteneurisée à l'aide de Docker et GitHub Actions.
 Commencez par créer un fichier `Dockerfile` pour conteneuriser l'application
 Node.js.
 
-#### Exemple de Dockerfile :
+#### Exemple de Dockerfile
 
 ```dockerfile
 # Utiliser une image Node.js de base
@@ -99,7 +99,7 @@ Docker dans le processus.
 Créez un fichier `Dockerfile` pour conteneuriser l'application Python. Cet
 exemple montre un Dockerfile pour une application Flask.
 
-#### Exemple de Dockerfile :
+#### Exemple de Dockerfile
 
 ```dockerfile
 # Utiliser une image Python de base
@@ -178,7 +178,7 @@ les tests, la construction, et le déploiement automatisés d'une application.
 Le workflow suivant automatise l'intégralité du processus de tests, de build, et
 de déploiement pour une application Node.js hébergée sur **Heroku**.
 
-#### Exemple de Workflow Complet :
+#### Exemple de Workflow Complet
 
 ```yaml
 name: CI/CD Pipeline for Node.js App
@@ -239,7 +239,7 @@ jobs:
           heroku container:release web --app my-app
 ```
 
-#### Explication :
+#### Explication
 - **Tests** : Ce workflow exécute les tests unitaires à l'aide de `npm test`.
 - **Build** : Une fois les tests réussis, l'application est construite avec `npm
   run build`.

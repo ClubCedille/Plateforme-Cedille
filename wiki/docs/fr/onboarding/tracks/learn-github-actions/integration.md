@@ -88,7 +88,7 @@ jobs:
         run: docker push ${{ secrets.DOCKER_USERNAME }}/my-app:latest
 ```
 
-### Explication du Workflow :
+### Explication du Workflow
 - **`docker/login-action@v2`** : Cette action permet de se connecter à Docker
   Hub en utilisant un nom d'utilisateur et un mot de passe sécurisés stockés
   dans les secrets du dépôt.
@@ -193,7 +193,7 @@ jobs:
           kubectl set image deployment/my-app my-app-container=${{ secrets.DOCKER_USERNAME }}/my-app:latest
 ```
 
-### Explication du Workflow :
+### Explication du Workflow
 
 - **`azure/setup-kubectl@v3`** : Cette action installe `kubectl` dans
   l'environnement de workflow.
@@ -279,7 +279,7 @@ jobs:
         run: helm upgrade --install my-app ./helm-chart --set image.tag=latest
 ```
 
-### Explication du Workflow :
+### Explication du Workflow
 
 1. **kubectl** : L'étape 6 met à jour l'image conteneurisée du déploiement
    Kubernetes en utilisant `kubectl`.

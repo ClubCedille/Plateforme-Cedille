@@ -68,7 +68,7 @@ jobs:
         run: ./deploy.sh
 ```
 
-#### Explanation:
+#### Explanatio
 - **Dependent Jobs**: The `test`, `build`, and `deploy` jobs depend on previous
   jobs, ensuring no deployment occurs before validation through tests or builds.
 - **Modularity**: Each job has a defined role, making the workflow more readable
