@@ -33,10 +33,10 @@ Like the usual, start by cloning
 
 ??? hint "Hint"
 
-    ``` bash
-    git clone git@github.com:ClubCedille/OlympGit.git
-    cd OlympGit
-    ```
+``` bash
+git clone git@github.com:ClubCedille/OlympGit.git
+cd OlympGit
+```
 
 ---
 
@@ -46,10 +46,10 @@ Switch from the `main` branch to the `olympgit` branch.
 
 ??? hint "Hint"
 
-    ``` bash
-    git checkout olympgit
-    git pull origin olympgit
-    ```
+``` bash
+git checkout olympgit
+git pull origin olympgit
+```
 
 ---
 
@@ -59,9 +59,9 @@ Create your branch under the name of add-your-name. Ex: add-linus-torvalds.
 
 ??? hint "Hint"
 
-    ``` bash
-    git checkout -b add-<your-name>
-    ```
+``` bash
+git checkout -b add-<your-name>
+```
 
 ---
 
@@ -95,10 +95,10 @@ Now that you have added your name, let's commit the change to your branch.
 
 ??? hint "Hint"
 
-    ``` bash
-    git add HALL_OF_GITFAME.md
-    git commit -m "feat: add Your Name to Hall of GitFame"
-    ```
+``` bash
+git add HALL_OF_GITFAME.md
+git commit -m "feat: add Your Name to Hall of GitFame"
+```
 
 ---
 
@@ -109,9 +109,9 @@ branch.
 
 ??? hint "Hint"
 
-    ``` bash
-    git push origin add-your-name
-    ```
+``` bash
+git push origin add-your-name
+```
 
 ---
 
@@ -121,24 +121,24 @@ Now is the time to create a PR (pull request) on GitHub
 
 ??? hint "Hint"
 
-    - Head over to GitHub:
+   - Head over to GitHub:
 
-    - You'll see a message: ➕ “Compare & Pull Request” → Click it.
+   - You'll see a message: ➕ “Compare & Pull Request” → Click it.
 
-    - Set the base branch to olympgit
+   - Set the base branch to olympgit
 
-    - The compare branch should be your add-your-name branch
+   - The compare branch should be your add-your-name branch
 
-    - Add a message like:
+   - Add a message like:
 
-            ```
-            🏛️ Feat: Add [Your Name] to the Hall of GitFame
+   ```
+   🏛️ Feat: Add [Your Name] to the Hall of GitFame
 
-            Adding my humble name to the top of the Immortals list.
-            Ready to resolve conflicts and claim my place.
-            ```
+   Adding my humble name to the top of the Immortals list.
+   Ready to resolve conflicts and claim my place.
+   ```
 
-    - Submit the Pull Request
+   - Submit the Pull Request
 
 ---
 
@@ -160,7 +160,7 @@ If your Pull Request cannot be merged automatically:
 3. Manually _edit the conflict_ to keep all names & removing any Hydra Heads
    until none are left to slay:
 
-```
+```diff
 - 🛡️ Your Legendary Name
 - 🛡️ Hercules
 ```
