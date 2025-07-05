@@ -59,36 +59,37 @@ Hub account:
 
 ## Installing Git (optionnal)
 
-   - **Windows:**
+- **Windows:**
 
-    Download Git from [git-scm.com](https://git-scm.com/download/win) and run
-    the installer. Follow the prompts and choose the default options.
+Download Git from [git-scm.com](https://git-scm.com/download/win) and run
+the installer. Follow the prompts and choose the default options.
 
-   - **macOS:**
+- **macOS:**
 
-    Git should already be available on macOS. You can verify by opening Terminal and typing:
-    ```
+Git should already be available on macOS. You can verify by opening Terminal and typing:
+
+    ```bash
     git --version
     ```
-    If Git is not installed, you will be prompted to install it.
+If Git is not installed, you will be prompted to install it.
 
-   - **Linux (Ubuntu/Debian):**
+- **Linux (Ubuntu/Debian):**
 
-    Open a terminal and install Git using apt-get:
-    ```
+ Open a terminal and install Git using apt-get:
+
+    ```bash
     sudo apt-get update
     sudo apt-get install git
     ```
 
+- **Linux (Fedora):**
 
-   - **Linux (Fedora):**
+Open a terminal and install Git using dnf:
 
-    Open a terminal and install Git using dnf:
-    ```
+    ```bash
     sudo dnf install git
     ```
 
+- **Other Linux Distributions:**
 
-   - **Other Linux Distributions:**
-
-    Use the package manager specific to your distribution to install Git.
+Use the package manager specific to your distribution to install Git.
