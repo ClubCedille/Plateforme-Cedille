@@ -37,7 +37,7 @@ organisation :
 
 1. **Clonez le projet localement** : Utilisez la commande `git clone` pour
    cloner le projet sur votre machine. Exemple :
-   `sh git clone https://github.com/ClubCedille/cedille.etsmtl.ca.git ` Cette
+   `sh git clone https://github.com/ClubCedille/cedille.etsmtl.ca.git` Cette
    commande télécharge une copie complète du dépôt sur votre machine locale,
    vous permettant de travailler hors ligne.
 
@@ -48,20 +48,20 @@ organisation :
 
 3. **Créez une nouvelle branche** : Avant de commencer à travailler sur des
    modifications, créez une nouvelle branche pour vos contributions avec la
-   commande `sh git branch [branch_name] ` Puis passez à cette branche avec
-   `sh git checkout [branch_name] ` La création de branches permet de travailler
+   commande `sh git branch [branch_name]` Puis passez à cette branche avec
+   `sh git checkout [branch_name]` La création de branches permet de travailler
    sur des fonctionnalités ou des corrections spécifiques sans affecter la
    branche principale du projet.
 
 4. **Effectuez vos modifications** : Apportez les modifications nécessaires dans
    votre environnement de développement. Après avoir terminé, enregistrez vos
    changements avec la commande
-   `sh git commit -am “décrivez vos modifications ici” ` Il est important
+   `sh git commit -am “décrivez vos modifications ici”` Il est important
    d'écrire des messages de commit clairs et descriptifs pour faciliter la
    compréhension des modifications apportées.
 
 5. **Poussez votre branche** : Envoyez votre branche vers le dépôt distant avec
-   `sh git push -u origin [nom_de_branche] ` Le drapeau `-u` configure la
+   `sh git push -u origin [nom_de_branche]` Le drapeau `-u` configure la
    branche locale pour suivre la branche distante, facilitant ainsi les futures
    synchronisations.
 
@@ -75,9 +75,10 @@ organisation :
    la branche avec la branche principale en utilisant l'une des options
    suivantes :
    - **Fusion manuelle via la ligne de commande git** :
-     ```sh
-     git merge [branch_name] --no-ff
-     ```
+
+```sh
+git merge [branch_name] --no-ff
+```
    - **Fusion via l'interface utilisateur de GitHub** : Sur la page de la Pull
      Request, utilisez le bouton approprié qui apparaîtra une fois votre commit
      approuvé.

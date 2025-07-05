@@ -6,7 +6,7 @@ the world's largest library and community for container images. In this guide,
 we'll show you how to interact with Docker Hub, including how to pull and push
 images, and highlight some of the useful features available on Docker Hub.
 
-### Setting Up Docker Hub
+## Setting Up Docker Hub
 
 **1. Create a Docker Hub Account:**
 
@@ -24,7 +24,7 @@ docker login
 You will be prompted to enter your Docker Hub username and password. Once
 authenticated, you can start interacting with Docker Hub.
 
-### Pulling Images from Docker Hub
+## Pulling Images from Docker Hub
 
 Docker Hub hosts a vast number of pre-built container images that you can use in
 your projects. To pull an image from Docker Hub, use the `docker pull` command.
@@ -72,7 +72,7 @@ docker run -d -p 3000:3000 node
 This command starts a container from the Node.js image and maps port 3000 on
 your local machine to port 3000 in the container.
 
-### Pushing Images to Docker Hub
+## Pushing Images to Docker Hub
 
 If you have created a custom Docker image that you want to share with others,
 you can push it to Docker Hub.
@@ -110,7 +110,7 @@ docker push myusername/myapp:latest
 This command uploads your image to Docker Hub, making it available for others to
 pull and use.
 
-### Useful Features of Docker Hub
+## Useful Features of Docker Hub
 
 **1. Automated Builds:**
 
@@ -149,7 +149,7 @@ Docker Hub provides insights into your images, such as the number of pulls,
 stars, and the last updated time. This information can help you track the
 popularity and usage of your images.
 
-### GitHub Container Registry
+## GitHub Container Registry
 
 [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
 is another popular option for storing and managing container images that Club
@@ -186,7 +186,7 @@ are some key features:
 - GitHub Container Registry offers free usage for public repositories, making it
   an attractive option for open-source projects.
 
-### Summary
+## Summary
 
 Docker Hub is a powerful platform for sharing and distributing Docker images. By
 leveraging Docker Hub, you can streamline your development and deployment

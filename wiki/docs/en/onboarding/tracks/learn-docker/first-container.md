@@ -1,3 +1,5 @@
+# Setting up your first Docker container
+
 ## Install Docker
 
 Before you begin, make sure Git and Docker is installed on your system. You can
@@ -11,9 +13,9 @@ download Docker from the
 Open your terminal or command prompt after Git is installed and clone the
 'welcome-to-docker' repository from GitHub using the following command:
 
-    ```bash
-    git clone https://github.com/docker/welcome-to-docker
-    ```
+```bash
+git clone https://github.com/docker/welcome-to-docker
+```
 
 **2. Navigate to the Repository:**
 
@@ -71,9 +73,9 @@ Once you've pulled an image, you can run a container from it using `docker run`.
 For example, to run an **nginx** container and map port 8080 on your host to
 port 80 inside the container, use:
 
-    ```bash
-    docker run -d -p 8080:80 nginx
-    ```
+```bash
+ docker run -d -p 8080:80 nginx
+```
 
 - `-d`: Runs the container in detached mode.
 - `-p 8080:80`: Maps port 8080 on your local machine to port 80 inside the

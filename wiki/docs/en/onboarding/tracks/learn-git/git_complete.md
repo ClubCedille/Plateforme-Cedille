@@ -47,7 +47,8 @@ projects, even small ones.
 
 Happy coding!
 
-<details> <summary> Is that it? </summary>
+<details>
+	<summary> Is that it? </summary>
 
     #!FLAG-git-your-captain
 

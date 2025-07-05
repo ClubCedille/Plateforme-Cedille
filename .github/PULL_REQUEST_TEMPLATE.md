@@ -2,20 +2,20 @@
 
 <!-- Describe your changes in detail -->
 
-### Related Issue
+## Related Issue
 
 <!-- We only accepts pull requests related to open issues -->
 
-### Testing Procedure
+## Testing Procedure
 
 <!-- Please describe in detail how you tested your changes. --> <!-- Include
 
 details of your testing environment, and the tests you ran to --> <!-- see how
 your change affects other areas of the code, etc. -->
 
-### Screenshots (if appropriate)
+## Screenshots (if appropriate)
 
-### Checklist
+## Checklist
 
 - [ ] Bug fix (non-breaking change which fixes an issue)
 - [ ] New feature (non-breaking change which adds functionality)

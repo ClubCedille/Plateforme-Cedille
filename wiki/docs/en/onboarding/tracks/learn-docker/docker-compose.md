@@ -1,4 +1,4 @@
-## What is Docker Compose?
+# What is Docker Compose?
 
 [Docker Compose](https://docs.docker.com/compose/) is a tool that allows you to
 define and manage multi-container Docker applications. With Docker Compose, you
@@ -125,7 +125,7 @@ and images created by `docker compose up`.
 
 ## Additional Docker Compose Features
 
-#### Real-Time Updates with `docker compose watch`
+### Real-Time Updates with `docker compose watch`
 
 When developing with Docker, you may need to automatically update and preview
 your running services as you edit and save your code. The `docker compose watch`

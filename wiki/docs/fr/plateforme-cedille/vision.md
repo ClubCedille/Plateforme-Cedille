@@ -193,11 +193,12 @@ produit.
 #### Table 3.2.1 : Sommaire des utilisateurs
 
 | **Name**                                                | **Description**                                                                                                                       | **Responsabilités**                                                                            |
-| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+|---------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
 | **U1** Administrateur de la plateforme                  | Administrateur de la plateforme designé par le club CEDILLE                                                                           | Maintenance de la plateforme et approbation d'un nouveau déploiement.                          |
 | **U2** Les clubs étudiants et ses membres (Utilisateur) | Club étudiant de l'École de Technologie Supérieure                                                                                    | Interagir avec la plateforme pour obtenir diverses informations sur leurs différents services. |
 | **U3** Personnel de l'ETS                               | Régie des clubs étudiants et services TI de l'ÉTS                                                                                     | Vérifier la comformité des applications et de l'infrastructure                                 |
-| **U4** Développeurs applicatifs                         | Parfois membres de CEDILLE, parfois d'autres clubs, ils sont responsables de la programmation des logiciels présents sur les serveurs |
+| **U4** Développeurs applicatifs                         | Parfois membres de CEDILLE, parfois d'autres clubs, ils sont responsables de la programmation des logiciels présents sur les serveurs |                                                                                                |
+
 
 ### 3.3 Environnement utilisateur
 
@@ -451,7 +452,3 @@ besoins en performance.
   services.
 - Procédures de Secours et de Restauration : Protocoles à suivre en cas de
   défaillance du système ou d'autres types d'urgences.
-
-[^1]:
-    École de Technologie Supérieure, Universités du Québec.
-    [https://www.etsmtl.ca/](https://www.etsmtl.ca/)
