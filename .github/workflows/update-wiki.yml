@@ -13,6 +13,10 @@ on:
       - 'wiki/**'
 
 jobs:
+  markdown-repo-standards:
+    uses:
+      clubcedille/cedille-workflows/.github/workflows/markdown-lint.yml@master
+
   build-push-ghcr:
     needs: markdown-repo-standards
     uses: ClubCedille/cedille-workflows/.github/workflows/build-push-ghcr.yaml@master
