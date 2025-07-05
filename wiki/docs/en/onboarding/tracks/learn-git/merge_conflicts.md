@@ -70,6 +70,7 @@ git checkout -b add-<your-name>
 Edit `HALL_OF_GITFAME.md`, and insert your name at the top of the list:
 
 !!! warning "Warning"
+
 ```text
     Add your name ON TOP of the Immortals list!
 ```
@@ -84,6 +85,7 @@ Edit `HALL_OF_GITFAME.md`, and insert your name at the top of the list:
 ```
 
 !!! warning "Warning"
+
 ```text
 Always add your name to the top of the list. Otherwise a challenger might come to try to steal your place!
 ```
