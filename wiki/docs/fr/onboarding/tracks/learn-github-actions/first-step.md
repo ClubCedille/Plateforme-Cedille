@@ -162,7 +162,7 @@ jobs: # Les jobs à exécuter
 
 ---
 
-## 4. Déclencheurs (events) : `push`, `pull_request`, `schedule`, etc.
+## 4. Déclencheurs (events) : `push`, `pull_request`, `schedule`, et plus
 
 Les workflows GitHub Actions peuvent être déclenchés par une variété
 d'événements. Voici les déclencheurs les plus courants :

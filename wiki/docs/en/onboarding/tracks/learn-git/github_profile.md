@@ -29,7 +29,7 @@ profile.
 
 ## Step 2: Clone your Repository
 
-### 2.1. Go to your working local directory.
+### 2.1. Go to your working local directory
 
 ??? tip "Hint"
 

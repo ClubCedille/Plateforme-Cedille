@@ -163,7 +163,7 @@ This step runs the `npm test` command to execute the project's tests.
 
 ---
 
-## 4. Triggers (events): `push`, `pull_request`, `schedule`, etc.
+## 4. Triggers (events): `push`, `pull_request`, `schedule`, and more
 
 GitHub Actions workflows can be triggered by a variety of events. Here are the
 most common triggers:
