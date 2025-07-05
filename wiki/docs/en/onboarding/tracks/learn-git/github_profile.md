@@ -33,19 +33,18 @@ profile.
 
 ??? tip "Hint"
 
-    ``` bash
+``` bash
+cd /YourWorkingDirectory  (ex: /home/username/gitrepos/)
 
-    cd /YourWorkingDirectory  (ex: /home/username/gitrepos/)
-
-    ```
+```
 
 ### 2.2. Clone your repository to that local directory
 
 ??? tip "Hint"
 
-    ``` bash
-    git clone git@github.com/YourUserName/YourUserName
-    ```
+``` bash
+git clone git@github.com/YourUserName/YourUserName
+```
 
 ### 2.3. Open your README.md file in your code/text editor (ex: VSCode)
 
@@ -102,9 +101,9 @@ need make:
 1. In the title, change "YOUR NAME" to your actual name.
 2. You can edit the text displayed but clicking on the link and pasting the
    Markdown code. Look the [Typing SVG] tag in the Markdown file.
-3. For the "Technologies & tools", you can look through the list of badges
-   [here](https://github.com/inttter/md-badges) and copy-paste the ones that
-   fits your skills.
+3. For the "Technologies & tools", you can look through the
+   [list of badges](https://github.com/inttter/md-badges) and copy-paste
+   the ones that fits your skills.
 4. In the GitHub Stats section, make sure to change the "username=..." &
    "user=..." to your actual username in GitHub.
 5. In the About me section, you can add your field of study and your field of
@@ -144,17 +143,16 @@ the CLI:
 
 ??? tip "Hint"
 
-    ``` bash
+``` bash
+git add .
+git commit -m "Changes Title"
+git push origin main
 
-    git add .
-    git commit -m "Changes Title"
-    git push origin main
-
-    ```
+```
 
 ## Step 7: Check the Results!
 
-Go to your GitHub profile page: https://github.com/YourUserName
+Go to your GitHub profile page: github.com/{YourUserName}
 
 Enjoy the result!
 
@@ -168,9 +166,11 @@ Let's meet again in the [next section](team_collaboration.md) !
 
 ??? danger "DO NOT CLICK ON THIS!"
 
-    I wonder what that is...
+```text
+I wonder what that is...
 
-    #!FLAG-git-good-at-profiles
+#!FLAG-git-good-at-profiles
 
-    Maybe we'll find all the meaning at the very end of this track... Let's keep
-    going!
+Maybe we'll find all the meaning at the very end of this track... Let's keep
+going!
+```

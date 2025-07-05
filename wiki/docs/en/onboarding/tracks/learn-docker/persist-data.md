@@ -10,7 +10,7 @@ volume. A volume is a location in your local filesystem that is managed by
 Docker. Volumes are useful because they allow you to store data outside of the
 container’s lifecycle.
 
-### Example: Adding a Volume to a Docker Compose Project
+## Example: Adding a Volume to a Docker Compose Project
 
 We will reuse the repository at
 [https://github.com/docker/multi-container-app](https://github.com/docker/multi-container-app)

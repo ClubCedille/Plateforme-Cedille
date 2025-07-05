@@ -48,10 +48,11 @@ projects, even small ones.
 Happy coding!
 
 <details>
-	<summary> Is that it? </summary>
+<summary> Is that it? </summary>
 
-    #!FLAG-git-your-captain
+```text
+#!FLAG-git-your-captain
 
-    Your captain probably knows something about those flags...
-
+Your captain probably knows something about those flags...
+```
 </details>
