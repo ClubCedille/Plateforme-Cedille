@@ -34,7 +34,9 @@ git commit -m "Your message"
 
 VSCode:
 
-    You can stage them all with the + sign or press on the commit button.
+```text
+You can stage them all with the + sign or press on the commit button.
+```
 
 ![Stage_and_commit](./img/stage_and_commit.png)
 
@@ -51,9 +53,11 @@ git push origin your-branch
 
 VSCode:
 
-    After committing, click the … menu in the Source Control tab → Push
+```text
+After committing, click the … menu in the Source Control tab → Push
 
-    Or click the sync icon (🔄) in the status bar
+Or click the sync icon (🔄) in the status bar
+```
 
 ![Push_sync](./img/push_sync.png)
 
@@ -67,15 +71,21 @@ git pull origin main
 
 VSCode:
 
-    Click … → Pull
+```text
+Click … → Pull
+```
 
 ![pull](./img/pull.png)
 
-    Or click the sync icon in the bottom-left corner
+```text
+Or click the sync icon in the bottom-left corner
+```
 
 ![sync_bottom](./img/sync_bottom.png)
 
-    Conflicts, if any, will be visually flagged in the editor
+```text
+Conflicts, if any, will be visually flagged in the editor
+```
 
 ## 🔄 Fetching (Without Merging)
 
@@ -87,7 +97,9 @@ git fetch
 
 VSCode:
 
-    Use … → Fetch to retrieve remote updates without merging them automatically
+```text
+Use … → Fetch to retrieve remote updates without merging them automatically
+```
 
 ![fetch](./img/fetch.png)
 
@@ -103,13 +115,17 @@ git checkout -b feature/branch-name
 
 VSCode:
 
-    Click on the branch name in the bottom-left corner
+```text
+Click on the branch name in the bottom-left corner
+```
 
 ![branch_bottom](./img/branch_bottom.png)
 
-    Select Create New Branch…  ![create_branch](./img/create_branch.png)
+```text
+Select Create New Branch…  ![create_branch](./img/create_branch.png)
 
-    Enter a name and select the base branch (usually main)
+Enter a name and select the base branch (usually main)
+```
 
 ![branch_name](./img/branch_name.png)
 
@@ -123,9 +139,11 @@ git checkout branch-name
 
 VSCode:
 
-    Click the branch name in the bottom-left corner
+```text
+Click the branch name in the bottom-left corner
 
-    Select the branch you want from the dropdown list
+Select the branch you want from the dropdown list
+```
 
 ![switch_branches](./img/switch_branches.png)
 
@@ -142,9 +160,11 @@ git push origin --delete branch-name
 
 VSCode:
 
-    Go to Source Control → ... → Branch ![del_branch](./img/del_branch_1.png)
+```text
+Go to Source Control → ... → Branch ![del_branch](./img/del_branch_1.png)
 
-    Branch → Delete Branch...  ![del_branch_2](./img/del_branch_2.png)
+Branch → Delete Branch...  ![del_branch_2](./img/del_branch_2.png)
+```
 
 > ⚠️ VSCode will ask for confirmation before deleting locally or remotely.
 
@@ -159,11 +179,15 @@ git merge source-branch
 
 VSCode:
 
-    Go to Source Control → ... → Branch
+```text
+Go to Source Control → ... → Branch
+```
 
 ![merge_branch_1](./img/del_branch_1.png)
 
-    Branch → Merge...  ![merge_branch](./img/merge_branch.png)
+```text
+Branch → Merge...  ![merge_branch](./img/merge_branch.png)
+```
 
 > 📌 VSCode alerts you about incoming conflicts and allows side-by-side
 > resolution.
