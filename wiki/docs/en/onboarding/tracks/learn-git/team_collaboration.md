@@ -121,7 +121,9 @@ Here's a more detailed step-by-step tutorial on how to do it.
 
 !!! warning "FOR READING ONLY"
 
-      **ALL THE NEXT POINTS DESCRIBED ARE MEANT TO BE READ, NOT DONE. YOU WILL PRACTICE THEM IN THE LAB.**
+```text
+**ALL THE NEXT POINTS DESCRIBED ARE MEANT TO BE READ, NOT DONE. YOU WILL PRACTICE THEM IN THE LAB.**
+```
 
 ---
 
@@ -292,6 +294,8 @@ let's put that to practice with the **[OLYMPGIT](./merge_conflicts.md)**.
 
 !!! warning "BUT WAIT"
 
-      **I think the Hall of GitFame is under renovation... I've seen so many
-      orange cones on the entrance. Maybe we should just skip by! - (yes, just
-      skip it, it's not done yet...)**
+```text
+**I think the Hall of GitFame is under renovation... I've seen so many
+orange cones on the entrance. Maybe we should just skip by! - (yes, just
+skip it, it's not done yet...)**
+```
