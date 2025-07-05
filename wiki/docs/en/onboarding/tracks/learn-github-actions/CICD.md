@@ -51,7 +51,7 @@ jobs:
         run: npm run build
 ```
 
-#### Explanation of Step
+#### Explanation of Steps
 - **`actions/cache@v2`**: This action caches Node.js modules located in the
   `node_modules` directory. The cache is based on the checksum (hash) of the
   `package-lock.json` file. If no changes are detected in this file, the cache
@@ -180,7 +180,7 @@ jobs:
           tags: ${{ env.REGISTRY }}/${{ inputs.container-name }}:latest
 ```
 
-#### Example of Using the Reusable Workflo
+#### Example of Using the Reusable Workflow
 
 This workflow can now be called from another workflow, while passing customized
 variables to adapt its behavior:
@@ -202,7 +202,7 @@ jobs:
       context: ./my-app-directory
 ```
 
-#### Explanatio
+#### Explanation
 - **`workflow_call`**: Enables reusing the workflow by calling workflows defined
   elsewhere. Input variables allow customization of the reusable workflow’s
   behavior.
@@ -259,7 +259,7 @@ jobs:
         run: npm test
 ```
 
-#### Explanatio
+#### Explanation
 - **`matrix.node-version`** and **`matrix.os`**: These two matrices enable
   testing on different Node.js versions (`12`, `14`, `16`) and across various
   operating systems (`ubuntu`, `windows`, `macos`).
@@ -307,7 +307,7 @@ jobs:
         run: ./deploy.sh
 ```
 
-#### Explanatio
+#### Explanation
 - **`needs`**: The `needs` instruction defines a dependency between jobs. In
   this example, the `test` job only starts after the `build` job succeeds, and
   the `deploy` job waits for `test` to complete.

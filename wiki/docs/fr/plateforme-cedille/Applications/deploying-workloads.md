@@ -9,7 +9,7 @@ Kustomize et ArgoCD.
 - Code source:
   [/apps/samples/kustomize-example-app](https://github.com/ClubCedille/Plateforme-Cedille/tree/master/apps/samples/kustomize-example-app)
 
-## Survol des étapes a suivre pour déployer une nouvelle ap
+## Survol des étapes a suivre pour déployer une nouvelle app
 
 1. Création d'un dossier pour l'application. Ex.: `/apps/new-app`
 2. Création de l'arborescence de ressources décrite dans ce document

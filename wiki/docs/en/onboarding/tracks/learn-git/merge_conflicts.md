@@ -53,7 +53,7 @@ Switch from the `main` branch to the `olympgit` branch.
 
 ---
 
-### 3. Create Your Personal Branch from `OlympGit
+### 3. Create Your Personal Branch from `OlympGit`
 
 Create your branch under the name of add-your-name. Ex: add-linus-torvalds.
 

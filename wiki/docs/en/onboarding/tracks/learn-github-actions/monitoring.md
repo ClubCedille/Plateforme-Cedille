@@ -17,7 +17,7 @@ monitoring of build status. You can access this interface through the
 **Actions** tab in your GitHub repository. Each triggered workflow generates a
 build with a visible status (success, failure, in progress).
 
-#### Build Status Indicator
+#### Build Status Indicators
 - **Green (Success)**: All jobs in the workflow have completed successfully.
 - **Red (Failure)**: One or more jobs have failed.
 - **Yellow (In Progress)**: The workflow is currently running.
@@ -27,7 +27,7 @@ build with a visible status (success, failure, in progress).
 To diagnose issues, GitHub Actions provides detailed logs for each workflow
 step. These logs include command output and any errors encountered.
 
-#### Viewing Log
+#### Viewing Logs
 1. Go to the **Actions** tab in your repository.
 2. Select a specific workflow.
 3. Click on a job to view its steps.
@@ -56,7 +56,7 @@ GitHub Actions also allows you to rerun a workflow with more detailed logging to
 diagnose issues. You can enable **advanced debugging** to obtain additional
 information.
 
-#### Enabling Debug Log
+#### Enabling Debug Logs
 1. Go to the workflow logs page.
 2. Click **Rerun jobs with debug logging** to rerun the workflow in debug mode.
 3. Detailed logs will help you understand why the job failed.
@@ -103,7 +103,7 @@ jobs:
           path: build/test-results/test/*.xml
 ```
 
-#### Explanatio
+#### Explanation
 - **JUnit Tests**: JUnit tests are executed with the `./gradlew test` command.
 - **Archive test results**: JUnit test results in XML format are saved as
   artifacts, which you can view in the GitHub interface.
@@ -217,7 +217,7 @@ jobs:
           ${{ secrets.SLACK_WEBHOOK_URL }}
 ```
 
-#### Explanatio
+#### Explanation
 - **`if: success()`** and **`if: failure()`**: These conditions send different
   notifications based on whether the build succeeded or failed.
 - **`curl`**: Used to send a POST request to Slack with the appropriate message.

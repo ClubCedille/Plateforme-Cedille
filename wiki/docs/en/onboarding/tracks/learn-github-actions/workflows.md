@@ -49,7 +49,7 @@ jobs:
         run: ./deploy.sh
 ```
 
-### Detail
+### Details
 - **`jobs:`** : The `jobs` section contains all jobs in the workflow. Each job
   is defined with a unique identifier (`build` and `deploy` here).
 - **`runs-on:`** : Specifies the environment for the job (e.g.,
@@ -74,7 +74,7 @@ uses: <action>@<version>
 ```
 Here’s an example using the `actions/checkout` action to retrieve a repository’s source code.
 
-#### Exampl
+#### Example
 
 ```yaml
 steps:
@@ -88,7 +88,7 @@ machine where jobs are executed. You can find hundreds of other actions on the
 - **`actions/setup-node`** : Sets up a Node.js environment.
 - **`actions/upload-artifact`** : Saves files or test results.
 
-### Complete Exampl
+### Complete Example
 
 ```yaml
 jobs:
@@ -191,7 +191,7 @@ jobs:
 If your action requires a specific environment, you can create a Docker action,
 allowing you to run scripts in an isolated container.
 
-#### Docker Action Exampl
+#### Docker Action Example
 1. Create a `Dockerfile`:
 
 ```dockerfile
@@ -224,12 +224,12 @@ Secrets store sensitive information like API keys or credentials that you don’
 want exposed in your code. You can add secrets to your repository via GitHub’s
 interface and reference them in your workflows.
 
-#### Adding a Secre
+#### Adding a Secret
 1. Go to the **Settings** of your repository.
 2. Click **Secrets and variables** > **Actions**.
 3. Add a new secret (e.g., `API_KEY`).
 
-#### Using a Secret in a Workflo
+#### Using a Secret in a Workflow
 
 ```yaml
 jobs:
@@ -248,7 +248,7 @@ jobs:
 
 Environment variables can also be defined and used within jobs or steps.
 
-#### Example: Environment Variable
+#### Example: Environment Variables
 
 ```yaml
 jobs:
@@ -273,7 +273,7 @@ jobs:
 By default, jobs in a GitHub Actions workflow run **in parallel**. This allows
 multiple jobs to execute simultaneously, reducing total workflow time.
 
-#### Parallel Execution Exampl
+#### Parallel Execution Example
 
 ```yaml
 jobs:
@@ -286,14 +286,16 @@ jobs:
   build-backend:
     runs-on: ubuntu-latest
     steps:
-      - name: Build backend run: npm run build-backend ``` In this example, the
+      - name: Build backend run: npm run build-backend
+```
+In this example, the
         `build-frontend` and `build-backend` jobs will run in parallel.
 
 ### Conditional Execution
 
 You can define conditions to control when jobs or steps are run, such as running specific actions only if a test fails or if the branch matches a certain condition.
 
-#### Conditional Execution with `if
+#### Conditional Execution with `if`
 
 ```yaml
 jobs:
@@ -343,7 +345,7 @@ jobs:
         run: echo "Deploying version ${{ needs.build.outputs.version }}"
 ```
 
-#### Explanatio
+#### Explanation
 
 1. **Define an Output**: In the `build` job, the `::set-output` command is used
    to define an output called `version`. This version number is generated using
