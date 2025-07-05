@@ -199,7 +199,6 @@ produit.
 | **U3** Personnel de l'ETS                               | Régie des clubs étudiants et services TI de l'ÉTS                                                                                     | Vérifier la comformité des applications et de l'infrastructure                                 |
 | **U4** Développeurs applicatifs                         | Parfois membres de CEDILLE, parfois d'autres clubs, ils sont responsables de la programmation des logiciels présents sur les serveurs |                                                                                                |
 
-
 ### 3.3 Environnement utilisateur
 
 Les administrateurs de la plateforme **(U1)** peuvent se connecter à la

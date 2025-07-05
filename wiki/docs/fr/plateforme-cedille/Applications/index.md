@@ -42,8 +42,8 @@ mal-adapté pour l'utilisation dans Kubernetes.
 
 ##### References utilisés pour le déploiement
 
-- https://www.talos.dev/v1.5/kubernetes-guides/configuration/storage/#mayastor
-- https://mayastor.gitbook.io/introduction/quickstart/deploy-mayastor
+- [Mayastor Talos config](https://www.talos.dev/v1.5/kubernetes-guides/configuration/storage/#mayastor)
+- [Deploy Mayastor](https://mayastor.gitbook.io/introduction/quickstart/deploy-mayastor)
 
 #### Utilisation
 
@@ -197,10 +197,6 @@ surveillance des systèmes informatiques.
 Grafana a été configuré pour collecter, analyser et visualiser les métriques,
 les logs et les traces des applications de notre infrastructure.
 
-#### Tester
-
-Visiter https://grafana.omni.cedille.club pour voir ce qui a été fait.
-
 ### Clickhouse
 
 Clickhouse est un système de gestion de base de données analytique orienté
@@ -213,10 +209,6 @@ journaux (logs) provenant d'OpenTelemetry, contribuant directement à une
 meilleure observabilité. L'intégration avec Grafana, permet d'exploiter ces
 données à travers des tableaux de bord interactifs pour un suivi précis des
 systèmes.
-
-#### Tester
-
-Rendez-vous sur https://grafana.omni.cedille.club. Laissez l'onglet ouvert.
 
 Créez les PV et le déploiement d'un simple serveur clickhouse (si ce n'est pas
 déjà fait. Pour verifier `kubectl get all -n clickhouse-system`):
@@ -288,7 +280,7 @@ Ensuite aller visiter l'application déployée:
 kubectl port-forward svc/demo-app 5000:5000 -n kuma-demo
 ```
 
-Rendez-vous sur http://localhost:5000/.
+Rendez-vous sur [localhost:5000](http://localhost:5000/).
 
 Finalement, analysez le comportement de Kuma:
 
@@ -296,7 +288,7 @@ Finalement, analysez le comportement de Kuma:
 kubectl port-forward svc/kuma-control-plane -n kuma-system 5681:5681
 ```
 
-Rendez-vous sur http://localhost:5681/gui/.
+Rendez-vous sur [localhost:5681/gui/](http://localhost:5681/gui/).
 
 #### Merbridge
 
@@ -316,7 +308,7 @@ communiquer au sein du service mesh après son intégration.
 Linkerd.
 
 Problème: Complexité d'intégration ou de configuration. Voir
-https://github.com/linkerd/linkerd2/issues/11156
+[linkerd](https://github.com/linkerd/linkerd2/issues/11156)
 
 ## Workloads
 

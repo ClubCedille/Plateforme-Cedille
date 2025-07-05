@@ -74,14 +74,16 @@ organisation :
 7. **Examen et fusion** : Une fois la demande examinée et approuvée, fusionnez
    la branche avec la branche principale en utilisant l'une des options
    suivantes :
-   - **Fusion manuelle via la ligne de commande git** :
+
+- **Fusion manuelle via la ligne de commande git** :
 
 ```sh
 git merge [branch_name] --no-ff
 ```
-   - **Fusion via l'interface utilisateur de GitHub** : Sur la page de la Pull
-     Request, utilisez le bouton approprié qui apparaîtra une fois votre commit
-     approuvé.
+
+- **Fusion via l'interface utilisateur de GitHub** : Sur la page de la Pull
+Request, utilisez le bouton approprié qui apparaîtra une fois votre commit
+approuvé.
 
      ![Pull Request](img/pullRequest.png)
 
