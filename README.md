@@ -73,6 +73,8 @@ worker-3           Ready    <none>          20d    v1.27.3
 
 Kubectl est prêt à être utilisé! Cependant, cette configuration du KUBECONFIG
 est temporaire. Il est donc recommandé d'utiliser [la configuration
-recommandée](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/). Il
-peut aussi être pertinent de configurer [l'accès à plusieurs
-clusters](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/).
+recommandée](https://kubernetes.io/docs/concepts/configuration/organize-cluster
+-access-kubeconfig/).
+Il peut aussi être pertinent de configurer
+[l'accès à plusieurs clusters](https://kubernetes.io/docs/tasks/access-
+application-cluster/configure-access-multiple-clusters/).
