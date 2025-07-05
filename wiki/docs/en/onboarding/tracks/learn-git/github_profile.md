@@ -150,7 +150,7 @@ git push origin main
 
 ```
 
-## Step 7: Check the Results!
+## Step 7: Check the Results
 
 Go to your GitHub profile page: github.com/{YourUserName}
 

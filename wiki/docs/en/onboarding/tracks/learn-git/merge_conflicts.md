@@ -70,11 +70,11 @@ git checkout -b add-<your-name>
 Edit `HALL_OF_GITFAME.md`, and insert your name at the top of the list:
 
 !!! warning "Warning"
-
+```text
     Add your name ON TOP of the Immortals list!
+```
 
 ```diff
-
 ## 🧙 Immortals of Git
 
 +- 🛡️ Your legendary name
@@ -84,8 +84,9 @@ Edit `HALL_OF_GITFAME.md`, and insert your name at the top of the list:
 ```
 
 !!! warning "Warning"
-
-    Always add your name to the top of the list. Otherwise a challenger might come to try to steal your place!
+```text
+Always add your name to the top of the list. Otherwise a challenger might come to try to steal your place!
+```
 
 ---
 
@@ -131,7 +132,7 @@ Now is the time to create a PR (pull request) on GitHub
 
    - Add a message like:
 
-   ```
+   ```text
    🏛️ Feat: Add [Your Name] to the Hall of GitFame
 
    Adding my humble name to the top of the Immortals list.

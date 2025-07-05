@@ -55,4 +55,5 @@ Happy coding!
 
 Your captain probably knows something about those flags...
 ```
+
 </details>
