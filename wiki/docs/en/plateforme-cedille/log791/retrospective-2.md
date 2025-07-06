@@ -89,7 +89,7 @@ Date: November 8, 2023
     complexity and risk.
   - **Solution**: We decided that solving all these issues is too problematic.
     After a quick proof of concept, we decided to switch to
-    [Mayastor](https://openebs.io/docs/concepts/mayastor). This system is built
+    [Mayastor](https://openebs.io/docs/3.0.x/concepts/mayastor). This system is built
     for Kubernetes from the ground up, which should reduce the operational
     issues encountered with Ceph. See #33 for more details.
 

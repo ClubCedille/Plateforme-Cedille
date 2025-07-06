@@ -22,9 +22,9 @@ installs Docker Engine, Docker CLI client, Docker Compose, Docker Machine, and
 Kubernetes tools, providing a comprehensive Docker environment.
 
 - Windows Installation Guide:
-  [Docker Desktop for Windows](https://docs.docker.com/desktop/install/windows/)
+  [Docker Desktop for Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
 - macOS Installation Guide:
-  [Docker Desktop for macOS](https://docs.docker.com/desktop/install/mac-install/)
+  [Docker Desktop for macOS](https://docs.docker.com/desktop/setup/install/mac-install/)
 
 ![docker destop](img/docker-desktop.svg)
 
