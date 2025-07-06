@@ -160,8 +160,7 @@ If your Pull Request cannot be merged automatically:
   +>>>>>> add-your-name
   ```
 
-3. Manually _edit the conflict_ to keep all names & removing any Hydra Heads
-   until none are left to slay:
+3. Manually _edit the conflict_ to keep all names & removing any Hydra Heads until none are left to slay:
 
   ```text
   - 🛡️ Your Legendary Name
@@ -169,7 +168,6 @@ If your Pull Request cannot be merged automatically:
   ```
 
 4. Click Mark as resolved
-
 5. Commit the merge
 
 ---
