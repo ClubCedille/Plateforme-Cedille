@@ -71,7 +71,7 @@ Docker Hub :
   Git devrait déjà être disponible sur macOS. Vous pouvez vérifier en ouvrant
   Terminal et en tapant :
 
-  ```
+  ```bash
   git --version
   ```
 
@@ -81,7 +81,7 @@ Docker Hub :
 
   Ouvrez un terminal et installez Git en utilisant apt-get :
 
-  ```
+  ```bash
   sudo apt-get update
   sudo apt-get install git
   ```
@@ -90,7 +90,7 @@ Docker Hub :
 
   Ouvrez un terminal et installez Git en utilisant dnf :
 
-  ```
+  ```bash
   sudo dnf install git
   ```
 

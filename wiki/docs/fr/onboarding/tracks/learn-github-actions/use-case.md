@@ -19,7 +19,7 @@ application Node.js conteneurisée à l'aide de Docker et GitHub Actions.
 Commencez par créer un fichier `Dockerfile` pour conteneuriser l'application
 Node.js.
 
-#### Exemple de Dockerfile
+#### Exemple de Dockerfile Node.js
 
 ```dockerfile
 # Utiliser une image Node.js de base
@@ -101,7 +101,7 @@ Docker dans le processus.
 Créez un fichier `Dockerfile` pour conteneuriser l'application Python. Cet
 exemple montre un Dockerfile pour une application Flask.
 
-#### Exemple de Dockerfile
+#### Exemple de Dockerfile Python
 
 ```dockerfile
 # Utiliser une image Python de base

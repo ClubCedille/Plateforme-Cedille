@@ -48,9 +48,9 @@ mal-adapté pour l'utilisation dans Kubernetes.
 #### Utilisation
 
 Le `StorageClass` mayastor est selectionné par défault par Kubernetes. Il suffit
-de créer des `PersitentVolumeClaims`
-(https://kubernetes.io/docs/concepts/storage/persistent-volumes) et les volumes
-seront crées dans Mayastore automatiquement.
+de créer des
+[PersitentVolumeClaims](https://kubernetes.io/docs/concepts/storage/persistent-volumes)
+et les volumesseront crées dans Mayastore automatiquement.
 
 ### ArgoCD
 
@@ -63,7 +63,7 @@ Voici un apercu visuel de cette structure:
 
 TODO: Insérer graphique.
 
-#### Configuration
+#### ArgoCD Configuration
 
 **Permissions RBAC** La configuration RBAC (Role-Based Access Control) dans
 ArgoCD permet de définir des politiques de sécurité spécifiques pour différents
@@ -95,13 +95,13 @@ organisation GitHub de se connecter à ArgoCD avec leurs identifiants GitHub.
 Contour est une solution d'Ingress Controller pour Kubernetes. Elle utilise le
 serveur proxy Envoy comme back-end.
 
-#### Configuration
+#### Contour Configuration
 
 Le service proxy de Envoy a été configuré avec un Nodeport pour diriger le
 trafic externe vers contour qui achemine ensuite les requêtes vers les services
 dédiés.
 
-#### Tester
+#### Tester Contour
 
 Commencer par déployer une application web comme
 [httpbin](https://httpbin.org/#/). À partir du repertoire du projet :
@@ -123,8 +123,10 @@ Afin d'utiliser Contour et Envoy, on va utiliser la fonction
 kubectl -n projectcontour port-forward service/envoy 8888:80
 ```
 
-Puis visiter http://local.projectcontour.io:8888/. Pour notre environnement de
-production, on utiliserait l'adresse du service de Envoy.
+Puis visiter
+[local.projectcontour.io:8888](http://local.projectcontour.io:8888/).
+Pour notre environnement de production, on utiliserait l'adresse
+du service de Envoy.
 
 Pour plus d'informations sur Contour, consultez
 [la documentation officielle](https://projectcontour.io/docs/).
@@ -134,13 +136,13 @@ Pour plus d'informations sur Contour, consultez
 KubeVirt étend les fonctionnalités de Kubernetes en ajoutant des workloads de
 machines virtuelles à côté des conteneurs.
 
-#### Configuration
+#### Kubevirt Configuration
 
 KubeVirt est configuré pour permettre l'exécution et la gestion de machines
 virtuelles au sein du cluster Kubernetes. Il est nécessaire d'avoir
 [krew](https://krew.sigs.k8s.io/) installé.
 
-#### Tester
+#### Tester kubevirt
 
 Pour tester une machine virtuelle Ubuntu, exécutez cette commande:
 
@@ -192,7 +194,7 @@ l'ISO que vous venez de télécharger.
 Grafana est une plateforme d'analyse et de visualisation de données pour la
 surveillance des systèmes informatiques.
 
-#### Configuration
+#### Grafana Configuration
 
 Grafana a été configuré pour collecter, analyser et visualiser les métriques,
 les logs et les traces des applications de notre infrastructure.
@@ -202,7 +204,7 @@ les logs et les traces des applications de notre infrastructure.
 Clickhouse est un système de gestion de base de données analytique orienté
 colonnes, optimisé pour les requêtes rapides.
 
-#### Configuration
+#### Clickhouse Configuration
 
 Clickhouse est configuré pour collecter et stocker les métriques ainsi que les
 journaux (logs) provenant d'OpenTelemetry, contribuant directement à une
@@ -219,7 +221,7 @@ kubectl apply -f apps/samples/clickhouse/simple.yml -n clickhouse-system
 ```
 
 Ensuite, faites un port-forward et tester la connection sur
-http://localhost:9000/:
+[localhost:9000](http://localhost:9000/):
 
 ```bash
 kubectl port-forward svc/chi-simple-example-deployment-pv-1-1 9000:9000 -n clickhouse-system # Garder la connection ouverte
@@ -259,13 +261,13 @@ Par la suite, il sera possible de voir les changements en faisant un
 Kuma est une plateforme de gestion de services (Service Mesh) conçue pour le
 microservice et l'orchestration de réseaux.
 
-#### Configuration
+#### Kuma Configuration
 
 Kuma est configuré pour orchestrer, sécuriser et observer les communications
 entre les services du cluster Kubernetes. Il y a uniquement un "meshes" qui a
 été configurer pour le moment (defaut).
 
-#### Tester
+#### Tester Kuma
 
 Commencez par déployer un exemple de service:
 

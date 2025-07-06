@@ -81,13 +81,12 @@ dépendances.
 Voici la section mise à jour avec un exemple illustrant l'utilisation des
 variables dans un workflow réutilisable :
 
-`````markdown
 #### Exemple : Appeler un Workflow Réutilisable
 
 Dans ce cas, nous avons un workflow qui effectue des tests, et un autre qui gère
 les déploiements. Ces workflows sont réutilisés à partir d'un fichier central.
 
-`````yaml
+```yaml
 # .github/workflows/reusable-tests.yml
 name: Reusable Test Workflow
 
@@ -104,7 +103,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests run: npm test ``` ````
+      - name: Run tests run: npm test
+```
 
 ```yaml
 # .github/workflows/deploy.yml
@@ -129,7 +129,7 @@ jobs:
 
       - name: Deploy to production
         run: ./deploy.sh
-`````
+```
 
 #### Exemple : Workflow Réutilisable avec des Variables
 
@@ -210,7 +210,7 @@ jobs:
       context: ./my-app-directory
 ```
 
-#### Explication
+#### Explication du Workflow Réutilisable
 
 - **`workflow_call`** : Permet de réutiliser le workflow en appelant des
   workflows définis ailleurs. Les variables d'entrée permettent de personnaliser
@@ -270,7 +270,7 @@ jobs:
         run: npm test
 ```
 
-#### Explication
+#### Explication Job Matrix
 
 - **`matrix.node-version`** et **`matrix.os`** : Ces deux matrices permettent de
   tester sur différentes versions de Node.js (`12`, `14`, `16`) et sur
@@ -320,7 +320,7 @@ jobs:
         run: ./deploy.sh
 ```
 
-#### Explication
+#### Explication Dépendance entre Jobs
 
 - **`needs`** : L’instruction `needs` permet de définir une dépendance entre
   jobs. Dans cet exemple, le job `test` ne démarre que lorsque le job `build` a
@@ -450,4 +450,3 @@ performances. De plus, en utilisant les outils de débogage intégrés, vous pou
 identifier rapidement les problèmes dans vos workflows et les corriger
 efficacement. Ces bonnes pratiques vous permettent de maintenir des pipelines
 robustes et performants tout en minimisant les erreurs et les interruptions.
-`````

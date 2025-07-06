@@ -150,15 +150,21 @@ jobs: # Les jobs à exécuter
 
 1. **Utilisation d’une action prédéfinie** :
 
-   ````yaml
-   - name: Checkout code uses: actions/checkout@v2 ``` Ici, nous utilisons
-     l'action `actions/checkout@v2` pour récupérer le code source du dépôt.
+```yaml
+   - name: Checkout code uses: actions/checkout@v2
+```
 
-   ````
+Ici, nous utilisons l'action `actions/checkout@v2` pour récupérer
+le code source du dépôt.
 
-2. **Exécution d’une commande personnalisée** : ````yaml
-   - name: Run tests run: npm test ```Cette étape exécute la commande`npm test`
-     pour lancer les tests du projet. ````
+2. **Exécution d’une commande personnalisée** :
+
+```yaml
+   - name: Run tests run: npm test
+```
+
+Cette étape exécute la commande`npm test`
+pour lancer les tests du projet.
 
 ---
 
@@ -173,7 +179,7 @@ Le déclencheur `push` est utilisé pour exécuter un workflow chaque fois qu'un
 `push` est effectué dans le dépôt. Vous pouvez également spécifier des branches
 ou des chemins spécifiques pour lesquels le workflow doit s'exécuter.
 
-#### Exemple
+#### Exemple Push
 
 ```yaml
 on:
@@ -194,10 +200,14 @@ on:
 Le déclencheur `pull_request` permet d'exécuter un workflow lorsqu'une nouvelle
 pull request est créée, ou lorsque celle-ci est mise à jour.
 
-#### Exemple
+#### Exemple Pull Request
 
-````yaml on: pull_request: branches:
-      - main ``` Dans cet exemple, le workflow se déclenchera pour toutes les
+```yaml
+on: pull_request: branches:
+      - main
+```
+
+Dans cet exemple, le workflow se déclenchera pour toutes les
 pull requests ouvertes sur la branche `main`.
 
 ### 4.3. `schedule`
@@ -205,27 +215,36 @@ pull requests ouvertes sur la branche `main`.
 Le déclencheur `schedule` vous permet de définir des workflows qui s'exécutent à
 des moments spécifiques, similaires à une tâche cron.
 
-#### Exemple
+#### Exemple Schedule
+
 ```yaml
 on:
   schedule:
-    - cron: "0 0 * * 1" ``` Cet exemple déclenche le workflow chaque lundi à
+    - cron: "0 0 * * 1"
+```
+
+Cet exemple déclenche le workflow chaque lundi à
 minuit (heure UTC). Le format `cron` est le même que celui utilisé dans les
 tâches cron de Linux.
 
 ### 4.4. Autres déclencheurs
 
-- **`workflow_dispatch`** : Permet d’exécuter manuellement un workflow via l'interface utilisateur de GitHub.
-- **`workflow_call`** : Permet d'invoquer un workflow à partir d'un autre workflow. Cela est utile pour réutiliser des workflows dans plusieurs projets ou dépôts.
+- **`workflow_dispatch`** : Permet d’exécuter manuellement un workflow via
+l'interface utilisateur de GitHub.
+- **`workflow_call`** : Permet d'invoquer un workflow à partir d'un autre
+workflow. Cela est utile pour réutiliser des workflows dans plusieurs projets
+ou dépôts.
 - **`release`** : Déclenche le workflow lorsqu'une nouvelle version est publiée.
-- **`issue_comment`** : Exécute le workflow lorsqu'un commentaire est ajouté à une issue.
+- **`issue_comment`** : Exécute le workflow lorsqu'un commentaire est ajouté
+à une issue.
 - **`push_tag`** : Déclenche le workflow lorsqu'un tag est poussé.
 
 #### Exemple de `workflow_dispatch`
+
 ```yaml
 on:
   workflow_dispatch:
-````
+```
 
 Ce workflow peut être déclenché manuellement depuis l'interface GitHub Actions.
 Par exemple, voici
@@ -281,7 +300,8 @@ standardisés dans différents projets.
 
 Voici un exemple d'utilisation de `workflow_call` :
 
-`````yaml name: Réutilisation d'un workflow
+```yaml
+name: Réutilisation d'un workflow
 
 on: workflow_call: inputs: environment: description: 'Environnement cible (dev,
   staging, prod)' required: true type: string
@@ -292,11 +312,12 @@ jobs: build: runs-on: ubuntu-latest
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Run build run: echo "Building for ${{ inputs.environment }}" ```
-        Dans cet exemple, le workflow peut être invoqué par d'autres workflows
-        pour effectuer une tâche spécifique, comme la construction ou le
-        déploiement pour un environnement particulier.
+      - name: Run build run: echo "Building for ${{ inputs.environment }}"
+```
 
+Dans cet exemple, le workflow peut être invoqué par d'autres workflows
+pour effectuer une tâche spécifique, comme la construction ou le
+déploiement pour un environnement particulier.
 
 ---
 
@@ -312,5 +333,4 @@ différents scénarios de développement et de déploiement.
 
 GitHub Actions est conçu pour être intuitif et peut être étendu en utilisant des
 actions prédéfinies ou personnalisées, ce qui en fait un outil essentiel pour
-tout pipeline CI/CD moderne.  ````
-`````
+tout pipeline CI/CD moderne.

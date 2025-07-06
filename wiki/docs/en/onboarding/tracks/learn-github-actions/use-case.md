@@ -17,7 +17,7 @@ Node.js application using Docker and GitHub Actions.
 
 Start by creating a `Dockerfile` to containerize the Node.js application.
 
-#### Sample Dockerfile
+#### Sample Node.js Dockerfile
 
 ```dockerfile
 # Use a Node.js base image
@@ -97,7 +97,7 @@ application hosted on **AWS Elastic Beanstalk** with Docker integration.
 Create a `Dockerfile` to containerize the Python application. This example
 demonstrates a Dockerfile for a Flask app.
 
-#### Sample Dockerfile
+#### Sample Python Dockerfile
 
 ```dockerfile
 # Use a Python base image

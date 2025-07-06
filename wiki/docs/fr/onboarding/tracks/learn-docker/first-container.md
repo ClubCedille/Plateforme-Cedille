@@ -1,4 +1,4 @@
-### Installation de Docker
+# Installation de Docker
 
 Avant de commencer, assurez-vous d'avoir installé Git et Docker sur votre
 système. Vous pouvez télécharger Docker depuis le
@@ -12,7 +12,7 @@ Ouvrez votre terminal ou votre invite de commande après avoir installé Git et
 clonez le dépôt 'welcome-to-docker' depuis GitHub en utilisant la commande
 suivante :
 
-```
+```bash
 git clone https://github.com/docker/welcome-to-docker
 ```
 
@@ -20,7 +20,7 @@ git clone https://github.com/docker/welcome-to-docker
 
 Changez votre répertoire courant vers le dépôt cloné :
 
-```
+```bash
 cd welcome-to-docker
 ```
 
@@ -30,7 +30,7 @@ Utilisez la commande `docker run` pour démarrer le conteneur. Dans ce cas, nous
 allons exécuter le conteneur 'welcome-to-docker' et mapper le port 8088 de votre
 hôte au port 80 à l'intérieur du conteneur :
 
-```
+```bash
 docker run -d -p 8088:80 docker/getting-started
 ```
 
@@ -55,7 +55,7 @@ Vous pouvez rechercher des conteneurs sur Docker Hub en utilisant la commande
 `docker search`. Par exemple, pour rechercher des conteneurs liés à **nginx**,
 utilisez :
 
-```
+```bash
 docker search nginx
 ```
 
@@ -65,7 +65,7 @@ Utilisez la commande `docker pull` pour télécharger une image de conteneur
 depuis Docker Hub. Par exemple, pour télécharger l'image de conteneur officielle
 de **nginx**, utilisez :
 
-```
+```bash
 docker pull nginx
 ```
 
@@ -76,7 +76,7 @@ partir de celle-ci en utilisant `docker run`. Par exemple, pour exécuter un
 conteneur **nginx** et mapper le port 8080 de votre hôte au port 80 à
 l'intérieur du conteneur, utilisez :
 
-```
+```bash
 docker run -d -p 8080:80 nginx
 ```
 
@@ -91,7 +91,7 @@ docker run -d -p 8080:80 nginx
 Ouvrez une nouvelle fenêtre de terminal et listez tous les conteneurs Docker en
 cours d'exécution :
 
-```
+```bash
 docker ps
 ```
 
@@ -104,7 +104,7 @@ docker ps
 Arrêtez le conteneur en utilisant la commande `docker stop` suivie de l'ID ou du
 Nom du Conteneur :
 
-```
+```bash
 docker stop <id_ou_nom_du_conteneur>
 ```
 
@@ -116,7 +116,7 @@ docker stop <id_ou_nom_du_conteneur>
 Pour vérifier que le conteneur a bien été arrêté, vous pouvez lister tous les
 conteneurs (y compris ceux arrêtés) avec :
 
-```
+```bash
 docker ps -a
 ```
 

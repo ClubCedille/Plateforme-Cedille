@@ -106,7 +106,7 @@ jobs:
           path: build/test-results/test/*.xml
 ```
 
-#### Explanation
+#### Explanation 1
 
 - **JUnit Tests**: JUnit tests are executed with the `./gradlew test` command.
 - **Archive test results**: JUnit test results in XML format are saved as
@@ -221,7 +221,7 @@ jobs:
           ${{ secrets.SLACK_WEBHOOK_URL }}
 ```
 
-#### Explanation
+#### Explanation 2
 
 - **`if: success()`** and **`if: failure()`**: These conditions send different
   notifications based on whether the build succeeded or failed.

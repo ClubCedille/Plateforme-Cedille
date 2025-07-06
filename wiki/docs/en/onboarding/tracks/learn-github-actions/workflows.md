@@ -132,7 +132,6 @@ action.
 Here’s the process followed to create the
 **cedille-actions-by-example/WorkflowWikiExample** action:
 
-````markdown
 ### Types of Custom Actions
 
 1. **JavaScript Actions**: Actions written in JavaScript that run directly in
@@ -157,7 +156,6 @@ try {
   core.setFailed(error.message);
 }
 ```
-````
 
 3. **Create an `action.yml` file** to describe the action:
 

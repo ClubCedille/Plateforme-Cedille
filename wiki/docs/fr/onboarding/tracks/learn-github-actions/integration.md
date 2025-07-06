@@ -88,7 +88,7 @@ jobs:
         run: docker push ${{ secrets.DOCKER_USERNAME }}/my-app:latest
 ```
 
-### Explication du Workflow
+### Explication du Workflow : Construction et Push d'une Image Docker
 
 - **`docker/login-action@v2`** : Cette action permet de se connecter à Docker
   Hub en utilisant un nom d'utilisateur et un mot de passe sécurisés stockés
@@ -105,33 +105,33 @@ images conteneurisées à côté de votre code source.
 
 #### Exemple de Workflow pour Pousser vers GitHub Container Registry (GHCR)
 
-```yaml
-name: Build and Push Docker Image to GHCR
+  ```yaml
+  name: Build and Push Docker Image to GHCR
 
-on:
-  push:
-    branches:
-      - main
+  on:
+    push:
+      branches:
+        - main
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+  jobs:
+    build:
+      runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
 
-      - name: Log in to GitHub Container Registry
-        run:
-          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{
-          github.actor }} --password-stdin
+        - name: Log in to GitHub Container Registry
+          run:
+            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{
+            github.actor }} --password-stdin
 
-      - name: Build Docker image
-        run: docker build -t ghcr.io/${{ github.repository }}/my-app:latest .
+        - name: Build Docker image
+          run: docker build -t ghcr.io/${{ github.repository }}/my-app:latest .
 
-      - name: Push Docker image
-        run: docker push ghcr.io/${{ github.repository }}/my-app:latest
-```
+        - name: Push Docker image
+          run: docker push ghcr.io/${{ github.repository }}/my-app:latest
+  ```
 
 Dans cet exemple, l'image est poussée vers le GitHub Container Registry au lieu
 de Docker Hub.
@@ -161,42 +161,42 @@ Kubernetes.
 Le workflow suivant utilise `kubectl` pour déployer l'image Docker sur un
 cluster Kubernetes après avoir été poussée vers Docker Hub.
 
-```yaml
-name: Deploy to Kubernetes
+  ```yaml
+  name: Deploy to Kubernetes
 
-on:
-  push:
-    branches:
-      - main
+  on:
+    push:
+      branches:
+        - main
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
+  jobs:
+    deploy:
+      runs-on: ubuntu-latest
 
-    steps:
-      # Étape 1 : Récupérer le code source du dépôt
-      - name: Checkout code
-        uses: actions/checkout@v2
+      steps:
+        # Étape 1 : Récupérer le code source du dépôt
+        - name: Checkout code
+          uses: actions/checkout@v2
 
-      # Étape 2 : Installer kubectl
-      - name: Set up kubectl
-        uses: azure/setup-kubectl@v3
-        with:
-          version: 'latest'
+        # Étape 2 : Installer kubectl
+        - name: Set up kubectl
+          uses: azure/setup-kubectl@v3
+          with:
+            version: 'latest'
 
-      # Étape 3 : Configurer l'accès au cluster Kubernetes
-      - name: Set up kubeconfig
-        run: |
-          mkdir -p ~/.kube
-          echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
+        # Étape 3 : Configurer l'accès au cluster Kubernetes
+        - name: Set up kubeconfig
+          run: |
+            mkdir -p ~/.kube
+            echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
 
-      # Étape 4 : Mettre à jour le déploiement Kubernetes
-      - name: Deploy to Kubernetes
-        run: |
-          kubectl set image deployment/my-app my-app-container=${{ secrets.DOCKER_USERNAME }}/my-app:latest
-```
+        # Étape 4 : Mettre à jour le déploiement Kubernetes
+        - name: Deploy to Kubernetes
+          run: |
+            kubectl set image deployment/my-app my-app-container=${{ secrets.DOCKER_USERNAME }}/my-app:latest
+  ```
 
-### Explication du Workflow
+### Explication du Workflow : Déploiement Automatisé sur Kubernetes
 
 - **`azure/setup-kubectl@v3`** : Cette action installe `kubectl` dans
   l'environnement de workflow.
@@ -282,7 +282,7 @@ jobs:
         run: helm upgrade --install my-app ./helm-chart --set image.tag=latest
 ```
 
-### Explication du Workflow
+### Explication du Workflow CI/CD pour Docker et Kubernetes
 
 1. **kubectl** : L'étape 6 met à jour l'image conteneurisée du déploiement
    Kubernetes en utilisant `kubectl`.
