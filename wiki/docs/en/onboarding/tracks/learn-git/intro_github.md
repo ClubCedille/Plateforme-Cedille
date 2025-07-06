@@ -15,7 +15,7 @@ Other popular Git platforms include:
 - [Atlassian Bitbucket](https://bitbucket.org/product/): Deep integration with
   Atlassian Jira, a popular tool for team management & agile teams.
 
-- [Azure DevOps](https://azure.microsoft.com/en-ca/products/devops): Microsoft's
+- Azure DevOps `https://azure.microsoft.com/en-ca/products/devops`: Microsoft's
   Git integration for their Azure environnement. Popular at the enterprise
   level.
 

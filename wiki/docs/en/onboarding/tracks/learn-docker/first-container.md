@@ -38,12 +38,12 @@ docker run -d -p 8088:80 docker/getting-started
 - `-d`: Runs the container in detached mode, meaning it runs in the background.
 - `-p 8088:80`: Maps port 8088 on your local machine to port 80 inside the
   container. This allows you to access the container's web service from your
-  browser at [`http://localhost:8088`](http://localhost:8088).
+  browser at `http://localhost:8088`.
 
 **4. Access the Container:**
 
 Open your web browser and navigate to
-[`http://localhost:8088`](http://localhost:8088). You should see the
+`http://localhost:8088`. You should see the
 'welcome-to-docker' web page, indicating that the container is running
 successfully.
 

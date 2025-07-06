@@ -180,7 +180,7 @@ containerized applications.
   high availability and integration with Google Cloud services.
 
 - **Azure Container Registry (ACR)**: A managed container registry service by
-  [Microsoft Azure](https://azure.microsoft.com/en-us/services/container-registry/)
+  `https://azure.microsoft.com/en-us/services/container-registry/`
   that supports Docker and Open Container Initiative (OCI) images.
 
 - **GitHub Container Registry**: A service provided by

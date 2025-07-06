@@ -39,12 +39,12 @@ docker run -d -p 8088:80 docker/getting-started
 - `-p 8088:80` : Mappe le port 8088 de votre machine locale au port 80 à
   l'intérieur du conteneur. Cela vous permet d'accéder au service web du
   conteneur depuis votre navigateur à l'adresse
-  [`http://localhost:8088`](http://localhost:8088).
+  `http://localhost:8088`.
 
 **4. Accéder au Conteneur :**
 
 Ouvrez votre navigateur web et accédez à
-[`http://localhost:8088`](http://localhost:8088). Vous devriez voir la page web
+`http://localhost:8088`. Vous devriez voir la page web
 'welcome-to-docker', ce qui indique que le conteneur fonctionne correctement.
 
 ## Rechercher, Télécharger et Exécuter des Conteneurs depuis Docker Hub
