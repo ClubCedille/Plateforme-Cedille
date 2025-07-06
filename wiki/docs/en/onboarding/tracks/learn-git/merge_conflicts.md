@@ -124,24 +124,24 @@ Now is the time to create a PR (pull request) on GitHub
 
 ??? hint "Hint"
 
-  - Head over to GitHub:
+- Head over to GitHub:
 
-  - You'll see a message: ➕ “Compare & Pull Request” → Click it.
+- You'll see a message: ➕ “Compare & Pull Request” → Click it.
 
-  - Set the base branch to olympgit
+- Set the base branch to olympgit
 
-  - The compare branch should be your add-your-name branch
+- The compare branch should be your add-your-name branch
 
-  - Add a message like:
+- Add a message like:
 
-   ```text
-   🏛️ Feat: Add [Your Name] to the Hall of GitFame
+```text
+🏛️ Feat: Add [Your Name] to the Hall of GitFame
 
-   Adding my humble name to the top of the Immortals list.
-   Ready to resolve conflicts and claim my place.
-   ```
+Adding my humble name to the top of the Immortals list.
+Ready to resolve conflicts and claim my place.
+```
 
-   - Submit the Pull Request
+- Submit the Pull Request
 
 ---
 
