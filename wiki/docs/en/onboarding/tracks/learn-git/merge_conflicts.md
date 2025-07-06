@@ -152,7 +152,7 @@ If your Pull Request cannot be merged automatically:
 1. Click **Resolve conflicts** on GitHub.
 2. You’ll see something like:
 
-  ```diff
+  ```text
   +<<<<<< HEAD
   - 🛡️ Hercules
   =======
@@ -163,7 +163,7 @@ If your Pull Request cannot be merged automatically:
 3. Manually _edit the conflict_ to keep all names & removing any Hydra Heads
    until none are left to slay:
 
-  ```diff
+  ```text
   - 🛡️ Your Legendary Name
   - 🛡️ Hercules
   ```
@@ -171,7 +171,6 @@ If your Pull Request cannot be merged automatically:
 4. Click Mark as resolved
 
 5. Commit the merge
-```
 
 ---
 
