@@ -124,15 +124,15 @@ Now is the time to create a PR (pull request) on GitHub
 
 ??? hint "Hint"
 
-   - Head over to GitHub:
+  - Head over to GitHub:
 
-   - You'll see a message: ➕ “Compare & Pull Request” → Click it.
+  - You'll see a message: ➕ “Compare & Pull Request” → Click it.
 
-   - Set the base branch to olympgit
+  - Set the base branch to olympgit
 
-   - The compare branch should be your add-your-name branch
+  - The compare branch should be your add-your-name branch
 
-   - Add a message like:
+  - Add a message like:
 
    ```text
    🏛️ Feat: Add [Your Name] to the Hall of GitFame
@@ -152,13 +152,13 @@ If your Pull Request cannot be merged automatically:
 1. Click **Resolve conflicts** on GitHub.
 2. You’ll see something like:
 
-```diff
-+<<<<<< HEAD
-- 🛡️ Hercules
-=======
-- 🛡️ Your Legendary Name
-+>>>>>> add-your-name
-```
+  ```diff
+  +<<<<<< HEAD
+  - 🛡️ Hercules
+  =======
+  - 🛡️ Your Legendary Name
+  +>>>>>> add-your-name
+  ```
 
 3. Manually _edit the conflict_ to keep all names & removing any Hydra Heads
    until none are left to slay:
