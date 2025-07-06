@@ -142,8 +142,8 @@ direct traffic to Envoy:
 kubectl -n projectcontour port-forward service/envoy 8888:80
 ```
 
-Then visit [local.projectcontour.io:8888/](http://local.projectcontour.io:8888/). For our production environment,
-we would use the address of the Envoy service.
+Then visit [local.projectcontour.io:8888/](http://local.projectcontour.io:8888/).
+For our production environment, we would use the address of the Envoy service.
 
 For more information on Contour, see
 [the official documentation](https://projectcontour.io/docs/).

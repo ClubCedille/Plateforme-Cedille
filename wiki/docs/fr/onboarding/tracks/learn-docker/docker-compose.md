@@ -132,7 +132,7 @@ volumes et images créés par `docker compose up`.
 
 ## Fonctionnalités Additionnelles de Docker Compose
 
-#### Mises à Jour en Temps Réel avec `docker compose watch`
+### Mises à Jour en Temps Réel avec `docker compose watch`
 
 Lors du développement avec Docker, vous pourriez avoir besoin de mettre à jour
 automatiquement et de prévisualiser vos services en cours d'exécution lorsque

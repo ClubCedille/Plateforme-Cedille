@@ -123,8 +123,10 @@ Afin d'utiliser Contour et Envoy, on va utiliser la fonction
 kubectl -n projectcontour port-forward service/envoy 8888:80
 ```
 
-Puis visiter [local.projectcontour.io:8888](http://local.projectcontour.io:8888/). Pour notre environnement de
-production, on utiliserait l'adresse du service de Envoy.
+Puis visiter
+[local.projectcontour.io:8888](http://local.projectcontour.io:8888/).
+Pour notre environnement de production, on utiliserait l'adresse
+du service de Envoy.
 
 Pour plus d'informations sur Contour, consultez
 [la documentation officielle](https://projectcontour.io/docs/).

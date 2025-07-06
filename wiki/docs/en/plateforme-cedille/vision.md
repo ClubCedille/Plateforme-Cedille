@@ -250,7 +250,7 @@ platform to be implemented.
 | **B04** | Important    | Clubs (U2) should be able to make minor changes to websites themselves.                                                                                                                                                                            |
 | **B05** | Critical     | Automation processes should allow changes to club applications (U2) in less than 3 days, including the review and approval process.                                                                                                                |
 | **B06** | Critical     | Observability processes should notify administrators (U1) of any issues with a club's application (U2).                                                                                                                                            |
-| **B07** | Important    |
+| **B07** | Important    ||
 
 | Observability processes should notify student club captains (U2) in case of
 incidents. | | **B08** | Optional | Clubs (U2) should have access to
