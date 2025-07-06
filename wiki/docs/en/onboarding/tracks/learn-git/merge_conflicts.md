@@ -149,6 +149,7 @@ Ready to resolve conflicts and claim my place.
 
 If your Pull Request cannot be merged automatically:
 
+```markdown
 1. Click **Resolve conflicts** on GitHub.
 2. You’ll see something like:
 
@@ -171,6 +172,7 @@ If your Pull Request cannot be merged automatically:
 4. Click Mark as resolved
 
 5. Commit the merge
+```
 
 ---
 
