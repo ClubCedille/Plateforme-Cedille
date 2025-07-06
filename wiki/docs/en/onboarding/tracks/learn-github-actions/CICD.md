@@ -124,7 +124,7 @@ jobs:
 
       - name: Deploy to production
         run: ./deploy.sh
-`````
+```
 
 #### Example: Reusable Workflow with Variables
 
@@ -440,4 +440,3 @@ performance. Additionally, with built-in debugging tools, you can quickly
 identify and fix issues in your workflows. These best practices enable you to
 maintain robust and high-performance pipelines while minimizing errors and
 interruptions.
-`````

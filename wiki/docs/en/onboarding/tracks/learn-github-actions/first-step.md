@@ -148,10 +148,10 @@ jobs: # Jobs to execute
 
 1. **Using a Predefined Action**:
 
-`````yaml
+```yaml
    - name: Checkout code uses: actions/checkout@v2 ``` Here, we use the
      `actions/checkout@v2` action to retrieve the repository’s source code.
-     ````
+```
 
 2. **Running a Custom Command**:
 
@@ -296,7 +296,7 @@ workflows across different projects.
 
 Here is an example of using `workflow_call`:
 
-````yaml name: Reuse a workflow
+```yaml name: Reuse a workflow
 
 on: workflow_call: inputs: environment: description: 'Target environment (dev,
   staging, prod)' required: true type: string
@@ -326,5 +326,4 @@ jobs and steps, and the flexibility of triggers makes GitHub Actions adaptable
 to different development and deployment scenarios.
 
 GitHub Actions is designed to be intuitive and extendable using pre-built or
-custom actions, making it an essential tool for any modern CI/CD pipeline.  ````
-`````
+custom actions, making it an essential tool for any modern CI/CD pipeline.

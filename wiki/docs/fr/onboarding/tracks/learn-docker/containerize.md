@@ -12,7 +12,7 @@ fichiers.
 Ouvrez le dossier de votre projet dans le terminal et exécutez la commande
 suivante :
 
-```
+```bash
 docker init
 ```
 
@@ -100,7 +100,7 @@ peuvent inclure :
 Une fois que vous avez répondu à toutes les questions et que Docker a généré les
 fichiers, vous pouvez exécuter votre application avec la commande suivante :
 
-```
+```bash
 docker-compose up -d
 ```
 

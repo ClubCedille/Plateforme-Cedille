@@ -81,13 +81,12 @@ dépendances.
 Voici la section mise à jour avec un exemple illustrant l'utilisation des
 variables dans un workflow réutilisable :
 
-`````markdown
 #### Exemple : Appeler un Workflow Réutilisable
 
 Dans ce cas, nous avons un workflow qui effectue des tests, et un autre qui gère
 les déploiements. Ces workflows sont réutilisés à partir d'un fichier central.
 
-`````yaml
+```yaml
 # .github/workflows/reusable-tests.yml
 name: Reusable Test Workflow
 
@@ -104,7 +103,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests run: npm test ``` ````
+      - name: Run tests run: npm test
+```
 
 ```yaml
 # .github/workflows/deploy.yml
@@ -450,4 +450,3 @@ performances. De plus, en utilisant les outils de débogage intégrés, vous pou
 identifier rapidement les problèmes dans vos workflows et les corriger
 efficacement. Ces bonnes pratiques vous permettent de maintenir des pipelines
 robustes et performants tout en minimisant les erreurs et les interruptions.
-`````

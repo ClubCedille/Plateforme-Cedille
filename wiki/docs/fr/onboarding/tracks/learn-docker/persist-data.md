@@ -19,7 +19,7 @@ pour démontrer comment ajouter un volume à un projet Docker Compose.
 
 **1. Cloner le Dépôt :**
 
-```
+```bash
 git clone https://github.com/docker/multi-container-app
 cd multi-container-app
 ```
@@ -55,7 +55,7 @@ volumes:
 Ouvrez un terminal dans votre répertoire de projet et exécutez la commande
 suivante :
 
-```
+```bash
 docker-compose up -d
 ```
 
@@ -73,13 +73,13 @@ montant le volume `database`.
 Pour arrêter et supprimer les conteneurs, les réseaux et les volumes créés par
 `docker-compose up`, utilisez :
 
-```
+```bash
 docker-compose down
 ```
 
 Pour supprimer également le volume, utilisez :
 
-```
+```bash
 docker-compose down -v
 ```
 

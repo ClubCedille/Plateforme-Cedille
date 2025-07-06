@@ -18,7 +18,7 @@ pour démontrer comment ajouter un bind mount à un projet Docker Compose.
 
 **1. Cloner le Dépôt :**
 
-```
+```bash
 git clone https://github.com/docker/bindmount-apps
 cd bindmount-apps
 ```
@@ -52,7 +52,7 @@ services:
 Ouvrez un terminal dans votre répertoire de projet et exécutez la commande
 suivante :
 
-```
+```bash
 docker-compose up -d
 ```
 

@@ -156,7 +156,7 @@ resources:
 
 **Fichiers et Ressources** :
 
-```
+```text
   [argo.yaml] : ArgoCD Application
   [kustomization.yaml] : Pointeur vers argo.yaml
   ── base

@@ -139,7 +139,6 @@ illustrer la création et le fonctionnement d'une action.
 Voici la procédure qui a été suivie pour la création de l'action
 **cedille-actions-by-example/WorkflowWikiExample** :
 
-````markdown
 ### Types d'Actions Personnalisées
 
 1. **Actions JavaScript** : Actions écrites en JavaScript qui s'exécutent
@@ -166,7 +165,6 @@ try {
   core.setFailed(error.message);
 }
 ```
-````
 
 3. **Créer un fichier `action.yml`** pour décrire l’action :
 
@@ -299,12 +297,15 @@ simultanément, ce qui permet d’accélérer le temps d'exécution global.
 
 #### Exemple d'Exécution Parallèle
 
-````yaml jobs: build-frontend: runs-on: ubuntu-latest steps:
+```yaml
+jobs: build-frontend: runs-on: ubuntu-latest steps:
       - name: Build frontend run: npm run build-frontend
 
   build-backend: runs-on: ubuntu-latest steps:
-      - name: Build backend run: npm run build-backend ``` Dans cet exemple, les
-        jobs `build-frontend` et `build-backend` s'exécuteront en parallèle.
+      - name: Build backend run: npm run build-backend
+``` 
+
+Dans cet exemple, les jobs `build-frontend` et `build-backend` s'exécuteront en parallèle.
 
 ### Exécution Conditionnelle
 
@@ -324,15 +325,14 @@ jobs:
     steps:
       - name: Deploy to production
         run: ./deploy.sh
-````
+```
 
 Voici comment vous pouvez ajouter une section sur le passage d'informations d'un
 workflow à un autre, en plus de la section d'exécution conditionnelle :
 
-`````markdown
 #### Exécution Conditionnelle en Fonction de l'Échec ou du Succès
 
-`````yaml
+```yaml
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -345,7 +345,8 @@ jobs:
     needs: test
     if: failure() # Ce job s'exécute uniquement si le job 'test' échoue
     steps:
-      - name: Send notification run: echo "Tests failed!"  ``` ````
+      - name: Send notification run: echo "Tests failed!"
+```
 
 ### Passage d'Informations d'un Job à un Autre
 
@@ -380,7 +381,7 @@ jobs:
 
       - name: Deploy application
         run: echo "Deploying version ${{ needs.build.outputs.version }}"
-`````
+```
 
 #### Explication
 
@@ -415,4 +416,3 @@ pour votre projet.
 Avec ces outils, vous êtes maintenant prêt à créer des workflows adaptés à vos
 besoins, améliorer la collaboration entre les équipes, et automatiser vos
 déploiements et tests de manière fiable.
-`````
