@@ -142,7 +142,7 @@ direct traffic to Envoy:
 kubectl -n projectcontour port-forward service/envoy 8888:80
 ```
 
-Then visit [local.projectcontour.io:8888/](http://local.projectcontour.io:8888/).
+Then visit `http://local.projectcontour.io:8888/`.
 For our production environment, we would use the address of the Envoy service.
 
 For more information on Contour, see
@@ -210,15 +210,6 @@ downloaded.
 Grafana is a data analytics and visualization platform for monitoring IT
 systems.
 
-#### Grafana Configuration
-
-Grafana is configured to collect, analyze, and visualize metrics, logs, and
-traces from our infrastructure applications.
-
-#### Testing Grafana
-
-Visit <https://grafana.omni.cedille.club> to see what has been done.
-
 ### Clickhouse
 
 Clickhouse is a column-oriented database management system optimized for fast
@@ -243,7 +234,7 @@ kubectl apply -f apps/samples/clickhouse/pv.yml -n clickhouse-system &&
 kubectl apply -f apps/samples/clickhouse/simple.yml -n clickhouse-system
 ```
 
-Then port-forward and test the connection at [localhost:9000/](http://localhost:9000/):
+Then port-forward and test the connection at `http://localhost:9000/`:
 
 ```bash
 kubectl port-forward svc/chi-simple-example-deployment-pv-1-1 9000:9000 -n clickhouse-system # Garder la connection ouverte
@@ -304,7 +295,7 @@ Then visit the deployed application:
 kubectl port-forward svc/demo-app 5000:5000 -n kuma-demo
 ```
 
-Go to [localhost:5000](http://localhost:5000/).
+Go to `http://localhost:5000/`.
 
 Finally, analyze Kuma's behavior:
 
@@ -312,7 +303,7 @@ Finally, analyze Kuma's behavior:
 kubectl port-forward svc/kuma-control-plane -n kuma-system 5681:5681
 ```
 
-Go to [localhost:5681/gui/](http://localhost:5681/gui/).
+Go to `http://localhost:5681/gui/`.
 
 #### Merbridge
 

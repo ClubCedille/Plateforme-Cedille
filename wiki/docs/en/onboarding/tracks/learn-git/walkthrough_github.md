@@ -170,7 +170,7 @@ which version you want to keep.
 
 - Github Actions: Actions are automatic workflows, which are often used to
   automatically test for bugs, deploy your code etc. For more, see
-  [this guide](/onboarding/tracks/learn-github-actions/)
+  [this guide](../learn-github-actions/)
 
 With your new, fresh, amazing, (expert), skills in git, we can now proceed to
 the first git lab (and not GitLab) : Creat your own

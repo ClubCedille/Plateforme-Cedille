@@ -456,4 +456,4 @@ needs.
 - Backup and Recovery Procedures: Protocols to follow in case of system failure
   or other emergencies.
 
-[//]: # École de Technologie Supérieure, Universités du Québec. [https://www.etsmtl.ca/](https://www.etsmtl.ca/)
+[//]: # École de Technologie Supérieure, Universités du Québec. [https://www.etsmtl.ca/](https://www.etsmtl.ca/accueil)
