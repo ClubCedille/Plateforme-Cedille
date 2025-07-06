@@ -28,11 +28,15 @@ key.
 
 !!! note "Note"
 
-    Keep in mind, if you put a password for your private SSH key, it will ask you to put it every time you interact with the remote repository - that means for fetch, push, pull and other actions (which we will see right now). Do not fall in the same trap as the editor of this tutorial. :(
+```text
+Keep in mind, if you put a password for your private SSH key, it will ask you to put it every time you interact with the remote repository - that means for fetch, push, pull and other actions (which we will see right now). Do not fall in the same trap as the editor of this tutorial. :(
+```
 
 !!! warning "WARNING"
 
-    _Please complete the SSH setup before proceeding any further. We want you to learn to clone and interact with the repository through SSH, and not HTTPS_!!
+```text
+_Please complete the SSH setup before proceeding any further. We want you to learn to clone and interact with the repository through SSH, and not HTTPS_!!
+```
 
 ### 4. Clone a repository
 
@@ -84,7 +88,7 @@ git push origin main
 
 > `main` is the branch you’re pushing to.
 
-You can now head over to https://github.com/YourUsername/YourUsername.git to see
+You can now head over to _github.com/YourUsername/YourUsername.git_ to see
 your new files added to the remote repo.
 
 ### 8. Pull new changes
@@ -169,6 +173,8 @@ the first git lab (and not GitLab) : Creat your own
 
 ??? danger "But WAIT! What is that?..."
 
-    !FLAG-why-are-you-git
+```text
+!FLAG-why-are-you-git
 
-    Hmm...Maybe if I keep going, I'll get more clues...
+Hmm...Maybe if I keep going, I'll get more clues...
+```

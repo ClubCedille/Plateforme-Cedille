@@ -47,9 +47,8 @@ unstable for the small cluster size and poorly suited for use in Kubernetes.
 #### Usage
 
 The `StorageClass` mayastor is selected by default by Kubernetes. Simply create
-`PersistentVolumeClaims`
-(https://kubernetes.io/docs/concepts/storage/persistent-volumes) and the volumes
-will be created in Mayastor automatically.
+[PersistentVolumeClaims](https://kubernetes.io/docs/concepts/storage/persistent-volumes)
+and the volumes will be created in Mayastor automatically.
 
 ### ArgoCD
 
@@ -84,7 +83,7 @@ metadata:
 For now, we use the digest strategy to update the image tags. An example can be
 found in the `/apps\integrale\website\argo.yaml` application deployment file.
 
-#### Configuration
+#### Role Configuration
 
 **RBAC Permissions** The RBAC (Role-Based Access Control) configuration in
 ArgoCD allows defining specific security policies for different users and
@@ -116,12 +115,12 @@ log in to ArgoCD with their GitHub credentials.
 Contour is an Ingress Controller solution for Kubernetes. It uses the Envoy
 proxy server as a backend.
 
-#### Configuration
+#### Envoy Configuration
 
 The Envoy proxy service has been configured with a NodePort to direct external
 traffic to Contour, which then routes the requests to the dedicated services.
 
-#### Testing
+#### Envoy Testing with httpbin
 
 Start by deploying a web application like [httpbin](https://httpbin.org/#/).
 From the project directory:
@@ -154,13 +153,13 @@ For more information on Contour, see
 KubeVirt extends Kubernetes functionality by adding virtual machine workloads
 alongside containers.
 
-#### Configuration
+#### KubeVirt Configuration
 
 KubeVirt is configured to allow the execution and management of virtual machines
 within the Kubernetes cluster. It is necessary to have
 [krew](https://krew.sigs.k8s.io/) installed.
 
-#### Testing
+#### Testing KubeVirt
 
 To test an Ubuntu virtual machine, execute this command:
 
@@ -211,12 +210,12 @@ downloaded.
 Grafana is a data analytics and visualization platform for monitoring IT
 systems.
 
-#### Configuration
+#### Grafana Configuration
 
 Grafana is configured to collect, analyze, and visualize metrics, logs, and
 traces from our infrastructure applications.
 
-#### Testing
+#### Testing Grafana
 
 Visit <https://grafana.omni.cedille.club> to see what has been done.
 
@@ -225,14 +224,14 @@ Visit <https://grafana.omni.cedille.club> to see what has been done.
 Clickhouse is a column-oriented database management system optimized for fast
 queries.
 
-#### Configuration
+#### Clickhouse Configuration
 
 Clickhouse is configured to collect and store metrics and logs from
 OpenTelemetry, contributing directly to better observability. The integration
 with Grafana allows exploiting this data through interactive dashboards for
 precise system monitoring.
 
-#### Testing
+#### Testing Clickhouse
 
 Go to <https://grafana.omni.cedille.club>. Keep the tab open.
 
@@ -284,13 +283,13 @@ Afterwards, you will be able to see the changes by doing a
 Kuma is a Service Mesh management platform designed for microservices and
 network orchestration.
 
-#### Configuration
+#### Kuma Configuration
 
 Kuma is configured to orchestrate, secure, and observe communications between
 services in the Kubernetes cluster. Currently, only one "mesh" has been
 configured (default).
 
-#### Testing
+#### Testing Kuma
 
 Start by deploying a demo service:
 
@@ -305,7 +304,7 @@ Then visit the deployed application:
 kubectl port-forward svc/demo-app 5000:5000 -n kuma-demo
 ```
 
-Go to <http://localhost:5000/>.
+Go to [localhost:5000](http://localhost:5000/).
 
 Finally, analyze Kuma's behavior:
 
@@ -313,7 +312,7 @@ Finally, analyze Kuma's behavior:
 kubectl port-forward svc/kuma-control-plane -n kuma-system 5681:5681
 ```
 
-Go to <http://localhost:5681/gui/>.
+Go to [localhost:5681/gui/](http://localhost:5681/gui/).
 
 #### Merbridge
 
@@ -332,7 +331,7 @@ the service mesh after its integration.
 Linkerd.
 
 Problem: Complexity of integration or configuration. See
-<https://github.com/linkerd/linkerd2/issues/11156>
+[github.com/linkerd/linkerd2/issues/11156](https://github.com/linkerd/linkerd2/issues/11156)
 
 ## Workloads
 

@@ -174,7 +174,7 @@ The `push` trigger is used to run a workflow whenever a `push` is made to the
 repository. You can also specify specific branches or paths for which the
 workflow should run.
 
-#### Example
+#### Example 1
 
 ```yaml
 on:
@@ -195,7 +195,7 @@ on:
 The `pull_request` trigger runs a workflow when a new pull request is created or
 updated.
 
-#### Example
+#### Example 2
 
 ```yaml
 on:
@@ -212,7 +212,7 @@ the `main` branch.
 The `schedule` trigger allows you to define workflows that run at specific
 times, similar to a cron job.
 
-#### Example
+#### Example 3
 
 ```yaml
 on:
