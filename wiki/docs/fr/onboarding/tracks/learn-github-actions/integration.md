@@ -18,8 +18,9 @@ Registry).
 
 ### Étapes pour Construire et Pousser des Images Docker
 
-1. **Écrire un Dockerfile**
-    Le Dockerfile contient les instructions pour créer une image Docker à partir de votre projet. Voici un exemple simple de Dockerfile pour une application Node.js :
+1. **Écrire un Dockerfile** Le Dockerfile contient les instructions pour créer
+    une image Docker à partir de votre projet. Voici un exemple simple de
+    Dockerfile pour une application Node.js :
 
 ```dockerfile
 # Utiliser une image de base officielle Node.js
@@ -46,7 +47,8 @@ CMD ["npm", "start"]
 
 2. **Configurer GitHub Actions pour construire et pousser l'image**
 
-Une fois le Dockerfile créé, vous pouvez configurer un workflow GitHub Actions pour construire l'image Docker, puis la pousser vers un registre Docker.
+Une fois le Dockerfile créé, vous pouvez configurer un workflow GitHub Actions
+pour construire l'image Docker, puis la pousser vers un registre Docker.
 
 ### Exemple de Workflow : Construction et Push d'une Image Docker
 
