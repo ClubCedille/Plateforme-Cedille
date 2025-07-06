@@ -111,7 +111,7 @@ jobs:
           path: build/test-results/test/*.xml
 ```
 
-#### Explication
+#### Explication avec Rapport de Tests JUnit
 
 - **JUnit Tests** : Les tests JUnit sont exécutés avec la commande
   `./gradlew test`.
@@ -229,7 +229,7 @@ jobs:
           ${{ secrets.SLACK_WEBHOOK_URL }}
 ```
 
-#### Explication
+#### Explication Notification Slack pour un Workflow CI/CD
 
 - **`if: success()`** et **`if: failure()`** : Ces conditions permettent
   d'envoyer une notification différente selon que le build a réussi ou échoué.

@@ -89,7 +89,7 @@ approuvé.
 
 8. **Maintenez votre copie à jour** : Avant de commencer à travailler,
    assurez-vous de récupérer les dernières modifications du projet en utilisant
-   `sh git pull origin main ` Cela garantit que vous travaillez avec la version
+   `sh git pull origin main` Cela garantit que vous travaillez avec la version
    la plus récente du code et évite les conflits de fusion.
 
 9. **Utilisez des outils graphiques si nécessaire** : Si vous trouvez que la

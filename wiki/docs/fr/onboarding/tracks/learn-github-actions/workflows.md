@@ -303,7 +303,7 @@ jobs: build-frontend: runs-on: ubuntu-latest steps:
 
   build-backend: runs-on: ubuntu-latest steps:
       - name: Build backend run: npm run build-backend
-``` 
+```
 
 Dans cet exemple, les jobs `build-frontend` et `build-backend` s'exécuteront en parallèle.
 

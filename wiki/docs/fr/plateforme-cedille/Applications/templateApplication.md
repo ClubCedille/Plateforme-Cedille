@@ -1,8 +1,8 @@
-## ApplicationName
+# ApplicationName
 
 Description de l'application
 
-### Configuration
+## Configuration
 
 - Paramètres de configuration qui dévient de l'installation standard. Par
   exemple, si l'application nécessite une configuration de variables
@@ -13,14 +13,14 @@ Description de l'application
 - Instructions pour des paramétrages de sécurité avancés, comme les règles de
   pare-feu ou les politiques d'accès.
 
-### Tester
+## Tester
 
 Instructions pour tester l'application :
 
 - Étapes pour vérifier que l'installation est fonctionnelle.
 - Les URL ou les endpoints pour accéder à l'application
 
-### Autres solutions considérées
+## Autres solutions considérées
 
 Expliquez ici les autres options qui ont été évaluées avant de choisir
 l'application actuelle. Pour chaque solution alternative envisagée, fournissez
