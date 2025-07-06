@@ -83,9 +83,10 @@ git push origin main
 ```
 
 > `origin` refers to the remote repository. `git remote -v` to view existing
+>
 > remotesm and `git remote add <name> <url>` to add a new remote. By default,
 > the first remote is named origin.
-
+>
 > `main` is the branch you’re pushing to.
 
 You can now head over to _github.com/YourUsername/YourUsername.git_ to see
@@ -103,6 +104,7 @@ git pull origin main
 ```
 
 > `git fetch` is optional and let's you know what new changes are available
+>
 > before using `git pull` to retrieve them.
 
 ---
@@ -112,8 +114,11 @@ visual client such as [Github Desktop](https://desktop.github.com/download/) or
 the extensions in your IDE (Most of them have one installed by default.).
 
 > While these tools are useful for beginners, a lot of users in the club still
+>
 > prefer to use the CLI for its advanced functionnality. The one integrated in
+>
 > VSCode is a great started, as it provides a GUI, while also having the
+>
 > possibility of using CLI.
 
 ## Github specifics tools

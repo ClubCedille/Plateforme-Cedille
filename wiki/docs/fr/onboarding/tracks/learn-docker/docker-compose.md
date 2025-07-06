@@ -1,4 +1,4 @@
-### Qu'est-ce que Docker Compose ?
+# Qu'est-ce que Docker Compose ?
 
 Docker Compose est un outil qui vous permet de définir et de gérer des
 applications Docker à plusieurs conteneurs. Avec Docker Compose, vous pouvez

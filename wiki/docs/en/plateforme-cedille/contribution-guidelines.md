@@ -50,7 +50,7 @@ GitHub username to be added to our organization:
 
 4. **Make Your Changes**: Make the necessary changes in your development
    environment. After finishing, save your changes with the command:
-   `sh git commit -am “describe your changes here” ` It is important to write
+   `sh git commit -am “describe your changes here”` It is important to write
    clear and descriptive commit messages to facilitate understanding of the
    changes made.
 

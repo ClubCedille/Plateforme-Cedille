@@ -1,4 +1,4 @@
-### Installation de Docker
+# Installation de Docker
 
 Avant de commencer, assurez-vous d'avoir installé Git et Docker sur votre
 système. Vous pouvez télécharger Docker depuis le

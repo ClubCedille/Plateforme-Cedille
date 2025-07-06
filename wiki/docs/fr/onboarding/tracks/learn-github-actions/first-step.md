@@ -179,7 +179,7 @@ Le déclencheur `push` est utilisé pour exécuter un workflow chaque fois qu'un
 `push` est effectué dans le dépôt. Vous pouvez également spécifier des branches
 ou des chemins spécifiques pour lesquels le workflow doit s'exécuter.
 
-#### Exemple
+#### Exemple Push
 
 ```yaml
 on:
@@ -200,7 +200,7 @@ on:
 Le déclencheur `pull_request` permet d'exécuter un workflow lorsqu'une nouvelle
 pull request est créée, ou lorsque celle-ci est mise à jour.
 
-#### Exemple
+#### Exemple Pull Request
 
 ```yaml
 on: pull_request: branches:
@@ -215,7 +215,7 @@ pull requests ouvertes sur la branche `main`.
 Le déclencheur `schedule` vous permet de définir des workflows qui s'exécutent à
 des moments spécifiques, similaires à une tâche cron.
 
-#### Exemple
+#### Exemple Schedule
 
 ```yaml
 on:
@@ -229,10 +229,14 @@ tâches cron de Linux.
 
 ### 4.4. Autres déclencheurs
 
-- **`workflow_dispatch`** : Permet d’exécuter manuellement un workflow via l'interface utilisateur de GitHub.
-- **`workflow_call`** : Permet d'invoquer un workflow à partir d'un autre workflow. Cela est utile pour réutiliser des workflows dans plusieurs projets ou dépôts.
+- **`workflow_dispatch`** : Permet d’exécuter manuellement un workflow via
+l'interface utilisateur de GitHub.
+- **`workflow_call`** : Permet d'invoquer un workflow à partir d'un autre
+workflow. Cela est utile pour réutiliser des workflows dans plusieurs projets
+ou dépôts.
 - **`release`** : Déclenche le workflow lorsqu'une nouvelle version est publiée.
-- **`issue_comment`** : Exécute le workflow lorsqu'un commentaire est ajouté à une issue.
+- **`issue_comment`** : Exécute le workflow lorsqu'un commentaire est ajouté
+à une issue.
 - **`push_tag`** : Déclenche le workflow lorsqu'un tag est poussé.
 
 #### Exemple de `workflow_dispatch`

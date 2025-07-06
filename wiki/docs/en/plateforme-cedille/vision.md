@@ -140,9 +140,9 @@ opportunities for our members.
 
 | Statement                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| The problem                     | 1. Financial Constraint: The cost of maintaining services on Google Cloud is significantly high and becomes increasingly difficult to manage as the number of hosted student clubs increases. <br/> 2. Limited Learning and Customization: The management of most operations by Google Cloud results in a restricted environment that offers few opportunities to learn and customize hosting solutions, especially in the fields of DevOps, Kubernetes, and server management.                               |
-| affects                         | 1. Financial Sustainability: The club faces a growing financial burden that could threaten its ability to continue offering hosting services to student clubs. <br/> 2. Educational Value: The current configuration limits the learning experiences of club members, particularly in relevant areas for their technical growth such as DevOps, Kubernetes, and server management.                                                                                                                            |
-| and this impacts the outcome by | 1. Financial Strain: If the situation remains unchanged, the CEDILLE club risks becoming financially unsustainable, which could result in the discontinuation of hosting services for many student clubs, thus affecting their online presence and operations. <br /> 2. Reduced Technical Skills Development: Club members miss out on practical experiences and valuable skills development, which is one of the club's key objectives to enhance the employability and technical expertise of its members. |
+| The problem                     | 1. Financial Constraint: The cost of maintaining services on Google Cloud is significantly high and becomes increasingly difficult to manage as the number of hosted student clubs increases. \n 2. Limited Learning and Customization: The management of most operations by Google Cloud results in a restricted environment that offers few opportunities to learn and customize hosting solutions, especially in the fields of DevOps, Kubernetes, and server management.                               |
+| affects                         | 1. Financial Sustainability: The club faces a growing financial burden that could threaten its ability to continue offering hosting services to student clubs. \n 2. Educational Value: The current configuration limits the learning experiences of club members, particularly in relevant areas for their technical growth such as DevOps, Kubernetes, and server management.                                                                                                                            |
+| and this impacts the outcome by | 1. Financial Strain: If the situation remains unchanged, the CEDILLE club risks becoming financially unsustainable, which could result in the discontinuation of hosting services for many student clubs, thus affecting their online presence and operations. \n 2. Reduced Technical Skills Development: Club members miss out on practical experiences and valuable skills development, which is one of the club's key objectives to enhance the employability and technical expertise of its members. |
 
 ### 2.2 Product Statement
 
@@ -191,7 +191,7 @@ Users are all the individuals or entities that will use this product.
 | **U1** Platform Administrator          | Platform administrator designated by the CEDILLE club                                                                     | Platform maintenance and approval of new deployments.                                    |
 | **U2** Student clubs and their members | Student clubs at École de Technologie Supérieure                                                                          | Interact with the platform to obtain various information about their different services. |
 | **U3** ÉTS Staff                       | Student clubs administration and IT services of ÉTS                                                                       | Ensure the compliance of applications and infrastructure.                                |
-| **U4** Application Developers          | Sometimes members of CEDILLE, sometimes from other clubs, responsible for the programming of the software on the servers. |
+| **U4** Application Developers          | Sometimes members of CEDILLE, sometimes from other clubs, responsible for the programming of the software on the servers. ||
 
 ### 3.3 User Environment
 
@@ -393,7 +393,7 @@ for our infrastructure.
 
 ### 5. Constraints
 
-**Table 5.1: Constraints**
+#### Table 5.1: Constraints
 
 | **ID** | **Constraints**                                                | **Description**                                                                                                                                                                                                                                                                                                                                                                         |
 | ------ | -------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -456,6 +456,4 @@ needs.
 - Backup and Recovery Procedures: Protocols to follow in case of system failure
   or other emergencies.
 
-[^1]:
-    École de Technologie Supérieure, Universités du Québec.
-    [https://www.etsmtl.ca/](https://www.etsmtl.ca/)
+[//]: # École de Technologie Supérieure, Universités du Québec. [https://www.etsmtl.ca/](https://www.etsmtl.ca/)

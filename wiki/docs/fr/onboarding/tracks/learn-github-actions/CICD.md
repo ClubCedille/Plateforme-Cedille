@@ -129,7 +129,7 @@ jobs:
 
       - name: Deploy to production
         run: ./deploy.sh
-`````
+```
 
 #### Exemple : Workflow Réutilisable avec des Variables
 
@@ -210,7 +210,7 @@ jobs:
       context: ./my-app-directory
 ```
 
-#### Explication
+#### Explication du Workflow Réutilisable
 
 - **`workflow_call`** : Permet de réutiliser le workflow en appelant des
   workflows définis ailleurs. Les variables d'entrée permettent de personnaliser
@@ -270,7 +270,7 @@ jobs:
         run: npm test
 ```
 
-#### Explication
+#### Explication Job Matrix
 
 - **`matrix.node-version`** et **`matrix.os`** : Ces deux matrices permettent de
   tester sur différentes versions de Node.js (`12`, `14`, `16`) et sur
@@ -320,7 +320,7 @@ jobs:
         run: ./deploy.sh
 ```
 
-#### Explication
+#### Explication Dépendance entre Jobs
 
 - **`needs`** : L’instruction `needs` permet de définir une dépendance entre
   jobs. Dans cet exemple, le job `test` ne démarre que lorsque le job `build` a

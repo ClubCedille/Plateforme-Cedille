@@ -147,10 +147,10 @@ Ready to resolve conflicts and claim my place.
 
 ### 8. Resolve the Merge Conflict (⚔️ The Git Duel)
 
-If your Pull Request cannot be merged automatically:
+  If your Pull Request cannot be merged automatically:
 
-1. Click **Resolve conflicts** on GitHub.
-2. You’ll see something like:
+  1. Click **Resolve conflicts** on GitHub.
+  2. You’ll see something like:
 
   ```text
   +<<<<<< HEAD
@@ -160,15 +160,16 @@ If your Pull Request cannot be merged automatically:
   +>>>>>> add-your-name
   ```
 
-3. Manually _edit the conflict_ to keep all names & removing any Hydra Heads until none are left to slay:
+  3. Manually _edit the conflict_ to keep all names & removing any Hydra Heads until
+  none are left to slay:
 
   ```text
   - 🛡️ Your Legendary Name
   - 🛡️ Hercules
   ```
 
-4. Click Mark as resolved
-5. Commit the merge
+  4. Click Mark as resolved
+  5. Commit the merge
 
 ---
 

@@ -1,4 +1,4 @@
-### Guide Étape par Étape pour Containeriser Votre Application
+# Guide Étape par Étape pour Containeriser Votre Application
 
 Lorsque vous travaillez avec des conteneurs, vous devez généralement créer un
 fichier `Dockerfile` pour définir votre image et un fichier `compose.yaml` pour

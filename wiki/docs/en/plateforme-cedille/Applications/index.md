@@ -142,7 +142,7 @@ direct traffic to Envoy:
 kubectl -n projectcontour port-forward service/envoy 8888:80
 ```
 
-Then visit http://local.projectcontour.io:8888/. For our production environment,
+Then visit [local.projectcontour.io:8888/](http://local.projectcontour.io:8888/). For our production environment,
 we would use the address of the Envoy service.
 
 For more information on Contour, see
@@ -243,7 +243,7 @@ kubectl apply -f apps/samples/clickhouse/pv.yml -n clickhouse-system &&
 kubectl apply -f apps/samples/clickhouse/simple.yml -n clickhouse-system
 ```
 
-Then port-forward and test the connection at http://localhost:9000/:
+Then port-forward and test the connection at [localhost:9000/](http://localhost:9000/):
 
 ```bash
 kubectl port-forward svc/chi-simple-example-deployment-pv-1-1 9000:9000 -n clickhouse-system # Garder la connection ouverte
