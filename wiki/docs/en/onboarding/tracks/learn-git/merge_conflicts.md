@@ -149,7 +149,6 @@ Ready to resolve conflicts and claim my place.
 
 If your Pull Request cannot be merged automatically:
 
-```markdown
 1. Click **Resolve conflicts** on GitHub.
 2. You’ll see something like:
 
@@ -164,10 +163,10 @@ If your Pull Request cannot be merged automatically:
 3. Manually _edit the conflict_ to keep all names & removing any Hydra Heads
    until none are left to slay:
 
-```diff
-- 🛡️ Your Legendary Name
-- 🛡️ Hercules
-```
+  ```diff
+  - 🛡️ Your Legendary Name
+  - 🛡️ Hercules
+  ```
 
 4. Click Mark as resolved
 
