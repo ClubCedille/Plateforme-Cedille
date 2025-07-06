@@ -20,28 +20,28 @@ automate the building of these containers and push them to a Docker registry
    Docker image from your project. Here is a simple example of a Dockerfile for
    a Node.js application:
 
-   ```dockerfile
-   # Use an official Node.js base image
-   FROM node:14
+```dockerfile
+# Use an official Node.js base image
+FROM node:14
 
-   # Set the working directory
-   WORKDIR /app
+# Set the working directory
+WORKDIR /app
 
-   # Copy the package.json file
-   COPY package*.json ./
+# Copy the package.json file
+COPY package*.json ./
 
-   # Install dependencies
-   RUN npm install
+# Install dependencies
+RUN npm install
 
-   # Copy the rest of the project files
-   COPY . .
+# Copy the rest of the project files
+COPY . .
 
-   # Expose the application’s port
-   EXPOSE 3000
+# Expose the application’s port
+EXPOSE 3000
 
-   # Start the application
-   CMD ["npm", "start"]
-   ```
+# Start the application
+CMD ["npm", "start"]
+```
 
 2. **Configure GitHub Actions to build and push the image**
 
