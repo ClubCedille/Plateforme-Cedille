@@ -97,7 +97,7 @@ Date: 8 novembre 2023
   - **Solution** : Nous avons décidé que résoudre tous ces problèmes est trop de
     problèmes. Après une rapide preuve de concept, nous avons décidé de changer
     vers [Mayastor](https://openebs.io/docs/3.0.x/concepts/mayastor). Ce système
-	est bati pour kubernetes à partir de 0, ce qui devrait réduire le genre de
+    est bati pour kubernetes à partir de 0, ce qui devrait réduire le genre de
     problèmes opérationnels rencontrés avec ceph. Voir #33 pour plus de détails.
 
 - **Problème 2** : Configuration d'un service mesh pour kubernetes
