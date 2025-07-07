@@ -222,53 +222,6 @@ OpenTelemetry, contributing directly to better observability. The integration
 with Grafana allows exploiting this data through interactive dashboards for
 precise system monitoring.
 
-#### Testing Clickhouse
-
-Go to <https://grafana.omni.cedille.club>. Keep the tab open.
-
-Create the PV and deployment of a simple Clickhouse server (if not already done.
-To verify):
-
-```bash
-kubectl apply -f apps/samples/clickhouse/pv.yml -n clickhouse-system &&
-kubectl apply -f apps/samples/clickhouse/simple.yml -n clickhouse-system
-```
-
-Then port-forward and test the connection at `http://localhost:9000/`:
-
-```bash
-kubectl port-forward svc/chi-simple-example-deployment-pv-1-1 9000:9000 -n clickhouse-system # Garder la connection ouverte
-```
-
-Install the Clickhouse
-[CLI](https://clickhouse.com/docs/en/integrations/sql-clients/clickhouse-client-local)
-and connect to the server to create a simple `users` table:
-
-```bash
-clickhouse-client -h 127.0.0.1 --port 9000 --user default --password <votre-password>
-```
-
-Create the users table to accept the content of `script.py`:
-
-```sql
-CREATE TABLE users (
-    id Int32,
-    name String,
-    email String,
-    preferred_number Int32
-) ENGINE = MergeTree()
-ORDER BY id;
-```
-
-Then, insert data by running the script:
-
-```bash
-python3 script.py
-```
-
-Afterwards, you will be able to see the changes by doing a
-`SELECT * from users;`.
-
 ### Service Mesh - Kuma
 
 Kuma is a Service Mesh management platform designed for microservices and
