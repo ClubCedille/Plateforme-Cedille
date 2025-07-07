@@ -98,7 +98,7 @@ spec:
     namespace: kustomize-example-app-prod
   source:
     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
-    path: apps/samples/kustomize-example-app/prod # Point ArgoCD to our subdirectory for the prod environment
+    path: k8s-samples/kustomize-example-app/prod # Point ArgoCD to our subdirectory for the prod environment
     targetRevision: HEAD
   syncPolicy:
     syncOptions:
@@ -118,7 +118,7 @@ spec:
     namespace: kustomize-example-app-staging
   source:
     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
-    path: apps/samples/kustomize-example-app/staging # Point ArgoCD to our subdirectory for the staging environment
+    path: k8s-samples/kustomize-example-app/staging # Point ArgoCD to our subdirectory for the staging environment
     targetRevision: HEAD
   syncPolicy:
     syncOptions:

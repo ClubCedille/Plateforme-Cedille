@@ -455,5 +455,3 @@ needs.
   explaining how to deploy and manage their services.
 - Backup and Recovery Procedures: Protocols to follow in case of system failure
   or other emergencies.
-
-[//]: # École de Technologie Supérieure, Universités du Québec. [etsmtl.ca/](https://etsmtl.ca/accueil)
