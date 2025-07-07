@@ -7,7 +7,7 @@ devrait être utilisée pour déployer des applications en production avec
 Kustomize et ArgoCD.
 
 - Code source:
-  [/apps/samples/kustomize-example-app](https://github.com/ClubCedille/Plateforme-Cedille/tree/master/apps/samples/kustomize-example-app)
+  [/k8s-samples/kustomize-example-app](https://github.com/ClubCedille/Plateforme-Cedille/tree/master/k8s-samples/kustomize-example-app)
 
 ## Survol des étapes a suivre pour déployer une nouvelle app
 

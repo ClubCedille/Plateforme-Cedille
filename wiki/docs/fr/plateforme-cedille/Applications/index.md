@@ -123,8 +123,7 @@ Afin d'utiliser Contour et Envoy, on va utiliser la fonction
 kubectl -n projectcontour port-forward service/envoy 8888:80
 ```
 
-Puis visiter
-[local.projectcontour.io:8888](http://local.projectcontour.io:8888/).
+Puis visiter `http://local.projectcontour.io:8888`.
 Pour notre environnement de production, on utiliserait l'adresse
 du service de Envoy.
 
@@ -221,7 +220,7 @@ kubectl apply -f apps/samples/clickhouse/simple.yml -n clickhouse-system
 ```
 
 Ensuite, faites un port-forward et tester la connection sur
-[localhost:9000](http://localhost:9000/):
+`http://localhost:9000/`:
 
 ```bash
 kubectl port-forward svc/chi-simple-example-deployment-pv-1-1 9000:9000 -n clickhouse-system # Garder la connection ouverte
@@ -282,7 +281,7 @@ Ensuite aller visiter l'application déployée:
 kubectl port-forward svc/demo-app 5000:5000 -n kuma-demo
 ```
 
-Rendez-vous sur [localhost:5000](http://localhost:5000/).
+Rendez-vous sur `http://localhost:5000/`.
 
 Finalement, analysez le comportement de Kuma:
 
@@ -290,7 +289,7 @@ Finalement, analysez le comportement de Kuma:
 kubectl port-forward svc/kuma-control-plane -n kuma-system 5681:5681
 ```
 
-Rendez-vous sur [localhost:5681/gui/](http://localhost:5681/gui/).
+Rendez-vous sur `http://localhost:5681/gui/`.
 
 #### Merbridge
 
