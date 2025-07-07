@@ -6,7 +6,7 @@ The sample application is set up to document the methodology that should be used
 to deploy production applications with Kustomize and ArgoCD.
 
 - Source code:
-  [/apps/samples/kustomize-example-app](https://github.com/ClubCedille/Plateforme-Cedille/tree/master/apps/samples/kustomize-example-app)
+  [/k8s-samples/kustomize-example-app](https://github.com/ClubCedille/Plateforme-Cedille/tree/master/k8s-samples/kustomize-example-app)
 
 ## Overview of Steps to Deploy a New App
 
