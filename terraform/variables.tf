@@ -48,6 +48,10 @@ variable "cluster_name" {
   type = string
 }
 
+variable "netdata_space_id" {
+  type        = string
+}
+
 variable "netdata_token" {
   type = string
   sensitive = true
