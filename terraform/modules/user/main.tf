@@ -37,6 +37,6 @@ resource "github_repository_file" "omni_acl" {
 # Add user to netdata
 resource "netdata_space_member" "cedille_membership" {
   email    = var.github_email
-  space_id = "2bbd7aec-5861-4c09-80ea-7ff98e17d0bb"
+  space_id = var.netdata_space_id
   role     = var.netdata_role
 }

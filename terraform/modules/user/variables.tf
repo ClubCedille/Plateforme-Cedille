@@ -42,6 +42,11 @@ variable "cluster_repo" {
   type = string
 }
 
+variable "netdata_space_id" {
+  type = string
+  description = "The ID of the Netdata space where the user will be added."
+}
+
 variable "netdata_role" {
   type = string
   default = "observer"
