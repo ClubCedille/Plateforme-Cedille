@@ -291,11 +291,3 @@ git push origin --delete feature/layout-component
 
 Now you've had a guide on how to collaborate on a project with a team using Git,
 let's put that to practice with the **[OLYMPGIT](./merge_conflicts.md)**.
-
-!!! warning "BUT WAIT"
-
-```text
-**I think the Hall of GitFame is under renovation... I've seen so many
-orange cones on the entrance. Maybe we should just skip by! - (yes, just
-skip it, it's not done yet...)**
-```
