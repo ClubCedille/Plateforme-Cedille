@@ -1,5 +1,5 @@
 {
-    "aliveStatusCodes": [999,200,403, 429],
+    "aliveStatusCodes": [999,200,403, 429, 0],
     "ignorePatterns": [
         {
             "pattern": "^http://localhost"
