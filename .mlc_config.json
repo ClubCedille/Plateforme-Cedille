@@ -1,0 +1,11 @@
+{
+    "aliveStatusCodes": [999,200,403, 429],
+    "ignorePatterns": [
+        {
+            "pattern": "^http://localhost"
+        },
+        {
+            "pattern": "^https://localhost"
+        }
+    ]
+}
