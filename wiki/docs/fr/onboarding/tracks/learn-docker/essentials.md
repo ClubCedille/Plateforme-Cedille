@@ -202,7 +202,7 @@ tirer des images efficacement.
 
 - **Azure Container Registry (ACR)** : Un service de registre de conteneurs géré
   par
-  [Microsoft Azure](https://azure.microsoft.com/en-us/services/container-registry/)
+  [Microsoft Azure](https://azure.microsoft.com/en-us/services/container-registry)
   qui prend en charge les images Docker et Open Container Initiative (OCI).
 
 - **GitHub Container Registry** : Un service fourni par
