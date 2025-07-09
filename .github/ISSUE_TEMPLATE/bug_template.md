@@ -4,6 +4,7 @@ about: This template must be used for reporting bugs.
 title: ''
 labels: bug
 assignees: ''
+
 ---
 
 ## Bug report
