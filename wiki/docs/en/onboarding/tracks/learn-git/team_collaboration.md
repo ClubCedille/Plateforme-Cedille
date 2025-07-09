@@ -153,7 +153,7 @@ git checkout -b feature/layout-component
 
 📌 You're now working **on a new branch based on `feature/main-layout`**.
 
-##  Step 4: Make Changes to the Code
+## Step 4: Make Changes to the Code
 
 Use your favorite editor (VSCode, etc.) to:
 
