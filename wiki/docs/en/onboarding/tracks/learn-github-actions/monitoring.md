@@ -1,6 +1,10 @@
 # Monitoring and Reporting with GitHub Actions
 
-Monitoring and reporting in GitHub Actions are essential to ensure CI/CD workflows run smoothly and to quickly identify issues. This guide explains how to monitor workflow status, manage logs and diagnostics, generate automated test reports, view workflows in the GitHub interface, and notify teams of build success or failure.
+Monitoring and reporting in GitHub Actions are essential to ensure CI/CD
+workflows run smoothly and to quickly identify issues. This guide explains how
+to monitor workflow status, manage logs and diagnostics, generate automated test
+reports, view workflows in the GitHub interface, and notify teams of build
+success or failure.
 
 ---
 
@@ -8,28 +12,37 @@ Monitoring and reporting in GitHub Actions are essential to ensure CI/CD workflo
 
 ### 1.1 Monitoring Build Status
 
-GitHub Actions provides an intuitive user interface that allows real-time monitoring of build status. You can access this interface through the **Actions** tab in your GitHub repository. Each triggered workflow generates a build with a visible status (success, failure, in progress).
+GitHub Actions provides an intuitive user interface that allows real-time
+monitoring of build status. You can access this interface through the
+**Actions** tab in your GitHub repository. Each triggered workflow generates a
+build with a visible status (success, failure, in progress).
 
-#### Build Status Indicators:
+#### Build Status Indicators
+
 - **Green (Success)**: All jobs in the workflow have completed successfully.
 - **Red (Failure)**: One or more jobs have failed.
 - **Yellow (In Progress)**: The workflow is currently running.
 
 ### 1.2 Accessing Workflow Logs
 
-To diagnose issues, GitHub Actions provides detailed logs for each workflow step. These logs include command output and any errors encountered.
+To diagnose issues, GitHub Actions provides detailed logs for each workflow
+step. These logs include command output and any errors encountered.
 
-#### Viewing Logs:
+#### Viewing Logs
+
 1. Go to the **Actions** tab in your repository.
 2. Select a specific workflow.
 3. Click on a job to view its steps.
-4. You can view logs for each step by clicking the expand button next to the step name.
+4. You can view logs for each step by clicking the expand button next to the
+   step name.
 
-The logs provide valuable information, such as success, error, or debug messages. If a job fails, the logs are the best place to look for error details.
+The logs provide valuable information, such as success, error, or debug
+messages. If a job fails, the logs are the best place to look for error details.
 
 #### Example: Viewing Logs After a Workflow Failure
 
-When a workflow fails, GitHub highlights problematic steps. You can view the log details to understand the cause of the failure:
+When a workflow fails, GitHub highlights problematic steps. You can view the log
+details to understand the cause of the failure:
 
 ```bash
 Run npm install
@@ -41,9 +54,12 @@ npm ERR! errno -2
 
 ### 1.3 Diagnosing Issues
 
-GitHub Actions also allows you to rerun a workflow with more detailed logging to diagnose issues. You can enable **advanced debugging** to obtain additional information.
+GitHub Actions also allows you to rerun a workflow with more detailed logging to
+diagnose issues. You can enable **advanced debugging** to obtain additional
+information.
 
-#### Enabling Debug Logs:
+#### Enabling Debug Logs
+
 1. Go to the workflow logs page.
 2. Click **Rerun jobs with debug logging** to rerun the workflow in debug mode.
 3. Detailed logs will help you understand why the job failed.
@@ -52,11 +68,15 @@ GitHub Actions also allows you to rerun a workflow with more detailed logging to
 
 ## 2. Generating Automated Test Reports
 
-Automated testing is crucial to ensure code quality. By combining GitHub Actions with testing tools like JUnit, Mocha, or Jest, you can generate and publish test reports within your CI/CD workflows.
+Automated testing is crucial to ensure code quality. By combining GitHub Actions
+with testing tools like JUnit, Mocha, or Jest, you can generate and publish test
+reports within your CI/CD workflows.
 
 ### 2.1 Example Workflow with JUnit Test Report
 
-JUnit is one of the most common testing frameworks for Java applications. Here’s an example GitHub Actions workflow that runs JUnit tests and generates test reports.
+JUnit is one of the most common testing frameworks for Java applications. Here’s
+an example GitHub Actions workflow that runs JUnit tests and generates test
+reports.
 
 ```yaml
 name: Run JUnit Tests
@@ -86,17 +106,22 @@ jobs:
           path: build/test-results/test/*.xml
 ```
 
-#### Explanation:
+#### Explanation 1
+
 - **JUnit Tests**: JUnit tests are executed with the `./gradlew test` command.
-- **Archive test results**: JUnit test results in XML format are saved as artifacts, which you can view in the GitHub interface.
+- **Archive test results**: JUnit test results in XML format are saved as
+  artifacts, which you can view in the GitHub interface.
 
 ### 2.2 Viewing Test Reports
 
-GitHub Actions doesn’t provide native test report visualization, but you can generate and view test results using third-party services, or export results as downloadable artifacts.
+GitHub Actions doesn’t provide native test report visualization, but you can
+generate and view test results using third-party services, or export results as
+downloadable artifacts.
 
 ### 2.3 Generating Code Coverage Reports
 
-You can integrate tools like **Codecov** or **Coveralls** into your GitHub Actions workflows to generate code coverage reports.
+You can integrate tools like **Codecov** or **Coveralls** into your GitHub
+Actions workflows to generate code coverage reports.
 
 #### Example: Workflow with Codecov
 
@@ -129,29 +154,39 @@ jobs:
 
 ## 3. Visualizing Workflows on the GitHub Interface
 
-GitHub provides a graphical view of CI/CD workflows for each repository. This view enables developers to follow the execution process, identify errors, and understand job dependencies.
+GitHub provides a graphical view of CI/CD workflows for each repository. This
+view enables developers to follow the execution process, identify errors, and
+understand job dependencies.
 
 ### 3.1 Workflow Visualization Interface
 
 1. Go to the **Actions** tab in your repository.
 2. You’ll see a list of recently triggered workflows.
-3. Clicking on a specific workflow lets you access a graphical view of the jobs and their statuses (success, failure, or pending).
+3. Clicking on a specific workflow lets you access a graphical view of the jobs
+   and their statuses (success, failure, or pending).
 
-Each job is represented in a flow diagram, making it easy to visualize the pipeline stages and quickly identify failure points.
+Each job is represented in a flow diagram, making it easy to visualize the
+pipeline stages and quickly identify failure points.
 
 ### 3.2 Tracking Artifacts
 
-Artifacts generated by a workflow (build files, test results, logs) are accessible through the Actions interface. You can download them for analysis or archive them for future reference.
+Artifacts generated by a workflow (build files, test results, logs) are
+accessible through the Actions interface. You can download them for analysis or
+archive them for future reference.
 
 ---
 
 ## 4. Notifying Teams on Build Success or Failure
 
-Automatic notifications are essential to alert teams to workflow successes or failures in CI/CD. GitHub Actions integrates with communication tools like **Slack**, **Microsoft Teams**, or email services to send alerts based on build status.
+Automatic notifications are essential to alert teams to workflow successes or
+failures in CI/CD. GitHub Actions integrates with communication tools like
+**Slack**, **Microsoft Teams**, or email services to send alerts based on build
+status.
 
 ### 4.1 Notifying via Slack
 
-GitHub Actions allows you to send Slack notifications when a workflow succeeds or fails. You can use a **Slack Webhook** for this purpose.
+GitHub Actions allows you to send Slack notifications when a workflow succeeds
+or fails. You can use a **Slack Webhook** for this purpose.
 
 #### Example: Slack Notification for a CI/CD Workflow
 
@@ -186,13 +221,16 @@ jobs:
           ${{ secrets.SLACK_WEBHOOK_URL }}
 ```
 
-#### Explanation:
-- **`if: success()`** and **`if: failure()`**: These conditions send different notifications based on whether the build succeeded or failed.
+#### Explanation 2
+
+- **`if: success()`** and **`if: failure()`**: These conditions send different
+  notifications based on whether the build succeeded or failed.
 - **`curl`**: Used to send a POST request to Slack with the appropriate message.
 
 ### 4.2 Email Notifications
 
-GitHub Actions can also send email notifications using an SMTP service or third-party tools like **SendGrid** or **Mailgun**.
+GitHub Actions can also send email notifications using an SMTP service or
+third-party tools like **SendGrid** or **Mailgun**.
 
 #### Example: Email Notification Workflow
 
@@ -217,9 +255,9 @@ jobs:
           server_port: 465
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "Build Success"
-          body: "The build for ${{ github.repository }} succeeded!"
-          to: "team@example.com"
+          subject: 'Build Success'
+          body: 'The build for ${{ github.repository }} succeeded!'
+          to: 'team@example.com'
 
       - name: Send email on failure
         if: failure()
@@ -229,13 +267,18 @@ jobs:
           server_port: 465
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "Build Failure"
-          body: "The build for ${{ github.repository }} failed!"
-          to: "team@example.com"
+          subject: 'Build Failure'
+          body: 'The build for ${{ github.repository }} failed!'
+          to: 'team@example.com'
 ```
 
 ---
 
 ## Conclusion
 
-Monitoring and reporting are crucial aspects of managing CI/CD workflows with GitHub Actions. Using detailed logs, test reports, and notification tools, you can proactively monitor build status and quickly diagnose issues. Integration with tools like Slack or email services keeps teams informed in real-time, ensuring fast resolution of build failures and better collaboration within development teams.
+Monitoring and reporting are crucial aspects of managing CI/CD workflows with
+GitHub Actions. Using detailed logs, test reports, and notification tools, you
+can proactively monitor build status and quickly diagnose issues. Integration
+with tools like Slack or email services keeps teams informed in real-time,
+ensuring fast resolution of build failures and better collaboration within
+development teams.

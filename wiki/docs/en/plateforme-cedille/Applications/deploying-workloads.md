@@ -2,21 +2,26 @@
 
 ## Sample Application (httpbin)
 
-The sample application is set up to document the methodology that should be used to deploy production applications with Kustomize and ArgoCD.
+The sample application is set up to document the methodology that should be used
+to deploy production applications with Kustomize and ArgoCD.
 
-- Source code: [/apps/samples/kustomize-example-app](https://github.com/ClubCedille/Plateforme-Cedille/tree/master/apps/samples/kustomize-example-app)
+- Source code:
+  [/k8s-samples/kustomize-example-app](https://github.com/ClubCedille/Plateforme-Cedille/tree/master/k8s-samples/kustomize-example-app)
 
-## Overview of Steps to Deploy a New App:
+## Overview of Steps to Deploy a New App
 
 1. Create a folder for the application. Ex.: `/apps/new-app`
 2. Create the resource directory structure described in this document
-3. Add a reference to the new application in the high-level application `/apps/argo-apps/kustomization.yaml`
+3. Add a reference to the new application in the high-level application
+   `/apps/argo-apps/kustomization.yaml`
 
 ## Working with Kustomize
 
 ### Base
 
-Each application should define a `base` folder that contains all the Kubernetes resources the application needs. This folder should also contain a Kustomization file that points to all the Kubernetes files in `base`:
+Each application should define a `base` folder that contains all the Kubernetes
+resources the application needs. This folder should also contain a Kustomization
+file that points to all the Kubernetes files in `base`:
 
 ```yaml
 # base/Kustomization.yaml
@@ -30,7 +35,9 @@ resources:
 
 ### Envrionments
 
-Next, define the `prod` and `staging` folders, which will modify properties in `base` according to different needs and add resources that are not common to all environments.
+Next, define the `prod` and `staging` folders, which will modify properties in
+`base` according to different needs and add resources that are not common to all
+environments.
 
 For example, here's how it works for `prod`:
 
@@ -51,19 +58,19 @@ patches:
 In the above snippet:
 
 1. We include the base
-2. We include the resources 
+2. We include the resources
 3. We apply `patches`:
 
 ```yaml
 # prod/patches.yaml
 # [...]
-      replicas: 3
-      containers:
-      - name: httpbin
-        resources:
-          requests:
-            cpu: "0.1"
-            memory: "256Mi"
+replicas: 3
+containers:
+  - name: httpbin
+    resources:
+      requests:
+        cpu: '0.1'
+        memory: '256Mi'
 ---
 # Other patches can be added with separators ---
 ---
@@ -83,7 +90,7 @@ metadata:
   name: kustomize-example-app-prod
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: '2'
 spec:
   project: default
   destination:
@@ -91,11 +98,11 @@ spec:
     namespace: kustomize-example-app-prod
   source:
     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
-    path: apps/samples/kustomize-example-app/prod # Point ArgoCD to our subdirectory for the prod environment
+    path: k8s-samples/kustomize-example-app/prod # Point ArgoCD to our subdirectory for the prod environment
     targetRevision: HEAD
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -103,7 +110,7 @@ metadata:
   name: kustomize-example-app-staging
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: '2'
 spec:
   project: default
   destination:
@@ -111,23 +118,23 @@ spec:
     namespace: kustomize-example-app-staging
   source:
     repoURL: https://github.com/ClubCedille/Plateforme-Cedille
-    path: apps/samples/kustomize-example-app/staging # Point ArgoCD to our subdirectory for the staging environment
-    targetRevision: HEAD 
+    path: k8s-samples/kustomize-example-app/staging # Point ArgoCD to our subdirectory for the staging environment
+    targetRevision: HEAD
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
 ```
 
 ```yaml
 # kustomization.yaml: Kustomization that contains a single reference to the above argo.yaml
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1 kind: Kustomization
 
 resources:
  - argo.yaml
 ```
 
-Finally, modify the `/apps/argo-apps/kustomization.yaml` file to include our new application:
+Finally, modify the `/apps/argo-apps/kustomization.yaml` file to include our new
+application:
 
 ```yaml
 # /apps/argo-apps/kustomization.yaml
@@ -165,4 +172,5 @@ resources:
 ```
 
 **Overview in ArgoCD**
-![Apperçu dans ArgoCD](img/argocd-kustomize-example-app.png)
+![Apperçu dans
+ArgoCD](img/argocd-kustomize-example-app.png)

@@ -2,13 +2,15 @@
 
 ## **Welcome, worthy one.**
 
-This is **OlympGit**, the eternal resting place of the Git Immortals.  
-If you master the path of branching, merging, and resolving conflict, your name will be carved at the top — forever.
+This is **OlympGit**, the eternal resting place of the Git Immortals. If you
+master the path of branching, merging, and resolving conflict, your name will be
+carved at the top — forever.
 
-Your task is to add your name to the Hall of GitFame — **at the top of the list** — like all legends before you.
+Your task is to add your name to the Hall of GitFame — **at the top of the
+list** — like all legends before you.
 
-But beware: **Only the strong survive the merge**.
-And **only the wise** 🧙‍♂️ do it through a **Pull Request**.
+But beware: **Only the strong survive the merge**. And **only the wise** 🧙‍♂️ do
+it through a **Pull Request**.
 
 ---
 
@@ -26,151 +28,120 @@ This repo contains:
 
 ### 1. Clone the Repository
 
-Like the usual, start by cloning [the repository](https://github.com/ClubCedille/OlympGit).
+Like the usual, start by cloning
+[the repository](https://github.com/ClubCedille/OlympGit).
 
 ??? hint "Hint"
+    `git clone git@github.com:ClubCedille/OlympGit.git`
 
-    ``` bash
-    git clone git@github.com:ClubCedille/OlympGit.git
-    cd OlympGit
-    ```
-
----
+    `cd OlympGit`
 
 ### 2. Check Out the OlympGit Branch
 
 Switch from the `main` branch to the `olympgit` branch.
 
 ??? hint "Hint"
+    `git checkout olympgit`
 
-    ``` bash
-    git checkout olympgit
-    git pull origin olympgit
-    ```
+    `git pull origin olympgit`
 
----
-
-### 3. Create Your Personal Branch from `OlympGit`:
+### 3. Create Your Personal Branch from `OlympGit`
 
 Create your branch under the name of add-your-name. Ex: add-linus-torvalds.
 
 ??? hint "Hint"
-
-    ``` bash
-    git checkout -b add-<your-name>
-    ```
-
----
+    `git checkout -b add-{your-name}`
 
 ### 4. Inscribe to the Hall
 
 Edit `HALL_OF_GITFAME.md`, and insert your name at the top of the list:
 
-!!! warning  "Warning"
-
+!!! warning "Warning"
     Add your name ON TOP of the Immortals list!
 
-``` diff
+      ```diff
+      ## 🧙 Immortals of Git
 
-## 🧙 Immortals of Git
-
-+- 🛡️ Your legendary name
- - 🧝‍♀️ Ada Lovelace
- - 🧙‍♂️ Linus Torvalds
-
-```
+      +- 🛡️ Your legendary name
+       - 🧝‍♀️ Ada Lovelace
+       - 🧙‍♂️ Linus Torvalds
+      ```
 
 !!! warning "Warning"
-
-    Always add your name to the top of the list. Otherwise a challenger might come to try to steal your place!
-
----
+    Always add your name to the top of the list. Otherwise a challenger
+    might come to try to steal your place!
 
 ### 5. Commit Your Changes
 
 Now that you have added your name, let's commit the change to your branch.
 
 ??? hint "Hint"
+    `git add HALL_OF_GITFAME.md`
 
-    ``` bash
-    git add HALL_OF_GITFAME.md
-    git commit -m "feat: add Your Name to Hall of GitFame"
-    ```
-
----
+    `git commit -m "feat: add Your Name to Hall of GitFame"`
 
 ### 6. Push Your Branch to GitHub
 
-Now that you've had your changes done locally, you have to put it on the remote branch.
+Now that you've had your changes done locally, you have to put it on the remote
+branch.
 
 ??? hint "Hint"
-
-    ``` bash
-    git push origin add-your-name
-    ```
-
----
+    `git push origin add-your-name`
 
 ### 7. Create a Pull Request (The Final Trial)
-
 
 Now is the time to create a PR (pull request) on GitHub
 
 ??? hint "Hint"
 
-    - Head over to GitHub:
+    Head over to GitHub
 
-    - You'll see a message: ➕ “Compare & Pull Request” → Click it.
+    You'll see a message: ➕ “Compare & Pull Request” → Click it.
 
-    - Set the base branch to olympgit
+    Set the base branch to olympgit
 
-    - The compare branch should be your add-your-name branch
+    The compare branch should be your add-your-name branch
 
-    - Add a message like:
+    Add a message like:
 
-            ```
-            🏛️ Feat: Add [Your Name] to the Hall of GitFame
+      `🏛️ Feat: Add [Your Name] to the Hall of GitFame`
 
-            Adding my humble name to the top of the Immortals list.
-            Ready to resolve conflicts and claim my place.
-            ```
+      `Adding my humble name to the top of the Immortals list.`
 
-    - Submit the Pull Request
+      `Ready to resolve conflicts and claim my place.`
 
-
----
+    Submit the Pull Request
 
 ### 8. Resolve the Merge Conflict (⚔️ The Git Duel)
 
-If your Pull Request cannot be merged automatically:
+  If your Pull Request cannot be merged automatically:
 
-1. Click **Resolve conflicts** on GitHub.
-2. You’ll see something like:
+  1. Click **Resolve conflicts** on GitHub.
+  2. You’ll see something like:
 
-``` diff
-+<<<<<< HEAD
-- 🛡️ Hercules
-=======
-- 🛡️ Your Legendary Name
-+>>>>>> add-your-name
-```
+    ```diff
+    +<<<<<< HEAD
+    - 🛡️ Hercules
+    =======
+    - 🛡️ Your Legendary Name
+    +>>>>>> add-your-name
+    ```
 
-3. Manually *edit the conflict* to keep all names & removing any Hydra Heads until none are left to slay:
+  3. Manually _edit the conflict_ to keep all names & removing any Hydra Heads until
+  none are left to slay:
 
-```
-- 🛡️ Your Legendary Name
-- 🛡️ Hercules
-```
+    ```diff
+    - 🛡️ Your Legendary Name
+    - 🛡️ Hercules
+    ```
 
 4. Click Mark as resolved
-
 5. Commit the merge
-
----
 
 ### 9. Team Review & Approval (The Wisdom Council)
 
-Before your PR can be merged into olympgit, your team captain, mentor, or peer must:
+Before your PR can be merged into olympgit, your team captain, mentor, or peer
+must:
 
 - 👁️ Review your changes
 
@@ -178,7 +149,8 @@ Before your PR can be merged into olympgit, your team captain, mentor, or peer m
 
 - ✅ Approve your Pull Request
 
-> ❗ Do not merge your own PR unless explicitly allowed by your instructor or team lead.
+> ❗ Do not merge your own PR unless explicitly allowed by your instructor or
+> team lead.
 
 If changes are requested:
 
@@ -187,8 +159,6 @@ If changes are requested:
 - Push them again (git push origin add-your-name)
 
 - Your PR will update automatically
-
----
 
 ### 10. Merge the Pull Request (Upon Approval)
 
@@ -210,7 +180,7 @@ Then, and only then:
 
 🎉 Your name is now inscribed among the Immortals!
 
-### 🧠 What You’ve Learned
+### What You’ve Learned
 
 - Branching from a shared team branch
 
@@ -224,6 +194,8 @@ Then, and only then:
 
 - Merging changes into a shared team branch
 
-🎉 You've now learned how to use branches and Pull Requests to collaborate like a pro! 
+🎉 You've now learned how to use branches and Pull Requests to collaborate like
+a pro!
 
-Before ending our Git journey together, let's look at the [Git extension in Visual Studio Code](./git_as_extension.md).
+Before ending our Git journey together, let's look at the
+[Git extension in Visual Studio Code](./git_as_extension.md).

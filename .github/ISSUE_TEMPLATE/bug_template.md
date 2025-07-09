@@ -4,14 +4,14 @@ about: This template must be used for reporting bugs.
 title: ''
 labels: bug
 assignees: ''
-
 ---
 
 ## Bug report
 
 ### Description
 
-<!-- Detailed description of the bug, including the current behavior and the context -->
+<!-- Detailed description of the bug, including the current behavior and the
+context -->
 
 ### Expected behaviour
 
@@ -27,4 +27,5 @@ assignees: ''
 
 ### Additional information
 
-<!-- Add here additional informations for understanding, reproducing, or fixing the bug (e.g., online resources, screenshots, log data, possible solutions) -->
+<!-- Add here additional informations for understanding, reproducing, or fixing
+the bug (e.g., online resources, screenshots, log data, possible solutions) -->

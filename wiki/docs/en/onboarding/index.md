@@ -44,42 +44,36 @@ labs.
 
 ### App development
 
-* Python
-  * [Official Documentation](https://docs.python.org/3/tutorial/index.html)
-  * [Python Examples](https://www.w3schools.com/python/python_examples.asp)
+- Python
+  - [Official Documentation](https://docs.python.org/3/tutorial/index.html)
+  - [Python Examples](https://www.w3schools.com/python/python_examples.asp)
 
-* Go
-  * [Official Documentation](https://go.dev/doc/)
-  * [Go by Example](https://gobyexample.com/)
+- Go
+  - [Official Documentation](https://go.dev/doc/)
+  - [Go by Example](https://gobyexample.com/)
 
 ### Web development
 
-* Grav
-  * [Official Documentation](https://learn.getgrav.org/17/basics/what-is-grav)
-* Hugo
-  * [Official Documentation](https://gohugo.io/about/introduction/)
+- Grav
+  - [Official Documentation](https://learn.getgrav.org/17/basics/what-is-grav)
+- Hugo
+  - [Official Documentation](https://gohugo.io/about/introduction/)
 
 ### DevOps
 
-* [What is DevOps?](https://github.com/resources/articles/devops/what-is-devops)
-* [DevSecOps
-  Guidelines](https://owasp.org/www-project-devsecops-guideline/latest/00a-Overview)
-* [GitHub Actions](https://docs.github.com/en/actions)
-* [The DevOps
-  Handbook](https://books.google.ca/books/about/The_DevOps_Handbook.html?id=8kRDEAAAQBAJ&redir_esc=y)
-* [The Unicorn
-  Project](https://www.google.ca/books/edition/The_Unicorn_Project/kNSSDwAAQBAJ?hl=en&gbpv=1&printsec=frontcover)
-* [The Phoenix
-  Project](https://books.google.ca/books/about/The_Phoenix_Project.html?id=mqXomAEACAAJ&redir_esc=y)
+- [What is DevOps?](https://github.com/resources/articles/devops/what-is-devops)
+- [DevSecOps Guidelines](https://owasp.org/www-project-devsecops-guideline/latest/00a-Overview)
+- [GitHub Actions](https://docs.github.com/en/actions)
+- [The DevOps Handbook](https://books.google.ca/books/about/The_DevOps_Handbook.html?id=8kRDEAAAQBAJ&redir_esc=y)
+- [The Unicorn Project](https://www.google.ca/books/edition/The_Unicorn_Project/kNSSDwAAQBAJ?hl=en&gbpv=1&printsec=frontcover)
+- [The Phoenix Project](https://books.google.ca/books/about/The_Phoenix_Project.html?id=mqXomAEACAAJ&redir_esc=y)
 
 ### SRE (Site Reliability Engineering)
 
-* [Google's Site Reliability Engineering
-  book](https://sre.google/sre-book/table-of-contents/)
+- [Google's Site Reliability Engineering book](https://sre.google/sre-book/table-of-contents/)
 
 ## Onboarding tracks
 
 Now that you have a good understanding of our philosophy, standards, and domain
-knowledge, you can choose a track that fits your profile. Head to the [next
-section](./tracks/index.md) to see the available tracks.
-
+knowledge, you can choose a track that fits your profile. Head to the
+[next section](./tracks/index.md) to see the available tracks.

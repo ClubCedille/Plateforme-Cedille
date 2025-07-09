@@ -6,8 +6,7 @@ Pour compléter ton intégration, tu dois faire ta première contribution au Clu
 Pour ce faire, tu peux consulter les tableaux de projets sur GitHub :
 
 - [Développement Web](https://github.com/orgs/ClubCedille/projects/13)
-- [Développement
-  d'applications](https://github.com/orgs/ClubCedille/projects/12)
+- [Développement d'applications](https://github.com/orgs/ClubCedille/projects/12)
 - [DevOps](https://github.com/orgs/ClubCedille/projects/14)
 - [SRE](https://github.com/orgs/ClubCedille/projects/16/views/1)
 

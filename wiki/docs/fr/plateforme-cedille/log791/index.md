@@ -1,8 +1,8 @@
 # Gestion du projet - LOG791
 
 Ce document contient des informations sur la gestion du projet pour le cours
-LOG791. Le projet consistait à développer la plateforme CEDILLE à l'automne
-2023. Vous y trouverez nottament des informations sur les sprints, les
+LOG791. Le projet consistait à développer la plateforme CEDILLE à
+l'automne 2023. Vous y trouverez nottament des informations sur les sprints, les
 rétrospectives et notre rapport final.
 
 ## Déroulement du projet

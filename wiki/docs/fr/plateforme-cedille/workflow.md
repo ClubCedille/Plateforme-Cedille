@@ -31,15 +31,14 @@ automatique est configurée pour les applications ArgoCD avec le dépôt
 Pour ajouter un nouveau membre à l'organisation GitHub du club CEDILLE, le
 workflow `add-new-member` est disponible. Ce workflow crée une Pull Request pour
 ajouter un nouveau membre à l'organisation GitHub du club CEDILLE. Pour exécuter
-le workflow, simplement cliquer sur le lien suivant: [Ajouter un nouveau
-membre](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/add-new-member.yml).
+le workflow, simplement cliquer sur le lien suivant:
+[Ajouter un nouveau membre](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/add-new-member.yml).
 
 ## Demander un sandbox Kubernetes
 
 Un workflow de déploiement automatisé d'environnement sandbox pour les membres
 du club CEDILLE est disponible et accessible en exécutant le workflow GitHub
-[demander un sandbox
-Kubernetes](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/request-sandbox.yml).
+[demander un sandbox Kubernetes](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/request-sandbox.yml).
 Le workflow crée une pull request pour déployer un environnement sandbox avec
 vcluster pour l'utilisateur qui a déclenché le workflow. Des détails
 supplémentaires sur l'utilisation de l'environnement sandbox sont disponibles
@@ -55,9 +54,8 @@ workflow s'exécute automatiquement lorsqu'un commit est effectué sur la branch
 ## Demander un site web GRAV
 
 Un workflow de déploiement automatisé de site web GRAV pour les clubs étudiants
-est disponible et accessible en exécutant le workflow GitHub [demander un site
-web
-GRAV](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/request-grav.yml).
+est disponible et accessible en exécutant le workflow GitHub
+[demander un site web GRAV](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/request-grav.yml).
 Le workflow crée une pull request pour déployer un site web GRAV pour le club
 étudiant pour qui le workflow a été déclenché. Des détails supplémentaires sur
 l'utilisation du site web GRAV sont disponibles dans la pull request générée.

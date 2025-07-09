@@ -19,11 +19,11 @@ kind: StorageClass
 metadata:
   name: mayastor
   annotations:
-    storageclass.kubernetes.io/is-default-class: "true"
+    storageclass.kubernetes.io/is-default-class: 'true'
 parameters:
-  ioTimeout: "30"
+  ioTimeout: '30'
   protocol: nvmf
-  repl: "2"
+  repl: '2'
   stsAffinityGroup: 'true'
 provisioner: io.openebs.csi-mayastor
 ```
@@ -47,9 +47,8 @@ unstable for the small cluster size and poorly suited for use in Kubernetes.
 #### Usage
 
 The `StorageClass` mayastor is selected by default by Kubernetes. Simply create
-`PersistentVolumeClaims`
-(https://kubernetes.io/docs/concepts/storage/persistent-volumes) and the volumes
-will be created in Mayastor automatically.
+[PersistentVolumeClaims](https://kubernetes.io/docs/concepts/storage/persistent-volumes)
+and the volumes will be created in Mayastor automatically.
 
 ### ArgoCD
 
@@ -67,7 +66,8 @@ The ArgoCD Image Updater is a tool that automatically updates the image tags of
 a deployment in ArgoCD. It is configured to update the image tags of the
 `Application` resources in the `/apps/argo-apps/` folder for which an annotation
 `argocd-image-updater.argoproj.io/image-list` is present :
-```yaml 
+
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -80,11 +80,10 @@ metadata:
     ...
 ```
 
-For now, we use the
-digest strategy to update the image tags. An example can be found in the
-`/apps\integrale\website\argo.yaml` application deployment file.
+For now, we use the digest strategy to update the image tags. An example can be
+found in the `/apps\integrale\website\argo.yaml` application deployment file.
 
-#### Configuration
+#### Role Configuration
 
 **RBAC Permissions** The RBAC (Role-Based Access Control) configuration in
 ArgoCD allows defining specific security policies for different users and
@@ -99,8 +98,8 @@ have the following permissions:
 - Read, create, update, and delete GPG keys
 
 These permissions are configured via lines starting with p in the
-`system/argocd/argocd-values.yaml` file under `policy.csv`. The * indicates that
-the action is allowed for all instances of the specified resource.
+`system/argocd/argocd-values.yaml` file under `policy.csv`. The \* indicates
+that the action is allowed for all instances of the specified resource.
 
 The relationships between GitHub users/groups and ArgoCD roles are defined by
 lines starting with g. For example, all members of the ClubCedille:SRE group on
@@ -116,12 +115,12 @@ log in to ArgoCD with their GitHub credentials.
 Contour is an Ingress Controller solution for Kubernetes. It uses the Envoy
 proxy server as a backend.
 
-#### Configuration 
+#### Envoy Configuration
 
 The Envoy proxy service has been configured with a NodePort to direct external
 traffic to Contour, which then routes the requests to the dedicated services.
 
-#### Testing
+#### Envoy Testing with httpbin
 
 Start by deploying a web application like [httpbin](https://httpbin.org/#/).
 From the project directory:
@@ -143,24 +142,24 @@ direct traffic to Envoy:
 kubectl -n projectcontour port-forward service/envoy 8888:80
 ```
 
-Then visit http://local.projectcontour.io:8888/. For our production environment,
-we would use the address of the Envoy service.
+Then visit `http://local.projectcontour.io:8888/`.
+For our production environment, we would use the address of the Envoy service.
 
-For more information on Contour, see [the official
-documentation](https://projectcontour.io/docs/).
+For more information on Contour, see
+[the official documentation](https://projectcontour.io/docs/).
 
 ### KubeVirt
 
 KubeVirt extends Kubernetes functionality by adding virtual machine workloads
 alongside containers.
 
-#### Configuration
+#### KubeVirt Configuration
 
 KubeVirt is configured to allow the execution and management of virtual machines
 within the Kubernetes cluster. It is necessary to have
 [krew](https://krew.sigs.k8s.io/) installed.
 
-#### Testing
+#### Testing KubeVirt
 
 To test an Ubuntu virtual machine, execute this command:
 
@@ -186,7 +185,7 @@ metadata:
   labels:
     app: containerized-data-importer
   annotations:
-    cdi.kubevirt.io/storage.import.endpoint: "https://releases.ubuntu.com/jammy/ubuntu-22.04.3-desktop-amd64.iso" # Required. Format: (http||s3)://www.myUrl.com/path/of/data
+    cdi.kubevirt.io/storage.import.endpoint: 'https://releases.ubuntu.com/jammy/ubuntu-22.04.3-desktop-amd64.iso' # Required. Format: (http||s3)://www.myUrl.com/path/of/data
 spec:
   accessModes:
     - ReadWriteOnce
@@ -211,86 +210,30 @@ downloaded.
 Grafana is a data analytics and visualization platform for monitoring IT
 systems.
 
-#### Configuration
-
-Grafana is configured to collect, analyze, and visualize metrics, logs, and
-traces from our infrastructure applications.
-
-#### Testing
-
-Visit <https://grafana.omni.cedille.club> to see what has been done.
-
 ### Clickhouse
 
 Clickhouse is a column-oriented database management system optimized for fast
 queries.
 
-#### Configuration
+#### Clickhouse Configuration
 
 Clickhouse is configured to collect and store metrics and logs from
 OpenTelemetry, contributing directly to better observability. The integration
 with Grafana allows exploiting this data through interactive dashboards for
 precise system monitoring.
 
-#### Testing
-
-Go to <https://grafana.omni.cedille.club>. Keep the tab open.
-
-Create the PV and deployment of a simple Clickhouse server (if not already done.
-To verify):
-
-```bash
-kubectl apply -f apps/samples/clickhouse/pv.yml -n clickhouse-system &&
-kubectl apply -f apps/samples/clickhouse/simple.yml -n clickhouse-system
-```
-
-Then port-forward and test the connection at http://localhost:9000/:
-
-```bash
-kubectl port-forward svc/chi-simple-example-deployment-pv-1-1 9000:9000 -n clickhouse-system # Garder la connection ouverte
-```
-
-Install the Clickhouse
-[CLI](https://clickhouse.com/docs/en/integrations/sql-clients/clickhouse-client-local)
-and connect to the server to create a simple `users` table:
-
-```bash
-clickhouse-client -h 127.0.0.1 --port 9000 --user default --password <votre-password>
-```
-
-Create the users table to accept the content of `script.py`:
-
-```sql
-CREATE TABLE users (
-    id Int32,
-    name String,
-    email String,
-    preferred_number Int32
-) ENGINE = MergeTree()
-ORDER BY id;
-```
-
-Then, insert data by running the script:
-
-```bash
-python3 script.py
-```
-
-Afterwards, you will be able to see the changes by doing a `SELECT * from
-users;`.
-
 ### Service Mesh - Kuma
 
 Kuma is a Service Mesh management platform designed for microservices and
 network orchestration.
 
-#### Configuration
+#### Kuma Configuration
 
 Kuma is configured to orchestrate, secure, and observe communications between
 services in the Kubernetes cluster. Currently, only one "mesh" has been
 configured (default).
 
-#### Testing
+#### Testing Kuma
 
 Start by deploying a demo service:
 
@@ -305,7 +248,7 @@ Then visit the deployed application:
 kubectl port-forward svc/demo-app 5000:5000 -n kuma-demo
 ```
 
-Go to <http://localhost:5000/>.
+Go to `http://localhost:5000/`.
 
 Finally, analyze Kuma's behavior:
 
@@ -313,7 +256,7 @@ Finally, analyze Kuma's behavior:
 kubectl port-forward svc/kuma-control-plane -n kuma-system 5681:5681
 ```
 
-Go to <http://localhost:5681/gui/>.
+Go to `http://localhost:5681/gui/`.
 
 #### Merbridge
 
@@ -327,12 +270,12 @@ improvement in network throughput and latency.
 To test Merbridge, simply verify that the pods continue to communicate within
 the service mesh after its integration.
 
-#### Other Considered Solutions 
+#### Other Considered Solutions
 
 Linkerd.
 
 Problem: Complexity of integration or configuration. See
-<https://github.com/linkerd/linkerd2/issues/11156>
+[github.com/linkerd/linkerd2/issues/11156](https://github.com/linkerd/linkerd2/issues/11156)
 
 ## Workloads
 

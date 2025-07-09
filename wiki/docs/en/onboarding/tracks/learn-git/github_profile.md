@@ -1,12 +1,17 @@
 # 💻 Lab: GitHub Profile README.md
 
-Welcome to your first GitHub Profile README Lab! In this short tutorial, you will create a **personalized and animated GitHub profile README** that includes cool visuals and live stats. Your profile README is what visitors see when they visit your GitHub page — so let’s make it stand out!
+Welcome to your first GitHub Profile README Lab! In this short tutorial, you
+will create a **personalized and animated GitHub profile README** that includes
+cool visuals and live stats. Your profile README is what visitors see when they
+visit your GitHub page — so let’s make it stand out!
 
 ---
 
 ## What a GitHub Profile README Is
 
-When you create a repository with the exact **same name as your GitHub username**, GitHub will treat its `README.md` as the main presentation of your profile.
+When you create a repository with the exact **same name as your GitHub
+username**, GitHub will treat its `README.md` as the main presentation of your
+profile.
 
 > Example: If your GitHub username is `jonsnow`, create a repo named `jonsnow`.
 
@@ -24,34 +29,28 @@ When you create a repository with the exact **same name as your GitHub username*
 
 ## Step 2: Clone your Repository
 
-### 2.1. Go to your working local directory.
+### 2.1. Go to your working local directory
 
 ??? tip "Hint"
-
-    ``` bash
-
-    cd /YourWorkingDirectory  (ex: /home/username/gitrepos/)
-
-    ```
+    `cd /YourWorkingDirectory`  (ex: /home/username/gitrepos/)
 
 ### 2.2. Clone your repository to that local directory
 
 ??? tip "Hint"
-
-    ``` bash
-    git clone git@github.com/YourUserName/YourUserName
-    ```
+    `git clone git@github.com/YourUserName/YourUserName`
 
 ### 2.3. Open your README.md file in your code/text editor (ex: VSCode)
 
 ## Step 3: Copy our template :)
 
-We will leave you to explore many different designs on **Step 5**, but for now we want to get started with someone nice. Then, you can add/remove elements as you see fit.
+We will leave you to explore many different designs on **Step 5**, but for now
+we want to get started with someone nice. Then, you can add/remove elements as
+you see fit.
 
-Copy the following block of Markdown text to your README.md file in your code/text editor.
+Copy the following block of Markdown text to your README.md file in your
+code/text editor.
 
-``` markdown
-
+```markdown
 # 👋 Hello, I'm YOUR NAME
 
 ![Typing SVG](https://readme-typing-svg.demolab.com/?lines=Passionate+Engineer;Lifelong+Learner;Open+Source+Lover&center=true&width=500&height=50)
@@ -59,6 +58,7 @@ Copy the following block of Markdown text to your README.md file in your code/te
 ---
 
 ## 🔧 Technologies & Tools
+
 ![Python](https://img.shields.io/badge/-Python-333333?style=flat&logo=python)
 ![JavaScript](https://img.shields.io/badge/-JavaScript-333333?style=flat&logo=javascript)
 ![Linux](https://img.shields.io/badge/-Linux-333333?style=flat&logo=linux)
@@ -66,6 +66,7 @@ Copy the following block of Markdown text to your README.md file in your code/te
 ---
 
 ## 📈 GitHub Stats
+
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=your-username&show_icons=true&theme=radical" alt="GitHub Stats" />
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=your-username&theme=radical" alt="GitHub Streak" />
@@ -74,31 +75,39 @@ Copy the following block of Markdown text to your README.md file in your code/te
 ---
 
 ## 📌 About Me
+
 - 🔭 I’m currently studying [DOMAINE D'ETUDES] at ETS Montréal.
 - 🌱 I’m currently learning [FIELDS OF INTEREST]
 
 ---
 
 ## 🎯 Fun Fact
-💡 [Fun fact about yourself]
 
+💡 [Fun fact about yourself]
 ```
 
 ## Step 4: Edit Your README.md
 
-You can now edit the informations to suit you. Here are the main changes you need make:
+You can now edit the informations to suit you. Here are the main changes you
+need make:
 
 1. In the title, change "YOUR NAME" to your actual name.
-2. You can edit the text displayed but clicking on the link and pasting the Markdown code. Look the [Typing SVG] tag in the Markdown file.
-3. For the "Technologies & tools", you can look through the list of badges [here](https://github.com/inttter/md-badges) and copy-paste the ones that fits your skills.
-4. In the GitHub Stats section, make sure to change the "username=..." & "user=..." to your actual username in GitHub.
-5. In the About me section, you can add your field of study and your field of interest.
+2. You can edit the text displayed but clicking on the link and pasting the
+   Markdown code. Look the [Typing SVG] tag in the Markdown file.
+3. For the "Technologies & tools", you can look through the
+   [list of badges](https://github.com/inttter/md-badges) and copy-paste
+   the ones that fits your skills.
+4. In the GitHub Stats section, make sure to change the "username=..." &
+   "user=..." to your actual username in GitHub.
+5. In the About me section, you can add your field of study and your field of
+   interest.
 6. Fun Fact section : optional, you can remove it if you want.
-
 
 ## Step 5: Explore the Inspiration Repository
 
-Visit [awesome-github-profile-readme](https://github.com/abhisheknaiidu/awesome-github-profile-readme) to explore:
+Visit
+[awesome-github-profile-readme](https://github.com/abhisheknaiidu/awesome-github-profile-readme)
+to explore:
 
 - 🪄 **General Profile Sections** (headers, bios, skills, etc.)
 - 📊 **Stats & Contributions**
@@ -107,7 +116,8 @@ Visit [awesome-github-profile-readme](https://github.com/abhisheknaiidu/awesome-
 - 🧠 **Learning & Tech Stack**
 - 🎯 **Goals and Fun Facts**
 
-You can pick a few sections that you like, but we'll leave that to later. Now is time to update our README.md on GitHub!
+You can pick a few sections that you like, but we'll leave that to later. Now is
+time to update our README.md on GitHub!
 
 ---
 
@@ -121,21 +131,17 @@ Now, remember, to update your changes, you need to:
 2. Commit your changes.
 3. Push your changes.
 
-It's pretty intuitive in the VSCode extension. However, we want you to guess on the CLI:
+It's pretty intuitive in the VSCode extension. However, we want you to guess on
+the CLI:
 
 ??? tip "Hint"
-
-    ``` bash
-
     git add .
     git commit -m "Changes Title"
     git push origin main
 
-    ```
+## Step 7: Check the Results
 
-## Step 7: Check the Results!
-
-Go to your GitHub profile page: https://github.com/YourUserName
+Go to your GitHub profile page: github.com/{YourUserName}
 
 Enjoy the result!
 
@@ -147,11 +153,8 @@ Now, it's time to harness the real power of Git : Team Development.
 
 Let's meet again in the [next section](team_collaboration.md) !
 
-
 ??? danger "DO NOT CLICK ON THIS!"
-
     I wonder what that is...
-
     #!FLAG-git-good-at-profiles
-
-    Maybe we'll find all the meaning at the very end of this track... Let's keep going!
+    Maybe we'll find all the meaning at the very end of this track... Let's keep
+    going!
