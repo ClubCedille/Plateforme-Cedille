@@ -170,7 +170,7 @@ git commit -m "feat: add new layout component"
 > 💡 Commit messages should be meaningful. Use formats like `feat:`, `fix:`,
 > `docs:`, etc.
 
-##  Step 6: Push Your Branch to GitHub
+## Step 6: Push Your Branch to GitHub
 
 ```bash
 git push origin feature/layout-component
@@ -217,7 +217,6 @@ Once approved and ready:
 3. Confirm the merge
 
 ✅ Your code is now merged into `feature/main-layout`.
-
 
 ## Step 10: Clean Up Old Branches
 

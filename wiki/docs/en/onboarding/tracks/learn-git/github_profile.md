@@ -37,7 +37,7 @@ profile.
 ### 2.2. Clone your repository to that local directory
 
 ??? tip "Hint"
-  git clone git@github.com/YourUserName/YourUserName
+  `git clone git@github.com/YourUserName/YourUserName`
 
 ### 2.3. Open your README.md file in your code/text editor (ex: VSCode)
 

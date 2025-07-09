@@ -27,10 +27,15 @@ for everything you'll need to setup SSH. Ignore the part about hardware security
 key.
 
 !!! note "Note"
-  Keep in mind, if you put a password for your private SSH key, it will ask you to put it every time you interact with the remote repository - that means for fetch, push, pull and other actions (which we will see right now). Do not fall in the same trap as the editor of this tutorial. :(
+  Keep in mind, if you put a password for your private SSH key, it will ask
+  you to put it every time you interact with the remote repository - that
+  means for fetch, push, pull and other actions (which we will see right now).
+  Do not fall in the same trap as the editor of this tutorial. :(
 
 !!! warning "WARNING"
-  _Please complete the SSH setup before proceeding any further. We want you to learn to clone and interact with the repository through SSH, and not HTTPS_!!
+  _Please complete the SSH setup before proceeding any further.
+  We want you to learn to clone and interact with the repository through SSH,
+  and not HTTPS_!!
 
 ### 4. Clone a repository
 
