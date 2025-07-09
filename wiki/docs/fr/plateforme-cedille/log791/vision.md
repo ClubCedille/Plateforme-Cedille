@@ -290,7 +290,7 @@ d'implémentation.
 
 ### 4.1 Contexte du produit
 
-![Diagramme de contexte](img/platforme_cedille_ctx.svg)
+![Diagramme de contexte](../img/platforme_cedille_ctx.svg)
 
 **Figure 4.1.1:** Contexte du produit
 

@@ -299,7 +299,7 @@ layer.
 
 ### 4.1 Product Context
 
-![Context Diagram](img/platforme_cedille_ctx.svg)
+![Context Diagram](../img/platforme_cedille_ctx.svg)
 
 **Figure 4.1.1:** Product Context
 
