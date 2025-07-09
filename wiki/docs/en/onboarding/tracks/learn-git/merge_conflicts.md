@@ -59,14 +59,13 @@ Edit `HALL_OF_GITFAME.md`, and insert your name at the top of the list:
 !!! warning "Warning"
     Add your name ON TOP of the Immortals list!
 
-```diff
-## 🧙 Immortals of Git
+      ```diff
+      ## 🧙 Immortals of Git
 
-+- 🛡️ Your legendary name
- - 🧝‍♀️ Ada Lovelace
- - 🧙‍♂️ Linus Torvalds
-
-```
+      +- 🛡️ Your legendary name
+       - 🧝‍♀️ Ada Lovelace
+       - 🧙‍♂️ Linus Torvalds
+      ```
 
 !!! warning "Warning"
     Always add your name to the top of the list. Otherwise a challenger
@@ -120,21 +119,21 @@ Now is the time to create a PR (pull request) on GitHub
   1. Click **Resolve conflicts** on GitHub.
   2. You’ll see something like:
 
-  ```diff
-  +<<<<<< HEAD
-  - 🛡️ Hercules
-  =======
-  - 🛡️ Your Legendary Name
-  +>>>>>> add-your-name
-  ```
+    ```diff
+    +<<<<<< HEAD
+    - 🛡️ Hercules
+    =======
+    - 🛡️ Your Legendary Name
+    +>>>>>> add-your-name
+    ```
 
   3. Manually _edit the conflict_ to keep all names & removing any Hydra Heads until
   none are left to slay:
 
-  ```diff
-  - 🛡️ Your Legendary Name
-  - 🛡️ Hercules
-  ```
+    ```diff
+    - 🛡️ Your Legendary Name
+    - 🛡️ Hercules
+    ```
 
 4. Click Mark as resolved
 5. Commit the merge
