@@ -105,14 +105,7 @@ nav:
     - Finish the Onboarding: onboarding/complete.md
   - CEDILLE Platform:
     - 'Introduction to the CEDILLE Platform': plateforme-cedille/index.md
-    - "LOG791":
-      - 'How it started': plateforme-cedille/log791/index.md
-      - 'Project Report': plateforme-cedille/log791/rapport.md
-      - Retrospectives:
-        - 'Retrospective 1': plateforme-cedille/log791/retrospective-1.md
-        - 'Retrospective 2': plateforme-cedille/log791/retrospective-2.md
-        - 'Retrospective 3': plateforme-cedille/log791/retrospective-3.md
-    - 'Vision Document': plateforme-cedille/vision.md
+    - 'Vision Document': plateforme-cedille/vision2025.md
     - Infrastructure: plateforme-cedille/infra.md
     - 'Kubernetes Cluster': plateforme-cedille/cluster-kubernetes.md
     - 'Hardware Components': plateforme-cedille/hardware.md
@@ -124,6 +117,15 @@ nav:
     - Contribution Guide: plateforme-cedille/contribution-guidelines.md
     - Getting Started: plateforme-cedille/getting-started.md
     - SRE: plateforme-cedille/sre.md
+  - Origin of CEDILLE Platform:
+    - "LOG791":
+      - 'How it started': plateforme-cedille/log791/index.md
+      - 'Project Report': plateforme-cedille/log791/rapport.md
+      - Retrospectives:
+        - 'Retrospective 1': plateforme-cedille/log791/retrospective-1.md
+        - 'Retrospective 2': plateforme-cedille/log791/retrospective-2.md
+        - 'Retrospective 3': plateforme-cedille/log791/retrospective-3.md
+      - 'Vision Document': plateforme-cedille/log791/vision.md
 markdown_extensions:
   - admonition
   - pymdownx.snippets:
