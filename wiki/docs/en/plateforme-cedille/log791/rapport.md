@@ -474,7 +474,7 @@ and future initiatives.
 
 ## Appendices
 
-- [Vision Document](../vision.md)
+- [Vision Document](./vision.md)
 - [Sprints](index.md)
 - [Git Repository](https://github.com/ClubCedille/Plateforme-Cedille)
 - [Task Tracking](https://github.com/orgs/ClubCedille/projects/3)
