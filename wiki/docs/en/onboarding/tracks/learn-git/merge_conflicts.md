@@ -32,48 +32,30 @@ Like the usual, start by cloning
 [the repository](https://github.com/ClubCedille/OlympGit).
 
 ??? hint "Hint"
-
-``` bash
-git clone git@github.com:ClubCedille/OlympGit.git
-cd OlympGit
-```
-
----
+    git clone git@github.com:ClubCedille/OlympGit.git
+    cd OlympGit
 
 ### 2. Check Out the OlympGit Branch
 
 Switch from the `main` branch to the `olympgit` branch.
 
 ??? hint "Hint"
-
-``` bash
-git checkout olympgit
-git pull origin olympgit
-```
-
----
+  git checkout olympgit
+  git pull origin olympgit
 
 ### 3. Create Your Personal Branch from `OlympGit`
 
 Create your branch under the name of add-your-name. Ex: add-linus-torvalds.
 
 ??? hint "Hint"
-
-``` bash
-git checkout -b add-<your-name>
-```
-
----
+  git checkout -b add-<your-name>
 
 ### 4. Inscribe to the Hall
 
 Edit `HALL_OF_GITFAME.md`, and insert your name at the top of the list:
 
 !!! warning "Warning"
-
-```text
-    Add your name ON TOP of the Immortals list!
-```
+  Add your name ON TOP of the Immortals list!
 
 ```diff
 ## 🧙 Immortals of Git
@@ -90,20 +72,13 @@ Edit `HALL_OF_GITFAME.md`, and insert your name at the top of the list:
 Always add your name to the top of the list. Otherwise a challenger might come to try to steal your place!
 ```
 
----
-
 ### 5. Commit Your Changes
 
 Now that you have added your name, let's commit the change to your branch.
 
 ??? hint "Hint"
-
-``` bash
-git add HALL_OF_GITFAME.md
-git commit -m "feat: add Your Name to Hall of GitFame"
-```
-
----
+  git add HALL_OF_GITFAME.md
+  git commit -m "feat: add Your Name to Hall of GitFame"
 
 ### 6. Push Your Branch to GitHub
 
@@ -111,28 +86,18 @@ Now that you've had your changes done locally, you have to put it on the remote
 branch.
 
 ??? hint "Hint"
-
-``` bash
-git push origin add-your-name
-```
-
----
+  git push origin add-your-name
 
 ### 7. Create a Pull Request (The Final Trial)
 
 Now is the time to create a PR (pull request) on GitHub
 
 ??? hint "Hint"
-
-- Head over to GitHub:
-
-- You'll see a message: ➕ “Compare & Pull Request” → Click it.
-
-- Set the base branch to olympgit
-
-- The compare branch should be your add-your-name branch
-
-- Add a message like:
+  - Head over to GitHub
+  - You'll see a message: ➕ “Compare & Pull Request” → Click it.
+  - Set the base branch to olympgit
+  - The compare branch should be your add-your-name branch
+  - Add a message like:
 
 ```text
 🏛️ Feat: Add [Your Name] to the Hall of GitFame
@@ -142,8 +107,6 @@ Ready to resolve conflicts and claim my place.
 ```
 
 - Submit the Pull Request
-
----
 
 ### 8. Resolve the Merge Conflict (⚔️ The Git Duel)
 
@@ -171,8 +134,6 @@ Ready to resolve conflicts and claim my place.
 4. Click Mark as resolved
 5. Commit the merge
 
----
-
 ### 9. Team Review & Approval (The Wisdom Council)
 
 Before your PR can be merged into olympgit, your team captain, mentor, or peer
@@ -195,8 +156,6 @@ If changes are requested:
 
 - Your PR will update automatically
 
----
-
 ### 10. Merge the Pull Request (Upon Approval)
 
 Once your PR is:
@@ -217,7 +176,7 @@ Then, and only then:
 
 🎉 Your name is now inscribed among the Immortals!
 
-### 🧠 What You’ve Learned
+### What You’ve Learned
 
 - Branching from a shared team branch
 

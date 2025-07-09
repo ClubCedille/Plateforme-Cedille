@@ -32,19 +32,12 @@ profile.
 ### 2.1. Go to your working local directory
 
 ??? tip "Hint"
-
-``` bash
-cd /YourWorkingDirectory  (ex: /home/username/gitrepos/)
-
-```
+  cd /YourWorkingDirectory  (ex: /home/username/gitrepos/)
 
 ### 2.2. Clone your repository to that local directory
 
 ??? tip "Hint"
-
-``` bash
-git clone git@github.com/YourUserName/YourUserName
-```
+  git clone git@github.com/YourUserName/YourUserName
 
 ### 2.3. Open your README.md file in your code/text editor (ex: VSCode)
 
@@ -142,13 +135,9 @@ It's pretty intuitive in the VSCode extension. However, we want you to guess on
 the CLI:
 
 ??? tip "Hint"
-
-``` bash
-git add .
-git commit -m "Changes Title"
-git push origin main
-
-```
+  git add .
+  git commit -m "Changes Title"
+  git push origin main
 
 ## Step 7: Check the Results
 
@@ -165,12 +154,7 @@ Now, it's time to harness the real power of Git : Team Development.
 Let's meet again in the [next section](team_collaboration.md) !
 
 ??? danger "DO NOT CLICK ON THIS!"
-
-```text
-I wonder what that is...
-
-#!FLAG-git-good-at-profiles
-
-Maybe we'll find all the meaning at the very end of this track... Let's keep
-going!
-```
+  I wonder what that is...
+  #!FLAG-git-good-at-profiles
+  Maybe we'll find all the meaning at the very end of this track... Let's keep
+  going!

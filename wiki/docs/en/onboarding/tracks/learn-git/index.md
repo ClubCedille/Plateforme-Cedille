@@ -101,7 +101,3 @@ focus on the following four, and we will see a couple more later on.
    which files are modified, staged, or untracked—so you know what to do next.
 
 _we can ignore `git checkout` for now._
-
----
-
-When you are ready, go on to the [next page](intro_github.md) !

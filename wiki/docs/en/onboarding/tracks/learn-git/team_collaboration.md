@@ -117,25 +117,13 @@ parallel:
 
 Here's a more detailed step-by-step tutorial on how to do it.
 
----
-
-!!! warning "FOR READING ONLY"
-
-```text
-**ALL THE NEXT POINTS DESCRIBED ARE MEANT TO BE READ, NOT DONE. YOU WILL PRACTICE THEM IN THE LAB.**
-```
-
----
-
-## 🧩 Scenario
+## Scenario
 
 You're working on a larger feature: `feature/main-layout` You want to create a
 sub-feature: `feature/layout-component` You’ll merge it back via a Pull Request
 — not locally.
 
----
-
-## 📦 Step 1: Go to Your Project Folder
+## Step 1: Go to Your Project Folder
 
 ```bash
 cd path/to/your/project
@@ -148,9 +136,7 @@ git clone git@github.com:your-team/project-name.git
 cd project-name
 ```
 
----
-
-## 🔀 Step 2: Switch to the Base Branch
+## Step 2: Switch to the Base Branch
 
 This is the feature you're building on top of.
 
@@ -159,9 +145,7 @@ git checkout feature/main-layout
 git pull origin feature/main-layout
 ```
 
----
-
-## 🌱 Step 3: Create a New Branch from It
+## Step 3: Create a New Branch from It
 
 ```bash
 git checkout -b feature/layout-component
@@ -169,18 +153,14 @@ git checkout -b feature/layout-component
 
 📌 You're now working **on a new branch based on `feature/main-layout`**.
 
----
-
-## ✏️ Step 4: Make Changes to the Code
+##  Step 4: Make Changes to the Code
 
 Use your favorite editor (VSCode, etc.) to:
 
 - Add your new feature or fix
 - Save your files
 
----
-
-## ✅ Step 5: Add and Commit Your Changes
+## Step 5: Add and Commit Your Changes
 
 ```bash
 git add .
@@ -190,9 +170,7 @@ git commit -m "feat: add new layout component"
 > 💡 Commit messages should be meaningful. Use formats like `feat:`, `fix:`,
 > `docs:`, etc.
 
----
-
-## ☁️ Step 6: Push Your Branch to GitHub
+##  Step 6: Push Your Branch to GitHub
 
 ```bash
 git push origin feature/layout-component
@@ -200,9 +178,7 @@ git push origin feature/layout-component
 
 You’ve now published your branch online and it’s ready for review.
 
----
-
-## 🔁 Step 7: Open a Pull Request
+## Step 7: Open a Pull Request
 
 1. Go to your repository on [GitHub](https://github.com)
 2. You’ll see a prompt: ➕ **Compare & pull request** → Click it
@@ -213,9 +189,7 @@ You’ve now published your branch online and it’s ready for review.
 
 > 🧠 Don’t forget to write what your code does and why you made these changes.
 
----
-
-## 👀 Step 8: Get Your PR Reviewed
+## Step 8: Get Your PR Reviewed
 
 Your teammates can now:
 
@@ -234,9 +208,7 @@ git push origin feature/layout-component
 
 The PR will update automatically.
 
----
-
-## 🔀 Step 9: Merge the Pull Request
+## Step 9: Merge the Pull Request
 
 Once approved and ready:
 
@@ -246,9 +218,8 @@ Once approved and ready:
 
 ✅ Your code is now merged into `feature/main-layout`.
 
----
 
-## 🧹 Step 10: Clean Up Old Branches
+## Step 10: Clean Up Old Branches
 
 After merging:
 
@@ -257,9 +228,7 @@ git branch -d feature/layout-component           # delete local
 git push origin --delete feature/layout-component  # delete remote
 ```
 
----
-
-## 📘 Full Recap: PR-Based Feature Flow
+## Full Recap: PR-Based Feature Flow
 
 ```bash
 # Start from your main feature branch
