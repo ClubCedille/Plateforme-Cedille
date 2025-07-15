@@ -16,7 +16,7 @@ it through a **Pull Request**.
 
 ## 📦 Project Structure
 
-This repo contains:
+The repo in question contains:
 
 - `main` — neutral base branch (do not modify)
 - `olympus` — the sacred branch where Immortals are written
@@ -34,7 +34,16 @@ Like the usual, start by cloning
 ??? hint "Hint"
     `git clone git@github.com:ClubCedille/OlympGit.git`
 
+<<<<<<< Updated upstream
     `cd OlympGit`
+=======
+    ``` bash
+    git clone git@github.com:
+    cd hall-of-gitfame
+    ```
+
+---
+>>>>>>> Stashed changes
 
 ### 2. Check Out the OlympGit Branch
 
