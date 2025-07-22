@@ -221,3 +221,19 @@ module "nqlp" {
   cluster_repo = var.platform_repo
   netdata_role = "observer"
 }
+
+
+module "AmineFanid" {
+  source          = "./modules/user"
+  github_email    = "fan.aminee@gmail.com"
+  github_username = "AmineFanid"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" }, 
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Reader"
+  cluster_repo = var.platform_repo
+  netdata_role = variable.netdata_space_id
+  netdata_role = "observer"
+}
