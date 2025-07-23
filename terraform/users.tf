@@ -234,6 +234,5 @@ module "kingNomad3" {
   cluster_name = var.cluster_name
   cluster_role = "Reader"
   cluster_repo = var.platform_repo
-  netdata_role = variable.netdata_space_id
   netdata_role = "observer"
 }
