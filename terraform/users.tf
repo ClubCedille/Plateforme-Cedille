@@ -221,3 +221,18 @@ module "nqlp" {
   cluster_repo = var.platform_repo
   netdata_role = "observer"
 }
+
+
+module "kingNomad3" {
+  source          = "./modules/user"
+  github_email    = "benjamin.joinvil.1@ens.etsmtl.ca"
+  github_username = "kingNomad3"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" }, 
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Reader"
+  cluster_repo = var.platform_repo
+  netdata_role = "observer"
+}
