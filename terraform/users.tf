@@ -209,10 +209,10 @@ module "Hertinox0" {
 }
 
 
-module "boresimo" {
+module "boredsimo" {
   source          = "./modules/user"
   github_email    = "mfatene02@gmail.com"
-  github_username = "boresimo"
+  github_username = "boredsimo"
   github_role     = "member"
   teams = [
     { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" }, 
