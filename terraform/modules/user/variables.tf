@@ -49,5 +49,8 @@ variable "netdata_space_id" {
 
 variable "netdata_role" {
   type = string
-  default = "observer"
+  validation {
+    condition = var.netdata_role == "observer" || var.netdata_role == "admin" || var.netdata_role == "None"
+    error_message = "netdata_role must be one of: observer, admin or None"
+  }
 }
