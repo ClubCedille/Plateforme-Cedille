@@ -286,3 +286,19 @@ module "lilianfelix-prog" {
   netdata_space_id = var.netdata_space_id
   netdata_role = "observer"
 }
+
+
+module "LucaChouinard" {
+  source          = "./modules/user"
+  github_email    = "luca.chouinard.tech@protonmail.com"
+  github_username = "LucaChouinard"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" }, 
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Reader"
+  cluster_repo = var.platform_repo
+  netdata_space_id = var.netdata_space_id
+  netdata_role = ""
+}
