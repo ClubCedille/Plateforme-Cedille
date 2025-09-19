@@ -8,6 +8,6 @@
         "groups":
         - "reader"
         - "nqlp"
-    "role": "Reader"
+    "role": "Operator"
     "users":
     - "nqlpaul@gmail.com"
