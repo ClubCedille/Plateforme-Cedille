@@ -39,7 +39,7 @@ module "andrei22131" {
   github_username = "andrei22131"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
@@ -56,7 +56,7 @@ module "Epsot" {
   github_username = "Epsot"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
@@ -72,7 +72,7 @@ module "RussellJimmies" {
   github_username = "RussellJimmies"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
@@ -88,7 +88,7 @@ module "alexvegas22" {
   github_username = "alexvegas22"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
@@ -104,7 +104,7 @@ module "JulienGiguere" {
   github_username = "JulienGiguere"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
@@ -136,7 +136,7 @@ module "etienneoh" {
   github_username = "etienneoh"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
@@ -152,7 +152,7 @@ module "raphaelNguimbus" {
 
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
@@ -168,7 +168,7 @@ module "HassaanBahsoun" {
 
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
@@ -183,7 +183,7 @@ module "christiano-maker" {
   github_username = "christiano-maker"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Reader"
@@ -198,7 +198,7 @@ module "Hertinox0" {
   github_username = "Hertinox0"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Reader"
@@ -214,7 +214,7 @@ module "nqlp" {
   github_username = "nqlp"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
@@ -230,7 +230,7 @@ module "kingNomad3" {
   github_username = "kingNomad3"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Reader"
@@ -246,7 +246,7 @@ module "AmineFanid" {
   github_username = "AmineFanid"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Reader"
@@ -262,7 +262,7 @@ module "boredsimo" {
   github_username = "boredsimo"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
@@ -278,7 +278,7 @@ module "lilianfelix-prog" {
   github_username = "lilianfelix-prog"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
@@ -294,7 +294,7 @@ module "LucaChouinard" {
   github_username = "LucaChouinard"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Reader"
@@ -310,10 +310,25 @@ module "hodux" {
   github_username = "hodux"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
+  cluster_repo = var.platform_repo
+  netdata_space_id = var.netdata_space_id
+  netdata_role = "observer"
+}
+
+  module "justlac" {
+  source          = "./modules/user"
+  github_email    = "justlac@hotmail.fr"
+  github_username = "justlac"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" },
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Reader"
   cluster_repo = var.platform_repo
   netdata_space_id = var.netdata_space_id
   netdata_role = "observer"
