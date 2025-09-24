@@ -23,18 +23,17 @@ Our daily communication happens on
 - **Platform History**: [Origin of the CEDILLE
   Platform](https://wiki.cedille.club/plateforme-cedille/log791/)
 
-## When Do Our Meetings Take Place
+## Meetings
+### Scrum
+We have scrum-style weekly meetings where we discuss current projects, 
+hurdles, go over the backlog and distribute available tasks to
+members. It is usually followed by a coding session back at our 
+shared classroom (D-2020).
 
-All our meetings are voluntary; we do not require a minimum level of
-involvement. However, the more you get involved, the more you will
-learn and the more fun you will have.
-
-We usually have weekly meetings lasting 30 minutes where we discuss
-the progress of our projects. After that, we go to our club room,
-D-2020, to work together.
-
-We also have another working session, which we call a ‘workshop,’ and
-it is longer.
+### Workshop
+A second meeting takes place every friday afternoon, where we 
+collaborate on ongoing projects. Members are available to help 
+on issues with assigned tasks and collaboration is encouraged.
 
 ### Schedule for the Fall 2025 Session
 
@@ -48,43 +47,42 @@ After contacting us, you can fill out the membership form. We only
 accept students after we have met with them.
 
 - Fill out the form on
-  [Monets](https://formulaires.etsmtl.ca/ClubEtudiantAdhesion?requete=cedille&categorie=0).
+  [MonEts](https://formulaires.etsmtl.ca/ClubEtudiantAdhesion?requete=cedille&categorie=0).
 
 - Complete the quiz on
   [Moodle](https://ena.etsmtl.ca/mod/quiz/view.php?id=1783903).
 
-## Project Showcases
+The quiz will only be available once your request has been approved.
 
-CEDILLE hosts several websites for other clubs and applications as per
-their requests.
+## Project Showcase
+Our main mandate is to help other clubs deploy their websites on 
+our shared infrastructure. All of our deployments for other clubs
+are available on our public 
+[production repo](https://github.com/ClubCedille/k8s-cedille-production-v2) 
+under the apps folder.
 
-We also offer services like
+Other projects include offering services like:
 [Nextcloud](https://nextcloud.etsmtl.club),
 [Authentik](https://auth.etsmtl.club),
 [Vaultwarden](https://vaultwarden.etsmtl.club), and more... [Services
 Page](https://cedille.etsmtl.ca/services/).
 
-The documentation for these services is available on
+The documentation for each of these services is available on
 [Docmost](https://wiki.etsmtl.club).
 
-## Background
+We also work on internal tools, such as:
+[Trema](https://github.com/ClubCedille/trema),
+[Calidum-Rotae](https://github.com/ClubCedille/calidum-rotae),
+[Point-Virgule](https://github.com/ClubCedille/point-virgule).
+
+## About this wiki
 
 This wiki is the primary resource for our members and partners. It
 contains information about our projects, services, and best
-practices. Whether you are a developer, a system administrator, or an
-end-user, we have information to help you get familiar with the
-CEDILLE platform and make the most of it.
+practices.
 
-Here, you will find detailed guides, tutorials, best practices
-information, and answers to your most frequently asked questions. We
-have worked hard to make this documentation as clear and accessible as
-possible, but since everything is new, we are eager to receive your
-feedback to further improve it!
-
-The CEDILLE platform was designed to meet our clients' needs for
-hosting services on bare-metal servers. It is based on Kubernetes, an
-open-source containerization technology that offers exceptional
-flexibility and scalability for deploying and managing services.
+Here, you will find detailed guides, tutorials, best practices,
+and answers to your most frequently asked questions.
 
 Our goal is to provide a simple, reliable, and high-performance
 hosting platform for our clients while offering our team members an
