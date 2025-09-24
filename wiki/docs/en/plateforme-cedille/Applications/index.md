@@ -122,7 +122,7 @@ traffic to Contour, which then routes the requests to the dedicated services.
 
 #### Envoy Testing with httpbin
 
-Start by deploying a web application like [httpbin](https://httpbin.org/#/).
+Start by deploying a web application like [httpbin](https://httpbin.org).
 From the project directory:
 
 ```bash
@@ -142,8 +142,8 @@ direct traffic to Envoy:
 kubectl -n projectcontour port-forward service/envoy 8888:80
 ```
 
-Then visit `http://local.projectcontour.io:8888/`.
-For our production environment, we would use the address of the Envoy service.
+Then visit `http://local.projectcontour.io:8888/`. For our production
+environment, we would use the address of the Envoy service.
 
 For more information on Contour, see
 [the official documentation](https://projectcontour.io/docs/).
