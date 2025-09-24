@@ -31,7 +31,7 @@ projets en cours, aborder les défis, passer en revue le backlog et attribuer le
 tâches disponibles aux membres de l'équipe. Ces sessions sont généralement
 suivies d'une session de codage dans notre local de club (D-2020).
 
-### Atelier
+### Workshop
 
 Chaque vendredi après-midi, nous tenons une deuxième réunion axée sur la
 collaboration pour les projets en cours. Les membres de l'équipe sont
