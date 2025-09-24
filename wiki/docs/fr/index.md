@@ -1,6 +1,6 @@
 # Bienvenue sur la documentation officielle de CEDILLE !
 
-Notre communication quotidienne est sur discord <link>.
+Notre communication quotidienne est sur [Discord](https://discord.gg/kX4rXRTMR6).
 
 ## Liens Utiles
 - **GitHub**: [ClubCedille](https://github.com/ClubCedille)
@@ -21,8 +21,8 @@ Nous avons presque toujours des rencontres hebdomadaires de 30 minutes où nous 
 Nous avons aussi une autre séance de travail, que nous appelons 'workshop', qui est plus longue.
 
 ### Horaire pour la session Automne 2025
-Rencontre hebdomadaire : les mercredis, 17h30-18h00 (généralement au local A-1300 ou D-2040)
-Workshop : les vendredis, dès 12h00 jusqu'en soirée
+Rencontre hebdomadaire : **Mercredi, 17h30-18h00** (généralement au local A-1300 ou D-2040)
+Workshop : **Vendredi, dès 12h00** jusqu'en soirée
 
 ## Comment rejoindre le club
 Après avoir pris contact avec nous, vous pouvez remplir le formulaire d'adhésion. Nous acceptons seulement les étudiants après les avoir rencontrés.
