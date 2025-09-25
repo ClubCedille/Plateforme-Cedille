@@ -24,11 +24,12 @@ Chacun de nos trois répertoires est généré à partir de
 ### Production
 
 Le repo pour le cluster production est
-[k8s-cedille-production-v2](https://github.com/ClubCedille/k8s-cedille-production-v2). Le
-cluster production est utilisé pour héberger les sites web des clubs étudiants
-et les déploiements uniques. Toute requête de déploiement suite à une demande
-d'un club étudiant est alors déployée sur ce cluster (exemples de déploiements :
-site web CEDILLE, wiki de Capra, application backend pour un club...).
+[k8s-cedille-production-v2](https://github.com/ClubCedille/k8s-cedille-production-v2).
+Le cluster production est utilisé pour héberger les sites web des clubs
+étudiants et les déploiements uniques. Toute requête de déploiement suite à une
+demande d'un club étudiant est alors déployée sur ce cluster (exemples de
+déploiements : site web CEDILLE, wiki de Capra, application backend pour un
+club...).
 
 ### Shared
 

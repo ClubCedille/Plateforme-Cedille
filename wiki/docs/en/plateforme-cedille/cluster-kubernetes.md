@@ -23,8 +23,8 @@ Each of our three repositories is generated from
 ### Production
 
 The repository for the production cluster is
-[k8s-cedille-production-v2](https://github.com/ClubCedille/k8s-cedille-production-v2). The
-production cluster is used to host the websites of student clubs and unique
+[k8s-cedille-production-v2](https://github.com/ClubCedille/k8s-cedille-production-v2).
+The production cluster is used to host the websites of student clubs and unique
 deployments. Any deployment request following a student club's request is then
 deployed to this cluster (examples of deployments: CEDILLE website, Capra wiki,
 backend application for a club...).
