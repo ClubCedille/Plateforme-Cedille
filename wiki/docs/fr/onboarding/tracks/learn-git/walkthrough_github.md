@@ -87,7 +87,7 @@ git push origin main
 > Les options `origin main` précisent sur quelle branche pousser.
 
 Vous pouvez maintenant aller sur
-<https://github.com/YourUsername/YourUsername.git> pour voir vos nouveaux
+`https://github.com/YourUsername/YourUsername.git` pour voir vos nouveaux
 fichiers ajoutés au dépôt distant.
 
 ### 8. Récupérer de nouveaux changements
@@ -167,7 +167,7 @@ quelle version conserver.
 
 - GitHub Actions : des workflows automatiques, souvent utilisés pour tester
   automatiquement, déployer votre code, etc. Pour en savoir plus, voir [ce
-  guide](/onboarding/tracks/learn-github-actions/)
+  guide](../learn-github-actions/)
 
 Avec vos nouvelles compétences toutes fraîches (d’expert), nous pouvons passer
 au premier labo git (et non GitLab) : créez votre propre [GitHub Profile
