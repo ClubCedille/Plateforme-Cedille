@@ -15,7 +15,7 @@ Les clusters sont les suivants :
 
 ## Un répertoire par cluster
 
-Pour continuer avec la philosophie d'IaC (Infrastructure as Code), chacun des
+Pour continuer avec la philosophie d'IaC (Infrastructure as Code) et de GitOps, chacun des
 clusters a son propre dépôt GitHub.
 
 Chacun de nos trois répertoires est généré à partir de

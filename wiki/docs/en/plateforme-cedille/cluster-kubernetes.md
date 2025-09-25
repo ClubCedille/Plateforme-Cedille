@@ -15,7 +15,7 @@ The clusters are as follows:
 
 ## One Repository per Cluster
 
-To continue with the philosophy of IaC (Infrastructure as Code), each
+To continue with the philosophy of IaC (Infrastructure as Code) and GitOps, each
 cluster has its own GitHub repository.
 
 Each of our three repositories is generated from
