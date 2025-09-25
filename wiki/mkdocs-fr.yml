@@ -64,7 +64,15 @@ nav:
     - "Introduction à l'intégration": onboarding/index.md
     - Pistes d'intégration:
       - "Commencer l'intégration": onboarding/tracks/index.md
-      - 'Comment utiliser Git': onboarding/tracks/git.md
+      - Piste - Git :
+        - 'Overview of Git': onboarding/tracks/learn-git/index.md
+        - 'Introduction to Github': onboarding/tracks/learn-git/intro_github.md
+        - 'Github walkthrough': onboarding/tracks/learn-git/walkthrough_github.md
+        - 'Lab : Github Profile ReadMe' : onboarding/tracks/learn-git/github_profile.md
+        - 'Team Collaboration' : onboarding/tracks/learn-git/team_collaboration.md
+        - 'Lab : Enter the Hall of GitFame' : onboarding/tracks/learn-git/merge_conflicts.md
+        - 'Annex : Git as Extension' : onboarding/tracks/learn-git/git_as_extension.md
+        - 'End of Track' : onboarding/tracks/learn-git/git_complete.md
       - Piste - Docker:
         - 'Apprendre Docker': onboarding/tracks/learn-docker/index.md
         - 'Installation': onboarding/tracks/learn-docker/installation.md
