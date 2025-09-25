@@ -28,7 +28,7 @@ Le dépôt en question contient :
 
 ### 1. Cloner le dépôt
 
-Comme d’habitude, commence par cloner le dépôt.
+Comme d’habitude, commence par cloner [le dépôt](https://github.com/ClubCedille/OlympGit).
 
 ??? hint "Astuce"
 
