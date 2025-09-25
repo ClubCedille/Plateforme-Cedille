@@ -2,7 +2,7 @@
 
 Explorez nos différents laboratoires :
 
-- Git - Traduction en cours
+- [git] (learn-git/index.md)
 - [docker](learn-docker/index.md)
 - Développement web - Bientôt disponible
 - Développement app - Bientôt disponible
