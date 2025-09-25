@@ -46,14 +46,16 @@ Dans votre dépôt local, créez un nouveau fichier :
 |`touch test.md`|`echo test123 > test.md`|
 
 Ajoutons maintenant votre fichier pour qu’il soit suivi par Git :
-``` bash
+
+```bash
 git add test.md
 ```
 
 ### 6. Valider les changements
 
 Ajoutez du texte à `test.md` et validez‑le dans l’historique avec :
-``` bash
+
+```bash
 git commit -m "Added some text"
 ```
 
@@ -63,7 +65,7 @@ L’option `-m "Added some text"` permet d’ajouter un message à votre commit.
 
 Après quelques commits, vous voudrez les partager avec tout le monde en les poussant vers le dépôt distant.
 
-``` bash
+```bash
 git push origin main
 ```
 
@@ -91,6 +93,7 @@ Maintenant que vous avez appris les bases de Git via sa CLI, vous pouvez utilise
 ## Outils spécifiques à GitHub
 
 ### Issues
+
 L’une des raisons pour lesquelles nous avons choisi GitHub est son suivi des issues. C’est un moyen de suivre et gérer les bogues ou fonctionnalités à venir dans un dépôt. On peut assigner un utilisateur, ou commenter une proposition de correctif.
 
 Ce wiki est hébergé sur notre dépôt **Plateforme-Cedille**. Vous pouvez voir ses issues [ici](https://github.com/ClubCedille/Plateforme-Cedille/issues).
@@ -122,7 +125,5 @@ Un conflit de fusion peut survenir lorsqu’on modifie une ligne déjà modifié
 Avec vos nouvelles compétences toutes fraîches (d’expert), nous pouvons passer au premier labo git (et non GitLab) : créez votre propre [GitHub Profile ReadMe](github_profile.md) !
 
 ??? danger "Mais ATTENDEZ ! Qu’est‑ce que c’est ?..."
-
-!FLAG-why-are-you-git
-
-Hmm... Peut‑être qu’en continuant, j’aurai plus d’indices…
+    !FLAG-why-are-you-git
+    Hmm... Peut‑être qu’en continuant, j’aurai plus d’indices…

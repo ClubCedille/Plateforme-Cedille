@@ -70,4 +70,3 @@ Git possède plus de 150 commandes ! Dans notre cas, nous nous concentrerons sur
 ---
 
 Quand vous êtes prêt, passez à la [page suivante](intro_github.md) !
-

@@ -27,7 +27,6 @@ Ainsi, les équipes peuvent travailler **simultanément et en toute sécurité**
 
 > 🔐 Le branchement est la base du développement collaboratif. Sans lui, tout le monde travaillerait sur les mêmes fichiers en même temps — menant au chaos et à la perte de travail.
 
-
 ---
 
 ## 🧠 Qu’est‑ce qu’une Pull Request ?
@@ -117,10 +116,9 @@ Voici un tutoriel détaillé, étape par étape, pour le faire.
 
       **TOUS LES POINTS CI‑DESSOUS SONT À LIRE, PAS À EXÉCUTER. VOUS LES PRATIQUEREZ DANS LE LAB.**
 
-
 ---
 
-## 🧩 Scénario
+## Scénario
 
 Vous travaillez sur une fonctionnalité plus large : `feature/main-layout`  
 Vous voulez créer une sous‑fonctionnalité : `feature/layout-component`  
@@ -128,43 +126,35 @@ Vous la fusionnerez via une Pull Request — pas localement.
 
 ---
 
-## 📦 Étape 1 : Aller dans le dossier du projet
+## Étape 1 : Aller dans le dossier du projet
 
-``` bash
-cd path/to/your/project
-```
+    cd path/to/your/project
 
 Si vous n’avez pas encore cloné le projet :
 
-``` bash
-git clone git@github.com:your-team/project-name.git
-cd project-name
-```
+    git clone git@github.com:your-team/project-name.git
+    cd project-name
 
 ---
 
-## 🔀 Étape 2 : Basculer sur la branche de base
+## Étape 2 : Basculer sur la branche de base
 
 C’est la fonctionnalité sur laquelle vous vous basez.
 
-``` bash
-git checkout feature/main-layout
-git pull origin feature/main-layout
-```
+    git checkout feature/main-layout
+    git pull origin feature/main-layout
 
 ---
 
-## 🌱 Étape 3 : Créer une nouvelle branche depuis celle‑ci
+## Étape 3 : Créer une nouvelle branche depuis celle‑ci
 
-``` bash
-git checkout -b feature/layout-component
-```
+    git checkout -b feature/layout-component
 
 📌 Vous travaillez maintenant **sur une nouvelle branche basée sur `feature/main-layout`**.
 
 ---
 
-## ✏️ Étape 4 : Modifier le code
+## Étape 4 : Modifier le code
 
 Utilisez votre éditeur préféré (VSCode, etc.) pour :
 
@@ -173,28 +163,24 @@ Utilisez votre éditeur préféré (VSCode, etc.) pour :
 
 ---
 
-## ✅ Étape 5 : Ajouter et valider vos changements
+## Étape 5 : Ajouter et valider vos changements
 
-``` bash
-git add .
-git commit -m "feat: add new layout component"
-```
+    git add .
+    git commit -m "feat: add new layout component"
 
-> 💡 Les messages de commit doivent être parlants. Utilisez des formats comme `feat:`, `fix:`, `docs:`, etc.
+> Les messages de commit doivent être parlants. Utilisez des formats comme `feat:`, `fix:`, `docs:`, etc.
 
 ---
 
-## ☁️ Étape 6 : Pousser votre branche vers GitHub
+## Étape 6 : Pousser votre branche vers GitHub
 
-``` bash
-git push origin feature/layout-component
-```
+    git push origin feature/layout-component
 
 Votre branche est maintenant publiée en ligne et prête pour une revue.
 
 ---
 
-## 🔁 Étape 7 : Ouvrir une Pull Request
+## Étape 7 : Ouvrir une Pull Request
 
 1. Allez sur votre dépôt sur [GitHub](https://github.com)
 2. Vous verrez une invite :
@@ -204,11 +190,11 @@ Votre branche est maintenant publiée en ligne et prête pour une revue.
 5. Ajoutez un **titre et une description clairs**
 6. Cliquez sur **Create pull request**
 
-> 🧠 N’oubliez pas d’expliquer ce que fait votre code et pourquoi vous avez fait ces changements.
+> N’oubliez pas d’expliquer ce que fait votre code et pourquoi vous avez fait ces changements.
 
 ---
 
-## 👀 Étape 8 : Faire relire votre PR
+## Étape 8 : Faire relire votre PR
 
 Vos coéquipiers peuvent maintenant :
 
@@ -218,18 +204,16 @@ Vos coéquipiers peuvent maintenant :
 
 Si quelqu’un demande des changements :
 
-``` bash
-# Make the edits
-git add .
-git commit -m "fix: adjust component"
-git push origin feature/layout-component
-```
+    # Make the edits
+    git add .
+    git commit -m "fix: adjust component"
+    git push origin feature/layout-component
 
 La PR se mettra à jour automatiquement.
 
 ---
 
-## 🔀 Étape 9 : Fusionner la Pull Request
+## Étape 9 : Fusionner la Pull Request
 
 Une fois approuvée et prête :
 
@@ -241,50 +225,41 @@ Une fois approuvée et prête :
 
 ---
 
-## 🧹 Étape 10 : Nettoyer les anciennes branches
+## Étape 10 : Nettoyer les anciennes branches
 
 Après la fusion :
 
-``` bash
-git branch -d feature/layout-component           # delete local
-git push origin --delete feature/layout-component  # delete remote
-```
+    git branch -d feature/layout-component           # delete local
+    git push origin --delete feature/layout-component  # delete remote
 
 ---
 
 ## 📘 Récapitulatif complet : flux de fonctionnalité basé sur PR
 
-``` bash
-# Partez de votre branche de fonctionnalité principale
-git checkout feature/main-layout
-git pull origin feature/main-layout
+    # Partez de votre branche de fonctionnalité principale
+    git checkout feature/main-layout
+    git pull origin feature/main-layout
 
-# Créez une sous‑branche de fonctionnalité
-git checkout -b feature/layout-component
+    # Créez une sous‑branche de fonctionnalité
+    git checkout -b feature/layout-component
 
-# Faites vos changements
-git add .
-git commit -m "feat: add component"
+    # Faites vos changements
+    git add .
+    git commit -m "feat: add component"
 
-# Poussez vers GitHub
-git push origin feature/layout-component
+    # Poussez vers GitHub
+    git push origin feature/layout-component
 
-# → Allez sur GitHub et créez une Pull Request visant feature/main-layout
+    # → Allez sur GitHub et créez une Pull Request visant feature/main-layout
 
-# Après approbation → fusionnez via l’interface GitHub
+    # Après approbation → fusionnez via l’interface GitHub
 
-# Nettoyez
-git branch -d feature/layout-component
-git push origin --delete feature/layout-component
-```
+    # Nettoyez
+    git branch -d feature/layout-component
+    git push origin --delete feature/layout-component
 
 ---
 
 ## Section suivante — Lab : Hall of GitFame
 
 Maintenant que vous avez un guide sur la collaboration en équipe avec Git, mettons cela en pratique avec **[OLYMPGIT](./merge_conflicts.md)**.
-
-!!! warning "ATTENDEZ"
-
-      **Je crois que le Hall of GitFame est en rénovation... J’ai vu tellement de cônes orange à l’entrée. On devrait peut‑être passer notre chemin ! — (oui, sautez‑le, ce n’est pas encore prêt...)**
-

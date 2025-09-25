@@ -27,20 +27,12 @@ Lorsque vous créez un dépôt portant **exactement le même nom que votre nom d
 ### 2.1 Allez dans votre répertoire de travail local
 
 ??? tip "Astuce"
-
-    ``` bash
-
-    cd /YourWorkingDirectory  (ex: /home/username/gitrepos/)
-
-    ```
+    `cd /YourWorkingDirectory`  (ex: /home/username/gitrepos/)
 
 ### 2.2. Clonez votre dépôt dans ce répertoire local
 
 ??? tip "Astuce"
-
-    ``` bash
-    git clone git@github.com/YourUserName/YourUserName
-    ```
+    `git clone git@github.com/YourUserName/YourUserName`
 
 ### 2.3. Ouvrez votre fichier README.md dans votre éditeur de code/texte (ex : VSCode)
 
@@ -50,8 +42,7 @@ Nous vous laisserons explorer différents designs à l’**Étape 5**, mais pour
 
 Copiez le bloc de texte Markdown suivant dans votre fichier README.md dans votre éditeur.
 
-``` markdown
-
+```markdown
 # 👋 Hello, I'm YOUR NAME
 
 ![Typing SVG](https://readme-typing-svg.demolab.com/?lines=Passionate+Engineer;Lifelong+Learner;Open+Source+Lover&center=true&width=500&height=50)
@@ -95,7 +86,6 @@ Vous pouvez maintenant modifier les informations pour vous correspondre. Voici l
 5. Dans la section « À propos de moi », ajoutez votre domaine d’étude et vos champs d’intérêt.
 6. Section Fun Fact : optionnelle, vous pouvez la retirer si vous voulez.
 
-
 ## Étape 5 : Explorer le dépôt d’inspiration
 
 Visitez [awesome-github-profile-readme](https://github.com/abhisheknaiidu/awesome-github-profile-readme) pour explorer :
@@ -124,14 +114,9 @@ Rappelez-vous, pour mettre à jour vos changements, vous devez :
 C’est assez intuitif dans l’extension VSCode. Cependant, nous voulons que vous le fassiez avec la CLI :
 
 ??? tip "Hint"
-
-    ``` bash
-
     git add .
     git commit -m "Changes Title"
     git push origin main
-
-    ```
 
 ## Étape 7 : Vérifier le résultat
 
@@ -147,11 +132,7 @@ Maintenant, il est temps d’exploiter la vraie puissance de Git : le développe
 
 On se retrouve dans la [prochaine section](team_collaboration.md) !
 
-
 ??? danger "NE CLIQUEZ PAS ICI !"
-
     Je me demande ce que c’est…
-
     #!FLAG-git-good-at-profiles
-
     Peut-être qu’on trouvera tout le sens à la toute fin de ce parcours… Continuons !

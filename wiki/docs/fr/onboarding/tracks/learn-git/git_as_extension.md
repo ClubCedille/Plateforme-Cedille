@@ -23,6 +23,7 @@ Ce guide montre comment effectuer les opérations Git essentielles dans VSCode e
 ## ✅ Valider les modifications
 
 **CLI:**
+
 ``` bash
 git add .
 git commit -m "Your message"
@@ -52,7 +53,6 @@ Ou cliquez sur l’icône de synchronisation (🔄) dans la barre d’état
 
 ![Push_sync](./img/push_sync.png)
 
-
 ## ⬇️ Récupérer les dernières modifications
 
 CLI:
@@ -61,7 +61,7 @@ CLI:
 git pull origin main
 ```
 
-VSCode: 
+VSCode:
 
 Cliquez sur … → Pull
 
@@ -121,8 +121,6 @@ VSCode:
 
 > Cliquez sur le nom de la branche en bas à gauche. Sélectionnez la branche souhaitée dans la liste déroulante
 ![switch_branches](./img/switch_branches.png)
-
-
 > 🔄 Pas besoin de mémoriser les noms des branches — elles sont listées pour vous.
 
 ## 🧹 Supprimer une branche
@@ -152,6 +150,7 @@ CLI:
 git checkout target-branch
 git merge source-branch
 ```
+
 VSCode:
 
 Allez dans Contrôle de source → ... → Branch
@@ -159,8 +158,6 @@ Allez dans Contrôle de source → ... → Branch
 
 Branch → Merge...
 ![merge_branch](./img/merge_branch.png)
-
-
 
 > 📌 VSCode vous alerte des conflits potentiels et permet une résolution côte à côte.
 
@@ -188,6 +185,7 @@ VSCode rend Git accessible et visuel — parfait pour les débutants
 
 Vous pouvez toujours utiliser la CLI Git à tout moment via le terminal intégré
 
-Apprenez la CLI avec le temps, mais laissez VSCode guider votre flux de travail au début.
+Apprenez la CLI avec le temps, mais laissez VSCode guider votre flux de travail
+au début.
 
-Nous sommes à la fin, passez à la [page suivante](./git_complete.md).
+Nous sommes à la fin, passez à la [page suivante](./git_complete.md)

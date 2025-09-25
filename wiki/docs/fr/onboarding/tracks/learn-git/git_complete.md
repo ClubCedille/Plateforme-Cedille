@@ -44,11 +44,6 @@ Utilisez Git au quotidien — la meilleure façon de le maîtriser est de l’em
 
 Bon code !
 
-<details>
-<summary> C’est tout ? </summary>
-
+!!! C’est tout ?
     #!FLAG-git-your-captain
-
     Votre capitaine sait probablement quelque chose à propos de ces drapeaux…
-
-</details>

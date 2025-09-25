@@ -34,4 +34,3 @@ Dans le tutoriel suivant, nous allons l’éditer et l’améliorer, car il est 
 ---
 
 Avec votre nouveau compte, vous êtes prêt à [commencer à utiliser GitHub](walkthrough_github.md) !
-

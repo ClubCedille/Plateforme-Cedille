@@ -1,16 +1,3 @@
-
-
-!!! warning "Travail en cours"
-
-    
-    
-    **Nos Pégases sont fatigués... Revenez plus tard !**
-
-
-## 🏗️👷‍♂️🚧🟧🚧🟧🚧🟧🚧🟧🚧🟧🚧🟧🚧👷‍♂️🏗️
-
-<details>
-
 # 🏛️ Labo : Entrer dans le Hall of GitFame
 
 ## **Bienvenue, digne élu·e.**
@@ -83,15 +70,13 @@ Modifie `HALL_OF_GITFAME.md` et insère ton nom en haut de la liste :
 
     Ajoute ton nom EN HAUT de la liste des Immortels !
 
-``` diff
+    ```diff
+    ## 🧙 Immortals of Git
 
-## 🧙 Immortals of Git
-
-+- 🛡️ Your legendary name
- - 🧝‍♀️ Ada Lovelace
- - 🧙‍♂️ Linus Torvalds
-
-```
+    +- 🛡️ Your legendary name
+    - 🧝‍♀️ Ada Lovelace
+    - 🧙‍♂️ Linus Torvalds
+    ```
 
 !!! warning "Attention"
 
@@ -117,15 +102,11 @@ Maintenant que tu as ajouté ton nom, validons le changement sur ta branche.
 Maintenant que tes changements sont faits en local, il faut les envoyer sur la branche distante.
 
 ??? hint "Astuce"
-
-    ``` bash
-    git push origin add-your-name
-    ```
+    `git push origin add-your-name`
 
 ---
 
 ### 7. Créer une Pull Request (l’Épreuve finale)
-
 
 C’est le moment de créer une PR (pull request) sur GitHub.
 
@@ -150,7 +131,6 @@ C’est le moment de créer une PR (pull request) sur GitHub.
 
     - Soumets la Pull Request
 
-
 ---
 
 ### 8. Résoudre le conflit de fusion (⚔️ Le duel Git)
@@ -160,20 +140,16 @@ Si ta Pull Request ne peut pas être fusionnée automatiquement :
 1. Clique sur **Resolve conflicts** sur GitHub.
 2. Tu verras quelque chose comme :
 
-``` diff
-+<<<<<< HEAD
-- 🛡️ Hercules
-=======
-- 🛡️ Your Legendary Name
-+>>>>>> add-your-name
-```
+    +<<<<<< HEAD
+    - 🛡️ Hercules
+    =======
+    - 🛡️ Your Legendary Name
+    +>>>>>> add-your-name
 
-3. *Modifie manuellement le conflit* pour garder tous les noms :
+3. Modifie manuellement le conflit pour garder tous les noms :
 
-```
-- 🛡️ Your Legendary Name
-- 🛡️ Hercules
-```
+    - 🛡️ Your Legendary Name
+    - 🛡️ Hercules
 
 4. Clique sur Mark as resolved
 
@@ -240,35 +216,3 @@ Alors, et seulement alors :
 🎉 Tu sais maintenant utiliser les branches et les Pull Requests pour collaborer comme un pro !
 
 Avant de conclure notre parcours Git, jetons un œil à [l’extension Git dans Visual Studio Code](./git_as_extension.md).
-
-!!! note "Note pour les devs"
-
-    Utiliser une branche factice pour les apprenants solo
-
-    * Pré-créer une branche appelée, par exemple, add-training-dummy à partir de olympgit.
-
-    * Dans cette branche, modifiez HALL_OF_GITFAME.md et ajoutez :
-
-        ```
-        - 🛡️ Training Dummy
-        ```
-
-    * Poussez cette branche vers GitHub, mais ne la fusionnez PAS.
-
-    Dans les instructions, demandez à l’apprenant :
-
-    * De partir de olympgit
-
-    * D’ajouter son propre nom en haut
-
-    * D’ouvrir une Pull Request pour fusionner dans olympgit
-
-    * Ensuite, en tant qu’instructeur, fusionnez la PR factice avant lui.
-
-        * Lorsqu’il tentera de fusionner sa propre PR, GitHub indiquera :
-            ⚠️ « This branch has conflicts that must be resolved »
-
-    🎯 C’est le moment pédagogique : l’apprenant doit corriger le conflit dans l’éditeur web ou en local.
-
-
-</details>
