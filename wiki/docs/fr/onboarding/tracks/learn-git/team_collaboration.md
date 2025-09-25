@@ -22,7 +22,7 @@ Cela vous permet de :
 🌿 Créer un espace séparé pour développer de nouvelles fonctionnalités  
 🧪 Expérimenter ou corriger des bogues sans rien casser  
 👨‍👩‍👧‍👦 Collaborer avec d’autres sur des tâches différentes  
-🔁 Revenir fusionner votre travail dans la branche principale quand il est prêt  
+🔁 Revenir fusionner votre travail dans la branche principale quand il est prêt
 
 Chaque branche part d’un point précis (souvent `main` ou une autre
 fonctionnalité) et évolue indépendamment.  
