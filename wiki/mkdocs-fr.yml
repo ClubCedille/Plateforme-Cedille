@@ -127,6 +127,7 @@ nav:
         - 'Retrospection 3': plateforme-cedille/log791/retrospective-3.md
     - 'Document de vision': plateforme-cedille/log791/vision.md
 markdown_extensions:
+  - admonition
   - pymdownx.snippets:
   - pymdownx.superfences:
       custom_fences:
