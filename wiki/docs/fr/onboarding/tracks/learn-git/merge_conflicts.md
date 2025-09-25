@@ -3,12 +3,14 @@
 ## **Bienvenue, digne élu·e.**
 
 Voici **OlympGit**, le lieu de repos éternel des Immortels de Git.  
-Si tu maîtrises l’art de créer des branches, fusionner et résoudre les conflits, ton nom sera gravé tout en haut — pour toujours.
+Si tu maîtrises l’art de créer des branches, fusionner et résoudre les conflits,
+ton nom sera gravé tout en haut — pour toujours.
 
-Ta tâche est d’ajouter ton nom au Hall of GitFame — **en haut de la liste** — comme toutes les légendes avant toi.
+Ta tâche est d’ajouter ton nom au Hall of GitFame — **en haut de la liste** —
+comme toutes les légendes avant toi.
 
-Mais prends garde : **Seuls les plus forts survivent à la fusion**.
-Et **seuls les sages** 🧙‍♂️ le font via une **Pull Request**.
+Mais prends garde : **Seuls les plus forts survivent à la fusion**. Et **seuls
+les sages** 🧙‍♂️ le font via une **Pull Request**.
 
 ---
 
@@ -99,10 +101,10 @@ Maintenant que tu as ajouté ton nom, validons le changement sur ta branche.
 
 ### 6. Pousser ta branche vers GitHub
 
-Maintenant que tes changements sont faits en local, il faut les envoyer sur la branche distante.
+Maintenant que tes changements sont faits en local, il faut les envoyer sur la
+branche distante.
 
-??? hint "Astuce"
-    `git push origin add-your-name`
+??? hint "Astuce" `git push origin add-your-name`
 
 ---
 
@@ -143,8 +145,7 @@ Si ta Pull Request ne peut pas être fusionnée automatiquement :
     +<<<<<< HEAD
     - 🛡️ Hercules
     =======
-    - 🛡️ Your Legendary Name
-    +>>>>>> add-your-name
+    - 🛡️ Your Legendary Name +>>>>>> add-your-name
 
 3. Modifie manuellement le conflit pour garder tous les noms :
 
@@ -159,7 +160,8 @@ Si ta Pull Request ne peut pas être fusionnée automatiquement :
 
 ### 9. Revue d’équipe et approbation (Le Conseil de Sagesse)
 
-Avant que ta PR puisse être fusionnée dans olympgit, ton chef d’équipe, mentor ou pair doit :
+Avant que ta PR puisse être fusionnée dans olympgit, ton chef d’équipe, mentor
+ou pair doit :
 
 - 👁️ Revoir tes changements
 
@@ -167,7 +169,8 @@ Avant que ta PR puisse être fusionnée dans olympgit, ton chef d’équipe, men
 
 - ✅ Approuver ta Pull Request
 
-> ❗ Ne fusionne pas ta propre PR sauf autorisation explicite de ton formateur ou chef d’équipe.
+> ❗ Ne fusionne pas ta propre PR sauf autorisation explicite de ton formateur ou
+> chef d’équipe.
 
 Si des changements sont demandés :
 
@@ -213,6 +216,8 @@ Alors, et seulement alors :
 
 - Fusionner des changements dans une branche d’équipe partagée
 
-🎉 Tu sais maintenant utiliser les branches et les Pull Requests pour collaborer comme un pro !
+🎉 Tu sais maintenant utiliser les branches et les Pull Requests pour collaborer
+comme un pro !
 
-Avant de conclure notre parcours Git, jetons un œil à [l’extension Git dans Visual Studio Code](./git_as_extension.md).
+Avant de conclure notre parcours Git, jetons un œil à [l’extension Git dans
+Visual Studio Code](./git_as_extension.md).

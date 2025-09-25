@@ -1,14 +1,21 @@
 # 💻 Lab : README.md du profil GitHub
 
-Bienvenue dans votre premier labo de README de profil GitHub ! Dans ce court tutoriel, vous allez créer un **README de profil GitHub personnalisé et animé** avec de jolis visuels et des statistiques en direct. Votre README de profil est ce que les visiteurs voient lorsqu’ils consultent votre page GitHub — faisons-le ressortir !
+Bienvenue dans votre premier labo de README de profil GitHub ! Dans ce court
+tutoriel, vous allez créer un **README de profil GitHub personnalisé et animé**
+avec de jolis visuels et des statistiques en direct. Votre README de profil est
+ce que les visiteurs voient lorsqu’ils consultent votre page GitHub — faisons-le
+ressortir !
 
 ---
 
 ## Ce qu’est un README de profil GitHub
 
-Lorsque vous créez un dépôt portant **exactement le même nom que votre nom d’utilisateur GitHub**, GitHub considère son `README.md` comme la présentation principale de votre profil.
+Lorsque vous créez un dépôt portant **exactement le même nom que votre nom
+d’utilisateur GitHub**, GitHub considère son `README.md` comme la présentation
+principale de votre profil.
 
-> Exemple : si votre nom d’utilisateur GitHub est `jonsnow`, créez un dépôt nommé `jonsnow`.
+> Exemple : si votre nom d’utilisateur GitHub est `jonsnow`, créez un dépôt
+> nommé `jonsnow`.
 
 ---
 
@@ -26,21 +33,22 @@ Lorsque vous créez un dépôt portant **exactement le même nom que votre nom d
 
 ### 2.1 Allez dans votre répertoire de travail local
 
-??? tip "Astuce"
-    `cd /YourWorkingDirectory`  (ex: /home/username/gitrepos/)
+??? tip "Astuce" `cd /YourWorkingDirectory`  (ex: /home/username/gitrepos/)
 
 ### 2.2. Clonez votre dépôt dans ce répertoire local
 
-??? tip "Astuce"
-    `git clone git@github.com/YourUserName/YourUserName`
+??? tip "Astuce" `git clone git@github.com/YourUserName/YourUserName`
 
 ### 2.3. Ouvrez votre fichier README.md dans votre éditeur de code/texte (ex : VSCode)
 
 ## Étape 3 : Copier notre modèle :)
 
-Nous vous laisserons explorer différents designs à l’**Étape 5**, mais pour l’instant commençons avec quelque chose de sympa. Ensuite, vous pourrez ajouter/supprimer des éléments à votre guise.
+Nous vous laisserons explorer différents designs à l’**Étape 5**, mais pour
+l’instant commençons avec quelque chose de sympa. Ensuite, vous pourrez
+ajouter/supprimer des éléments à votre guise.
 
-Copiez le bloc de texte Markdown suivant dans votre fichier README.md dans votre éditeur.
+Copiez le bloc de texte Markdown suivant dans votre fichier README.md dans votre
+éditeur.
 
 ```markdown
 # 👋 Hello, I'm YOUR NAME
@@ -77,18 +85,26 @@ Copiez le bloc de texte Markdown suivant dans votre fichier README.md dans votre
 
 ## Étape 4 : Modifier votre README.md
 
-Vous pouvez maintenant modifier les informations pour vous correspondre. Voici les principaux changements à faire :
+Vous pouvez maintenant modifier les informations pour vous correspondre. Voici
+les principaux changements à faire :
 
 1. Dans le titre, changez « YOUR NAME » pour votre vrai nom.
-2. Vous pouvez modifier le texte affiché en cliquant sur le lien et en collant le code Markdown. Cherchez la balise [Typing SVG] dans le fichier Markdown.
-3. Pour « Technologies & tools », consultez la liste de badges [ici](https://github.com/inttter/md-badges) et copiez-collez ceux qui correspondent à vos compétences.
-4. Dans la section GitHub Stats, assurez-vous de changer « username=… » et « user=… » pour votre vrai nom d’utilisateur GitHub.
-5. Dans la section « À propos de moi », ajoutez votre domaine d’étude et vos champs d’intérêt.
+2. Vous pouvez modifier le texte affiché en cliquant sur le lien et en collant
+   le code Markdown. Cherchez la balise [Typing SVG] dans le fichier Markdown.
+3. Pour « Technologies & tools », consultez la liste de badges
+   [ici](https://github.com/inttter/md-badges) et copiez-collez ceux qui
+   correspondent à vos compétences.
+4. Dans la section GitHub Stats, assurez-vous de changer « username=… » et «
+   user=… » pour votre vrai nom d’utilisateur GitHub.
+5. Dans la section « À propos de moi », ajoutez votre domaine d’étude et vos
+   champs d’intérêt.
 6. Section Fun Fact : optionnelle, vous pouvez la retirer si vous voulez.
 
 ## Étape 5 : Explorer le dépôt d’inspiration
 
-Visitez [awesome-github-profile-readme](https://github.com/abhisheknaiidu/awesome-github-profile-readme) pour explorer :
+Visitez
+[awesome-github-profile-readme](https://github.com/abhisheknaiidu/awesome-github-profile-readme)
+pour explorer :
 
 - 🪄 **General Profile Sections** (headers, bios, skills, etc.)
 - 📊 **Stats & Contributions**
@@ -97,7 +113,8 @@ Visitez [awesome-github-profile-readme](https://github.com/abhisheknaiidu/awesom
 - 🧠 **Learning & Tech Stack**
 - 🎯 **Goals and Fun Facts**
 
-Vous pouvez choisir quelques sections qui vous plaisent, mais on verra cela plus tard. Il est temps de mettre à jour notre README.md sur GitHub !
+Vous pouvez choisir quelques sections qui vous plaisent, mais on verra cela plus
+tard. Il est temps de mettre à jour notre README.md sur GitHub !
 
 ---
 
@@ -111,12 +128,10 @@ Rappelez-vous, pour mettre à jour vos changements, vous devez :
 2. Commit your changes.
 3. Push your changes.
 
-C’est assez intuitif dans l’extension VSCode. Cependant, nous voulons que vous le fassiez avec la CLI :
+C’est assez intuitif dans l’extension VSCode. Cependant, nous voulons que vous
+le fassiez avec la CLI :
 
-??? tip "Hint"
-    git add .
-    git commit -m "Changes Title"
-    git push origin main
+??? tip "Hint" git add . git commit -m "Changes Title" git push origin main
 
 ## Étape 7 : Vérifier le résultat
 
@@ -128,11 +143,11 @@ Profitez du résultat !
 
 Félicitations pour votre premier workflow git **_réel_**.
 
-Maintenant, il est temps d’exploiter la vraie puissance de Git : le développement en équipe.
+Maintenant, il est temps d’exploiter la vraie puissance de Git : le
+développement en équipe.
 
 On se retrouve dans la [prochaine section](team_collaboration.md) !
 
-??? danger "NE CLIQUEZ PAS ICI !"
-    Je me demande ce que c’est…
-    #!FLAG-git-good-at-profiles
-    Peut-être qu’on trouvera tout le sens à la toute fin de ce parcours… Continuons !
+??? danger "NE CLIQUEZ PAS ICI !" Je me demande ce que c’est…
+    #!FLAG-git-good-at-profiles Peut-être qu’on trouvera tout le sens à la toute
+    fin de ce parcours… Continuons !

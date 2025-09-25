@@ -1,9 +1,11 @@
 # 🖥️ Git dans Visual Studio Code : une interface conviviale pour débutants
 
-Bien que la **CLI Git** soit puissante, elle peut sembler intimidante pour les débutants.
-Visual Studio Code (VSCode) propose une **extension Git intégrée** qui simplifie la plupart des opérations Git avec un flux visuel épuré.
+Bien que la **CLI Git** soit puissante, elle peut sembler intimidante pour les
+débutants. Visual Studio Code (VSCode) propose une **extension Git intégrée**
+qui simplifie la plupart des opérations Git avec un flux visuel épuré.
 
-Ce guide montre comment effectuer les opérations Git essentielles dans VSCode et comment il se compare à la ligne de commande.
+Ce guide montre comment effectuer les opérations Git essentielles dans VSCode et
+comment il se compare à la ligne de commande.
 
 ---
 
@@ -16,7 +18,8 @@ Ce guide montre comment effectuer les opérations Git essentielles dans VSCode e
   - Fichiers non suivis
   - Conflits (avec marqueurs)
 
-> ✅ Vous pouvez **"stage"** les fichiers d’un simple clic ➕, et **annuler** les modifications avec l’icône poubelle.
+> ✅ Vous pouvez **"stage"** les fichiers d’un simple clic ➕, et **annuler** les
+> modifications avec l’icône poubelle.
 
 ---
 
@@ -31,11 +34,13 @@ git commit -m "Your message"
 
 VSCode:
 
-Vous pouvez tous les "stage" avec le signe + ou appuyer sur le bouton de validation.
+Vous pouvez tous les "stage" avec le signe + ou appuyer sur le bouton de
+validation.
 
 ![Stage_and_commit](./img/stage_and_commit.png)
 
-> 💡  VSCode met également en évidence les changements ligne par ligne, vous permettant de valider des morceaux de fichiers (« hunks ») individuellement.
+> 💡  VSCode met également en évidence les changements ligne par ligne, vous
+> permettant de valider des morceaux de fichiers (« hunks ») individuellement.
 
 ## 🚀 Pousser vers GitHub
 
@@ -47,7 +52,8 @@ git push origin your-branch
 
 VSCode:
 
-Après avoir validé (commit), cliquez sur le menu … dans l’onglet Contrôle de source → Push
+Après avoir validé (commit), cliquez sur le menu … dans l’onglet Contrôle de
+source → Push
 
 Ou cliquez sur l’icône de synchronisation (🔄) dans la barre d’état
 
@@ -83,12 +89,13 @@ git fetch
 
 VSCode:
 
-Utilisez … → Fetch pour récupérer les mises à jour distantes sans les fusionner automatiquement
+Utilisez … → Fetch pour récupérer les mises à jour distantes sans les fusionner
+automatiquement
 
 ![fetch](./img/fetch.png)
 
-> 🧠 Useful for previewing changes before pulling.
-> 🧠 Utile pour prévisualiser les changements avant de faire un pull.
+> 🧠 Useful for previewing changes before pulling. 🧠 Utile pour prévisualiser
+> les changements avant de faire un pull.
 
 ## 🌿 Créer une nouvelle branche
 
@@ -103,8 +110,7 @@ VSCode:
 Cliquez sur le nom de la branche en bas à gauche
 ![branch_bottom](./img/branch_bottom.png)
 
-Sélectionnez Create New Branch…
-![create_branch](./img/create_branch.png)
+Sélectionnez Create New Branch… ![create_branch](./img/create_branch.png)
 
 Entrez un nom et sélectionnez la branche de base (généralement main)
 ![branch_name](./img/branch_name.png)
@@ -119,9 +125,10 @@ git checkout branch-name
 
 VSCode:
 
-> Cliquez sur le nom de la branche en bas à gauche. Sélectionnez la branche souhaitée dans la liste déroulante
-![switch_branches](./img/switch_branches.png)
-> 🔄 Pas besoin de mémoriser les noms des branches — elles sont listées pour vous.
+> Cliquez sur le nom de la branche en bas à gauche. Sélectionnez la branche
+souhaitée dans la liste déroulante ![switch_branches](./img/switch_branches.png)
+> 🔄 Pas besoin de mémoriser les noms des branches — elles sont listées pour
+> vous.
 
 ## 🧹 Supprimer une branche
 
@@ -137,10 +144,10 @@ VSCode:
 Allez dans Contrôle de source → ... → Branch
 ![del_branch](./img/del_branch_1.png)
 
-Branch → Delete Branch...
-![del_branch_2](./img/del_branch_2.png)
+Branch → Delete Branch... ![del_branch_2](./img/del_branch_2.png)
 
-> ⚠️ VSCode demandera une confirmation avant de supprimer localement ou à distance.
+> ⚠️ VSCode demandera une confirmation avant de supprimer localement ou à
+> distance.
 
 ## 🔀 Fusionner des branches
 
@@ -156,10 +163,10 @@ VSCode:
 Allez dans Contrôle de source → ... → Branch
 ![merge_branch_1](./img/del_branch_1.png)
 
-Branch → Merge...
-![merge_branch](./img/merge_branch.png)
+Branch → Merge... ![merge_branch](./img/merge_branch.png)
 
-> 📌 VSCode vous alerte des conflits potentiels et permet une résolution côte à côte.
+> 📌 VSCode vous alerte des conflits potentiels et permet une résolution côte à
+> côte.
 
 ## ⚔️ Résoudre les conflits de fusion
 
@@ -175,7 +182,8 @@ incoming changes
 + >>>>>>> other-branch
 ```
 
-- Des boutons apparaissent au-dessus : Accept Current, Accept Incoming, Accept Both, ou Compare.
+- Des boutons apparaissent au-dessus : Accept Current, Accept Incoming, Accept
+  Both, ou Compare.
 
 Cela rend la résolution des conflits bien plus facile qu’en CLI.
 

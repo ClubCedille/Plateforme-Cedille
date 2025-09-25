@@ -15,7 +15,9 @@
 
 ## 🧭 Et maintenant ?
 
-Maintenant que vous savez **versionner et collaborer sur du code**, il est temps d’apprendre à **exécuter, packager et déployer du code de manière fiable** — dans n’importe quel environnement.
+Maintenant que vous savez **versionner et collaborer sur du code**, il est temps
+d’apprendre à **exécuter, packager et déployer du code de manière fiable** —
+dans n’importe quel environnement.
 
 ### 🚀 Prochaine étape : Parcours d’intégration Docker
 
@@ -26,7 +28,8 @@ Dans le prochain module d’intégration, vous apprendrez :
 - Comment utiliser la CLI Docker et les Dockerfiles
 - Les bonnes pratiques de développement et de déploiement
 
-> 🐳 Docker est la suite logique pour les développeurs modernes travaillant en équipe, dans le cloud et en environnements DevOps.
+> 🐳 Docker est la suite logique pour les développeurs modernes travaillant en
+> équipe, dans le cloud et en environnements DevOps.
 
 ---
 
@@ -38,12 +41,12 @@ Dans le prochain module d’intégration, vous apprendrez :
 
 ## 🧠 Astuce avant de partir
 
-Utilisez Git au quotidien — la meilleure façon de le maîtriser est de l’employer sur de vrais projets, même petits.
+Utilisez Git au quotidien — la meilleure façon de le maîtriser est de l’employer
+sur de vrais projets, même petits.
 
 > « Git n’est pas qu’un outil, c’est un langage pour le travail d’équipe. »
 
 Bon code !
 
-!!! C’est tout ?
-    #!FLAG-git-your-captain
-    Votre capitaine sait probablement quelque chose à propos de ces drapeaux…
+!!! C’est tout ? #!FLAG-git-your-captain Votre capitaine sait probablement
+    quelque chose à propos de ces drapeaux…
