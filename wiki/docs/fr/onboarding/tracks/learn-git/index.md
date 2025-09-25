@@ -1,31 +1,34 @@
-# Introduction to Source Control & Git
+# Introduction au contrôle de version & Git
 
-## What is Source Control?
-Source control, or version control, is a system that helps **manage** and **track changes** in any digital project over time, which is code in our case.
+## Qu’est-ce que le contrôle de version ?
 
-It is especially useful for us since developping any software is a team effort, and a system is needed to allow everyone to **collaborate together** without overwriting everyone's changes.
+Le contrôle de version (source control) est un système qui aide à **gérer** et **suivre les changements** d’un projet numérique au fil du temps — du code dans notre cas.
 
-Additionally, a source control system enables a **detailed history of changes**, allowing someone to easily **revert** to an earlier version without ever losing a single line of code.
+Il est particulièrement utile pour nous, car développer un logiciel est un effort d’équipe, et un système est nécessaire pour permettre à chacun de **collaborer** sans écraser les modifications des autres.
 
-You have probably used some form of Source Control in your life if you've collaborated with a team on any of Google's office suite (Ex. Docs,Sheets)! They allow collaboration on the same document, and provide a history of the changes made.
+De plus, un système de contrôle de version offre un **historique détaillé des changements**, permettant de **revenir** facilement à une version antérieure sans perdre une seule ligne de code.
 
-### Why do you need a source control system ?
-- *Collaboration*: An entire team can work together on the same project, without stepping on anyone's foot
-- *Backup*: Any line of code that has been pushed to the source control, will be there forever, no matter what
-- *Track changes*: Easily find who added what to a project
-- *Branching*: Allows the isolation of certain experimental features on a project, without impacting the main project.
+Vous avez probablement déjà utilisé une forme de contrôle de version si vous avez collaboré en équipe avec la suite bureautique de Google (ex. Docs, Sheets) ! Elle permet la collaboration sur le même document et fournit un historique des modifications.
+
+### Pourquoi avez-vous besoin d’un système de contrôle de version ?
+
+- Collaboration : toute une équipe peut travailler sur le même projet sans se marcher sur les pieds
+- Sauvegarde : toute ligne de code poussée dans le contrôle de version y restera pour toujours, quoi qu’il arrive
+- Suivi des changements : retrouvez facilement qui a ajouté quoi au projet
+- Branches : isolez des fonctionnalités expérimentales sans impacter le projet principal
 
 ---
 
-## Git (A quick overview)
-A source control system is just a bunch of ideas, which anyone can take and create their own functional integration. For us (*and most of the world*), we use [**Git**](https://git-scm.com/).
-> Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+## Git (aperçu rapide)
 
-It was created in 2005 by Linus Torvalds (Creator of Linux) to help the collaborators of the Linux kernel (the heart of a operating system) work together. It has since stood the test of time, and is used by a vast majority of software developpement team.
+Un système de contrôle de version n’est qu’un ensemble de concepts que chacun peut implémenter. Pour nous (*et la majorité du monde*), nous utilisons [**Git**](https://git-scm.com/).
+> Git est un système de contrôle de version distribué, gratuit et open source, conçu pour gérer des projets de toute taille avec rapidité et efficacité.
 
-It works very well for any project's sizes, while staying efficient. Furthermore, it is a *distributed system*, which means everyone working on a project has a local access to the entire history, without the need for a centralized server.
+Il a été créé en 2005 par Linus Torvalds (créateur de Linux) pour aider les collaborateurs du noyau Linux à travailler ensemble. Il a depuis fait ses preuves et est utilisé par une grande majorité des équipes de développement logiciel.
 
-### Git's workflow
+Il fonctionne très bien pour des projets de toutes tailles, tout en restant efficace. De plus, c’est un système *distribué*, ce qui signifie que chacun possède localement l’historique complet, sans serveur central obligatoire.
+
+### Flux de travail Git
 
 ```mermaid
 sequenceDiagram
@@ -44,27 +47,27 @@ Local Repo->>Remote Repo: git push
 Remote Repo->>Local Repo: git pull
 ```
 
-Git has 3 primary areas where all the action happens:
+Git possède 3 zones principales où toute l’action se déroule :
 
-1. **Working directory**: This is the actual files you will be writing your code to !
+1. **Working directory** : ce sont les fichiers réels dans lesquels vous écrivez votre code !
 
-2. **Staging area**: This a a buffer zone where your changes are stored before commiting them.
+2. **Staging area** : une zone tampon où vos changements sont stockés avant d’être commités.
 
-3. **Repository (local/remote)**: Also known as a *repo*, this is where all your changes are stored permanently. You have a local repository which can be different from the remote repository since Git is a *distributed* system.
+3. **Repository (local/distant)** : aussi appelé *repo*, c’est là où vos changements sont stockés de façon permanente. Vous avez un dépôt local qui peut différer du dépôt distant puisque Git est un système *distribué*.
 
-Git has over a 150 different commands to interact with it ! In our case, we will focus on the following four, and we will see a couple more later on.
+Git possède plus de 150 commandes ! Dans notre cas, nous nous concentrerons sur les quatre suivantes, et nous en verrons d’autres plus tard.
 
-1. **`git add`**: Add or move a change from the working directory into the staging area.
+1. **`git add`** : ajoute ou déplace un changement du working directory vers la staging area.
 
-2. **`git commit`**: Saves the changes you've added from the staging area into your local repo.
+2. **`git commit`** : enregistre dans votre dépôt local les changements ajoutés depuis la staging area.
 
-3. **`git push`**: When you are happy with all your changes in your local repo, it is time to push it into the remote repo and make it available to anyone working on the project !
+3. **`git push`** : quand vous êtes satisfait de vos changements en local, poussez-les vers le dépôt distant pour les rendre disponibles à tous.
 
-4. **`git pull`**: As the name suggests, *pull* retrieves any changes on the remote repo into your local repo. If you've recently `git push` new changes into the remote repo, your colleagues will need to use `git pull` to have acces to them in their own local repo.
+4. **`git pull`** : comme son nom l’indique, récupère les changements du dépôt distant vers votre dépôt local. Si vous avez récemment fait un `git push`, vos collègues devront faire un `git pull` pour les récupérer.
 
-*we can ignore `git checkout` for now.*
+*on peut ignorer `git checkout` pour l’instant.*
 
 ---
 
-When you are ready, go on to the [next page](intro_github.md) !
+Quand vous êtes prêt, passez à la [page suivante](intro_github.md) !
 

@@ -1,32 +1,32 @@
-# 💻 Lab: GitHub Profile README.md
+# 💻 Lab : README.md du profil GitHub
 
-Welcome to your first GitHub Profile README Lab! In this short tutorial, you will create a **personalized and animated GitHub profile README** that includes cool visuals and live stats. Your profile README is what visitors see when they visit your GitHub page — so let’s make it stand out!
-
----
-
-## What a GitHub Profile README Is
-
-When you create a repository with the exact **same name as your GitHub username**, GitHub will treat its `README.md` as the main presentation of your profile.
-
-> Example: If your GitHub username is `jonsnow`, create a repo named `jonsnow`.
+Bienvenue dans votre premier labo de README de profil GitHub ! Dans ce court tutoriel, vous allez créer un **README de profil GitHub personnalisé et animé** avec de jolis visuels et des statistiques en direct. Votre README de profil est ce que les visiteurs voient lorsqu’ils consultent votre page GitHub — faisons-le ressortir !
 
 ---
 
-## Step 1: Create the Repository
+## Ce qu’est un README de profil GitHub
 
-1. Go to [GitHub](https://github.com/)
-2. Click the ➕ icon in the top right corner > `New repository`
-3. Repository name: `YourUserName`
-4. Check `Add a README file`
-5. Click `Create repository`
+Lorsque vous créez un dépôt portant **exactement le même nom que votre nom d’utilisateur GitHub**, GitHub considère son `README.md` comme la présentation principale de votre profil.
+
+> Exemple : si votre nom d’utilisateur GitHub est `jonsnow`, créez un dépôt nommé `jonsnow`.
 
 ---
 
-## Step 2: Clone your Repository
+## Étape 1 : Créer le dépôt
 
-### 2.1. Go to your working local directory.
+1. Allez sur [GitHub](https://github.com/)
+2. Cliquez sur l’icône ➕ en haut à droite > `New repository`
+3. Nom du dépôt : `YourUserName`
+4. Cochez `Add a README file`
+5. Cliquez sur `Create repository`
 
-??? tip "Hint"
+---
+
+## Étape 2 : Cloner votre dépôt
+
+### 2.1 Allez dans votre répertoire de travail local
+
+??? tip "Astuce"
 
     ``` bash
 
@@ -34,21 +34,21 @@ When you create a repository with the exact **same name as your GitHub username*
 
     ```
 
-### 2.2. Clone your repository to that local directory
+### 2.2. Clonez votre dépôt dans ce répertoire local
 
-??? tip "Hint"
+??? tip "Astuce"
 
     ``` bash
     git clone git@github.com/YourUserName/YourUserName
     ```
 
-### 2.3. Open your README.md file in your code/text editor (ex: VSCode)
+### 2.3. Ouvrez votre fichier README.md dans votre éditeur de code/texte (ex : VSCode)
 
-## Step 3: Copy our template :)
+## Étape 3 : Copier notre modèle :)
 
-We will leave you to explore many different designs on **Step 5**, but for now we want to get started with someone nice. Then, you can add/remove elements as you see fit.
+Nous vous laisserons explorer différents designs à l’**Étape 5**, mais pour l’instant commençons avec quelque chose de sympa. Ensuite, vous pourrez ajouter/supprimer des éléments à votre guise.
 
-Copy the following block of Markdown text to your README.md file in your code/text editor.
+Copiez le bloc de texte Markdown suivant dans votre fichier README.md dans votre éditeur.
 
 ``` markdown
 
@@ -73,32 +73,32 @@ Copy the following block of Markdown text to your README.md file in your code/te
 
 ---
 
-## 📌 About Me
-- 🔭 I’m currently studying [DOMAINE D'ETUDES] at ETS Montréal.
-- 🌱 I’m currently learning [FIELDS OF INTEREST]
+## 📌 À propos de moi
+- 🔭 J’étudie actuellement [DOMAINE D'ETUDES] à l’ÉTS Montréal.
+- 🌱 J’apprends actuellement [CHAMPS D’INTÉRÊT]
 
 ---
 
-## 🎯 Fun Fact
-💡 [Fun fact about yourself]
+## 🎯 Fun fact
+💡 [Fait amusant à propos de vous]
 
 ```
 
-## Step 4: Edit Your README.md
+## Étape 4 : Modifier votre README.md
 
-You can now edit the informations to suit you. Here are the main changes you need make:
+Vous pouvez maintenant modifier les informations pour vous correspondre. Voici les principaux changements à faire :
 
-1. In the title, change "YOUR NAME" to your actual name.
-2. You can edit the text displayed but clicking on the link and pasting the Markdown code. Look the [Typing SVG] tag in the Markdown file.
-3. For the "Technologies & tools", you can look through the list of badges [here](https://github.com/inttter/md-badges) and copy-paste the ones that fits your skills.
-4. In the GitHub Stats section, make sure to change the "username=..." & "user=..." to your actual username in GitHub.
-5. In the About me section, you can add your field of study and your field of interest.
-6. Fun Fact section : optional, you can remove it if you want.
+1. Dans le titre, changez « YOUR NAME » pour votre vrai nom.
+2. Vous pouvez modifier le texte affiché en cliquant sur le lien et en collant le code Markdown. Cherchez la balise [Typing SVG] dans le fichier Markdown.
+3. Pour « Technologies & tools », consultez la liste de badges [ici](https://github.com/inttter/md-badges) et copiez-collez ceux qui correspondent à vos compétences.
+4. Dans la section GitHub Stats, assurez-vous de changer « username=… » et « user=… » pour votre vrai nom d’utilisateur GitHub.
+5. Dans la section « À propos de moi », ajoutez votre domaine d’étude et vos champs d’intérêt.
+6. Section Fun Fact : optionnelle, vous pouvez la retirer si vous voulez.
 
 
-## Step 5: Explore the Inspiration Repository
+## Étape 5 : Explorer le dépôt d’inspiration
 
-Visit [awesome-github-profile-readme](https://github.com/abhisheknaiidu/awesome-github-profile-readme) to explore:
+Visitez [awesome-github-profile-readme](https://github.com/abhisheknaiidu/awesome-github-profile-readme) pour explorer :
 
 - 🪄 **General Profile Sections** (headers, bios, skills, etc.)
 - 📊 **Stats & Contributions**
@@ -107,21 +107,21 @@ Visit [awesome-github-profile-readme](https://github.com/abhisheknaiidu/awesome-
 - 🧠 **Learning & Tech Stack**
 - 🎯 **Goals and Fun Facts**
 
-You can pick a few sections that you like, but we'll leave that to later. Now is time to update our README.md on GitHub!
+Vous pouvez choisir quelques sections qui vous plaisent, mais on verra cela plus tard. Il est temps de mettre à jour notre README.md sur GitHub !
 
 ---
 
-## Step 6: Update Your Changes
+## Étape 6 : Mettre à jour vos modifications
 
-Now is time to update our changes.
+Il est maintenant temps de mettre à jour nos modifications.
 
-Now, remember, to update your changes, you need to:
+Rappelez-vous, pour mettre à jour vos changements, vous devez :
 
 1. Stage your changes.
 2. Commit your changes.
 3. Push your changes.
 
-It's pretty intuitive in the VSCode extension. However, we want you to guess on the CLI:
+C’est assez intuitif dans l’extension VSCode. Cependant, nous voulons que vous le fassiez avec la CLI :
 
 ??? tip "Hint"
 
@@ -133,25 +133,25 @@ It's pretty intuitive in the VSCode extension. However, we want you to guess on 
 
     ```
 
-## Step 7: Check the Results!
+## Étape 7 : Vérifier le résultat
 
-Go to your GitHub profile page: https://github.com/YourUserName
+Allez sur votre page de profil GitHub : <https://github.com/YourUserName>
 
-Enjoy the result!
+Profitez du résultat !
 
-## Next Chapter - Multiuser Git Management (Team Management)
+## Prochain chapitre - Gestion Git multiutilisateurs (Gestion d’équipe)
 
-Congratulations on doing your first **_real_** git workflow.
+Félicitations pour votre premier workflow git **_réel_**.
 
-Now, it's time to harness the real power of Git : Team Development.
+Maintenant, il est temps d’exploiter la vraie puissance de Git : le développement en équipe.
 
-Let's meet again in the [next section](team_collaboration.md) !
+On se retrouve dans la [prochaine section](team_collaboration.md) !
 
 
-??? danger "DO NOT CLICK ON THIS!"
+??? danger "NE CLIQUEZ PAS ICI !"
 
-    I wonder what that is...
+    Je me demande ce que c’est…
 
     #!FLAG-git-good-at-profiles
 
-    Maybe we'll find all the meaning at the very end of this track... Let's keep going!
+    Peut-être qu’on trouvera tout le sens à la toute fin de ce parcours… Continuons !

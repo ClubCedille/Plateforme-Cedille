@@ -1,53 +1,54 @@
-# ✅ Git Onboarding Complete
+# ✅ Intégration Git terminée
 
-🎉 Congratulations! You’ve just completed the **Git onboarding track**.
+🎉 Félicitations ! Vous venez de terminer le **parcours d’intégration Git**.
 
-By now, you should be comfortable with:
+À ce stade, vous devriez être à l’aise avec :
 
-- Creating and switching branches
-- Making and committing changes
-- Pulling and pushing to remote repositories
-- Collaborating with others using Pull Requests
-- Resolving merge conflicts
-- Tracking file status and using Git via both CLI and VSCode
-
----
-
-## 🧭 What’s Next?
-
-Now that you know how to **version and collaborate on code**, it’s time to learn how to **run, package, and deploy code reliably** — across any environment.
-
-### 🚀 Up Next: Docker Onboarding Track
-
-In the next onboarding module, you’ll learn:
-
-- What Docker is and why it matters
-- How to containerize your applications
-- How to use Docker CLI and Dockerfiles
-- Best practices for development and deployment
-
-> 🐳 Docker is the natural next step for modern developers working in teams, cloud, and DevOps environments.
+- Créer et changer de branches
+- Apporter et valider des modifications
+- Récupérer (pull) et pousser (push) vers des dépôts distants
+- Collaborer avec d’autres via des Pull Requests
+- Résoudre des conflits de fusion
+- Suivre l’état des fichiers et utiliser Git via la CLI et VSCode
 
 ---
 
-## 🔗 Continue Here:
-👉 [Start Docker Onboarding Track »](../learn-docker/index.md)
+## 🧭 Et maintenant ?
+
+Maintenant que vous savez **versionner et collaborer sur du code**, il est temps d’apprendre à **exécuter, packager et déployer du code de manière fiable** — dans n’importe quel environnement.
+
+### 🚀 Prochaine étape : Parcours d’intégration Docker
+
+Dans le prochain module d’intégration, vous apprendrez :
+
+- Ce qu’est Docker et pourquoi c’est important
+- Comment containeriser vos applications
+- Comment utiliser la CLI Docker et les Dockerfiles
+- Les bonnes pratiques de développement et de déploiement
+
+> 🐳 Docker est la suite logique pour les développeurs modernes travaillant en équipe, dans le cloud et en environnements DevOps.
 
 ---
 
-## 🧠 Tip Before You Go
+## 🔗 Continuez ici
 
-Keep using Git daily — the best way to master it is by using it in real projects, even small ones.
+👉 [Commencer le parcours Docker »](../learn-docker/index.md)
 
-> "Git is not just a tool, it's a language for teamwork."
+---
 
-Happy coding!
+## 🧠 Astuce avant de partir
+
+Utilisez Git au quotidien — la meilleure façon de le maîtriser est de l’employer sur de vrais projets, même petits.
+
+> « Git n’est pas qu’un outil, c’est un langage pour le travail d’équipe. »
+
+Bon code !
 
 <details>
-<summary> Is that it? </summary>
+<summary> C’est tout ? </summary>
 
     #!FLAG-git-your-captain
 
-    Your captain probably knows something about those flags...
+    Votre capitaine sait probablement quelque chose à propos de ces drapeaux…
 
 </details>

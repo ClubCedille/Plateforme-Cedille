@@ -30,7 +30,7 @@ git commit -m "Your message"
 
 VSCode:
 
-    Vous pouvez tous les "stage" avec le signe + ou appuyer sur le bouton de validation.
+Vous pouvez tous les "stage" avec le signe + ou appuyer sur le bouton de validation.
 
 ![Stage_and_commit](./img/stage_and_commit.png)
 
@@ -46,14 +46,14 @@ git push origin your-branch
 
 VSCode:
 
-    After committing, click the … menu in the Source Control tab → Push
+Après avoir validé (commit), cliquez sur le menu … dans l’onglet Contrôle de source → Push
 
-    Or click the sync icon (🔄) in the status bar
+Ou cliquez sur l’icône de synchronisation (🔄) dans la barre d’état
 
 ![Push_sync](./img/push_sync.png)
 
 
-## ⬇️ Pulling Latest Changes
+## ⬇️ Récupérer les dernières modifications
 
 CLI:
 
@@ -63,17 +63,17 @@ git pull origin main
 
 VSCode: 
 
-    Click … → Pull
+Cliquez sur … → Pull
 
 ![pull](./img/pull.png)
 
-    Or click the sync icon in the bottom-left corner
+Ou cliquez sur l’icône de synchronisation en bas à gauche
 
 ![sync_bottom](./img/sync_bottom.png)
 
-    Conflicts, if any, will be visually flagged in the editor
+Les conflits, s’il y en a, seront signalés visuellement dans l’éditeur
 
-## 🔄 Fetching (Without Merging)
+## 🔄 Fetch (sans fusionner)
 
 CLI:
 
@@ -83,13 +83,14 @@ git fetch
 
 VSCode:
 
-    Use … → Fetch to retrieve remote updates without merging them automatically
+Utilisez … → Fetch pour récupérer les mises à jour distantes sans les fusionner automatiquement
 
 ![fetch](./img/fetch.png)
 
 > 🧠 Useful for previewing changes before pulling.
+> 🧠 Utile pour prévisualiser les changements avant de faire un pull.
 
-## 🌿 Creating a New Branch
+## 🌿 Créer une nouvelle branche
 
 CLI:
 
@@ -99,16 +100,16 @@ git checkout -b feature/branch-name
 
 VSCode:
 
-    Click on the branch name in the bottom-left corner
+Cliquez sur le nom de la branche en bas à gauche
 ![branch_bottom](./img/branch_bottom.png)
 
-    Select Create New Branch…
+Sélectionnez Create New Branch…
 ![create_branch](./img/create_branch.png)
 
-    Enter a name and select the base branch (usually main)
+Entrez un nom et sélectionnez la branche de base (généralement main)
 ![branch_name](./img/branch_name.png)
 
-## 🔁 Switching Branches
+## 🔁 Changer de branche
 
 CLI:
 
@@ -118,13 +119,13 @@ git checkout branch-name
 
 VSCode:
 
-> Click the branch name in the bottom-left corner. Select the branch you want from the dropdown list
+> Cliquez sur le nom de la branche en bas à gauche. Sélectionnez la branche souhaitée dans la liste déroulante
 ![switch_branches](./img/switch_branches.png)
 
 
-> 🔄 No need to remember branch names — they're listed for you.
+> 🔄 Pas besoin de mémoriser les noms des branches — elles sont listées pour vous.
 
-## 🧹 Deleting a Branch
+## 🧹 Supprimer une branche
 
 CLI:
 
@@ -135,15 +136,15 @@ git push origin --delete branch-name
 
 VSCode:
 
-    Go to Source Control → ... → Branch
+Allez dans Contrôle de source → ... → Branch
 ![del_branch](./img/del_branch_1.png)
 
-    Branch → Delete Branch... 
+Branch → Delete Branch...
 ![del_branch_2](./img/del_branch_2.png)
 
-> ⚠️ VSCode will ask for confirmation before deleting locally or remotely.
+> ⚠️ VSCode demandera une confirmation avant de supprimer localement ou à distance.
 
-## 🔀 Merging Branches
+## 🔀 Fusionner des branches
 
 CLI:
 
@@ -153,21 +154,21 @@ git merge source-branch
 ```
 VSCode:
 
-    Go to Source Control → ... → Branch 
+Allez dans Contrôle de source → ... → Branch
 ![merge_branch_1](./img/del_branch_1.png)
 
-    Branch → Merge...
+Branch → Merge...
 ![merge_branch](./img/merge_branch.png)
 
 
 
-> 📌 VSCode alerts you about incoming conflicts and allows side-by-side resolution.
+> 📌 VSCode vous alerte des conflits potentiels et permet une résolution côte à côte.
 
-## ⚔️ Resolving Merge Conflicts
+## ⚔️ Résoudre les conflits de fusion
 
-VSCode shines here with visual tools:
+VSCode brille ici grâce à ses outils visuels :
 
-* Conflicting lines are highlighted with:
+- Les lignes en conflit sont mises en évidence avec :
 
 ```diff
 + <<<<<<< HEAD
@@ -177,16 +178,16 @@ incoming changes
 + >>>>>>> other-branch
 ```
 
-* Buttons appear above: Accept Current, Accept Incoming, Accept Both, or Compare.
+- Des boutons apparaissent au-dessus : Accept Current, Accept Incoming, Accept Both, ou Compare.
 
-This makes conflict resolution much more manageable than the CLI.
+Cela rend la résolution des conflits bien plus facile qu’en CLI.
 
 ## Conclusion
 
-VSCode makes Git accessible and visual — perfect for beginners
+VSCode rend Git accessible et visuel — parfait pour les débutants
 
-You can still use the Git CLI at any time via the built-in terminal
+Vous pouvez toujours utiliser la CLI Git à tout moment via le terminal intégré
 
-Learn the CLI eventually, but let VSCode guide your workflow early on.
+Apprenez la CLI avec le temps, mais laissez VSCode guider votre flux de travail au début.
 
-We're at the end, go to the [next page](./git_complete.md).
+Nous sommes à la fin, passez à la [page suivante](./git_complete.md).

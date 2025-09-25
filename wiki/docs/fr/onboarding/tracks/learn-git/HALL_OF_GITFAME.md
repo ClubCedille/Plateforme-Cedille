@@ -1,13 +1,13 @@
-# ✨ The Hall of GitFame ✨
+# ✨ Le Panthéon de la GitGloire ✨
 
-Welcome to the eternal Hall of GitFame.  
-Those who conquer the **MERGE** shall inscribe their name here, at the top — above all others.
+Bienvenue dans l’éternel Panthéon de la GitGloire.  
+Ceux qui triomphent de la **FUSION (MERGE)** gravent leur nom ici, tout en haut — au-dessus de tous les autres.
 
 ---
 
-## 🧙 Immortals of Git
+## 🧙 Les Immortels de Git
 
-Immortalize your name — if you can survive the merge.
+Immortalise ton nom — si tu survis à la fusion.
 
 - 🧝‍♀️ Ada Lovelace
 - 🧙‍♂️ Linus Torvalds

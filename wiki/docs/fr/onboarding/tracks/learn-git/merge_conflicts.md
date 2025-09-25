@@ -1,47 +1,47 @@
 
 
-!!! warning "Work in Progress"
+!!! warning "Travail en cours"
 
     
     
-    **Our Pegasuses are tired... Please come back later!**
+    **Nos Pégases sont fatigués... Revenez plus tard !**
 
 
 ## 🏗️👷‍♂️🚧🟧🚧🟧🚧🟧🚧🟧🚧🟧🚧🟧🚧👷‍♂️🏗️
 
 <details>
 
-# 🏛️ Lab: Enter the Hall of GitFame
+# 🏛️ Labo : Entrer dans le Hall of GitFame
 
-## **Welcome, worthy one.**
+## **Bienvenue, digne élu·e.**
 
-This is **OlympGit**, the eternal resting place of the Git Immortals.  
-If you master the path of branching, merging, and resolving conflict, your name will be carved at the top — forever.
+Voici **OlympGit**, le lieu de repos éternel des Immortels de Git.  
+Si tu maîtrises l’art de créer des branches, fusionner et résoudre les conflits, ton nom sera gravé tout en haut — pour toujours.
 
-Your task is to add your name to the Hall of GitFame — **at the top of the list** — like all legends before you.
+Ta tâche est d’ajouter ton nom au Hall of GitFame — **en haut de la liste** — comme toutes les légendes avant toi.
 
-But beware: **Only the strong survive the merge**.
-And **only the wise** 🧙‍♂️ do it through a **Pull Request**.
-
----
-
-## 📦 Project Structure
-
-The repo in question contains:
-
-- `main` — neutral base branch (do not modify)
-- `olympus` — the sacred branch where Immortals are written
-- `HALL_OF_GITFAME.md` — the file where your name will live or die
+Mais prends garde : **Seuls les plus forts survivent à la fusion**.
+Et **seuls les sages** 🧙‍♂️ le font via une **Pull Request**.
 
 ---
 
-## 🧭 Your Quest
+## 📦 Structure du projet
 
-### 1. Clone the Repository
+Le dépôt en question contient :
 
-Like the usual, start by cloning the repository.
+- `main` — branche de base neutre (ne pas modifier)
+- `olympus` — la branche sacrée où sont inscrits les Immortels
+- `HALL_OF_GITFAME.md` — le fichier où ton nom vivra ou mourra
 
-??? hint "Hint"
+---
+
+## 🧭 Ta quête
+
+### 1. Cloner le dépôt
+
+Comme d’habitude, commence par cloner le dépôt.
+
+??? hint "Astuce"
 
     ``` bash
     git clone git@github.com:
@@ -50,11 +50,11 @@ Like the usual, start by cloning the repository.
 
 ---
 
-### 2. Check Out the OlympGit Branch
+### 2. Passer sur la branche OlympGit
 
-Switch from the `main` branch to the `olympgit` branch.
+Bascule de la branche `main` à la branche `olympgit`.
 
-??? hint "Hint"
+??? hint "Astuce"
 
     ``` bash
     git checkout olympgit
@@ -63,11 +63,11 @@ Switch from the `main` branch to the `olympgit` branch.
 
 ---
 
-### 3. Create Your Personal Branch from `OlympGit`:
+### 3. Créer ta branche personnelle depuis `olympgit`
 
-Create your branch under the name of add-your-name. Ex: add-linus-torvalds.
+Crée ta branche sous le nom add-your-name. Ex : add-linus-torvalds.
 
-??? hint "Hint"
+??? hint "Astuce"
 
     ``` bash
     git checkout -b add-<your-name>
@@ -75,13 +75,13 @@ Create your branch under the name of add-your-name. Ex: add-linus-torvalds.
 
 ---
 
-### 4. Inscribe to the Hall
+### 4. T’inscrire au Hall
 
-Edit `HALL_OF_GITFAME.md`, and insert your name at the top of the list:
+Modifie `HALL_OF_GITFAME.md` et insère ton nom en haut de la liste :
 
-!!! warning  "Warning"
+!!! warning  "Attention"
 
-    Add your name ON TOP of the Immortals list!
+    Ajoute ton nom EN HAUT de la liste des Immortels !
 
 ``` diff
 
@@ -93,17 +93,17 @@ Edit `HALL_OF_GITFAME.md`, and insert your name at the top of the list:
 
 ```
 
-!!! warning "Warning"
+!!! warning "Attention"
 
-    Always add your name to the top of the list. Otherwise a challenger might come to try to steal your place!
+    Ajoute toujours ton nom en haut de la liste. Sinon, un challenger pourrait venir tenter de te voler ta place !
 
 ---
 
-### 5. Commit Your Changes
+### 5. Valider tes changements
 
-Now that you have added your name, let's commit the change to your branch.
+Maintenant que tu as ajouté ton nom, validons le changement sur ta branche.
 
-??? hint "Hint"
+??? hint "Astuce"
 
     ``` bash
     git add HALL_OF_GITFAME.md
@@ -112,11 +112,11 @@ Now that you have added your name, let's commit the change to your branch.
 
 ---
 
-### 6. Push Your Branch to GitHub
+### 6. Pousser ta branche vers GitHub
 
-Now that you've had your changes done locally, you have to put it on the remote branch.
+Maintenant que tes changements sont faits en local, il faut les envoyer sur la branche distante.
 
-??? hint "Hint"
+??? hint "Astuce"
 
     ``` bash
     git push origin add-your-name
@@ -124,22 +124,22 @@ Now that you've had your changes done locally, you have to put it on the remote 
 
 ---
 
-### 7. Create a Pull Request (The Final Trial)
+### 7. Créer une Pull Request (l’Épreuve finale)
 
 
-Now is the time to create a PR (pull request) on GitHub
+C’est le moment de créer une PR (pull request) sur GitHub.
 
-??? hint "Hint"
+??? hint "Astuce"
 
-    - Head over to GitHub:
+    - Va sur GitHub :
 
-    - You'll see a message: ➕ “Compare & Pull Request” → Click it.
+    - Tu verras un message : ➕ « Compare & Pull Request » → Clique dessus.
 
-    - Set the base branch to olympgit
+    - Mets la base branch sur olympgit
 
-    - The compare branch should be your add-your-name branch
+    - La compare branch doit être ta branche add-your-name
 
-    - Add a message like:
+    - Ajoute un message comme :
 
             ```
             🏛️ Feat: Add [Your Name] to the Hall of GitFame
@@ -148,17 +148,17 @@ Now is the time to create a PR (pull request) on GitHub
             Ready to resolve conflicts and claim my place.
             ```
 
-    - Submit the Pull Request
+    - Soumets la Pull Request
 
 
 ---
 
-### 8. Resolve the Merge Conflict (⚔️ The Git Duel)
+### 8. Résoudre le conflit de fusion (⚔️ Le duel Git)
 
-If your Pull Request cannot be merged automatically:
+Si ta Pull Request ne peut pas être fusionnée automatiquement :
 
-1. Click **Resolve conflicts** on GitHub.
-2. You’ll see something like:
+1. Clique sur **Resolve conflicts** sur GitHub.
+2. Tu verras quelque chose comme :
 
 ``` diff
 +<<<<<< HEAD
@@ -168,107 +168,107 @@ If your Pull Request cannot be merged automatically:
 +>>>>>> add-your-name
 ```
 
-3. Manually *edit the conflict* to keep all names:
+3. *Modifie manuellement le conflit* pour garder tous les noms :
 
 ```
 - 🛡️ Your Legendary Name
 - 🛡️ Hercules
 ```
 
-4. Click Mark as resolved
+4. Clique sur Mark as resolved
 
-5. Commit the merge
-
----
-
-### 9. Team Review & Approval (The Wisdom Council)
-
-Before your PR can be merged into olympgit, your team captain, mentor, or peer must:
-
-- 👁️ Review your changes
-
-- 💬 Leave comments if anything needs improvement
-
-- ✅ Approve your Pull Request
-
-> ❗ Do not merge your own PR unless explicitly allowed by your instructor or team lead.
-
-If changes are requested:
-
-- Make the required edits in your branch
-
-- Push them again (git push origin add-your-name)
-
-- Your PR will update automatically
+5. Commit la fusion
 
 ---
 
-### 10. Merge the Pull Request (Upon Approval)
+### 9. Revue d’équipe et approbation (Le Conseil de Sagesse)
 
-Once your PR is:
+Avant que ta PR puisse être fusionnée dans olympgit, ton chef d’équipe, mentor ou pair doit :
 
-- ✅ Approved by your reviewer(s)
+- 👁️ Revoir tes changements
 
-- ✅ Free of conflicts
+- 💬 Laisser des commentaires si quelque chose doit être amélioré
 
-Then, and only then:
+- ✅ Approuver ta Pull Request
 
-- Click Squash and Merge
+> ❗ Ne fusionne pas ta propre PR sauf autorisation explicite de ton formateur ou chef d’équipe.
 
-- Confirm the final commit message (or customize it)
+Si des changements sont demandés :
+
+- Fais les modifications requises dans ta branche
+
+- Pousse‑les à nouveau (git push origin add-your-name)
+
+- Ta PR se mettra à jour automatiquement
+
+---
+
+### 10. Fusionner la Pull Request (après approbation)
+
+Une fois que ta PR est :
+
+- ✅ Approuvée par ton ou tes réviseur(s)
+
+- ✅ Sans conflits
+
+Alors, et seulement alors :
+
+- Clique sur Squash and Merge
+
+- Confirme le message de commit final (ou personnalise‑le)
 
 ---
 
 ## Conclusion
 
-🎉 Your name is now inscribed among the Immortals!
+🎉 Ton nom est maintenant inscrit parmi les Immortels !
 
-### 🧠 What You’ve Learned
+### 🧠 Ce que tu as appris
 
-- Branching from a shared team branch
+- Partir d’une branche d’équipe partagée
 
-- Making isolated changes in a personal branch
+- Faire des changements isolés dans une branche personnelle
 
-- Committing and pushing to remote
+- Committer et pousser vers le dépôt distant
 
-- Opening and describing a Pull Request
+- Ouvrir et décrire une Pull Request
 
-- Resolving merge conflicts in GitHub
+- Résoudre des conflits de fusion sur GitHub
 
-- Merging changes into a shared team branch
+- Fusionner des changements dans une branche d’équipe partagée
 
-🎉 You've now learned how to use branches and Pull Requests to collaborate like a pro! 
+🎉 Tu sais maintenant utiliser les branches et les Pull Requests pour collaborer comme un pro !
 
-Before ending our Git journey together, let's look at the [Git extension in Visual Studio Code](./git_as_extension.md).
+Avant de conclure notre parcours Git, jetons un œil à [l’extension Git dans Visual Studio Code](./git_as_extension.md).
 
-!!! note "Note for Devs"
+!!! note "Note pour les devs"
 
-        Using a Dummy Branch for Solo Learners
+    Utiliser une branche factice pour les apprenants solo
 
-        * Pre-create a branch called, for example, add-training-dummy from olympgit.
+    * Pré-créer une branche appelée, par exemple, add-training-dummy à partir de olympgit.
 
-        * In that branch, edit HALL_OF_GITFAME.md and add:
+    * Dans cette branche, modifiez HALL_OF_GITFAME.md et ajoutez :
 
         ```
         - 🛡️ Training Dummy
         ```
 
-        * Push this branch to GitHub, but do NOT merge it.
+    * Poussez cette branche vers GitHub, mais ne la fusionnez PAS.
 
-        In the instructions, have the learner:
+    Dans les instructions, demandez à l’apprenant :
 
-        * Branch off of olympgit
+    * De partir de olympgit
 
-        * Add their own name at the top
+    * D’ajouter son propre nom en haut
 
-        * Open a Pull Request to merge into olympgit
+    * D’ouvrir une Pull Request pour fusionner dans olympgit
 
-        * Then, as the instructor, merge the dummy PR before they do.
+    * Ensuite, en tant qu’instructeur, fusionnez la PR factice avant lui.
 
-        * Now when they go to merge their own PR, GitHub will say:
-            ⚠️ “This branch has conflicts that must be resolved”
+        * Lorsqu’il tentera de fusionner sa propre PR, GitHub indiquera :
+            ⚠️ « This branch has conflicts that must be resolved »
 
-        🎯 That’s your teaching moment: the learner must fix the conflict in the web editor or locally.
+    🎯 C’est le moment pédagogique : l’apprenant doit corriger le conflit dans l’éditeur web ou en local.
 
 
 </details>

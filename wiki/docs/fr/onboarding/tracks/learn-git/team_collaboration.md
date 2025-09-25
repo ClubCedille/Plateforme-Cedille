@@ -1,139 +1,140 @@
 
-# 🌿 Git Tutorial: Branching from a Branch and Merging via Pull Request
+# 🌿 Tutoriel Git : créer une branche depuis une branche et fusionner via Pull Request
 
-This tutorial teaches you how to:
+Ce tutoriel vous apprend à :
 
-1. ✅ Branch out from an existing feature branch  
-2. ✏️ Work on a sub-feature  
-3. 🔄 Open a Pull Request (PR) to merge it back into the original feature branch
+1. ✅ Partir d’une branche de fonctionnalité existante  
+2. ✏️ Travailler sur une sous‑fonctionnalité  
+3. 🔄 Ouvrir une Pull Request (PR) pour la fusionner dans la branche de fonctionnalité d’origine
 
-It's designed for **beginners** using the Git CLI and GitHub.
-
----
-
-## 🧠 What is Branching?
-
-**Branching** in Git is like creating a parallel universe of your code, where you can work freely without affecting the original project.
-
-It allows you to:
-
-🌿 Create a separate space to develop new features  
-🧪 Experiment or fix bugs without breaking anything  
-👨‍👩‍👧‍👦 Collaborate with others working on different tasks  
-🔁 Merge your work back into the main branch when it's ready  
-
-Each branch starts from a specific point (usually `main` or another feature) and evolves independently.  
-This way, teams can work **simultaneously and safely** on many parts of a project.
-
-> 🔐 Branching is the foundation of collaborative development. Without it, everyone would be working on the same files at the same time — leading to chaos and lost work.
-
+C’est conçu pour les **débutants** utilisant la CLI Git et GitHub.
 
 ---
 
-## 🧠 What is a Pull Request?
+## 🧠 Qu’est‑ce que le branchement (branching) ?
 
-A **Pull Request (PR)** is a request to merge your branch into another branch (like `main`, `develop`, or another feature). It allows others to:
+Le **branchement** dans Git, c’est comme créer un univers parallèle de votre code, où vous pouvez travailler librement sans affecter le projet original.
 
-- 👀 Review your code
-- 🧪 Run automated tests
-- 💬 Leave comments or suggestions
-- ✅ Approve the changes
+Cela vous permet de :
 
-> 🔐 PRs are essential for **code quality**, **team communication**, and **avoiding broken code in production**.
+🌿 Créer un espace séparé pour développer de nouvelles fonctionnalités  
+🧪 Expérimenter ou corriger des bogues sans rien casser  
+👨‍👩‍👧‍👦 Collaborer avec d’autres sur des tâches différentes  
+🔁 Revenir fusionner votre travail dans la branche principale quand il est prêt  
 
----
+Chaque branche part d’un point précis (souvent `main` ou une autre fonctionnalité) et évolue indépendamment.  
+Ainsi, les équipes peuvent travailler **simultanément et en toute sécurité** sur plusieurs parties d’un projet.
 
-## 🌐 Why Branching and Pull Requests Are Critical
+> 🔐 Le branchement est la base du développement collaboratif. Sans lui, tout le monde travaillerait sur les mêmes fichiers en même temps — menant au chaos et à la perte de travail.
 
-![Git branching diagram](./img/team_collab.png)
-
-This diagram shows a typical situation in a team project:
-
-- 🟢 `Master` (or `main`) is the **stable production-ready code**.
-- 🔵 **Your Work** is done on a separate feature branch.
-- 🟠 **Someone Else’s Work** happens independently, also on a separate branch.
-
-Without branches and Pull Requests, all work would be done **on the same timeline, in the same files**, which would lead to:
-- 🔥 Conflicts
-- 🐛 Bugs being merged unintentionally
-- ❌ Loss of stable code
 
 ---
 
-### ✅ How Branches Help
+## 🧠 Qu’est‑ce qu’une Pull Request ?
 
-- You isolate your changes from others.
-- You can work freely without affecting the `main` code.
-- You reduce the risk of breaking things for the team.
-- You can test and experiment in your branch safely.
+Une **Pull Request (PR)** est une demande de fusion de votre branche dans une autre branche (comme `main`, `develop` ou une autre fonctionnalité). Elle permet aux autres de :
 
----
+- 👀 Réviser votre code
+- 🧪 Lancer des tests automatisés
+- 💬 Laisser des commentaires ou suggestions
+- ✅ Approuver les changements
 
-### ✅ How Pull Requests Help
-
-- You get your code **reviewed** before merging.
-- GitHub shows **conflicts automatically**, so you can fix them before it's too late.
-- You have a **discussion space** around your code.
-- You keep `main` clean and stable at all times.
-
-> 💡 Think of branches as your "workbench" and PRs as the "quality gate" before putting your work on the team’s final product.
+> 🔐 Les PR sont essentielles pour la **qualité du code**, la **communication d’équipe** et **éviter de casser la prod**.
 
 ---
 
-### 🔁 What This Diagram Represents
+## 🌐 Pourquoi les branches et les PR sont essentielles
 
-- **You** and **someone else** branched off `master` at the same time.
-- You both worked independently on your own features.
-- You merged your work back through PRs (ideally).
-- The `master` stays clean and up-to-date, with minimal conflict.
+![Schéma de branches Git](./img/team_collab.png)
+
+Ce schéma montre une situation typique dans un projet d’équipe :
+
+- 🟢 `master` (ou `main`) est le **code stable prêt pour la production**.
+- 🔵 **Votre travail** se fait sur une branche de fonctionnalité séparée.
+- 🟠 **Le travail de quelqu’un d’autre** se fait indépendamment, aussi sur une branche séparée.
+
+Sans branches ni Pull Requests, tout le travail serait fait **sur la même ligne temporelle, dans les mêmes fichiers**, ce qui mènerait à :
+
+- 🔥 Des conflits
+- 🐛 Des bogues fusionnés par erreur
+- ❌ La perte de stabilité du code
 
 ---
 
-## Typical Workflow
+### ✅ En quoi les branches aident
 
-Here's how someone would generate proceed in order to work on  a feature in parallel:
+- Vous isolez vos changements de ceux des autres.
+- Vous pouvez travailler librement sans affecter le code de `main`.
+- Vous réduisez le risque de casser des choses pour l’équipe.
+- Vous pouvez tester et expérimenter en toute sécurité dans votre branche.
 
-1. Start from your main feature branch
+---
 
-2. Create a sub-feature branch
+### ✅ En quoi les Pull Requests aident
 
-3. Make your changes
+- Votre code est **relus** avant la fusion.
+- GitHub affiche **automatiquement les conflits**, afin de les corriger à temps.
+- Vous avez un **espace de discussion** autour de votre code.
+- Vous gardez `main` propre et stable en tout temps.
 
-4. Push to GitHub
+> 💡 Pensez aux branches comme votre « établi » et aux PR comme la « porte de qualité » avant d’intégrer votre travail au produit final de l’équipe.
+
+---
+
+### 🔁 Ce que représente ce schéma
+
+- **Vous** et **quelqu’un d’autre** avez créé une branche à partir de `master` en même temps.
+- Vous avez travaillé indépendamment sur vos fonctionnalités.
+- Vous avez fusionné votre travail via des PR (idéalement).
+- `master` reste propre et à jour, avec un minimum de conflits.
+
+---
+
+## Flux de travail typique
+
+Voici comment procéder pour travailler en parallèle sur une fonctionnalité :
+
+1. Partez de votre branche de fonctionnalité principale
+
+2. Créez une sous‑branche de fonctionnalité
+
+3. Faites vos changements
+
+4. Poussez vers GitHub
 git push origin feature/header-component
 
-5. Go to GitHub and create a Pull Request targeting feature/main-layout
+5. Allez sur GitHub et créez une Pull Request visant `feature/main-layout`
 
-6. After approval, merge using GitHub’s interface
+6. Après approbation, fusionnez via l’interface GitHub
 
-7. Clean up
+7. Nettoyez
 
-Here's a more detailed step-by-step tutorial on how to do it.
-
----
-
-!!! warning "FOR READING ONLY"
-
-      **ALL THE NEXT POINTS DESCRIBED ARE MEANT TO BE READ, NOT DONE. YOU WILL PRACTICE THEM IN THE LAB.**
-
+Voici un tutoriel détaillé, étape par étape, pour le faire.
 
 ---
 
-## 🧩 Scenario
+!!! warning "À LIRE SEULEMENT"
 
-You're working on a larger feature: `feature/main-layout`  
-You want to create a sub-feature: `feature/layout-component`  
-You’ll merge it back via a Pull Request — not locally.
+      **TOUS LES POINTS CI‑DESSOUS SONT À LIRE, PAS À EXÉCUTER. VOUS LES PRATIQUEREZ DANS LE LAB.**
+
 
 ---
 
-## 📦 Step 1: Go to Your Project Folder
+## 🧩 Scénario
+
+Vous travaillez sur une fonctionnalité plus large : `feature/main-layout`  
+Vous voulez créer une sous‑fonctionnalité : `feature/layout-component`  
+Vous la fusionnerez via une Pull Request — pas localement.
+
+---
+
+## 📦 Étape 1 : Aller dans le dossier du projet
 
 ``` bash
 cd path/to/your/project
 ```
 
-If you haven’t cloned the project yet:
+Si vous n’avez pas encore cloné le projet :
 
 ``` bash
 git clone git@github.com:your-team/project-name.git
@@ -142,9 +143,9 @@ cd project-name
 
 ---
 
-## 🔀 Step 2: Switch to the Base Branch
+## 🔀 Étape 2 : Basculer sur la branche de base
 
-This is the feature you're building on top of.
+C’est la fonctionnalité sur laquelle vous vous basez.
 
 ``` bash
 git checkout feature/main-layout
@@ -153,69 +154,69 @@ git pull origin feature/main-layout
 
 ---
 
-## 🌱 Step 3: Create a New Branch from It
+## 🌱 Étape 3 : Créer une nouvelle branche depuis celle‑ci
 
 ``` bash
 git checkout -b feature/layout-component
 ```
 
-📌 You're now working **on a new branch based on `feature/main-layout`**.
+📌 Vous travaillez maintenant **sur une nouvelle branche basée sur `feature/main-layout`**.
 
 ---
 
-## ✏️ Step 4: Make Changes to the Code
+## ✏️ Étape 4 : Modifier le code
 
-Use your favorite editor (VSCode, etc.) to:
+Utilisez votre éditeur préféré (VSCode, etc.) pour :
 
-- Add your new feature or fix
-- Save your files
+- Ajouter votre nouvelle fonctionnalité ou correction
+- Enregistrer vos fichiers
 
 ---
 
-## ✅ Step 5: Add and Commit Your Changes
+## ✅ Étape 5 : Ajouter et valider vos changements
 
 ``` bash
 git add .
 git commit -m "feat: add new layout component"
 ```
 
-> 💡 Commit messages should be meaningful. Use formats like `feat:`, `fix:`, `docs:`, etc.
+> 💡 Les messages de commit doivent être parlants. Utilisez des formats comme `feat:`, `fix:`, `docs:`, etc.
 
 ---
 
-## ☁️ Step 6: Push Your Branch to GitHub
+## ☁️ Étape 6 : Pousser votre branche vers GitHub
 
 ``` bash
 git push origin feature/layout-component
 ```
 
-You’ve now published your branch online and it’s ready for review.
+Votre branche est maintenant publiée en ligne et prête pour une revue.
 
 ---
 
-## 🔁 Step 7: Open a Pull Request
+## 🔁 Étape 7 : Ouvrir une Pull Request
 
-1. Go to your repository on [GitHub](https://github.com)
-2. You’ll see a prompt:
-   ➕ **Compare & pull request** → Click it
-3. Set the **base branch** as `feature/main-layout`
-4. Set the **compare branch** as `feature/layout-component`
-5. Add a **clear title and description**
-6. Click **Create pull request**
+1. Allez sur votre dépôt sur [GitHub](https://github.com)
+2. Vous verrez une invite :
+      ➕ **Compare & pull request** → Cliquez
+3. Définissez la **base branch** sur `feature/main-layout`
+4. Définissez la **compare branch** sur `feature/layout-component`
+5. Ajoutez un **titre et une description clairs**
+6. Cliquez sur **Create pull request**
 
-> 🧠 Don’t forget to write what your code does and why you made these changes.
+> 🧠 N’oubliez pas d’expliquer ce que fait votre code et pourquoi vous avez fait ces changements.
 
 ---
 
-## 👀 Step 8: Get Your PR Reviewed
+## 👀 Étape 8 : Faire relire votre PR
 
-Your teammates can now:
+Vos coéquipiers peuvent maintenant :
 
-- Review your code
-- Comment or suggest improvements
-- Approve or request changes
+- Relire votre code
+- Commenter ou suggérer des améliorations
+- Approuver ou demander des changements
 
-If someone requests changes:
+Si quelqu’un demande des changements :
 
 ``` bash
 # Make the edits
@@ -224,25 +225,25 @@ git commit -m "fix: adjust component"
 git push origin feature/layout-component
 ```
 
-The PR will update automatically.
+La PR se mettra à jour automatiquement.
 
 ---
 
-## 🔀 Step 9: Merge the Pull Request
+## 🔀 Étape 9 : Fusionner la Pull Request
 
-Once approved and ready:
+Une fois approuvée et prête :
 
-1. Go to the PR on GitHub
-2. Click **Squash and merge** or **Rebase and merge**
-3. Confirm the merge
+1. Allez sur la PR sur GitHub
+2. Cliquez **Squash and merge** ou **Rebase and merge**
+3. Confirmez la fusion
 
-✅ Your code is now merged into `feature/main-layout`.
+✅ Votre code est maintenant fusionné dans `feature/main-layout`.
 
 ---
 
-## 🧹 Step 10: Clean Up Old Branches
+## 🧹 Étape 10 : Nettoyer les anciennes branches
 
-After merging:
+Après la fusion :
 
 ``` bash
 git branch -d feature/layout-component           # delete local
@@ -251,39 +252,39 @@ git push origin --delete feature/layout-component  # delete remote
 
 ---
 
-## 📘 Full Recap: PR-Based Feature Flow
+## 📘 Récapitulatif complet : flux de fonctionnalité basé sur PR
 
 ``` bash
-# Start from your main feature branch
+# Partez de votre branche de fonctionnalité principale
 git checkout feature/main-layout
 git pull origin feature/main-layout
 
-# Create a sub-feature branch
+# Créez une sous‑branche de fonctionnalité
 git checkout -b feature/layout-component
 
-# Make your changes
+# Faites vos changements
 git add .
 git commit -m "feat: add component"
 
-# Push to GitHub
+# Poussez vers GitHub
 git push origin feature/layout-component
 
-# → Go to GitHub and create a Pull Request targeting feature/main-layout
+# → Allez sur GitHub et créez une Pull Request visant feature/main-layout
 
-# After approval → merge using GitHub’s interface
+# Après approbation → fusionnez via l’interface GitHub
 
-# Clean up
+# Nettoyez
 git branch -d feature/layout-component
 git push origin --delete feature/layout-component
 ```
 
 ---
 
-## Next Section - Lab: Hall of GitFame
+## Section suivante — Lab : Hall of GitFame
 
-Now you've had a guide on how to collaborate on a project with a team using Git, let's put that to practice with the **[OLYMPGIT](./merge_conflicts.md)**.
+Maintenant que vous avez un guide sur la collaboration en équipe avec Git, mettons cela en pratique avec **[OLYMPGIT](./merge_conflicts.md)**.
 
-!!! warning "BUT WAIT"
+!!! warning "ATTENDEZ"
 
-      **I think the Hall of GitFame is under renovation... I've seen so many orange cones on the entrance. Maybe we should just skip by! - (yes, just skip it, it's not done yet...)**
+      **Je crois que le Hall of GitFame est en rénovation... J’ai vu tellement de cônes orange à l’entrée. On devrait peut‑être passer notre chemin ! — (oui, sautez‑le, ce n’est pas encore prêt...)**
 

@@ -1,125 +1,128 @@
-# Your first steps with Git/Github
+# Vos premiers pas avec Git/GitHub
 
-## Using Git
+## Utiliser Git
 
-### 1. Download Git CLI
+### 1. Télécharger la CLI Git
 
-First, you need to [download the Git Command-Line Interface](https://git-scm.com/downloads).
+D’abord, vous devez [télécharger l’interface en ligne de commande Git](https://git-scm.com/downloads).
 
-### 2. Set up Git
+### 2. Configurer Git
 
-Once installed, configure your Git credentials with these commands:
+Une fois installé, configurez vos identifiants Git avec ces commandes :
 
 ```bash
 git config --global user.name "Your Name"
 git config --global user.email "yourEmail@example.com"
 ```
 
-### 3. Authenticate with Github
+### 3. S’authentifier avec GitHub
 
-We need to authenticate our local computer with our account over at Github. Multiple ways are available, but we prioritise SSH since it is the most secure.
+Nous devons authentifier notre ordinateur local avec notre compte GitHub. Plusieurs méthodes existent, mais nous privilégions SSH car c’est la plus sécurisée.
 
-For this step, please head over to [this page](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) for everything you'll need to setup SSH. Ignore the part about hardware security key.
+Pour cette étape, rendez‑vous sur [cette page](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) qui contient tout le nécessaire pour configurer SSH. Ignorez la section sur les clés de sécurité matérielles.
 
 !!! note "Note"
 
-    Keep in mind, if you put a password for your private SSH key, it will ask you to put it every time you interact with the remote repository - that means for fetch, push, pull and other actions (which we will see right now). Do not fall in the same trap as the editor of this tutorial. :(
+Gardez en tête que si vous mettez un mot de passe à votre clé SSH privée, on vous le demandera à chaque interaction avec le dépôt distant — c’est‑à‑dire pour fetch, push, pull et autres actions (que nous voyons ici). Ne tombez pas dans le même piège que l’éditeur de ce tutoriel. :(
 
-!!! warning "WARNING"
+!!! warning "ATTENTION"
 
-    _Please complete the SSH setup before proceeding any further. We want you to learn to clone and interact with the repository through SSH, and not HTTPS_!!
+_Veuillez terminer la configuration SSH avant de continuer. Nous voulons que vous appreniez à cloner et interagir avec le dépôt via SSH, et non via HTTPS_ !!
 
-### 4. Clone a repository
+### 4. Cloner un dépôt
 
-It is now time to start working on a repo ! You can clone your own default repo, and we will add stuff to your `readme.md`. *Make sure to execute this command where you want to add your local repo*.
+Il est temps de commencer à travailler sur un dépôt ! Vous pouvez cloner votre dépôt par défaut, et nous ajouterons des éléments à votre `readme.md`. _Assurez‑vous d’exécuter cette commande à l’endroit où vous voulez créer votre dépôt local_.
 
 ``` bash
 git clone git@github.com:YourUsename/YourUsername.git
 ```
 
-### 5. Adding a file to the repo
+### 5. Ajouter un fichier au dépôt
 
-While being in your local repo, create a new file :
+Dans votre dépôt local, créez un nouveau fichier :
 
 |Linux|Windows|
 |-----|-------|
 |`touch test.md`|`echo test123 > test.md`|
 
-Let's now add your file to be tracked by Git:
+Ajoutons maintenant votre fichier pour qu’il soit suivi par Git :
 ``` bash
 git add test.md
 ```
 
-### 6. Commit changes
-Add some text to `test.md` and commit them to the history using:
+### 6. Valider les changements
+
+Ajoutez du texte à `test.md` et validez‑le dans l’historique avec :
 ``` bash
 git commit -m "Added some text"
 ```
 
-The `-m "Added some text"` is an option to add a message along with your commit. It is required in our case.
+L’option `-m "Added some text"` permet d’ajouter un message à votre commit. Elle est requise dans notre cas.
 
-### 7. Push changes
-After a couple of commits, you would want to share them with everyone by pushing them to the remote repo.
+### 7. Pousser les changements
+
+Après quelques commits, vous voudrez les partager avec tout le monde en les poussant vers le dépôt distant.
 
 ``` bash
 git push origin main
 ```
 
-> The `origin main` options specifies which branch to push to.
+> Les options `origin main` précisent sur quelle branche pousser.
 
-You can now head over to https://github.com/YourUsername/YourUsername.git to see your new files added to the remote repo.
+Vous pouvez maintenant aller sur <https://github.com/YourUsername/YourUsername.git> pour voir vos nouveaux fichiers ajoutés au dépôt distant.
 
-### 8. Pull new changes
-While on the Github website, add a new file to your remote repo using the button on the top left. As you'll see, it won't be synchronised with your local repo, unless you use the following:
+### 8. Récupérer de nouveaux changements
+
+Sur le site GitHub, ajoutez un nouveau fichier à votre dépôt distant via le bouton en haut à gauche. Comme vous le verrez, il ne sera pas synchronisé avec votre dépôt local, sauf si vous utilisez :
 
 ``` bash
 git fetch origin main
 git pull origin main
 ```
 
-> `git fetch` is optional and let's you know what new changes are available before using `git pull` to retrieve them.
+> `git fetch` est optionnel et vous permet de voir les nouveaux changements disponibles avant d’utiliser `git pull` pour les récupérer.
 
 ---
 
-Now that you've learn the basics of using Git through its CLI, you may now use a visual client such as [Github Desktop](https://desktop.github.com/download/) or the extensions in your IDE (Most of them have one installed by default.).
+Maintenant que vous avez appris les bases de Git via sa CLI, vous pouvez utiliser un client visuel comme [GitHub Desktop](https://desktop.github.com/download/) ou les extensions de votre IDE (la plupart en ont une par défaut).
 
-> While these tools are useful for beginners, a lot of users in the club still prefer to use the CLI for its advanced functionnality. The one integrated in VSCode is a great started, as it provides a GUI, while also having the possibility of using CLI.
+> Bien que ces outils soient utiles pour les débutants, beaucoup d’utilisateurs du club préfèrent encore la CLI pour ses fonctionnalités avancées. Celle intégrée à VSCode est un excellent départ, offrant une GUI tout en permettant l’usage de la CLI.
 
-## Github specifics tools
+## Outils spécifiques à GitHub
 
 ### Issues
-A big part of why we chose Github is because of its issue tracking. It is a way to track and manage bugs or upcoming features within a repo. We may assign a user to it, or add a comment to someone's suggested fix.
+L’une des raisons pour lesquelles nous avons choisi GitHub est son suivi des issues. C’est un moyen de suivre et gérer les bogues ou fonctionnalités à venir dans un dépôt. On peut assigner un utilisateur, ou commenter une proposition de correctif.
 
-This wiki is hosted on our repo **Plateforme-Cedille**. You can see its issues [over here](https://github.com/ClubCedille/Plateforme-Cedille/issues).
+Ce wiki est hébergé sur notre dépôt **Plateforme-Cedille**. Vous pouvez voir ses issues [ici](https://github.com/ClubCedille/Plateforme-Cedille/issues).
 
 ### Pull requests
 
-If anyone started pushing their changes into the remote repo, it would become *chaos*. A pull request (often called a PR) is a proposed change to the codebase, which an approved user (such as the captain of CEDILLE) may pull into the main branch.
+Si tout le monde poussait directement ses changements sur le dépôt distant, ce serait le _chaos_. Une pull request (souvent appelée PR) est un changement proposé au code, qu’une personne autorisée (comme le capitaine de CEDILLE) peut fusionner dans la branche principale.
 
-While trying to do a PR, you may get a **merge conflicts**
+En essayant de faire une PR, vous pourriez rencontrer des **conflits de fusion**.
 
-### Merge conflicts
+### Conflits de fusion
 
-A merge conflict can happen when trying to change a line somebody else has changed. You will have access to a suite of tools that lets you choose between which version you want to keep.
+Un conflit de fusion peut survenir lorsqu’on modifie une ligne déjà modifiée par quelqu’un d’autre. Vous aurez accès à une série d’outils permettant de choisir quelle version conserver.
 
-### Cool stuff
+### Trucs sympas
 
-- Template Repositories: Create repository templates that other developers can use as a starting point. This is great for boilerplate projects or when you want to share a common setup.
+- Dépôts modèles (Template Repositories) : créez des modèles de dépôt que d’autres développeurs pourront utiliser comme point de départ. Idéal pour des projets de base ou partager une configuration commune.
 
-- `readme.md`: This file gives an overview of a projects and how to install/use it.
+- `readme.md` : ce fichier donne un aperçu d’un projet et explique comment l’installer/l’utiliser.
 
-- `.gitignore`: Defines which files and directories Git should ignore, often used for files that should not be tracked (Ex. environment files, build outputs and logs)
+- `.gitignore` : définit les fichiers et répertoires que Git doit ignorer, souvent utilisé pour les fichiers à ne pas suivre (ex. fichiers d’environnement, artefacts de build, logs).
 
-- Stashing changes: Use `git stash` to temporarily save your changes without committing them. This is handy when you need to switch branches but have uncommitted work. To retrive them, you may use `git stash pop`. [More information](https://git-scm.com/docs/git-stash)
+- Mettre de côté des changements (stashing) : utilisez `git stash` pour sauvegarder temporairement vos changements sans les committer. Pratique pour changer de branche avec du travail en cours. Pour les récupérer : `git stash pop`. [Plus d’infos](https://git-scm.com/docs/git-stash)
 
-- Recovery: If you ever lose a commit or make a mistake, `git reflog` can help you recover it by showing a history of all actions you have executed.
+- Récupération : si vous perdez un commit ou faites une erreur, `git reflog` peut aider à le récupérer en montrant l’historique de toutes vos actions.
 
-- Github Actions: Actions are automatic workflows, which are often used to automatically test for bugs, deploy your code etc. For more, see [this guide](/onboarding/tracks/learn-github-actions/)
+- GitHub Actions : des workflows automatiques, souvent utilisés pour tester automatiquement, déployer votre code, etc. Pour en savoir plus, voir [ce guide](/onboarding/tracks/learn-github-actions/)
 
-With your new, fresh, amazing, (expert), skills in git, we can now proceed to the first git lab (and not GitLab) : Creat your own [Github Profile ReadMe](github_profile.md) !
+Avec vos nouvelles compétences toutes fraîches (d’expert), nous pouvons passer au premier labo git (et non GitLab) : créez votre propre [GitHub Profile ReadMe](github_profile.md) !
 
-??? danger "But WAIT! What is that?..."
+??? danger "Mais ATTENDEZ ! Qu’est‑ce que c’est ?..."
 
-    !FLAG-why-are-you-git
-    
-    Hmm...Maybe if I keep going, I'll get more clues...
+!FLAG-why-are-you-git
+
+Hmm... Peut‑être qu’en continuant, j’aurai plus d’indices…
