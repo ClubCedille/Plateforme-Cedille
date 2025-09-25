@@ -66,6 +66,7 @@ GitHub username to be added to our organization:
 7. **Review and Merge**: Once the Pull Request has been reviewed and approved,
    merge the branch into the main branch using one of the following options:
    - **Manual merge via the git command line**:
+
      ```sh
      git merge [branch_name] --no-ff
      ```
