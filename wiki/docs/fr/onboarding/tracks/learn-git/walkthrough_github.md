@@ -35,7 +35,7 @@ clés de sécurité matérielles.
 
 !!! warning "ATTENTION"
     _Veuillez terminer la configuration SSH avant de continuer. Nous voulons que
-    vous appreniez à cloner et interagir avec le dépôt via SSH, et non via HTTPS_ !
+    vous appreniez à cloner et interagir avec le dépôt via SSH, et non via HTTPS_
 
 ### 4. Cloner un dépôt
 
