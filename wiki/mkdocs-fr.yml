@@ -129,6 +129,7 @@ nav:
 markdown_extensions:
   - admonition
   - pymdownx.snippets:
+  - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid

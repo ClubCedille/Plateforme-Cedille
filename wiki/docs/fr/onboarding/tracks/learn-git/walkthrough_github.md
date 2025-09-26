@@ -28,16 +28,14 @@ qui contient tout le nécessaire pour configurer SSH. Ignorez la section sur les
 clés de sécurité matérielles.
 
 !!! note "Note"
-
-Gardez en tête que si vous mettez un mot de passe à votre clé SSH privée, on
-vous le demandera à chaque interaction avec le dépôt distant — c’est‑à‑dire pour
-fetch, push, pull et autres actions (que nous voyons ici). Ne tombez pas dans le
-même piège que l’éditeur de ce tutoriel. :(
+    Gardez en tête que si vous mettez un mot de passe à votre clé SSH privée, on
+    vous le demandera à chaque interaction avec le dépôt distant — c’est‑à‑dire pour
+    fetch, push, pull et autres actions (que nous voyons ici). Ne tombez pas dans le
+    même piège que l’éditeur de ce tutoriel. :(
 
 !!! warning "ATTENTION"
-
-_Veuillez terminer la configuration SSH avant de continuer. Nous voulons que
-vous appreniez à cloner et interagir avec le dépôt via SSH, et non via HTTPS_ !!
+    _Veuillez terminer la configuration SSH avant de continuer. Nous voulons que
+    vous appreniez à cloner et interagir avec le dépôt via SSH, et non via HTTPS_ !!
 
 ### 4. Cloner un dépôt
 
@@ -173,5 +171,6 @@ Avec vos nouvelles compétences toutes fraîches (d’expert), nous pouvons pass
 au premier labo git (et non GitLab) : créez votre propre [GitHub Profile
 ReadMe](github_profile.md) !
 
-??? danger "Mais ATTENDEZ ! Qu’est‑ce que c’est ?..." !FLAG-why-are-you-git
+??? danger "Mais ATTENDEZ ! Qu’est‑ce que c’est ?..."
+    #!FLAG-why-are-you-git
     Hmm... Peut‑être qu’en continuant, j’aurai plus d’indices…

@@ -33,11 +33,13 @@ principale de votre profil.
 
 ### 2.1 Allez dans votre répertoire de travail local
 
-??? tip "Astuce" `cd /YourWorkingDirectory`  (ex: /home/username/gitrepos/)
+??? tip "Astuce"
+    `cd /YourWorkingDirectory`  (ex: /home/username/gitrepos/)
 
 ### 2.2. Clonez votre dépôt dans ce répertoire local
 
-??? tip "Astuce" `git clone git@github.com/YourUserName/YourUserName`
+??? tip "Astuce"
+    `git clone git@github.com/YourUserName/YourUserName`
 
 ### 2.3. Ouvrez votre fichier README.md dans votre éditeur de code/texte (ex : VSCode)
 
@@ -131,7 +133,12 @@ Rappelez-vous, pour mettre à jour vos changements, vous devez :
 C’est assez intuitif dans l’extension VSCode. Cependant, nous voulons que vous
 le fassiez avec la CLI :
 
-??? tip "Hint" git add . git commit -m "Changes Title" git push origin main
+??? tip "Hint"
+    ```bash
+    git add .
+    git commit -m "Changes Title"
+    git push origin main
+    ```
 
 ## Étape 7 : Vérifier le résultat
 
@@ -148,6 +155,8 @@ développement en équipe.
 
 On se retrouve dans la [prochaine section](team_collaboration.md) !
 
-??? danger "NE CLIQUEZ PAS ICI !" Je me demande ce que c’est…
-    #!FLAG-git-good-at-profiles Peut-être qu’on trouvera tout le sens à la toute
+??? danger "NE CLIQUEZ PAS ICI !"
+    Je me demande ce que c’est…
+    #!FLAG-git-good-at-profiles
+    Peut-être qu’on trouvera tout le sens à la toute
     fin de ce parcours… Continuons !
