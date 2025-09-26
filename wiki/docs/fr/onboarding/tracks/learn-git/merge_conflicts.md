@@ -104,7 +104,8 @@ Maintenant que tu as ajouté ton nom, validons le changement sur ta branche.
 Maintenant que tes changements sont faits en local, il faut les envoyer sur la
 branche distante.
 
-??? hint "Astuce" `git push origin add-your-name`
+??? hint "Astuce"
+    `git push origin add-your-name`
 
 ---
 

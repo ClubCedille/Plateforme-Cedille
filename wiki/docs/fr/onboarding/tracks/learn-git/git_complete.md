@@ -48,5 +48,6 @@ sur de vrais projets, même petits.
 
 Bon code !
 
-!!! C’est tout ? #!FLAG-git-your-captain Votre capitaine sait probablement
-    quelque chose à propos de ces drapeaux…
+??? tip "C’est tout?"
+    #!FLAG-git-your-captain
+    Votre capitaine sait probablement quelque chose à propos de ces drapeaux…
