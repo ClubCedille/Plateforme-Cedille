@@ -64,7 +64,15 @@ nav:
     - "Introduction à l'intégration": onboarding/index.md
     - Pistes d'intégration:
       - "Commencer l'intégration": onboarding/tracks/index.md
-      - 'Comment utiliser Git': onboarding/tracks/git.md
+      - Piste - Git :
+        - 'Présentation de Git': onboarding/tracks/learn-git/index.md
+        - 'Introduction à Github': onboarding/tracks/learn-git/intro_github.md
+        - 'Guide Github': onboarding/tracks/learn-git/walkthrough_github.md
+        - 'Lab : Profile Github ReadMe' : onboarding/tracks/learn-git/github_profile.md
+        - 'Collaboration en Équipe' : onboarding/tracks/learn-git/team_collaboration.md
+        - 'Lab : Temple de la Renommée Git' : onboarding/tracks/learn-git/merge_conflicts.md
+        - 'Annexe : Git comme Extension' : onboarding/tracks/learn-git/git_as_extension.md
+        - 'Fin de Piste' : onboarding/tracks/learn-git/git_complete.md
       - Piste - Docker:
         - 'Apprendre Docker': onboarding/tracks/learn-docker/index.md
         - 'Installation': onboarding/tracks/learn-docker/installation.md
@@ -119,6 +127,7 @@ nav:
         - 'Retrospection 3': plateforme-cedille/log791/retrospective-3.md
     - 'Document de vision': plateforme-cedille/log791/vision.md
 markdown_extensions:
+  - admonition
   - pymdownx.snippets:
   - pymdownx.superfences:
       custom_fences:

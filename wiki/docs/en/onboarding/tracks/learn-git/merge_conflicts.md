@@ -16,7 +16,7 @@ it through a **Pull Request**.
 
 ## 📦 Project Structure
 
-This repo contains:
+The repo in question contains:
 
 - `main` — neutral base branch (do not modify)
 - `olympus` — the sacred branch where Immortals are written
@@ -34,7 +34,19 @@ Like the usual, start by cloning
 ??? hint "Hint"
     `git clone git@github.com:ClubCedille/OlympGit.git`
 
+```diff
+<<<<<<< Updated upstream
+
     `cd OlympGit`
+    =======
+    ```bash
+    git clone git@github.com:
+    cd hall-of-gitfame
+    ```
+
+---
+>>>>>>>Stashed changes
+```
 
 ### 2. Check Out the OlympGit Branch
 
@@ -42,7 +54,6 @@ Switch from the `main` branch to the `olympgit` branch.
 
 ??? hint "Hint"
     `git checkout olympgit`
-
     `git pull origin olympgit`
 
 ### 3. Create Your Personal Branch from `OlympGit`
@@ -59,13 +70,13 @@ Edit `HALL_OF_GITFAME.md`, and insert your name at the top of the list:
 !!! warning "Warning"
     Add your name ON TOP of the Immortals list!
 
-      ```diff
-      ## 🧙 Immortals of Git
+``` diff
+## 🧙 Immortals of Git
 
-      +- 🛡️ Your legendary name
-       - 🧝‍♀️ Ada Lovelace
-       - 🧙‍♂️ Linus Torvalds
-      ```
++- 🛡️ Your legendary name
+- 🧝‍♀️ Ada Lovelace
+- 🧙‍♂️ Linus Torvalds
+```
 
 !!! warning "Warning"
     Always add your name to the top of the list. Otherwise a challenger
@@ -77,7 +88,6 @@ Now that you have added your name, let's commit the change to your branch.
 
 ??? hint "Hint"
     `git add HALL_OF_GITFAME.md`
-
     `git commit -m "feat: add Your Name to Hall of GitFame"`
 
 ### 6. Push Your Branch to GitHub
@@ -93,31 +103,22 @@ branch.
 Now is the time to create a PR (pull request) on GitHub
 
 ??? hint "Hint"
-
     Head over to GitHub
-
     You'll see a message: ➕ “Compare & Pull Request” → Click it.
-
     Set the base branch to olympgit
-
     The compare branch should be your add-your-name branch
-
     Add a message like:
-
       `🏛️ Feat: Add [Your Name] to the Hall of GitFame`
-
       `Adding my humble name to the top of the Immortals list.`
-
       `Ready to resolve conflicts and claim my place.`
-
     Submit the Pull Request
 
 ### 8. Resolve the Merge Conflict (⚔️ The Git Duel)
 
   If your Pull Request cannot be merged automatically:
 
-  1. Click **Resolve conflicts** on GitHub.
-  2. You’ll see something like:
+1. Click **Resolve conflicts** on GitHub.
+2. You’ll see something like:
 
     ```diff
     +<<<<<< HEAD
@@ -127,8 +128,8 @@ Now is the time to create a PR (pull request) on GitHub
     +>>>>>> add-your-name
     ```
 
-  3. Manually _edit the conflict_ to keep all names & removing any Hydra Heads until
-  none are left to slay:
+3. Manually _edit the conflict_ to keep all names & removing any Hydra Heads until
+none are left to slay:
 
     ```diff
     - 🛡️ Your Legendary Name
