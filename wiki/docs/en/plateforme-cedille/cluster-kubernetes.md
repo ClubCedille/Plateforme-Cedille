@@ -1,51 +1,61 @@
-# Kubernetes Cluster
+# Kubernetes Clusters
 
-The Kubernetes cluster of the CEDILLE Platform hosts the websites of all the
-student clubs at the school, as well as the projects of the CEDILLE club.
+The Kubernetes clusters of the CEDILLE Platform host the websites of several
+student clubs at ETS, as well as the various services offered to student clubs
+and the projects of the CEDILLE club.
 
-## Host Cluster
+The clusters are as follows:
 
-The host cluster hosts the system services and basic infrastructure. The host
-cluster is deployed on the servers of the CEDILLE club. The operating system
-used is Talos Linux.
+- **Production**: Production cluster for the websites of student clubs and
+  unique deployments.
+- **Shared**: Cluster for any service or deployment that is used by multiple
+  entities.
+- **Management**: Cluster for internal deployments and development tools.
 
-## V-Clusters for Each Environment
+## One Repository per Cluster
 
-Environments are each hosted on a v-cluster managed by the host cluster, but use
-[vcluster](https://www.vcluster.com/) to isolate environments in separate
-virtual clusters.
+To continue with the philosophy of IaC (Infrastructure as Code) and GitOps, each
+cluster has its own GitHub repository.
 
-## Environments
-
-The environments are as follows:
-
-- **Production**: Production environment for the websites of student clubs and
-  CEDILLE club projects.
-- **Staging**: Staging environment for the websites of student clubs and CEDILLE
-  club projects.
-- **Sandbox**: Development environment for CEDILLE club projects.
+Each of our three repositories is generated from
+[k8s-template](https://github.com/ClubCedille/k8s-template).
 
 ### Production
 
-The production environment is used to host the websites of student clubs and
-CEDILLE club projects. It is publicly accessible and uses SSL certificates to
-secure connections.
+The repository for the production cluster is
+[k8s-cedille-production-v2](https://github.com/ClubCedille/k8s-cedille-production-v2).
+The production cluster is used to host the websites of student clubs and unique
+deployments. Any deployment request following a student club's request is then
+deployed to this cluster (examples of deployments: CEDILLE website, Capra wiki,
+backend application for a club...).
 
-### Staging
+### Shared
 
-The staging environment is used to test updates and new deployments before
-deploying them to production. It is accessible to members of the CEDILLE club
-and student clubs to verify changes and potential issues.
+The repository for the shared cluster is
+[k8s-shared](https://github.com/ClubCedille/k8s-shared). The shared cluster is
+used for any deployment that is utilized by multiple clubs and is often
+presented as a service to the student community (examples of deployments:
+Nextcloud, Authentik, Vaultwarden...).
 
-### Sandbox
+### Management
 
-The sandbox environment is used for the development and testing of CEDILLE club
-projects. It is isolated from other environments to avoid interference and
-conflicts.
+The repository for the management cluster is
+[k8s-management-v2](https://github.com/ClubCedille/k8s-management-v2). The
+management cluster is used for internal tooling deployments (examples of
+deployments: ArgoCD, Vault...).
 
-An automated deployment workflow for a sandbox environment for CEDILLE club
-members is available and accessible by running the GitHub workflow
-[request a Kubernetes sandbox](https://github.com/ClubCedille/Plateforme-Cedille/actions/workflows/request-sandbox.yml).
-The workflow creates a pull request to deploy a sandbox environment for the user
-who triggered the workflow. Additional details on using the sandbox environment
-are available in the generated pull request.
+## The Base Repository
+
+We use the GitHub repository [k8s-base](https://github.com/ClubCedille/k8s-base)
+to maintain the same base deployments across our three clusters (examples of
+deployments: cert-manager, contour, velero...).
+
+## Organization of Repositories
+
+The deployments in production and shared are located in their own subdirectories
+within the `apps` folder.  The deployments in management are also in
+subdirectories but within the `system` folder.
+
+All repositories contain an `argoapps.yaml` file at the root and an
+`argoapp.yaml` file in each subdirectory containing a deployment. ArgoCD reads
+these files to perform automated deployments.
