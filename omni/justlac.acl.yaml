@@ -8,6 +8,6 @@
         "groups":
         - "reader"
         - "justlac"
-    "role": "Reader"
+    "role": "Operator"
     "users":
     - "justlac@hotmail.fr"
