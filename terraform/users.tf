@@ -325,10 +325,10 @@ module "hodux" {
   github_username = "justlac"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" },
+    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
-  cluster_role = "Reader"
+  cluster_role = "Operator"
   cluster_repo = var.platform_repo
   netdata_space_id = var.netdata_space_id
   netdata_role = "observer"
