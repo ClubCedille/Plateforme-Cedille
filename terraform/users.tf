@@ -349,10 +349,10 @@ module "hodux" {
   netdata_role = "observer"
 }
 
-module "Thierry200791" {
+module "Kyohkotsu" {
   source          = "./modules/user"
-  github_email    = "thierrydorion@hotmail.com"
-  github_username = "Thierry200791"
+  github_email    = "fenrir200791@gmail.com"
+  github_username = "Kyohkotsu"
   github_role     = "member"
   teams = [
     { teamName = "members", teamRole = "member" }, 
