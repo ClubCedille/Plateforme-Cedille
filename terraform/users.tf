@@ -348,3 +348,18 @@ module "hodux" {
   netdata_space_id = var.netdata_space_id
   netdata_role = "observer"
 }
+
+module "Thierry200791" {
+  source          = "./modules/user"
+  github_email    = "thierrydorion@hotmail.com"
+  github_username = "Thierry200791"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" }, 
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Reader"
+  cluster_repo = var.platform_repo
+  netdata_space_id = var.netdata_space_id
+  netdata_role = "observer"
+}
