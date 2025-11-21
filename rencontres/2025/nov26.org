@@ -51,6 +51,7 @@ En attente de se faire ajouté au nouveau repo du code. Pour ensuite faire le CI
 *** TODO Avoir un beau rendu lorsque notre site est linked dans Discord. (Julien)
 *** TODO Remplacer google map API par OpenStreetMaps API
 *** TODO Fix shell
+*** Lien commanditaires sur le site (https://activitesphilanthropie.etsmtl.ca/CLUBSDONSCIEN/?lng=0)
 ** WAIT IMPORTANT Backups avec Velero
 *** TODO Corriger les backups pour PVC
 *** TODO Ajouter la documentation Velero à Docmost
