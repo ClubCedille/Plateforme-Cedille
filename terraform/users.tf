@@ -363,3 +363,19 @@ module "Kyohkotsu" {
   netdata_space_id = var.netdata_space_id
   netdata_role = "observer"
 }
+
+
+module "Stoaties" {
+  source          = "./modules/user"
+  github_email    = "corentin.gouanvic@gmail.com"
+  github_username = "Stoaties"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" }, 
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Reader"
+  cluster_repo = var.platform_repo
+  netdata_space_id = var.netdata_space_id
+  netdata_role = "observer"
+}
