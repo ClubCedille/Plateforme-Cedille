@@ -62,7 +62,7 @@ CEDILLE héberge plusieurs sites web pour d'autres clubs et des applications
 selon leurs demandes. Le maintien et l'amélioration de l'infrasctructure
 nécessaire pour offrir ce service et un de nos projets principaux. Le code pour
 tous nos déploiement est disponible sur notre
-[repo de produciton](https://github.com/ClubCedille/k8s-cedille-production-v2)
+[repo de production](https://github.com/ClubCedille/k8s-cedille-production-v2)
 sous le dossier "apps".
 
 Nous offrons aussi d'autres services comme
