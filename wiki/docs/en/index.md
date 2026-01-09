@@ -38,7 +38,7 @@ to their assigned tasks, and collaboration is strongly encouraged.
 
 ### Schedule for the Fall 2025 Session
 
-Weekly Meeting: **Tuesdays, 5:30 PM - 6:00 PM** (usually in room D-3014 but check the discord for confirmation) Workshop: **Fridays, starting at 12:00 PM** until evening
+Weekly Meeting: **Tuesdays, 5:30 PM - 6:00 PM** (usually in room D-3014 but check the discord for confirmation) Workshop: **Fridays, starting at 12:00 PM** until evening in D-2020
 
 ## How to Join the Club
 
