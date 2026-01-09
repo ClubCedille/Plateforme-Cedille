@@ -40,8 +40,7 @@ collaboration est fortement encouragée.
 
 ### Horaire pour la session Automne 2025
 
-Rencontre hebdomadaire : **Mercredi, 17h30-18h00** (généralement au local A-1300
-ou D-2040) Workshop : **Vendredi, dès 12h00** jusqu'en soirée
+Rencontre hebdomadaire : **Mardi, 17h30-18h00** (généralement au local D-3014, regarder sur discord pour la confirmation) Workshop : **Vendredi, dès 12h00** jusqu'en soirée
 
 ## Comment rejoindre le club
 
