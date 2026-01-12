@@ -8,7 +8,7 @@ Our daily communication happens on
 - **GitHub**: [ClubCedille](https://github.com/ClubCedille)
 
 - **Cluster Portal**: [Omni
-  Sidero](https://cedille.omni.siderolabs.io/omni/)
+  Sidero](https://cedille.na-west-1.omni.siderolabs.io/omni/)
 
 - **Our Website**: [cedille.etsmtl.ca](https://cedille.club)
 
