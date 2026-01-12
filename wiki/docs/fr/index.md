@@ -8,7 +8,7 @@ Notre communication se fait sur
 - **GitHub**: [ClubCedille](https://github.com/ClubCedille)
 
 - **Portail des cluster**: [Omni
-  Sidero](https://cedille.omni.siderolabs.io/omni/)
+  Sidero](https://cedille.na-west-1.omni.siderolabs.io/omni/)
 
 - **Notre site web**: [cedille.etsmtl.ca](https://cedille.club)
 
