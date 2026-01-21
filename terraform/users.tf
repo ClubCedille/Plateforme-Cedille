@@ -380,7 +380,22 @@ module "Stoaties" {
   netdata_role = "observer"
 }
 
-
+module "AppleComputer381" {
+  source          = "./modules/user"
+  github_email    = "emilbus@outlook.fr"
+  github_username = "AppleComputer381"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" }, 
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Reader"
+  cluster_repo = var.platform_repo
+  netdata_space_id = var.netdata_space_id
+  netdata_role = "observer"
+}
+  
+  
 module "SamGame" {
   source          = "./modules/user"
   github_email    = "samuel.bond.pro@gmail.com"
