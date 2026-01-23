@@ -426,3 +426,19 @@ module "Meddad-Red" {
   netdata_space_id = var.netdata_space_id
   netdata_role = "observer"
 }
+
+
+module "Vianpyro" {
+  source          = "./modules/user"
+  github_email    = "vianney+github@veremme.org"
+  github_username = "Vianpyro"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" }, 
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Reader"
+  cluster_repo = var.platform_repo
+  netdata_space_id = var.netdata_space_id
+  netdata_role = "observer"
+}
