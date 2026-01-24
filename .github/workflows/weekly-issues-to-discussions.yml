@@ -1,0 +1,62 @@
+name: Create weekly issues discussion
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: read
+  discussions: write
+
+jobs:
+  create-discussion:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install GitHub CLI
+        uses: cli/cli@v2
+
+      - name: Fetch issues and create discussion
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ORG: ClubCedille
+          SOURCE_REPO: Platforme-Cedille
+          TARGET_REPO: Platforme-Cedille
+          CATEGORY_ID: DIC_kwDOJzjWms4CyD_J
+        run: |
+          set -e
+
+          echo "Fetching issues..."
+          issues=$(gh issue list \
+            --repo "$ORG/$SOURCE_REPO" \
+            --state open \
+            --limit 100 \
+            --json number,title,url \
+            --template '{{range .}}- [#{{.number}}]({{.url}}) {{.title}}{{"\n"}}{{end}}'
+          )
+
+          body=$(cat <<EOF
+          ## Open issues this week
+
+          $issues
+          EOF
+          )
+
+          echo "Creating discussion..."
+          gh api graphql -f query='
+            mutation($repo:String!, $owner:String!, $title:String!, $body:String!, $category:ID!) {
+              createDiscussion(input:{
+                repositoryId: $repo,
+                title: $title,
+                body: $body,
+                categoryId: $category
+              }) {
+                discussion { url }
+              }
+            }
+          ' \
+          -f owner="$ORG" \
+          -f repo="$TARGET_REPO" \
+          -f title="Weekly issues report ($(date +%Y-%m-%d))" \
+          -f body="$body" \
+          -f category="$CATEGORY_ID"
