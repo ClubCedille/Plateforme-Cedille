@@ -17,8 +17,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ORG: ClubCedille
-          SOURCE_REPO: Platforme-Cedille
-          TARGET_REPO: Platforme-Cedille
+          SOURCE_REPO: Plateforme-Cedille
+          TARGET_REPO: Plateforme-Cedille
           CATEGORY_ID: DIC_kwDOJzjWms4CyD_J
         run: |
           gh --version
