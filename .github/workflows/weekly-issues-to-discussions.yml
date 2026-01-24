@@ -40,21 +40,34 @@ jobs:
           EOF
           )
 
+          echo "Resolving repository ID..."
+
+          REPO_ID=$(gh api graphql -f query='
+          query($owner:String!, $name:String!) {
+          repository(owner: $owner, name: $name) {
+          id
+          }
+          }' -f owner="$ORG" -f name="$TARGET_REPO" --jq '.data.repository.id')
+
+          echo "Repository ID: $REPO_ID"
+
           echo "Creating discussion..."
+
           gh api graphql -f query='
-            mutation($repo:String!, $owner:String!, $title:String!, $body:String!, $category:ID!) {
-              createDiscussion(input:{
-                repositoryId: $repo,
-                title: $title,
-                body: $body,
-                categoryId: $category
-              }) {
-                discussion { url }
-              }
+          mutation($repoId:ID!, $title:String!, $body:String!, $category:ID!) {
+          createDiscussion(input:{
+            repositoryId: $repoId
+            title: $title
+            body: $body
+            categoryId: $category
+            }) {
+            discussion {
+            url
             }
-          ' \
-          -f owner="$ORG" \
-          -f repo="$TARGET_REPO" \
-          -f title="Weekly issues report ($(date +%Y-%m-%d))" \
-          -f body="$body" \
-          -f category="$CATEGORY_ID"
+            }
+            }
+            ' \
+            -f repoId="$REPO_ID" \
+            -f title="Weekly issues report ($(date +%Y-%m-%d))" \
+            -f body="$body" \
+            -f category="$CATEGORY_ID"
