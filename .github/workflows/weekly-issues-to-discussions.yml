@@ -33,31 +33,35 @@ jobs:
           PROJECT_ORDER=("Services" "Déploiements" "Plateforme-Cedille" "Club-ops" "Documentation & Onboarding" "Web Dev" "App Dev")
           STATUS_ORDER=("Backlog" "Todo" "In Progress" "In Review" "Done" "Won't Do")
 
-          echo "Fetching project items..."
+          echo "Fetching project items with pagination..."
+          all_items="[]"
+          cursor=null
 
-          items=$(gh api graphql -f query='
-          query($project:ID!) {
-            node(id: $project) {
-              ... on ProjectV2 {
-                items(first: 100) {
-                  nodes {
-                    content {
-                      ... on Issue {
-                        title
-                        url
-                        number
-                        repository {
-                          name
+          while : ; do
+            page=$(gh api graphql -f query='
+            query($project:ID!, $after:String) {
+              node(id: $project) {
+                ... on ProjectV2 {
+                  items(first: 100, after: $after) {
+                    pageInfo {
+                      hasNextPage
+                      endCursor
+                    }
+                    nodes {
+                      content {
+                        ... on Issue {
+                          title
+                          url
+                          number
+                          repository { name }
                         }
                       }
-                    }
-                    fieldValues(first: 20) {
-                      nodes {
-                        ... on ProjectV2ItemFieldSingleSelectValue {
-                          name
-                          field {
-                            ... on ProjectV2SingleSelectField {
-                              id
+                      fieldValues(first: 20) {
+                        nodes {
+                          ... on ProjectV2ItemFieldSingleSelectValue {
+                            name
+                            field {
+                              ... on ProjectV2SingleSelectField { id }
                             }
                           }
                         }
@@ -66,43 +70,50 @@ jobs:
                   }
                 }
               }
-            }
-          }' -f project="$PROJECT_ID")
+            }' -f project="$PROJECT_ID" -f after="$cursor")
+
+            # Merge current page into all_items
+            all_items=$(echo "$all_items $page" | jq -s 'add')
+
+            # Check if more pages exist
+            cursor=$(echo "$page" | jq -r '.data.node.items.pageInfo.endCursor')
+            hasNext=$(echo "$page" | jq -r '.data.node.items.pageInfo.hasNextPage')
+            [ "$hasNext" != "true" ] && break
+          done
 
           echo "Formatting and sorting issues..."
-
-          formatted=$(echo "$items" | jq -r --argjson PROJECT_ORDER "$(printf '%s\n' "${PROJECT_ORDER[@]}" | jq -R . | jq -s .)" \
+          formatted=$(echo "$all_items" | jq -r --argjson PROJECT_ORDER "$(printf '%s\n' "${PROJECT_ORDER[@]}" | jq -R . | jq -s .)" \
           --argjson STATUS_ORDER "$(printf '%s\n' "${STATUS_ORDER[@]}" | jq -R . | jq -s .)" \
           '
           .data.node.items.nodes
           | map(
-          select(.content != null)
-          | {
-          title: .content.title,
-          url: (.content.url // ""),
-          repo: (.content.repository.name // "No Repo"),
-          project: (.fieldValues.nodes[] | select(.field.id == env.PROJECT_FIELD_ID) | .name // "No Project"),
-          status: (.fieldValues.nodes[] | select(.field.id == env.STATUS_FIELD_ID) | .name // "No Status")
-          }
+            select(.content != null)
+            | {
+              title: .content.title,
+              url: (.content.url // ""),
+              repo: (.content.repository.name // "No Repo"),
+              project: (.fieldValues.nodes[] | select(.field.id == env.PROJECT_FIELD_ID) | .name // "No Project"),
+              status: (.fieldValues.nodes[] | select(.field.id == env.STATUS_FIELD_ID) | .name // "No Status")
+            }
           )
           | sort_by(
-          (.project | index($PROJECT_ORDER[])),
-          (.status | index($STATUS_ORDER[]))
+            (.project | index($PROJECT_ORDER[])),
+            (.status | index($STATUS_ORDER[]))
           )
           | group_by(.project)
           | map(
-          "## " + (.[0].project) + "\n\n" +
-          (
-          group_by(.status)
-          | map(
-          "### " + (.[0].status) + "\n" +
-          (map(
-          "- [" + .repo + "] " + .title +
-          (if .url != "" then " (" + .url + ")" else "" end)
-          ) | join("\n"))
-          )
-          | join("\n\n")
-          )
+            "## " + (.[0].project) + "\n\n" +
+            (
+              group_by(.status)
+              | map(
+                "### " + (.[0].status) + "\n" +
+                (map(
+                  "- [" + .repo + "] " + .title +
+                  (if .url != "" then " (" + .url + ")" else "" end)
+                ) | join("\n"))
+              )
+              | join("\n\n")
+            )
           )
           | join("\n\n")
           ')
@@ -115,7 +126,6 @@ jobs:
           )
 
           echo "Resolving repository ID..."
-
           REPO_ID=$(gh api graphql -f query='
           query($owner:String!, $name:String!) {
             repository(owner: $owner, name: $name) {
@@ -124,9 +134,7 @@ jobs:
           }' -f owner="$ORG" -f name="$TARGET_REPO" --jq '.data.repository.id')
 
           echo "Repository ID: $REPO_ID"
-
           echo "Creating discussion..."
-
           gh api graphql -f query='
           mutation($repoId:ID!, $title:String!, $body:String!, $category:ID!) {
             createDiscussion(input:{
@@ -135,9 +143,7 @@ jobs:
               body: $body
               categoryId: $category
             }) {
-              discussion {
-                url
-              }
+              discussion { url }
             }
           }' \
           -f repoId="$REPO_ID" \
