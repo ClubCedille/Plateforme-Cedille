@@ -35,50 +35,43 @@ jobs:
 
           echo "Fetching project items with pagination..."
           all_items="[]"
-          cursor=null
+          cursor=""
 
           while : ; do
-            page=$(gh api graphql -f query='
-            query($project:ID!, $after:String) {
-              node(id: $project) {
-                ... on ProjectV2 {
-                  items(first: 100, after: $after) {
-                    pageInfo {
-                      hasNextPage
-                      endCursor
-                    }
-                    nodes {
-                      content {
-                        ... on Issue {
-                          title
-                          url
-                          number
-                          repository { name }
-                        }
-                      }
-                      fieldValues(first: 20) {
-                        nodes {
-                          ... on ProjectV2ItemFieldSingleSelectValue {
-                            name
-                            field {
-                              ... on ProjectV2SingleSelectField { id }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }' -f project="$PROJECT_ID" -f after="$cursor")
+          # Build the gh command
+          if [ -z "$cursor" ]; then
+          page=$(gh api graphql -f query='
+          query($project:ID!) {
+          node(id: $project) {
+          ... on ProjectV2 {
+          items(first: 100) {
+          pageInfo { hasNextPage endCursor }
+          nodes { ... same fields as before ... }
+          }
+          }
+          }
+          }' -f project="$PROJECT_ID")
+          else
+          page=$(gh api graphql -f query='
+          query($project:ID!, $after:String) {
+          node(id: $project) {
+          ... on ProjectV2 {
+          items(first: 100, after: $after) {
+          pageInfo { hasNextPage endCursor }
+          nodes { ... same fields as before ... }
+          }
+          }
+          }
+          }' -f project="$PROJECT_ID" -f after="$cursor")
+          fi
 
-            # Merge current page into all_items
-            all_items=$(echo "$all_items $page" | jq -s 'add')
+          # Merge items
+          all_items=$(echo "$all_items $page" | jq -s 'add')
 
-            # Check if more pages exist
-            cursor=$(echo "$page" | jq -r '.data.node.items.pageInfo.endCursor')
-            hasNext=$(echo "$page" | jq -r '.data.node.items.pageInfo.hasNextPage')
-            [ "$hasNext" != "true" ] && break
+          # Pagination
+          hasNext=$(echo "$page" | jq -r '.data.node.items.pageInfo.hasNextPage')
+          cursor=$(echo "$page" | jq -r '.data.node.items.pageInfo.endCursor')
+          [ "$hasNext" != "true" ] && break
           done
 
           echo "Formatting and sorting issues..."
