@@ -54,11 +54,11 @@ jobs:
                           }
                         }
                         fieldValues(first: 10) {
-                        nodes {
-                        field { id }
-                        ... on ProjectV2ItemFieldTextValue { text }
-                        ... on ProjectV2ItemFieldSingleSelectValue { name }
-                        }
+                          nodes {
+                            field { id }
+                            ... on ProjectV2ItemFieldSingleSelectValue { name }
+                            ... on ProjectV2ItemFieldTextValue { text }
+                          }
                         }
                       }
                     }
@@ -81,11 +81,11 @@ jobs:
                           }
                         }
                         fieldValues(first: 10) {
-                        nodes {
-                        field { id }
-                        ... on ProjectV2ItemFieldTextValue { text }
-                        ... on ProjectV2ItemFieldSingleSelectValue { name }
-                        }
+                          nodes {
+                            field { id }
+                            ... on ProjectV2ItemFieldSingleSelectValue { name }
+                            ... on ProjectV2ItemFieldTextValue { text }
+                          }
                         }
                       }
                     }
@@ -114,8 +114,8 @@ jobs:
               title: .content.title,
               url: (.content.url // ""),
               repo: (.content.repository.name // "No Repo"),
-              project: (.fieldValues.nodes[] | select(.field.id == env.PROJECT_FIELD_ID) | .name // "No Project"),
-              status: (.fieldValues.nodes[] | select(.field.id == env.STATUS_FIELD_ID) | .name // "No Status")
+              project: (.fieldValues.nodes[] | select(.field.id == env.PROJECT_FIELD_ID) | .name // .text // "No Project"),
+              status: (.fieldValues.nodes[] | select(.field.id == env.STATUS_FIELD_ID) | .name // .text // "No Status")
             }
           )
           | sort_by(
