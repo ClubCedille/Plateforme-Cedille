@@ -72,31 +72,34 @@ jobs:
           echo "Formatting and sorting issues..."
 
           formatted=$(echo "$items" | jq -r --argjson PROJECT_ORDER "$(printf '%s\n' "${PROJECT_ORDER[@]}" | jq -R . | jq -s .)" \
-                                            --argjson STATUS_ORDER "$(printf '%s\n' "${STATUS_ORDER[@]}" | jq -R . | jq -s .)" \
+          --argjson STATUS_ORDER "$(printf '%s\n' "${STATUS_ORDER[@]}" | jq -R . | jq -s .)" \
           '
           .data.node.items.nodes
           | map(
-              select(.content != null)
-              | {
-                  title: .content.title,
-                  url: .content.url,
-                  repo: .content.repository.name,
-                  project: (.fieldValues.nodes[] | select(.field.id == "'$PROJECT_FIELD_ID'") | .name),
-                  status: (.fieldValues.nodes[] | select(.field.id == "'$STATUS_FIELD_ID'") | .name)
-              }
+          select(.content != null)
+          | {
+          title: .content.title,
+          url: .content.url,
+          repo: .content.repository.name,
+          project: (.fieldValues.nodes[] | select(.field.id == env.PROJECT_FIELD_ID) | .name),
+          status: (.fieldValues.nodes[] | select(.field.id == env.STATUS_FIELD_ID) | .name)
+          }
           )
           | sort_by(
-              (.project | index($PROJECT_ORDER[])),
-              (.status | index($STATUS_ORDER[]))
+          (.project | index($PROJECT_ORDER[])),
+          (.status | index($STATUS_ORDER[]))
           )
           | group_by(.project)
           | map(
-              "## \(.[]?.project // \"No Project\")\n\n" +
-              (
-                group_by(.status)
-                | map("### \(.[]?.status // \"No Status\")\n" + (map("- [\(.repo)] \(.title) (\(.url))") | join("\n")))
-                | join("\n\n")
-              )
+          "## " + (.[] | .project // "No Project") + "\n\n" +
+          (
+          group_by(.status)
+          | map(
+          "### " + (.[] | .status // "No Status") + "\n" +
+          (map("- [" + .repo + "] " + .title + " (" + .url + ")") | join("\n"))
+          )
+          | join("\n\n")
+          )
           )
           | join("\n\n")
           ')
