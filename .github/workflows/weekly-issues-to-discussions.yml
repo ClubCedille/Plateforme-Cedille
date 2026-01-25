@@ -54,10 +54,11 @@ jobs:
                           }
                         }
                         fieldValues(first: 10) {
-                          nodes {
-                            field { id }
-                            name
-                          }
+                        nodes {
+                        field { id }
+                        ... on ProjectV2ItemFieldTextValue { text }
+                        ... on ProjectV2ItemFieldSingleSelectValue { name }
+                        }
                         }
                       }
                     }
@@ -80,10 +81,11 @@ jobs:
                           }
                         }
                         fieldValues(first: 10) {
-                          nodes {
-                            field { id }
-                            name
-                          }
+                        nodes {
+                        field { id }
+                        ... on ProjectV2ItemFieldTextValue { text }
+                        ... on ProjectV2ItemFieldSingleSelectValue { name }
+                        }
                         }
                       }
                     }
