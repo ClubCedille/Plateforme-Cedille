@@ -38,40 +38,67 @@ jobs:
           cursor=""
 
           while : ; do
-          # Build the gh command
-          if [ -z "$cursor" ]; then
-          page=$(gh api graphql -f query='
-          query($project:ID!) {
-          node(id: $project) {
-          ... on ProjectV2 {
-          items(first: 100) {
-          pageInfo { hasNextPage endCursor }
-          nodes { ... same fields as before ... }
-          }
-          }
-          }
-          }' -f project="$PROJECT_ID")
-          else
-          page=$(gh api graphql -f query='
-          query($project:ID!, $after:String) {
-          node(id: $project) {
-          ... on ProjectV2 {
-          items(first: 100, after: $after) {
-          pageInfo { hasNextPage endCursor }
-          nodes { ... same fields as before ... }
-          }
-          }
-          }
-          }' -f project="$PROJECT_ID" -f after="$cursor")
-          fi
+            if [ -z "$cursor" ]; then
+              page=$(gh api graphql -f query='
+              query($project:ID!) {
+                node(id: $project) {
+                  ... on ProjectV2 {
+                    items(first: 100) {
+                      pageInfo { hasNextPage endCursor }
+                      nodes {
+                        content {
+                          ... on Issue {
+                            title
+                            url
+                            repository { name }
+                          }
+                        }
+                        fieldValues(first: 10) {
+                          nodes {
+                            field { id }
+                            name
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }' -f project="$PROJECT_ID")
+            else
+              page=$(gh api graphql -f query='
+              query($project:ID!, $after:String) {
+                node(id: $project) {
+                  ... on ProjectV2 {
+                    items(first: 100, after: $after) {
+                      pageInfo { hasNextPage endCursor }
+                      nodes {
+                        content {
+                          ... on Issue {
+                            title
+                            url
+                            repository { name }
+                          }
+                        }
+                        fieldValues(first: 10) {
+                          nodes {
+                            field { id }
+                            name
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }' -f project="$PROJECT_ID" -f after="$cursor")
+            fi
 
-          # Merge items
-          all_items=$(echo "$all_items $page" | jq -s 'add')
+            # Merge items
+            all_items=$(echo "$all_items $page" | jq -s 'add')
 
-          # Pagination
-          hasNext=$(echo "$page" | jq -r '.data.node.items.pageInfo.hasNextPage')
-          cursor=$(echo "$page" | jq -r '.data.node.items.pageInfo.endCursor')
-          [ "$hasNext" != "true" ] && break
+            # Pagination
+            hasNext=$(echo "$page" | jq -r '.data.node.items.pageInfo.hasNextPage')
+            cursor=$(echo "$page" | jq -r '.data.node.items.pageInfo.endCursor')
+            [ "$hasNext" != "true" ] && break
           done
 
           echo "Formatting and sorting issues..."
