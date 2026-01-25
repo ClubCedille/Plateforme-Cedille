@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Fetch project issues and create discussion
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PROJECTS_TOKEN }}
           ORG: ClubCedille
           TARGET_REPO: Plateforme-Cedille
           CATEGORY_ID: DIC_kwDOJzjWms4CyD_J
