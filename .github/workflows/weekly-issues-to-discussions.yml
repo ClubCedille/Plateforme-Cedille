@@ -81,8 +81,8 @@ jobs:
           title: .content.title,
           url: .content.url,
           repo: .content.repository.name,
-          project: (.fieldValues.nodes[] | select(.field.id == env.PROJECT_FIELD_ID) | .name),
-          status: (.fieldValues.nodes[] | select(.field.id == env.STATUS_FIELD_ID) | .name)
+          project: (.fieldValues.nodes[] | select(.field.id == env.PROJECT_FIELD_ID) | .name // "No Project"),
+          status: (.fieldValues.nodes[] | select(.field.id == env.STATUS_FIELD_ID) | .name // "No Status")
           }
           )
           | sort_by(
@@ -91,12 +91,12 @@ jobs:
           )
           | group_by(.project)
           | map(
-          "## " + (.[] | .project // "No Project") + "\n\n" +
+          "## " + (.[0].project) + "\n\n" +
           (
           group_by(.status)
           | map(
-          "### " + (.[] | .status // "No Status") + "\n" +
-          (map("- [" + .repo + "] " + .title + " (" + .url + ")") | join("\n"))
+          "### " + (.[0].status) + "\n" +
+          (map("- [" + .repo + "] " + .title + " (#" + (.url | split("#")[1]) + ")") | join("\n"))
           )
           | join("\n\n")
           )
