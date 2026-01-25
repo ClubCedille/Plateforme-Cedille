@@ -79,8 +79,8 @@ jobs:
           select(.content != null)
           | {
           title: .content.title,
-          url: .content.url,
-          repo: .content.repository.name,
+          url: (.content.url // ""),
+          repo: (.content.repository.name // "No Repo"),
           project: (.fieldValues.nodes[] | select(.field.id == env.PROJECT_FIELD_ID) | .name // "No Project"),
           status: (.fieldValues.nodes[] | select(.field.id == env.STATUS_FIELD_ID) | .name // "No Status")
           }
@@ -96,7 +96,10 @@ jobs:
           group_by(.status)
           | map(
           "### " + (.[0].status) + "\n" +
-          (map("- [" + .repo + "] " + .title + " (#" + (.url | split("#")[1]) + ")") | join("\n"))
+          (map(
+          "- [" + .repo + "] " + .title +
+          (if .url != "" then " (" + .url + ")" else "" end)
+          ) | join("\n"))
           )
           | join("\n\n")
           )
