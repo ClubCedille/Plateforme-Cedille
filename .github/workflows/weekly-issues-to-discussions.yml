@@ -7,36 +7,102 @@ permissions:
   contents: read
   issues: read
   discussions: write
+  projects: read
 
 jobs:
   create-discussion:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Fetch issues and create discussion
+      - name: Fetch project issues and create discussion
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ORG: ClubCedille
-          SOURCE_REPO: Plateforme-Cedille
           TARGET_REPO: Plateforme-Cedille
           CATEGORY_ID: DIC_kwDOJzjWms4CyD_J
+          PROJECT_ID: PVT_kwDOAGLsXs4AR-hq
+          PROJECT_FIELD_ID: PVTSSF_lADOAGLsXs4AR-hqzggfaoM
+          STATUS_FIELD_ID: PVTSSF_lADOAGLsXs4AR-hqzgLeuKs
         run: |
           gh --version
           set -e
 
-          echo "Fetching issues..."
-          issues=$(gh issue list \
-            --repo "$ORG/$SOURCE_REPO" \
-            --state open \
-            --limit 100 \
-            --json number,title,url \
-            --template '{{range .}}- [#{{.number}}]({{.url}}) {{.title}}{{"\n"}}{{end}}'
+          # Define project and status sort order
+          PROJECT_ORDER=("Services" "Déploiements" "Plateforme-Cedille" "Club-ops" "Documentation & Onboarding" "Web Dev" "App Dev")
+          STATUS_ORDER=("Backlog" "Todo" "In Progress" "In Review" "Done" "Won't Do")
+
+          echo "Fetching project items..."
+
+          items=$(gh api graphql -f query='
+          query($project:ID!) {
+            node(id: $project) {
+              ... on ProjectV2 {
+                items(first: 100) {
+                  nodes {
+                    content {
+                      ... on Issue {
+                        title
+                        url
+                        number
+                        repository {
+                          name
+                        }
+                      }
+                    }
+                    fieldValues(first: 20) {
+                      nodes {
+                        ... on ProjectV2ItemFieldSingleSelectValue {
+                          name
+                          field {
+                            ... on ProjectV2SingleSelectField {
+                              id
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }' -f project="$PROJECT_ID")
+
+          echo "Formatting and sorting issues..."
+
+          formatted=$(echo "$items" | jq -r --argjson PROJECT_ORDER "$(printf '%s\n' "${PROJECT_ORDER[@]}" | jq -R . | jq -s .)" \
+                                            --argjson STATUS_ORDER "$(printf '%s\n' "${STATUS_ORDER[@]}" | jq -R . | jq -s .)" \
+          '
+          .data.node.items.nodes
+          | map(
+              select(.content != null)
+              | {
+                  title: .content.title,
+                  url: .content.url,
+                  repo: .content.repository.name,
+                  project: (.fieldValues.nodes[] | select(.field.id == "'$PROJECT_FIELD_ID'") | .name),
+                  status: (.fieldValues.nodes[] | select(.field.id == "'$STATUS_FIELD_ID'") | .name)
+              }
           )
+          | sort_by(
+              (.project | index($PROJECT_ORDER[])),
+              (.status | index($STATUS_ORDER[]))
+          )
+          | group_by(.project)
+          | map(
+              "## \(.[]?.project // \"No Project\")\n\n" +
+              (
+                group_by(.status)
+                | map("### \(.[]?.status // \"No Status\")\n" + (map("- [\(.repo)] \(.title) (\(.url))") | join("\n")))
+                | join("\n\n")
+              )
+          )
+          | join("\n\n")
+          ')
 
           body=$(cat <<EOF
-          ## Open issues this week
+          ## Weekly project overview – Backlog CEDILLE
 
-          $issues
+          $formatted
           EOF
           )
 
@@ -44,9 +110,9 @@ jobs:
 
           REPO_ID=$(gh api graphql -f query='
           query($owner:String!, $name:String!) {
-          repository(owner: $owner, name: $name) {
-          id
-          }
+            repository(owner: $owner, name: $name) {
+              id
+            }
           }' -f owner="$ORG" -f name="$TARGET_REPO" --jq '.data.repository.id')
 
           echo "Repository ID: $REPO_ID"
@@ -55,19 +121,18 @@ jobs:
 
           gh api graphql -f query='
           mutation($repoId:ID!, $title:String!, $body:String!, $category:ID!) {
-          createDiscussion(input:{
-            repositoryId: $repoId
-            title: $title
-            body: $body
-            categoryId: $category
+            createDiscussion(input:{
+              repositoryId: $repoId
+              title: $title
+              body: $body
+              categoryId: $category
             }) {
-            discussion {
-            url
+              discussion {
+                url
+              }
             }
-            }
-            }
-            ' \
-            -f repoId="$REPO_ID" \
-            -f title="Weekly issues report ($(date +%Y-%m-%d))" \
-            -f body="$body" \
-            -f category="$CATEGORY_ID"
+          }' \
+          -f repoId="$REPO_ID" \
+          -f title="Weekly issues report ($(date +%Y-%m-%d))" \
+          -f body="$body" \
+          -f category="$CATEGORY_ID"
