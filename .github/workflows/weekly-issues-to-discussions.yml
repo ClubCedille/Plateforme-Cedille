@@ -25,101 +25,109 @@ jobs:
           PROJECT_ID: PVT_kwDOAGLsXs4AR-hq
           PROJECT_FIELD_ID: PVTSSF_lADOAGLsXs4AR-hqzggfaoM
           STATUS_FIELD_ID: PVTSSF_lADOAGLsXs4AR-hqzgLeuKs
-        run: |
-          gh --version
-          set -e
+          run: |
+            gh --version
+            set -e
 
-          # Define project and status sort order
-          PROJECT_ORDER=("Services" "Déploiements" "Plateforme-Cedille" "Club-ops" "Documentation & Onboarding" "Web Dev" "App Dev")
-          STATUS_ORDER=("Backlog" "Todo" "In Progress" "In Review" "Done" "Won't Do")
+            # Define project and status sort order
+            PROJECT_ORDER=("Services" "Déploiements" "Plateforme-Cedille" "Club-ops" "Documentation & Onboarding" "Web Dev" "App Dev")
+            STATUS_ORDER=("Backlog" "Todo" "In Progress" "In Review" "Done" "Won't Do")
 
-          echo "Fetching project items with pagination..."
-          all_items="[]"
-          cursor=""
+            echo "Fetching project items with pagination..."
+            all_items="[]"
+            cursor=""
 
-          while : ; do
+            while : ; do
             if [ -z "$cursor" ]; then
-              page=$(gh api graphql -f query='
-              query($project:ID!) {
-                node(id: $project) {
-                  ... on ProjectV2 {
-                    items(first: 100) {
-                      pageInfo { hasNextPage endCursor }
-                      nodes {
-                        content {
-                          ... on Issue {
-                            title
-                            url
-                            repository { name }
-                          }
-                          }
-                          fieldValues(first: 20) {
-                          nodes {
-                          ... on ProjectV2ItemFieldSingleSelectValue {
-                          field {
-                          ... on ProjectV2Field {
-                          id
-                          }
-                          }
-                          name
-                          }
-                          ... on ProjectV2ItemFieldTextValue {
-                          field {
-                          ... on ProjectV2Field {
-                          id
-                          }
-                          }
-                          text
-                          }
-                          }
-                          }
-
-                          }
-                          }
-                          }
-                          }
-                          }' -f project="$PROJECT_ID")
-                          else
-                          page=$(gh api graphql -f query='
-                          query($project:ID!, $after:String) {
-                          node(id: $project) {
-                          ... on ProjectV2 {
-                          items(first: 100, after: $after) {
-                          pageInfo { hasNextPage endCursor }
-                          nodes {
-                          content {
-                          ... on Issue {
-                          title
-                          url
-                          repository { name }
-                          }
-                          }
-                          fieldValues(first: 20) {
-                          nodes {
-                          ... on ProjectV2ItemFieldSingleSelectValue {
-                          field {
-                          ... on ProjectV2Field {
-                          id
-                          }
-                          }
-                          name
-                          }
-                          ... on ProjectV2ItemFieldTextValue {
-                          field {
-                          ... on ProjectV2Field {
-                          id
-                          }
-                          }
-                          text
-                          }
-                          }
-                          }
-
-
-                        }
-                  }
-                }
-              }' -f project="$PROJECT_ID" -f after="$cursor")
+            page=$(gh api graphql -f query='
+            query($project:ID!) {
+            node(id: $project) {
+            ... on ProjectV2 {
+            items(first: 100) {
+            pageInfo {
+            hasNextPage
+            endCursor
+            }
+            nodes {
+            content {
+            ... on Issue {
+            title
+            url
+            repository {
+            name
+            }
+            }
+            }
+            fieldValues(first: 20) {
+            nodes {
+            ... on ProjectV2ItemFieldSingleSelectValue {
+            field {
+            ... on ProjectV2Field {
+            id
+            }
+            }
+            name
+            }
+            ... on ProjectV2ItemFieldTextValue {
+            field {
+            ... on ProjectV2Field {
+            id
+            }
+            }
+            text
+            }
+            }
+            }
+            }
+            }
+            }
+            }
+            }' -f project="$PROJECT_ID")
+            else
+            page=$(gh api graphql -f query='
+            query($project:ID!, $after:String) {
+            node(id: $project) {
+            ... on ProjectV2 {
+            items(first: 100, after: $after) {
+            pageInfo {
+            hasNextPage
+            endCursor
+            }
+            nodes {
+            content {
+            ... on Issue {
+            title
+            url
+            repository {
+            name
+            }
+            }
+            }
+            fieldValues(first: 20) {
+            nodes {
+            ... on ProjectV2ItemFieldSingleSelectValue {
+            field {
+            ... on ProjectV2Field {
+            id
+            }
+            }
+            name
+            }
+            ... on ProjectV2ItemFieldTextValue {
+            field {
+            ... on ProjectV2Field {
+            id
+            }
+            }
+            text
+            }
+            }
+            }
+            }
+            }
+            }
+            }
+            }' -f project="$PROJECT_ID" -f after="$cursor")
             fi
 
             # Merge items
@@ -131,7 +139,7 @@ jobs:
             hasNext=$(echo "$page" | jq -r '.data.node.items.pageInfo.hasNextPage')
             cursor=$(echo "$page" | jq -r '.data.node.items.pageInfo.endCursor')
             [ "$hasNext" != "true" ] && break
-          done
+            done
 
           echo "Formatting and sorting issues..."
           formatted=$(echo "$all_items" | jq -r --argjson PROJECT_ORDER "$(printf '%s\n' "${PROJECT_ORDER[@]}" | jq -R . | jq -s .)" \
