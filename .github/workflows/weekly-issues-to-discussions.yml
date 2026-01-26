@@ -57,7 +57,7 @@ jobs:
                           nodes {
                           ... on ProjectV2ItemFieldSingleSelectValue {
                           field {
-                          ... on ProjectV2SingleSelectField {
+                          ... on ProjectV2Field {
                           id
                           }
                           }
@@ -65,7 +65,7 @@ jobs:
                           }
                           ... on ProjectV2ItemFieldTextValue {
                           field {
-                          ... on ProjectV2TextField {
+                          ... on ProjectV2Field {
                           id
                           }
                           }
@@ -74,46 +74,47 @@ jobs:
                           }
                           }
 
-                        }
-                        }
-                        }
-                        }
-                        }' -f project="$PROJECT_ID")
-                        else
-                        page=$(gh api graphql -f query='
-                        query($project:ID!, $after:String) {
-                        node(id: $project) {
-                        ... on ProjectV2 {
-                        items(first: 100, after: $after) {
-                        pageInfo { hasNextPage endCursor }
-                        nodes {
-                        content {
-                        ... on Issue {
-                        title
-                        url
-                        repository { name }
-                        }
-                        }
-                        fieldValues(first: 20) {
-                        nodes {
-                        ... on ProjectV2ItemFieldSingleSelectValue {
-                        field {
-                        ... on ProjectV2SingleSelectField {
-                        id
-                        }
-                        }
-                        name
-                        }
-                        ... on ProjectV2ItemFieldTextValue {
-                        field {
-                        ... on ProjectV2TextField {
-                        id
-                        }
-                        }
-                        text
-                        }
-                        }
-                        }
+                          }
+                          }
+                          }
+                          }
+                          }' -f project="$PROJECT_ID")
+                          else
+                          page=$(gh api graphql -f query='
+                          query($project:ID!, $after:String) {
+                          node(id: $project) {
+                          ... on ProjectV2 {
+                          items(first: 100, after: $after) {
+                          pageInfo { hasNextPage endCursor }
+                          nodes {
+                          content {
+                          ... on Issue {
+                          title
+                          url
+                          repository { name }
+                          }
+                          }
+                          fieldValues(first: 20) {
+                          nodes {
+                          ... on ProjectV2ItemFieldSingleSelectValue {
+                          field {
+                          ... on ProjectV2Field {
+                          id
+                          }
+                          }
+                          name
+                          }
+                          ... on ProjectV2ItemFieldTextValue {
+                          field {
+                          ... on ProjectV2Field {
+                          id
+                          }
+                          }
+                          text
+                          }
+                          }
+                          }
+
 
                         }
                   }
