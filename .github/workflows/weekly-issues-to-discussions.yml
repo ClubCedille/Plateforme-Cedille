@@ -53,50 +53,50 @@ jobs:
                             repository { name }
                           }
                         }
-fieldValues(first: 20) {
-  nodes {
-    ... on ProjectV2ItemFieldSingleSelectValue {
-      field { id }
-      name
-    }
-    ... on ProjectV2ItemFieldTextValue {
-      field { id }
-      text
-    }
-  }
-}
+                        fieldValues(first: 20) {
+                        nodes {
+                        ... on ProjectV2ItemFieldSingleSelectValue {
+                        field { id }
+                        name
                         }
-                    }
-                  }
-                }
-              }' -f project="$PROJECT_ID")
-            else
-              page=$(gh api graphql -f query='
-              query($project:ID!, $after:String) {
-                node(id: $project) {
-                  ... on ProjectV2 {
-                    items(first: 100, after: $after) {
-                      pageInfo { hasNextPage endCursor }
-                      nodes {
+                        ... on ProjectV2ItemFieldTextValue {
+                        field { id }
+                        text
+                        }
+                        }
+                        }
+                        }
+                        }
+                        }
+                        }
+                        }' -f project="$PROJECT_ID")
+                        else
+                        page=$(gh api graphql -f query='
+                        query($project:ID!, $after:String) {
+                        node(id: $project) {
+                        ... on ProjectV2 {
+                        items(first: 100, after: $after) {
+                        pageInfo { hasNextPage endCursor }
+                        nodes {
                         content {
-                          ... on Issue {
-                            title
-                            url
-                            repository { name }
-                          }
+                        ... on Issue {
+                        title
+                        url
+                        repository { name }
                         }
-fieldValues(first: 20) {
-  nodes {
-    ... on ProjectV2ItemFieldSingleSelectValue {
-      field { id }
-      name
-    }
-    ... on ProjectV2ItemFieldTextValue {
-      field { id }
-      text
-    }
-  }
-}
+                        }
+                        fieldValues(first: 20) {
+                        nodes {
+                        ... on ProjectV2ItemFieldSingleSelectValue {
+                        field { id }
+                        name
+                        }
+                        ... on ProjectV2ItemFieldTextValue {
+                        field { id }
+                        text
+                        }
+                        }
+                        }
                         }
                     }
                   }
