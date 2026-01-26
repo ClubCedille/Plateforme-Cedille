@@ -142,7 +142,10 @@ jobs:
           done
 
           echo "Formatting and sorting issues..."
-          formatted=$(echo "$all_items" | jq -r --argjson PROJECT_ORDER "$(printf '%s\n' "${PROJECT_ORDER[@]}" | jq -R . | jq -s .)" \
+          formatted=$(echo "$all_items" | jq -r \
+          --arg PROJECT_FIELD_ID "$PROJECT_FIELD_ID" \
+          --arg STATUS_FIELD_ID "$STATUS_FIELD_ID" \
+          --argjson PROJECT_ORDER "$(printf '%s\n' "${PROJECT_ORDER[@]}" | jq -R . | jq -s .)" \
           --argjson STATUS_ORDER "$(printf '%s\n' "${STATUS_ORDER[@]}" | jq -R . | jq -s .)" \
           '
           map(
@@ -151,13 +154,13 @@ jobs:
               title: .content.title,
               url: (.content.url // ""),
               repo: (.content.repository.name // "No Repo"),
-              project: (.fieldValues.nodes[] | select(.field.id == env.PROJECT_FIELD_ID) | .name // .text // "No Project"),
-              status: (.fieldValues.nodes[] | select(.field.id == env.STATUS_FIELD_ID) | .name // .text // "No Status")
+              project: (.fieldValues.nodes[] | select(.field.id == $PROJECT_FIELD_ID) | .name // .text // "No Project"),
+              status: (.fieldValues.nodes[] | select(.field.id == $STATUS_FIELD_ID) | .name // .text // "No Status")
             }
           )
           | sort_by(
-            (.project as $p | $PROJECT_ORDER | index($p)),
-            (.status as $s | $STATUS_ORDER | index($s))
+            ($PROJECT_ORDER | index(.project) // 999),
+            ($STATUS_ORDER | index(.status) // 999)
           )
           | group_by(.project)
           | map(
