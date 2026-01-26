@@ -123,7 +123,9 @@ jobs:
             fi
 
             # Merge items
-            all_items=$(echo "$all_items $page" | jq -s 'add')
+            all_items=$(jq -c --argjson acc "$all_items" '
+            $acc + (.data.node.items.nodes // [])
+            ' <<<"$page")
 
             # Pagination
             hasNext=$(echo "$page" | jq -r '.data.node.items.pageInfo.hasNextPage')
