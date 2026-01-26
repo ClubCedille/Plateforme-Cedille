@@ -53,14 +53,19 @@ jobs:
                             repository { name }
                           }
                         }
-                        fieldValues(first: 10) {
-                          nodes {
-                            field { id }
-                            ... on ProjectV2ItemFieldSingleSelectValue { name }
-                            ... on ProjectV2ItemFieldTextValue { text }
-                          }
+fieldValues(first: 20) {
+  nodes {
+    ... on ProjectV2ItemFieldSingleSelectValue {
+      field { id }
+      name
+    }
+    ... on ProjectV2ItemFieldTextValue {
+      field { id }
+      text
+    }
+  }
+}
                         }
-                      }
                     }
                   }
                 }
@@ -80,14 +85,19 @@ jobs:
                             repository { name }
                           }
                         }
-                        fieldValues(first: 10) {
-                          nodes {
-                            field { id }
-                            ... on ProjectV2ItemFieldSingleSelectValue { name }
-                            ... on ProjectV2ItemFieldTextValue { text }
-                          }
+fieldValues(first: 20) {
+  nodes {
+    ... on ProjectV2ItemFieldSingleSelectValue {
+      field { id }
+      name
+    }
+    ... on ProjectV2ItemFieldTextValue {
+      field { id }
+      text
+    }
+  }
+}
                         }
-                      }
                     }
                   }
                 }
