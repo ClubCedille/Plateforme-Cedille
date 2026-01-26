@@ -52,19 +52,28 @@ jobs:
                             url
                             repository { name }
                           }
-                        }
-                        fieldValues(first: 20) {
-                        nodes {
-                        ... on ProjectV2ItemFieldSingleSelectValue {
-                        field { id }
-                        name
-                        }
-                        ... on ProjectV2ItemFieldTextValue {
-                        field { id }
-                        text
-                        }
-                        }
-                        }
+                          }
+                          fieldValues(first: 20) {
+                          nodes {
+                          ... on ProjectV2ItemFieldSingleSelectValue {
+                          field {
+                          ... on ProjectV2SingleSelectField {
+                          id
+                          }
+                          }
+                          name
+                          }
+                          ... on ProjectV2ItemFieldTextValue {
+                          field {
+                          ... on ProjectV2TextField {
+                          id
+                          }
+                          }
+                          text
+                          }
+                          }
+                          }
+
                         }
                         }
                         }
@@ -88,17 +97,25 @@ jobs:
                         fieldValues(first: 20) {
                         nodes {
                         ... on ProjectV2ItemFieldSingleSelectValue {
-                        field { id }
+                        field {
+                        ... on ProjectV2SingleSelectField {
+                        id
+                        }
+                        }
                         name
                         }
                         ... on ProjectV2ItemFieldTextValue {
-                        field { id }
+                        field {
+                        ... on ProjectV2TextField {
+                        id
+                        }
+                        }
                         text
                         }
                         }
                         }
+
                         }
-                    }
                   }
                 }
               }' -f project="$PROJECT_ID" -f after="$cursor")
