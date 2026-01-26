@@ -38,115 +38,114 @@ jobs:
           cursor=""
 
           while : ; do
-          if [ -z "$cursor" ]; then
-          page=$(gh api graphql -f query='
-          query($project:ID!) {
-          node(id: $project) {
-          ... on ProjectV2 {
-          items(first: 100) {
-          pageInfo {
-          hasNextPage
-          endCursor
-          }
-          nodes {
-          content {
-          ... on Issue {
-          title
-          url
-          repository {
-          name
-          }
-          }
-          }
-          fieldValues(first: 20) {
-          nodes {
-          ... on ProjectV2ItemFieldSingleSelectValue {
-          field {
-          ... on ProjectV2Field {
-          id
-          }
-          }
-          name
-          }
-          ... on ProjectV2ItemFieldTextValue {
-          field {
-          ... on ProjectV2Field {
-          id
-          }
-          }
-          text
-          }
-          }
-          }
-          }
-          }
-          }
-          }
-          }' -f project="$PROJECT_ID")
-          else
-          page=$(gh api graphql -f query='
-          query($project:ID!, $after:String) {
-          node(id: $project) {
-          ... on ProjectV2 {
-          items(first: 100, after: $after) {
-          pageInfo {
-          hasNextPage
-          endCursor
-          }
-          nodes {
-          content {
-          ... on Issue {
-          title
-          url
-          repository {
-          name
-          }
-          }
-          }
-          fieldValues(first: 20) {
-          nodes {
-          ... on ProjectV2ItemFieldSingleSelectValue {
-          field {
-          ... on ProjectV2Field {
-          id
-          }
-          }
-          name
-          }
-          ... on ProjectV2ItemFieldTextValue {
-          field {
-          ... on ProjectV2Field {
-          id
-          }
-          }
-          text
-          }
-          }
-          }
-          }
-          }
-          }
-          }
-          }' -f project="$PROJECT_ID" -f after="$cursor")
-          fi
+            if [ -z "$cursor" ]; then
+              page=$(gh api graphql -f query='
+              query($project:ID!) {
+                node(id: $project) {
+                  ... on ProjectV2 {
+                    items(first: 100) {
+                      pageInfo {
+                        hasNextPage
+                        endCursor
+                      }
+                      nodes {
+                        content {
+                          ... on Issue {
+                            title
+                            url
+                            repository {
+                              name
+                            }
+                          }
+                        }
+                        fieldValues(first: 20) {
+                          nodes {
+                            ... on ProjectV2ItemFieldSingleSelectValue {
+                              field {
+                                ... on ProjectV2Field {
+                                  id
+                                }
+                              }
+                              name
+                            }
+                            ... on ProjectV2ItemFieldTextValue {
+                              field {
+                                ... on ProjectV2Field {
+                                  id
+                                }
+                              }
+                              text
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }' -f project="$PROJECT_ID")
+            else
+              page=$(gh api graphql -f query='
+              query($project:ID!, $after:String) {
+                node(id: $project) {
+                  ... on ProjectV2 {
+                    items(first: 100, after: $after) {
+                      pageInfo {
+                        hasNextPage
+                        endCursor
+                      }
+                      nodes {
+                        content {
+                          ... on Issue {
+                            title
+                            url
+                            repository {
+                              name
+                            }
+                          }
+                        }
+                        fieldValues(first: 20) {
+                          nodes {
+                            ... on ProjectV2ItemFieldSingleSelectValue {
+                              field {
+                                ... on ProjectV2Field {
+                                  id
+                                }
+                              }
+                              name
+                            }
+                            ... on ProjectV2ItemFieldTextValue {
+                              field {
+                                ... on ProjectV2Field {
+                                  id
+                                }
+                              }
+                              text
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }' -f project="$PROJECT_ID" -f after="$cursor")
+            fi
 
-          # Merge items
-          all_items=$(echo "$page" | jq -c --argjson acc "$all_items" '
-          $acc + (.data.node.items.nodes // [])
-          ')
+            # Merge items
+            all_items=$(echo "$page" | jq -c --argjson acc "$all_items" '
+              $acc + (.data.node.items.nodes // [])
+            ')
 
-          # Pagination
-          hasNext=$(echo "$page" | jq -r '.data.node.items.pageInfo.hasNextPage')
-          cursor=$(echo "$page" | jq -r '.data.node.items.pageInfo.endCursor')
-          [ "$hasNext" != "true" ] && break
-        done
+            # Pagination
+            hasNext=$(echo "$page" | jq -r '.data.node.items.pageInfo.hasNextPage')
+            cursor=$(echo "$page" | jq -r '.data.node.items.pageInfo.endCursor')
+            [ "$hasNext" != "true" ] && break
+          done
 
           echo "Formatting and sorting issues..."
           formatted=$(echo "$all_items" | jq -r --argjson PROJECT_ORDER "$(printf '%s\n' "${PROJECT_ORDER[@]}" | jq -R . | jq -s .)" \
           --argjson STATUS_ORDER "$(printf '%s\n' "${STATUS_ORDER[@]}" | jq -R . | jq -s .)" \
           '
-          .data.node.items.nodes
-          | map(
+          map(
             select(.content != null)
             | {
               title: .content.title,
@@ -157,8 +156,8 @@ jobs:
             }
           )
           | sort_by(
-            (.project | index($PROJECT_ORDER[])),
-            (.status | index($STATUS_ORDER[]))
+            (.project as $p | $PROJECT_ORDER | index($p)),
+            (.status as $s | $STATUS_ORDER | index($s))
           )
           | group_by(.project)
           | map(
