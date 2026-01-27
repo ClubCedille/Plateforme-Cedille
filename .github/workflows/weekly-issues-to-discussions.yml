@@ -171,7 +171,19 @@ jobs:
           echo "Sample of collected items (first 2):"
           echo "$all_items" | jq '.[0:2]'
 
-          echo "Formatting and sorting issues..."
+echo "Formatting and sorting issues..."
+
+          # First, let's see what field IDs are actually present
+          echo "Analyzing field structure:"
+          echo "$all_items" | jq '[.[0].fieldValues.nodes[] | {field: .field, name: .name, text: .text}]'
+
+          # Check if any items have the expected field IDs
+          echo "Checking for PROJECT_FIELD_ID matches:"
+          echo "$all_items" | jq --arg PROJECT_FIELD_ID "$PROJECT_FIELD_ID" '[.[].fieldValues.nodes[] | select(.field.id == $PROJECT_FIELD_ID)]'
+
+          echo "Checking for STATUS_FIELD_ID matches:"
+          echo "$all_items" | jq --arg STATUS_FIELD_ID "$STATUS_FIELD_ID" '[.[].fieldValues.nodes[] | select(.field.id == $STATUS_FIELD_ID)]'
+
           formatted=$(echo "$all_items" | jq -r \
           --arg PROJECT_FIELD_ID "$PROJECT_FIELD_ID" \
           --arg STATUS_FIELD_ID "$STATUS_FIELD_ID" \
@@ -185,9 +197,11 @@ jobs:
               url: (.content.url // ""),
               repo: (.content.repository.name // "No Repo"),
               project: (.fieldValues.nodes[] | select(.field.id == $PROJECT_FIELD_ID) | .name // .text // "No Project"),
-              status: (.fieldValues.nodes[] | select(.field.id == $STATUS_FIELD_ID) | .name // .text // "No Status")
+              status: (.fieldValues.nodes[] | select(.field.id == $STATUS_FIELD_ID) | .name // .text // "No Status"),
+              debug_fields: [.fieldValues.nodes[] | {id: .field.id, name: .name, text: .text}]
             }
           )
+          | map(. + {debug: "project=\(.project), status=\(.status)"})
           | sort_by(
             ($PROJECT_ORDER | index(.project) // 999),
             ($STATUS_ORDER | index(.status) // 999)
