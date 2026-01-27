@@ -33,31 +33,45 @@ jobs:
           PROJECT_ORDER=("Services" "Déploiements" "Plateforme-Cedille" "Club-ops" "Documentation & Onboarding" "Web Dev" "App Dev")
           STATUS_ORDER=("Backlog" "Todo" "In Progress" "In Review" "Done" "Won't Do")
 
-          echo "Fetching project items..."
+          echo "Fetching project items with pagination..."
 
-          items=$(gh api graphql -f query='
-          query($project:ID!) {
-            node(id: $project) {
-              ... on ProjectV2 {
-                items(first: 100) {
-                  nodes {
-                    content {
-                      ... on Issue {
-                        title
-                        url
-                        number
-                        repository {
-                          name
+          # Initialize variables for pagination
+          all_items="[]"
+          has_next_page=true
+          end_cursor="null"
+
+          # Fetch all pages
+          while [ "$has_next_page" = "true" ]; do
+            echo "Fetching page with cursor: $end_cursor"
+
+            page_data=$(gh api graphql -f query='
+            query($project:ID!, $cursor:String) {
+              node(id: $project) {
+                ... on ProjectV2 {
+                  items(first: 100, after: $cursor) {
+                    pageInfo {
+                      hasNextPage
+                      endCursor
+                    }
+                    nodes {
+                      content {
+                        ... on Issue {
+                          title
+                          url
+                          number
+                          repository {
+                            name
+                          }
                         }
                       }
-                    }
-                    fieldValues(first: 20) {
-                      nodes {
-                        ... on ProjectV2ItemFieldSingleSelectValue {
-                          name
-                          field {
-                            ... on ProjectV2SingleSelectField {
-                              id
+                      fieldValues(first: 20) {
+                        nodes {
+                          ... on ProjectV2ItemFieldSingleSelectValue {
+                            name
+                            field {
+                              ... on ProjectV2SingleSelectField {
+                                id
+                              }
                             }
                           }
                         }
@@ -66,43 +80,61 @@ jobs:
                   }
                 }
               }
-            }
-          }' -f project="$PROJECT_ID")
+            }' -f project="$PROJECT_ID" -f cursor="$end_cursor")
+
+            # Extract pagination info
+            has_next_page=$(echo "$page_data" | jq -r '.data.node.items.pageInfo.hasNextPage')
+            end_cursor=$(echo "$page_data" | jq -r '.data.node.items.pageInfo.endCursor')
+
+            # Append items to all_items
+            page_items=$(echo "$page_data" | jq '.data.node.items.nodes')
+            all_items=$(echo "$all_items" | jq --argjson page "$page_items" '. + $page')
+
+            echo "Fetched $(echo "$page_items" | jq 'length') items. Total: $(echo "$all_items" | jq 'length')"
+
+            # Update cursor for next iteration (add quotes for GraphQL)
+            if [ "$has_next_page" = "true" ]; then
+              end_cursor="\"$end_cursor\""
+            fi
+          done
+
+          echo "Total items fetched: $(echo "$all_items" | jq 'length')"
 
           echo "Formatting and sorting issues..."
 
-          formatted=$(echo "$items" | jq -r --argjson PROJECT_ORDER "$(printf '%s\n' "${PROJECT_ORDER[@]}" | jq -R . | jq -s .)" \
+          formatted=$(echo "$all_items" | jq -r --argjson PROJECT_ORDER "$(printf '%s\n' "${PROJECT_ORDER[@]}" | jq -R . | jq -s .)" \
           --argjson STATUS_ORDER "$(printf '%s\n' "${STATUS_ORDER[@]}" | jq -R . | jq -s .)" \
+          --arg PROJECT_FIELD_ID "$PROJECT_FIELD_ID" \
+          --arg STATUS_FIELD_ID "$STATUS_FIELD_ID" \
           '
-          .data.node.items.nodes
-          | map(
-          select(.content != null)
-          | {
-          title: .content.title,
-          url: (.content.url // ""),
-          repo: (.content.repository.name // "No Repo"),
-          project: (.fieldValues.nodes[] | select(.field.id == env.PROJECT_FIELD_ID) | .name // "No Project"),
-          status: (.fieldValues.nodes[] | select(.field.id == env.STATUS_FIELD_ID) | .name // "No Status")
-          }
+          map(
+            select(.content != null)
+            | {
+              title: .content.title,
+              url: (.content.url // ""),
+              repo: (.content.repository.name // "No Repo"),
+              project: (.fieldValues.nodes[] | select(.field.id == $PROJECT_FIELD_ID) | .name // "No Project"),
+              status: (.fieldValues.nodes[] | select(.field.id == $STATUS_FIELD_ID) | .name // "No Status")
+            }
           )
           | sort_by(
-          (.project | index($PROJECT_ORDER[])),
-          (.status | index($STATUS_ORDER[]))
+            (.project as $p | $PROJECT_ORDER | index($p) // 999),
+            (.status as $s | $STATUS_ORDER | index($s) // 999)
           )
           | group_by(.project)
           | map(
-          "## " + (.[0].project) + "\n\n" +
-          (
-          group_by(.status)
-          | map(
-          "### " + (.[0].status) + "\n" +
-          (map(
-          "- [" + .repo + "] " + .title +
-          (if .url != "" then " (" + .url + ")" else "" end)
-          ) | join("\n"))
-          )
-          | join("\n\n")
-          )
+            "## " + (.[0].project) + "\n\n" +
+            (
+              group_by(.status)
+              | map(
+                "### " + (.[0].status) + "\n" +
+                (map(
+                  "- [" + .repo + "] " + .title +
+                  (if .url != "" then " (" + .url + ")" else "" end)
+                ) | join("\n"))
+              )
+              | join("\n\n")
+            )
           )
           | join("\n\n")
           ')
