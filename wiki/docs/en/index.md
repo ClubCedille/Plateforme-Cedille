@@ -54,7 +54,7 @@ accept students after we have met with them.
   [MonEts](https://formulaires.etsmtl.ca/ClubEtudiantAdhesion?requete=cedille&categorie=0).
 
 - Complete the quiz on
-  [Moodle](https://ena.etsmtl.ca/mod/quiz/view.php?id=1783903).
+  [Moodle](https://ena.etsmtl.ca/mod/quiz/view.php?id=1860454).
 
 The quiz will only be available once your request has been approved.
 

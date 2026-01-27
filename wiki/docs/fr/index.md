@@ -56,7 +56,7 @@ rencontrés.
   [Monets](https://formulaires.etsmtl.ca/ClubEtudiantAdhesion?requete=cedille&categorie=0).
 
 - Faire le quiz sur
-  [Moodle](https://ena.etsmtl.ca/mod/quiz/view.php?id=1783903).
+  [Moodle](https://ena.etsmtl.ca/mod/quiz/view.php?id=1860454).
 
 Le questionnaire ne sera disponible qu'après que votre demande soit
 acceptée.
