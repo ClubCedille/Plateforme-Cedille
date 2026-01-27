@@ -1,5 +1,4 @@
 name: Create weekly issues discussion
-name: Create weekly issues discussion
 
 on:
   workflow_dispatch:
@@ -212,6 +211,6 @@ jobs:
             }
           }' \
           -f repoId="$REPO_ID" \
-          -f title="CEDILLE Meeting - H25 ($(date '+%d %B %Y' | sed 's/January/janvier/;s/February/février/;s/March/mars/;s/April/avril/;s/May/mai/;s/June/juin/;s/July/juillet/;s/August/août/;s/September/septembre/;s/October/octobre/;s/November/novembre/;s/December/décembre/'))" \
+          -f title="CEDILLE Meeting - H25 ($(LC_TIME=fr_FR.UTF-8 date '+%d %B %Y'))" \
           -f body="$body" \
           -f category="$CATEGORY_ID"
