@@ -1,4 +1,5 @@
 name: Create weekly issues discussion
+name: Create weekly issues discussion
 
 on:
   workflow_dispatch:
@@ -33,38 +34,6 @@ jobs:
           PROJECT_ORDER=("Services" "Déploiements" "Plateforme-Cedille" "Club-ops" "Documentation & Onboarding" "Web Dev" "App Dev")
           STATUS_ORDER=("Backlog" "Todo" "In Progress" "In Review" "Done" "Won't Do")
 
-          echo "Fetching previous weekly report date..."
-
-          # Get the repository ID first
-          REPO_ID=$(gh api graphql -f query='
-          query($owner:String!, $name:String!) {
-            repository(owner: $owner, name: $name) {
-              id
-            }
-          }' -f owner="$ORG" -f name="$TARGET_REPO" --jq '.data.repository.id')
-
-          echo "Repository ID: $REPO_ID"
-
-          # Fetch the last weekly discussion to get its creation date
-          last_discussion=$(gh api graphql -f query='
-          query($repoId:ID!, $categoryId:ID!) {
-            node(id: $repoId) {
-              ... on Repository {
-                discussions(first: 1, categoryId: $categoryId, orderBy: {field: CREATED_AT, direction: DESC}) {
-                  nodes {
-                    title
-                    createdAt
-                  }
-                }
-              }
-            }
-          }' -f repoId="$REPO_ID" -f categoryId="$CATEGORY_ID")
-
-          # Extract the creation date of the last discussion
-          last_discussion_date=$(echo "$last_discussion" | jq -r '.data.node.discussions.nodes[0].createdAt // "1970-01-01T00:00:00Z"')
-
-          echo "Last discussion date: $last_discussion_date"
-
           echo "Fetching project items with pagination..."
 
           # Initialize variables for pagination
@@ -94,7 +63,6 @@ jobs:
                             title
                             url
                             number
-                            closedAt
                             repository {
                               name
                             }
@@ -134,7 +102,6 @@ jobs:
                             title
                             url
                             number
-                            closedAt
                             repository {
                               name
                             }
@@ -176,7 +143,6 @@ jobs:
 
           formatted=$(echo "$all_items" | jq -r --argjson PROJECT_ORDER "$(printf '%s\n' "${PROJECT_ORDER[@]}" | jq -R . | jq -s .)" \
           --argjson STATUS_ORDER "$(printf '%s\n' "${STATUS_ORDER[@]}" | jq -R . | jq -s .)" \
-          --arg LAST_DISCUSSION_DATE "$last_discussion_date" \
           --arg PROJECT_FIELD_ID "$PROJECT_FIELD_ID" \
           --arg STATUS_FIELD_ID "$STATUS_FIELD_ID" \
           '
@@ -186,34 +152,9 @@ jobs:
               title: .content.title,
               url: (.content.url // ""),
               repo: (.content.repository.name // "No Repo"),
-              closedAt: (.content.closedAt // null),
               project: (.fieldValues.nodes[] | select(.field.id == $PROJECT_FIELD_ID) | .name // "No Project"),
               status: (.fieldValues.nodes[] | select(.field.id == $STATUS_FIELD_ID) | .name // "No Status")
             }
-          )
-          # Filter:
-          # - Keep all non-Done/Won'"'"'t Do issues
-          # - For Done/Won'"'"'t Do: only keep if closedAt is after last discussion date
-          | map(
-            select(.content != null)
-            | {
-              title: .content.title,
-              url: (.content.url // ""),
-              number: (.content.number // 0),
-              repo: (.content.repository.name // "No Repo"),
-              closedAt: (.content.closedAt // null),
-              project: (.fieldValues.nodes[] | select(.field.id == $PROJECT_FIELD_ID) | .name // "No Project"),
-              status: (.fieldValues.nodes[] | select(.field.id == $STATUS_FIELD_ID) | .name // "No Status")
-            }
-          )
-          # Filter:
-          # - Keep all non-Done/Won'"'"'t Do issues
-          # - For Done/Won'"'"'t Do: only keep if closedAt is after last discussion date
-          | map(
-            select(
-              (.status != "Done" and .status != "Won'"'"'t Do") or
-              (.closedAt != null and .closedAt > $LAST_DISCUSSION_DATE)
-            )
           )
           | sort_by(
             (.project as $p | $PROJECT_ORDER | index($p) // 999),
@@ -227,9 +168,8 @@ jobs:
               | map(
                 "### " + (.[0].status) + "\n" +
                 (map(
-                  "- [" + .repo + "] " + .title + " " +
-                  (if .url != "" then "[#" + (.number | tostring) + "](" + .url + ")" else "" end) +
-                  (if .closedAt != null then " - Closed: " + (.closedAt | split("T")[0]) else "" end)
+                  "- [" + .repo + "] " + .title +
+                  (if .url != "" then " (" + .url + ")" else "" end)
                 ) | join("\n"))
               )
               | join("\n\n")
@@ -237,14 +177,24 @@ jobs:
           )
           | join("\n\n")
           ')
+
           body=$(cat <<EOF
           ## Weekly project overview – Backlog CEDILLE
-
-          **Report period:** Since $last_discussion_date
 
           $formatted
           EOF
           )
+
+          echo "Resolving repository ID..."
+
+          REPO_ID=$(gh api graphql -f query='
+          query($owner:String!, $name:String!) {
+            repository(owner: $owner, name: $name) {
+              id
+            }
+          }' -f owner="$ORG" -f name="$TARGET_REPO" --jq '.data.repository.id')
+
+          echo "Repository ID: $REPO_ID"
 
           echo "Creating discussion..."
 
@@ -262,6 +212,6 @@ jobs:
             }
           }' \
           -f repoId="$REPO_ID" \
-          -f title="Weekly issues report ($(date +%Y-%m-%d))" \
+          -f title="CEDILLE Meeting - H25 ($(date '+%d %B %Y' | sed 's/January/janvier/;s/February/février/;s/March/mars/;s/April/avril/;s/May/mai/;s/June/juin/;s/July/juillet/;s/August/août/;s/September/septembre/;s/October/octobre/;s/November/novembre/;s/December/décembre/'))" \
           -f body="$body" \
           -f category="$CATEGORY_ID"
