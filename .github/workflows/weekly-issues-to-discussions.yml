@@ -34,10 +34,18 @@ jobs:
           STATUS_ORDER=("Backlog" "Todo" "In Progress" "In Review" "Done" "Won't Do")
 
           echo "Fetching project items with pagination..."
+          echo "PROJECT_ID: $PROJECT_ID"
+          echo "PROJECT_FIELD_ID: $PROJECT_FIELD_ID"
+          echo "STATUS_FIELD_ID: $STATUS_FIELD_ID"
+
           all_items="[]"
           cursor=""
+          page_count=0
 
           while : ; do
+            page_count=$((page_count + 1))
+            echo "Fetching page $page_count..."
+
             if [ -z "$cursor" ]; then
               page=$(gh api graphql -f query='
               query($project:ID!) {
@@ -130,16 +138,38 @@ jobs:
               }' -f project="$PROJECT_ID" -f after="$cursor")
             fi
 
+            # Log the raw response
+            echo "Raw page response:"
+            echo "$page" | jq '.'
+
+            # Count items in this page
+            items_count=$(echo "$page" | jq '.data.node.items.nodes | length')
+            echo "Items in page $page_count: $items_count"
+
             # Merge items
             all_items=$(echo "$page" | jq -c --argjson acc "$all_items" '
               $acc + (.data.node.items.nodes // [])
             ')
 
+            # Log merged items count
+            total_items=$(echo "$all_items" | jq 'length')
+            echo "Total items so far: $total_items"
+
             # Pagination
             hasNext=$(echo "$page" | jq -r '.data.node.items.pageInfo.hasNextPage')
             cursor=$(echo "$page" | jq -r '.data.node.items.pageInfo.endCursor')
+            echo "Has next page: $hasNext"
             [ "$hasNext" != "true" ] && break
           done
+
+          echo "============================================"
+          echo "Total pages fetched: $page_count"
+          echo "Total items collected: $(echo "$all_items" | jq 'length')"
+          echo "============================================"
+
+          # Log sample of collected items
+          echo "Sample of collected items (first 2):"
+          echo "$all_items" | jq '.[0:2]'
 
           echo "Formatting and sorting issues..."
           formatted=$(echo "$all_items" | jq -r \
@@ -180,12 +210,20 @@ jobs:
           | join("\n\n")
           ')
 
+          echo "============================================"
+          echo "Formatted output length: ${#formatted}"
+          echo "Formatted output preview:"
+          echo "$formatted" | head -20
+          echo "============================================"
+
           body=$(cat <<EOF
           ## Weekly project overview – Backlog CEDILLE
 
           $formatted
           EOF
           )
+
+          echo "Final body length: ${#body}"
 
           echo "Resolving repository ID..."
           REPO_ID=$(gh api graphql -f query='
