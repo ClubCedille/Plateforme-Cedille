@@ -150,6 +150,7 @@ jobs:
             | {
               title: .content.title,
               url: (.content.url // ""),
+              number: (.content.number // 0),
               repo: (.content.repository.name // "No Repo"),
               project: (.fieldValues.nodes[] | select(.field.id == $PROJECT_FIELD_ID) | .name // "No Project"),
               status: (.fieldValues.nodes[] | select(.field.id == $STATUS_FIELD_ID) | .name // "No Status")
@@ -168,7 +169,7 @@ jobs:
                 "### " + (.[0].status) + "\n" +
                 (map(
                   "- [" + .repo + "] " + .title +
-                  (if .url != "" then " (" + .url + ")" else "" end)
+                  (if .url != "" and .number != 0 then " [#" + (.number | tostring) + "](" + .url + ")" else "" end)
                 ) | join("\n"))
               )
               | join("\n\n")
@@ -211,6 +212,6 @@ jobs:
             }
           }' \
           -f repoId="$REPO_ID" \
-          -f title="Weekly issues report ($(date +%Y-%m-%d))" \
+          -f title="CEDILLE Meeting - H25 ($(LC_TIME=fr_FR.UTF-8 date '+%d %B %Y'))" \
           -f body="$body" \
           -f category="$CATEGORY_ID"
