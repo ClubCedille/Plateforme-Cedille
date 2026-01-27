@@ -195,6 +195,21 @@ jobs:
           # - Keep all non-Done/Won'"'"'t Do issues
           # - For Done/Won'"'"'t Do: only keep if closedAt is after last discussion date
           | map(
+            select(.content != null)
+            | {
+              title: .content.title,
+              url: (.content.url // ""),
+              number: (.content.number // 0),
+              repo: (.content.repository.name // "No Repo"),
+              closedAt: (.content.closedAt // null),
+              project: (.fieldValues.nodes[] | select(.field.id == $PROJECT_FIELD_ID) | .name // "No Project"),
+              status: (.fieldValues.nodes[] | select(.field.id == $STATUS_FIELD_ID) | .name // "No Status")
+            }
+          )
+          # Filter:
+          # - Keep all non-Done/Won'"'"'t Do issues
+          # - For Done/Won'"'"'t Do: only keep if closedAt is after last discussion date
+          | map(
             select(
               (.status != "Done" and .status != "Won'"'"'t Do") or
               (.closedAt != null and .closedAt > $LAST_DISCUSSION_DATE)
@@ -212,8 +227,8 @@ jobs:
               | map(
                 "### " + (.[0].status) + "\n" +
                 (map(
-                  "- [" + .repo + "] " + .title +
-                  (if .url != "" then " (" + .url + ")" else "" end) +
+                  "- [" + .repo + "] " + .title + " " +
+                  (if .url != "" then "[#" + (.number | tostring) + "](" + .url + ")" else "" end) +
                   (if .closedAt != null then " - Closed: " + (.closedAt | split("T")[0]) else "" end)
                 ) | join("\n"))
               )
@@ -222,7 +237,6 @@ jobs:
           )
           | join("\n\n")
           ')
-
           body=$(cat <<EOF
           ## Weekly project overview – Backlog CEDILLE
 
