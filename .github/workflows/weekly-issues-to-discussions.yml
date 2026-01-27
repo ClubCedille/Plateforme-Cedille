@@ -38,39 +38,43 @@ jobs:
           # Initialize variables for pagination
           all_items="[]"
           has_next_page=true
-          end_cursor="null"
+          end_cursor=""
 
           # Fetch all pages
           while [ "$has_next_page" = "true" ]; do
-            echo "Fetching page with cursor: $end_cursor"
+            echo "Fetching page with cursor: ${end_cursor:-'(first page)'}"
 
-            page_data=$(gh api graphql -f query='
-            query($project:ID!, $cursor:String) {
-              node(id: $project) {
-                ... on ProjectV2 {
-                  items(first: 100, after: $cursor) {
-                    pageInfo {
-                      hasNextPage
-                      endCursor
-                    }
-                    nodes {
-                      content {
-                        ... on Issue {
-                          title
-                          url
-                          number
-                          repository {
-                            name
+            # Build query based on whether we have a cursor
+            if [ -z "$end_cursor" ]; then
+              # First page - no cursor
+              page_data=$(gh api graphql -f query='
+              query($project:ID!) {
+                node(id: $project) {
+                  ... on ProjectV2 {
+                    items(first: 100) {
+                      pageInfo {
+                        hasNextPage
+                        endCursor
+                      }
+                      nodes {
+                        content {
+                          ... on Issue {
+                            title
+                            url
+                            number
+                            repository {
+                              name
+                            }
                           }
                         }
-                      }
-                      fieldValues(first: 20) {
-                        nodes {
-                          ... on ProjectV2ItemFieldSingleSelectValue {
-                            name
-                            field {
-                              ... on ProjectV2SingleSelectField {
-                                id
+                        fieldValues(first: 20) {
+                          nodes {
+                            ... on ProjectV2ItemFieldSingleSelectValue {
+                              name
+                              field {
+                                ... on ProjectV2SingleSelectField {
+                                  id
+                                }
                               }
                             }
                           }
@@ -79,8 +83,47 @@ jobs:
                     }
                   }
                 }
-              }
-            }' -f project="$PROJECT_ID" -f cursor="$end_cursor")
+              }' -f project="$PROJECT_ID")
+            else
+              # Subsequent pages - with cursor
+              page_data=$(gh api graphql -f query='
+              query($project:ID!, $cursor:String!) {
+                node(id: $project) {
+                  ... on ProjectV2 {
+                    items(first: 100, after: $cursor) {
+                      pageInfo {
+                        hasNextPage
+                        endCursor
+                      }
+                      nodes {
+                        content {
+                          ... on Issue {
+                            title
+                            url
+                            number
+                            repository {
+                              name
+                            }
+                          }
+                        }
+                        fieldValues(first: 20) {
+                          nodes {
+                            ... on ProjectV2ItemFieldSingleSelectValue {
+                              name
+                              field {
+                                ... on ProjectV2SingleSelectField {
+                                  id
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }' -f project="$PROJECT_ID" -f cursor="$end_cursor")
+            fi
 
             # Extract pagination info
             has_next_page=$(echo "$page_data" | jq -r '.data.node.items.pageInfo.hasNextPage')
@@ -91,11 +134,6 @@ jobs:
             all_items=$(echo "$all_items" | jq --argjson page "$page_items" '. + $page')
 
             echo "Fetched $(echo "$page_items" | jq 'length') items. Total: $(echo "$all_items" | jq 'length')"
-
-            # Update cursor for next iteration (add quotes for GraphQL)
-            if [ "$has_next_page" = "true" ]; then
-              end_cursor="\"$end_cursor\""
-            fi
           done
 
           echo "Total items fetched: $(echo "$all_items" | jq 'length')"
