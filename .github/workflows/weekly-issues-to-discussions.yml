@@ -171,7 +171,7 @@ jobs:
           echo "Sample of collected items (first 2):"
           echo "$all_items" | jq '.[0:2]'
 
-echo "Formatting and sorting issues..."
+          echo "Formatting and sorting issues..."
 
           # First, let's see what field IDs are actually present
           echo "Analyzing field structure:"
