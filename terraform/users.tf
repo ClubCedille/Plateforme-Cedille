@@ -458,3 +458,19 @@ module "GreatSymphonia" {
   netdata_role = "observer"
 }
 
+
+
+module "jonismo" {
+  source          = "./modules/user"
+  github_email    = "civic-coke@outlook.com"
+  github_username = "jonismo"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" }, 
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Reader"
+  cluster_repo = var.platform_repo
+  netdata_space_id = var.netdata_space_id
+  netdata_role = "observer"
+}
