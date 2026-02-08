@@ -22,6 +22,8 @@ jobs:
     uses: ClubCedille/cedille-workflows/.github/workflows/build-push-ghcr.yaml@master
     with:
       container-name: 'wiki-cedille'
+      pr-head-sha: ${{ github.event.pull_request.head.sha || '' }}
+      pr-head-ref: ${{ github.event.pull_request.head.ref || '' }}
       context: '.'
       file: 'wiki/Dockerfile'
     secrets: inherit
