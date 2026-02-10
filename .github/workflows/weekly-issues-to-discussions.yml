@@ -260,7 +260,7 @@ jobs:
             }
           }' \
           -f repoId="$REPO_ID" \
-          -f title="CEDILLE Meeting - H25 ($(LC_TIME=fr_FR.UTF-8 date '+%d %B %Y'))" \
+          -f title="CEDILLE Meeting - H26 ($(LC_TIME=fr_FR.UTF-8 date '+%d %B %Y'))" \
           -f body="$body" \
           -f category="$CATEGORY_ID" --jq '.data.createDiscussion.discussion.url')
 
