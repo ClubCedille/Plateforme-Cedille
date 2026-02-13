@@ -1,0 +1,33 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: outline-{{ nom_club }}-tls
+spec:
+  secretName: outline-{{ nom_club }}-tls
+  issuerRef:
+    name: letsencrypt-etsmtl
+    kind: ClusterIssuer
+  commonName: {{ nom_club }}.etsmtl.club
+  dnsNames:
+    - {{ nom_club }}.etsmtl.club
+---
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: outline-{{ nom_club }}
+spec:
+  virtualhost:
+    fqdn: {{ nom_club }}.etsmtl.club
+    tls:
+      secretName: outline-{{ nom_club }}-tls
+      minimumProtocolVersion: "1.3"
+  routes:
+    - conditions:
+        - prefix: /
+      enableWebsockets: true
+      services:
+        - name: outline-{{ nom_club }}
+          port: 3000
+      timeoutPolicy:
+        idle: 600s
+        response: 600s

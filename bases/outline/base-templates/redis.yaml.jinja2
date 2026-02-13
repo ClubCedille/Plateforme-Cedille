@@ -1,0 +1,99 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: redis-{{ nom_club }}
+  annotations:
+    kube-score/ignore: pod-networkpolicy, pod-probes-identical, container-security-context-user-group-id, container-security-context-readonlyrootfilesystem
+spec:
+  serviceName: redis-{{ nom_club }}
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-{{ nom_club }}
+  template:
+    metadata:
+      labels:
+        app: redis-{{ nom_club }}
+    spec:
+      initContainers:
+        - name: fix-permissions
+          image: busybox:1.36
+          imagePullPolicy: Always
+          command: ["sh", "-c", "chown -R 10001:10001 /data"]
+          securityContext:
+            runAsUser: 0
+            runAsNonRoot: false
+          volumeMounts:
+            - name: redis-{{ nom_club }}-pv-claim
+              mountPath: /data
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "128Mi"
+              ephemeral-storage: "128Mi"
+            limits:
+              cpu: "100m"
+              memory: "256Mi"
+              ephemeral-storage: "256Mi"
+      securityContext:
+        fsGroup: 1000
+      containers:
+        - name: redis
+          image: redis:7.2.4
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 6379
+          volumeMounts:
+            - name: redis-{{ nom_club }}-pv-claim
+              mountPath: /data
+          resources:
+            requests:
+              cpu: 250m
+              memory: 500Mi
+              ephemeral-storage: 256Mi
+            limits:
+              cpu: 1000m
+              memory: 1Gi
+              ephemeral-storage: 1Gi
+          livenessProbe:
+            exec:
+              command:
+                - redis-cli
+                - ping
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            exec:
+              command:
+                - redis-cli
+                - ping
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          securityContext:
+            runAsUser: 10001
+            runAsGroup: 10001
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+      imagePullSecrets:
+        - name: dockerhub-pull
+  volumeClaimTemplates:
+    - metadata:
+        name: redis-{{ nom_club }}-pv-claim
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 5Gi
+        storageClassName: cephfs
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-{{ nom_club }}
+spec:
+  ports:
+    - port: 6379
+      targetPort: 6379
+  clusterIP: None
+  selector:
+    app: redis-{{ nom_club }}

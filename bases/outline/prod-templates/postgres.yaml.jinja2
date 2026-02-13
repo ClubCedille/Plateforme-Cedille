@@ -1,0 +1,69 @@
+
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: postgresql-outline-{{ nom_club }}
+spec:
+  imageName: ghcr.io/cloudnative-pg/postgresql:17.2
+  instances: 1
+  bootstrap:
+    initdb:
+      database: outline
+      owner: outline
+      secret:
+        name: postgresql-outline-app
+  storage:
+    size: 15Gi
+    storageClass: cephfs
+  backup:
+    # needs a cleanup cronjob to delete old backups
+    volumeSnapshot:
+      className: csi-cephfsplugin-snapclass
+  plugins:
+    - name: barman-cloud.cloudnative-pg.io
+      isWALArchiver: true
+      parameters:
+        barmanObjectName: cnpg-outline-{{ nom_club }}-b2
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: ScheduledBackup
+metadata:
+  name: cnpg-backup-schedule
+spec:
+  schedule: "0 40 6 * * * "
+  backupOwnerReference: self
+  cluster:
+    name: postgresql-outline-{{ nom_club }}
+  method: plugin
+  pluginConfiguration:
+    name: barman-cloud.cloudnative-pg.io
+---
+apiVersion: barmancloud.cnpg.io/v1
+kind: ObjectStore
+metadata:
+  name: cnpg-outline-{{ nom_club }}-b2
+spec:
+  configuration:
+    destinationPath: s3://k8s-shared-bucket/postgresql-outline-{{ nom_club }}
+    endpointURL: https://s3.ca-east-006.backblazeb2.com
+    s3Credentials:
+      accessKeyId:
+        name: b2-creds
+        key: ACCESS_KEY_ID
+      secretAccessKey:
+        name: b2-creds
+        key: ACCESS_SECRET_KEY
+    wal:
+      compression: gzip
+      encryption: AES256
+    data:
+      compression: gzip
+      encryption: AES256
+      jobs: 2
+  retentionPolicy: 30d
+  instanceSidecarConfiguration:
+    env:
+      - name: AWS_REQUEST_CHECKSUM_CALCULATION
+        value: when_required
+      - name: AWS_RESPONSE_CHECKSUM_VALIDATION
+        value: when_required

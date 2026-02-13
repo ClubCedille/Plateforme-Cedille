@@ -1,0 +1,105 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: outline-{{ nom_club }}-pdb
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: outline-{{ nom_club }}
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: outline-{{ nom_club }}
+  annotations:
+    kube-score/ignore: pod-networkpolicy, pod-probes, container-security-context-readonlyrootfilesystem, container-security-context-privileged, container-security-context-user-group-id, container-image-tag
+spec:
+  serviceName: outline-{{ nom_club }}
+  replicas: 1
+  selector:
+    matchLabels:
+      app: outline-{{ nom_club }}
+  template:
+    metadata:
+      labels:
+        app: outline-{{ nom_club }}
+    spec:
+      initContainers:
+        - name: fix-permissions
+          image: busybox:1.36
+          imagePullPolicy: Always
+          command: ["sh", "-c", "chown -R 10001:10001 /var/lib/outline/data"]
+          securityContext:
+            runAsUser: 0
+            runAsNonRoot: false
+          volumeMounts:
+            - name: outline-{{ nom_club }}-pv-claim
+              mountPath: /var/lib/outline/data
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "128Mi"
+              ephemeral-storage: "128Mi"
+            limits:
+              cpu: "100m"
+              memory: "256Mi"
+              ephemeral-storage: "256Mi"
+      containers:
+        - env:
+            - name: URL
+              value: https://{{ nom_club }}.etsmtl.club
+            - name: REDIS_URL
+              value: redis://redis-{{ nom_club }}.outline-{{ nom_club }}.svc.cluster.local:6379
+          image: outlinewiki/outline:1.4
+          name: outline
+          imagePullPolicy: Always
+          # https://github.com/outline/outline/blob/main/.env.sample
+          envFrom:
+            - secretRef:
+                name: outline-secrets
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /var/lib/outline/data
+              name: outline-{{ nom_club }}-pv-claim
+          securityContext:
+            runAsUser: 10001
+            runAsGroup: 10001
+            runAsNonRoot: true
+            allowPrivilegeEscalation: false
+          resources:
+            requests:
+              cpu: 250m
+              memory: 500Mi
+              ephemeral-storage: 256Mi
+            limits:
+              cpu: 1000m
+              memory: 1Gi
+              ephemeral-storage: 1Gi
+      imagePullSecrets:
+        - name: dockerhub-pull
+      restartPolicy: Always
+  volumeClaimTemplates:
+    - metadata:
+        name: outline-{{ nom_club }}-pv-claim
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 15Gi
+        storageClassName: cephfs
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: outline-{{ nom_club }}
+spec:
+  ports:
+    - name: http
+      port: 3000
+      targetPort: 3000
+  clusterIP: None
+  selector:
+    app: outline-{{ nom_club }}

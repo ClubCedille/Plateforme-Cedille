@@ -1,0 +1,103 @@
+name: Demande pour une instance Outline
+on:
+  workflow_dispatch:
+    inputs:
+      nom_club:
+        type: string
+        required: true
+        description: "Nom du club, sans caractères spéciaux et majuscules sauf pour '-' et '_'. Le domaine sera configurer selon le nom (e.g votre-club.etsmtl.club)"
+
+jobs:
+  create_pr:
+    runs-on: ubuntu-latest
+    env:
+      ROOT_DIR: production-repo/apps/outline-${{ inputs.nom_club }}
+      BASE_DIR: production-repo/apps/outline-${{ inputs.nom_club }}/base
+      PROD_DIR: production-repo/apps/outline-${{ inputs.nom_club }}/prod
+      TEMPLATE_ROOT_DIR: bases/outline
+      TEMPLATE_BASE_DIR: bases/outline/base-templates
+      TEMPLATE_PROD_DIR: bases/outline/prod-templates
+      j2_vars: |
+        nom_club=${{inputs.nom_club}}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          repository: ClubCedille/k8s-cedille-production-v2
+          token: ${{ secrets.GH_PAT }} # Your PAT goes here
+          path: production-repo # We will work inside this folder
+
+      - name: Create k8s folder
+        run: |
+          mkdir -p ${{ env.BASE_DIR }}
+          mkdir -p ${{ env.PROD_DIR }}
+
+      - name: Create Redis
+        uses: cuchi/jinja2-action@v1.3.0
+        with:
+          template: ${{ env.TEMPLATE_BASE_DIR }}/redis.yaml.jinja2
+          output_file: ${{ env.BASE_DIR }}/redis.yaml
+          strict: true
+          variables: ${{ env.j2_vars }}
+
+      - name: Create Postgres
+        uses: cuchi/jinja2-action@v1.3.0
+        with:
+          template: ${{ env.TEMPLATE_PROD_DIR }}/postgres.yaml.jinja2
+          output_file: ${{ env.PROD_DIR }}/postgres.yaml
+          strict: true
+          variables: ${{ env.j2_vars }}
+
+      - name: Create Outline
+        uses: cuchi/jinja2-action@v1.3.0
+        with:
+          template: ${{ env.TEMPLATE_BASE_DIR }}/outline.yaml.jinja2
+          output_file: ${{ env.BASE_DIR }}/outline.yaml
+          strict: true
+          variables: ${{ env.j2_vars }}
+
+      - name: Create Ingress
+        uses: cuchi/jinja2-action@v1.3.0
+        with:
+          template: ${{ env.TEMPLATE_PROD_DIR }}/ingress.yaml.jinja2
+          output_file: ${{ env.PROD_DIR }}/ingress.yaml
+          strict: true
+          variables: ${{ env.j2_vars }}
+
+      - name: Create Base Kustomize
+        uses: cuchi/jinja2-action@v1.3.0
+        with:
+          template: ${{ env.TEMPLATE_BASE_DIR }}/kustomization.yaml.jinja2
+          output_file: ${{ env.BASE_DIR }}/kustomization.yaml
+          strict: true
+          variables: ${{ env.j2_vars }}
+
+      - name: Create Prod Kustomize
+        uses: cuchi/jinja2-action@v1.3.0
+        with:
+          template: ${{ env.TEMPLATE_PROD_DIR }}/kustomization.yaml.jinja2
+          output_file: ${{ env.PROD_DIR }}/kustomization.yaml
+          strict: true
+          variables: ${{ env.j2_vars }}
+
+      - name: Create Argo
+        uses: cuchi/jinja2-action@v1.3.0
+        with:
+          template: ${{ env.TEMPLATE_ROOT_DIR }}/argo.yaml.jinja2
+          output_file: ${{ env.ROOT_DIR }}/argo.yaml
+          strict: true
+          variables: ${{ env.j2_vars }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GH_PAT }}
+          path: production-repo # Tell the action to look inside the subfolder
+          branch: outline/${{ inputs.nom_club }}
+          repository: ClubCedille/k8s-cedille-production-v2
+          title: Create a Outline website for ${{inputs.nom_club}}
+          team-reviewers: |
+            SRE
+          body: |
+            PR automatisé pour création d'Outline
+            Nom du club: ${{inputs.nom_club}}

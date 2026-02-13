@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: outline-{{ nom_club }}-production-v2
+  namespace: argocd
+spec:
+  destination:
+    namespace: outline-{{ nom_club }}
+    server: https://cedille.kubernetes.omni.siderolabs.io?cluster=k8s-shared
+  project: k8s-production-v2
+  source:
+    path: apps/outline-{{ nom_club }}/prod
+    repoURL: https://github.com/ClubCedille/k8s-cedille-production-v2.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
