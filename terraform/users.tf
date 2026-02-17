@@ -474,3 +474,19 @@ module "jonismo" {
   netdata_space_id = var.netdata_space_id
   netdata_role = "observer"
 }
+
+
+module "Meddad-Red" {
+  source          = "./modules/user"
+  github_email    = "mohamed-redha.meddad.1@ens.etsmtl.ca"
+  github_username = "Meddad-Red"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" }, 
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Reader"
+  cluster_repo = var.platform_repo
+  netdata_space_id = var.netdata_space_id
+  netdata_role = "observer"
+}
