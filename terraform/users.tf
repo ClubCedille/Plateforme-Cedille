@@ -443,10 +443,10 @@ module "Vianpyro" {
   netdata_role = "observer"
 }
 
-module "GreatSymphonia" {
+module "jonismo" {
   source          = "./modules/user"
-  github_email    = "louis.raymond2017@gmail.com"
-  github_username = "GreatSymphonia"
+  github_email    = "civic-coke@outlook.com"
+  github_username = "jonismo"
   github_role     = "member"
   teams = [
     { teamName = "members", teamRole = "member" }, 
@@ -458,3 +458,18 @@ module "GreatSymphonia" {
   netdata_role = "observer"
 }
 
+
+module "ariannelafraise" {
+  source          = "./modules/user"
+  github_email    = "github@shield.arianne.dev"
+  github_username = "ariannelafraise"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" }, 
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Reader"
+  cluster_repo = var.platform_repo
+  netdata_space_id = var.netdata_space_id
+  netdata_role = "observer"
+}

@@ -1,0 +1,13 @@
+# MANAGED BY TERRAFORM; DO NOT MODIFY
+"spec":
+  "rules":
+  - "clusters":
+    - "cedille-cluster"
+    "kubernetes":
+      "impersonate":
+        "groups":
+        - "reader"
+        - "ariannelafraise"
+    "role": "Reader"
+    "users":
+    - "github@shield.arianne.dev"

@@ -33,6 +33,25 @@ jobs:
           PROJECT_ORDER=("Services" "Déploiements" "Plateforme-Cedille" "Club-ops" "Documentation & Onboarding" "Web Dev" "App Dev")
           STATUS_ORDER=("Backlog" "Todo" "In Progress" "In Review" "Done" "Won't Do")
 
+          echo "Fetching last discussion date..."
+          LAST_DISCUSSION_DATE=$(gh api graphql -f query='
+          query($owner:String!, $name:String!, $category:ID!) {
+            repository(owner: $owner, name: $name) {
+              discussions(first: 1, categoryId: $category, orderBy: {field: CREATED_AT, direction: DESC}) {
+                nodes {
+                  createdAt
+                }
+              }
+            }
+          }' -f owner="$ORG" -f name="$TARGET_REPO" -f category="$CATEGORY_ID" --jq '.data.repository.discussions.nodes[0].createdAt // empty')
+
+          if [ -z "$LAST_DISCUSSION_DATE" ]; then
+            echo "No previous discussion found. Including all issues."
+            LAST_DISCUSSION_DATE="1970-01-01T00:00:00Z"
+          else
+            echo "Last discussion was created at: $LAST_DISCUSSION_DATE"
+          fi
+
           echo "Fetching project items with pagination..."
 
           # Initialize variables for pagination
@@ -57,11 +76,14 @@ jobs:
                         endCursor
                       }
                       nodes {
+                        id
+                        updatedAt
                         content {
                           ... on Issue {
                             title
                             url
                             number
+                            createdAt
                             repository {
                               name
                             }
@@ -96,11 +118,14 @@ jobs:
                         endCursor
                       }
                       nodes {
+                        id
+                        updatedAt
                         content {
                           ... on Issue {
                             title
                             url
                             number
+                            createdAt
                             repository {
                               name
                             }
@@ -138,22 +163,43 @@ jobs:
 
           echo "Total items fetched: $(echo "$all_items" | jq 'length')"
 
+          echo "Filtering items updated or created since last discussion..."
+
+          filtered_items=$(echo "$all_items" | jq --arg last_date "$LAST_DISCUSSION_DATE" '
+            map(
+              select(
+                .content != null and
+                (.updatedAt > $last_date or .content.createdAt > $last_date)
+              )
+            )
+          ')
+
+          echo "Total filtered items: $(echo "$filtered_items" | jq 'length')"
+
+          # Check if there are any filtered items
+          filtered_count=$(echo "$filtered_items" | jq 'length')
+          if [ "$filtered_count" -eq 0 ]; then
+            echo "No issues updated or created since last discussion. Exiting."
+            exit 0
+          fi
+
           echo "Formatting and sorting issues..."
 
-          formatted=$(echo "$all_items" | jq -r --argjson PROJECT_ORDER "$(printf '%s\n' "${PROJECT_ORDER[@]}" | jq -R . | jq -s .)" \
+          formatted=$(echo "$filtered_items" | jq -r --argjson PROJECT_ORDER "$(printf '%s\n' "${PROJECT_ORDER[@]}" | jq -R . | jq -s .)" \
           --argjson STATUS_ORDER "$(printf '%s\n' "${STATUS_ORDER[@]}" | jq -R . | jq -s .)" \
           --arg PROJECT_FIELD_ID "$PROJECT_FIELD_ID" \
           --arg STATUS_FIELD_ID "$STATUS_FIELD_ID" \
           '
           map(
-            select(.content != null)
-            | {
+            {
               title: .content.title,
               url: (.content.url // ""),
               number: (.content.number // 0),
               repo: (.content.repository.name // "No Repo"),
               project: (.fieldValues.nodes[] | select(.field.id == $PROJECT_FIELD_ID) | .name // "No Project"),
-              status: (.fieldValues.nodes[] | select(.field.id == $STATUS_FIELD_ID) | .name // "No Status")
+              status: (.fieldValues.nodes[] | select(.field.id == $STATUS_FIELD_ID) | .name // "No Status"),
+              updatedAt: .updatedAt,
+              createdAt: .content.createdAt
             }
           )
           | sort_by(
@@ -181,6 +227,8 @@ jobs:
           body=$(cat <<EOF
           ## Weekly project overview – Backlog CEDILLE
 
+          _Issues updated or created since $(date -d "$LAST_DISCUSSION_DATE" '+%B %d, %Y' 2>/dev/null || echo "last discussion")_
+
           $formatted
           EOF
           )
@@ -198,7 +246,7 @@ jobs:
 
           echo "Creating discussion..."
 
-          gh api graphql -f query='
+          discussion_url=$(gh api graphql -f query='
           mutation($repoId:ID!, $title:String!, $body:String!, $category:ID!) {
             createDiscussion(input:{
               repositoryId: $repoId
@@ -212,6 +260,8 @@ jobs:
             }
           }' \
           -f repoId="$REPO_ID" \
-          -f title="CEDILLE Meeting - H25 ($(LC_TIME=fr_FR.UTF-8 date '+%d %B %Y'))" \
+          -f title="CEDILLE Meeting - H26 ($(LC_TIME=fr_FR.UTF-8 date '+%d %B %Y'))" \
           -f body="$body" \
-          -f category="$CATEGORY_ID"
+          -f category="$CATEGORY_ID" --jq '.data.createDiscussion.discussion.url')
+
+          echo "Discussion created successfully: $discussion_url"

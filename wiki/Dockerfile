@@ -14,11 +14,11 @@ RUN pip3 install \
 RUN mkdocs build -f mkdocs-fr.yml -d site/fr
 RUN mkdocs build -f mkdocs-en.yml -d site/en
 
-FROM bitnami/nginx:1.27.2
+FROM nginx:alpine
 
 COPY --from=builder /app/site/fr /app/fr/
 COPY --from=builder /app/site/en /app/en/
 
-COPY --from=builder /app/nginx-server-block.conf /opt/bitnami/nginx/conf/server_blocks/wiki_server_block.conf
+COPY --from=builder /app/nginx-server-block.conf /usr/share/nginx/conf/server_blocks/wiki_server_block.conf
 
 EXPOSE 8080
