@@ -443,6 +443,7 @@ module "Vianpyro" {
   netdata_role = "observer"
 }
 
+
 module "GreatSymphonia" {
   source          = "./modules/user"
   github_email    = "louis.raymond2017@gmail.com"
