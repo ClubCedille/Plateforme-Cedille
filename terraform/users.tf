@@ -355,7 +355,7 @@ module "Kyohkotsu" {
   github_username = "Kyohkotsu"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Reader"
@@ -371,7 +371,7 @@ module "Stoaties" {
   github_username = "Stoaties"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Reader"
@@ -386,7 +386,7 @@ module "AppleComputer381" {
   github_username = "AppleComputer381"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Reader"
@@ -394,15 +394,15 @@ module "AppleComputer381" {
   netdata_space_id = var.netdata_space_id
   netdata_role = "observer"
 }
-  
-  
+
+
 module "SamGame" {
   source          = "./modules/user"
   github_email    = "samuel.bond.pro@gmail.com"
   github_username = "SamGame"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Reader"
@@ -418,7 +418,7 @@ module "Meddad-Red" {
   github_username = "Meddad-Red"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Reader"
@@ -434,7 +434,23 @@ module "Vianpyro" {
   github_username = "Vianpyro"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" },
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Reader"
+  cluster_repo = var.platform_repo
+  netdata_space_id = var.netdata_space_id
+  netdata_role = "observer"
+}
+
+
+module "GreatSymphonia" {
+  source          = "./modules/user"
+  github_email    = "louis.raymond2017@gmail.com"
+  github_username = "GreatSymphonia"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Reader"
@@ -449,7 +465,7 @@ module "jonismo" {
   github_username = "jonismo"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Reader"
@@ -465,7 +481,7 @@ module "ariannelafraise" {
   github_username = "ariannelafraise"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Reader"
