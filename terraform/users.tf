@@ -86,7 +86,7 @@ module "alexvegas22" {
   source          = "./modules/user"
   github_email    = "alexrbvegas@gmail.com"
   github_username = "alexvegas22"
-  github_role     = "member"
+  github_role     = "owner"
   teams = [
     { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" },
   ]
@@ -102,7 +102,7 @@ module "JulienGiguere" {
   source          = "./modules/user"
   github_email    = "juliengiguere887@gmail.com"
   github_username = "JulienGiguere"
-  github_role     = "member"
+  github_role     = "owner"
   teams = [
     { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" },
   ]
