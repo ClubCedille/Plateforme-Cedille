@@ -17,8 +17,12 @@ jobs:
           USERNAME=$(echo "${{ github.event.sender.login }}" | tr '[:upper:]' '[:lower:]') 
           echo USERNAME=$USERNAME >> $GITHUB_ENV
       - name: Add user to sandbox list
+        env:
+          USER_NAME: ${{ env.USERNAME }}
+          USER_EMAIL: ${{ github.event.inputs.email }}
         run: |
-          yq eval '. += [{"user": "${{ env.USERNAME }}", "email": "${{github.event.inputs.email}}"}]' system/sandboxes/sandbox-list.yaml -i
+          yq eval '. += [{"user": env(USER_NAME), "email": env(USER_EMAIL)}]' system/sandboxes/sandbox-list.yaml -i
+      
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
