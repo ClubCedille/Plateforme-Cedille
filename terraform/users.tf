@@ -214,7 +214,7 @@ module "nqlp" {
   github_username = "nqlp"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" },
+    { teamName = "members", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
@@ -262,7 +262,7 @@ module "boredsimo" {
   github_username = "boredsimo"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" },
+    { teamName = "members", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
@@ -450,7 +450,7 @@ module "GreatSymphonia" {
   github_username = "GreatSymphonia"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" },
+    { teamName = "members", teamRole = "member" },  { teamName = "sre", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Reader"
@@ -497,7 +497,7 @@ module "qvpnguyen" {
   github_username = "qvpnguyen"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"

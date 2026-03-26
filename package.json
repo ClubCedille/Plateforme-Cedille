@@ -1,0 +1,24 @@
+{
+  "name": "plateforme-cedille",
+  "version": "1.0.0",
+  "description": "Regroupement du Wiki Cedille, des configurations Terraform, pipelines, et plus...",
+  "main": "index.js",
+  "scripts": {
+    "lint": "tidy-markdown",
+    "prettier": "prettier --write '**/*.md'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClubCedille/Plateforme-Cedille.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ClubCedille/Plateforme-Cedille/issues"
+  },
+  "homepage": "https://github.com/ClubCedille/Plateforme-Cedille#readme",
+  "dependencies": {
+    "prettier": "^3.6.2",
+    "tidy-markdown": "^2.0.5"
+  }
+}
