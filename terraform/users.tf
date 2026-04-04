@@ -88,7 +88,7 @@ module "alexvegas22" {
   github_username = "alexvegas22"
   github_role     = "admin"
   teams = [
-    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" },
+    { teamName = "members", teamRole = "maintainer" }, { teamName = "sre", teamRole = "maintainer" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
@@ -104,7 +104,7 @@ module "JulienGiguere" {
   github_username = "JulienGiguere"
   github_role     = "admin"
   teams = [
-    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" },
+    { teamName = "members", teamRole = "maintainer" }, { teamName = "sre", teamRole = "maintainer" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
