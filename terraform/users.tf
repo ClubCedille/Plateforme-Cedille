@@ -88,7 +88,7 @@ module "alexvegas22" {
   github_username = "alexvegas22"
   github_role     = "admin"
   teams = [
-    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" },
+    { teamName = "members", teamRole = "maintainer" }, { teamName = "sre", teamRole = "maintainer" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
@@ -104,7 +104,7 @@ module "JulienGiguere" {
   github_username = "JulienGiguere"
   github_role     = "admin"
   teams = [
-    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" },
+    { teamName = "members", teamRole = "maintainer" }, { teamName = "sre", teamRole = "maintainer" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
@@ -522,13 +522,29 @@ module "Aeneid201" {
 }
 
 
+module "Thanthan77" {
+  source          = "./modules/user"
+  github_email    = "ethanqc.chea@gmail.com"
+  github_username = "Thanthan77"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" },
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Reader"
+  cluster_repo = var.platform_repo
+  netdata_space_id = var.netdata_space_id
+  netdata_role = "observer"
+}
+
+
 module "mhd-hi" {
   source          = "./modules/user"
   github_email    = "mhdhafdi2@gmail.com"
   github_username = "mhd-hi"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
