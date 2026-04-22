@@ -8,6 +8,6 @@
         "groups":
         - "reader"
         - "AppleComputer381"
-    "role": "Reader"
+    "role": "Operator"
     "users":
     - "emilbus@outlook.fr"
