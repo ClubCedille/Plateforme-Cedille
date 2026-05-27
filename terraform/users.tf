@@ -383,7 +383,7 @@ module "Stoaties" {
 module "SamGame" {
   source          = "./modules/user"
   github_email    = "samuel.bond.pro@gmail.com"
-  github_username = "SamGame"
+  github_username = "BondSamuel"
   github_role     = "member"
   teams = [
     { teamName = "members", teamRole = "member" },
