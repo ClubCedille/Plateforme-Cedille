@@ -9,7 +9,7 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - run: |
-                curl -L -o omnictl https://cedille.omni.siderolabs.io/omnictl/omnictl-linux-amd64
+                curl -L -o https://cedille.na-west-1.omni.siderolabs.io/api/omnictl/omnictl-linux-amd64
                 chmod +x omnictl
             - run: |
                 yq eval-all '. as $item ireduce ({}; . *+ $item )' omni/*.acl.yaml > omni-acl.yaml
