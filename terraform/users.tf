@@ -524,7 +524,7 @@ module "Thanthan77" {
 module "AppleComputer381" {
   source          = "./modules/user"
   github_email    = "emilbus@outlook.fr"
-  github_username = "AppleComputer381"
+  github_username = "emilinkb"
   github_role     = "member"
   teams = [
     { teamName = "members", teamRole = "member" },
