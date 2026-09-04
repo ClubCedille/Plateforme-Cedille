@@ -551,3 +551,19 @@ module "mhd-hi" {
   netdata_space_id = var.netdata_space_id
   netdata_role = "observer"
 }
+
+
+module "ahmedchalack" {
+  source          = "./modules/user"
+  github_email    = "ahmedazibe120@gmail.com"
+  github_username = "ahmedchalack"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" }, 
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Reader"
+  cluster_repo = var.platform_repo
+  netdata_space_id = var.netdata_space_id
+  netdata_role = "observer"
+}
