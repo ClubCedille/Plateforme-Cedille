@@ -1,7 +1,7 @@
 # Add a team to the organization
 resource "github_team" "sre_team" {
-  name        = "sre"
-  description = "Groupe en charge de la disponibilité des sites (détient les accès pour approuver les PR)"
+  name        = "SRE"
+  description = "Groupe Site Reliability Engineering (SRE)"
   privacy     = "closed"
 }
 
@@ -36,7 +36,7 @@ resource "github_team" "infra_team" {
 }
 
 resource "github_team" "members_team" {
-  name        = "members"
-  description = "Groupe général"
+  name        = "Members"
+  description = "Membres du club CEDILLE ÉTS"
   privacy     = "closed"
 }
