@@ -1,12 +1,11 @@
 resource "github_repository" "repo_aeroets" {
-  name = "aeroets.etsmtl.ca"
-  auto_init = true
+  name         = "aeroets.etsmtl.ca"
+  auto_init    = true
   homepage_url = "https://aeroets.etsmtl.ca"
-  description = "Site web de AeroÉTS"
-  has_downloads = true
-  has_issues = true
+  description  = "Site web de AeroÉTS"
+  has_issues   = true
   has_projects = true
-  has_wiki = true
+  has_wiki     = true
   security_and_analysis {
     secret_scanning {
       status = "enabled"
@@ -15,9 +14,12 @@ resource "github_repository" "repo_aeroets" {
       status = "enabled"
     }
   }
-  topics = [ "grav" ]
-  vulnerability_alerts = true
+  topics     = ["grav"]
   visibility = "public"
+}
+
+resource "github_repository_vulnerability_alerts" "vuln_alerts_aeroets" {
+  repository = github_repository.repo_aeroets.name
 }
 
 resource "github_repository_webhook" "webhook_aeroets" {
@@ -35,8 +37,8 @@ resource "github_repository_webhook" "webhook_aeroets" {
 }
 
 resource "github_repository_dependabot_security_updates" "dependabot_aeroets" {
-  repository  = github_repository.repo_aeroets.name
-  enabled     = true
+  repository = github_repository.repo_aeroets.name
+  enabled    = true
 }
 
 resource "github_repository_collaborators" "colaborators_aeroets" {
@@ -44,6 +46,6 @@ resource "github_repository_collaborators" "colaborators_aeroets" {
 
   team {
     permission = "admin"
-    team_id = "sre"
+    team_id    = "sre"
   }
 }

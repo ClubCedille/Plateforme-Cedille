@@ -1,12 +1,11 @@
 resource "github_repository" "repo_acets" {
-  name = "acets.etsmtl.ca"
-  auto_init = true
+  name         = "acets.etsmtl.ca"
+  auto_init    = true
   homepage_url = "https://acets.omni.cedille.club"
-  description = "Site web du club Avion Cargo"
-  has_downloads = true
-  has_issues = true
+  description  = "Site web du club Avion Cargo"
+  has_issues   = true
   has_projects = true
-  has_wiki = true
+  has_wiki     = true
   security_and_analysis {
     secret_scanning {
       status = "enabled"
@@ -15,9 +14,12 @@ resource "github_repository" "repo_acets" {
       status = "enabled"
     }
   }
-  topics = [ "grav" ]
-  vulnerability_alerts = true
+  topics     = ["grav"]
   visibility = "public"
+}
+
+resource "github_repository_vulnerability_alerts" "vuln_alerts_acets" {
+  repository = github_repository.repo_acets.name
 }
 
 resource "github_repository_webhook" "webhook_acets" {
@@ -35,8 +37,8 @@ resource "github_repository_webhook" "webhook_acets" {
 }
 
 resource "github_repository_dependabot_security_updates" "dependabot_acets" {
-  repository  = github_repository.repo_acets.name
-  enabled     = true
+  repository = github_repository.repo_acets.name
+  enabled    = true
 }
 
 resource "github_repository_collaborators" "collaborators_acets" {
@@ -44,6 +46,6 @@ resource "github_repository_collaborators" "collaborators_acets" {
 
   team {
     permission = "admin"
-    team_id = "sre"
+    team_id    = "sre"
   }
 }
