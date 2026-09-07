@@ -40,7 +40,7 @@ module "andrei22131" {
   github_role     = "member"
   teams = [
     { teamName = "members", teamRole = "member" },
-    { teamName = "deploiment", teamRole = "maintainer" },
+    { teamName = "deploiement", teamRole = "maintainer" },
     { teamName = "sre", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
