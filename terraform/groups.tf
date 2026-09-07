@@ -1,6 +1,6 @@
 # Add a team to the organization
 resource "github_team" "sre_team" {
-  name        = "SRE"
+  name        = "sre"
   description = "Groupe Site Reliability Engineering (SRE)"
   privacy     = "closed"
 }
@@ -36,7 +36,7 @@ resource "github_team" "infra_team" {
 }
 
 resource "github_team" "members_team" {
-  name        = "Members"
+  name        = "members"
   description = "Membres du club CEDILLE ÉTS"
   privacy     = "closed"
 }
