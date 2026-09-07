@@ -12,7 +12,7 @@ terraform {
     }
     github = {
       source  = "integrations/github"
-      version = "~> 6.13"
+      version = "~> 5.42"
     }
     netdata = {
       source = "netdata/netdata"
@@ -24,6 +24,7 @@ terraform {
   }
 
   cloud {
+    hostname     = "app.terraform.io"
     organization = "cedille"
 
     workspaces {
