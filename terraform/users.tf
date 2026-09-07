@@ -39,7 +39,9 @@ module "andrei22131" {
   github_username = "andrei22131"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" },
+    { teamName = "members", teamRole = "member" },
+    { teamName = "deploiment", teamRole = "maintainer" },
+    { teamName = "sre", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
@@ -47,8 +49,6 @@ module "andrei22131" {
   netdata_space_id = var.netdata_space_id
   netdata_role = "observer"
 }
-
-
 
 module "Epsot" {
   source          = "./modules/user"
@@ -64,7 +64,6 @@ module "Epsot" {
   netdata_space_id = var.netdata_space_id
   netdata_role = "observer"
 }
-
 
 module "RussellJimmies" {
   source          = "./modules/user"
@@ -121,6 +120,7 @@ module "Oxsw1ng" {
   github_role     = "member"
   teams = [
     { teamName = "members", teamRole = "member" },
+    { teamName = "service", teamRole = "maintainer" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
@@ -168,7 +168,8 @@ module "HassaanBahsoun" {
 
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, { teamName = "sre", teamRole = "member" },
+    { teamName = "members", teamRole = "member" },
+    { teamName = "developpement", teamRole = "maintainer" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
@@ -368,7 +369,9 @@ module "GreatSymphonia" {
   github_username = "GreatSymphonia"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" },  { teamName = "sre", teamRole = "member" },
+    { teamName = "members", teamRole = "member" },
+    { teamName = "infra", teamRole = "maintainer" },
+    { teamName = "sre", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Reader"
@@ -447,6 +450,7 @@ module "Emilinkb" {
   github_role     = "member"
   teams = [
     { teamName = "members", teamRole = "member" },
+    { teamName = "cloud", teamRole = "maintainer" },
     { teamName = "sre", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
