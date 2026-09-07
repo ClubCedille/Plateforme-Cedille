@@ -223,39 +223,6 @@ module "nqlp" {
   netdata_role = "observer"
 }
 
-
-module "kingNomad3" {
-  source          = "./modules/user"
-  github_email    = "benjamin.joinvil.1@ens.etsmtl.ca"
-  github_username = "kingNomad3"
-  github_role     = "member"
-  teams = [
-    { teamName = "members", teamRole = "member" },
-  ]
-  cluster_name = var.cluster_name
-  cluster_role = "Reader"
-  cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
-}
-
-
-module "AmineFanid" {
-  source          = "./modules/user"
-  github_email    = "fan.aminee@gmail.com"
-  github_username = "AmineFanid"
-  github_role     = "member"
-  teams = [
-    { teamName = "members", teamRole = "member" },
-  ]
-  cluster_name = var.cluster_name
-  cluster_role = "Reader"
-  cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
-}
-
-
 module "boredsimo" {
   source          = "./modules/user"
   github_email    = "mfatene02@gmail.com"
@@ -270,39 +237,6 @@ module "boredsimo" {
   netdata_space_id = var.netdata_space_id
   netdata_role = "observer"
 }
-
-
-module "lilianfelix-prog" {
-  source          = "./modules/user"
-  github_email    = "lilian.felenc@gmail.com"
-  github_username = "lilianfelix-prog"
-  github_role     = "member"
-  teams = [
-    { teamName = "members", teamRole = "member" },
-  ]
-  cluster_name = var.cluster_name
-  cluster_role = "Operator"
-  cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
-}
-
-
-module "LucaChouinard" {
-  source          = "./modules/user"
-  github_email    = "luca.chouinard.tech@protonmail.com"
-  github_username = "LucaChouinard"
-  github_role     = "member"
-  teams = [
-    { teamName = "members", teamRole = "member" },
-  ]
-  cluster_name = var.cluster_name
-  cluster_role = "Reader"
-  cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
-}
-
 
 module "hodux" {
   source          = "./modules/user"
@@ -443,21 +377,6 @@ module "GreatSymphonia" {
   netdata_role = "observer"
 }
 
-module "jonismo" {
-  source          = "./modules/user"
-  github_email    = "civic-coke@outlook.com"
-  github_username = "jonismo"
-  github_role     = "member"
-  teams = [
-    { teamName = "members", teamRole = "member" },
-  ]
-  cluster_name = var.cluster_name
-  cluster_role = "Reader"
-  cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
-}
-
 
 module "ariannelafraise" {
   source          = "./modules/user"
@@ -521,7 +440,7 @@ module "Thanthan77" {
   netdata_role = "observer"
 }
 
-module "AppleComputer381" {
+module "Emilinkb" {
   source          = "./modules/user"
   github_email    = "emilbus@outlook.fr"
   github_username = "emilinkb"
@@ -559,7 +478,7 @@ module "ahmedchalack" {
   github_username = "ahmedchalack"
   github_role     = "member"
   teams = [
-    { teamName = "members", teamRole = "member" }, 
+    { teamName = "members", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Reader"
