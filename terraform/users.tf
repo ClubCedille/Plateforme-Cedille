@@ -169,7 +169,7 @@ module "HassaanBahsoun" {
   github_role     = "member"
   teams = [
     { teamName = "members", teamRole = "member" },
-    { teamName = "developpement", teamRole = "maintainer" },
+    { teamName = "dev", teamRole = "maintainer" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
