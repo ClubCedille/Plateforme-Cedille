@@ -14,6 +14,14 @@ on:
         description: 'Add to SRE team?'
         required: false
         type: boolean
+      team_infra:
+        description: 'Add to infra team?'
+        required: false
+        type: boolean
+      team_cloud:
+        description: 'Add to cloud team?'
+        required: false
+        type: boolean
       cluster_role:
         description: 'Cluster Role'
         required: true
