@@ -61,6 +61,8 @@ jobs:
             user=${{ github.event.inputs.github_username }}
             github_email=${{ github.event.inputs.github_email }}
             team_sre=${{ github.event.inputs.team_sre }}
+            team_cloud=${{ github.event.inputs.team_cloud }}
+            team_infra=${{ github.event.inputs.team_infra }}
             cluster_role=${{ github.event.inputs.cluster_role }}
             netdata_role=${{ github.event.inputs.netdata_role }}
 
