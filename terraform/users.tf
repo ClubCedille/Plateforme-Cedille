@@ -537,3 +537,21 @@ module "zouud" {
   netdata_space_id = var.netdata_space_id
   netdata_role = "observer"
 }
+
+module "cool-user" {
+  source          = "./modules/user"
+  github_email    = "email@mail.com"
+  github_username = "cool-user"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" },
+    
+    
+    
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Operator"
+  cluster_repo = var.platform_repo
+  netdata_space_id = var.netdata_space_id
+  netdata_role = "observer"
+}
