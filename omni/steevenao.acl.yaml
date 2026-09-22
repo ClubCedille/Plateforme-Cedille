@@ -1,0 +1,13 @@
+# MANAGED BY TERRAFORM; DO NOT MODIFY
+"spec":
+  "rules":
+  - "clusters":
+    - "cedille-cluster"
+    "kubernetes":
+      "impersonate":
+        "groups":
+        - "reader"
+        - "steevenao"
+    "role": "Operator"
+    "users":
+    - "naoussisufeu@gmail.com"
