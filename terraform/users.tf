@@ -555,3 +555,18 @@ module "steevenao" {
   netdata_space_id = var.netdata_space_id
   netdata_role = "observer"
 }
+
+module "BradLeneus" {
+  source          = "./modules/user"
+  github_email    = "bradleyleneus5@gmail.com"
+  github_username = "BradLeneus"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" },
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Operator"
+  cluster_repo = var.platform_repo
+  netdata_space_id = var.netdata_space_id
+  netdata_role = "observer"
+}
