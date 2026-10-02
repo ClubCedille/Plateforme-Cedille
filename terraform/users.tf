@@ -573,3 +573,21 @@ module "BradLeneus" {
   netdata_space_id = var.netdata_space_id
   netdata_role = "observer"
 }
+
+module "bahaa-eddine-MB" {
+  source          = "./modules/user"
+  github_email    = "bm.bouzeboudja@esi-sba.dz"
+  github_username = "bahaa-eddine-MB"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" },
+    
+    
+    
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Reader"
+  cluster_repo = var.platform_repo
+  netdata_space_id = var.netdata_space_id
+  netdata_role = "observer"
+}
