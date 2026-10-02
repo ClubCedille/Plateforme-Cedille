@@ -589,5 +589,5 @@ module "bahaa-eddine-MB" {
   cluster_role = "Reader"
   cluster_repo = var.platform_repo
   netdata_space_id = var.netdata_space_id
-  netdata_role = "None"
+  netdata_role = "observer"
 }
