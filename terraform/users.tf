@@ -591,3 +591,21 @@ module "bahaa-eddine-MB" {
   netdata_space_id = var.netdata_space_id
   netdata_role = "observer"
 }
+
+module "Yanis-Chabane" {
+  source          = "./modules/user"
+  github_email    = "yanis.chabane.1@ens.etsmtl.ca"
+  github_username = "Yanis-Chabane"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" },
+    
+    
+    
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Reader"
+  cluster_repo = var.platform_repo
+  netdata_space_id = var.netdata_space_id
+  netdata_role = "observer"
+}
