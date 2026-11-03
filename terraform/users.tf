@@ -609,3 +609,21 @@ module "Yanis-Chabane" {
   netdata_space_id = var.netdata_space_id
   netdata_role = "observer"
 }
+
+module "mike-1703" {
+  source          = "./modules/user"
+  github_email    = "salomonmike1703@outlook.fr"
+  github_username = "mike-1703"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" },
+    
+    
+    
+  ]
+  cluster_name = var.cluster_name
+  cluster_role = "Operator"
+  cluster_repo = var.platform_repo
+  netdata_space_id = var.netdata_space_id
+  netdata_role = "observer"
+}
