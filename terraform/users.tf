@@ -461,6 +461,7 @@ module "Emilinkb" {
     { teamName = "members", teamRole = "member" },
     { teamName = "cloud", teamRole = "maintainer" },
     { teamName = "sre", teamRole = "member" },
+    { teamName = "service", teamRole = "member},
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
