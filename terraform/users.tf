@@ -37,7 +37,7 @@ module "andrei22131" {
   teams = [
     { teamName = "members", teamRole = "member" },
     { teamName = "deploiement", teamRole = "maintainer" },
-    #{ teamName = "exec", teamRole = "member" },
+    { teamName = "exec", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
@@ -182,7 +182,7 @@ module "hodux" {
   teams = [
     { teamName = "members", teamRole = "member" },
     { teamName = "dev", teamRole = "maintainer" },
-    #{ teamName = "exec", teamRole = "member" },
+    { teamName = "exec", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
@@ -308,7 +308,7 @@ module "GreatSymphonia" {
   teams = [
     { teamName = "members", teamRole = "member" },
     { teamName = "infra", teamRole = "maintainer" },
-    #{ teamName = "exec", teamRole = "member" },
+    { teamName = "exec", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Reader"
@@ -389,7 +389,7 @@ module "Emilinkb" {
     { teamName = "members", teamRole = "member" },
     { teamName = "cloud", teamRole = "maintainer" },
     { teamName = "service", teamRole = "member" },
-    #{ teamName = "exec", teamRole = "member" },
+    { teamName = "exec", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
