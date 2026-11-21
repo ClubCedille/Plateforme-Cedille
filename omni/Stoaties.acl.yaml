@@ -1,0 +1,13 @@
+# MANAGED BY TERRAFORM; DO NOT MODIFY
+"spec":
+  "rules":
+  - "clusters":
+    - "cedille-cluster"
+    "kubernetes":
+      "impersonate":
+        "groups":
+        - "reader"
+        - "Stoaties"
+    "role": "Reader"
+    "users":
+    - "corentin.gouanvic@gmail.com"
