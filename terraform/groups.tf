@@ -35,6 +35,12 @@ resource "github_team" "infra_team" {
   privacy     = "closed"
 }
 
+resource "github_team" "exec_team" {
+  name        = "exec"
+  description = "Exec de CEDILLE"
+  privacy     = "closed"
+}
+
 resource "github_team" "members_team" {
   name        = "members"
   description = "Membres du club CEDILLE ÉTS"
