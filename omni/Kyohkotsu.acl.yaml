@@ -1,0 +1,13 @@
+# MANAGED BY TERRAFORM; DO NOT MODIFY
+"spec":
+  "rules":
+  - "clusters":
+    - "cedille-cluster"
+    "kubernetes":
+      "impersonate":
+        "groups":
+        - "reader"
+        - "Kyohkotsu"
+    "role": "Reader"
+    "users":
+    - "fenrir200791@gmail.com"
