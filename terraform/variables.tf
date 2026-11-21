@@ -6,15 +6,6 @@ variable "gcloud_project" {
   type = string
 }
 
-variable "kube_host" {
-  type = string
-}
-
-variable "kube_token" {
-  type      = string
-  sensitive = true
-}
-
 variable "gh_owner" {
   type = string
 }
@@ -40,20 +31,16 @@ variable "tfe_workspace" {
   type = string
 }
 
-variable "cluster_ca" {
-  type = string
-}
-
 variable "cluster_name" {
   type = string
 }
 
 variable "netdata_space_id" {
-  type        = string
+  type = string
 }
 
 variable "netdata_token" {
-  type = string
+  type      = string
   sensitive = true
 }
 
@@ -62,11 +49,6 @@ variable "tfe_gh_oauth_token_id" {
 }
 
 variable "tfe_token" {
-  type = string
+  type      = string
   sensitive = true
-}
-
-variable "netdata_role" {
-  type = string
-  default = "observer"
 }

@@ -6,16 +6,12 @@ terraform {
       source  = "hashicorp/google"
       version = "5.4.0"
     }
-    kubernetes = {
-      source  = "hashicorp/kubernetes"
-      version = "2.23.0"
-    }
     github = {
       source  = "integrations/github"
       version = "~> 6.13"
     }
     netdata = {
-      source = "netdata/netdata"
+      source  = "netdata/netdata"
       version = "0.2.0"
     }
     tfe = {
@@ -38,11 +34,6 @@ provider "google" {
   region  = var.gcloud_region
 }
 
-provider "kubernetes" {
-  host  = var.kube_host
-  token = var.kube_token
-}
-
 provider "github" {
   owner = var.gh_owner
   app_auth {
@@ -59,5 +50,5 @@ provider "netdata" {
 
 provider "tfe" {
   organization = "cedille"
-  token = var.tfe_token
+  token        = var.tfe_token
 }
