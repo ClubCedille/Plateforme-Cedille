@@ -1,5 +1,8 @@
-**.tfstate
-**.tfstate.backup
+*.tfstate*
 **/.terraform/
+.terraform.tfstate.lock.info
+*.tfvars
 omnictl
-wiki/site
+jq
+omni-acl.yaml
+.DS_Store
