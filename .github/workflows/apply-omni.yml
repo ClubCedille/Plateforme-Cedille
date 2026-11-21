@@ -1,19 +1,19 @@
 name: Apply omni config files
 on:
-    push:
-        branches: master
+  push:
+    branches: [ main ]
 
 jobs:
-    apply:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-            - run: |
-                curl -L -o omnictl https://cedille.na-west-1.omni.siderolabs.io/api/omnictl/omnictl-linux-amd64
-                chmod +x omnictl
-            - run: |
-                yq eval-all '. as $item ireduce ({}; . *+ $item )' omni/*.acl.yaml > omni-acl.yaml
-                ./omnictl apply -f omni-acl.yaml
-              env:
-                OMNI_ENDPOINT: ${{vars.OMNI_ENDPOINT}}
-                OMNI_SERVICE_ACCOUNT_KEY: ${{secrets.OMNI_SERVICE_ACCOUNT_KEY}}
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          curl -L -o omnictl https://cedille.na-west-1.omni.siderolabs.io/api/omnictl/omnictl-linux-amd64
+          chmod +x omnictl
+      - run: |
+              yq eval-all '. as $item ireduce ({}; . *+ $item )' omni/*.acl.yaml > omni-acl.yaml
+              ./omnictl apply -f omni-acl.yaml
+        env:
+          OMNI_ENDPOINT: ${{vars.OMNI_ENDPOINT}}
+          OMNI_SERVICE_ACCOUNT_KEY: ${{secrets.OMNI_SERVICE_ACCOUNT_KEY}}

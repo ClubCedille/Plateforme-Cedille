@@ -1,8 +1,5 @@
-# Chart dependencies
-**/charts/*.tgz
 **.tfstate
 **.tfstate.backup
 **/.terraform/
 omnictl
 wiki/site
-package-lock.json
