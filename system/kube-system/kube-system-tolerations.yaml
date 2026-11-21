@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: kube-system
-  annotations:
-    scheduler.alpha.kubernetes.io/defaultTolerations: '[{"key": "role", "operator": "Equal", "value": "ingress-endpoint", "effect": "NoSchedule"}]'
