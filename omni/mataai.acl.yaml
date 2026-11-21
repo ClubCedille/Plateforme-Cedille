@@ -1,0 +1,13 @@
+# MANAGED BY TERRAFORM; DO NOT MODIFY
+"spec":
+  "rules":
+  - "clusters":
+    - "cedille-cluster"
+    "kubernetes":
+      "impersonate":
+        "groups":
+        - "reader"
+        - "mataai"
+    "role": "Operator"
+    "users":
+    - "code@matai.info"
