@@ -5,7 +5,7 @@ module "francis" {
   github_role     = "member"
   teams = [
     { teamName = "members", teamRole = "member" },
-    { teamName = "mirroirs", teamRole = "maintainer" },
+    { teamName = "miroirs", teamRole = "maintainer" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "None"
