@@ -110,15 +110,12 @@ what is part of the project and what is not at this stage:
 | **Grafana**               | An open-source platform for monitoring and alerting. Typically used in tandem with Prometheus for monitoring Kubernetes clusters.                                                                                                                                                                                                                                                                                                                         |
 | **Pixie**                 | A native observability tool for Kubernetes, allowing diagnosing applications without instrumentation code.                                                                                                                                                                                                                                                                                                                                                |
 | **Oneuptime**             | OneUptime is a comprehensive solution for tracking and managing your online services. Whether you need to monitor your website's uptime, dashboard, API, or any other online resource, OneUptime can alert your team in case of downtime and keep your customers informed with a status page. OneUptime also helps you manage incidents, configure on-call rotations, run tests, secure your services, analyze logs, track performance, and debug errors. |
-| **Trivy**                 | A simple and comprehensive container vulnerability                                                                                                                                                                                                                                                                                                                                                                                                        |
-
-scanner. | | **Cosign** | A tool for signing and verifying container image
-signatures. | | **CodeQL** | A source code analysis platform to find
-vulnerabilities in the code. Owned by GitHub. | | **Hashicorp Vault** | A tool
-for managing secrets and protecting sensitive data. | | **Kubescape** | A tool
-for analyzing Kubernetes cluster compliance and security. | | **SonarQube** | A
-continuous code quality analysis platform that inspects code for bugs, code
-smells, and security vulnerabilities. |
+| **Trivy** | A simple and comprehensive container vulnerability scanner. |
+| **Cosign** | A tool for signing and verifying container image signatures. |
+| **CodeQL** | A source code analysis platform to find vulnerabilities in the code. Owned by GitHub. |
+| **Hashicorp Vault** | A tool for managing secrets and protecting sensitive data. |
+| **Kubescape** | A tool for analyzing Kubernetes cluster compliance and security. |
+| **SonarQube** | A continuous code quality analysis platform that inspects code for bugs, code smells, and security vulnerabilities. |
 
 ## 2. Product Position
 
