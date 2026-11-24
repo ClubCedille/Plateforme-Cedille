@@ -12,31 +12,35 @@ resource "github_team_membership" "user_team_memberships" {
 }
 
 resource "github_repository_file" "omni_acl" {
-  repository = var.cluster_repo
-  file = "omni/${var.github_username}.acl.yaml"
+  repository     = var.cluster_repo
+  file           = "omni/${var.github_username}.acl.yaml"
   commit_message = "Creating/Updating user [Automated]"
   content = join("\n", [
     "# MANAGED BY TERRAFORM; DO NOT MODIFY",
     yamlencode({
       spec = {
-          rules = [{
-              users = [var.github_email]
-              clusters = [var.cluster_name]
-              role = var.cluster_role
-              kubernetes = {
-                  impersonate = {
-                      groups = ["reader", var.github_username]
-                  }
-              }
-          }]
+        rules = [{
+          users    = [var.github_email]
+          clusters = [var.cluster_name]
+          role     = var.cluster_role
+          kubernetes = {
+            impersonate = {
+              groups = ["reader", var.github_username]
+            }
+          }
+        }]
       }
     })
   ])
 }
 
-# Add user to netdata
-resource "netdata_space_member" "cedille_membership" {
-  email    = var.github_email
-  space_id = var.netdata_space_id
-  role     = var.netdata_role
+# Netdata Cloud is being decommissioned. Forget the membership without
+# calling the Netdata API: the space is cancelled separately and the provider
+# has been removed from the configuration.
+removed {
+  from = netdata_space_member.cedille_membership
+
+  lifecycle {
+    destroy = false
+  }
 }

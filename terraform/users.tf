@@ -9,8 +9,6 @@ module "francis" {
   cluster_name = var.cluster_name
   cluster_role = "None"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 module "cedille-sa" {
@@ -24,8 +22,6 @@ module "cedille-sa" {
   cluster_name = var.cluster_name
   cluster_role = "Reader"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "admin"
 }
 
 
@@ -42,8 +38,6 @@ module "andrei22131" {
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 module "alexvegas22" {
@@ -58,8 +52,6 @@ module "alexvegas22" {
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "admin"
 }
 
 
@@ -75,8 +67,6 @@ module "JulienGiguere" {
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "admin"
 }
 
 
@@ -92,8 +82,6 @@ module "Oxsw1ng" {
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 module "raphaelNguimbus" {
@@ -101,15 +89,13 @@ module "raphaelNguimbus" {
   github_email    = "raphagwem@gmail.com"
   github_username = "raphaelNguimbus"
 
-  github_role     = "member"
+  github_role = "member"
   teams = [
     { teamName = "members", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 module "HassaanBahsoun" {
@@ -117,7 +103,7 @@ module "HassaanBahsoun" {
   github_email    = "hassaan.bahsoun.1@ens.etsmtl.ca"
   github_username = "HassaanBahsoun"
 
-  github_role     = "member"
+  github_role = "member"
   teams = [
     { teamName = "members", teamRole = "member" },
 
@@ -125,8 +111,6 @@ module "HassaanBahsoun" {
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 module "christiano-maker" {
@@ -140,8 +124,6 @@ module "christiano-maker" {
   cluster_name = var.cluster_name
   cluster_role = "Reader"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 module "nqlp" {
@@ -155,8 +137,6 @@ module "nqlp" {
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 module "boredsimo" {
@@ -170,8 +150,6 @@ module "boredsimo" {
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 module "hodux" {
@@ -187,8 +165,6 @@ module "hodux" {
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 module "justlac" {
@@ -202,8 +178,6 @@ module "justlac" {
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 module "mataai" {
@@ -217,8 +191,6 @@ module "mataai" {
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 module "Kyohkotsu" {
@@ -232,8 +204,6 @@ module "Kyohkotsu" {
   cluster_name = var.cluster_name
   cluster_role = "Reader"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 
@@ -248,8 +218,6 @@ module "Stoaties" {
   cluster_name = var.cluster_name
   cluster_role = "Reader"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 module "SamGame" {
@@ -263,8 +231,6 @@ module "SamGame" {
   cluster_name = var.cluster_name
   cluster_role = "Reader"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 
@@ -279,8 +245,6 @@ module "Meddad-Red" {
   cluster_name = var.cluster_name
   cluster_role = "Reader"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 
@@ -295,8 +259,6 @@ module "Vianpyro" {
   cluster_name = var.cluster_name
   cluster_role = "Reader"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 
@@ -313,8 +275,6 @@ module "GreatSymphonia" {
   cluster_name = var.cluster_name
   cluster_role = "Reader"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 
@@ -329,8 +289,6 @@ module "ariannelafraise" {
   cluster_name = var.cluster_name
   cluster_role = "Reader"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 
@@ -345,8 +303,6 @@ module "qvpnguyen" {
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 module "Aeneid201" {
@@ -360,8 +316,6 @@ module "Aeneid201" {
   cluster_name = var.cluster_name
   cluster_role = "Reader"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 
@@ -376,8 +330,6 @@ module "Thanthan77" {
   cluster_name = var.cluster_name
   cluster_role = "Reader"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 module "Emilinkb" {
@@ -394,8 +346,6 @@ module "Emilinkb" {
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 module "mhd-hi" {
@@ -409,8 +359,6 @@ module "mhd-hi" {
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 
@@ -425,8 +373,6 @@ module "ahmedchalack" {
   cluster_name = var.cluster_name
   cluster_role = "Reader"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 module "notpeelz" {
@@ -441,8 +387,6 @@ module "notpeelz" {
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 module "zouud" {
@@ -456,8 +400,6 @@ module "zouud" {
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 module "steevenao" {
@@ -471,8 +413,6 @@ module "steevenao" {
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 module "BradLeneus" {
@@ -486,8 +426,6 @@ module "BradLeneus" {
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 module "bahaa-eddine-MB" {
@@ -501,8 +439,6 @@ module "bahaa-eddine-MB" {
   cluster_name = var.cluster_name
   cluster_role = "Reader"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 module "Yanis-Chabane" {
@@ -516,8 +452,6 @@ module "Yanis-Chabane" {
   cluster_name = var.cluster_name
   cluster_role = "Reader"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }
 
 module "mike-1703" {
@@ -531,6 +465,4 @@ module "mike-1703" {
   cluster_name = var.cluster_name
   cluster_role = "Operator"
   cluster_repo = var.platform_repo
-  netdata_space_id = var.netdata_space_id
-  netdata_role = "observer"
 }

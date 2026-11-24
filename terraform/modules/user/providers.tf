@@ -4,9 +4,5 @@ terraform {
       source  = "integrations/github"
       version = "6.13.0"
     }
-    netdata = {
-      source  = "registry.terraform.io/netdata/netdata"
-      version = "0.2.0"
-    }
   }
 }
