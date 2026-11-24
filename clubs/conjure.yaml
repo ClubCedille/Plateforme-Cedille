@@ -1,0 +1,13 @@
+name: conjure
+nextcloud:
+  quota: 300
+  external_sites: []
+authentik:
+  extra_groups: []
+forgejo:
+  groups:
+    exec-conjure:
+      conjure:
+        - Owners
+matomo:
+  access: {}

@@ -1,0 +1,10 @@
+name: synapse
+nextcloud:
+  quota: 500
+  external_sites: []
+authentik:
+  extra_groups: []
+forgejo:
+  groups: {}
+matomo:
+  access: {}
