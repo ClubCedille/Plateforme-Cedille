@@ -29,3 +29,11 @@ provider "github" {
     pem_file        = var.gh_pem        # or `GITHUB_APP_PEM_FILE`
   }
 }
+
+# Temporary: three legacy module.gcp resources are still in state
+# (google_project_iam_member, google_service_account and
+# google_service_account_key). Destroying them requires the Google provider
+# to be configured, even though its module was removed from the config.
+# Credentials and project come from the standard environment:
+#   GOOGLE_APPLICATION_CREDENTIALS, GOOGLE_PROJECT, GOOGLE_REGION
+provider "google" {}
