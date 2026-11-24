@@ -11,7 +11,7 @@ terraform {
       version = "~> 6.13"
     }
     netdata = {
-      source  = "netdata/netdata"
+      source  = "registry.terraform.io/netdata/netdata"
       version = "0.2.0"
     }
     tfe = {
