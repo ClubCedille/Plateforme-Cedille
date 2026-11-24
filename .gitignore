@@ -6,3 +6,6 @@ omnictl
 jq
 omni-acl.yaml
 .DS_Store
+
+__pycache__/
+*.pyc

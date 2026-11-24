@@ -1,0 +1,16 @@
+name: lanets
+nextcloud:
+  quota: 3000
+  external_sites: []
+authentik:
+  extra_groups: []
+forgejo:
+  groups:
+    club-lanets:
+      Lan_ETS:
+        - Members
+    exec-lanets:
+      Lan_ETS:
+        - Owners
+matomo:
+  access: {}

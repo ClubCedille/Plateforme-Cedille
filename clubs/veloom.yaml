@@ -1,0 +1,10 @@
+name: veloom
+nextcloud:
+  quota: 300
+  external_sites: []
+authentik:
+  extra_groups: []
+forgejo:
+  groups: {}
+matomo:
+  access: {}

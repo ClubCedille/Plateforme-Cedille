@@ -1,0 +1,14 @@
+name: cedille
+nextcloud:
+  quota: 300
+  external_sites:
+    - planka
+authentik:
+  extra_groups: []
+forgejo:
+  groups:
+    exec-cedille:
+      cedille:
+        - Owners
+matomo:
+  access: {}
