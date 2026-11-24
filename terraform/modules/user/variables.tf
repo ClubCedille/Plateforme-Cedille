@@ -7,10 +7,10 @@ variable "github_username" {
 }
 
 variable "github_role" {
-  type = string
+  type    = string
   default = "member"
   validation {
-    condition = var.github_role == "member" || var.github_role == "admin"
+    condition     = var.github_role == "member" || var.github_role == "admin"
     error_message = "Must be member or admin"
   }
 }
@@ -21,7 +21,7 @@ variable "teams" {
     teamRole = string
   }))
   validation {
-    condition = alltrue([for o in var.teams : o.teamRole == "member" || o.teamRole == "maintainer"])
+    condition     = alltrue([for o in var.teams : o.teamRole == "member" || o.teamRole == "maintainer"])
     error_message = "Must be member or maintainer"
   }
 }
@@ -33,24 +33,11 @@ variable "cluster_name" {
 variable "cluster_role" {
   type = string
   validation {
-    condition = var.cluster_role == "Operator" || var.cluster_role == "Admin" || var.cluster_role == "Reader" || var.cluster_role == "None"
+    condition     = var.cluster_role == "Operator" || var.cluster_role == "Admin" || var.cluster_role == "Reader" || var.cluster_role == "None"
     error_message = "cluster_role must be one of: Operator, Admin, Reader or None"
   }
 }
 
 variable "cluster_repo" {
   type = string
-}
-
-variable "netdata_space_id" {
-  type = string
-  description = "The ID of the Netdata space where the user will be added."
-}
-
-variable "netdata_role" {
-  type = string
-  validation {
-    condition = var.netdata_role == "observer" || var.netdata_role == "admin" || var.netdata_role == "None"
-    error_message = "netdata_role must be one of: observer, admin or None"
-  }
 }

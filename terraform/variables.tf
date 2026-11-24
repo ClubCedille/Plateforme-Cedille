@@ -1,11 +1,3 @@
-variable "gcloud_region" {
-  type = string
-}
-
-variable "gcloud_project" {
-  type = string
-}
-
 variable "gh_owner" {
   type = string
 }
@@ -27,28 +19,6 @@ variable "platform_repo" {
   type = string
 }
 
-variable "tfe_workspace" {
-  type = string
-}
-
 variable "cluster_name" {
   type = string
-}
-
-variable "netdata_space_id" {
-  type = string
-}
-
-variable "netdata_token" {
-  type      = string
-  sensitive = true
-}
-
-variable "tfe_gh_oauth_token_id" {
-  type = string
-}
-
-variable "tfe_token" {
-  type      = string
-  sensitive = true
 }

@@ -74,23 +74,11 @@ resource "github_branch_protection" "repos_protection" {
   required_status_checks {
     strict = true
     contexts = [
-      "Terraform Cloud/cedille/k8s-${each.key}",
       "ci/kubernetes-repo-standard/kubescore-check/kube-score",
       "ci/kubernetes-repo-standard/kubeconform-check/kubeconform",
       "ci/kubernetes-repo-standard/deprecated-apis-check/pluto",
       "ci/kubernetes-repo-standard/yaml-check/yaml-lint-check",
       "ci/kubernetes-repo-standard/terraform-check/terraform-lint",
     ]
-  }
-}
-
-resource "tfe_workspace" "workspaces" {
-  depends_on     = [github_repository.k8s_repos]
-  for_each       = toset(local.clusters_repos)
-  name           = "k8s-${each.key}"
-  queue_all_runs = false
-  vcs_repo {
-    identifier     = "ClubCedille/k8s-${each.key}"
-    oauth_token_id = var.tfe_gh_oauth_token_id
   }
 }
