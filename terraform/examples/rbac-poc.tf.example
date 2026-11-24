@@ -14,9 +14,9 @@
 # nodes, create RBAC objects, or read cluster-scoped resources. They also
 # cannot modify clusters/machines in the Omni UI.
 #
-# The POC targets the "k8s-shared" cluster (the terraform cluster_name variable
-# defaults to it). Change the Terraform Cloud workspace variable too, otherwise
-# the generated omni/*.acl.yaml files keep the stale "cedille-cluster" name.
+# The POC targets the "k8s-shared" cluster: the root cluster_name variable
+# defaults to it and rejects names that do not start with "k8s-", so a stale
+# "cedille-cluster" value cannot silently produce ACLs that match nothing.
 
 module "poc-operator" {
   source          = "./modules/user"
@@ -30,6 +30,4 @@ module "poc-operator" {
   cluster_role      = "Reader"
   kubernetes_groups = ["cedille-operator"]
   cluster_repo      = var.platform_repo
-  netdata_space_id  = var.netdata_space_id
-  netdata_role      = "observer"
 }

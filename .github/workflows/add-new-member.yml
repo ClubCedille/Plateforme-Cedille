@@ -36,14 +36,6 @@ on:
         required: false
         type: string
         default: ''
-      netdata_role:
-        description: 'Netdata role'
-        required: true
-        type: choice
-        options:
-          - None
-          - admin
-          - observer
 
 permissions:
   contents: write
@@ -70,7 +62,6 @@ jobs:
             team_infra=${{ github.event.inputs.team_infra }}
             cluster_role=${{ github.event.inputs.cluster_role }}
             kubernetes_groups=${{ github.event.inputs.kubernetes_groups }}
-            netdata_role=${{ github.event.inputs.netdata_role }}
 
       - name: Append New User Module to users.tf
         run: cat temp_user_module.tf >> terraform/users.tf

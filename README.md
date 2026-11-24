@@ -15,7 +15,7 @@ générés dans `k8s-shared`.
 
 Le niveau d'accès Kubernetes vient des groupes d'impersonation déclarés dans
 les ACL (`kubernetes.impersonate.groups`), pas du nom du rôle Omni. Voir
-[`k8s-base/common/rbac/README.md`](https://github.com/ClubCedille/k8s-base/blob/main/common/rbac/README.md)
+[`k8s-base/common/rbac/README.md`](https://github.com/ClubCedille/k8s-base/blob/master/common/rbac/README.md)
 pour le modèle complet et les groupes `cedille-reader` / `cedille-operator`.
 
 Un rôle Omni `Operator` ou `Admin` ajoute automatiquement le groupe Kubernetes
