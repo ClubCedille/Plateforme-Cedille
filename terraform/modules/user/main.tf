@@ -11,6 +11,30 @@ resource "github_team_membership" "user_team_memberships" {
   role     = each.value
 }
 
+# Kubernetes access is expressed through groups, not through the cluster_role.
+# Omni adds system:masters to every Operator/Admin, and ACLs cannot remove it.
+locals {
+  default_kubernetes_groups = {
+    None     = []
+    Reader   = ["cedille-reader"]
+    Operator = []
+    Admin    = []
+  }
+
+  kubernetes_groups = var.kubernetes_groups != null ? var.kubernetes_groups : lookup(local.default_kubernetes_groups, var.cluster_role, [])
+
+  omni_rule = {
+    users    = [var.github_email]
+    clusters = [var.cluster_name]
+    role     = var.cluster_role
+    kubernetes = {
+      impersonate = {
+        groups = local.kubernetes_groups
+      }
+    }
+  }
+}
+
 resource "github_repository_file" "omni_acl" {
   repository     = var.cluster_repo
   file           = "omni/${var.github_username}.acl.yaml"

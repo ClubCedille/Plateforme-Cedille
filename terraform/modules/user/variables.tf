@@ -38,6 +38,31 @@ variable "cluster_role" {
   }
 }
 
+# Kubernetes groups to impersonate through the Omni AccessPolicy.
+#
+# This is the Kubernetes permission level, independent from the Omni role.
+# Leave null to derive it from cluster_role:
+#   None     -> []
+#   Reader   -> ["cedille-reader"]
+#   Operator -> [] (Omni already adds system:masters = cluster-admin)
+#   Admin    -> [] (same)
+#
+# To give someone operator-level Kubernetes access without making them an
+# Omni Operator (who would be cluster-admin everywhere), use
+# cluster_role = "Reader" and kubernetes_groups = ["cedille-operator"].
+variable "kubernetes_groups" {
+  type        = list(string)
+  default     = null
+  description = "Kubernetes groups impersonated by Omni. Defaults based on cluster_role."
+
+  validation {
+    condition = var.kubernetes_groups == null || alltrue([
+      for group in var.kubernetes_groups : contains(["cedille-reader", "cedille-operator"], group)
+    ])
+    error_message = "kubernetes_groups may only contain: cedille-reader, cedille-operator"
+  }
+}
+
 variable "cluster_repo" {
   type = string
 }

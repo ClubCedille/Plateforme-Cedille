@@ -18,5 +18,8 @@ module "{{ user }}" {
   ]
   cluster_name = var.cluster_name
   cluster_role = "{{ cluster_role }}"
+  {% if kubernetes_groups %}
+  kubernetes_groups = [{% for g in kubernetes_groups.split(',') %}"{{ g | trim }}"{% if not loop.last %}, {% endif %}{% endfor %}]
+  {% endif %}
   cluster_repo = var.platform_repo
 }

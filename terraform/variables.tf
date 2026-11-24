@@ -20,5 +20,12 @@ variable "platform_repo" {
 }
 
 variable "cluster_name" {
-  type = string
+  type        = string
+  default     = "k8s-shared"
+  description = "Omni cluster name (ID), e.g. k8s-shared. Must be a real cluster or the generated ACL rule matches nothing."
+
+  validation {
+    condition     = can(regex("^k8s-", var.cluster_name))
+    error_message = "cluster_name must be a real Omni cluster ID such as k8s-shared (the legacy \"cedille-cluster\" no longer exists)."
+  }
 }

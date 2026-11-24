@@ -31,6 +31,19 @@ on:
           - Reader
           - Operator
           - Admin
+      kubernetes_groups:
+        description: 'Kubernetes groups (comma-separated): cedille-reader, cedille-operator. Leave empty to derive from cluster_role.'
+        required: false
+        type: string
+        default: ''
+      netdata_role:
+        description: 'Netdata role'
+        required: true
+        type: choice
+        options:
+          - None
+          - admin
+          - observer
 
 permissions:
   contents: write
@@ -56,6 +69,8 @@ jobs:
             team_cloud=${{ github.event.inputs.team_cloud }}
             team_infra=${{ github.event.inputs.team_infra }}
             cluster_role=${{ github.event.inputs.cluster_role }}
+            kubernetes_groups=${{ github.event.inputs.kubernetes_groups }}
+            netdata_role=${{ github.event.inputs.netdata_role }}
 
       - name: Append New User Module to users.tf
         run: cat temp_user_module.tf >> terraform/users.tf
@@ -63,7 +78,7 @@ jobs:
       - name: Remove Temporary File
         run: rm temp_user_module.tf
 
-      - name: echo file 
+      - name: echo file
         run: cat terraform/users.tf
 
       - name: Create Pull Request

@@ -1,0 +1,35 @@
+# POC: operator-level Kubernetes access without Omni Operator
+#
+# This file is an example, not an active Terraform configuration. Files in
+# terraform/examples/ are not loaded by `terraform apply`.
+#
+# Copy a module block like this into terraform/users.tf to test the flow:
+#
+#   - cluster_role = "Reader" keeps the account read-only in Omni, so Omni
+#     does NOT add system:masters.
+#   - kubernetes_groups = ["cedille-operator"] is what Omni impersonates, and
+#     k8s-base binds that group to the cedille-operator ClusterRole.
+#
+# Result: the user can manage workloads through kubectl but cannot delete
+# nodes, create RBAC objects, or read cluster-scoped resources. They also
+# cannot modify clusters/machines in the Omni UI.
+#
+# The POC targets the "k8s-shared" cluster (the terraform cluster_name variable
+# defaults to it). Change the Terraform Cloud workspace variable too, otherwise
+# the generated omni/*.acl.yaml files keep the stale "cedille-cluster" name.
+
+module "poc-operator" {
+  source          = "./modules/user"
+  github_email    = "poc-operator@example.com"
+  github_username = "poc-operator"
+  github_role     = "member"
+  teams = [
+    { teamName = "members", teamRole = "member" },
+  ]
+  cluster_name      = var.cluster_name
+  cluster_role      = "Reader"
+  kubernetes_groups = ["cedille-operator"]
+  cluster_repo      = var.platform_repo
+  netdata_space_id  = var.netdata_space_id
+  netdata_role      = "observer"
+}
