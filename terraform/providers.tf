@@ -2,6 +2,8 @@ terraform {
   required_version = ">= 0.12"
 
   required_providers {
+    # Temporary: needed only to destroy legacy module.gcp resources that are
+    # still in state. Remove this block after the destroy apply.
     google = {
       source  = "hashicorp/google"
       version = "5.4.0"
@@ -21,11 +23,6 @@ terraform {
     secret_suffix = "state-plateforme-cedille"
     config_path   = "~/.kube/config"
   }
-}
-
-provider "google" {
-  project = var.gcloud_project
-  region  = var.gcloud_region
 }
 
 provider "github" {
