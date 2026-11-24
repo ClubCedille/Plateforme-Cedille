@@ -20,8 +20,10 @@ locals {
     deploiement = "push"
   }
 
-  collaborator_managed_repositories = toset(concat(
+  excluded_repositories = toset(concat(
     [for name in local.clusters_repos : "k8s-${name}"],
+    # Repositories being removed from Terraform. Keep them excluded while the
+    # removal is applied so no team permissions are created for them.
     [
       "acets.etsmtl.ca",
       "demo-ets.omni.cedille.club",
@@ -35,7 +37,7 @@ locals {
 
   org_wide_managed_repositories = setsubtract(
     local.organization_repositories,
-    local.collaborator_managed_repositories,
+    local.excluded_repositories,
   )
 
   org_wide_team_repository_permissions = {
