@@ -48,4 +48,19 @@ resource "github_repository_collaborators" "colaborators_aeroets" {
     permission = "admin"
     team_id    = "sre"
   }
+
+  team {
+    permission = "push"
+    team_id    = "members"
+  }
+
+  team {
+    permission = "push"
+    team_id    = "service"
+  }
+
+  team {
+    permission = "push"
+    team_id    = "deploiement"
+  }
 }
