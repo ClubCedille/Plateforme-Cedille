@@ -9,3 +9,11 @@ omni-acl.yaml
 
 __pycache__/
 *.pyc
+
+# Local-only Terraform credentials and variable files
+*.auto.tfvars.json
+*.pem
+
+# Emacs autosave/lock files
+\#*\#
+.\#*
