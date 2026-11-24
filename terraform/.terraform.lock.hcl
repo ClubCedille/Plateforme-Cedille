@@ -28,33 +28,6 @@ provider "registry.opentofu.org/hashicorp/google" {
   ]
 }
 
-provider "registry.opentofu.org/hashicorp/tfe" {
-  version     = "0.50.0"
-  constraints = "0.50.0, ~> 0.50.0"
-  hashes = [
-    "h1:7VKQ17iM+K29x9v6VkV1OpxOwYaHXJfelF8ZHLeONIU=",
-    "h1:BajOIzO+dT29IZOq4DWksjO80M/NhNzCwmKCPlMgfPI=",
-    "h1:HTFPkEc2l+Gm/A1mD79v66CM1U01kstGIw361GkpEb4=",
-    "h1:dOon6Xhngs+BMoNHfnpaXz2VTaPX6E2Ng4+re7WSq3Y=",
-    "h1:j7N3Qbsa8Mb8xNBO/zwJ2qu6UCf8q11mSybzDgccDKc=",
-    "h1:oBLwOSIR9NEjs578jGGp6dq+WMeZ21uy8A5yktO3wF0=",
-    "h1:p6m8jNpts1wmSPlPLBdCao4Ka72nU2cfHI/MdWGYWfs=",
-    "h1:piT+zpxK1piK9oZgaaY2DqyZataUQt4gPrVKBXW9igM=",
-    "h1:sQwkovWLKXYortZgvqQGYsHuUHZL2u4R/YhDIVgobmI=",
-    "h1:wmpH3uh9QMy/m86TVSeKbaX2OEFpcNbEdCfw0Cqpod4=",
-    "zh:0fe9051e65c867b9f76330f7071a78d8953c11c0ba81c9edb76254699546f1e6",
-    "zh:22b03e9513c21d804c01d488b49f0a90ee1d2b9a975f93d6a0ff43f350668faf",
-    "zh:258c208898bacb1272f2bd3fdf9cb06bc1515ea9530dcfda91999622debe4465",
-    "zh:2c86330d3918f011e02d1f9cb4ccd2f1b37613ef95b6b3a28e95c04f7fa552d6",
-    "zh:46774645fb32f9f335dff4d5001bf1a0f4f2ad450352fef9a149abdf6fbfd31d",
-    "zh:644bff5158074a59999db8b1fdfa3cce3e35065160b178e99e793d195709d2ad",
-    "zh:83331753fea2bb2b6fb48cb3b1dc34914c7b62d25a76aca481055066a043147c",
-    "zh:d802b87eea7dd6670fc3586a6c83668995a2881aa01d2dc01fc596b30ca07780",
-    "zh:db2015cdf51e64b4d2f1f0f5ba08f49b3cd50ab58861e3e30f18bb6cdc362cc3",
-    "zh:e0da7b07c12dba9a942d3d8f1398247308513ac83049782a4aeb87afee72aea0",
-  ]
-}
-
 provider "registry.opentofu.org/integrations/github" {
   version     = "6.13.0"
   constraints = "6.13.0, ~> 6.13"

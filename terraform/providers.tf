@@ -14,9 +14,6 @@ terraform {
       source  = "registry.terraform.io/netdata/netdata"
       version = "0.2.0"
     }
-    tfe = {
-      version = "~> 0.50.0"
-    }
   }
 
   backend "kubernetes" {
@@ -43,9 +40,4 @@ provider "github" {
 provider "netdata" {
   url        = "https://app.netdata.cloud"
   auth_token = var.netdata_token
-}
-
-provider "tfe" {
-  organization = "cedille"
-  token        = var.tfe_token
 }
