@@ -59,7 +59,7 @@ jobs:
             # service account already used by apply-omni.yml.
             curl -fsSL "${OMNI_ENDPOINT%/}/api/omnictl/omnictl-linux-amd64" -o /usr/local/bin/omnictl
             chmod +x /usr/local/bin/omnictl
-            omnictl kubeconfig --cluster k8s-shared --force
+            omnictl kubeconfig --cluster k8s-shared --service-account --user tofu-ci --ttl 1h --force ~/.kube/config
           fi
           chmod 600 ~/.kube/config
 
@@ -125,7 +125,7 @@ jobs:
           else
             curl -fsSL "${OMNI_ENDPOINT%/}/api/omnictl/omnictl-linux-amd64" -o /usr/local/bin/omnictl
             chmod +x /usr/local/bin/omnictl
-            omnictl kubeconfig --cluster k8s-shared --force
+            omnictl kubeconfig --cluster k8s-shared --service-account --user tofu-ci --ttl 1h --force ~/.kube/config
           fi
           chmod 600 ~/.kube/config
 
