@@ -1,0 +1,142 @@
+name: OpenTofu
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "terraform/**"
+  push:
+    branches:
+      - main
+    paths:
+      - "terraform/**"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+env:
+  TF_IN_AUTOMATION: "true"
+  # These values are not secrets and do not change between environments.
+  TF_VAR_gh_owner: ClubCedille
+  TF_VAR_platform_repo: Plateforme-Cedille
+  TF_VAR_cluster_name: k8s-shared
+  # The app id and installation id are not secret. Repo variables can override
+  # the defaults if the GitHub App is reinstalled.
+  TF_VAR_gh_app_id: ${{ vars.GH_APP_ID || '673366' }}
+  TF_VAR_gh_install_id: ${{ vars.GH_INSTALL_ID || '44748310' }}
+  # Full PEM content of the GitHub App private key, not a path.
+  TF_VAR_gh_pem: ${{ secrets.GH_APP_PEM }}
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: tofu-plan-${{ github.ref }}
+      cancel-in-progress: true
+    defaults:
+      run:
+        working-directory: terraform
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup OpenTofu
+        uses: opentofu/setup-opentofu@v2
+
+      - name: Setup kubeconfig
+        env:
+          KUBECONFIG_SECRET: ${{ secrets.KUBECONFIG }}
+          OMNI_SERVICE_ACCOUNT_KEY: ${{ secrets.OMNI_SERVICE_ACCOUNT_KEY }}
+          OMNI_ENDPOINT: ${{ vars.OMNI_ENDPOINT }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.kube
+          if [ -n "${KUBECONFIG_SECRET:-}" ]; then
+            printf '%s' "$KUBECONFIG_SECRET" > ~/.kube/config
+          else
+            # No static kubeconfig configured: generate one from the Omni
+            # service account already used by apply-omni.yml.
+            curl -fsSL "${OMNI_ENDPOINT%/}/api/omnictl/omnictl-linux-amd64" -o /usr/local/bin/omnictl
+            chmod +x /usr/local/bin/omnictl
+            omnictl kubeconfig --cluster k8s-shared --force
+          fi
+          chmod 600 ~/.kube/config
+
+      - name: Tofu plan
+        id: plan
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          tofu init -input=false -no-color 2>&1 | tee plan.log
+          tofu plan -input=false -no-color -lock-timeout=5m -out=plan.tfplan 2>&1 | tee -a plan.log
+          tofu show -no-color plan.tfplan > plan.txt
+
+      - name: Upload plan
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfplan-platform
+          if-no-files-found: ignore
+          path: |
+            terraform/plan.tfplan
+            terraform/plan.txt
+            terraform/plan.log
+
+      - name: Comment plan on pull request
+        if: always() && github.event_name == 'pull_request' && hashFiles('terraform/plan.txt') != ''
+        uses: clubcedille/cedille-workflows/.github/actions/tofu-plan-comment@master
+        with:
+          plan-path: terraform/plan.txt
+          module: platform
+          artifact-name: tfplan-platform
+
+      - name: Fail if plan failed
+        if: steps.plan.outcome == 'failure'
+        run: exit 1
+
+  apply:
+    needs: plan
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    concurrency:
+      group: tofu-apply-plateforme
+      cancel-in-progress: false
+    defaults:
+      run:
+        working-directory: terraform
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup OpenTofu
+        uses: opentofu/setup-opentofu@v2
+
+      - name: Setup kubeconfig
+        env:
+          KUBECONFIG_SECRET: ${{ secrets.KUBECONFIG }}
+          OMNI_SERVICE_ACCOUNT_KEY: ${{ secrets.OMNI_SERVICE_ACCOUNT_KEY }}
+          OMNI_ENDPOINT: ${{ vars.OMNI_ENDPOINT }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.kube
+          if [ -n "${KUBECONFIG_SECRET:-}" ]; then
+            printf '%s' "$KUBECONFIG_SECRET" > ~/.kube/config
+          else
+            curl -fsSL "${OMNI_ENDPOINT%/}/api/omnictl/omnictl-linux-amd64" -o /usr/local/bin/omnictl
+            chmod +x /usr/local/bin/omnictl
+            omnictl kubeconfig --cluster k8s-shared --force
+          fi
+          chmod 600 ~/.kube/config
+
+      - name: Download plan
+        uses: actions/download-artifact@v4
+        with:
+          name: tfplan-platform
+          path: terraform
+
+      - name: Tofu apply
+        run: |
+          set -euo pipefail
+          tofu init -input=false -no-color
+          tofu apply -input=false -no-color -lock-timeout=5m plan.tfplan
