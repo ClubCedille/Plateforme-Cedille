@@ -2,7 +2,7 @@
 "spec":
   "rules":
   - "clusters":
-    - "cedille-cluster"
+    - "k8s-shared"
     "kubernetes":
       "impersonate":
         "groups":
