@@ -19,13 +19,10 @@ terraform {
     }
   }
 
-  cloud {
-    hostname     = "app.terraform.io"
-    organization = "cedille"
-
-    workspaces {
-      name = "Plateforme-Cedille"
-    }
+  backend "kubernetes" {
+    namespace     = "terraform"
+    secret_suffix = "state-plateforme-cedille"
+    config_path   = "~/.kube/config"
   }
 }
 
