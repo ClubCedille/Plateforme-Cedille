@@ -28,3 +28,7 @@ utiliser `cluster_role = "Reader"` et
 La variable `cluster_name` vaut maintenant `k8s-shared` par défaut et refuse un
 nom qui ne commence pas par `k8s-`, pour éviter l'ancien `cedille-cluster` qui
 n'existe plus (les règles ACL ne matchaient alors aucun cluster).
+
+Chaque ACL générée contient aussi un bloc `spec.tests` : `omnictl apply`
+vérifie que l'utilisateur obtient bien le rôle et les groupes Kubernetes
+attendus, et rejette la politique si le résultat diffère.

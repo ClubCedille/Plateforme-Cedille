@@ -43,16 +43,26 @@ resource "github_repository_file" "omni_acl" {
     "# MANAGED BY TERRAFORM; DO NOT MODIFY",
     yamlencode({
       spec = {
-        rules = [{
-          users    = [var.github_email]
-          clusters = [var.cluster_name]
-          role     = var.cluster_role
-          kubernetes = {
-            impersonate = {
-              groups = ["reader", var.github_username]
+        rules = [local.omni_rule]
+        tests = [
+          {
+            name = "${var.github_username} maps to expected Kubernetes groups on ${var.cluster_name}"
+            user = {
+              name = var.github_email
+            }
+            cluster = {
+              name = var.cluster_name
+            }
+            expected = {
+              role = var.cluster_role
+              kubernetes = {
+                impersonate = {
+                  groups = local.kubernetes_groups
+                }
+              }
             }
           }
-        }]
+        ]
       }
     })
   ])
