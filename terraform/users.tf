@@ -47,6 +47,7 @@ module "alexvegas22" {
   github_role     = "admin"
   teams = [
     { teamName = "members", teamRole = "maintainer" },
+    { teamName = "infra", teamRole = "member" },
     # { teamName = "exec", teamRole = "maintainer" },
   ]
   cluster_name = var.cluster_name
@@ -341,6 +342,7 @@ module "Emilinkb" {
     { teamName = "members", teamRole = "member" },
     { teamName = "cloud", teamRole = "maintainer" },
     { teamName = "service", teamRole = "member" },
+    { teamName = "infra", teamRole = "member" },
     { teamName = "exec", teamRole = "member" },
   ]
   cluster_name = var.cluster_name
