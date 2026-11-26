@@ -5,9 +5,18 @@
     - "k8s-shared"
     "kubernetes":
       "impersonate":
-        "groups":
-        - "reader"
-        - "Oxsw1ng"
+        "groups": []
     "role": "Operator"
     "users":
     - "yannmijatovicp@gmail.com"
+  "tests":
+  - "cluster":
+      "name": "k8s-shared"
+    "expected":
+      "kubernetes":
+        "impersonate":
+          "groups": []
+      "role": "Operator"
+    "name": "Oxsw1ng maps to expected Kubernetes groups on k8s-shared"
+    "user":
+      "name": "yannmijatovicp@gmail.com"
