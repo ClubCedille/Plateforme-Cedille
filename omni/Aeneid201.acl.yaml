@@ -6,8 +6,19 @@
     "kubernetes":
       "impersonate":
         "groups":
-        - "reader"
-        - "Aeneid201"
+        - "cedille-reader"
     "role": "Reader"
     "users":
     - "aloubi.oumaima@gmail.com"
+  "tests":
+  - "cluster":
+      "name": "k8s-shared"
+    "expected":
+      "kubernetes":
+        "impersonate":
+          "groups":
+          - "cedille-reader"
+      "role": "Reader"
+    "name": "Aeneid201 maps to expected Kubernetes groups on k8s-shared"
+    "user":
+      "name": "aloubi.oumaima@gmail.com"
