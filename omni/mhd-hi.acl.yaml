@@ -5,9 +5,18 @@
     - "k8s-shared"
     "kubernetes":
       "impersonate":
-        "groups":
-        - "reader"
-        - "mhd-hi"
+        "groups": []
     "role": "Operator"
     "users":
     - "mhdhafdi2@gmail.com"
+  "tests":
+  - "cluster":
+      "name": "k8s-shared"
+    "expected":
+      "kubernetes":
+        "impersonate":
+          "groups": []
+      "role": "Operator"
+    "name": "mhd-hi maps to expected Kubernetes groups on k8s-shared"
+    "user":
+      "name": "mhdhafdi2@gmail.com"
