@@ -5,9 +5,18 @@
     - "k8s-shared"
     "kubernetes":
       "impersonate":
-        "groups":
-        - "reader"
-        - "JulienGiguere"
+        "groups": []
     "role": "Operator"
     "users":
     - "juliengiguere887@gmail.com"
+  "tests":
+  - "cluster":
+      "name": "k8s-shared"
+    "expected":
+      "kubernetes":
+        "impersonate":
+          "groups": []
+      "role": "Operator"
+    "name": "JulienGiguere maps to expected Kubernetes groups on k8s-shared"
+    "user":
+      "name": "juliengiguere887@gmail.com"
