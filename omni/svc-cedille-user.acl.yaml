@@ -6,8 +6,19 @@
     "kubernetes":
       "impersonate":
         "groups":
-        - "reader"
-        - "svc-cedille-user"
+        - "cedille-reader"
     "role": "Reader"
     "users":
     - "cedille@etsmtl.net"
+  "tests":
+  - "cluster":
+      "name": "k8s-shared"
+    "expected":
+      "kubernetes":
+        "impersonate":
+          "groups":
+          - "cedille-reader"
+      "role": "Reader"
+    "name": "svc-cedille-user maps to expected Kubernetes groups on k8s-shared"
+    "user":
+      "name": "cedille@etsmtl.net"
