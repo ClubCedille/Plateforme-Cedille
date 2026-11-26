@@ -6,8 +6,19 @@
     "kubernetes":
       "impersonate":
         "groups":
-        - "reader"
-        - "Meddad-Red"
+        - "cedille-reader"
     "role": "Reader"
     "users":
     - "mohamed-redha.meddad.1@ens.etsmtl.ca"
+  "tests":
+  - "cluster":
+      "name": "k8s-shared"
+    "expected":
+      "kubernetes":
+        "impersonate":
+          "groups":
+          - "cedille-reader"
+      "role": "Reader"
+    "name": "Meddad-Red maps to expected Kubernetes groups on k8s-shared"
+    "user":
+      "name": "mohamed-redha.meddad.1@ens.etsmtl.ca"
