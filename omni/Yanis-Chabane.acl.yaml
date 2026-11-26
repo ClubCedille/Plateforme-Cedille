@@ -6,8 +6,19 @@
     "kubernetes":
       "impersonate":
         "groups":
-        - "reader"
-        - "Yanis-Chabane"
+        - "cedille-reader"
     "role": "Reader"
     "users":
     - "yanis.chabane.1@ens.etsmtl.ca"
+  "tests":
+  - "cluster":
+      "name": "k8s-shared"
+    "expected":
+      "kubernetes":
+        "impersonate":
+          "groups":
+          - "cedille-reader"
+      "role": "Reader"
+    "name": "Yanis-Chabane maps to expected Kubernetes groups on k8s-shared"
+    "user":
+      "name": "yanis.chabane.1@ens.etsmtl.ca"
