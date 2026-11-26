@@ -5,9 +5,18 @@
     - "k8s-shared"
     "kubernetes":
       "impersonate":
-        "groups":
-        - "reader"
-        - "compilade"
+        "groups": []
     "role": "None"
     "users":
     - "github@compilade.net"
+  "tests":
+  - "cluster":
+      "name": "k8s-shared"
+    "expected":
+      "kubernetes":
+        "impersonate":
+          "groups": []
+      "role": "None"
+    "name": "compilade maps to expected Kubernetes groups on k8s-shared"
+    "user":
+      "name": "github@compilade.net"
