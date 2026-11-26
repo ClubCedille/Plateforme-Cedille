@@ -6,8 +6,19 @@
     "kubernetes":
       "impersonate":
         "groups":
-        - "reader"
-        - "Stoaties"
+        - "cedille-reader"
     "role": "Reader"
     "users":
     - "corentin.gouanvic@gmail.com"
+  "tests":
+  - "cluster":
+      "name": "k8s-shared"
+    "expected":
+      "kubernetes":
+        "impersonate":
+          "groups":
+          - "cedille-reader"
+      "role": "Reader"
+    "name": "Stoaties maps to expected Kubernetes groups on k8s-shared"
+    "user":
+      "name": "corentin.gouanvic@gmail.com"
