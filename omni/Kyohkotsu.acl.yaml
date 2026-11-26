@@ -6,8 +6,19 @@
     "kubernetes":
       "impersonate":
         "groups":
-        - "reader"
-        - "Kyohkotsu"
+        - "cedille-reader"
     "role": "Reader"
     "users":
     - "fenrir200791@gmail.com"
+  "tests":
+  - "cluster":
+      "name": "k8s-shared"
+    "expected":
+      "kubernetes":
+        "impersonate":
+          "groups":
+          - "cedille-reader"
+      "role": "Reader"
+    "name": "Kyohkotsu maps to expected Kubernetes groups on k8s-shared"
+    "user":
+      "name": "fenrir200791@gmail.com"
