@@ -5,9 +5,18 @@
     - "k8s-shared"
     "kubernetes":
       "impersonate":
-        "groups":
-        - "reader"
-        - "justlac"
+        "groups": []
     "role": "Operator"
     "users":
     - "justlac@hotmail.fr"
+  "tests":
+  - "cluster":
+      "name": "k8s-shared"
+    "expected":
+      "kubernetes":
+        "impersonate":
+          "groups": []
+      "role": "Operator"
+    "name": "justlac maps to expected Kubernetes groups on k8s-shared"
+    "user":
+      "name": "justlac@hotmail.fr"
