@@ -6,8 +6,19 @@
     "kubernetes":
       "impersonate":
         "groups":
-        - "reader"
-        - "Thanthan77"
+        - "cedille-reader"
     "role": "Reader"
     "users":
     - "ethanqc.chea@gmail.com"
+  "tests":
+  - "cluster":
+      "name": "k8s-shared"
+    "expected":
+      "kubernetes":
+        "impersonate":
+          "groups":
+          - "cedille-reader"
+      "role": "Reader"
+    "name": "Thanthan77 maps to expected Kubernetes groups on k8s-shared"
+    "user":
+      "name": "ethanqc.chea@gmail.com"
