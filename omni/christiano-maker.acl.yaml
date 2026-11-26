@@ -6,8 +6,19 @@
     "kubernetes":
       "impersonate":
         "groups":
-        - "reader"
-        - "christiano-maker"
+        - "cedille-reader"
     "role": "Reader"
     "users":
     - "christianjrdjomga@gmail.com"
+  "tests":
+  - "cluster":
+      "name": "k8s-shared"
+    "expected":
+      "kubernetes":
+        "impersonate":
+          "groups":
+          - "cedille-reader"
+      "role": "Reader"
+    "name": "christiano-maker maps to expected Kubernetes groups on k8s-shared"
+    "user":
+      "name": "christianjrdjomga@gmail.com"
