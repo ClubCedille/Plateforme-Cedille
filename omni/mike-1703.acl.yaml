@@ -5,9 +5,18 @@
     - "k8s-shared"
     "kubernetes":
       "impersonate":
-        "groups":
-        - "reader"
-        - "mike-1703"
+        "groups": []
     "role": "Operator"
     "users":
     - "salomonmike1703@outlook.fr"
+  "tests":
+  - "cluster":
+      "name": "k8s-shared"
+    "expected":
+      "kubernetes":
+        "impersonate":
+          "groups": []
+      "role": "Operator"
+    "name": "mike-1703 maps to expected Kubernetes groups on k8s-shared"
+    "user":
+      "name": "salomonmike1703@outlook.fr"
