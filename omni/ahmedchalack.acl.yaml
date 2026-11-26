@@ -6,8 +6,19 @@
     "kubernetes":
       "impersonate":
         "groups":
-        - "reader"
-        - "ahmedchalack"
+        - "cedille-reader"
     "role": "Reader"
     "users":
     - "ahmedazibe120@gmail.com"
+  "tests":
+  - "cluster":
+      "name": "k8s-shared"
+    "expected":
+      "kubernetes":
+        "impersonate":
+          "groups":
+          - "cedille-reader"
+      "role": "Reader"
+    "name": "ahmedchalack maps to expected Kubernetes groups on k8s-shared"
+    "user":
+      "name": "ahmedazibe120@gmail.com"
