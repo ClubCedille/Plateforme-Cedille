@@ -6,8 +6,19 @@
     "kubernetes":
       "impersonate":
         "groups":
-        - "reader"
-        - "Vianpyro"
+        - "cedille-reader"
     "role": "Reader"
     "users":
     - "vianney+github@veremme.org"
+  "tests":
+  - "cluster":
+      "name": "k8s-shared"
+    "expected":
+      "kubernetes":
+        "impersonate":
+          "groups":
+          - "cedille-reader"
+      "role": "Reader"
+    "name": "Vianpyro maps to expected Kubernetes groups on k8s-shared"
+    "user":
+      "name": "vianney+github@veremme.org"
