@@ -5,9 +5,18 @@
     - "k8s-shared"
     "kubernetes":
       "impersonate":
-        "groups":
-        - "reader"
-        - "nqlp"
+        "groups": []
     "role": "Operator"
     "users":
     - "nqlpaul@gmail.com"
+  "tests":
+  - "cluster":
+      "name": "k8s-shared"
+    "expected":
+      "kubernetes":
+        "impersonate":
+          "groups": []
+      "role": "Operator"
+    "name": "nqlp maps to expected Kubernetes groups on k8s-shared"
+    "user":
+      "name": "nqlpaul@gmail.com"
