@@ -1,6 +1,6 @@
 # Plateforme CEDILLE
 
-Code terraform pour configurer Github, Omni et plus...
+Code Terraform pour configurer GitHub, Omni et plus...
 
 ## Configuration des clubs
 
