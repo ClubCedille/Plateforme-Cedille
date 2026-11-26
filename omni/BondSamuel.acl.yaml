@@ -6,8 +6,19 @@
     "kubernetes":
       "impersonate":
         "groups":
-        - "reader"
-        - "BondSamuel"
+        - "cedille-reader"
     "role": "Reader"
     "users":
     - "samuel.bond.pro@gmail.com"
+  "tests":
+  - "cluster":
+      "name": "k8s-shared"
+    "expected":
+      "kubernetes":
+        "impersonate":
+          "groups":
+          - "cedille-reader"
+      "role": "Reader"
+    "name": "BondSamuel maps to expected Kubernetes groups on k8s-shared"
+    "user":
+      "name": "samuel.bond.pro@gmail.com"
