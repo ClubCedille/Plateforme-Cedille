@@ -5,9 +5,18 @@
     - "k8s-shared"
     "kubernetes":
       "impersonate":
-        "groups":
-        - "reader"
-        - "emilinkb"
+        "groups": []
     "role": "Operator"
     "users":
     - "emilbus@outlook.fr"
+  "tests":
+  - "cluster":
+      "name": "k8s-shared"
+    "expected":
+      "kubernetes":
+        "impersonate":
+          "groups": []
+      "role": "Operator"
+    "name": "emilinkb maps to expected Kubernetes groups on k8s-shared"
+    "user":
+      "name": "emilbus@outlook.fr"
