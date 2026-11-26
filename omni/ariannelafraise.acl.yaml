@@ -6,8 +6,19 @@
     "kubernetes":
       "impersonate":
         "groups":
-        - "reader"
-        - "ariannelafraise"
+        - "cedille-reader"
     "role": "Reader"
     "users":
     - "github@shield.arianne.dev"
+  "tests":
+  - "cluster":
+      "name": "k8s-shared"
+    "expected":
+      "kubernetes":
+        "impersonate":
+          "groups":
+          - "cedille-reader"
+      "role": "Reader"
+    "name": "ariannelafraise maps to expected Kubernetes groups on k8s-shared"
+    "user":
+      "name": "github@shield.arianne.dev"
